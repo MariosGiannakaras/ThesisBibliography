@@ -14,8 +14,8 @@ def main()->int:
   source_dirs=[p for p in group.iterdir() if p.is_dir() and re.fullmatch(r'Group\d+Files',p.name,re.I)]
   helpers_md=list(group.glob('*.md')); helpers_csv=list(group.glob('*.csv'))
   if len(source_dirs)!=1 or not helpers_md or not helpers_csv: raise RuntimeError(f'{group}: expected one GroupNFiles folder plus helper Markdown and CSV')
-  target=ROOT/group.name
-  if target.exists() or (ROOT/'imports'/'notebooklm'/f"group-{int(re.search(r'\d+',group.name).group()):02d}").exists(): raise RuntimeError(f'Group collision: {group.name}')
+  target=ROOT/group.name; number=int(re.search(r'\d+',group.name).group()); imported=ROOT/'imports'/'notebooklm'/f'group-{number:02d}'
+  if target.exists() or imported.exists(): raise RuntimeError(f'Group collision: {group.name}')
   shutil.move(str(group),str(target))
  run('scripts/organize_sources.py')
  enrich=['scripts/enrich_bibliography.py']
