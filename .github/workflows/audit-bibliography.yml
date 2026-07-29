@@ -22,7 +22,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p audit-output/group-reports
+          mkdir -p audit-output/group-reports audit-output/source-files
           python - <<'PY'
           from __future__ import annotations
 
@@ -30,6 +30,7 @@ jobs:
           import hashlib
           import json
           import re
+          import shutil
           from pathlib import Path
 
           root = Path('.')
@@ -57,6 +58,8 @@ jobs:
                   target = report_dir / helper.name
                   target.write_bytes(helper.read_bytes())
 
+              copied_dir = output / 'source-files' / group_dir.name
+              copied_dir.mkdir(parents=True, exist_ok=True)
               for path in source_files:
                   raw = path.read_bytes()
                   try:
@@ -64,6 +67,14 @@ jobs:
                   except UnicodeDecodeError:
                       text = raw.decode('utf-8', errors='replace')
                   source_match = re.search(r'^>\s*Source:\s*(\S+)', text, flags=re.MULTILINE)
+                  relative_within_source_dir = next(
+                      path.relative_to(source_dir)
+                      for source_dir in source_dirs
+                      if path.is_relative_to(source_dir)
+                  )
+                  destination = copied_dir / relative_within_source_dir
+                  destination.parent.mkdir(parents=True, exist_ok=True)
+                  shutil.copy2(path, destination)
                   files.append({
                       'path': path.as_posix(),
                       'group': group_dir.name,
