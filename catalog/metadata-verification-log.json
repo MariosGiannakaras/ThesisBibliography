@@ -12,7 +12,7 @@
       "source_id": "SRC-G01-0035",
       "provider": "Crossref API",
       "match_score": 1.0,
-      "previous_title": "Vicent Botti, Andrea Omicini, Stefano Mariani and Vicente Julian",
+      "previous_title": "Special Issue “Multi-Agent Systems”: Editorial",
       "verified_title": "Special Issue “Multi-Agent Systems”: Editorial"
     },
     {
@@ -31,7 +31,7 @@
     },
     {
       "source_id": "SRC-G01-0069",
-      "provider": "OpenAlex API",
+      "provider": "Crossref API",
       "match_score": 1.0,
       "previous_title": "Robust Reinforcement Learning- A Review of Foundations and Recent Advances",
       "verified_title": "Robust Reinforcement Learning: A Review of Foundations and Recent Advances"
@@ -100,6 +100,13 @@
       "verified_title": "Policy Gradient Algorithms for Robust MDP\\(\\text{s}\\) with Nonrectangular Uncertainty Sets"
     },
     {
+      "source_id": "SRC-G01-0154",
+      "provider": "arXiv API",
+      "match_score": 1.0,
+      "previous_title": "Rectified Robust Policy Optimization for Model-Uncertain Constrained Reinforcement Learning without",
+      "verified_title": "Rectified Robust Policy Optimization for Model-Uncertain Constrained Reinforcement Learning without Strong Duality"
+    },
+    {
       "source_id": "SRC-G01-0155",
       "provider": "arXiv API",
       "match_score": 1.0,
@@ -128,6 +135,13 @@
       "verified_title": "Uncertainty-Aware LLM-Guided Policy Shaping for Sparse-Reward Reinforcement Learning"
     },
     {
+      "source_id": "SRC-G01-0163",
+      "provider": "arXiv API",
+      "match_score": 1.0,
+      "previous_title": "[2511.05694] Distributionally Robust Self Paced Curriculum Reinforcement Learning",
+      "verified_title": "Distributionally Robust Self Paced Curriculum Reinforcement Learning"
+    },
+    {
       "source_id": "SRC-G01-0169",
       "provider": "OpenAlex API",
       "match_score": 0.9398,
@@ -147,13 +161,6 @@
       "match_score": 1.0,
       "previous_title": "On Practical Robust Reinforcement Learning- Adjacent Uncertainty Set and Double-Agent Algorithm",
       "verified_title": "On Practical Robust Reinforcement Learning: Practical Uncertainty Set and Double-Agent Algorithm"
-    },
-    {
-      "source_id": "SRC-G01-0172",
-      "provider": "arXiv API",
-      "match_score": 1.0,
-      "previous_title": "Research report- Thesis Sources Analysis (GridWorld & Resilience)",
-      "verified_title": "Empirical Study on Robustness and Resilience in Cooperative Multi-Agent Reinforcement Learning"
     },
     {
       "source_id": "SRC-G01-0191",
@@ -215,7 +222,7 @@
       "source_id": "SRC-G01-0217",
       "provider": "arXiv API",
       "match_score": 1.0,
-      "previous_title": "This is a pre-print of the following paper:",
+      "previous_title": "How to Measure Cyber Resilience of an Autonomous Agent: Approaches and Challenges",
       "verified_title": "How to Measure Cyber Resilience of an Autonomous Agent: Approaches and Challenges"
     },
     {
@@ -229,14 +236,14 @@
       "source_id": "SRC-G01-0221",
       "provider": "Crossref API",
       "match_score": 1.0,
-      "previous_title": "NIST AI 100-1",
+      "previous_title": "Artificial Intelligence Risk Management Framework (AI RMF 1.0)",
       "verified_title": "Artificial Intelligence Risk Management Framework (AI RMF 1.0)"
     },
     {
       "source_id": "SRC-G01-0223",
       "provider": "arXiv API",
       "match_score": 1.0,
-      "previous_title": "Reinforcement Learning Journal 2025 ∣∣ Cover Page",
+      "previous_title": "Collaboration Promotes Group Resilience in Multi-Agent RL",
       "verified_title": "Collaboration Promotes Group Resilience in Multi-Agent RL"
     },
     {
@@ -327,15 +334,8 @@
       "source_id": "SRC-G01-0274",
       "provider": "Crossref API",
       "match_score": 1.0,
-      "previous_title": "Academic Editors: Phivos Mylonas,",
+      "previous_title": "CoReaAgents: A Collaboration and Reasoning Framework Based on LLM-Powered Agents for Complex Reasoning Tasks",
       "verified_title": "CoReaAgents: A Collaboration and Reasoning Framework Based on LLM-Powered Agents for Complex Reasoning Tasks"
-    },
-    {
-      "source_id": "SRC-G01-0279",
-      "provider": "arXiv API",
-      "match_score": 1.0,
-      "previous_title": "AI Agents- Evolution, Architecture, and Real-World Applications",
-      "verified_title": "AI Agents: Evolution, Architecture, and Real-World Applications"
     },
     {
       "source_id": "SRC-G01-0282",
@@ -367,7 +367,7 @@
     },
     {
       "source_id": "SRC-G02-1BFA3C56",
-      "provider": "OpenAlex API",
+      "provider": "Crossref API",
       "match_score": 1.0,
       "previous_title": "Monte Carlo Tree Search A Tutorial",
       "verified_title": "MONTE CARLO TREE SEARCH: A TUTORIAL"
@@ -406,13 +406,6 @@
       "match_score": 1.0,
       "previous_title": "Forgetting as Control A Theoretical Framework for Selective Behavioral Erasure in Post-Deployment Re",
       "verified_title": "Forgetting as Control: A Theoretical Framework for Selective Behavioral Erasure in Post-Deployment Reinforcement Learning Agents"
-    },
-    {
-      "source_id": "SRC-G02-AE7BB424",
-      "provider": "arXiv API",
-      "match_score": 1.0,
-      "previous_title": "Research report Thesis Sources Analysis (GridWorld & Resilience)",
-      "verified_title": "Empirical Study on Robustness and Resilience in Cooperative Multi-Agent Reinforcement Learning"
     },
     {
       "source_id": "SRC-G02-B421E32D",

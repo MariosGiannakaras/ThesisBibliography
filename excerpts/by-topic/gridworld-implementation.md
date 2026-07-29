@@ -25,7 +25,7 @@ Automatic index; review before using it as a thesis taxonomy.
 - `SRC-G01-0164` — efficient action robust reinforcement learning with probabilistic policy execution uncertainty - Zhi — raw: `../../sources/raw-md/src-g01-0164__efficient-action-robust-reinforcement-learning-with-probabilistic-policy-execution-uncerta.md`
 - `SRC-G01-0165` — gridworld.py - mpatacchiola-dissecting-reinforcement-learning — raw: `../../sources/raw-md/src-g01-0165__gridworld-py-mpatacchiola-dissecting-reinforcement-learning.md`
 - `SRC-G01-0166` — opocaj92-GridWorldEnvs- Some GridWorld environments for OpenAI Gym — raw: `../../sources/raw-md/src-g01-0166__opocaj92-gridworldenvs-some-gridworld-environments-for-openai-gym.md`
-- `SRC-G01-0172` — Empirical Study on Robustness and Resilience in Cooperative Multi-Agent Reinforcement Learning — raw: `../../sources/raw-md/src-g01-0172__empirical-study-on-robustness-and-resilience-in-cooperative-multi-agent-reinforcement-lear.md`
+- `SRC-G01-0172` — Research report- Thesis Sources Analysis (GridWorld & Resilience) — raw: `../../sources/raw-md/src-g01-0172__research-report-thesis-sources-analysis-gridworld-resilience.md`
 - `SRC-G01-0176` — Create Custom Grid World Environments - MATLAB & Simulink - MathWorks — raw: `../../sources/raw-md/src-g01-0176__create-custom-grid-world-environments-matlab-simulink-mathworks.md`
 - `SRC-G01-0178` — Make your own custom environment - Gymnasium Documentation — raw: `../../sources/raw-md/src-g01-0178__make-your-own-custom-environment-gymnasium-documentation.md`
 - `SRC-G01-0181` — Reward shaping — Mastering Reinforcement Learning — raw: `../../sources/raw-md/src-g01-0181__reward-shaping-mastering-reinforcement-learning.md`
@@ -44,5 +44,5 @@ Automatic index; review before using it as a thesis taxonomy.
 - `SRC-G02-43FEAAE2` — Make your own custom environment - Gymnasium Documentation — raw: `../../sources/raw-md/src-g02-43feaae2__make-your-own-custom-environment-gymnasium-documentation.md`
 - `SRC-G02-8C91F829` — Reward shaping — Mastering Reinforcement Learning — raw: `../../sources/raw-md/src-g02-8c91f829__reward-shaping-mastering-reinforcement-learning.md`
 - `SRC-G02-A19E2F9A` — Agentic AI Engineering Complete 4-Hour Workshop feat. MCP, CrewAI and OpenAI Agents SDK — raw: `../../sources/raw-md/src-g02-a19e2f9a__agentic-ai-engineering-complete-4-hour-workshop-feat-mcp-crewai-and-openai-agents-sdk.md`
-- `SRC-G02-AE7BB424` — Empirical Study on Robustness and Resilience in Cooperative Multi-Agent Reinforcement Learning — raw: `../../sources/raw-md/src-g02-ae7bb424__empirical-study-on-robustness-and-resilience-in-cooperative-multi-agent-reinforcement-lear.md`
+- `SRC-G02-AE7BB424` — Research report Thesis Sources Analysis (GridWorld & Resilience) — raw: `../../sources/raw-md/src-g02-ae7bb424__research-report-thesis-sources-analysis-gridworld-resilience.md`
 - `SRC-G02-FB2A9134` — Where do AI agents fail in practice Please share concrete failure modes (and what fixed them) r AI A — raw: `../../sources/raw-md/src-g02-fb2a9134__where-do-ai-agents-fail-in-practice-please-share-concrete-failure-modes-and-what-fixed-the.md`

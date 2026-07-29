@@ -352,9 +352,8 @@ Retain all versions until a preferred scholarly version is selected. Groups use 
 
 ## DUP-0062 — normalized-title
 
-- `SRC-G01-0172` — Empirical Study on Robustness and Resilience in Cooperative Multi-Agent Reinforcement Learning — `sources/raw-md/src-g01-0172__empirical-study-on-robustness-and-resilience-in-cooperative-multi-agent-reinforcement-lear.md`
-- `SRC-G01-0224` — Empirical Study on Robustness and Resilience in Cooperative Multi-Agent Reinforcement Learning — `sources/raw-md/src-g01-0224__empirical-study-on-robustness-and-resilience-in-cooperative-multi-agent-reinforcement-lear.md`
-- `SRC-G02-AE7BB424` — Empirical Study on Robustness and Resilience in Cooperative Multi-Agent Reinforcement Learning — `sources/raw-md/src-g02-ae7bb424__empirical-study-on-robustness-and-resilience-in-cooperative-multi-agent-reinforcement-lear.md`
+- `SRC-G01-0172` — Research report- Thesis Sources Analysis (GridWorld & Resilience) — `sources/raw-md/src-g01-0172__research-report-thesis-sources-analysis-gridworld-resilience.md`
+- `SRC-G02-AE7BB424` — Research report Thesis Sources Analysis (GridWorld & Resilience) — `sources/raw-md/src-g02-ae7bb424__research-report-thesis-sources-analysis-gridworld-resilience.md`
 
 ## DUP-0063 — normalized-title
 
