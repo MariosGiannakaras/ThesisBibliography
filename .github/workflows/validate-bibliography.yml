@@ -25,6 +25,8 @@ jobs:
         run: python scripts/validate_enriched_repository.py
       - name: Verify deterministic regeneration
         run: |
-          python scripts/organize_sources.py
+          if find Group* -type f -path '*/Group*Files/*.md' -print -quit 2>/dev/null | grep -q .; then
+            python scripts/organize_sources.py
+          fi
           python scripts/enrich_bibliography.py
           git diff --exit-code
