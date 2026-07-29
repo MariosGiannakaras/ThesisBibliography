@@ -1,7 +1,7 @@
-# Candidate Excerpts — https://opus.lib.uts.edu.au/bitstream/10453/186408/1/thesis.pdf
+# Candidate Excerpts — **Deep Reinforcement Learning in Non-stationary Environments **
 
 - Source ID: `SRC-G02-D32B1A26`
-- Source file: `sources/raw-md/src-g02-d32b1a26__https-opus-lib-uts-edu-au-bitstream-10453-186408-1-thesis-pdf.md`
+- Source file: `sources/raw-md/src-g02-d32b1a26__deep-reinforcement-learning-in-non-stationary-environments.md`
 - Status: machine-extracted candidates; verify against the source before citation.
 
 ## **3.3 Methodology **

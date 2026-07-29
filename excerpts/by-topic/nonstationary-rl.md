@@ -1,41 +1,32 @@
 # Topic Index — nonstationary-rl
 
-Links to raw Markdown and candidate excerpts. Inclusion here is automatic and must be reviewed.
+Automatic index; review before using it as a thesis taxonomy.
 
-- `SRC-G01-0004` — Skip to main content — raw: `../../sources/raw-md/src-g01-0004__skip-to-main-content.md`
-- `SRC-G01-0008` — Reactive and Deliberative AI agents — raw: `../../sources/raw-md/src-g01-0008__reactive-and-deliberative-ai-agents.md`
-- `SRC-G01-0012` — Types of AI agents — raw: `../../sources/raw-md/src-g01-0012__types-of-ai-agents.md`
-- `SRC-G01-0036` — AGENTIC The Rise of AI Agents — raw: `../../sources/raw-md/src-g01-0036__agentic-the-rise-of-ai-agents.md`
-- `SRC-G01-0095` — OPUS at UTS: Deep reinforcement learning in non-stationary environments - Open Publications of UTS Scholars — raw: `../../sources/raw-md/src-g01-0095__opus-at-uts-deep-reinforcement-learning-in-non-stationary-environments-open-publications-o.md`
+- `SRC-G01-0008` — Reactive and Deliberative AI agents - Vikas Goyal — raw: `../../sources/raw-md/src-g01-0008__reactive-and-deliberative-ai-agents-vikas-goyal.md`
+- `SRC-G01-0095` — OPUS at UTS- Deep reinforcement learning in non-stationary environments - Open Publications of UTS S — raw: `../../sources/raw-md/src-g01-0095__opus-at-uts-deep-reinforcement-learning-in-non-stationary-environments-open-publications-o.md`
 - `SRC-G01-0097` — Reinforcement Learning in Non-Stationary Environments — raw: `../../sources/raw-md/src-g01-0097__reinforcement-learning-in-non-stationary-environments.md`
 - `SRC-G01-0099` — Robust proximal policy optimization for reinforcement learning — raw: `../../sources/raw-md/src-g01-0099__robust-proximal-policy-optimization-for-reinforcement-learning.md`
 - `SRC-G01-0102` — Safe Reinforcement Learning in the Presence of Non-stationarity- Theory and Algorithms — raw: `../../sources/raw-md/src-g01-0102__safe-reinforcement-learning-in-the-presence-of-non-stationarity-theory-and-algorithms.md`
 - `SRC-G01-0115` — Deep Reinforcement Learning in Non-stationary Environments — raw: `../../sources/raw-md/src-g01-0115__deep-reinforcement-learning-in-non-stationary-environments.md`
-- `SRC-G01-0126` — A Bayesian Approach to Robust Reinforcement Learning — raw: `../../sources/raw-md/src-g01-0126__a-bayesian-approach-to-robust-reinforcement-learning.md`
-- `SRC-G01-0127` — ADARL: Adaptive Low-Rank Structures for Robust Policy Learning under Uncertainty — raw: `../../sources/raw-md/src-g01-0127__adarl-adaptive-low-rank-structures-for-robust-policy-learning-under-uncertainty.md`
-- `SRC-G01-0131` — BELIEF-ENRICHED PESSIMISTIC Q-LEARNING — raw: `../../sources/raw-md/src-g01-0131__belief-enriched-pessimistic-q-learning.md`
-- `SRC-G01-0142` — ICML Poster Online Robust Reinforcement Learning Through Monte-Carlo Planning — raw: `../../sources/raw-md/src-g01-0142__icml-poster-online-robust-reinforcement-learning-through-monte-carlo-planning.md`
+- `SRC-G01-0126` — A Bayesian Approach to Robust Reinforcement Learning - Association for Uncertainty in Artificial Int — raw: `../../sources/raw-md/src-g01-0126__a-bayesian-approach-to-robust-reinforcement-learning-association-for-uncertainty-in-artifi.md`
 - `SRC-G01-0174` — Robust Policy Learning over Multiple Uncertainty Sets — raw: `../../sources/raw-md/src-g01-0174__robust-policy-learning-over-multiple-uncertainty-sets.md`
-- `SRC-G01-0180` — Delft University of Technology Delft Center for Systems and Control — raw: `../../sources/raw-md/src-g01-0180__delft-university-of-technology-delft-center-for-systems-and-control.md`
-- `SRC-G01-0184` — International Journal of Computer Applications (0975 – 8887) — raw: `../../sources/raw-md/src-g01-0184__international-journal-of-computer-applications-0975-8887.md`
-- `SRC-G01-0186` — Context-Switching and Adaptation: Brain-Inspired — raw: `../../sources/raw-md/src-g01-0186__context-switching-and-adaptation-brain-inspired.md`
-- `SRC-G01-0188` — ISCSITR- INTERNATIONAL JOURNAL OF DATA ENGINEERING (ISCSITR-IJDE) — raw: `../../sources/raw-md/src-g01-0188__iscsitr-international-journal-of-data-engineering-iscsitr-ijde.md`
-- `SRC-G01-0194` — Kenneth Besigomwe, Cognizance Journal of Multidisciplinary Studies, Vol.6, Issue.4, April 2026, pg. 15-37 — raw: `../../sources/raw-md/src-g01-0194__kenneth-besigomwe-cognizance-journal-of-multidisciplinary-studies-vol-6-issue-4-april-2026.md`
-- `SRC-G01-0199` — SafeAI@UAI 2026 — 2nd Workshop on Safe AI — raw: `../../sources/raw-md/src-g01-0199__safeai-uai-2026-2nd-workshop-on-safe-ai.md`
-- `SRC-G01-0205` — Decision-Making Under Uncertainty in Multi-Agent and Multi-Robot Systems: Planning and Learning — raw: `../../sources/raw-md/src-g01-0205__decision-making-under-uncertainty-in-multi-agent-and-multi-robot-systems-planning-and-lear.md`
-- `SRC-G01-0223` — Reinforcement Learning Journal 2025 ∣∣ Cover Page — raw: `../../sources/raw-md/src-g01-0223__reinforcement-learning-journal-2025-cover-page.md`
+- `SRC-G01-0180` — Reinforcement Learning for Multi-Agent Systems - Bart De Schutter — raw: `../../sources/raw-md/src-g01-0180__reinforcement-learning-for-multi-agent-systems-bart-de-schutter.md`
+- `SRC-G01-0184` — A Study of Genetic Algorithm in Evolving Agents for Autonomous Decision-Making in Dynamic Environmen — raw: `../../sources/raw-md/src-g01-0184__a-study-of-genetic-algorithm-in-evolving-agents-for-autonomous-decision-making-in-dynamic.md`
+- `SRC-G01-0186` — Context-Switching and Adaptation- Brain-Inspired Mechanisms for Handling Environmental Changes - Uni — raw: `../../sources/raw-md/src-g01-0186__context-switching-and-adaptation-brain-inspired-mechanisms-for-handling-environmental-chan.md`
+- `SRC-G01-0188` — Evaluating the Efficiency of Reinforcement Learning Algorithms in Dynamic Environment Simulations — raw: `../../sources/raw-md/src-g01-0188__evaluating-the-efficiency-of-reinforcement-learning-algorithms-in-dynamic-environment-simu.md`
+- `SRC-G01-0194` — Humans as Safety Constraints: A Survey of Human-in-the-Loop Reinforcement Learning for Critical Systems — raw: `../../sources/raw-md/src-g01-0194__humans-as-safety-constraints-a-survey-of-human-in-the-loop-reinforcement-learning-for-crit.md`
+- `SRC-G01-0199` — SafeAI@UAI 2026 — 2nd Workshop on Safe AI - GitHub Pages — raw: `../../sources/raw-md/src-g01-0199__safeai-uai-2026-2nd-workshop-on-safe-ai-github-pages.md`
+- `SRC-G01-0223` — Collaboration Promotes Group Resilience in Multi-Agent RL — raw: `../../sources/raw-md/src-g01-0223__collaboration-promotes-group-resilience-in-multi-agent-rl.md`
 - `SRC-G01-0225` — Cooperative Resilience in Artificial Intelligence Multiagent Systems — raw: `../../sources/raw-md/src-g01-0225__cooperative-resilience-in-artificial-intelligence-multiagent-systems.md`
-- `SRC-G01-0263` — Skip to contentAbout us What We Do  Get A Free AI Chatbot Generative AI — raw: `../../sources/raw-md/src-g01-0263__skip-to-contentabout-us-what-we-do-get-a-free-ai-chatbot-generative-ai.md`
-- `SRC-G01-0266` — Strategic Resilience in Autonomous AI Agents: An Architectural, Risk, and Governance Framework — raw: `../../sources/raw-md/src-g01-0266__strategic-resilience-in-autonomous-ai-agents-an-architectural-risk-and-governance-framewor.md`
-- `SRC-G01-0268` — " * " indicates required fields — raw: `../../sources/raw-md/src-g01-0268__indicates-required-fields.md`
-- `SRC-G01-0279` — AI Agents: Evolution, Architecture, and — raw: `../../sources/raw-md/src-g01-0279__ai-agents-evolution-architecture-and.md`
-- `SRC-G02-12FC1F8D` — ADARL: Adaptive Low-Rank Structures for Robust Policy Learning under Uncertainty - arXiv — raw: `../../sources/raw-md/src-g02-12fc1f8d__adarl-adaptive-low-rank-structures-for-robust-policy-learning-under-uncertainty-arxiv.md`
-- `SRC-G02-130F0F80` — Safe Reinforcement Learning in the Presence of Non-stationarity: Theory and Algorithms — raw: `../../sources/raw-md/src-g02-130f0f80__safe-reinforcement-learning-in-the-presence-of-non-stationarity-theory-and-algorithms.md`
-- `SRC-G02-4FD99D3D` — OPUS at UTS: Deep reinforcement learning in non-stationary environments - Open Publications of UTS Scholars — raw: `../../sources/raw-md/src-g02-4fd99d3d__opus-at-uts-deep-reinforcement-learning-in-non-stationary-environments-open-publications-o.md`
-- `SRC-G02-74ED7BC9` — Robust proximal policy optimization for reinforcement learning — raw: `../../sources/raw-md/src-g02-74ed7bc9__robust-proximal-policy-optimization-for-reinforcement-learning.md`; excerpts: `../../excerpts/by-source/src-g02-74ed7bc9__candidate-excerpts.md`
-- `SRC-G02-9129C434` — Context-Switching and Adaptation: Brain-Inspired Mechanisms for Handling Environmental Changes - University of Lethbridge — raw: `../../sources/raw-md/src-g02-9129c434__context-switching-and-adaptation-brain-inspired-mechanisms-for-handling-environmental-chan.md`
-- `SRC-G02-9129C434` — Context-Switching and Adaptation: Brain-Inspired Mechanisms for Handling Environmental Changes - University of Lethbridge — raw: `../../sources/raw-md/src-g02-9129c434__context-switching-and-adaptation-brain-inspired-mechanisms-for-handling-environmental-chan.md`
-- `SRC-G02-BFC4312A` — A Survey of Human-in-the-Loop Reinforcement Learning for Critical Systems — raw: `../../sources/raw-md/src-g02-bfc4312a__a-survey-of-human-in-the-loop-reinforcement-learning-for-critical-systems.md`
+- `SRC-G01-0266` — Strategic Resilience in Autonomous AI Agents- An Architectural, Risk, and Governance Framework — raw: `../../sources/raw-md/src-g01-0266__strategic-resilience-in-autonomous-ai-agents-an-architectural-risk-and-governance-framewor.md`
+- `SRC-G01-0268` — The Resilience Gap Holding Back AI Performance - Disaster Recovery Journal — raw: `../../sources/raw-md/src-g01-0268__the-resilience-gap-holding-back-ai-performance-disaster-recovery-journal.md`
+- `SRC-G01-0279` — AI Agents: Evolution, Architecture, and Real-World Applications — raw: `../../sources/raw-md/src-g01-0279__ai-agents-evolution-architecture-and-real-world-applications.md`
+- `SRC-G02-130F0F80` — Safe Reinforcement Learning in the Presence of Non-stationarity Theory and Algorithms — raw: `../../sources/raw-md/src-g02-130f0f80__safe-reinforcement-learning-in-the-presence-of-non-stationarity-theory-and-algorithms.md`
+- `SRC-G02-4FD99D3D` — OPUS at UTS Deep reinforcement learning in non-stationary environments - Open Publications of UTS Sc — raw: `../../sources/raw-md/src-g02-4fd99d3d__opus-at-uts-deep-reinforcement-learning-in-non-stationary-environments-open-publications-o.md`
+- `SRC-G02-74ED7BC9` — Robust proximal policy optimization for reinforcement learning — raw: `../../sources/raw-md/src-g02-74ed7bc9__robust-proximal-policy-optimization-for-reinforcement-learning.md`; excerpts: `../by-source/src-g02-74ed7bc9__candidate-excerpts.md`
+- `SRC-G02-9129C434` — Context-Switching and Adaptation Brain-Inspired Mechanisms for Handling Environmental Changes - Univ — raw: `../../sources/raw-md/src-g02-9129c434__context-switching-and-adaptation-brain-inspired-mechanisms-for-handling-environmental-chan.md`
+- `SRC-G02-9129C434` — Context-Switching and Adaptation Brain-Inspired Mechanisms for Handling Environmental Changes - Univ 1 — raw: `../../sources/raw-md/src-g02-9129c434__context-switching-and-adaptation-brain-inspired-mechanisms-for-handling-environmental-chan.md`
+- `SRC-G02-BFC4312A` — Humans as Safety Constraints: A Survey of Human-in-the-Loop Reinforcement Learning for Critical Systems — raw: `../../sources/raw-md/src-g02-bfc4312a__humans-as-safety-constraints-a-survey-of-human-in-the-loop-reinforcement-learning-for-crit.md`
 - `SRC-G02-C777EC06` — Reinforcement Learning in Non-Stationary Environments — raw: `../../sources/raw-md/src-g02-c777ec06__reinforcement-learning-in-non-stationary-environments.md`
-- `SRC-G02-D32B1A26` — https://opus.lib.uts.edu.au/bitstream/10453/186408/1/thesis.pdf — raw: `../../sources/raw-md/src-g02-d32b1a26__https-opus-lib-uts-edu-au-bitstream-10453-186408-1-thesis-pdf.md`; excerpts: `../../excerpts/by-source/src-g02-d32b1a26__candidate-excerpts.md`
+- `SRC-G02-D32B1A26` — **Deep Reinforcement Learning in Non-stationary Environments ** — raw: `../../sources/raw-md/src-g02-d32b1a26__deep-reinforcement-learning-in-non-stationary-environments.md`; excerpts: `../by-source/src-g02-d32b1a26__candidate-excerpts.md`
 - `SRC-G02-D5B1C497` — Robust Policy Learning over Multiple Uncertainty Sets — raw: `../../sources/raw-md/src-g02-d5b1c497__robust-policy-learning-over-multiple-uncertainty-sets.md`

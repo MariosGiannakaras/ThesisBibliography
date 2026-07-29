@@ -1,66 +1,50 @@
 # Topic Index — ai-safety-alignment
 
-Links to raw Markdown and candidate excerpts. Inclusion here is automatic and must be reviewed.
+Automatic index; review before using it as a thesis taxonomy.
 
 - `SRC-G01-0001` — Fully Autonomous AI Agents Should Not be Developed — raw: `../../sources/raw-md/src-g01-0001__fully-autonomous-ai-agents-should-not-be-developed.md`
-- `SRC-G01-0006` — Interesting video and image examples collected to show the terrible behavior of misaligned AI systems. — raw: `../../sources/raw-md/src-g01-0006__interesting-video-and-image-examples-collected-to-show-the-terrible-behavior-of-misaligned.md`
-- `SRC-G01-0008` — Reactive and Deliberative AI agents — raw: `../../sources/raw-md/src-g01-0008__reactive-and-deliberative-ai-agents.md`
-- `SRC-G01-0010` — Skip to contentDirectory   Global directory — raw: `../../sources/raw-md/src-g01-0010__skip-to-contentdirectory-global-directory.md`
-- `SRC-G01-0011` — The Architecture, Application, and Alignment Challenges of Autonomous AI Agents: A Comprehensive Technical Analysis — raw: `../../sources/raw-md/src-g01-0011__the-architecture-application-and-alignment-challenges-of-autonomous-ai-agents-a-comprehens.md`
-- `SRC-G01-0014` — Agent Development Kit — raw: `../../sources/raw-md/src-g01-0014__agent-development-kit.md`
+- `SRC-G01-0006` — Misalignment Examples - AI Alignment — raw: `../../sources/raw-md/src-g01-0006__misalignment-examples-ai-alignment.md`
+- `SRC-G01-0008` — Reactive and Deliberative AI agents - Vikas Goyal — raw: `../../sources/raw-md/src-g01-0008__reactive-and-deliberative-ai-agents-vikas-goyal.md`
+- `SRC-G01-0010` — Safeguarding agentic AI- Why autonomy demands governance and security — raw: `../../sources/raw-md/src-g01-0010__safeguarding-agentic-ai-why-autonomy-demands-governance-and-security.md`
+- `SRC-G01-0011` — The Architecture, Application, and Alignment Challenges of Autonomous AI Agents- A Comprehensive Tec — raw: `../../sources/raw-md/src-g01-0011__the-architecture-application-and-alignment-challenges-of-autonomous-ai-agents-a-comprehens.md`
+- `SRC-G01-0014` — Vertex AI Agent Builder - Google Cloud — raw: `../../sources/raw-md/src-g01-0014__vertex-ai-agent-builder-google-cloud.md`
 - `SRC-G01-0046` — Seizing the agentic AI advantage — raw: `../../sources/raw-md/src-g01-0046__seizing-the-agentic-ai-advantage.md`
-- `SRC-G01-0049` — Large Language Model Agent: A Survey on Methodology, Applications and Challenges — raw: `../../sources/raw-md/src-g01-0049__large-language-model-agent-a-survey-on-methodology-applications-and-challenges.md`
 - `SRC-G01-0089` — AI Safety as a Reinforcement Learning Problem — raw: `../../sources/raw-md/src-g01-0089__ai-safety-as-a-reinforcement-learning-problem.md`
 - `SRC-G01-0106` — Stanford Seminar - Continual Safety Assurances for Learning-Enabled Robotic Systems — raw: `../../sources/raw-md/src-g01-0106__stanford-seminar-continual-safety-assurances-for-learning-enabled-robotic-systems.md`
-- `SRC-G01-0112` — [AAAI-25 Tutorial] Robotic Foundation Models & Remaining Challenges — raw: `../../sources/raw-md/src-g01-0112__aaai-25-tutorial-robotic-foundation-models-and-remaining-challenges.md`
-- `SRC-G01-0116` — So today I thought we could talk about this paper that recently came out called AI safety grid world's which is an indeed mind — raw: `../../sources/raw-md/src-g01-0116__so-today-i-thought-we-could-talk-about-this-paper-that-recently-came-out-called-ai-safety.md`
-- `SRC-G01-0124` — s for joining yeah I wasn't sure if this is happening at 6 because jip said you will send another email on the ma yes so we P for two hours — raw: `../../sources/raw-md/src-g01-0124__s-for-joining-yeah-i-wasn-t-sure-if-this-is-happening-at-6-because-jip-said-you-will-send.md`
+- `SRC-G01-0116` — AI Gridworlds - Computerphile — raw: `../../sources/raw-md/src-g01-0116__ai-gridworlds-computerphile.md`
+- `SRC-G01-0124` — The Curious Price of Distributional Robustness in Reinforcement Learning — raw: `../../sources/raw-md/src-g01-0124__the-curious-price-of-distributional-robustness-in-reinforcement-learning.md`
 - `SRC-G01-0128` — AI Safety Gridworlds — raw: `../../sources/raw-md/src-g01-0128__ai-safety-gridworlds.md`
-- `SRC-G01-0129` — Alignment Newsletter #26 — LessWrong — raw: `../../sources/raw-md/src-g01-0129__alignment-newsletter-26-lesswrong.md`
-- `SRC-G01-0130` — Avoiding Catastrophic Forgetting in Safety Gridworld ECE 517: Reinforcement Learning — raw: `../../sources/raw-md/src-g01-0130__avoiding-catastrophic-forgetting-in-safety-gridworld-ece-517-reinforcement-learning.md`
-- `SRC-G01-0135` — SitemapOpen in app — raw: `../../sources/raw-md/src-g01-0135__sitemapopen-in-app.md`
-- `SRC-G01-0139` — Forgetting as Control: A Theoretical Framework for Selective Behavioral Erasure in Post-Deployment Reinforcement Learning Agents[v1] | Preprints.org — raw: `../../sources/raw-md/src-g01-0139__forgetting-as-control-a-theoretical-framework-for-selective-behavioral-erasure-in-post-dep.md`
-- `SRC-G01-0140` — Faculty of Computer Science — raw: `../../sources/raw-md/src-g01-0140__faculty-of-computer-science.md`
+- `SRC-G01-0129` — Alignment Newsletter #26 - LessWrong — raw: `../../sources/raw-md/src-g01-0129__alignment-newsletter-26-lesswrong.md`
+- `SRC-G01-0130` — Avoiding Catastrophic Forgetting in Safety Gridworld ECE 517- Reinforcement Learning Final Project R — raw: `../../sources/raw-md/src-g01-0130__avoiding-catastrophic-forgetting-in-safety-gridworld-ece-517-reinforcement-learning-final.md`
+- `SRC-G01-0135` — Building safe artificial intelligence- specification, robustness, and assurance — raw: `../../sources/raw-md/src-g01-0135__building-safe-artificial-intelligence-specification-robustness-and-assurance.md`
+- `SRC-G01-0139` — Forgetting as Control: A Theoretical Framework for Selective Behavioral Erasure in Post-Deployment Reinforcement Learning Agents — raw: `../../sources/raw-md/src-g01-0139__forgetting-as-control-a-theoretical-framework-for-selective-behavioral-erasure-in-post-dep.md`
+- `SRC-G01-0140` — From AI Safety Gridworlds to Reliable Safety Unit Tests for Deep Reinforcement Learning in Computer — raw: `../../sources/raw-md/src-g01-0140__from-ai-safety-gridworlds-to-reliable-safety-unit-tests-for-deep-reinforcement-learning-in.md`
 - `SRC-G01-0155` — Reward Hacking in Language Model Agents: Revisiting AI Safety Gridworlds — raw: `../../sources/raw-md/src-g01-0155__reward-hacking-in-language-model-agents-revisiting-ai-safety-gridworlds.md`
-- `SRC-G01-0167` — Συστηματική Σύγκριση και Αξιολόγηση Ανθεκτικών Πρακτόρων Τεχνητής Νοημοσύνης σε Περιβάλλοντα με Αβεβαιότητα με χρήση του GridWorld — raw: `../../sources/raw-md/src-g01-0167__gridworld.md`
-- `SRC-G01-0185` — Comparing the Top 5 AI Agent Architectures in 2025: Hierarchical, Swarm, Meta Learning, Modular, Evolutionary - MarkTechPost — raw: `../../sources/raw-md/src-g01-0185__comparing-the-top-5-ai-agent-architectures-in-2025-hierarchical-swarm-meta-learning-modula.md`
-- `SRC-G01-0194` — Kenneth Besigomwe, Cognizance Journal of Multidisciplinary Studies, Vol.6, Issue.4, April 2026, pg. 15-37 — raw: `../../sources/raw-md/src-g01-0194__kenneth-besigomwe-cognizance-journal-of-multidisciplinary-studies-vol-6-issue-4-april-2026.md`
-- `SRC-G01-0195` — Formal methods for safety-critical machine learning: a systematic literature review — raw: `../../sources/raw-md/src-g01-0195__formal-methods-for-safety-critical-machine-learning-a-systematic-literature-review.md`
-- `SRC-G01-0197` — NIST Issues New Artificial Intelligence Risk Management Framework — raw: `../../sources/raw-md/src-g01-0197__nist-issues-new-artificial-intelligence-risk-management-framework.md`
-- `SRC-G01-0198` — Practices for governing agentic AI systems: OpenAI's seven safety principles | VerifyWise AI Governance Library — raw: `../../sources/raw-md/src-g01-0198__practices-for-governing-agentic-ai-systems-openai-s-seven-safety-principles-verifywise-ai.md`
-- `SRC-G01-0199` — SafeAI@UAI 2026 — 2nd Workshop on Safe AI — raw: `../../sources/raw-md/src-g01-0199__safeai-uai-2026-2nd-workshop-on-safe-ai.md`
-- `SRC-G01-0200` — Securing internal systems against increasingly capable and imperfectly aligned AI — Google DeepMind — raw: `../../sources/raw-md/src-g01-0200__securing-internal-systems-against-increasingly-capable-and-imperfectly-aligned-ai-google-d.md`
-- `SRC-G01-0201` — Towards a Science of AI Agent Reliability — raw: `../../sources/raw-md/src-g01-0201__towards-a-science-of-ai-agent-reliability.md`
+- `SRC-G01-0195` — Formal methods for safety-critical machine learning- a systematic literature review - Frontiers — raw: `../../sources/raw-md/src-g01-0195__formal-methods-for-safety-critical-machine-learning-a-systematic-literature-review-frontie.md`
+- `SRC-G01-0197` — NIST Issues New Artificial Intelligence Risk Management Framework.pdf — raw: `../../sources/raw-md/src-g01-0197__nist-issues-new-artificial-intelligence-risk-management-framework-pdf.md`
+- `SRC-G01-0198` — Practices for governing agentic AI systems- OpenAI's seven safety principles - VerifyWise — raw: `../../sources/raw-md/src-g01-0198__practices-for-governing-agentic-ai-systems-openai-s-seven-safety-principles-verifywise.md`
+- `SRC-G01-0199` — SafeAI@UAI 2026 — 2nd Workshop on Safe AI - GitHub Pages — raw: `../../sources/raw-md/src-g01-0199__safeai-uai-2026-2nd-workshop-on-safe-ai-github-pages.md`
+- `SRC-G01-0200` — Securing the future of AI agents - Google DeepMind — raw: `../../sources/raw-md/src-g01-0200__securing-the-future-of-ai-agents-google-deepmind.md`
 - `SRC-G01-0218` — CCS Concepts: • Security and privacy→ AI agent. — raw: `../../sources/raw-md/src-g01-0218__ccs-concepts-security-and-privacy-ai-agent.md`
-- `SRC-G01-0223` — Reinforcement Learning Journal 2025 ∣∣ Cover Page — raw: `../../sources/raw-md/src-g01-0223__reinforcement-learning-journal-2025-cover-page.md`
-- `SRC-G01-0234` — Jump to contentMain menu    Navigation — raw: `../../sources/raw-md/src-g01-0234__jump-to-contentmain-menu-navigation.md`
-- `SRC-G01-0236` — just an agent away... Deconstructing Today’s AI Agents Landscape — raw: `../../sources/raw-md/src-g01-0236__just-an-agent-away-deconstructing-today-s-ai-agents-landscape.md`
-- `SRC-G01-0237` — Jump to contentMain menu    Navigation — raw: `../../sources/raw-md/src-g01-0237__jump-to-contentmain-menu-navigation.md`
-- `SRC-G01-0241` — Data Science Colle… · Follow publication — raw: `../../sources/raw-md/src-g01-0241__data-science-colle-follow-publication.md`
-- `SRC-G01-0242` — You are viewing this page in an unauthorized frame window.This is a potential security issue, you are being redirected to https://csrc.nist.gov. — raw: `../../sources/raw-md/src-g01-0242__you-are-viewing-this-page-in-an-unauthorized-frame-window-this-is-a-potential-security-iss.md`
-- `SRC-G01-0243` — Schneier on Security — raw: `../../sources/raw-md/src-g01-0243__schneier-on-security.md`
-- `SRC-G01-0244` — Smart contractEnterprise BlockchainNFT & Web3 SolutionsLayer 2 SolutionsSolutionsEthereum Development — raw: `../../sources/raw-md/src-g01-0244__smart-contractenterprise-blockchainnft-and-web3-solutionslayer-2-solutionssolutionsethereu.md`
-- `SRC-G01-0245` — Skip to main content An official website of the United States government — raw: `../../sources/raw-md/src-g01-0245__skip-to-main-content-an-official-website-of-the-united-states-government.md`
-- `SRC-G01-0247` — NIST Trustworthy and Responsible AI NIST AI 100-2e2025 — raw: `../../sources/raw-md/src-g01-0247__nist-trustworthy-and-responsible-ai-nist-ai-100-2e2025.md`
-- `SRC-G01-0256` — Platform Agentic SideKick 3.0 — raw: `../../sources/raw-md/src-g01-0256__platform-agentic-sidekick-3-0.md`
+- `SRC-G01-0234` — The role of agentic AI in shaping a smart future: A systematic review — raw: `../../sources/raw-md/src-g01-0234__the-role-of-agentic-ai-in-shaping-a-smart-future-a-systematic-review.md`
+- `SRC-G01-0237` — Multi-agent reinforcement learning — raw: `../../sources/raw-md/src-g01-0237__multi-agent-reinforcement-learning.md`
+- `SRC-G01-0241` — Excessive Agency to Emergent Behavior The 4 Critical Gaps in AI Autonomous Agent Safety Research.pdf — raw: `../../sources/raw-md/src-g01-0241__excessive-agency-to-emergent-behavior-the-4-critical-gaps-in-ai-autonomous-agent-safety-re.md`
+- `SRC-G01-0242` — Adversarial Machine Learning: — raw: `../../sources/raw-md/src-g01-0242__adversarial-machine-learning.md`
+- `SRC-G01-0244` — AI Agents for Grid Stability Solutions 2025 - Rapid Innovation — raw: `../../sources/raw-md/src-g01-0244__ai-agents-for-grid-stability-solutions-2025-rapid-innovation.md`
+- `SRC-G01-0245` — AI Risk Management Framework - NIST — raw: `../../sources/raw-md/src-g01-0245__ai-risk-management-framework-nist.md`
+- `SRC-G01-0247` — Adversarial Machine Learning: — raw: `../../sources/raw-md/src-g01-0247__adversarial-machine-learning.md`
+- `SRC-G01-0256` — Ethical Challenges and Governance in Agentic AI- Risks, Bias, and Regulations - Rezolve.ai — raw: `../../sources/raw-md/src-g01-0256__ethical-challenges-and-governance-in-agentic-ai-risks-bias-and-regulations-rezolve-ai.md`
 - `SRC-G01-0257` — From Autonomous Agents to Integrated Systems, A New Paradigm: Orchestrated Distributed Intelligence — raw: `../../sources/raw-md/src-g01-0257__from-autonomous-agents-to-integrated-systems-a-new-paradigm-orchestrated-distributed-intel.md`
-- `SRC-G01-0258` — IEEE Conformity Assessment Program (ICAP) — raw: `../../sources/raw-md/src-g01-0258__ieee-conformity-assessment-program-icap.md`
-- `SRC-G01-0262` — Deploy Bravely — Secure your AI transformation with Prisma AIRS — raw: `../../sources/raw-md/src-g01-0262__deploy-bravely-secure-your-ai-transformation-with-prisma-airs.md`
-- `SRC-G01-0268` — " * " indicates required fields — raw: `../../sources/raw-md/src-g01-0268__indicates-required-fields.md`
-- `SRC-G01-0279` — AI Agents: Evolution, Architecture, and — raw: `../../sources/raw-md/src-g01-0279__ai-agents-evolution-architecture-and.md`
-- `SRC-G01-0280` — Contact SEOSearch Engine Optimization — raw: `../../sources/raw-md/src-g01-0280__contact-seosearch-engine-optimization.md`
-- `SRC-G01-0281` — Agentic AI Frameworks: Architectures, Protocols, and Design Challenges — raw: `../../sources/raw-md/src-g01-0281__agentic-ai-frameworks-architectures-protocols-and-design-challenges.md`
+- `SRC-G01-0258` — IEEE Ethics for AI System Design Training — raw: `../../sources/raw-md/src-g01-0258__ieee-ethics-for-ai-system-design-training.md`
+- `SRC-G01-0268` — The Resilience Gap Holding Back AI Performance - Disaster Recovery Journal — raw: `../../sources/raw-md/src-g01-0268__the-resilience-gap-holding-back-ai-performance-disaster-recovery-journal.md`
+- `SRC-G01-0280` — AI Misalignment Case Studies - Multilingual Digital Marketing In 2025 - Maria Johnsen — raw: `../../sources/raw-md/src-g01-0280__ai-misalignment-case-studies-multilingual-digital-marketing-in-2025-maria-johnsen.md`
+- `SRC-G01-0281` — Agentic AI Frameworks- Architectures, Protocols, and Design Challenges — raw: `../../sources/raw-md/src-g01-0281__agentic-ai-frameworks-architectures-protocols-and-design-challenges.md`
 - `SRC-G01-0282` — An Economy of AI Agents — raw: `../../sources/raw-md/src-g01-0282__an-economy-of-ai-agents.md`
-- `SRC-G01-0285` — 11institutetext:   LMU Munich, Germany22institutetext:  Fraunhofer Institute for Cognitive Systems, Germany 33institutetext:  University of York, United Kingdom 33email:  philipp.altmann@ifi.lmu.de — raw: `../../sources/raw-md/src-g01-0285__11institutetext-lmu-munich-germany22institutetext-fraunhofer-institute-for-cognitive-syste.md`
-- `SRC-G02-01273B39` — Vertex AI Agent Builder | Google Cloud — raw: `../../sources/raw-md/src-g02-01273b39__vertex-ai-agent-builder-google-cloud.md`
-- `SRC-G02-12F72669` — Avoiding Catastrophic Forgetting in Safety Gridworld ECE 517: Reinforcement Learning Final Project Report - Carl Edwards — raw: `../../sources/raw-md/src-g02-12f72669__avoiding-catastrophic-forgetting-in-safety-gridworld-ece-517-reinforcement-learning-final.md`
-- `SRC-G02-364DB745` — Comparing the Top 5 AI Agent Architectures in 2025: Hierarchical, Swarm, Meta Learning, Modular, Evolutionary - MarkTechPost — raw: `../../sources/raw-md/src-g02-364db745__comparing-the-top-5-ai-agent-architectures-in-2025-hierarchical-swarm-meta-learning-modula.md`
-- `SRC-G02-364DB745` — Comparing the Top 5 AI Agent Architectures in 2025: Hierarchical, Swarm, Meta Learning, Modular, Evolutionary - MarkTechPost — raw: `../../sources/raw-md/src-g02-364db745__comparing-the-top-5-ai-agent-architectures-in-2025-hierarchical-swarm-meta-learning-modula.md`
+- `SRC-G01-0285` — Emergence in Multi-agent Systems: A Safety Perspective — raw: `../../sources/raw-md/src-g01-0285__emergence-in-multi-agent-systems-a-safety-perspective.md`
+- `SRC-G02-01273B39` — Vertex AI Agent Builder Google Cloud — raw: `../../sources/raw-md/src-g02-01273b39__vertex-ai-agent-builder-google-cloud.md`
+- `SRC-G02-12F72669` — Avoiding Catastrophic Forgetting in Safety Gridworld ECE 517 Reinforcement Learning Final Project Re — raw: `../../sources/raw-md/src-g02-12f72669__avoiding-catastrophic-forgetting-in-safety-gridworld-ece-517-reinforcement-learning-final.md`
 - `SRC-G02-4D76136A` — Stanford Seminar - Continual Safety Assurances for Learning-Enabled Robotic Systems — raw: `../../sources/raw-md/src-g02-4d76136a__stanford-seminar-continual-safety-assurances-for-learning-enabled-robotic-systems.md`
-- `SRC-G02-5C861DF9` — [AAAI-25 Tutorial] Robotic Foundation Models & Remaining Challenges — raw: `../../sources/raw-md/src-g02-5c861df9__aaai-25-tutorial-robotic-foundation-models-and-remaining-challenges.md`
-- `SRC-G02-76A64D20` — The Architecture, Application, and Alignment Challenges of Autonomous AI Agents: A Comprehensive Technical Analysis — raw: `../../sources/raw-md/src-g02-76a64d20__the-architecture-application-and-alignment-challenges-of-autonomous-ai-agents-a-comprehens.md`; excerpts: `../../excerpts/by-source/src-g02-76a64d20__candidate-excerpts.md`
-- `SRC-G02-9509C75B` — From Autonomous Agents to Integrated Systems, A New Paradigm: Orchestrated Distributed Intelligence - arXiv — raw: `../../sources/raw-md/src-g02-9509c75b__from-autonomous-agents-to-integrated-systems-a-new-paradigm-orchestrated-distributed-intel.md`
-- `SRC-G02-A2F639E4` — Forgetting as Control: A Theoretical Framework for Selective Behavioral Erasure in Post-Deployment Reinforcement Learning Agents - Preprints.org — raw: `../../sources/raw-md/src-g02-a2f639e4__forgetting-as-control-a-theoretical-framework-for-selective-behavioral-erasure-in-post-dep.md`; excerpts: `../../excerpts/by-source/src-g02-a2f639e4__candidate-excerpts.md`
+- `SRC-G02-76A64D20` — The Architecture, Application, and Alignment Challenges of Autonomous AI Agents A Comprehensive Tech — raw: `../../sources/raw-md/src-g02-76a64d20__the-architecture-application-and-alignment-challenges-of-autonomous-ai-agents-a-comprehens.md`; excerpts: `../by-source/src-g02-76a64d20__candidate-excerpts.md`
+- `SRC-G02-9509C75B` — From Autonomous Agents to Integrated Systems, A New Paradigm: Orchestrated Distributed Intelligence — raw: `../../sources/raw-md/src-g02-9509c75b__from-autonomous-agents-to-integrated-systems-a-new-paradigm-orchestrated-distributed-intel.md`
+- `SRC-G02-A2F639E4` — Forgetting as Control: A Theoretical Framework for Selective Behavioral Erasure in Post-Deployment Reinforcement Learning Agents — raw: `../../sources/raw-md/src-g02-a2f639e4__forgetting-as-control-a-theoretical-framework-for-selective-behavioral-erasure-in-post-dep.md`; excerpts: `../by-source/src-g02-a2f639e4__candidate-excerpts.md`
 - `SRC-G02-AA472F63` — AI Safety as a Reinforcement Learning Problem — raw: `../../sources/raw-md/src-g02-aa472f63__ai-safety-as-a-reinforcement-learning-problem.md`
-- `SRC-G02-BFC4312A` — A Survey of Human-in-the-Loop Reinforcement Learning for Critical Systems — raw: `../../sources/raw-md/src-g02-bfc4312a__a-survey-of-human-in-the-loop-reinforcement-learning-for-critical-systems.md`
-- `SRC-G02-F98DEB8D` — AI Agents Need Data Integrity - Schneier on Security — raw: `../../sources/raw-md/src-g02-f98deb8d__ai-agents-need-data-integrity-schneier-on-security.md`

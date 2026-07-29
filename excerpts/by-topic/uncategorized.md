@@ -1,44 +1,26 @@
 # Topic Index — uncategorized
 
-Links to raw Markdown and candidate excerpts. Inclusion here is automatic and must be reviewed.
+Automatic index; review before using it as a thesis taxonomy.
 
-- `SRC-G01-0013` — SitemapOpen in app — raw: `../../sources/raw-md/src-g01-0013__sitemapopen-in-app.md`
-- `SRC-G01-0018` — Technology Encyclopedia Home > What are the core characteristics of an intelligent agent? — raw: `../../sources/raw-md/src-g01-0018__technology-encyclopedia-home-what-are-the-core-characteristics-of-an-intelligent-agent.md`
+- `SRC-G01-0013` — Understanding AI Agents, LLMs, and Experts- A Modern AI Architecture - by Matt White — raw: `../../sources/raw-md/src-g01-0013__understanding-ai-agents-llms-and-experts-a-modern-ai-architecture-by-matt-white.md`
+- `SRC-G01-0018` — What are the core characteristics of an intelligent agent- - Tencent Cloud — raw: `../../sources/raw-md/src-g01-0018__what-are-the-core-characteristics-of-an-intelligent-agent-tencent-cloud.md`
 - `SRC-G01-0025` — The Ultimate Guide to Local AI and AI Agents (The Future is Here) — raw: `../../sources/raw-md/src-g01-0025__the-ultimate-guide-to-local-ai-and-ai-agents-the-future-is-here.md`
 - `SRC-G01-0026` — 5 simple AI Agents you must have - beginners guide — raw: `../../sources/raw-md/src-g01-0026__5-simple-ai-agents-you-must-have-beginners-guide.md`
 - `SRC-G01-0027` — Build Everything with AI Agents- Here's How — raw: `../../sources/raw-md/src-g01-0027__build-everything-with-ai-agents-here-s-how.md`
+- `SRC-G01-0028` — Andrew Ng- State of AI Agents - LangChain Interrupt — raw: `../../sources/raw-md/src-g01-0028__andrew-ng-state-of-ai-agents-langchain-interrupt.md`
 - `SRC-G01-0029` — Building AI Agents In 44 Minutes — raw: `../../sources/raw-md/src-g01-0029__building-ai-agents-in-44-minutes.md`
 - `SRC-G01-0030` — State-Of-The-Art Prompting For AI Agents — raw: `../../sources/raw-md/src-g01-0030__state-of-the-art-prompting-for-ai-agents.md`
-- `SRC-G01-0041` — The Rise of AI Agents: Unleashing Productivity  and Innovation — raw: `../../sources/raw-md/src-g01-0041__the-rise-of-ai-agents-unleashing-productivity-and-innovation.md`
+- `SRC-G01-0036` — AGENTIC The Rise of AI Agents — raw: `../../sources/raw-md/src-g01-0036__agentic-the-rise-of-ai-agents.md`
+- `SRC-G01-0041` — The Rise of AI Agents: Unleashing Productivity and Innovation — raw: `../../sources/raw-md/src-g01-0041__the-rise-of-ai-agents-unleashing-productivity-and-innovation.md`
 - `SRC-G01-0042` — pdf-ai-agents-unleashed-playbook-for-2025-success compress.pdf — raw: `../../sources/raw-md/src-g01-0042__pdf-ai-agents-unleashed-playbook-for-2025-success-compress-pdf.md`
-- `SRC-G01-0047` — Cofounder & CEO Mastra.ai — raw: `../../sources/raw-md/src-g01-0047__cofounder-and-ceo-mastra-ai.md`
-- `SRC-G01-0048` — OpenAI Operator AI Agent Mastery From Beginner to Advanced Use Cases — raw: `../../sources/raw-md/src-g01-0048__openai-operator-ai-agent-mastery-from-beginner-to-advanced-use-cases.md`
+- `SRC-G01-0047` — Cofounder & CEO Mastra.ai — raw: `../../sources/raw-md/src-g01-0047__cofounder-ceo-mastra-ai.md`
+- `SRC-G01-0048` — OpenAI Operator AI Agent Mastery 2025 From Beginner to -- Belner, Jens.pdf — raw: `../../sources/raw-md/src-g01-0048__openai-operator-ai-agent-mastery-2025-from-beginner-to-belner-jens-pdf.md`
 - `SRC-G01-0050` — An exploratory study of AI adoption by manufacturing companies in — raw: `../../sources/raw-md/src-g01-0050__an-exploratory-study-of-ai-adoption-by-manufacturing-companies-in.md`
-- `SRC-G01-0051` — Copyright © 2025 by Matthew Christopher | Amplified Marketing LLC — raw: `../../sources/raw-md/src-g01-0051__copyright-2025-by-matthew-christopher-amplified-marketing-llc.md`
-- `SRC-G01-0054` — Error: Failed to load source content — raw: `../../sources/raw-md/src-g01-0054__error-failed-to-load-source-content.md`
-- `SRC-G01-0055` — Error: Failed to load source content — raw: `../../sources/raw-md/src-g01-0055__error-failed-to-load-source-content.md`
-- `SRC-G01-0056` — Error: Failed to load source content — raw: `../../sources/raw-md/src-g01-0056__error-failed-to-load-source-content.md`
-- `SRC-G01-0057` — Error: Failed to load source content — raw: `../../sources/raw-md/src-g01-0057__error-failed-to-load-source-content.md`
-- `SRC-G01-0058` — Error: Failed to load source content — raw: `../../sources/raw-md/src-g01-0058__error-failed-to-load-source-content.md`
-- `SRC-G01-0059` — Error: Failed to load source content — raw: `../../sources/raw-md/src-g01-0059__error-failed-to-load-source-content.md`
-- `SRC-G01-0060` — Error: Failed to load source content — raw: `../../sources/raw-md/src-g01-0060__error-failed-to-load-source-content.md`
-- `SRC-G01-0061` — Error: Failed to load source content — raw: `../../sources/raw-md/src-g01-0061__error-failed-to-load-source-content.md`
-- `SRC-G01-0062` — Error: Failed to load source content — raw: `../../sources/raw-md/src-g01-0062__error-failed-to-load-source-content.md`
-- `SRC-G01-0063` — Error: Failed to load source content — raw: `../../sources/raw-md/src-g01-0063__error-failed-to-load-source-content.md`
-- `SRC-G01-0064` — Error: Failed to load source content — raw: `../../sources/raw-md/src-g01-0064__error-failed-to-load-source-content.md`
-- `SRC-G01-0065` — Error: Failed to load source content — raw: `../../sources/raw-md/src-g01-0065__error-failed-to-load-source-content.md`
-- `SRC-G01-0066` — Error: Failed to load source content — raw: `../../sources/raw-md/src-g01-0066__error-failed-to-load-source-content.md`
-- `SRC-G01-0067` — Error: Failed to load source content — raw: `../../sources/raw-md/src-g01-0067__error-failed-to-load-source-content.md`
-- `SRC-G01-0068` — Error: Failed to load source content — raw: `../../sources/raw-md/src-g01-0068__error-failed-to-load-source-content.md`
-- `SRC-G01-0069` — Error: Failed to load source content — raw: `../../sources/raw-md/src-g01-0069__error-failed-to-load-source-content.md`
-- `SRC-G01-0070` — Error: Failed to load source content — raw: `../../sources/raw-md/src-g01-0070__error-failed-to-load-source-content.md`
-- `SRC-G01-0071` — Error: Failed to load source content — raw: `../../sources/raw-md/src-g01-0071__error-failed-to-load-source-content.md`
-- `SRC-G01-0072` — Error: Failed to load source content — raw: `../../sources/raw-md/src-g01-0072__error-failed-to-load-source-content.md`
-- `SRC-G01-0073` — Error: Failed to load source content — raw: `../../sources/raw-md/src-g01-0073__error-failed-to-load-source-content.md`
-- `SRC-G01-0074` — Error: Failed to load source content — raw: `../../sources/raw-md/src-g01-0074__error-failed-to-load-source-content.md`
-- `SRC-G01-0075` — Error: Failed to load source content — raw: `../../sources/raw-md/src-g01-0075__error-failed-to-load-source-content.md`
-- `SRC-G01-0076` — Error: Failed to load source content — raw: `../../sources/raw-md/src-g01-0076__error-failed-to-load-source-content.md`
-- `SRC-G01-0077` — Error: Failed to load source content — raw: `../../sources/raw-md/src-g01-0077__error-failed-to-load-source-content.md`
+- `SRC-G01-0051` — ChatGPT Millionaire Agent Harnessing The Power of ChatGPT & -- Christopher, Matthew.pdf — raw: `../../sources/raw-md/src-g01-0051__chatgpt-millionaire-agent-harnessing-the-power-of-chatgpt-christopher-matthew-pdf.md`
+- `SRC-G01-0055` — A POMDP model-based online risk mitigation method for autonomous inland vessels ⋆ - Seamless Project — raw: `../../sources/raw-md/src-g01-0055__a-pomdp-model-based-online-risk-mitigation-method-for-autonomous-inland-vessels-seamless-p.md`
+- `SRC-G01-0072` — Systems That Never Stop - Fault-Tolerant AI Agents — raw: `../../sources/raw-md/src-g01-0072__systems-that-never-stop-fault-tolerant-ai-agents.md`
+- `SRC-G01-0073` — Towards a Science of AI Agent Reliability — raw: `../../sources/raw-md/src-g01-0073__towards-a-science-of-ai-agent-reliability.md`
+- `SRC-G01-0077` — arXiv-2407.14492v1 [eess.SY] 19 Jul 2024 — raw: `../../sources/raw-md/src-g01-0077__arxiv-2407-14492v1-eess-sy-19-jul-2024.md`
 - `SRC-G01-0078` — Error: Failed to load source content — raw: `../../sources/raw-md/src-g01-0078__error-failed-to-load-source-content.md`
 - `SRC-G01-0079` — Error: Failed to load source content — raw: `../../sources/raw-md/src-g01-0079__error-failed-to-load-source-content.md`
 - `SRC-G01-0080` — Error: Failed to load source content — raw: `../../sources/raw-md/src-g01-0080__error-failed-to-load-source-content.md`
@@ -47,17 +29,20 @@ Links to raw Markdown and candidate excerpts. Inclusion here is automatic and mu
 - `SRC-G01-0083` — Error: Failed to load source content — raw: `../../sources/raw-md/src-g01-0083__error-failed-to-load-source-content.md`
 - `SRC-G01-0084` — Error: Failed to load source content — raw: `../../sources/raw-md/src-g01-0084__error-failed-to-load-source-content.md`
 - `SRC-G01-0085` — Error: Failed to load source content — raw: `../../sources/raw-md/src-g01-0085__error-failed-to-load-source-content.md`
-- `SRC-G01-0113` — to some other value dep obviously between I don't think it matter — raw: `../../sources/raw-md/src-g01-0113__to-some-other-value-dep-obviously-between-i-don-t-think-it-matter.md`
-- `SRC-G01-0141` — Browse all journals — raw: `../../sources/raw-md/src-g01-0141__browse-all-journals.md`
-- `SRC-G01-0151` — Skip to main contentSearchSearch — raw: `../../sources/raw-md/src-g01-0151__skip-to-main-contentsearchsearch.md`
-- `SRC-G01-0159` — Request unsuccessful. Incapsula incident ID: 1022000030085363875-11785081089556703 — raw: `../../sources/raw-md/src-g01-0159__request-unsuccessful-incapsula-incident-id-1022000030085363875-11785081089556703.md`
-- `SRC-G01-0192` — Verifying your browser | OpenReview — raw: `../../sources/raw-md/src-g01-0192__verifying-your-browser-openreview.md`
-- `SRC-G01-0196` — How do we prevent AI agents from going rogue? It starts with a new kind of measurement | Bruce Schneier and Barath Raghavan | The Guardian — raw: `../../sources/raw-md/src-g01-0196__how-do-we-prevent-ai-agents-from-going-rogue-it-starts-with-a-new-kind-of-measurement-bruc.md`
+- `SRC-G01-0141` — Robust sequential decision-making in adversarial environments — raw: `../../sources/raw-md/src-g01-0141__robust-sequential-decision-making-in-adversarial-environments.md`
+- `SRC-G01-0159` — Toward theoretical understandings of robust Markov decision processes- Sample complexity and asympto — raw: `../../sources/raw-md/src-g01-0159__toward-theoretical-understandings-of-robust-markov-decision-processes-sample-complexity-an.md`
+- `SRC-G01-0196` — How do we prevent AI agents from going rogue- It starts with a new kind of measurement - Bruce Schne — raw: `../../sources/raw-md/src-g01-0196__how-do-we-prevent-ai-agents-from-going-rogue-it-starts-with-a-new-kind-of-measurement-bruc.md`
+- `SRC-G01-0215` — When Can LLMs Actually Correct Their Own Mistakes- A Critical Survey of Self-Correction of LLMs - Tr — raw: `../../sources/raw-md/src-g01-0215__when-can-llms-actually-correct-their-own-mistakes-a-critical-survey-of-self-correction-of.md`
 - `SRC-G01-0230` — How to Master AI Agents in 2025 (Full Guide) — raw: `../../sources/raw-md/src-g01-0230__how-to-master-ai-agents-in-2025-full-guide.md`
-- `SRC-G01-0240` — Skip to main contentWe gratefully acknowledge support from the Simons Foundation, member institutions, and all contributors.  Donate>  cs>  arXiv:2412.13233 — raw: `../../sources/raw-md/src-g01-0240__skip-to-main-contentwe-gratefully-acknowledge-support-from-the-simons-foundation-member-in.md`
-- `SRC-G01-0260` — Skip to main content  An official website of the United States government — raw: `../../sources/raw-md/src-g01-0260__skip-to-main-content-an-official-website-of-the-united-states-government.md`
-- `SRC-G01-0273` — Happy Open Access Week from arXiv! — raw: `../../sources/raw-md/src-g01-0273__happy-open-access-week-from-arxiv.md`
-- `SRC-G01-0284` — Guides  ▼ ▲ Core Concepts — raw: `../../sources/raw-md/src-g01-0284__guides-core-concepts.md`
-- `SRC-G02-5FDDC684` — Understanding AI Agents, LLMs, and Experts: A Modern AI Architecture | by Matt White — raw: `../../sources/raw-md/src-g02-5fddc684__understanding-ai-agents-llms-and-experts-a-modern-ai-architecture-by-matt-white.md`
+- `SRC-G01-0240` — Creating an LLM-based AI-agent: A high-level methodology towards enhancing LLMs with APIs — raw: `../../sources/raw-md/src-g01-0240__creating-an-llm-based-ai-agent-a-high-level-methodology-towards-enhancing-llms-with-apis.md`
+- `SRC-G01-0243` — AI Agents Need Data Integrity - Schneier on Security — raw: `../../sources/raw-md/src-g01-0243__ai-agents-need-data-integrity-schneier-on-security.md`
+- `SRC-G01-0259` — IEEE P7001: A Proposed Standard on Transparency — raw: `../../sources/raw-md/src-g01-0259__ieee-p7001-a-proposed-standard-on-transparency.md`
+- `SRC-G01-0260` — Liability for harm caused by AI in healthcare: an overview of the core legal concepts — raw: `../../sources/raw-md/src-g01-0260__liability-for-harm-caused-by-ai-in-healthcare-an-overview-of-the-core-legal-concepts.md`
+- `SRC-G01-0267` — The Law of AI is the Law of Risky Agents without Intentions — raw: `../../sources/raw-md/src-g01-0267__the-law-of-ai-is-the-law-of-risky-agents-without-intentions.md`
+- `SRC-G01-0273` — [2501.05435] Neuro-Symbolic AI in 2024- A Systematic Review — raw: `../../sources/raw-md/src-g01-0273__2501-05435-neuro-symbolic-ai-in-2024-a-systematic-review.md`
+- `SRC-G01-0284` — Difference Between Goal-based and Utility-based Agents - Baeldung on Computer Science — raw: `../../sources/raw-md/src-g01-0284__difference-between-goal-based-and-utility-based-agents-baeldung-on-computer-science.md`
+- `SRC-G02-5FDDC684` — Understanding AI Agents, LLMs, and Experts A Modern AI Architecture by Matt White — raw: `../../sources/raw-md/src-g02-5fddc684__understanding-ai-agents-llms-and-experts-a-modern-ai-architecture-by-matt-white.md`
+- `SRC-G02-6DE95A20` — IEEE P7001: A Proposed Standard on Transparency — raw: `../../sources/raw-md/src-g02-6de95a20__ieee-p7001-a-proposed-standard-on-transparency.md`
 - `SRC-G02-DCD7149F` — State-Of-The-Art Prompting For AI Agents — raw: `../../sources/raw-md/src-g02-dcd7149f__state-of-the-art-prompting-for-ai-agents.md`
-- `SRC-G02-E94A6132` — ChatGPT Millionaire Agent Harnessing The Power of ChatGPT & -- Christopher, Matthew.pdf — raw: `../../sources/raw-md/src-g02-e94a6132__chatgpt-millionaire-agent-harnessing-the-power-of-chatgpt-and-christopher-matthew-pdf.md`
+- `SRC-G02-E94A6132` — ChatGPT Millionaire Agent Harnessing The Power of ChatGPT & -- Christopher, Matthew.pdf — raw: `../../sources/raw-md/src-g02-e94a6132__chatgpt-millionaire-agent-harnessing-the-power-of-chatgpt-christopher-matthew-pdf.md`
+- `SRC-G02-F98DEB8D` — AI Agents Need Data Integrity - Schneier on Security — raw: `../../sources/raw-md/src-g02-f98deb8d__ai-agents-need-data-integrity-schneier-on-security.md`

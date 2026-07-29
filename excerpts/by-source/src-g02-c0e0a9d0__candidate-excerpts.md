@@ -1,4 +1,4 @@
-# Candidate Excerpts — Uncertainty-Aware Reinforcement Learning for Flight Control | TU Delft Repository
+# Candidate Excerpts — Uncertainty-Aware Reinforcement Learning for Flight Control TU Delft Repository
 
 - Source ID: `SRC-G02-C0E0A9D0`
 - Source file: `sources/raw-md/src-g02-c0e0a9d0__uncertainty-aware-reinforcement-learning-for-flight-control-tu-delft-repository.md`

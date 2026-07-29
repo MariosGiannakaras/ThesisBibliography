@@ -1,4 +1,4 @@
-# Candidate Excerpts — Forgetting as Control: A Theoretical Framework for Selective Behavioral Erasure in Post-Deployment Reinforcement Learning Agents - Preprints.org
+# Candidate Excerpts — Forgetting as Control: A Theoretical Framework for Selective Behavioral Erasure in Post-Deployment Reinforcement Learning Agents
 
 - Source ID: `SRC-G02-A2F639E4`
 - Source file: `sources/raw-md/src-g02-a2f639e4__forgetting-as-control-a-theoretical-framework-for-selective-behavioral-erasure-in-post-dep.md`

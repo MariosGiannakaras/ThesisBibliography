@@ -1,0 +1,460 @@
+{
+  "schema_version": 1,
+  "matches": [
+    {
+      "source_id": "SRC-G01-0001",
+      "provider": "OpenAlex API",
+      "match_score": 1.0,
+      "previous_title": "Fully Autonomous AI Agents Should Not be Developed",
+      "verified_title": "Fully Autonomous AI Agents Should Not be Developed"
+    },
+    {
+      "source_id": "SRC-G01-0035",
+      "provider": "Crossref API",
+      "match_score": 1.0,
+      "previous_title": "Vicent Botti, Andrea Omicini, Stefano Mariani and Vicente Julian",
+      "verified_title": "Special Issue “Multi-Agent Systems”: Editorial"
+    },
+    {
+      "source_id": "SRC-G01-0037",
+      "provider": "Crossref API",
+      "match_score": 1.0,
+      "previous_title": "Agent AI for Finance From Financial Argument Mining to -- Chung-Chi Chen, Hiroya Takamura.PDF",
+      "verified_title": "Agent AI for Finance"
+    },
+    {
+      "source_id": "SRC-G01-0040",
+      "provider": "Crossref API",
+      "match_score": 1.0,
+      "previous_title": "Using Gen AI Agents With GAE And VAE To Enhance Resilience Of Us Markets.pdf",
+      "verified_title": "Using Gen AI Agents With GAE and VAE to Enhance Resilience of US Markets"
+    },
+    {
+      "source_id": "SRC-G01-0069",
+      "provider": "OpenAlex API",
+      "match_score": 1.0,
+      "previous_title": "Robust Reinforcement Learning- A Review of Foundations and Recent Advances",
+      "verified_title": "Robust Reinforcement Learning: A Review of Foundations and Recent Advances"
+    },
+    {
+      "source_id": "SRC-G01-0127",
+      "provider": "arXiv API",
+      "match_score": 1.0,
+      "previous_title": "ADARL- Adaptive Low-Rank Structures for Robust Policy Learning under Uncertainty",
+      "verified_title": "ADARL: Adaptive Low-Rank Structures for Robust Policy Learning under Uncertainty"
+    },
+    {
+      "source_id": "SRC-G01-0128",
+      "provider": "arXiv API",
+      "match_score": 1.0,
+      "previous_title": "AI Safety Gridworlds",
+      "verified_title": "AI Safety Gridworlds"
+    },
+    {
+      "source_id": "SRC-G01-0134",
+      "provider": "OpenAlex API",
+      "match_score": 1.0,
+      "previous_title": "Bounded Robustness in Reinforcement Learning via Lexicographic Objectives",
+      "verified_title": "Bounded Robustness in Reinforcement Learning via Lexicographic Objectives"
+    },
+    {
+      "source_id": "SRC-G01-0139",
+      "provider": "Crossref API",
+      "match_score": 1.0,
+      "previous_title": "Forgetting as Control- A Theoretical Framework for Selective Behavioral Erasure in Post-Deployment R",
+      "verified_title": "Forgetting as Control: A Theoretical Framework for Selective Behavioral Erasure in Post-Deployment Reinforcement Learning Agents"
+    },
+    {
+      "source_id": "SRC-G01-0141",
+      "provider": "Crossref API",
+      "match_score": 1.0,
+      "previous_title": "Full article- Robust sequential decision-making in adversarial environments - Taylor & Francis",
+      "verified_title": "Robust sequential decision-making in adversarial environments"
+    },
+    {
+      "source_id": "SRC-G01-0143",
+      "provider": "arXiv API",
+      "match_score": 1.0,
+      "previous_title": "Interaction-Breaking Adversarial Learning Framework for Robust Multi-Agent Reinforcement Learning",
+      "verified_title": "Interaction-Breaking Adversarial Learning Framework for Robust Multi-Agent Reinforcement Learning"
+    },
+    {
+      "source_id": "SRC-G01-0147",
+      "provider": "arXiv API",
+      "match_score": 1.0,
+      "previous_title": "Online MDP with Prototypes Information- A Robust Adaptive Approach",
+      "verified_title": "Online MDP with Transition Prototypes: A Robust Adaptive Approach"
+    },
+    {
+      "source_id": "SRC-G01-0148",
+      "provider": "arXiv API",
+      "match_score": 1.0,
+      "previous_title": "Online MDP with Transition Prototypes- A Robust Adaptive Approach",
+      "verified_title": "Online MDP with Transition Prototypes: A Robust Adaptive Approach"
+    },
+    {
+      "source_id": "SRC-G01-0151",
+      "provider": "Crossref API",
+      "match_score": 1.0,
+      "previous_title": "Policy Gradient Algorithms for Robust MDP-(-text{s}-) with Nonrectangular Uncertainty Sets - SIAM Jo",
+      "verified_title": "Policy Gradient Algorithms for Robust MDP\\(\\text{s}\\) with Nonrectangular Uncertainty Sets"
+    },
+    {
+      "source_id": "SRC-G01-0155",
+      "provider": "arXiv API",
+      "match_score": 1.0,
+      "previous_title": "Reward Hacking in Language Model Agents- Revisiting AI Safety Gridworlds",
+      "verified_title": "Reward Hacking in Language Model Agents: Revisiting AI Safety Gridworlds"
+    },
+    {
+      "source_id": "SRC-G01-0157",
+      "provider": "OpenAlex API",
+      "match_score": 1.0,
+      "previous_title": "Robust Reinforcement Learning- A Constrained Game-theoretic Approach",
+      "verified_title": "Robust Reinforcement Learning: A Constrained Game-theoretic Approach"
+    },
+    {
+      "source_id": "SRC-G01-0158",
+      "provider": "OpenAlex API",
+      "match_score": 1.0,
+      "previous_title": "Sample Complexity of Robust Reinforcement Learning with a Generative Model",
+      "verified_title": "Sample Complexity of Robust Reinforcement Learning with a Generative Model"
+    },
+    {
+      "source_id": "SRC-G01-0160",
+      "provider": "arXiv API",
+      "match_score": 1.0,
+      "previous_title": "Uncertainty-Aware LLM-Guided Policy Shaping for Sparse-Reward Reinforcement Learning Code- github.co",
+      "verified_title": "Uncertainty-Aware LLM-Guided Policy Shaping for Sparse-Reward Reinforcement Learning"
+    },
+    {
+      "source_id": "SRC-G01-0169",
+      "provider": "OpenAlex API",
+      "match_score": 0.9398,
+      "previous_title": "Belief-Enriched Pessimistic Q-Learning against Adversarial State Perturbations (ICLR 2024)",
+      "verified_title": "Belief-Enriched Pessimistic Q-Learning against Adversarial State Perturbations"
+    },
+    {
+      "source_id": "SRC-G01-0170",
+      "provider": "OpenAlex API",
+      "match_score": 1.0,
+      "previous_title": "Efficient Action Robust Reinforcement Learning with Probabilistic Policy Execution Uncertainty",
+      "verified_title": "Efficient Action Robust Reinforcement Learning with Probabilistic Policy Execution Uncertainty"
+    },
+    {
+      "source_id": "SRC-G01-0171",
+      "provider": "arXiv API",
+      "match_score": 1.0,
+      "previous_title": "On Practical Robust Reinforcement Learning- Adjacent Uncertainty Set and Double-Agent Algorithm",
+      "verified_title": "On Practical Robust Reinforcement Learning: Practical Uncertainty Set and Double-Agent Algorithm"
+    },
+    {
+      "source_id": "SRC-G01-0172",
+      "provider": "arXiv API",
+      "match_score": 1.0,
+      "previous_title": "Research report- Thesis Sources Analysis (GridWorld & Resilience)",
+      "verified_title": "Empirical Study on Robustness and Resilience in Cooperative Multi-Agent Reinforcement Learning"
+    },
+    {
+      "source_id": "SRC-G01-0191",
+      "provider": "Crossref API",
+      "match_score": 1.0,
+      "previous_title": "Learn to Human-level Control in Dynamic Environment Using Incremental Batch Interrupting Temporal Ab",
+      "verified_title": "Learn to human-level control in dynamic environment using incremental batch interrupting temporal abstraction"
+    },
+    {
+      "source_id": "SRC-G01-0194",
+      "provider": "Crossref API",
+      "match_score": 1.0,
+      "previous_title": "A Survey of Human-in-the-Loop Reinforcement Learning for Critical Systems",
+      "verified_title": "Humans as Safety Constraints: A Survey of Human-in-the-Loop Reinforcement Learning for Critical Systems"
+    },
+    {
+      "source_id": "SRC-G01-0203",
+      "provider": "Crossref API",
+      "match_score": 1.0,
+      "previous_title": "An Empirical Approach to Capture Moral Uncertainty in AI - Aies Conference",
+      "verified_title": "An Empirical Approach to Capture Moral Uncertainty in AI"
+    },
+    {
+      "source_id": "SRC-G01-0206",
+      "provider": "arXiv API",
+      "match_score": 1.0,
+      "previous_title": "Deep Learning for Sequential Decision Making under Uncertainty- Foundations, Frameworks, and Frontie",
+      "verified_title": "Deep Learning for Sequential Decision Making under Uncertainty: Foundations, Frameworks, and Frontiers"
+    },
+    {
+      "source_id": "SRC-G01-0209",
+      "provider": "OpenAlex API",
+      "match_score": 1.0,
+      "previous_title": "Monte Carlo Tree Search- A Tutorial",
+      "verified_title": "MONTE CARLO TREE SEARCH: A TUTORIAL"
+    },
+    {
+      "source_id": "SRC-G01-0211",
+      "provider": "arXiv API",
+      "match_score": 1.0,
+      "previous_title": "[2410.02820] Heuristics and Biases in AI Decision-Making- Implications for Responsible AGI",
+      "verified_title": "Heuristics and Biases in AI Decision-Making: Implications for Responsible AGI"
+    },
+    {
+      "source_id": "SRC-G01-0212",
+      "provider": "Crossref API",
+      "match_score": 1.0,
+      "previous_title": "arXiv-1609.04436v1 [cs.AI] 14 Sep 2016",
+      "verified_title": "Bayesian Reinforcement Learning: A Survey"
+    },
+    {
+      "source_id": "SRC-G01-0214",
+      "provider": "arXiv API",
+      "match_score": 1.0,
+      "previous_title": "On the Definition of Robustness and Resilience of AI Agents for Real-time Congestion Management The",
+      "verified_title": "On the Definition of Robustness and Resilience of AI Agents for Real-time Congestion Management"
+    },
+    {
+      "source_id": "SRC-G01-0217",
+      "provider": "arXiv API",
+      "match_score": 1.0,
+      "previous_title": "This is a pre-print of the following paper:",
+      "verified_title": "How to Measure Cyber Resilience of an Autonomous Agent: Approaches and Challenges"
+    },
+    {
+      "source_id": "SRC-G01-0220",
+      "provider": "OpenAlex API",
+      "match_score": 1.0,
+      "previous_title": "A Review of Fault Tolerance Techniques in Generative Multi-Agent Systems for Real-Time Applications",
+      "verified_title": "A Review of Fault Tolerance Techniques in Generative Multi-Agent Systems for Real-Time Applications"
+    },
+    {
+      "source_id": "SRC-G01-0221",
+      "provider": "Crossref API",
+      "match_score": 1.0,
+      "previous_title": "NIST AI 100-1",
+      "verified_title": "Artificial Intelligence Risk Management Framework (AI RMF 1.0)"
+    },
+    {
+      "source_id": "SRC-G01-0223",
+      "provider": "arXiv API",
+      "match_score": 1.0,
+      "previous_title": "Reinforcement Learning Journal 2025 ∣∣ Cover Page",
+      "verified_title": "Collaboration Promotes Group Resilience in Multi-Agent RL"
+    },
+    {
+      "source_id": "SRC-G01-0225",
+      "provider": "arXiv API",
+      "match_score": 1.0,
+      "previous_title": "Cooperative Resilience in Artificial Intelligence Multiagent Systems",
+      "verified_title": "Cooperative Resilience in Artificial Intelligence Multiagent Systems"
+    },
+    {
+      "source_id": "SRC-G01-0233",
+      "provider": "OpenAlex API",
+      "match_score": 1.0,
+      "previous_title": "Agent-Based Systems for Intelligent Manufacturing- A State-of-the-Art Survey",
+      "verified_title": "Agent-Based Systems for Intelligent Manufacturing: A State-of-the-Art Survey"
+    },
+    {
+      "source_id": "SRC-G01-0234",
+      "provider": "Crossref API",
+      "match_score": 1.0,
+      "previous_title": "Agentic AI",
+      "verified_title": "The role of agentic AI in shaping a smart future: A systematic review"
+    },
+    {
+      "source_id": "SRC-G01-0240",
+      "provider": "arXiv API",
+      "match_score": 1.0,
+      "previous_title": "[2412.13233] Creating an LLM-based AI-agent- A high-level methodology towards enhancing LLMs with AP",
+      "verified_title": "Creating an LLM-based AI-agent: A high-level methodology towards enhancing LLMs with APIs"
+    },
+    {
+      "source_id": "SRC-G01-0242",
+      "provider": "Crossref API",
+      "match_score": 1.0,
+      "previous_title": "AI 100-2 E2025, Adversarial Machine Learning- A Taxonomy and Terminology of Attacks and Mitigations",
+      "verified_title": "Adversarial Machine Learning:"
+    },
+    {
+      "source_id": "SRC-G01-0247",
+      "provider": "Crossref API",
+      "match_score": 1.0,
+      "previous_title": "Adversarial Machine Learning- A Taxonomy and Terminology of Attacks and Mitigations - NIST Technical",
+      "verified_title": "Adversarial Machine Learning:"
+    },
+    {
+      "source_id": "SRC-G01-0257",
+      "provider": "arXiv API",
+      "match_score": 1.0,
+      "previous_title": "From Autonomous Agents to Integrated Systems, A New Paradigm- Orchestrated Distributed Intelligence",
+      "verified_title": "From Autonomous Agents to Integrated Systems, A New Paradigm: Orchestrated Distributed Intelligence"
+    },
+    {
+      "source_id": "SRC-G01-0259",
+      "provider": "Crossref API",
+      "match_score": 1.0,
+      "previous_title": "IEEE P7001- A Proposed Standard on Transparency - PMC - NIH",
+      "verified_title": "IEEE P7001: A Proposed Standard on Transparency"
+    },
+    {
+      "source_id": "SRC-G01-0260",
+      "provider": "Crossref API",
+      "match_score": 1.0,
+      "previous_title": "Liability for harm caused by AI in healthcare- an overview of the core legal concepts - PMC",
+      "verified_title": "Liability for harm caused by AI in healthcare: an overview of the core legal concepts"
+    },
+    {
+      "source_id": "SRC-G01-0264",
+      "provider": "Crossref API",
+      "match_score": 1.0,
+      "previous_title": "Resilient Multi-Agent Reinforcement Learning with Adversarial Value Decomposition",
+      "verified_title": "Resilient Multi-Agent Reinforcement Learning with Adversarial Value Decomposition"
+    },
+    {
+      "source_id": "SRC-G01-0267",
+      "provider": "OpenAlex API",
+      "match_score": 1.0,
+      "previous_title": "The Law of AI is the Law of Risky Agents Without Intentions",
+      "verified_title": "The Law of AI is the Law of Risky Agents without Intentions"
+    },
+    {
+      "source_id": "SRC-G01-0272",
+      "provider": "arXiv API",
+      "match_score": 1.0,
+      "previous_title": "[2302.08996] Neuro-symbolic Meta Reinforcement Learning for Trading",
+      "verified_title": "Neuro-symbolic Meta Reinforcement Learning for Trading"
+    },
+    {
+      "source_id": "SRC-G01-0274",
+      "provider": "Crossref API",
+      "match_score": 1.0,
+      "previous_title": "Academic Editors: Phivos Mylonas,",
+      "verified_title": "CoReaAgents: A Collaboration and Reasoning Framework Based on LLM-Powered Agents for Complex Reasoning Tasks"
+    },
+    {
+      "source_id": "SRC-G01-0279",
+      "provider": "arXiv API",
+      "match_score": 1.0,
+      "previous_title": "AI Agents- Evolution, Architecture, and Real-World Applications",
+      "verified_title": "AI Agents: Evolution, Architecture, and Real-World Applications"
+    },
+    {
+      "source_id": "SRC-G01-0282",
+      "provider": "arXiv API",
+      "match_score": 1.0,
+      "previous_title": "An Economy of AI Agents",
+      "verified_title": "An Economy of AI Agents"
+    },
+    {
+      "source_id": "SRC-G01-0285",
+      "provider": "OpenAlex API",
+      "match_score": 1.0,
+      "previous_title": "Emergence in Multi-Agent Systems- A Safety Perspective",
+      "verified_title": "Emergence in Multi-agent Systems: A Safety Perspective"
+    },
+    {
+      "source_id": "SRC-G02-0E39AF20",
+      "provider": "Crossref API",
+      "match_score": 1.0,
+      "previous_title": "Agent AI for Finance From Financial Argument Mining to -- Chung-Chi Chen, Hiroya Takamura.PDF",
+      "verified_title": "Agent AI for Finance"
+    },
+    {
+      "source_id": "SRC-G02-12FC1F8D",
+      "provider": "arXiv API",
+      "match_score": 1.0,
+      "previous_title": "ADARL Adaptive Low-Rank Structures for Robust Policy Learning under Uncertainty",
+      "verified_title": "ADARL: Adaptive Low-Rank Structures for Robust Policy Learning under Uncertainty"
+    },
+    {
+      "source_id": "SRC-G02-1BFA3C56",
+      "provider": "OpenAlex API",
+      "match_score": 1.0,
+      "previous_title": "Monte Carlo Tree Search A Tutorial",
+      "verified_title": "MONTE CARLO TREE SEARCH: A TUTORIAL"
+    },
+    {
+      "source_id": "SRC-G02-1EA517F2",
+      "provider": "arXiv API",
+      "match_score": 1.0,
+      "previous_title": "On the Definition of Robustness and Resilience of AI Agents for Real-time Congestion Management The",
+      "verified_title": "On the Definition of Robustness and Resilience of AI Agents for Real-time Congestion Management"
+    },
+    {
+      "source_id": "SRC-G02-4A2050F3",
+      "provider": "OpenAlex API",
+      "match_score": 1.0,
+      "previous_title": "Agent-Based Systems for Intelligent Manufacturing A State-of-the-Art Survey",
+      "verified_title": "Agent-Based Systems for Intelligent Manufacturing: A State-of-the-Art Survey"
+    },
+    {
+      "source_id": "SRC-G02-6DE95A20",
+      "provider": "Crossref API",
+      "match_score": 1.0,
+      "previous_title": "IEEE P7001 A Proposed Standard on Transparency - PMC - NIH",
+      "verified_title": "IEEE P7001: A Proposed Standard on Transparency"
+    },
+    {
+      "source_id": "SRC-G02-9509C75B",
+      "provider": "arXiv API",
+      "match_score": 1.0,
+      "previous_title": "From Autonomous Agents to Integrated Systems, A New Paradigm Orchestrated Distributed Intelligence",
+      "verified_title": "From Autonomous Agents to Integrated Systems, A New Paradigm: Orchestrated Distributed Intelligence"
+    },
+    {
+      "source_id": "SRC-G02-A2F639E4",
+      "provider": "Crossref API",
+      "match_score": 1.0,
+      "previous_title": "Forgetting as Control A Theoretical Framework for Selective Behavioral Erasure in Post-Deployment Re",
+      "verified_title": "Forgetting as Control: A Theoretical Framework for Selective Behavioral Erasure in Post-Deployment Reinforcement Learning Agents"
+    },
+    {
+      "source_id": "SRC-G02-AE7BB424",
+      "provider": "arXiv API",
+      "match_score": 1.0,
+      "previous_title": "Research report Thesis Sources Analysis (GridWorld & Resilience)",
+      "verified_title": "Empirical Study on Robustness and Resilience in Cooperative Multi-Agent Reinforcement Learning"
+    },
+    {
+      "source_id": "SRC-G02-B421E32D",
+      "provider": "Crossref API",
+      "match_score": 1.0,
+      "previous_title": "Learn to Human-level Control in Dynamic Environment Using Incremental Batch Interrupting Temporal Ab",
+      "verified_title": "Learn to human-level control in dynamic environment using incremental batch interrupting temporal abstraction"
+    },
+    {
+      "source_id": "SRC-G02-B421E32D",
+      "provider": "Crossref API",
+      "match_score": 1.0,
+      "previous_title": "Learn to Human-level Control in Dynamic Environment Using Incremental Batch Interrupting Temporal Ab 1",
+      "verified_title": "Learn to human-level control in dynamic environment using incremental batch interrupting temporal abstraction"
+    },
+    {
+      "source_id": "SRC-G02-BFC4312A",
+      "provider": "Crossref API",
+      "match_score": 1.0,
+      "previous_title": "A Survey of Human-in-the-Loop Reinforcement Learning for Critical Systems",
+      "verified_title": "Humans as Safety Constraints: A Survey of Human-in-the-Loop Reinforcement Learning for Critical Systems"
+    },
+    {
+      "source_id": "SRC-G02-C5AF5A2A",
+      "provider": "arXiv API",
+      "match_score": 1.0,
+      "previous_title": "Online MDP with Transition Prototypes A Robust Adaptive Approach",
+      "verified_title": "Online MDP with Transition Prototypes: A Robust Adaptive Approach"
+    },
+    {
+      "source_id": "SRC-G02-D8B61738",
+      "provider": "Crossref API",
+      "match_score": 1.0,
+      "previous_title": "CoReaAgents: A Collaboration and Reasoning Framework Based on LLM-Powered Agents for Complex Reasoning Tasks",
+      "verified_title": "CoReaAgents: A Collaboration and Reasoning Framework Based on LLM-Powered Agents for Complex Reasoning Tasks"
+    },
+    {
+      "source_id": "SRC-G02-E20BBA24",
+      "provider": "arXiv API",
+      "match_score": 1.0,
+      "previous_title": "What Is AI Agent Memory IBM",
+      "verified_title": "Cognitive Architectures for Language Agents"
+    }
+  ]
+}

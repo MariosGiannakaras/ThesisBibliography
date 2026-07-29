@@ -1,4 +1,4 @@
-# Candidate Excerpts — [Lecture] Monte Carlo evaluation and control: A Gridworld Example | Intro to Markov Chains and RL
+# Candidate Excerpts — [Lecture] Monte Carlo evaluation and control A Gridworld Example Intro to Markov Chains and RL
 
 - Source ID: `SRC-G02-80B1BA20`
 - Source file: `sources/raw-md/src-g02-80b1ba20__lecture-monte-carlo-evaluation-and-control-a-gridworld-example-intro-to-markov-chains-and.md`
