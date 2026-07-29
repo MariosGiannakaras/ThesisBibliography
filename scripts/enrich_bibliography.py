@@ -115,10 +115,11 @@ def refs(records:list[dict[str,Any]],overlay:list[dict[str,Any]])->list[dict[str
  rows=[]
  for u,orig in sorted(found.items(),key=lambda x:(-len(x[1]),x[0])):rows.append({'candidate_url':u,'origin_count':len(orig),'origin_ids':sorted(orig),'already_cataloged':u in present,'screening_status':'already-present' if u in present else 'pending','decision':'','notes':''})
  return rows
+def esc(value:Any)->str:return str(value or '—').replace('|','\\|')
 def outputs(records:list[dict[str,Any]],overlay:list[dict[str,Any]],reference_rows:list[dict[str,Any]]):
  OVER.write_text(json.dumps(overlay,ensure_ascii=False,indent=2)+'\n',encoding='utf-8'); fields=['source_id','catalog_title','verified_title','authors','year','doi','arxiv_id','official_url','verification_status','provider','match_score']; write_csv(OUT/'VERIFIED_SOURCE_METADATA.csv',overlay,fields)
  lines=['# Verified Source Metadata','','This overlay supplements the intake catalog without changing archived Markdown. API verification does not mean the full source was read.','','| ID | Catalog title | Verified title | Authors | Year | Link | Status |','|---|---|---|---|---:|---|---|']
- for r in overlay:lines.append(f"| `{r['source_id']}` | {str(r['catalog_title']).replace('|','\\|')} | {str(r['verified_title'] or '—').replace('|','\\|')} | {str(r['authors'] or '—').replace('|','\\|')} | {r['year'] or '—'} | {r['official_url'] or '—'} | {r['verification_status']} |")
+ for r in overlay:lines.append(f"| `{r['source_id']}` | {esc(r['catalog_title'])} | {esc(r['verified_title'])} | {esc(r['authors'])} | {esc(r['year'])} | {esc(r['official_url'])} | {r['verification_status']} |")
  (OUT/'VERIFIED_SOURCE_METADATA.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
  write_csv(QUE/'REFERENCES_TO_SCREEN.csv',reference_rows,['candidate_url','origin_count','origin_ids','already_cataloged','screening_status','decision','notes'])
  known={norm(r.get('title','')) for r in records}; nxt=['# Next Sources to Add or Verify','','This is a screening queue, not an approved bibliography.','','## Known priority targets','']
@@ -134,7 +135,7 @@ def outputs(records:list[dict[str,Any]],overlay:list[dict[str,Any]],reference_ro
   if not r.get('url') and not ov[r['source_id']].get('official_url'):p.append('missing-source-link')
   if p:bad.append((r,p))
  b=['# Malformed, Missing or Unverified Source Data','','Records remain archived; this lists repair or verification work.','','| ID | Title | Problems | Markdown |','|---|---|---|---|']
- for r,p in bad:b.append(f"| `{r['source_id']}` | {str(r['title']).replace('|','\\|')} | {', '.join(p)} | `{r['normalized_path']}` |")
+ for r,p in bad:b.append(f"| `{r['source_id']}` | {esc(r['title'])} | {', '.join(p)} | `{r['normalized_path']}` |")
  (OUT/'MALFORMED_OR_MISSING_DATA.md').write_text('\n'.join(b)+'\n',encoding='utf-8')
  return len(bad),len(pending)
 def split_excerpts()->int:
