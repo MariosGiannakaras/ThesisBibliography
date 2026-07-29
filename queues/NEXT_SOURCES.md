@@ -18,4 +18,4 @@ This is a screening queue, not an approved bibliography.
 
 ## Reference-mining queue
 
-Pending candidates: **942**. See `REFERENCES_TO_SCREEN.csv`; prioritize candidates cited by several high-relevance sources.
+Pending candidates: **1086**. See `REFERENCES_TO_SCREEN.csv`; prioritize candidates cited by several high-relevance sources.

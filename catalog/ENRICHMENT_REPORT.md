@@ -7,7 +7,7 @@
 - Unresolved identities: **98**
 - Malformed/incomplete/unverified: **216**
 - Candidate excerpt files: **25**
-- Reference candidates: **1007**
-- Pending new references: **942**
+- Reference candidates: **1151**
+- Pending new references: **1086**
 
 These are curation states, not final bibliography approval.
