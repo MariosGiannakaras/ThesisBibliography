@@ -35,9 +35,19 @@ jobs:
           fi
 
       - name: Enrich scholarly metadata
-        run: python scripts/enrich_source_catalog.py --online
+        id: enrich
+        continue-on-error: true
+        run: |
+          mkdir -p workspace
+          set -o pipefail
+          python scripts/enrich_source_catalog.py --online 2>&1 | tee workspace/metadata-enrichment.log
 
-      - name: Commit curated corpus
+      - name: Record enrichment outcome
+        if: always()
+        run: printf '%s\n' '${{ steps.enrich.outcome }}' > workspace/metadata-enrichment-status.txt
+
+      - name: Commit curated corpus and diagnostics
+        if: always()
         run: |
           if [ -z "$(git status --porcelain)" ]; then
             echo "Curation produced no changes."
@@ -48,3 +58,7 @@ jobs:
           git add -A
           git commit -m "feat: enrich and verify bibliography metadata [skip ci]"
           git push
+
+      - name: Require successful enrichment
+        if: steps.enrich.outcome != 'success'
+        run: exit 1
