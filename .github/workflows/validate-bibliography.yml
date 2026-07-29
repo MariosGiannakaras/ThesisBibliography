@@ -88,3 +88,9 @@ jobs:
 
           print(f'Validated {len(records)} source records and {len(source_files)} source files.')
           PY
+
+      - name: Verify organizer is idempotent
+        shell: bash
+        run: |
+          python scripts/organize_sources.py
+          git diff --exit-code
