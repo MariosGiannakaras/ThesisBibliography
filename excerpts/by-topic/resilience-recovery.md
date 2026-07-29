@@ -1,0 +1,73 @@
+# Topic Index — resilience-recovery
+
+Links to raw Markdown and candidate excerpts. Inclusion here is automatic and must be reviewed.
+
+- `SRC-G01-0014` — Agent Development Kit — raw: `../../sources/raw-md/src-g01-0014__agent-development-kit.md`
+- `SRC-G01-0020` — What is a ReAct agent? — raw: `../../sources/raw-md/src-g01-0020__what-is-a-react-agent.md`
+- `SRC-G01-0022` — Rapid PrototypingResearch & DevelopmentUser Research & TestingProduct StrategySoftware Development — raw: `../../sources/raw-md/src-g01-0022__rapid-prototypingresearch-and-developmentuser-research-and-testingproduct-strategysoftware.md`
+- `SRC-G01-0023` — Skip to main content  Open navigation  Go to Reddit Home  Log In  Log in to Reddit   Open settings menu — raw: `../../sources/raw-md/src-g01-0023__skip-to-main-content-open-navigation-go-to-reddit-home-log-in-log-in-to-reddit-open-settin.md`
+- `SRC-G01-0032` — Real-World Strategies for Multi-Agent Development — raw: `../../sources/raw-md/src-g01-0032__real-world-strategies-for-multi-agent-development.md`
+- `SRC-G01-0033` — Authors: Julia Wiesinger, Patrick Marlow  and Vladimir Vuskovic — raw: `../../sources/raw-md/src-g01-0033__authors-julia-wiesinger-patrick-marlow-and-vladimir-vuskovic.md`
+- `SRC-G01-0039` — What is an agent? 4 When should you build an agent? 5 Agent design foundations 7 Guardrails 24 Conclusion 32 — raw: `../../sources/raw-md/src-g01-0039__what-is-an-agent-4-when-should-you-build-an-agent-5-agent-design-foundations-7-guardrails.md`
+- `SRC-G01-0040` — The International Journal of Computational Science, Information Technology and Control Engineering (IJCSITCE) Vol.12, No.1, January 2025 — raw: `../../sources/raw-md/src-g01-0040__the-international-journal-of-computational-science-information-technology-and-control-engi.md`
+- `SRC-G01-0046` — Seizing the agentic AI advantage — raw: `../../sources/raw-md/src-g01-0046__seizing-the-agentic-ai-advantage.md`
+- `SRC-G01-0052` — An DMs playbook — raw: `../../sources/raw-md/src-g01-0052__an-dms-playbook.md`
+- `SRC-G01-0091` — en | fi | sv | — raw: `../../sources/raw-md/src-g01-0091__en-fi-sv.md`
+- `SRC-G01-0102` — Safe Reinforcement Learning in the Presence of Non-stationarity- Theory and Algorithms — raw: `../../sources/raw-md/src-g01-0102__safe-reinforcement-learning-in-the-presence-of-non-stationarity-theory-and-algorithms.md`
+- `SRC-G01-0129` — Alignment Newsletter #26 — LessWrong — raw: `../../sources/raw-md/src-g01-0129__alignment-newsletter-26-lesswrong.md`
+- `SRC-G01-0143` — Interaction-Breaking Adversarial Learning Framework for Robust Multi-Agent Reinforcement Learning — raw: `../../sources/raw-md/src-g01-0143__interaction-breaking-adversarial-learning-framework-for-robust-multi-agent-reinforcement-l.md`
+- `SRC-G01-0144` — Learning to Balance Mixed Adversarial Attacks for Robust Reinforcement Learning — raw: `../../sources/raw-md/src-g01-0144__learning-to-balance-mixed-adversarial-attacks-for-robust-reinforcement-learning.md`
+- `SRC-G01-0172` — Έκθεση Έρευνας: Ανάλυση, Εκκαθάριση και Εμπλουτισμός Βιβλιογραφίας για την Πτυχιακή Εργασία — raw: `../../sources/raw-md/src-g01-0172__untitled.md`
+- `SRC-G01-0185` — Comparing the Top 5 AI Agent Architectures in 2025: Hierarchical, Swarm, Meta Learning, Modular, Evolutionary - MarkTechPost — raw: `../../sources/raw-md/src-g01-0185__comparing-the-top-5-ai-agent-architectures-in-2025-hierarchical-swarm-meta-learning-modula.md`
+- `SRC-G01-0197` — NIST Issues New Artificial Intelligence Risk Management Framework — raw: `../../sources/raw-md/src-g01-0197__nist-issues-new-artificial-intelligence-risk-management-framework.md`
+- `SRC-G01-0200` — Securing internal systems against increasingly capable and imperfectly aligned AI — Google DeepMind — raw: `../../sources/raw-md/src-g01-0200__securing-internal-systems-against-increasingly-capable-and-imperfectly-aligned-ai-google-d.md`
+- `SRC-G01-0202` — How is this possible? — raw: `../../sources/raw-md/src-g01-0202__how-is-this-possible.md`
+- `SRC-G01-0214` — Timothy Tjhay, Ricardo J. Bessa, José Paulos  Center for Power and Energy Systems  INESC TEC  Porto, Portugal  {timothy.tjhay; ricardo.j.bessa; jose.paulos}@inesctec.pt — raw: `../../sources/raw-md/src-g01-0214__timothy-tjhay-ricardo-j-bessa-jose-paulos-center-for-power-and-energy-systems-inesc-tec-po.md`
+- `SRC-G01-0217` — This is a pre-print of the following paper: — raw: `../../sources/raw-md/src-g01-0217__this-is-a-pre-print-of-the-following-paper.md`
+- `SRC-G01-0219` — Resilient Machine Learning in Space Systems: Pose Estimation as a Case Study | IEEE Conference Publication | IEEE Xplore  IEEE Account — raw: `../../sources/raw-md/src-g01-0219__resilient-machine-learning-in-space-systems-pose-estimation-as-a-case-study-ieee-conferenc.md`
+- `SRC-G01-0220` — A Review of Fault Tolerance Techniques in Generative Multi-Agent Systems for Real-Time Applications — raw: `../../sources/raw-md/src-g01-0220__a-review-of-fault-tolerance-techniques-in-generative-multi-agent-systems-for-real-time-app.md`
+- `SRC-G01-0221` — NIST AI 100-1 — raw: `../../sources/raw-md/src-g01-0221__nist-ai-100-1.md`
+- `SRC-G01-0222` — 000 001 002 003 004 005 006 007 008 009 010 011 012 013 014 015 016 017 018 019 020 021 022 023 024 025 026 027 028 029 030 031 032 033 034 035 036 037 038 039 040 041 042 043 044 045 046 047 048 049 050 051 052 053 — raw: `../../sources/raw-md/src-g01-0222__000-001-002-003-004-005-006-007-008-009-010-011-012-013-014-015-016-017-018-019-020-021-02.md`
+- `SRC-G01-0223` — Reinforcement Learning Journal 2025 ∣∣ Cover Page — raw: `../../sources/raw-md/src-g01-0223__reinforcement-learning-journal-2025-cover-page.md`
+- `SRC-G01-0224` — Empirical Study on Robustness and Resilience in Cooperative Multi-Agent Reinforcement Learning — raw: `../../sources/raw-md/src-g01-0224__empirical-study-on-robustness-and-resilience-in-cooperative-multi-agent-reinforcement-lear.md`
+- `SRC-G01-0225` — Cooperative Resilience in Artificial Intelligence Multiagent Systems — raw: `../../sources/raw-md/src-g01-0225__cooperative-resilience-in-artificial-intelligence-multiagent-systems.md`
+- `SRC-G01-0226` — Emergence and Resilience in Multi-Agent Reinforcement Learning — raw: `../../sources/raw-md/src-g01-0226__emergence-and-resilience-in-multi-agent-reinforcement-learning.md`
+- `SRC-G01-0228` — Enabling Learning in Resilient Adaptive Systems: From Network Fortification to Mindful Organising — raw: `../../sources/raw-md/src-g01-0228__enabling-learning-in-resilient-adaptive-systems-from-network-fortification-to-mindful-orga.md`
+- `SRC-G01-0229` — Vulnerabilities and Robustness in Computer Vision — raw: `../../sources/raw-md/src-g01-0229__vulnerabilities-and-robustness-in-computer-vision.md`
+- `SRC-G01-0233` — Agent-Based Systems for Intelligent Manufacturing: A State-of-the-Art Survey — raw: `../../sources/raw-md/src-g01-0233__agent-based-systems-for-intelligent-manufacturing-a-state-of-the-art-survey.md`
+- `SRC-G01-0243` — Schneier on Security — raw: `../../sources/raw-md/src-g01-0243__schneier-on-security.md`
+- `SRC-G01-0244` — Smart contractEnterprise BlockchainNFT & Web3 SolutionsLayer 2 SolutionsSolutionsEthereum Development — raw: `../../sources/raw-md/src-g01-0244__smart-contractenterprise-blockchainnft-and-web3-solutionslayer-2-solutionssolutionsethereu.md`
+- `SRC-G01-0245` — Skip to main content An official website of the United States government — raw: `../../sources/raw-md/src-g01-0245__skip-to-main-content-an-official-website-of-the-united-states-government.md`
+- `SRC-G01-0246` — Skip to main content An official website of the United States government — raw: `../../sources/raw-md/src-g01-0246__skip-to-main-content-an-official-website-of-the-united-states-government.md`
+- `SRC-G01-0247` — NIST Trustworthy and Responsible AI NIST AI 100-2e2025 — raw: `../../sources/raw-md/src-g01-0247__nist-trustworthy-and-responsible-ai-nist-ai-100-2e2025.md`
+- `SRC-G01-0248` — Google WorkspaceMicrosoft 365SalesforceDatabricksGitHubOktaServiceNowSnowflakeWorkdayMore Integrations — raw: `../../sources/raw-md/src-g01-0248__google-workspacemicrosoft-365salesforcedatabricksgithuboktaservicenowsnowflakeworkdaymore.md`
+- `SRC-G01-0249` — ApplicationsEnergyDistributed Artificial Intelligence — raw: `../../sources/raw-md/src-g01-0249__applicationsenergydistributed-artificial-intelligence.md`
+- `SRC-G01-0250` — Skip to main content  Skip to Ask Learn chat experience This browser is no longer supported. — raw: `../../sources/raw-md/src-g01-0250__skip-to-main-content-skip-to-ask-learn-chat-experience-this-browser-is-no-longer-supported.md`
+- `SRC-G01-0251` — Skip to main contentHit enter to search or ESC to close  Close Search  searchMenu — raw: `../../sources/raw-md/src-g01-0251__skip-to-main-contenthit-enter-to-search-or-esc-to-close-close-search-searchmenu.md`
+- `SRC-G01-0252` — Skip to Main Content — raw: `../../sources/raw-md/src-g01-0252__skip-to-main-content.md`
+- `SRC-G01-0253` — Artificial Intelligence  Building resilient applications with AI agents: Profiles, prescriptions and peace of mind — raw: `../../sources/raw-md/src-g01-0253__artificial-intelligence-building-resilient-applications-with-ai-agents-profiles-prescripti.md`
+- `SRC-G01-0254` — Human Rights and Biomedicine — raw: `../../sources/raw-md/src-g01-0254__human-rights-and-biomedicine.md`
+- `SRC-G01-0255` — Skip to content — raw: `../../sources/raw-md/src-g01-0255__skip-to-content.md`
+- `SRC-G01-0256` — Platform Agentic SideKick 3.0 — raw: `../../sources/raw-md/src-g01-0256__platform-agentic-sidekick-3-0.md`
+- `SRC-G01-0257` — From Autonomous Agents to Integrated Systems, A New Paradigm: Orchestrated Distributed Intelligence — raw: `../../sources/raw-md/src-g01-0257__from-autonomous-agents-to-integrated-systems-a-new-paradigm-orchestrated-distributed-intel.md`
+- `SRC-G01-0258` — IEEE Conformity Assessment Program (ICAP) — raw: `../../sources/raw-md/src-g01-0258__ieee-conformity-assessment-program-icap.md`
+- `SRC-G01-0261` — Monitor and de-risk. — raw: `../../sources/raw-md/src-g01-0261__monitor-and-de-risk.md`
+- `SRC-G01-0262` — Deploy Bravely — Secure your AI transformation with Prisma AIRS — raw: `../../sources/raw-md/src-g01-0262__deploy-bravely-secure-your-ai-transformation-with-prisma-airs.md`
+- `SRC-G01-0264` — Proceedings of the AAAI Conference on Artificial Intelligence — raw: `../../sources/raw-md/src-g01-0264__proceedings-of-the-aaai-conference-on-artificial-intelligence.md`
+- `SRC-G01-0265` — Forgot passwordCreate an account — raw: `../../sources/raw-md/src-g01-0265__forgot-passwordcreate-an-account.md`
+- `SRC-G01-0266` — Strategic Resilience in Autonomous AI Agents: An Architectural, Risk, and Governance Framework — raw: `../../sources/raw-md/src-g01-0266__strategic-resilience-in-autonomous-ai-agents-an-architectural-risk-and-governance-framewor.md`
+- `SRC-G01-0268` — " * " indicates required fields — raw: `../../sources/raw-md/src-g01-0268__indicates-required-fields.md`
+- `SRC-G01-0269` — What is AI Security Resilience and why it is important for GenAI and Agentic AI? — raw: `../../sources/raw-md/src-g01-0269__what-is-ai-security-resilience-and-why-it-is-important-for-genai-and-agentic-ai.md`
+- `SRC-G01-0270` — Business operations  What is mean time to repair (MTTR)? — raw: `../../sources/raw-md/src-g01-0270__business-operations-what-is-mean-time-to-repair-mttr.md`
+- `SRC-G01-0271` — 0   Skip to Content  Contact Us  Contact Us When AI Agents Make Mistakes: Building Resilient Systems and Recovery Protocols — raw: `../../sources/raw-md/src-g01-0271__0-skip-to-content-contact-us-contact-us-when-ai-agents-make-mistakes-building-resilient-sy.md`
+- `SRC-G01-0281` — Agentic AI Frameworks: Architectures, Protocols, and Design Challenges — raw: `../../sources/raw-md/src-g01-0281__agentic-ai-frameworks-architectures-protocols-and-design-challenges.md`
+- `SRC-G02-130F0F80` — Safe Reinforcement Learning in the Presence of Non-stationarity: Theory and Algorithms — raw: `../../sources/raw-md/src-g02-130f0f80__safe-reinforcement-learning-in-the-presence-of-non-stationarity-theory-and-algorithms.md`
+- `SRC-G02-1EA517F2` — I  Introduction — raw: `../../sources/raw-md/src-g02-1ea517f2__i-introduction.md`; excerpts: `../../excerpts/by-source/src-g02-1ea517f2__candidate-excerpts.md`
+- `SRC-G02-364DB745` — Comparing the Top 5 AI Agent Architectures in 2025: Hierarchical, Swarm, Meta Learning, Modular, Evolutionary - MarkTechPost — raw: `../../sources/raw-md/src-g02-364db745__comparing-the-top-5-ai-agent-architectures-in-2025-hierarchical-swarm-meta-learning-modula.md`
+- `SRC-G02-364DB745` — Comparing the Top 5 AI Agent Architectures in 2025: Hierarchical, Swarm, Meta Learning, Modular, Evolutionary - MarkTechPost — raw: `../../sources/raw-md/src-g02-364db745__comparing-the-top-5-ai-agent-architectures-in-2025-hierarchical-swarm-meta-learning-modula.md`
+- `SRC-G02-4619E428` — Robustness Archives - AI Standards Hub — raw: `../../sources/raw-md/src-g02-4619e428__robustness-archives-ai-standards-hub.md`; excerpts: `../../excerpts/by-source/src-g02-4619e428__candidate-excerpts.md`
+- `SRC-G02-4A2050F3` — Agent-Based Systems for Intelligent Manufacturing: A State-of-the-Art Survey — raw: `../../sources/raw-md/src-g02-4a2050f3__agent-based-systems-for-intelligent-manufacturing-a-state-of-the-art-survey.md`
+- `SRC-G02-9509C75B` — From Autonomous Agents to Integrated Systems, A New Paradigm: Orchestrated Distributed Intelligence - arXiv — raw: `../../sources/raw-md/src-g02-9509c75b__from-autonomous-agents-to-integrated-systems-a-new-paradigm-orchestrated-distributed-intel.md`
+- `SRC-G02-A94FA474` — Continual reinforcement learning in a resource allocation simulator — raw: `../../sources/raw-md/src-g02-a94fa474__continual-reinforcement-learning-in-a-resource-allocation-simulator.md`; excerpts: `../../excerpts/by-source/src-g02-a94fa474__candidate-excerpts.md`
+- `SRC-G02-AE7BB424` — Research report: Thesis Sources Analysis (GridWorld & Resilience) — raw: `../../sources/raw-md/src-g02-ae7bb424__research-report-thesis-sources-analysis-gridworld-and-resilience.md`
+- `SRC-G02-F98DEB8D` — AI Agents Need Data Integrity - Schneier on Security — raw: `../../sources/raw-md/src-g02-f98deb8d__ai-agents-need-data-integrity-schneier-on-security.md`

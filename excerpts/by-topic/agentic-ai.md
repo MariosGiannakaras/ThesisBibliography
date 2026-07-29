@@ -1,0 +1,88 @@
+# Topic Index — agentic-ai
+
+Links to raw Markdown and candidate excerpts. Inclusion here is automatic and must be reviewed.
+
+- `SRC-G01-0001` — Fully Autonomous AI Agents Should Not be Developed — raw: `../../sources/raw-md/src-g01-0001__fully-autonomous-ai-agents-should-not-be-developed.md`
+- `SRC-G01-0002` — By: TokenRing AINovember 17, 2025 at 17:39 PM EST — raw: `../../sources/raw-md/src-g01-0002__by-tokenring-ainovember-17-2025-at-17-39-pm-est.md`
+- `SRC-G01-0003` — Jump to contentMain menu    Navigation — raw: `../../sources/raw-md/src-g01-0003__jump-to-contentmain-menu-navigation.md`
+- `SRC-G01-0004` — Skip to main content — raw: `../../sources/raw-md/src-g01-0004__skip-to-main-content.md`
+- `SRC-G01-0005` — Skip to main content  Skip to Ask Learn chat experience This browser is no longer supported. — raw: `../../sources/raw-md/src-g01-0005__skip-to-main-content-skip-to-ask-learn-chat-experience-this-browser-is-no-longer-supported.md`
+- `SRC-G01-0007` — Skip to main content  Open navigation  Go to Reddit Home  Log In  Log in to Reddit   Open settings menu — raw: `../../sources/raw-md/src-g01-0007__skip-to-main-content-open-navigation-go-to-reddit-home-log-in-log-in-to-reddit-open-settin.md`
+- `SRC-G01-0008` — Reactive and Deliberative AI agents — raw: `../../sources/raw-md/src-g01-0008__reactive-and-deliberative-ai-agents.md`
+- `SRC-G01-0009` — Aptitude & Reasoning — raw: `../../sources/raw-md/src-g01-0009__aptitude-and-reasoning.md`
+- `SRC-G01-0010` — Skip to contentDirectory   Global directory — raw: `../../sources/raw-md/src-g01-0010__skip-to-contentdirectory-global-directory.md`
+- `SRC-G01-0011` — The Architecture, Application, and Alignment Challenges of Autonomous AI Agents: A Comprehensive Technical Analysis — raw: `../../sources/raw-md/src-g01-0011__the-architecture-application-and-alignment-challenges-of-autonomous-ai-agents-a-comprehens.md`
+- `SRC-G01-0012` — Types of AI agents — raw: `../../sources/raw-md/src-g01-0012__types-of-ai-agents.md`
+- `SRC-G01-0015` — What is AI agent memory? — raw: `../../sources/raw-md/src-g01-0015__what-is-ai-agent-memory.md`
+- `SRC-G01-0016` — What is agentic architecture? — raw: `../../sources/raw-md/src-g01-0016__what-is-agentic-architecture.md`
+- `SRC-G01-0017` — Skip to main content — raw: `../../sources/raw-md/src-g01-0017__skip-to-main-content.md`
+- `SRC-G01-0019` — What is AI agent learning? — raw: `../../sources/raw-md/src-g01-0019__what-is-ai-agent-learning.md`
+- `SRC-G01-0020` — What is a ReAct agent? — raw: `../../sources/raw-md/src-g01-0020__what-is-a-react-agent.md`
+- `SRC-G01-0022` — Rapid PrototypingResearch & DevelopmentUser Research & TestingProduct StrategySoftware Development — raw: `../../sources/raw-md/src-g01-0022__rapid-prototypingresearch-and-developmentuser-research-and-testingproduct-strategysoftware.md`
+- `SRC-G01-0024` — Agentic AI Engineering- Complete 4-Hour Workshop feat. MCP, CrewAI and OpenAI Agents SDK — raw: `../../sources/raw-md/src-g01-0024__agentic-ai-engineering-complete-4-hour-workshop-feat-mcp-crewai-and-openai-agents-sdk.md`
+- `SRC-G01-0031` — Andrew Ng Explores The Rise Of AI Agents And Agentic Reasoning - BUILD 2024 Keynote — raw: `../../sources/raw-md/src-g01-0031__andrew-ng-explores-the-rise-of-ai-agents-and-agentic-reasoning-build-2024-keynote.md`
+- `SRC-G01-0034` — By merging these perspectives, this book is a practical guide to leveraging Agentic AI, helping businesses navigate and excel in a dynamic world. — raw: `../../sources/raw-md/src-g01-0034__by-merging-these-perspectives-this-book-is-a-practical-guide-to-leveraging-agentic-ai-help.md`
+- `SRC-G01-0035` — Vicent Botti, Andrea Omicini, Stefano Mariani and Vicente Julian — raw: `../../sources/raw-md/src-g01-0035__vicent-botti-andrea-omicini-stefano-mariani-and-vicente-julian.md`
+- `SRC-G01-0037` — SpringerBriefs in Intelligent Systems Artificial Intelligence, Multiagent Systems, and Cognitive Robotics — raw: `../../sources/raw-md/src-g01-0037__springerbriefs-in-intelligent-systems-artificial-intelligence-multiagent-systems-and-cogni.md`
+- `SRC-G01-0038` — AI Agents Unleashed — raw: `../../sources/raw-md/src-g01-0038__ai-agents-unleashed.md`
+- `SRC-G01-0039` — What is an agent? 4 When should you build an agent? 5 Agent design foundations 7 Guardrails 24 Conclusion 32 — raw: `../../sources/raw-md/src-g01-0039__what-is-an-agent-4-when-should-you-build-an-agent-5-agent-design-foundations-7-guardrails.md`
+- `SRC-G01-0043` — Rise of agentic AI — raw: `../../sources/raw-md/src-g01-0043__rise-of-agentic-ai.md`
+- `SRC-G01-0045` — UIPATH.COM  |  AI AND AUTOMATION TRENDS 2025 2 — raw: `../../sources/raw-md/src-g01-0045__uipath-com-ai-and-automation-trends-2025-2.md`
+- `SRC-G01-0046` — Seizing the agentic AI advantage — raw: `../../sources/raw-md/src-g01-0046__seizing-the-agentic-ai-advantage.md`
+- `SRC-G01-0049` — Large Language Model Agent: A Survey on Methodology, Applications and Challenges — raw: `../../sources/raw-md/src-g01-0049__large-language-model-agent-a-survey-on-methodology-applications-and-challenges.md`
+- `SRC-G01-0052` — An DMs playbook — raw: `../../sources/raw-md/src-g01-0052__an-dms-playbook.md`
+- `SRC-G01-0053` — ProgramAgentic AI                 Pioneer — raw: `../../sources/raw-md/src-g01-0053__programagentic-ai-pioneer.md`
+- `SRC-G01-0089` — AI Safety as a Reinforcement Learning Problem — raw: `../../sources/raw-md/src-g01-0089__ai-safety-as-a-reinforcement-learning-problem.md`
+- `SRC-G01-0184` — International Journal of Computer Applications (0975 – 8887) — raw: `../../sources/raw-md/src-g01-0184__international-journal-of-computer-applications-0975-8887.md`
+- `SRC-G01-0185` — Comparing the Top 5 AI Agent Architectures in 2025: Hierarchical, Swarm, Meta Learning, Modular, Evolutionary - MarkTechPost — raw: `../../sources/raw-md/src-g01-0185__comparing-the-top-5-ai-agent-architectures-in-2025-hierarchical-swarm-meta-learning-modula.md`
+- `SRC-G01-0190` — Hierarchical Reinforcement Learning for Playing a Dynamic Dungeon Crawler Game — raw: `../../sources/raw-md/src-g01-0190__hierarchical-reinforcement-learning-for-playing-a-dynamic-dungeon-crawler-game.md`
+- `SRC-G01-0195` — Formal methods for safety-critical machine learning: a systematic literature review — raw: `../../sources/raw-md/src-g01-0195__formal-methods-for-safety-critical-machine-learning-a-systematic-literature-review.md`
+- `SRC-G01-0198` — Practices for governing agentic AI systems: OpenAI's seven safety principles | VerifyWise AI Governance Library — raw: `../../sources/raw-md/src-g01-0198__practices-for-governing-agentic-ai-systems-openai-s-seven-safety-principles-verifywise-ai.md`
+- `SRC-G01-0199` — SafeAI@UAI 2026 — 2nd Workshop on Safe AI — raw: `../../sources/raw-md/src-g01-0199__safeai-uai-2026-2nd-workshop-on-safe-ai.md`
+- `SRC-G01-0213` — Skip to main contentMicrosoft  Microsoft Security  Microsoft Security — raw: `../../sources/raw-md/src-g01-0213__skip-to-main-contentmicrosoft-microsoft-security-microsoft-security.md`
+- `SRC-G01-0217` — This is a pre-print of the following paper: — raw: `../../sources/raw-md/src-g01-0217__this-is-a-pre-print-of-the-following-paper.md`
+- `SRC-G01-0218` — CCS Concepts: • Security and privacy→ AI agent. — raw: `../../sources/raw-md/src-g01-0218__ccs-concepts-security-and-privacy-ai-agent.md`
+- `SRC-G01-0220` — A Review of Fault Tolerance Techniques in Generative Multi-Agent Systems for Real-Time Applications — raw: `../../sources/raw-md/src-g01-0220__a-review-of-fault-tolerance-techniques-in-generative-multi-agent-systems-for-real-time-app.md`
+- `SRC-G01-0223` — Reinforcement Learning Journal 2025 ∣∣ Cover Page — raw: `../../sources/raw-md/src-g01-0223__reinforcement-learning-journal-2025-cover-page.md`
+- `SRC-G01-0225` — Cooperative Resilience in Artificial Intelligence Multiagent Systems — raw: `../../sources/raw-md/src-g01-0225__cooperative-resilience-in-artificial-intelligence-multiagent-systems.md`
+- `SRC-G01-0233` — Agent-Based Systems for Intelligent Manufacturing: A State-of-the-Art Survey — raw: `../../sources/raw-md/src-g01-0233__agent-based-systems-for-intelligent-manufacturing-a-state-of-the-art-survey.md`
+- `SRC-G01-0234` — Jump to contentMain menu    Navigation — raw: `../../sources/raw-md/src-g01-0234__jump-to-contentmain-menu-navigation.md`
+- `SRC-G01-0235` — Discovering and Using Structure in Autonomous Machine Learning — raw: `../../sources/raw-md/src-g01-0235__discovering-and-using-structure-in-autonomous-machine-learning.md`
+- `SRC-G01-0237` — Jump to contentMain menu    Navigation — raw: `../../sources/raw-md/src-g01-0237__jump-to-contentmain-menu-navigation.md`
+- `SRC-G01-0238` — Jump to contentMain menu    Navigation — raw: `../../sources/raw-md/src-g01-0238__jump-to-contentmain-menu-navigation.md`
+- `SRC-G01-0239` — BrowseSolving Real-World Tasks with AI Agents — raw: `../../sources/raw-md/src-g01-0239__browsesolving-real-world-tasks-with-ai-agents.md`
+- `SRC-G01-0241` — Data Science Colle… · Follow publication — raw: `../../sources/raw-md/src-g01-0241__data-science-colle-follow-publication.md`
+- `SRC-G01-0243` — Schneier on Security — raw: `../../sources/raw-md/src-g01-0243__schneier-on-security.md`
+- `SRC-G01-0251` — Skip to main contentHit enter to search or ESC to close  Close Search  searchMenu — raw: `../../sources/raw-md/src-g01-0251__skip-to-main-contenthit-enter-to-search-or-esc-to-close-close-search-searchmenu.md`
+- `SRC-G01-0252` — Skip to Main Content — raw: `../../sources/raw-md/src-g01-0252__skip-to-main-content.md`
+- `SRC-G01-0256` — Platform Agentic SideKick 3.0 — raw: `../../sources/raw-md/src-g01-0256__platform-agentic-sidekick-3-0.md`
+- `SRC-G01-0257` — From Autonomous Agents to Integrated Systems, A New Paradigm: Orchestrated Distributed Intelligence — raw: `../../sources/raw-md/src-g01-0257__from-autonomous-agents-to-integrated-systems-a-new-paradigm-orchestrated-distributed-intel.md`
+- `SRC-G01-0263` — Skip to contentAbout us What We Do  Get A Free AI Chatbot Generative AI — raw: `../../sources/raw-md/src-g01-0263__skip-to-contentabout-us-what-we-do-get-a-free-ai-chatbot-generative-ai.md`
+- `SRC-G01-0266` — Strategic Resilience in Autonomous AI Agents: An Architectural, Risk, and Governance Framework — raw: `../../sources/raw-md/src-g01-0266__strategic-resilience-in-autonomous-ai-agents-an-architectural-risk-and-governance-framewor.md`
+- `SRC-G01-0269` — What is AI Security Resilience and why it is important for GenAI and Agentic AI? — raw: `../../sources/raw-md/src-g01-0269__what-is-ai-security-resilience-and-why-it-is-important-for-genai-and-agentic-ai.md`
+- `SRC-G01-0271` — 0   Skip to Content  Contact Us  Contact Us When AI Agents Make Mistakes: Building Resilient Systems and Recovery Protocols — raw: `../../sources/raw-md/src-g01-0271__0-skip-to-content-contact-us-contact-us-when-ai-agents-make-mistakes-building-resilient-sy.md`
+- `SRC-G01-0275` — In the world of AI, it seems that 2025 is the year of the AI Agent. — raw: `../../sources/raw-md/src-g01-0275__in-the-world-of-ai-it-seems-that-2025-is-the-year-of-the-ai-agent.md`
+- `SRC-G01-0277` — Skip to contentNavigation Menu — raw: `../../sources/raw-md/src-g01-0277__skip-to-contentnavigation-menu.md`
+- `SRC-G01-0278` — AI agent use cases — raw: `../../sources/raw-md/src-g01-0278__ai-agent-use-cases.md`
+- `SRC-G01-0279` — AI Agents: Evolution, Architecture, and — raw: `../../sources/raw-md/src-g01-0279__ai-agents-evolution-architecture-and.md`
+- `SRC-G01-0281` — Agentic AI Frameworks: Architectures, Protocols, and Design Challenges — raw: `../../sources/raw-md/src-g01-0281__agentic-ai-frameworks-architectures-protocols-and-design-challenges.md`
+- `SRC-G01-0282` — An Economy of AI Agents — raw: `../../sources/raw-md/src-g01-0282__an-economy-of-ai-agents.md`
+- `SRC-G01-0283` — Jump to contentMain menu    Navigation — raw: `../../sources/raw-md/src-g01-0283__jump-to-contentmain-menu-navigation.md`
+- `SRC-G01-0285` — 11institutetext:   LMU Munich, Germany22institutetext:  Fraunhofer Institute for Cognitive Systems, Germany 33institutetext:  University of York, United Kingdom 33email:  philipp.altmann@ifi.lmu.de — raw: `../../sources/raw-md/src-g01-0285__11institutetext-lmu-munich-germany22institutetext-fraunhofer-institute-for-cognitive-syste.md`
+- `SRC-G02-094ADD34` — Open Source Tools That Make Autonomous Agent Development ... — raw: `../../sources/raw-md/src-g02-094add34__open-source-tools-that-make-autonomous-agent-development.md`
+- `SRC-G02-0E39AF20` — Agent AI for Finance From Financial Argument Mining to -- Chung-Chi Chen, Hiroya Takamura.PDF — raw: `../../sources/raw-md/src-g02-0e39af20__agent-ai-for-finance-from-financial-argument-mining-to-chung-chi-chen-hiroya-takamura-pdf.md`
+- `SRC-G02-364DB745` — Comparing the Top 5 AI Agent Architectures in 2025: Hierarchical, Swarm, Meta Learning, Modular, Evolutionary - MarkTechPost — raw: `../../sources/raw-md/src-g02-364db745__comparing-the-top-5-ai-agent-architectures-in-2025-hierarchical-swarm-meta-learning-modula.md`
+- `SRC-G02-364DB745` — Comparing the Top 5 AI Agent Architectures in 2025: Hierarchical, Swarm, Meta Learning, Modular, Evolutionary - MarkTechPost — raw: `../../sources/raw-md/src-g02-364db745__comparing-the-top-5-ai-agent-architectures-in-2025-hierarchical-swarm-meta-learning-modula.md`
+- `SRC-G02-4A2050F3` — Agent-Based Systems for Intelligent Manufacturing: A State-of-the-Art Survey — raw: `../../sources/raw-md/src-g02-4a2050f3__agent-based-systems-for-intelligent-manufacturing-a-state-of-the-art-survey.md`
+- `SRC-G02-4E0E6067` — Hierarchical Reinforcement Learning for Playing a Dynamic Dungeon Crawler Game - Bernoulli Institute for Mathematics, Computer Science and Artificial Intelligence — raw: `../../sources/raw-md/src-g02-4e0e6067__hierarchical-reinforcement-learning-for-playing-a-dynamic-dungeon-crawler-game-bernoulli-i.md`
+- `SRC-G02-4E0E6067` — Hierarchical Reinforcement Learning for Playing a Dynamic Dungeon Crawler Game - Bernoulli Institute for Mathematics, Computer Science and Artificial Intelligence — raw: `../../sources/raw-md/src-g02-4e0e6067__hierarchical-reinforcement-learning-for-playing-a-dynamic-dungeon-crawler-game-bernoulli-i.md`
+- `SRC-G02-76A64D20` — The Architecture, Application, and Alignment Challenges of Autonomous AI Agents: A Comprehensive Technical Analysis — raw: `../../sources/raw-md/src-g02-76a64d20__the-architecture-application-and-alignment-challenges-of-autonomous-ai-agents-a-comprehens.md`; excerpts: `../../excerpts/by-source/src-g02-76a64d20__candidate-excerpts.md`
+- `SRC-G02-7EDFFBB6` — Belief–desire–intention software model - Wikipedia — raw: `../../sources/raw-md/src-g02-7edffbb6__belief-desire-intention-software-model-wikipedia.md`
+- `SRC-G02-9509C75B` — From Autonomous Agents to Integrated Systems, A New Paradigm: Orchestrated Distributed Intelligence - arXiv — raw: `../../sources/raw-md/src-g02-9509c75b__from-autonomous-agents-to-integrated-systems-a-new-paradigm-orchestrated-distributed-intel.md`
+- `SRC-G02-A19E2F9A` — Agentic AI Engineering: Complete 4-Hour Workshop feat. MCP, CrewAI and OpenAI Agents SDK — raw: `../../sources/raw-md/src-g02-a19e2f9a__agentic-ai-engineering-complete-4-hour-workshop-feat-mcp-crewai-and-openai-agents-sdk.md`
+- `SRC-G02-AA472F63` — AI Safety as a Reinforcement Learning Problem — raw: `../../sources/raw-md/src-g02-aa472f63__ai-safety-as-a-reinforcement-learning-problem.md`
+- `SRC-G02-B17FCFE1` — Discovering and Using Structure in Autonomous Machine Learning - Research Collection — raw: `../../sources/raw-md/src-g02-b17fcfe1__discovering-and-using-structure-in-autonomous-machine-learning-research-collection.md`; excerpts: `../../excerpts/by-source/src-g02-b17fcfe1__candidate-excerpts.md`
+- `SRC-G02-DC3D8968` — What Is Agentic Architecture? | IBM — raw: `../../sources/raw-md/src-g02-dc3d8968__what-is-agentic-architecture-ibm.md`
+- `SRC-G02-E20BBA24` — What Is AI Agent Memory? | IBM — raw: `../../sources/raw-md/src-g02-e20bba24__what-is-ai-agent-memory-ibm.md`
+- `SRC-G02-E9CCD871` — Leveraging the Beliefs-Desires-Intentions Agent Architecture | Microsoft Learn — raw: `../../sources/raw-md/src-g02-e9ccd871__leveraging-the-beliefs-desires-intentions-agent-architecture-microsoft-learn.md`
+- `SRC-G02-F98DEB8D` — AI Agents Need Data Integrity - Schneier on Security — raw: `../../sources/raw-md/src-g02-f98deb8d__ai-agents-need-data-integrity-schneier-on-security.md`

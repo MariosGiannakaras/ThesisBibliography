@@ -1,0 +1,16 @@
+{
+  "generated_at_utc": "2026-07-29T21:32:02.005933+00:00",
+  "sources": 363,
+  "groups": [
+    "Group1",
+    "Group2"
+  ],
+  "malformed_or_incomplete": 346,
+  "duplicate_groups": 53,
+  "primary": 177,
+  "supporting": 105,
+  "peripheral": 66,
+  "exclude_candidates": 15,
+  "reference_candidates": 3697,
+  "notebooklm_report_candidates": 385
+}

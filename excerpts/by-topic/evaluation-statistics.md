@@ -1,0 +1,54 @@
+# Topic Index — evaluation-statistics
+
+Links to raw Markdown and candidate excerpts. Inclusion here is automatic and must be reviewed.
+
+- `SRC-G01-0001` — Fully Autonomous AI Agents Should Not be Developed — raw: `../../sources/raw-md/src-g01-0001__fully-autonomous-ai-agents-should-not-be-developed.md`
+- `SRC-G01-0035` — Vicent Botti, Andrea Omicini, Stefano Mariani and Vicente Julian — raw: `../../sources/raw-md/src-g01-0035__vicent-botti-andrea-omicini-stefano-mariani-and-vicente-julian.md`
+- `SRC-G01-0038` — AI Agents Unleashed — raw: `../../sources/raw-md/src-g01-0038__ai-agents-unleashed.md`
+- `SRC-G01-0090` — AIC- Facing Uncertainty in AI -- From Verification to Synthesis — raw: `../../sources/raw-md/src-g01-0090__aic-facing-uncertainty-in-ai-from-verification-to-synthesis.md`
+- `SRC-G01-0092` — Generalizing offline reinforcement learning to unseen dynamics parameters with synthetic data — raw: `../../sources/raw-md/src-g01-0092__generalizing-offline-reinforcement-learning-to-unseen-dynamics-parameters-with-synthetic-d.md`
+- `SRC-G01-0099` — Robust proximal policy optimization for reinforcement learning — raw: `../../sources/raw-md/src-g01-0099__robust-proximal-policy-optimization-for-reinforcement-learning.md`
+- `SRC-G01-0100` — We present a model-based reinforcement learning algorithm that can safely learn and explore — raw: `../../sources/raw-md/src-g01-0100__we-present-a-model-based-reinforcement-learning-algorithm-that-can-safely-learn-and-explor.md`
+- `SRC-G01-0103` — Safe reinforcement learning for real robots — raw: `../../sources/raw-md/src-g01-0103__safe-reinforcement-learning-for-real-robots.md`
+- `SRC-G01-0107` — Stanford Seminar - Towards Safe and Efficient Learning in the Physical World — raw: `../../sources/raw-md/src-g01-0107__stanford-seminar-towards-safe-and-efficient-learning-in-the-physical-world.md`
+- `SRC-G01-0109` — Search with your voice — raw: `../../sources/raw-md/src-g01-0109__search-with-your-voice.md`
+- `SRC-G01-0114` — [MERL Seminar Series Spring 2026] Robust Decision Making Without Compromising Learning Efficiency — raw: `../../sources/raw-md/src-g01-0114__merl-seminar-series-spring-2026-robust-decision-making-without-compromising-learning-effic.md`
+- `SRC-G01-0121` — Reinforcement Learning with Robustness and Safety Guarantees — raw: `../../sources/raw-md/src-g01-0121__reinforcement-learning-with-robustness-and-safety-guarantees.md`
+- `SRC-G01-0122` — So, what we're gonna do today is we're gonna start to — raw: `../../sources/raw-md/src-g01-0122__so-what-we-re-gonna-do-today-is-we-re-gonna-start-to.md`
+- `SRC-G01-0124` — s for joining yeah I wasn't sure if this is happening at 6 because jip said you will send another email on the ma yes so we P for two hours — raw: `../../sources/raw-md/src-g01-0124__s-for-joining-yeah-i-wasn-t-sure-if-this-is-happening-at-6-because-jip-said-you-will-send.md`
+- `SRC-G01-0126` — A Bayesian Approach to Robust Reinforcement Learning — raw: `../../sources/raw-md/src-g01-0126__a-bayesian-approach-to-robust-reinforcement-learning.md`
+- `SRC-G01-0139` — Forgetting as Control: A Theoretical Framework for Selective Behavioral Erasure in Post-Deployment Reinforcement Learning Agents[v1] | Preprints.org — raw: `../../sources/raw-md/src-g01-0139__forgetting-as-control-a-theoretical-framework-for-selective-behavioral-erasure-in-post-dep.md`
+- `SRC-G01-0142` — ICML Poster Online Robust Reinforcement Learning Through Monte-Carlo Planning — raw: `../../sources/raw-md/src-g01-0142__icml-poster-online-robust-reinforcement-learning-through-monte-carlo-planning.md`
+- `SRC-G01-0149` — Online Policy Optimization for Robust Markov Decision Process — raw: `../../sources/raw-md/src-g01-0149__online-policy-optimization-for-robust-markov-decision-process.md`
+- `SRC-G01-0150` — Online Robust Planning Under Model Uncertainty: A Sample-Based Approach — raw: `../../sources/raw-md/src-g01-0150__online-robust-planning-under-model-uncertainty-a-sample-based-approach.md`
+- `SRC-G01-0164` — EFFICIENT ACTION ROBUST REINFORCEMENT LEARNING WITH PROBABILISTIC POLICY EXECUTION UNCERTAINTY — raw: `../../sources/raw-md/src-g01-0164__efficient-action-robust-reinforcement-learning-with-probabilistic-policy-execution-uncerta.md`
+- `SRC-G01-0177` — Cross-Domain Transfer for Reinforcement Learning — raw: `../../sources/raw-md/src-g01-0177__cross-domain-transfer-for-reinforcement-learning.md`
+- `SRC-G01-0184` — International Journal of Computer Applications (0975 – 8887) — raw: `../../sources/raw-md/src-g01-0184__international-journal-of-computer-applications-0975-8887.md`
+- `SRC-G01-0188` — ISCSITR- INTERNATIONAL JOURNAL OF DATA ENGINEERING (ISCSITR-IJDE) — raw: `../../sources/raw-md/src-g01-0188__iscsitr-international-journal-of-data-engineering-iscsitr-ijde.md`
+- `SRC-G01-0197` — NIST Issues New Artificial Intelligence Risk Management Framework — raw: `../../sources/raw-md/src-g01-0197__nist-issues-new-artificial-intelligence-risk-management-framework.md`
+- `SRC-G01-0202` — How is this possible? — raw: `../../sources/raw-md/src-g01-0202__how-is-this-possible.md`
+- `SRC-G01-0208` — Markov decision process - Wikipedia — raw: `../../sources/raw-md/src-g01-0208__markov-decision-process-wikipedia.md`
+- `SRC-G01-0211` — [2410.02820] Heuristics and Biases in AI Decision-Making: Implications for Responsible AGI — raw: `../../sources/raw-md/src-g01-0211__2410-02820-heuristics-and-biases-in-ai-decision-making-implications-for-responsible-agi.md`
+- `SRC-G01-0217` — This is a pre-print of the following paper: — raw: `../../sources/raw-md/src-g01-0217__this-is-a-pre-print-of-the-following-paper.md`
+- `SRC-G01-0237` — Jump to contentMain menu    Navigation — raw: `../../sources/raw-md/src-g01-0237__jump-to-contentmain-menu-navigation.md`
+- `SRC-G01-0247` — NIST Trustworthy and Responsible AI NIST AI 100-2e2025 — raw: `../../sources/raw-md/src-g01-0247__nist-trustworthy-and-responsible-ai-nist-ai-100-2e2025.md`
+- `SRC-G01-0248` — Google WorkspaceMicrosoft 365SalesforceDatabricksGitHubOktaServiceNowSnowflakeWorkdayMore Integrations — raw: `../../sources/raw-md/src-g01-0248__google-workspacemicrosoft-365salesforcedatabricksgithuboktaservicenowsnowflakeworkdaymore.md`
+- `SRC-G01-0254` — Human Rights and Biomedicine — raw: `../../sources/raw-md/src-g01-0254__human-rights-and-biomedicine.md`
+- `SRC-G01-0257` — From Autonomous Agents to Integrated Systems, A New Paradigm: Orchestrated Distributed Intelligence — raw: `../../sources/raw-md/src-g01-0257__from-autonomous-agents-to-integrated-systems-a-new-paradigm-orchestrated-distributed-intel.md`
+- `SRC-G01-0262` — Deploy Bravely — Secure your AI transformation with Prisma AIRS — raw: `../../sources/raw-md/src-g01-0262__deploy-bravely-secure-your-ai-transformation-with-prisma-airs.md`
+- `SRC-G01-0263` — Skip to contentAbout us What We Do  Get A Free AI Chatbot Generative AI — raw: `../../sources/raw-md/src-g01-0263__skip-to-contentabout-us-what-we-do-get-a-free-ai-chatbot-generative-ai.md`
+- `SRC-G01-0266` — Strategic Resilience in Autonomous AI Agents: An Architectural, Risk, and Governance Framework — raw: `../../sources/raw-md/src-g01-0266__strategic-resilience-in-autonomous-ai-agents-an-architectural-risk-and-governance-framewor.md`
+- `SRC-G01-0271` — 0   Skip to Content  Contact Us  Contact Us When AI Agents Make Mistakes: Building Resilient Systems and Recovery Protocols — raw: `../../sources/raw-md/src-g01-0271__0-skip-to-content-contact-us-contact-us-when-ai-agents-make-mistakes-building-resilient-sy.md`
+- `SRC-G01-0279` — AI Agents: Evolution, Architecture, and — raw: `../../sources/raw-md/src-g01-0279__ai-agents-evolution-architecture-and.md`
+- `SRC-G02-064CF2DB` — Online Robust Planning Under Model Uncertainty: A Sample-Based Approach — raw: `../../sources/raw-md/src-g02-064cf2db__online-robust-planning-under-model-uncertainty-a-sample-based-approach.md`
+- `SRC-G02-0C8E14CC` — Safe Model-based Reinforcement Learning with Stability Guarantees (NIPS 2017 Spotlight) — raw: `../../sources/raw-md/src-g02-0c8e14cc__safe-model-based-reinforcement-learning-with-stability-guarantees-nips-2017-spotlight.md`
+- `SRC-G02-189936F6` — Generalizing offline reinforcement learning to unseen dynamics parameters with synthetic data — raw: `../../sources/raw-md/src-g02-189936f6__generalizing-offline-reinforcement-learning-to-unseen-dynamics-parameters-with-synthetic-d.md`; excerpts: `../../excerpts/by-source/src-g02-189936f6__candidate-excerpts.md`
+- `SRC-G02-20B19CE5` — [MERL Seminar Series Spring 2026] Robust Decision Making Without Compromising Learning Efficiency — raw: `../../sources/raw-md/src-g02-20b19ce5__merl-seminar-series-spring-2026-robust-decision-making-without-compromising-learning-effic.md`
+- `SRC-G02-501140AD` — Reinforcement Learning with Robustness and Safety Guarantees — raw: `../../sources/raw-md/src-g02-501140ad__reinforcement-learning-with-robustness-and-safety-guarantees.md`
+- `SRC-G02-74ED7BC9` — Robust proximal policy optimization for reinforcement learning — raw: `../../sources/raw-md/src-g02-74ed7bc9__robust-proximal-policy-optimization-for-reinforcement-learning.md`; excerpts: `../../excerpts/by-source/src-g02-74ed7bc9__candidate-excerpts.md`
+- `SRC-G02-7FC6E01D` — Stanford Seminar - Towards Safe and Efficient Learning in the Physical World — raw: `../../sources/raw-md/src-g02-7fc6e01d__stanford-seminar-towards-safe-and-efficient-learning-in-the-physical-world.md`
+- `SRC-G02-90F59642` — UAI 2024 (Barcelona) - YouTube — raw: `../../sources/raw-md/src-g02-90f59642__uai-2024-barcelona-youtube.md`
+- `SRC-G02-9509C75B` — From Autonomous Agents to Integrated Systems, A New Paradigm: Orchestrated Distributed Intelligence - arXiv — raw: `../../sources/raw-md/src-g02-9509c75b__from-autonomous-agents-to-integrated-systems-a-new-paradigm-orchestrated-distributed-intel.md`
+- `SRC-G02-A2F639E4` — Forgetting as Control: A Theoretical Framework for Selective Behavioral Erasure in Post-Deployment Reinforcement Learning Agents - Preprints.org — raw: `../../sources/raw-md/src-g02-a2f639e4__forgetting-as-control-a-theoretical-framework-for-selective-behavioral-erasure-in-post-dep.md`; excerpts: `../../excerpts/by-source/src-g02-a2f639e4__candidate-excerpts.md`
+- `SRC-G02-AFF60ACF` — Safe reinforcement learning for real robots — raw: `../../sources/raw-md/src-g02-aff60acf__safe-reinforcement-learning-for-real-robots.md`; excerpts: `../../excerpts/by-source/src-g02-aff60acf__candidate-excerpts.md`
+- `SRC-G02-C2D6E1A7` — AIC: Facing Uncertainty in AI -- From Verification to Synthesis — raw: `../../sources/raw-md/src-g02-c2d6e1a7__aic-facing-uncertainty-in-ai-from-verification-to-synthesis.md`

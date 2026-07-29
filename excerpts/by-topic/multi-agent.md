@@ -1,0 +1,114 @@
+# Topic Index — multi-agent
+
+Links to raw Markdown and candidate excerpts. Inclusion here is automatic and must be reviewed.
+
+- `SRC-G01-0001` — Fully Autonomous AI Agents Should Not be Developed — raw: `../../sources/raw-md/src-g01-0001__fully-autonomous-ai-agents-should-not-be-developed.md`
+- `SRC-G01-0002` — By: TokenRing AINovember 17, 2025 at 17:39 PM EST — raw: `../../sources/raw-md/src-g01-0002__by-tokenring-ainovember-17-2025-at-17-39-pm-est.md`
+- `SRC-G01-0003` — Jump to contentMain menu    Navigation — raw: `../../sources/raw-md/src-g01-0003__jump-to-contentmain-menu-navigation.md`
+- `SRC-G01-0007` — Skip to main content  Open navigation  Go to Reddit Home  Log In  Log in to Reddit   Open settings menu — raw: `../../sources/raw-md/src-g01-0007__skip-to-main-content-open-navigation-go-to-reddit-home-log-in-log-in-to-reddit-open-settin.md`
+- `SRC-G01-0008` — Reactive and Deliberative AI agents — raw: `../../sources/raw-md/src-g01-0008__reactive-and-deliberative-ai-agents.md`
+- `SRC-G01-0011` — The Architecture, Application, and Alignment Challenges of Autonomous AI Agents: A Comprehensive Technical Analysis — raw: `../../sources/raw-md/src-g01-0011__the-architecture-application-and-alignment-challenges-of-autonomous-ai-agents-a-comprehens.md`
+- `SRC-G01-0012` — Types of AI agents — raw: `../../sources/raw-md/src-g01-0012__types-of-ai-agents.md`
+- `SRC-G01-0014` — Agent Development Kit — raw: `../../sources/raw-md/src-g01-0014__agent-development-kit.md`
+- `SRC-G01-0016` — What is agentic architecture? — raw: `../../sources/raw-md/src-g01-0016__what-is-agentic-architecture.md`
+- `SRC-G01-0017` — Skip to main content — raw: `../../sources/raw-md/src-g01-0017__skip-to-main-content.md`
+- `SRC-G01-0019` — What is AI agent learning? — raw: `../../sources/raw-md/src-g01-0019__what-is-ai-agent-learning.md`
+- `SRC-G01-0020` — What is a ReAct agent? — raw: `../../sources/raw-md/src-g01-0020__what-is-a-react-agent.md`
+- `SRC-G01-0022` — Rapid PrototypingResearch & DevelopmentUser Research & TestingProduct StrategySoftware Development — raw: `../../sources/raw-md/src-g01-0022__rapid-prototypingresearch-and-developmentuser-research-and-testingproduct-strategysoftware.md`
+- `SRC-G01-0023` — Skip to main content  Open navigation  Go to Reddit Home  Log In  Log in to Reddit   Open settings menu — raw: `../../sources/raw-md/src-g01-0023__skip-to-main-content-open-navigation-go-to-reddit-home-log-in-log-in-to-reddit-open-settin.md`
+- `SRC-G01-0024` — Agentic AI Engineering- Complete 4-Hour Workshop feat. MCP, CrewAI and OpenAI Agents SDK — raw: `../../sources/raw-md/src-g01-0024__agentic-ai-engineering-complete-4-hour-workshop-feat-mcp-crewai-and-openai-agents-sdk.md`
+- `SRC-G01-0028` — Andrew Ng- State of AI Agents - LangChain Interrupt — raw: `../../sources/raw-md/src-g01-0028__andrew-ng-state-of-ai-agents-langchain-interrupt.md`
+- `SRC-G01-0031` — Andrew Ng Explores The Rise Of AI Agents And Agentic Reasoning - BUILD 2024 Keynote — raw: `../../sources/raw-md/src-g01-0031__andrew-ng-explores-the-rise-of-ai-agents-and-agentic-reasoning-build-2024-keynote.md`
+- `SRC-G01-0032` — Real-World Strategies for Multi-Agent Development — raw: `../../sources/raw-md/src-g01-0032__real-world-strategies-for-multi-agent-development.md`
+- `SRC-G01-0033` — Authors: Julia Wiesinger, Patrick Marlow  and Vladimir Vuskovic — raw: `../../sources/raw-md/src-g01-0033__authors-julia-wiesinger-patrick-marlow-and-vladimir-vuskovic.md`
+- `SRC-G01-0034` — By merging these perspectives, this book is a practical guide to leveraging Agentic AI, helping businesses navigate and excel in a dynamic world. — raw: `../../sources/raw-md/src-g01-0034__by-merging-these-perspectives-this-book-is-a-practical-guide-to-leveraging-agentic-ai-help.md`
+- `SRC-G01-0035` — Vicent Botti, Andrea Omicini, Stefano Mariani and Vicente Julian — raw: `../../sources/raw-md/src-g01-0035__vicent-botti-andrea-omicini-stefano-mariani-and-vicente-julian.md`
+- `SRC-G01-0036` — AGENTIC The Rise of AI Agents — raw: `../../sources/raw-md/src-g01-0036__agentic-the-rise-of-ai-agents.md`
+- `SRC-G01-0037` — SpringerBriefs in Intelligent Systems Artificial Intelligence, Multiagent Systems, and Cognitive Robotics — raw: `../../sources/raw-md/src-g01-0037__springerbriefs-in-intelligent-systems-artificial-intelligence-multiagent-systems-and-cogni.md`
+- `SRC-G01-0039` — What is an agent? 4 When should you build an agent? 5 Agent design foundations 7 Guardrails 24 Conclusion 32 — raw: `../../sources/raw-md/src-g01-0039__what-is-an-agent-4-when-should-you-build-an-agent-5-agent-design-foundations-7-guardrails.md`
+- `SRC-G01-0043` — Rise of agentic AI — raw: `../../sources/raw-md/src-g01-0043__rise-of-agentic-ai.md`
+- `SRC-G01-0044` — We and our 31 IAB TCF partners store and access information on your device for the following purposes: store and/or access information on a device, advertising and content — raw: `../../sources/raw-md/src-g01-0044__we-and-our-31-iab-tcf-partners-store-and-access-information-on-your-device-for-the-followi.md`
+- `SRC-G01-0049` — Large Language Model Agent: A Survey on Methodology, Applications and Challenges — raw: `../../sources/raw-md/src-g01-0049__large-language-model-agent-a-survey-on-methodology-applications-and-challenges.md`
+- `SRC-G01-0052` — An DMs playbook — raw: `../../sources/raw-md/src-g01-0052__an-dms-playbook.md`
+- `SRC-G01-0089` — AI Safety as a Reinforcement Learning Problem — raw: `../../sources/raw-md/src-g01-0089__ai-safety-as-a-reinforcement-learning-problem.md`
+- `SRC-G01-0093` — IROS 2022 Keynote- Safe Learning in Robotics by Prof. Angela Schoellig — raw: `../../sources/raw-md/src-g01-0093__iros-2022-keynote-safe-learning-in-robotics-by-prof-angela-schoellig.md`
+- `SRC-G01-0096` — Search with your voice — raw: `../../sources/raw-md/src-g01-0096__search-with-your-voice.md`
+- `SRC-G01-0106` — Stanford Seminar - Continual Safety Assurances for Learning-Enabled Robotic Systems — raw: `../../sources/raw-md/src-g01-0106__stanford-seminar-continual-safety-assurances-for-learning-enabled-robotic-systems.md`
+- `SRC-G01-0128` — AI Safety Gridworlds — raw: `../../sources/raw-md/src-g01-0128__ai-safety-gridworlds.md`
+- `SRC-G01-0129` — Alignment Newsletter #26 — LessWrong — raw: `../../sources/raw-md/src-g01-0129__alignment-newsletter-26-lesswrong.md`
+- `SRC-G01-0131` — BELIEF-ENRICHED PESSIMISTIC Q-LEARNING — raw: `../../sources/raw-md/src-g01-0131__belief-enriched-pessimistic-q-learning.md`
+- `SRC-G01-0143` — Interaction-Breaking Adversarial Learning Framework for Robust Multi-Agent Reinforcement Learning — raw: `../../sources/raw-md/src-g01-0143__interaction-breaking-adversarial-learning-framework-for-robust-multi-agent-reinforcement-l.md`
+- `SRC-G01-0154` — Rectified Robust Policy Optimization for Model-Uncertain Constrained Reinforcement Learning without Strong Duality — raw: `../../sources/raw-md/src-g01-0154__rectified-robust-policy-optimization-for-model-uncertain-constrained-reinforcement-learnin.md`
+- `SRC-G01-0156` — Robust Model-Based Reinforcement Learning with an Adversarial Auxiliary Model — raw: `../../sources/raw-md/src-g01-0156__robust-model-based-reinforcement-learning-with-an-adversarial-auxiliary-model.md`
+- `SRC-G01-0157` — Proceedings of Machine Learning Research vol 144:1–13, 2021 — raw: `../../sources/raw-md/src-g01-0157__proceedings-of-machine-learning-research-vol-144-1-13-2021.md`
+- `SRC-G01-0160` — Uncertainty-Aware LLM-Guided Policy Shaping for Sparse-Reward Reinforcement Learning Code: github.com/USD-AI-ResearchLab/uncertainty-aware-llm-rl — raw: `../../sources/raw-md/src-g01-0160__uncertainty-aware-llm-guided-policy-shaping-for-sparse-reward-reinforcement-learning-code.md`
+- `SRC-G01-0164` — EFFICIENT ACTION ROBUST REINFORCEMENT LEARNING WITH PROBABILISTIC POLICY EXECUTION UNCERTAINTY — raw: `../../sources/raw-md/src-g01-0164__efficient-action-robust-reinforcement-learning-with-probabilistic-policy-execution-uncerta.md`
+- `SRC-G01-0166` — GitHub - opocaj92/GridWorldEnvs: Some GridWorld environments for OpenAI Gym · GitHub — raw: `../../sources/raw-md/src-g01-0166__github-opocaj92-gridworldenvs-some-gridworld-environments-for-openai-gym-github.md`
+- `SRC-G01-0172` — Έκθεση Έρευνας: Ανάλυση, Εκκαθάριση και Εμπλουτισμός Βιβλιογραφίας για την Πτυχιακή Εργασία — raw: `../../sources/raw-md/src-g01-0172__untitled.md`
+- `SRC-G01-0173` — Robust Multi-Agent Reinforcement Learning with Model Uncertainty — raw: `../../sources/raw-md/src-g01-0173__robust-multi-agent-reinforcement-learning-with-model-uncertainty.md`
+- `SRC-G01-0176` — Create Custom Grid World Environments - MATLAB & Simulink — raw: `../../sources/raw-md/src-g01-0176__create-custom-grid-world-environments-matlab-and-simulink.md`
+- `SRC-G01-0177` — Cross-Domain Transfer for Reinforcement Learning — raw: `../../sources/raw-md/src-g01-0177__cross-domain-transfer-for-reinforcement-learning.md`
+- `SRC-G01-0180` — Delft University of Technology Delft Center for Systems and Control — raw: `../../sources/raw-md/src-g01-0180__delft-university-of-technology-delft-center-for-systems-and-control.md`
+- `SRC-G01-0181` — Reward shaping — Mastering Reinforcement Learning — raw: `../../sources/raw-md/src-g01-0181__reward-shaping-mastering-reinforcement-learning.md`
+- `SRC-G01-0184` — International Journal of Computer Applications (0975 – 8887) — raw: `../../sources/raw-md/src-g01-0184__international-journal-of-computer-applications-0975-8887.md`
+- `SRC-G01-0188` — ISCSITR- INTERNATIONAL JOURNAL OF DATA ENGINEERING (ISCSITR-IJDE) — raw: `../../sources/raw-md/src-g01-0188__iscsitr-international-journal-of-data-engineering-iscsitr-ijde.md`
+- `SRC-G01-0200` — Securing internal systems against increasingly capable and imperfectly aligned AI — Google DeepMind — raw: `../../sources/raw-md/src-g01-0200__securing-internal-systems-against-increasingly-capable-and-imperfectly-aligned-ai-google-d.md`
+- `SRC-G01-0201` — Towards a Science of AI Agent Reliability — raw: `../../sources/raw-md/src-g01-0201__towards-a-science-of-ai-agent-reliability.md`
+- `SRC-G01-0204` — Decision Making Under Uncertainty — raw: `../../sources/raw-md/src-g01-0204__decision-making-under-uncertainty.md`
+- `SRC-G01-0205` — Decision-Making Under Uncertainty in Multi-Agent and Multi-Robot Systems: Planning and Learning — raw: `../../sources/raw-md/src-g01-0205__decision-making-under-uncertainty-in-multi-agent-and-multi-robot-systems-planning-and-lear.md`
+- `SRC-G01-0212` — Foundations and TrendsR© in Machine Learning Vol. 8, No. 5-6 (2015) 359–492 c© 2015 M. Ghavamzadeh, S. Mannor, J. Pineau, and — raw: `../../sources/raw-md/src-g01-0212__foundations-and-trendsr-in-machine-learning-vol-8-no-5-6-2015-359-492-c-2015-m-ghavamzadeh.md`
+- `SRC-G01-0213` — Skip to main contentMicrosoft  Microsoft Security  Microsoft Security — raw: `../../sources/raw-md/src-g01-0213__skip-to-main-contentmicrosoft-microsoft-security-microsoft-security.md`
+- `SRC-G01-0215` — Skip to Main ContentAdvertisement — raw: `../../sources/raw-md/src-g01-0215__skip-to-main-contentadvertisement.md`
+- `SRC-G01-0216` — Skip to main content  Open navigation  Go to Reddit Home  Log In  Log in to Reddit   Open settings menu — raw: `../../sources/raw-md/src-g01-0216__skip-to-main-content-open-navigation-go-to-reddit-home-log-in-log-in-to-reddit-open-settin.md`
+- `SRC-G01-0218` — CCS Concepts: • Security and privacy→ AI agent. — raw: `../../sources/raw-md/src-g01-0218__ccs-concepts-security-and-privacy-ai-agent.md`
+- `SRC-G01-0220` — A Review of Fault Tolerance Techniques in Generative Multi-Agent Systems for Real-Time Applications — raw: `../../sources/raw-md/src-g01-0220__a-review-of-fault-tolerance-techniques-in-generative-multi-agent-systems-for-real-time-app.md`
+- `SRC-G01-0222` — 000 001 002 003 004 005 006 007 008 009 010 011 012 013 014 015 016 017 018 019 020 021 022 023 024 025 026 027 028 029 030 031 032 033 034 035 036 037 038 039 040 041 042 043 044 045 046 047 048 049 050 051 052 053 — raw: `../../sources/raw-md/src-g01-0222__000-001-002-003-004-005-006-007-008-009-010-011-012-013-014-015-016-017-018-019-020-021-02.md`
+- `SRC-G01-0223` — Reinforcement Learning Journal 2025 ∣∣ Cover Page — raw: `../../sources/raw-md/src-g01-0223__reinforcement-learning-journal-2025-cover-page.md`
+- `SRC-G01-0224` — Empirical Study on Robustness and Resilience in Cooperative Multi-Agent Reinforcement Learning — raw: `../../sources/raw-md/src-g01-0224__empirical-study-on-robustness-and-resilience-in-cooperative-multi-agent-reinforcement-lear.md`
+- `SRC-G01-0225` — Cooperative Resilience in Artificial Intelligence Multiagent Systems — raw: `../../sources/raw-md/src-g01-0225__cooperative-resilience-in-artificial-intelligence-multiagent-systems.md`
+- `SRC-G01-0226` — Emergence and Resilience in Multi-Agent Reinforcement Learning — raw: `../../sources/raw-md/src-g01-0226__emergence-and-resilience-in-multi-agent-reinforcement-learning.md`
+- `SRC-G01-0227` — Collaboration in Multi-Agent Systems: Adaptivity and Active Learning — raw: `../../sources/raw-md/src-g01-0227__collaboration-in-multi-agent-systems-adaptivity-and-active-learning.md`
+- `SRC-G01-0231` — AI Agents Fundamentals In 21 Minutes — raw: `../../sources/raw-md/src-g01-0231__ai-agents-fundamentals-in-21-minutes.md`
+- `SRC-G01-0232` — From Zero to Your First AI Agent in 25 Minutes (No Coding) — raw: `../../sources/raw-md/src-g01-0232__from-zero-to-your-first-ai-agent-in-25-minutes-no-coding.md`
+- `SRC-G01-0233` — Agent-Based Systems for Intelligent Manufacturing: A State-of-the-Art Survey — raw: `../../sources/raw-md/src-g01-0233__agent-based-systems-for-intelligent-manufacturing-a-state-of-the-art-survey.md`
+- `SRC-G01-0237` — Jump to contentMain menu    Navigation — raw: `../../sources/raw-md/src-g01-0237__jump-to-contentmain-menu-navigation.md`
+- `SRC-G01-0238` — Jump to contentMain menu    Navigation — raw: `../../sources/raw-md/src-g01-0238__jump-to-contentmain-menu-navigation.md`
+- `SRC-G01-0241` — Data Science Colle… · Follow publication — raw: `../../sources/raw-md/src-g01-0241__data-science-colle-follow-publication.md`
+- `SRC-G01-0244` — Smart contractEnterprise BlockchainNFT & Web3 SolutionsLayer 2 SolutionsSolutionsEthereum Development — raw: `../../sources/raw-md/src-g01-0244__smart-contractenterprise-blockchainnft-and-web3-solutionslayer-2-solutionssolutionsethereu.md`
+- `SRC-G01-0251` — Skip to main contentHit enter to search or ESC to close  Close Search  searchMenu — raw: `../../sources/raw-md/src-g01-0251__skip-to-main-contenthit-enter-to-search-or-esc-to-close-close-search-searchmenu.md`
+- `SRC-G01-0252` — Skip to Main Content — raw: `../../sources/raw-md/src-g01-0252__skip-to-main-content.md`
+- `SRC-G01-0254` — Human Rights and Biomedicine — raw: `../../sources/raw-md/src-g01-0254__human-rights-and-biomedicine.md`
+- `SRC-G01-0257` — From Autonomous Agents to Integrated Systems, A New Paradigm: Orchestrated Distributed Intelligence — raw: `../../sources/raw-md/src-g01-0257__from-autonomous-agents-to-integrated-systems-a-new-paradigm-orchestrated-distributed-intel.md`
+- `SRC-G01-0259` — Skip to main content  An official website of the United States government — raw: `../../sources/raw-md/src-g01-0259__skip-to-main-content-an-official-website-of-the-united-states-government.md`
+- `SRC-G01-0264` — Proceedings of the AAAI Conference on Artificial Intelligence — raw: `../../sources/raw-md/src-g01-0264__proceedings-of-the-aaai-conference-on-artificial-intelligence.md`
+- `SRC-G01-0269` — What is AI Security Resilience and why it is important for GenAI and Agentic AI? — raw: `../../sources/raw-md/src-g01-0269__what-is-ai-security-resilience-and-why-it-is-important-for-genai-and-agentic-ai.md`
+- `SRC-G01-0271` — 0   Skip to Content  Contact Us  Contact Us When AI Agents Make Mistakes: Building Resilient Systems and Recovery Protocols — raw: `../../sources/raw-md/src-g01-0271__0-skip-to-content-contact-us-contact-us-when-ai-agents-make-mistakes-building-resilient-sy.md`
+- `SRC-G01-0274` — Academic Editors: Phivos Mylonas, — raw: `../../sources/raw-md/src-g01-0274__academic-editors-phivos-mylonas.md`
+- `SRC-G01-0275` — In the world of AI, it seems that 2025 is the year of the AI Agent. — raw: `../../sources/raw-md/src-g01-0275__in-the-world-of-ai-it-seems-that-2025-is-the-year-of-the-ai-agent.md`
+- `SRC-G01-0276` — Sign up Sign in — raw: `../../sources/raw-md/src-g01-0276__sign-up-sign-in.md`
+- `SRC-G01-0277` — Skip to contentNavigation Menu — raw: `../../sources/raw-md/src-g01-0277__skip-to-contentnavigation-menu.md`
+- `SRC-G01-0279` — AI Agents: Evolution, Architecture, and — raw: `../../sources/raw-md/src-g01-0279__ai-agents-evolution-architecture-and.md`
+- `SRC-G01-0280` — Contact SEOSearch Engine Optimization — raw: `../../sources/raw-md/src-g01-0280__contact-seosearch-engine-optimization.md`
+- `SRC-G01-0281` — Agentic AI Frameworks: Architectures, Protocols, and Design Challenges — raw: `../../sources/raw-md/src-g01-0281__agentic-ai-frameworks-architectures-protocols-and-design-challenges.md`
+- `SRC-G01-0282` — An Economy of AI Agents — raw: `../../sources/raw-md/src-g01-0282__an-economy-of-ai-agents.md`
+- `SRC-G01-0283` — Jump to contentMain menu    Navigation — raw: `../../sources/raw-md/src-g01-0283__jump-to-contentmain-menu-navigation.md`
+- `SRC-G01-0285` — 11institutetext:   LMU Munich, Germany22institutetext:  Fraunhofer Institute for Cognitive Systems, Germany 33institutetext:  University of York, United Kingdom 33email:  philipp.altmann@ifi.lmu.de — raw: `../../sources/raw-md/src-g01-0285__11institutetext-lmu-munich-germany22institutetext-fraunhofer-institute-for-cognitive-syste.md`
+- `SRC-G02-01273B39` — Vertex AI Agent Builder | Google Cloud — raw: `../../sources/raw-md/src-g02-01273b39__vertex-ai-agent-builder-google-cloud.md`
+- `SRC-G02-094ADD34` — Open Source Tools That Make Autonomous Agent Development ... — raw: `../../sources/raw-md/src-g02-094add34__open-source-tools-that-make-autonomous-agent-development.md`
+- `SRC-G02-0E39AF20` — Agent AI for Finance From Financial Argument Mining to -- Chung-Chi Chen, Hiroya Takamura.PDF — raw: `../../sources/raw-md/src-g02-0e39af20__agent-ai-for-finance-from-financial-argument-mining-to-chung-chi-chen-hiroya-takamura-pdf.md`
+- `SRC-G02-4A2050F3` — Agent-Based Systems for Intelligent Manufacturing: A State-of-the-Art Survey — raw: `../../sources/raw-md/src-g02-4a2050f3__agent-based-systems-for-intelligent-manufacturing-a-state-of-the-art-survey.md`
+- `SRC-G02-4D76136A` — Stanford Seminar - Continual Safety Assurances for Learning-Enabled Robotic Systems — raw: `../../sources/raw-md/src-g02-4d76136a__stanford-seminar-continual-safety-assurances-for-learning-enabled-robotic-systems.md`
+- `SRC-G02-6DE95A20` — IEEE P7001: A Proposed Standard on Transparency - PMC - NIH — raw: `../../sources/raw-md/src-g02-6de95a20__ieee-p7001-a-proposed-standard-on-transparency-pmc-nih.md`
+- `SRC-G02-705342F7` — IROS 2022 Keynote: Safe Learning in Robotics by Prof. Angela Schoellig — raw: `../../sources/raw-md/src-g02-705342f7__iros-2022-keynote-safe-learning-in-robotics-by-prof-angela-schoellig.md`
+- `SRC-G02-76A64D20` — The Architecture, Application, and Alignment Challenges of Autonomous AI Agents: A Comprehensive Technical Analysis — raw: `../../sources/raw-md/src-g02-76a64d20__the-architecture-application-and-alignment-challenges-of-autonomous-ai-agents-a-comprehens.md`; excerpts: `../../excerpts/by-source/src-g02-76a64d20__candidate-excerpts.md`
+- `SRC-G02-7EDFFBB6` — Belief–desire–intention software model - Wikipedia — raw: `../../sources/raw-md/src-g02-7edffbb6__belief-desire-intention-software-model-wikipedia.md`
+- `SRC-G02-8C91F829` — Reward shaping — Mastering Reinforcement Learning — raw: `../../sources/raw-md/src-g02-8c91f829__reward-shaping-mastering-reinforcement-learning.md`
+- `SRC-G02-9509C75B` — From Autonomous Agents to Integrated Systems, A New Paradigm: Orchestrated Distributed Intelligence - arXiv — raw: `../../sources/raw-md/src-g02-9509c75b__from-autonomous-agents-to-integrated-systems-a-new-paradigm-orchestrated-distributed-intel.md`
+- `SRC-G02-A19E2F9A` — Agentic AI Engineering: Complete 4-Hour Workshop feat. MCP, CrewAI and OpenAI Agents SDK — raw: `../../sources/raw-md/src-g02-a19e2f9a__agentic-ai-engineering-complete-4-hour-workshop-feat-mcp-crewai-and-openai-agents-sdk.md`
+- `SRC-G02-AA472F63` — AI Safety as a Reinforcement Learning Problem — raw: `../../sources/raw-md/src-g02-aa472f63__ai-safety-as-a-reinforcement-learning-problem.md`
+- `SRC-G02-AE4B111D` — Princeton University Lectures - Foundations of Reinforcement Learning - YouTube — raw: `../../sources/raw-md/src-g02-ae4b111d__princeton-university-lectures-foundations-of-reinforcement-learning-youtube.md`
+- `SRC-G02-AE7BB424` — Research report: Thesis Sources Analysis (GridWorld & Resilience) — raw: `../../sources/raw-md/src-g02-ae7bb424__research-report-thesis-sources-analysis-gridworld-and-resilience.md`
+- `SRC-G02-BE165370` — A Practical Deep Dive Into Memory Optimization for Agentic Systems (Part A) — raw: `../../sources/raw-md/src-g02-be165370__a-practical-deep-dive-into-memory-optimization-for-agentic-systems-part-a.md`
+- `SRC-G02-D8B61738` — applsci-15-05663-v2.pdf — raw: `../../sources/raw-md/src-g02-d8b61738__applsci-15-05663-v2-pdf.md`
+- `SRC-G02-DC3D8968` — What Is Agentic Architecture? | IBM — raw: `../../sources/raw-md/src-g02-dc3d8968__what-is-agentic-architecture-ibm.md`
+- `SRC-G02-FB2A9134` — Where do AI agents fail in practice? Please share concrete failure modes (and what fixed them) : r/AIAgents — raw: `../../sources/raw-md/src-g02-fb2a9134__where-do-ai-agents-fail-in-practice-please-share-concrete-failure-modes-and-what-fixed-the.md`
