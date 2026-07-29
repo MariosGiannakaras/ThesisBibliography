@@ -3,13 +3,16 @@ name: Μετάβαση στην απλή ελληνική δομή
 on:
   push:
     branches: [chore/aplopoiisi-ellinika]
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches: [main]
 
 permissions:
   contents: write
 
 jobs:
   μετάβαση:
-    if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
+    if: ${{ github.event_name == 'push' || github.head_ref == 'chore/aplopoiisi-ellinika' }}
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
