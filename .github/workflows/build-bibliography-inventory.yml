@@ -12,6 +12,7 @@ jobs:
   curate:
     if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - name: Check out branch
         uses: actions/checkout@v4
@@ -22,12 +23,19 @@ jobs:
         run: |
           python -m py_compile scripts/build_repository_inventory.py
           python -m py_compile scripts/curate_bibliography.py
+          python -m py_compile scripts/enrich_source_catalog.py
 
-      - name: Record pre-migration inventory
-        run: python scripts/build_repository_inventory.py
+      - name: Record pre-migration inventory and normalize legacy groups
+        run: |
+          if find Group* -type f -path '*/Group*Files/*' -print -quit 2>/dev/null | grep -q .; then
+            python scripts/build_repository_inventory.py
+            python scripts/curate_bibliography.py
+          else
+            echo "Legacy grouped corpus already normalized."
+          fi
 
-      - name: Normalize and index corpus
-        run: python scripts/curate_bibliography.py
+      - name: Enrich scholarly metadata
+        run: python scripts/enrich_source_catalog.py --online
 
       - name: Commit curated corpus
         run: |
@@ -38,5 +46,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "feat: normalize and index bibliography corpus [skip ci]"
+          git commit -m "feat: enrich and verify bibliography metadata [skip ci]"
           git push
