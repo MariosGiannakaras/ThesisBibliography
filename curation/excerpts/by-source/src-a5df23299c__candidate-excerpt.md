@@ -1,0 +1,9 @@
+## SRC-A5DF23299C — On the Definition of Robustness and Resilience of AI Agents for Real-time Congestion Management The research leading to this work is part of the AI4REALNET (AI for REAL-world NETwork operation) project, which received funding from European Union’s Horizon Europe Research and Innovation programme under the Grant Agreement No 101119527, and from the Swiss State Secretariat for Education, Research and Innovation (SERI). This project is funded by the European Union and SERI. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union and SERI. Neither the European Union nor the granting authority can be held responsible for them.
+
+- **Priority:** P2-supporting
+- **Topics:** resilience-recovery, ai-agents-background
+- **Source:** https://arxiv.org/abs/2504.13314
+- **Markdown:** `sources/markdown/SRC-A5DF23299C__on-the-definition-of-robustness-and-resilience-of-ai-agents-for-real-tim.md`
+- **Review status:** machine-selected; full-text verification pending
+
+> - The European Union’s Artificial Intelligence (AI) Act defines robustness, resilience, and security requirements for high-risk sectors but lacks detailed methodologies for assessment. This paper introduces a novel framework for quantitatively evaluating the robustness and resilience of reinforcement learning agents in congestion management. Using the AI-friendly digital environment Grid2Op, perturbation agents simulate natural and adversarial disruptions by perturbing the input of AI systems without altering the actual state of the environment, enabling the assessment of AI performance under various scenarios. Robustness is measured through stability and reward impact metrics, while resilience quantifies recovery from performance degradation. The results demonstrate the framework’s effectiveness in identifying vulnerabilities and improving AI robustness and resilience for critical appli…

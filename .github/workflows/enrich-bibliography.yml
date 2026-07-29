@@ -1,0 +1,38 @@
+name: Enrich bibliography online
+
+on:
+  pull_request:
+    types: [opened, reopened]
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  enrich:
+    if: github.event.pull_request.head.repo.full_name == github.repository && github.head_ref == 'chore/enrich-bibliography-corpus'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Validate enrichment scripts
+        run: python -m py_compile scripts/enrich_bibliography.py scripts/process_incoming.py scripts/validate_enriched_repository.py
+      - name: Enrich metadata, references and excerpts
+        run: python scripts/enrich_bibliography.py --online
+      - name: Commit generated outputs
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No enrichment changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add catalog queues curation README.md
+          git commit -m "feat: record verified bibliography enrichment [skip ci]"
+          git push origin HEAD:${{ github.head_ref }}

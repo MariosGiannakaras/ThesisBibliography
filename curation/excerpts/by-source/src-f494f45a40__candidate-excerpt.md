@@ -1,0 +1,9 @@
+## SRC-F494F45A40 — Using Gen AI Agents With GAE And VAE To Enhance Resilience Of Us Markets
+
+- **Priority:** P2-supporting
+- **Topics:** resilience-recovery, ai-agents-background
+- **Source:** https://doi.org/10.5121/ijcsitce.2025.12102 (link
+- **Markdown:** `sources/markdown/SRC-F494F45A40__using-gen-ai-agents-with-gae-and-vae-to-enhance-resilience-of-us-markets.md`
+- **Review status:** machine-selected; full-text verification pending
+
+> Figures 2: Libraries used in the proposed framework 4.1.1. Prototype Front End Results We then asked three analysts (volunteers) to review the questions to give you questions that are computationally relevant and then calculated the accuracy and number of prompts needed to get the final results. The results are shown in Table 2. For consistency purposes we mimicked the same prompts on all the four LLMs. Figure 3 and 4 further demonstrates and graphical output of the findings. The International Journal of Computational Science, Information Technology and Control Engineering (IJCSITCE) Vol.12, No.1, January 2025 30 Table 2. Accuracy for generating relevant questions LLM Relevant Questions Average Prompts GPT-4o mini 72% 4 GPT-4o 78% 3 Gemini 2.0 73% 5 Gemini 1.5 62% 4
