@@ -10,14 +10,14 @@ permissions:
   contents: write
 
 jobs:
-  έλεγχος:
+  validate:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
       - name: Λήψη αποθετηρίου
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event_name == 'pull_request' && github.head_ref || github.ref_name }}
+          ref: chore/aplopoiisi-ellinika
           fetch-depth: 0
 
       - name: Ρύθμιση Python
@@ -49,7 +49,7 @@ jobs:
             contents: read
 
           jobs:
-            έλεγχος:
+            validate:
               runs-on: ubuntu-latest
               steps:
                 - name: Λήψη αποθετηρίου
@@ -68,7 +68,7 @@ jobs:
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add -A
             git commit -m "refactor: απλοποίηση και ελληνική οργάνωση βιβλιογραφίας"
-            git push origin HEAD:${{ github.head_ref }}
+            git push origin HEAD:chore/aplopoiisi-ellinika
           else
             python -m py_compile εργαλεία/εισαγωγή.py εργαλεία/μεταδεδομένα.py εργαλεία/έλεγχος.py
             python εργαλεία/έλεγχος.py
