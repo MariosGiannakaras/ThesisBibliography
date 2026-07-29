@@ -1,0 +1,60 @@
+name: Apply bibliography organization
+
+on:
+  push:
+    branches:
+      - chore/bibliography-intake-audit
+    paths:
+      - scripts/organize_sources.py
+      - .github/workflows/apply-bibliography-organization.yml
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out audit branch
+        uses: actions/checkout@v4
+        with:
+          ref: chore/bibliography-intake-audit
+          fetch-depth: 0
+
+      - name: Normalize bibliography archive
+        run: python scripts/organize_sources.py
+
+      - name: Remove temporary audit automation
+        run: |
+          rm -f .github/workflows/audit-bibliography.yml
+          rm -f .github/workflows/apply-bibliography-organization.yml
+
+      - name: Commit normalized repository
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No normalization changes to commit."
+            exit 0
+          fi
+          git commit \
+            -m "chore: normalize bibliography source archive" \
+            -m "What:
+          - Flatten all NotebookLM source Markdown into sources/markdown.
+          - Preserve group helper reports under imports/notebooklm.
+          - Generate authoritative catalogs, duplicate/incomplete reviews, coverage gaps, excerpts and curation queue.
+          - Remove temporary audit/apply workflows.
+
+          Why:
+          - Establish one auditable staging archive before later migration into the main thesis repository.
+          - Separate citable sources from NotebookLM syntheses and advisory reports.
+
+          Validation:
+          - Organizer verified source counts, paths and SHA-256 after every move.
+          - Suspected duplicates and low-value items were retained and labelled rather than deleted.
+          - A permanent bibliography validation workflow remains enabled."
+          git push origin HEAD:chore/bibliography-intake-audit
