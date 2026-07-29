@@ -1,0 +1,37 @@
+name: Build bibliography inventory
+
+on:
+  push:
+    branches:
+      - chore/curate-bibliography-corpus
+
+permissions:
+  contents: write
+
+jobs:
+  inventory:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate inventory script
+        run: python -m py_compile scripts/build_repository_inventory.py
+
+      - name: Build inventory
+        run: python scripts/build_repository_inventory.py
+
+      - name: Commit generated inventory
+        run: |
+          if git diff --quiet -- workspace/ && [ -z "$(git status --porcelain workspace/)" ]; then
+            echo "Inventory unchanged."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add workspace/repository-inventory.json workspace/group-companion-files.md
+          git commit -m "chore: record complete bibliography inventory [skip ci]"
+          git push
