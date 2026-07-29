@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+*.tmp
+*.partial
+*.zip
+audit-output/
+.DS_Store
+Thumbs.db
