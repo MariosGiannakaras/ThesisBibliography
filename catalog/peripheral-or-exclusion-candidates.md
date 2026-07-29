@@ -1,6 +1,6 @@
 # Peripheral or Exclusion Candidates
 
-Automated relevance labels are screening aids, not deletion decisions.
+Automated labels are screening aids and do not delete archived material.
 
 | ID | Title | Status | Reason | Type |
 | --- | --- | --- | --- | --- |
@@ -85,7 +85,7 @@ Automated relevance labels are screening aids, not deletion decisions.
 | SRC-G01-0284 | Difference Between Goal-based and Utility-based Agents - Baeldung on Computer Science | peripheral | content-noisy-web-scrape, web-scrape-noise | web-article-or-unknown |
 | SRC-G02-0E39AF20 | Agent AI for Finance | peripheral | agentic-ai-without-rl-link | survey-review |
 | SRC-G02-364DB745 | Comparing the Top 5 AI Agent Architectures in 2025 Hierarchical, Swarm, Meta Learning, Modular, Evol | exclude-candidate | agentic-ai-without-rl-link, missing-authors | book |
-| SRC-G02-364DB745 | Comparing the Top 5 AI Agent Architectures in 2025 Hierarchical, Swarm, Meta Learning, Modular, Evol 1 | exclude-candidate | agentic-ai-without-rl-link, missing-authors | book |
+| SRC-G02-364DB745-4F12E2 | Comparing the Top 5 AI Agent Architectures in 2025 Hierarchical, Swarm, Meta Learning, Modular, Evol 1 | exclude-candidate | agentic-ai-without-rl-link, missing-authors | book |
 | SRC-G02-4A2050F3 | Agent-Based Systems for Intelligent Manufacturing: A State-of-the-Art Survey | exclude-candidate | agentic-ai-without-rl-link | survey-review |
 | SRC-G02-5FDDC684 | Understanding AI Agents, LLMs, and Experts A Modern AI Architecture by Matt White | peripheral | missing-source-url | web-article-or-unknown |
 | SRC-G02-6DE95A20 | IEEE P7001: A Proposed Standard on Transparency | peripheral |  | research-paper |

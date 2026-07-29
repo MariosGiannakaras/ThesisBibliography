@@ -1,3 +1,3 @@
 # By-topic Excerpt Indexes
 
-Generated links to source Markdown and candidate excerpts.
+Generated source and candidate-excerpt links.

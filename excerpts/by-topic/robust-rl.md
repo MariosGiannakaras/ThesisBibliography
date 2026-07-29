@@ -1,6 +1,6 @@
 # Topic Index — robust-rl
 
-Automatic index; review before using it as a thesis taxonomy.
+Automatic screening index; verify taxonomy and relevance before thesis use.
 
 - `SRC-G01-0069` — Robust Reinforcement Learning: A Review of Foundations and Recent Advances — raw: `../../sources/raw-md/src-g01-0069__robust-reinforcement-learning-a-review-of-foundations-and-recent-advances.md`
 - `SRC-G01-0121` — Reinforcement Learning with Robustness and Safety Guarantees — raw: `../../sources/raw-md/src-g01-0121__reinforcement-learning-with-robustness-and-safety-guarantees.md`

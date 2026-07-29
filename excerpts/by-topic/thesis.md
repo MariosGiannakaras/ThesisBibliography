@@ -1,6 +1,6 @@
 # Topic Index — thesis
 
-Automatic index; review before using it as a thesis taxonomy.
+Automatic screening index; verify taxonomy and relevance before thesis use.
 
 - `SRC-G01-0087` — Ενισχυτική μάθηση - Ms Pacman — raw: `../../sources/raw-md/src-g01-0087__ms-pacman.md`
 - `SRC-G01-0110` — Uncertainty-Aware Reinforcement Learning for Flight Control - TU Delft Repository — raw: `../../sources/raw-md/src-g01-0110__uncertainty-aware-reinforcement-learning-for-flight-control-tu-delft-repository.md`
@@ -15,6 +15,6 @@ Automatic index; review before using it as a thesis taxonomy.
 - `SRC-G01-0236` — Just an Agent Away - An AI Thesis - Eximius Ventures — raw: `../../sources/raw-md/src-g01-0236__just-an-agent-away-an-ai-thesis-eximius-ventures.md`
 - `SRC-G01-0239` — Solving Real-World Tasks with AI Agents - Carnegie Mellon University — raw: `../../sources/raw-md/src-g01-0239__solving-real-world-tasks-with-ai-agents-carnegie-mellon-university.md`
 - `SRC-G02-20B19CE5` — [MERL Seminar Series Spring 2026] Robust Decision Making Without Compromising Learning Efficiency — raw: `../../sources/raw-md/src-g02-20b19ce5__merl-seminar-series-spring-2026-robust-decision-making-without-compromising-learning-effic.md`
-- `SRC-G02-B17FCFE1` — Discovering and Using Structure in Autonomous Machine Learning - Research Collection — raw: `../../sources/raw-md/src-g02-b17fcfe1__discovering-and-using-structure-in-autonomous-machine-learning-research-collection.md`; excerpts: `../by-source/src-g02-b17fcfe1__candidate-excerpts.md`
-- `SRC-G02-C0E0A9D0` — Uncertainty-Aware Reinforcement Learning for Flight Control TU Delft Repository — raw: `../../sources/raw-md/src-g02-c0e0a9d0__uncertainty-aware-reinforcement-learning-for-flight-control-tu-delft-repository.md`; excerpts: `../by-source/src-g02-c0e0a9d0__candidate-excerpts.md`
+- `SRC-G02-B17FCFE1` — Discovering and Using Structure in Autonomous Machine Learning - Research Collection — raw: `../../sources/raw-md/src-g02-b17fcfe1__discovering-and-using-structure-in-autonomous-machine-learning-research-collection.md`
+- `SRC-G02-C0E0A9D0` — Uncertainty-Aware Reinforcement Learning for Flight Control TU Delft Repository — raw: `../../sources/raw-md/src-g02-c0e0a9d0__uncertainty-aware-reinforcement-learning-for-flight-control-tu-delft-repository.md`
 - `SRC-G02-F6DB0629` — Ενισχυτική μάθηση - Ms Pacman — raw: `../../sources/raw-md/src-g02-f6db0629__ms-pacman.md`

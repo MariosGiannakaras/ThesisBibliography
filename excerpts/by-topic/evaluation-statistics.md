@@ -1,6 +1,6 @@
 # Topic Index — evaluation-statistics
 
-Automatic index; review before using it as a thesis taxonomy.
+Automatic screening index; verify taxonomy and relevance before thesis use.
 
 - `SRC-G01-0092` — Generalizing offline reinforcement learning to unseen dynamics parameters with synthetic data — raw: `../../sources/raw-md/src-g01-0092__generalizing-offline-reinforcement-learning-to-unseen-dynamics-parameters-with-synthetic-d.md`
 - `SRC-G01-0099` — Robust proximal policy optimization for reinforcement learning — raw: `../../sources/raw-md/src-g01-0099__robust-proximal-policy-optimization-for-reinforcement-learning.md`
@@ -21,8 +21,8 @@ Automatic index; review before using it as a thesis taxonomy.
 - `SRC-G01-0262` — NIST AI Risk Management Framework (AI RMF) - Palo Alto Networks — raw: `../../sources/raw-md/src-g01-0262__nist-ai-risk-management-framework-ai-rmf-palo-alto-networks.md`
 - `SRC-G01-0271` — When AI Agents Make Mistakes- Building Resilient Systems and Recovery Protocols — raw: `../../sources/raw-md/src-g01-0271__when-ai-agents-make-mistakes-building-resilient-systems-and-recovery-protocols.md`
 - `SRC-G02-0C8E14CC` — Safe Model-based Reinforcement Learning with Stability Guarantees (NIPS 2017 Spotlight) — raw: `../../sources/raw-md/src-g02-0c8e14cc__safe-model-based-reinforcement-learning-with-stability-guarantees-nips-2017-spotlight.md`
-- `SRC-G02-189936F6` — Generalizing offline reinforcement learning to unseen dynamics parameters with synthetic data — raw: `../../sources/raw-md/src-g02-189936f6__generalizing-offline-reinforcement-learning-to-unseen-dynamics-parameters-with-synthetic-d.md`; excerpts: `../by-source/src-g02-189936f6__candidate-excerpts.md`
-- `SRC-G02-74ED7BC9` — Robust proximal policy optimization for reinforcement learning — raw: `../../sources/raw-md/src-g02-74ed7bc9__robust-proximal-policy-optimization-for-reinforcement-learning.md`; excerpts: `../by-source/src-g02-74ed7bc9__candidate-excerpts.md`
+- `SRC-G02-189936F6` — Generalizing offline reinforcement learning to unseen dynamics parameters with synthetic data — raw: `../../sources/raw-md/src-g02-189936f6__generalizing-offline-reinforcement-learning-to-unseen-dynamics-parameters-with-synthetic-d.md`
+- `SRC-G02-74ED7BC9` — Robust proximal policy optimization for reinforcement learning — raw: `../../sources/raw-md/src-g02-74ed7bc9__robust-proximal-policy-optimization-for-reinforcement-learning.md`
 - `SRC-G02-7FC6E01D` — Stanford Seminar - Towards Safe and Efficient Learning in the Physical World — raw: `../../sources/raw-md/src-g02-7fc6e01d__stanford-seminar-towards-safe-and-efficient-learning-in-the-physical-world.md`
 - `SRC-G02-90F59642` — UAI 2024 (Barcelona) — raw: `../../sources/raw-md/src-g02-90f59642__uai-2024-barcelona.md`
-- `SRC-G02-AFF60ACF` — Safe reinforcement learning for real robots — raw: `../../sources/raw-md/src-g02-aff60acf__safe-reinforcement-learning-for-real-robots.md`; excerpts: `../by-source/src-g02-aff60acf__candidate-excerpts.md`
+- `SRC-G02-AFF60ACF` — Safe reinforcement learning for real robots — raw: `../../sources/raw-md/src-g02-aff60acf__safe-reinforcement-learning-for-real-robots.md`

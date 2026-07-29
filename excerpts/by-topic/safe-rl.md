@@ -1,6 +1,6 @@
 # Topic Index — safe-rl
 
-Automatic index; review before using it as a thesis taxonomy.
+Automatic screening index; verify taxonomy and relevance before thesis use.
 
 - `SRC-G01-0056` — A Survey of Safe Reinforcement Learning and Constrained MDPs — raw: `../../sources/raw-md/src-g01-0056__a-survey-of-safe-reinforcement-learning-and-constrained-mdps.md`
 - `SRC-G01-0076` — [IEEE IROS 2026] Directional Constraints for Efficient Exploration in Safe Reinforcement Learning — raw: `../../sources/raw-md/src-g01-0076__ieee-iros-2026-directional-constraints-for-efficient-exploration-in-safe-reinforcement-lea.md`
@@ -28,5 +28,5 @@ Automatic index; review before using it as a thesis taxonomy.
 - `SRC-G02-1C97688B` — A Safe Reinforcement Learning Approach for Ene... - Pergamos — raw: `../../sources/raw-md/src-g02-1c97688b__a-safe-reinforcement-learning-approach-for-ene-pergamos.md`
 - `SRC-G02-3F71BBBC` — Safe Reinforcement Learning Online Seminar — raw: `../../sources/raw-md/src-g02-3f71bbbc__safe-reinforcement-learning-online-seminar.md`
 - `SRC-G02-705342F7` — IROS 2022 Keynote Safe Learning in Robotics by Prof. Angela Schoellig — raw: `../../sources/raw-md/src-g02-705342f7__iros-2022-keynote-safe-learning-in-robotics-by-prof-angela-schoellig.md`
-- `SRC-G02-AFF60ACF` — Safe reinforcement learning for real robots — raw: `../../sources/raw-md/src-g02-aff60acf__safe-reinforcement-learning-for-real-robots.md`; excerpts: `../by-source/src-g02-aff60acf__candidate-excerpts.md`
+- `SRC-G02-AFF60ACF` — Safe reinforcement learning for real robots — raw: `../../sources/raw-md/src-g02-aff60acf__safe-reinforcement-learning-for-real-robots.md`
 - `SRC-G02-BFC4312A` — Humans as Safety Constraints: A Survey of Human-in-the-Loop Reinforcement Learning for Critical Systems — raw: `../../sources/raw-md/src-g02-bfc4312a__humans-as-safety-constraints-a-survey-of-human-in-the-loop-reinforcement-learning-for-crit.md`

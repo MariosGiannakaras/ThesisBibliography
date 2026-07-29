@@ -1,6 +1,6 @@
 # Topic Index — gridworld
 
-Automatic index; review before using it as a thesis taxonomy.
+Automatic screening index; verify taxonomy and relevance before thesis use.
 
 - `SRC-G01-0057` — Create Custom Grid World Environments - MATLAB & Simulink - MathWorks — raw: `../../sources/raw-md/src-g01-0057__create-custom-grid-world-environments-matlab-simulink-mathworks.md`
 - `SRC-G01-0062` — Ghost In the Grid- Challenges for Reinforcement Learning in Grid World Environments — raw: `../../sources/raw-md/src-g01-0062__ghost-in-the-grid-challenges-for-reinforcement-learning-in-grid-world-environments.md`
@@ -53,13 +53,13 @@ Automatic index; review before using it as a thesis taxonomy.
 - `SRC-G02-338CFFF3` — Reinforcement Learning basics- Policy Iteration 4X4 grid world from Sutton & Barto — raw: `../../sources/raw-md/src-g02-338cfff3__reinforcement-learning-basics-policy-iteration-4x4-grid-world-from-sutton-barto.md`
 - `SRC-G02-3E97E3D8` — Lectures on Reinforcement Learning — raw: `../../sources/raw-md/src-g02-3e97e3d8__lectures-on-reinforcement-learning.md`
 - `SRC-G02-43FEAAE2` — Make your own custom environment - Gymnasium Documentation — raw: `../../sources/raw-md/src-g02-43feaae2__make-your-own-custom-environment-gymnasium-documentation.md`
-- `SRC-G02-80B1BA20` — [Lecture] Monte Carlo evaluation and control A Gridworld Example Intro to Markov Chains and RL — raw: `../../sources/raw-md/src-g02-80b1ba20__lecture-monte-carlo-evaluation-and-control-a-gridworld-example-intro-to-markov-chains-and.md`; excerpts: `../by-source/src-g02-80b1ba20__candidate-excerpts.md`
+- `SRC-G02-80B1BA20` — [Lecture] Monte Carlo evaluation and control A Gridworld Example Intro to Markov Chains and RL — raw: `../../sources/raw-md/src-g02-80b1ba20__lecture-monte-carlo-evaluation-and-control-a-gridworld-example-intro-to-markov-chains-and.md`
 - `SRC-G02-8C91F829` — Reward shaping — Mastering Reinforcement Learning — raw: `../../sources/raw-md/src-g02-8c91f829__reward-shaping-mastering-reinforcement-learning.md`
 - `SRC-G02-9129C434` — Context-Switching and Adaptation Brain-Inspired Mechanisms for Handling Environmental Changes - Univ — raw: `../../sources/raw-md/src-g02-9129c434__context-switching-and-adaptation-brain-inspired-mechanisms-for-handling-environmental-chan.md`
-- `SRC-G02-9129C434` — Context-Switching and Adaptation Brain-Inspired Mechanisms for Handling Environmental Changes - Univ 1 — raw: `../../sources/raw-md/src-g02-9129c434__context-switching-and-adaptation-brain-inspired-mechanisms-for-handling-environmental-chan.md`
+- `SRC-G02-9129C434-0A9FAD` — Context-Switching and Adaptation Brain-Inspired Mechanisms for Handling Environmental Changes - Univ 1 — raw: `../../sources/raw-md/src-g02-9129c434__context-switching-and-adaptation-brain-inspired-mechanisms-for-handling-environmental-chan.md`
 - `SRC-G02-AE7BB424` — Research report Thesis Sources Analysis (GridWorld & Resilience) — raw: `../../sources/raw-md/src-g02-ae7bb424__research-report-thesis-sources-analysis-gridworld-resilience.md`
-- `SRC-G02-B421E32D` — Learn to human-level control in dynamic environment using incremental batch interrupting temporal abstraction — raw: `../../sources/raw-md/src-g02-b421e32d__learn-to-human-level-control-in-dynamic-environment-using-incremental-batch-interrupting-t.md`; excerpts: `../by-source/src-g02-b421e32d__candidate-excerpts.md`
-- `SRC-G02-B421E32D` — Learn to human-level control in dynamic environment using incremental batch interrupting temporal abstraction — raw: `../../sources/raw-md/src-g02-b421e32d__learn-to-human-level-control-in-dynamic-environment-using-incremental-batch-interrupting-t.md`; excerpts: `../by-source/src-g02-b421e32d__candidate-excerpts.md`
+- `SRC-G02-B421E32D` — Learn to human-level control in dynamic environment using incremental batch interrupting temporal abstraction — raw: `../../sources/raw-md/src-g02-b421e32d__learn-to-human-level-control-in-dynamic-environment-using-incremental-batch-interrupting-t.md`
+- `SRC-G02-B421E32D-9FFDA2` — Learn to human-level control in dynamic environment using incremental batch interrupting temporal abstraction — raw: `../../sources/raw-md/src-g02-b421e32d__learn-to-human-level-control-in-dynamic-environment-using-incremental-batch-interrupting-t.md`
 - `SRC-G02-CA157E0D` — W3 L1 Bellman equations — raw: `../../sources/raw-md/src-g02-ca157e0d__w3-l1-bellman-equations.md`
 - `SRC-G02-CACBB13F` — Train Reinforcement Learning Agent in Basic Grid World (Matlab) — raw: `../../sources/raw-md/src-g02-cacbb13f__train-reinforcement-learning-agent-in-basic-grid-world-matlab.md`
 - `SRC-G02-CD04F7C0` — Gridworld Example (Lectures on Reinforcement Learning) — raw: `../../sources/raw-md/src-g02-cd04f7c0__gridworld-example-lectures-on-reinforcement-learning.md`

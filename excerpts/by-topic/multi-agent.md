@@ -1,6 +1,6 @@
 # Topic Index — multi-agent
 
-Automatic index; review before using it as a thesis taxonomy.
+Automatic screening index; verify taxonomy and relevance before thesis use.
 
 - `SRC-G01-0007` — Open Source Tools That Make Autonomous Agent Development ... — raw: `../../sources/raw-md/src-g01-0007__open-source-tools-that-make-autonomous-agent-development.md`
 - `SRC-G01-0008` — Reactive and Deliberative AI agents - Vikas Goyal — raw: `../../sources/raw-md/src-g01-0008__reactive-and-deliberative-ai-agents-vikas-goyal.md`
@@ -70,7 +70,7 @@ Automatic index; review before using it as a thesis taxonomy.
 - `SRC-G02-094ADD34` — Open Source Tools That Make Autonomous Agent Development ... — raw: `../../sources/raw-md/src-g02-094add34__open-source-tools-that-make-autonomous-agent-development.md`
 - `SRC-G02-0E39AF20` — Agent AI for Finance — raw: `../../sources/raw-md/src-g02-0e39af20__agent-ai-for-finance.md`
 - `SRC-G02-4A2050F3` — Agent-Based Systems for Intelligent Manufacturing: A State-of-the-Art Survey — raw: `../../sources/raw-md/src-g02-4a2050f3__agent-based-systems-for-intelligent-manufacturing-a-state-of-the-art-survey.md`
-- `SRC-G02-76A64D20` — The Architecture, Application, and Alignment Challenges of Autonomous AI Agents A Comprehensive Tech — raw: `../../sources/raw-md/src-g02-76a64d20__the-architecture-application-and-alignment-challenges-of-autonomous-ai-agents-a-comprehens.md`; excerpts: `../by-source/src-g02-76a64d20__candidate-excerpts.md`
+- `SRC-G02-76A64D20` — The Architecture, Application, and Alignment Challenges of Autonomous AI Agents A Comprehensive Tech — raw: `../../sources/raw-md/src-g02-76a64d20__the-architecture-application-and-alignment-challenges-of-autonomous-ai-agents-a-comprehens.md`
 - `SRC-G02-7EDFFBB6` — Belief–desire–intention software model — raw: `../../sources/raw-md/src-g02-7edffbb6__belief-desire-intention-software-model.md`
 - `SRC-G02-8C91F829` — Reward shaping — Mastering Reinforcement Learning — raw: `../../sources/raw-md/src-g02-8c91f829__reward-shaping-mastering-reinforcement-learning.md`
 - `SRC-G02-9509C75B` — From Autonomous Agents to Integrated Systems, A New Paradigm: Orchestrated Distributed Intelligence — raw: `../../sources/raw-md/src-g02-9509c75b__from-autonomous-agents-to-integrated-systems-a-new-paradigm-orchestrated-distributed-intel.md`

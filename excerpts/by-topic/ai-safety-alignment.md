@@ -1,6 +1,6 @@
 # Topic Index — ai-safety-alignment
 
-Automatic index; review before using it as a thesis taxonomy.
+Automatic screening index; verify taxonomy and relevance before thesis use.
 
 - `SRC-G01-0001` — Fully Autonomous AI Agents Should Not be Developed — raw: `../../sources/raw-md/src-g01-0001__fully-autonomous-ai-agents-should-not-be-developed.md`
 - `SRC-G01-0006` — Misalignment Examples - AI Alignment — raw: `../../sources/raw-md/src-g01-0006__misalignment-examples-ai-alignment.md`
@@ -44,7 +44,7 @@ Automatic index; review before using it as a thesis taxonomy.
 - `SRC-G02-01273B39` — Vertex AI Agent Builder Google Cloud — raw: `../../sources/raw-md/src-g02-01273b39__vertex-ai-agent-builder-google-cloud.md`
 - `SRC-G02-12F72669` — Avoiding Catastrophic Forgetting in Safety Gridworld ECE 517 Reinforcement Learning Final Project Re — raw: `../../sources/raw-md/src-g02-12f72669__avoiding-catastrophic-forgetting-in-safety-gridworld-ece-517-reinforcement-learning-final.md`
 - `SRC-G02-4D76136A` — Stanford Seminar - Continual Safety Assurances for Learning-Enabled Robotic Systems — raw: `../../sources/raw-md/src-g02-4d76136a__stanford-seminar-continual-safety-assurances-for-learning-enabled-robotic-systems.md`
-- `SRC-G02-76A64D20` — The Architecture, Application, and Alignment Challenges of Autonomous AI Agents A Comprehensive Tech — raw: `../../sources/raw-md/src-g02-76a64d20__the-architecture-application-and-alignment-challenges-of-autonomous-ai-agents-a-comprehens.md`; excerpts: `../by-source/src-g02-76a64d20__candidate-excerpts.md`
+- `SRC-G02-76A64D20` — The Architecture, Application, and Alignment Challenges of Autonomous AI Agents A Comprehensive Tech — raw: `../../sources/raw-md/src-g02-76a64d20__the-architecture-application-and-alignment-challenges-of-autonomous-ai-agents-a-comprehens.md`
 - `SRC-G02-9509C75B` — From Autonomous Agents to Integrated Systems, A New Paradigm: Orchestrated Distributed Intelligence — raw: `../../sources/raw-md/src-g02-9509c75b__from-autonomous-agents-to-integrated-systems-a-new-paradigm-orchestrated-distributed-intel.md`
-- `SRC-G02-A2F639E4` — Forgetting as Control: A Theoretical Framework for Selective Behavioral Erasure in Post-Deployment Reinforcement Learning Agents — raw: `../../sources/raw-md/src-g02-a2f639e4__forgetting-as-control-a-theoretical-framework-for-selective-behavioral-erasure-in-post-dep.md`; excerpts: `../by-source/src-g02-a2f639e4__candidate-excerpts.md`
+- `SRC-G02-A2F639E4` — Forgetting as Control: A Theoretical Framework for Selective Behavioral Erasure in Post-Deployment Reinforcement Learning Agents — raw: `../../sources/raw-md/src-g02-a2f639e4__forgetting-as-control-a-theoretical-framework-for-selective-behavioral-erasure-in-post-dep.md`
 - `SRC-G02-AA472F63` — AI Safety as a Reinforcement Learning Problem — raw: `../../sources/raw-md/src-g02-aa472f63__ai-safety-as-a-reinforcement-learning-problem.md`

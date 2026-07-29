@@ -1,6 +1,6 @@
 # Topic Index — uncategorized
 
-Automatic index; review before using it as a thesis taxonomy.
+Automatic screening index; verify taxonomy and relevance before thesis use.
 
 - `SRC-G01-0013` — Understanding AI Agents, LLMs, and Experts- A Modern AI Architecture - by Matt White — raw: `../../sources/raw-md/src-g01-0013__understanding-ai-agents-llms-and-experts-a-modern-ai-architecture-by-matt-white.md`
 - `SRC-G01-0018` — What are the core characteristics of an intelligent agent- - Tencent Cloud — raw: `../../sources/raw-md/src-g01-0018__what-are-the-core-characteristics-of-an-intelligent-agent-tencent-cloud.md`

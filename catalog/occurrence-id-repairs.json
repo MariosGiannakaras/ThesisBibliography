@@ -1,0 +1,28 @@
+{
+  "repairs": [
+    {
+      "old_source_id": "SRC-G02-364DB745",
+      "new_source_id": "SRC-G02-364DB745-4F12E2",
+      "original_path": "Group2/Group2Files/Comparing_the_Top_5_AI_Agent_Architectures_in_2025_Hierarchical,_Swarm,_Meta_Learning,_Modular,_Evol_1.md",
+      "shared_normalized_path": "sources/raw-md/src-g02-364db745__comparing-the-top-5-ai-agent-architectures-in-2025-hierarchical-swarm-meta-learning-modula.md"
+    },
+    {
+      "old_source_id": "SRC-G02-4E0E6067",
+      "new_source_id": "SRC-G02-4E0E6067-82E07E",
+      "original_path": "Group2/Group2Files/Hierarchical_Reinforcement_Learning_for_Playing_a_Dynamic_Dungeon_Crawler_Game_-_Bernoulli_Institute_1.md",
+      "shared_normalized_path": "sources/raw-md/src-g02-4e0e6067__hierarchical-reinforcement-learning-for-playing-a-dynamic-dungeon-crawler-game-bernoulli-i.md"
+    },
+    {
+      "old_source_id": "SRC-G02-9129C434",
+      "new_source_id": "SRC-G02-9129C434-0A9FAD",
+      "original_path": "Group2/Group2Files/Context-Switching_and_Adaptation_Brain-Inspired_Mechanisms_for_Handling_Environmental_Changes_-_Univ_1.md",
+      "shared_normalized_path": "sources/raw-md/src-g02-9129c434__context-switching-and-adaptation-brain-inspired-mechanisms-for-handling-environmental-chan.md"
+    },
+    {
+      "old_source_id": "SRC-G02-B421E32D",
+      "new_source_id": "SRC-G02-B421E32D-9FFDA2",
+      "original_path": "Group2/Group2Files/Learn_to_Human-level_Control_in_Dynamic_Environment_Using_Incremental_Batch_Interrupting_Temporal_Ab_1.md",
+      "shared_normalized_path": "sources/raw-md/src-g02-b421e32d__learn-to-human-level-control-in-dynamic-environment-using-incremental-batch-interrupting-t.md"
+    }
+  ]
+}

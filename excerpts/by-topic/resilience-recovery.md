@@ -1,6 +1,6 @@
 # Topic Index — resilience-recovery
 
-Automatic index; review before using it as a thesis taxonomy.
+Automatic screening index; verify taxonomy and relevance before thesis use.
 
 - `SRC-G01-0023` — Which AI approach do you prefer- One -super- Agent or multiple specialized ones — raw: `../../sources/raw-md/src-g01-0023__which-ai-approach-do-you-prefer-one-super-agent-or-multiple-specialized-ones.md`
 - `SRC-G01-0040` — Using Gen AI Agents With GAE and VAE to Enhance Resilience of US Markets — raw: `../../sources/raw-md/src-g01-0040__using-gen-ai-agents-with-gae-and-vae-to-enhance-resilience-of-us-markets.md`
@@ -43,7 +43,7 @@ Automatic index; review before using it as a thesis taxonomy.
 - `SRC-G01-0270` — What is Mean Time to Repair (MTTR)- — raw: `../../sources/raw-md/src-g01-0270__what-is-mean-time-to-repair-mttr.md`
 - `SRC-G01-0271` — When AI Agents Make Mistakes- Building Resilient Systems and Recovery Protocols — raw: `../../sources/raw-md/src-g01-0271__when-ai-agents-make-mistakes-building-resilient-systems-and-recovery-protocols.md`
 - `SRC-G02-130F0F80` — Safe Reinforcement Learning in the Presence of Non-stationarity Theory and Algorithms — raw: `../../sources/raw-md/src-g02-130f0f80__safe-reinforcement-learning-in-the-presence-of-non-stationarity-theory-and-algorithms.md`
-- `SRC-G02-1EA517F2` — On the Definition of Robustness and Resilience of AI Agents for Real-time Congestion Management — raw: `../../sources/raw-md/src-g02-1ea517f2__on-the-definition-of-robustness-and-resilience-of-ai-agents-for-real-time-congestion-manag.md`; excerpts: `../by-source/src-g02-1ea517f2__candidate-excerpts.md`
-- `SRC-G02-4619E428` — Robustness Archives - AI Standards Hub — raw: `../../sources/raw-md/src-g02-4619e428__robustness-archives-ai-standards-hub.md`; excerpts: `../by-source/src-g02-4619e428__candidate-excerpts.md`
-- `SRC-G02-A94FA474` — Continual reinforcement learning in a resource allocation simulator — raw: `../../sources/raw-md/src-g02-a94fa474__continual-reinforcement-learning-in-a-resource-allocation-simulator.md`; excerpts: `../by-source/src-g02-a94fa474__candidate-excerpts.md`
+- `SRC-G02-1EA517F2` — On the Definition of Robustness and Resilience of AI Agents for Real-time Congestion Management — raw: `../../sources/raw-md/src-g02-1ea517f2__on-the-definition-of-robustness-and-resilience-of-ai-agents-for-real-time-congestion-manag.md`
+- `SRC-G02-4619E428` — Robustness Archives - AI Standards Hub — raw: `../../sources/raw-md/src-g02-4619e428__robustness-archives-ai-standards-hub.md`
+- `SRC-G02-A94FA474` — Continual reinforcement learning in a resource allocation simulator — raw: `../../sources/raw-md/src-g02-a94fa474__continual-reinforcement-learning-in-a-resource-allocation-simulator.md`
 - `SRC-G02-AE7BB424` — Research report Thesis Sources Analysis (GridWorld & Resilience) — raw: `../../sources/raw-md/src-g02-ae7bb424__research-report-thesis-sources-analysis-gridworld-resilience.md`

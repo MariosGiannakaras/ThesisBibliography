@@ -1,6 +1,6 @@
 # Topic Index — agentic-ai
 
-Automatic index; review before using it as a thesis taxonomy.
+Automatic screening index; verify taxonomy and relevance before thesis use.
 
 - `SRC-G01-0002` — Intellebox.ai Spins Out, Unifying AI for Financial Advisory’s Future — raw: `../../sources/raw-md/src-g01-0002__intellebox-ai-spins-out-unifying-ai-for-financial-advisory-s-future.md`
 - `SRC-G01-0003` — Intelligent agent — raw: `../../sources/raw-md/src-g01-0003__intelligent-agent.md`
@@ -59,14 +59,14 @@ Automatic index; review before using it as a thesis taxonomy.
 - `SRC-G01-0285` — Emergence in Multi-agent Systems: A Safety Perspective — raw: `../../sources/raw-md/src-g01-0285__emergence-in-multi-agent-systems-a-safety-perspective.md`
 - `SRC-G02-094ADD34` — Open Source Tools That Make Autonomous Agent Development ... — raw: `../../sources/raw-md/src-g02-094add34__open-source-tools-that-make-autonomous-agent-development.md`
 - `SRC-G02-364DB745` — Comparing the Top 5 AI Agent Architectures in 2025 Hierarchical, Swarm, Meta Learning, Modular, Evol — raw: `../../sources/raw-md/src-g02-364db745__comparing-the-top-5-ai-agent-architectures-in-2025-hierarchical-swarm-meta-learning-modula.md`
-- `SRC-G02-364DB745` — Comparing the Top 5 AI Agent Architectures in 2025 Hierarchical, Swarm, Meta Learning, Modular, Evol 1 — raw: `../../sources/raw-md/src-g02-364db745__comparing-the-top-5-ai-agent-architectures-in-2025-hierarchical-swarm-meta-learning-modula.md`
+- `SRC-G02-364DB745-4F12E2` — Comparing the Top 5 AI Agent Architectures in 2025 Hierarchical, Swarm, Meta Learning, Modular, Evol 1 — raw: `../../sources/raw-md/src-g02-364db745__comparing-the-top-5-ai-agent-architectures-in-2025-hierarchical-swarm-meta-learning-modula.md`
 - `SRC-G02-4A2050F3` — Agent-Based Systems for Intelligent Manufacturing: A State-of-the-Art Survey — raw: `../../sources/raw-md/src-g02-4a2050f3__agent-based-systems-for-intelligent-manufacturing-a-state-of-the-art-survey.md`
 - `SRC-G02-4E0E6067` — Hierarchical Reinforcement Learning for Playing a Dynamic Dungeon Crawler Game - Bernoulli Institute — raw: `../../sources/raw-md/src-g02-4e0e6067__hierarchical-reinforcement-learning-for-playing-a-dynamic-dungeon-crawler-game-bernoulli-i.md`
-- `SRC-G02-4E0E6067` — Hierarchical Reinforcement Learning for Playing a Dynamic Dungeon Crawler Game - Bernoulli Institute 1 — raw: `../../sources/raw-md/src-g02-4e0e6067__hierarchical-reinforcement-learning-for-playing-a-dynamic-dungeon-crawler-game-bernoulli-i.md`
-- `SRC-G02-76A64D20` — The Architecture, Application, and Alignment Challenges of Autonomous AI Agents A Comprehensive Tech — raw: `../../sources/raw-md/src-g02-76a64d20__the-architecture-application-and-alignment-challenges-of-autonomous-ai-agents-a-comprehens.md`; excerpts: `../by-source/src-g02-76a64d20__candidate-excerpts.md`
+- `SRC-G02-4E0E6067-82E07E` — Hierarchical Reinforcement Learning for Playing a Dynamic Dungeon Crawler Game - Bernoulli Institute 1 — raw: `../../sources/raw-md/src-g02-4e0e6067__hierarchical-reinforcement-learning-for-playing-a-dynamic-dungeon-crawler-game-bernoulli-i.md`
+- `SRC-G02-76A64D20` — The Architecture, Application, and Alignment Challenges of Autonomous AI Agents A Comprehensive Tech — raw: `../../sources/raw-md/src-g02-76a64d20__the-architecture-application-and-alignment-challenges-of-autonomous-ai-agents-a-comprehens.md`
 - `SRC-G02-9509C75B` — From Autonomous Agents to Integrated Systems, A New Paradigm: Orchestrated Distributed Intelligence — raw: `../../sources/raw-md/src-g02-9509c75b__from-autonomous-agents-to-integrated-systems-a-new-paradigm-orchestrated-distributed-intel.md`
 - `SRC-G02-A19E2F9A` — Agentic AI Engineering Complete 4-Hour Workshop feat. MCP, CrewAI and OpenAI Agents SDK — raw: `../../sources/raw-md/src-g02-a19e2f9a__agentic-ai-engineering-complete-4-hour-workshop-feat-mcp-crewai-and-openai-agents-sdk.md`
-- `SRC-G02-B17FCFE1` — Discovering and Using Structure in Autonomous Machine Learning - Research Collection — raw: `../../sources/raw-md/src-g02-b17fcfe1__discovering-and-using-structure-in-autonomous-machine-learning-research-collection.md`; excerpts: `../by-source/src-g02-b17fcfe1__candidate-excerpts.md`
+- `SRC-G02-B17FCFE1` — Discovering and Using Structure in Autonomous Machine Learning - Research Collection — raw: `../../sources/raw-md/src-g02-b17fcfe1__discovering-and-using-structure-in-autonomous-machine-learning-research-collection.md`
 - `SRC-G02-DC3D8968` — What Is Agentic Architecture IBM — raw: `../../sources/raw-md/src-g02-dc3d8968__what-is-agentic-architecture-ibm.md`
 - `SRC-G02-E20BBA24` — Cognitive Architectures for Language Agents — raw: `../../sources/raw-md/src-g02-e20bba24__cognitive-architectures-for-language-agents.md`
 - `SRC-G02-E9CCD871` — Leveraging the Beliefs-Desires-Intentions Agent Architecture Microsoft Learn — raw: `../../sources/raw-md/src-g02-e9ccd871__leveraging-the-beliefs-desires-intentions-agent-architecture-microsoft-learn.md`

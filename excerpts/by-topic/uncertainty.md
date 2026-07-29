@@ -1,6 +1,6 @@
 # Topic Index — uncertainty
 
-Automatic index; review before using it as a thesis taxonomy.
+Automatic screening index; verify taxonomy and relevance before thesis use.
 
 - `SRC-G01-0017` — What are AI Agents-- Agents in Artificial Intelligence Explained — raw: `../../sources/raw-md/src-g01-0017__what-are-ai-agents-agents-in-artificial-intelligence-explained.md`
 - `SRC-G01-0019` — What is AI Agent Learning- — raw: `../../sources/raw-md/src-g01-0019__what-is-ai-agent-learning.md`
@@ -88,13 +88,13 @@ Automatic index; review before using it as a thesis taxonomy.
 - `SRC-G02-90F59642` — UAI 2024 (Barcelona) — raw: `../../sources/raw-md/src-g02-90f59642__uai-2024-barcelona.md`
 - `SRC-G02-9509C75B` — From Autonomous Agents to Integrated Systems, A New Paradigm: Orchestrated Distributed Intelligence — raw: `../../sources/raw-md/src-g02-9509c75b__from-autonomous-agents-to-integrated-systems-a-new-paradigm-orchestrated-distributed-intel.md`
 - `SRC-G02-AE7BB424` — Research report Thesis Sources Analysis (GridWorld & Resilience) — raw: `../../sources/raw-md/src-g02-ae7bb424__research-report-thesis-sources-analysis-gridworld-resilience.md`
-- `SRC-G02-B421E32D` — Learn to human-level control in dynamic environment using incremental batch interrupting temporal abstraction — raw: `../../sources/raw-md/src-g02-b421e32d__learn-to-human-level-control-in-dynamic-environment-using-incremental-batch-interrupting-t.md`; excerpts: `../by-source/src-g02-b421e32d__candidate-excerpts.md`
-- `SRC-G02-B421E32D` — Learn to human-level control in dynamic environment using incremental batch interrupting temporal abstraction — raw: `../../sources/raw-md/src-g02-b421e32d__learn-to-human-level-control-in-dynamic-environment-using-incremental-batch-interrupting-t.md`; excerpts: `../by-source/src-g02-b421e32d__candidate-excerpts.md`
+- `SRC-G02-B421E32D` — Learn to human-level control in dynamic environment using incremental batch interrupting temporal abstraction — raw: `../../sources/raw-md/src-g02-b421e32d__learn-to-human-level-control-in-dynamic-environment-using-incremental-batch-interrupting-t.md`
+- `SRC-G02-B421E32D-9FFDA2` — Learn to human-level control in dynamic environment using incremental batch interrupting temporal abstraction — raw: `../../sources/raw-md/src-g02-b421e32d__learn-to-human-level-control-in-dynamic-environment-using-incremental-batch-interrupting-t.md`
 - `SRC-G02-BFC4312A` — Humans as Safety Constraints: A Survey of Human-in-the-Loop Reinforcement Learning for Critical Systems — raw: `../../sources/raw-md/src-g02-bfc4312a__humans-as-safety-constraints-a-survey-of-human-in-the-loop-reinforcement-learning-for-crit.md`
-- `SRC-G02-C0E0A9D0` — Uncertainty-Aware Reinforcement Learning for Flight Control TU Delft Repository — raw: `../../sources/raw-md/src-g02-c0e0a9d0__uncertainty-aware-reinforcement-learning-for-flight-control-tu-delft-repository.md`; excerpts: `../by-source/src-g02-c0e0a9d0__candidate-excerpts.md`
+- `SRC-G02-C0E0A9D0` — Uncertainty-Aware Reinforcement Learning for Flight Control TU Delft Repository — raw: `../../sources/raw-md/src-g02-c0e0a9d0__uncertainty-aware-reinforcement-learning-for-flight-control-tu-delft-repository.md`
 - `SRC-G02-C2D6E1A7` — AIC Facing Uncertainty in AI -- From Verification to Synthesis — raw: `../../sources/raw-md/src-g02-c2d6e1a7__aic-facing-uncertainty-in-ai-from-verification-to-synthesis.md`
 - `SRC-G02-C5AF5A2A` — Online MDP with Transition Prototypes: A Robust Adaptive Approach — raw: `../../sources/raw-md/src-g02-c5af5a2a__online-mdp-with-transition-prototypes-a-robust-adaptive-approach.md`
 - `SRC-G02-C777EC06` — Reinforcement Learning in Non-Stationary Environments — raw: `../../sources/raw-md/src-g02-c777ec06__reinforcement-learning-in-non-stationary-environments.md`
-- `SRC-G02-D32B1A26` — **Deep Reinforcement Learning in Non-stationary Environments ** — raw: `../../sources/raw-md/src-g02-d32b1a26__deep-reinforcement-learning-in-non-stationary-environments.md`; excerpts: `../by-source/src-g02-d32b1a26__candidate-excerpts.md`
+- `SRC-G02-D32B1A26` — **Deep Reinforcement Learning in Non-stationary Environments ** — raw: `../../sources/raw-md/src-g02-d32b1a26__deep-reinforcement-learning-in-non-stationary-environments.md`
 - `SRC-G02-D5B1C497` — Robust Policy Learning over Multiple Uncertainty Sets — raw: `../../sources/raw-md/src-g02-d5b1c497__robust-policy-learning-over-multiple-uncertainty-sets.md`
 - `SRC-G02-E0E939C8` — Modeling and simulation of an isolated mini-grid including battery operation strategies under uncert — raw: `../../sources/raw-md/src-g02-e0e939c8__modeling-and-simulation-of-an-isolated-mini-grid-including-battery-operation-strategies-un.md`

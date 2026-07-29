@@ -1,6 +1,6 @@
 # Topic Index — nonstationary-rl
 
-Automatic index; review before using it as a thesis taxonomy.
+Automatic screening index; verify taxonomy and relevance before thesis use.
 
 - `SRC-G01-0008` — Reactive and Deliberative AI agents - Vikas Goyal — raw: `../../sources/raw-md/src-g01-0008__reactive-and-deliberative-ai-agents-vikas-goyal.md`
 - `SRC-G01-0095` — OPUS at UTS- Deep reinforcement learning in non-stationary environments - Open Publications of UTS S — raw: `../../sources/raw-md/src-g01-0095__opus-at-uts-deep-reinforcement-learning-in-non-stationary-environments-open-publications-o.md`
@@ -23,10 +23,10 @@ Automatic index; review before using it as a thesis taxonomy.
 - `SRC-G01-0279` — AI Agents- Evolution, Architecture, and Real-World Applications — raw: `../../sources/raw-md/src-g01-0279__ai-agents-evolution-architecture-and-real-world-applications.md`
 - `SRC-G02-130F0F80` — Safe Reinforcement Learning in the Presence of Non-stationarity Theory and Algorithms — raw: `../../sources/raw-md/src-g02-130f0f80__safe-reinforcement-learning-in-the-presence-of-non-stationarity-theory-and-algorithms.md`
 - `SRC-G02-4FD99D3D` — OPUS at UTS Deep reinforcement learning in non-stationary environments - Open Publications of UTS Sc — raw: `../../sources/raw-md/src-g02-4fd99d3d__opus-at-uts-deep-reinforcement-learning-in-non-stationary-environments-open-publications-o.md`
-- `SRC-G02-74ED7BC9` — Robust proximal policy optimization for reinforcement learning — raw: `../../sources/raw-md/src-g02-74ed7bc9__robust-proximal-policy-optimization-for-reinforcement-learning.md`; excerpts: `../by-source/src-g02-74ed7bc9__candidate-excerpts.md`
+- `SRC-G02-74ED7BC9` — Robust proximal policy optimization for reinforcement learning — raw: `../../sources/raw-md/src-g02-74ed7bc9__robust-proximal-policy-optimization-for-reinforcement-learning.md`
 - `SRC-G02-9129C434` — Context-Switching and Adaptation Brain-Inspired Mechanisms for Handling Environmental Changes - Univ — raw: `../../sources/raw-md/src-g02-9129c434__context-switching-and-adaptation-brain-inspired-mechanisms-for-handling-environmental-chan.md`
-- `SRC-G02-9129C434` — Context-Switching and Adaptation Brain-Inspired Mechanisms for Handling Environmental Changes - Univ 1 — raw: `../../sources/raw-md/src-g02-9129c434__context-switching-and-adaptation-brain-inspired-mechanisms-for-handling-environmental-chan.md`
+- `SRC-G02-9129C434-0A9FAD` — Context-Switching and Adaptation Brain-Inspired Mechanisms for Handling Environmental Changes - Univ 1 — raw: `../../sources/raw-md/src-g02-9129c434__context-switching-and-adaptation-brain-inspired-mechanisms-for-handling-environmental-chan.md`
 - `SRC-G02-BFC4312A` — Humans as Safety Constraints: A Survey of Human-in-the-Loop Reinforcement Learning for Critical Systems — raw: `../../sources/raw-md/src-g02-bfc4312a__humans-as-safety-constraints-a-survey-of-human-in-the-loop-reinforcement-learning-for-crit.md`
 - `SRC-G02-C777EC06` — Reinforcement Learning in Non-Stationary Environments — raw: `../../sources/raw-md/src-g02-c777ec06__reinforcement-learning-in-non-stationary-environments.md`
-- `SRC-G02-D32B1A26` — **Deep Reinforcement Learning in Non-stationary Environments ** — raw: `../../sources/raw-md/src-g02-d32b1a26__deep-reinforcement-learning-in-non-stationary-environments.md`; excerpts: `../by-source/src-g02-d32b1a26__candidate-excerpts.md`
+- `SRC-G02-D32B1A26` — **Deep Reinforcement Learning in Non-stationary Environments ** — raw: `../../sources/raw-md/src-g02-d32b1a26__deep-reinforcement-learning-in-non-stationary-environments.md`
 - `SRC-G02-D5B1C497` — Robust Policy Learning over Multiple Uncertainty Sets — raw: `../../sources/raw-md/src-g02-d5b1c497__robust-policy-learning-over-multiple-uncertainty-sets.md`

@@ -1,6 +1,6 @@
 # Topic Index — gridworld-implementation
 
-Automatic index; review before using it as a thesis taxonomy.
+Automatic screening index; verify taxonomy and relevance before thesis use.
 
 - `SRC-G01-0007` — Open Source Tools That Make Autonomous Agent Development ... — raw: `../../sources/raw-md/src-g01-0007__open-source-tools-that-make-autonomous-agent-development.md`
 - `SRC-G01-0008` — Reactive and Deliberative AI agents - Vikas Goyal — raw: `../../sources/raw-md/src-g01-0008__reactive-and-deliberative-ai-agents-vikas-goyal.md`
