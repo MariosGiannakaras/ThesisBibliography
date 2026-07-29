@@ -1,0 +1,96 @@
+name: Validate bibliography
+
+on:
+  push:
+    branches:
+      - main
+      - chore/bibliography-intake-audit
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Compile organizer
+        run: python -m py_compile scripts/organize_sources.py
+
+      - name: Validate catalog and source archive
+        shell: bash
+        run: |
+          python - <<'PY'
+          from __future__ import annotations
+
+          import csv
+          import hashlib
+          import json
+          import re
+          from pathlib import Path
+
+          root = Path('.')
+          catalog_json = root / 'catalog' / 'source_catalog.json'
+          catalog_csv = root / 'catalog' / 'SOURCE_CATALOG.csv'
+          sources_dir = root / 'sources' / 'markdown'
+
+          if not catalog_json.exists():
+              print('Initial normalization has not run yet; catalog validation skipped.')
+              raise SystemExit(0)
+
+          records = json.loads(catalog_json.read_text(encoding='utf-8'))
+          csv_rows = list(csv.DictReader(catalog_csv.open(encoding='utf-8', newline='')))
+          source_files = sorted(sources_dir.glob('*.md'))
+
+          assert isinstance(records, list) and records, 'catalog JSON must contain records'
+          assert len(records) == len(csv_rows) == len(source_files), 'catalog/file counts differ'
+
+          ids = [str(record['source_id']) for record in records]
+          paths = [str(record['normalized_path']) for record in records]
+          assert len(ids) == len(set(ids)), 'source IDs are not unique'
+          assert len(paths) == len(set(paths)), 'normalized paths are not unique'
+          assert all(re.fullmatch(r'SRC-[A-F0-9]{10}', source_id) for source_id in ids), 'invalid source ID'
+          assert all(path.startswith('sources/markdown/') and '/' not in path[len('sources/markdown/'):] for path in paths), 'source archive is not flat'
+
+          id_set = set(ids)
+          actual_paths = {path.as_posix() for path in source_files}
+          assert set(paths) == actual_paths, 'catalog paths do not match source files'
+
+          for record in records:
+              path = root / str(record['normalized_path'])
+              checksum = hashlib.sha256(path.read_bytes()).hexdigest()
+              assert checksum == record['content_sha256'], f'checksum mismatch: {path}'
+              duplicate_of = str(record.get('duplicate_of') or '')
+              if duplicate_of:
+                  assert duplicate_of in id_set and duplicate_of != record['source_id'], 'invalid duplicate reference'
+              if record.get('source_type') == 'notebooklm-synthesis':
+                  assert record.get('curation_status') == 'non-citable-context'
+                  assert record.get('priority') == 'P5-archive-only'
+
+          legacy_groups = [path for path in root.iterdir() if path.is_dir() and re.fullmatch(r'Group\d+', path.name)]
+          assert not legacy_groups, f'legacy group directories remain: {legacy_groups}'
+
+          required = [
+              root / 'catalog' / 'SOURCE_CATALOG.md',
+              root / 'catalog' / 'DUPLICATE_REVIEW.md',
+              root / 'catalog' / 'FAILED_OR_INCOMPLETE_SOURCES.md',
+              root / 'catalog' / 'COVERAGE_GAPS.md',
+              root / 'curation' / 'USEFUL_EXCERPTS.md',
+              root / 'curation' / 'REVIEW_QUEUE.md',
+          ]
+          missing = [path.as_posix() for path in required if not path.exists()]
+          assert not missing, f'missing generated files: {missing}'
+
+          print(f'Validated {len(records)} source records and {len(source_files)} source files.')
+          PY
+
+      - name: Verify organizer is idempotent
+        shell: bash
+        run: |
+          python scripts/organize_sources.py
+          git diff --exit-code
