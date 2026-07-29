@@ -1,20 +1,17 @@
 name: Curate bibliography corpus
 
 on:
-  push:
-    branches:
-      - chore/curate-bibliography-corpus
+  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
   curate:
-    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - name: Check out branch
+      - name: Check out selected branch
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -57,7 +54,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
           git commit -m "feat: enrich and verify bibliography metadata [skip ci]"
-          git push
+          git push origin HEAD:${GITHUB_REF_NAME}
 
       - name: Require successful enrichment
         if: steps.enrich.outcome != 'success'
