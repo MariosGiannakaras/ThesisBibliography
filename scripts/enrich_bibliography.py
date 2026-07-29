@@ -29,7 +29,7 @@ TARGETS=[
 ('Efficient Adaptation of Reinforcement Learning Agents to Sudden Environmental Change','https://hdl.handle.net/1853/76967','comparable-thesis')]
 
 def norm(s:str)->str:
- s=unicodedata.normalize('NFKD',s); s=''.join(c for c in s if not unicodedata.combining(c)); return re.sub(r'[^a-z0-9]+',' ',s.lower()).strip()
+ s=unicodedata.normalize('NFKC',s).casefold(); return re.sub(r'\s+',' ',''.join(c if c.isalnum() or c.isspace() else ' ' for c in s)).strip()
 def canon(u:str)->str:
  if not u:return ''
  u=u.strip().rstrip('.,;:)>]}"'); p=urllib.parse.urlparse(u); h=p.netloc.lower().removeprefix('www.'); a=ARX.search(u)
@@ -55,14 +55,20 @@ def get_json(url:str)->dict[str,Any]|None:
    if i<2:time.sleep(i+1)
  return None
 def arxiv(ids_:list[str])->dict[str,dict[str,str]]:
- out={}; ns={'a':'http://www.w3.org/2005/Atom','x':'http://arxiv.org/schemas/atom'}
+ out={}; ns={'a':'http://www.w3.org/2005/Atom','x':'http://arxiv.org/schemas/atom'}; failures=[]
  for i in range(0,len(ids_),25):
-  try:
-   req=urllib.request.Request('https://export.arxiv.org/api/query?id_list='+','.join(ids_[i:i+25]),headers={'User-Agent':UA})
-   with urllib.request.urlopen(req,timeout=40) as res:root=ET.fromstring(res.read())
-   for e in root.findall('a:entry',ns):
-    aid=re.sub(r'v\d+$','',e.findtext('a:id','',ns).split('/')[-1]); out[aid]={'title':' '.join(e.findtext('a:title','',ns).split()),'authors':'; '.join(x.findtext('a:name','',ns) for x in e.findall('a:author',ns)),'year':e.findtext('a:published','',ns)[:4],'doi':e.findtext('x:doi','',ns) or '', 'provider':'arXiv API'}
-  except Exception:pass
+  batch=ids_[i:i+25]; last=None
+  for attempt in range(3):
+   try:
+    req=urllib.request.Request('https://export.arxiv.org/api/query?id_list='+','.join(batch),headers={'User-Agent':UA})
+    with urllib.request.urlopen(req,timeout=40) as res:root=ET.fromstring(res.read())
+    for e in root.findall('a:entry',ns):
+     aid=re.sub(r'v\d+$','',e.findtext('a:id','',ns).split('/')[-1]); out[aid]={'title':' '.join(e.findtext('a:title','',ns).split()),'authors':'; '.join(x.findtext('a:name','',ns) for x in e.findall('a:author',ns)),'year':e.findtext('a:published','',ns)[:4],'doi':e.findtext('x:doi','',ns) or '', 'provider':'arXiv API'}
+    last=None; break
+   except Exception as exc:
+    last=exc; time.sleep(attempt+1)
+  if last is not None:failures.append({'ids':batch,'error':str(last)})
+ if failures:raise RuntimeError('arXiv metadata lookup failed: '+json.dumps(failures))
  return out
 def crossref(doi:str)->dict[str,str]|None:
  p=get_json('https://api.crossref.org/works/'+urllib.parse.quote(doi,safe=''))
@@ -70,9 +76,13 @@ def crossref(doi:str)->dict[str,str]|None:
  m=p['message']; au=[' '.join(filter(None,(a.get('given'),a.get('family')))) for a in m.get('author',[])]; dp=((m.get('published') or m.get('issued') or {}).get('date-parts') or [[]])[0]
  return {'title':(m.get('title') or [''])[0],'authors':'; '.join(x for x in au if x),'year':str(dp[0]) if dp else '','doi':str(m.get('DOI') or doi).lower(),'provider':'Crossref API'}
 def openalex(title:str)->tuple[dict[str,str]|None,float]:
+ target=norm(title)
+ if not target:return None,0.0
  p=get_json('https://api.openalex.org/works?'+urllib.parse.urlencode({'search':title,'per-page':3})); best=None; score=0.0
  for m in (p or {}).get('results',[]):
-  t=str(m.get('display_name') or ''); s=SequenceMatcher(None,norm(title),norm(t)).ratio()
+  t=str(m.get('display_name') or ''); candidate=norm(t)
+  if not candidate:continue
+  s=SequenceMatcher(None,target,candidate).ratio()
   if s>score:
    au=[(x.get('author') or {}).get('display_name') for x in m.get('authorships',[])]; loc=m.get('primary_location') or {}
    best={'title':t,'authors':'; '.join(x for x in au if x),'year':str(m.get('publication_year') or ''),'doi':str(m.get('doi') or '').removeprefix('https://doi.org/'),'official_url':str(loc.get('landing_page_url') or ''),'provider':'OpenAlex API'}; score=s
@@ -107,9 +117,9 @@ def refs(records:list[dict[str,Any]],overlay:list[dict[str,Any]])->list[dict[str
  existing={}
  queue_path=QUE/'REFERENCES_TO_SCREEN.csv'
  if queue_path.exists():
-  try:existing={r['candidate_url']:r for r in csv.DictReader(queue_path.open(encoding='utf-8',newline=''))}
+  try:existing={r.get('candidate_key') or r.get('candidate_url'):r for r in csv.DictReader(queue_path.open(encoding='utf-8',newline=''))}
   except Exception:existing={}
- present={canon(r.get('url','')) for r in records if r.get('url')}; present|={canon(r.get('official_url','')) for r in overlay if r.get('official_url')}; found=defaultdict(set)
+ present={canon(r.get('url','')) for r in records if r.get('url')}; present|={canon(r.get('official_url','')) for r in overlay if r.get('official_url')}; found=defaultdict(set); text_found=defaultdict(set)
  for r in records:
   text=(ROOT/r['normalized_path']).read_text(encoding='utf-8',errors='replace'); m=list(REFH.finditer(text)); region=text[m[-1].start():] if m else ''
   if not region:continue
@@ -118,6 +128,9 @@ def refs(records:list[dict[str,Any]],overlay:list[dict[str,Any]])->list[dict[str
    if c:found[c].add(r['source_id'])
   for d in DOI.findall(region):found['https://doi.org/'+d.rstrip('.,;)').lower()].add(r['source_id'])
   for a in ARX.findall(region):found['https://arxiv.org/abs/'+a].add(r['source_id'])
+  for line in region.splitlines()[1:]:
+   item=re.sub(r'^[\s*+\-\d.\[\]()]+','',line).strip()
+   if 30<=len(item)<=700 and re.search(r'\b(?:19|20)\d{2}\b',item) and not URL.search(item) and not DOI.search(item) and not ARX.search(item):text_found[norm(item)].add(r['source_id'])
  for table in IMP.rglob('*.csv'):
   try:
    for row in csv.DictReader(table.open(encoding='utf-8-sig',errors='replace')):
@@ -126,8 +139,11 @@ def refs(records:list[dict[str,Any]],overlay:list[dict[str,Any]])->list[dict[str
   except Exception:pass
  rows=[]
  for u,orig in sorted(found.items(),key=lambda x:(-len(x[1]),x[0])):
-  old=existing.get(u,{})
-  rows.append({'candidate_url':u,'origin_count':len(orig),'origin_ids':sorted(orig),'already_cataloged':u in present,'screening_status':'already-present' if u in present else 'pending','decision':old.get('decision',''),'notes':old.get('notes','')})
+  key='url:'+u; old=existing.get(key) or existing.get(u) or {}
+  rows.append({'candidate_key':key,'candidate_text':'','candidate_url':u,'origin_count':len(orig),'origin_ids':sorted(orig),'already_cataloged':u in present,'screening_status':'already-present' if u in present else 'pending','decision':old.get('decision',''),'notes':old.get('notes','')})
+ for item,orig in sorted(text_found.items(),key=lambda x:(-len(x[1]),x[0])):
+  key='text:'+item; old=existing.get(key,{})
+  rows.append({'candidate_key':key,'candidate_text':item,'candidate_url':'','origin_count':len(orig),'origin_ids':sorted(orig),'already_cataloged':False,'screening_status':'pending-text-verification','decision':old.get('decision',''),'notes':old.get('notes','')})
  return rows
 def esc(value:Any)->str:return str(value or '—').replace('|','\\|')
 def outputs(records:list[dict[str,Any]],overlay:list[dict[str,Any]],reference_rows:list[dict[str,Any]]):
@@ -135,10 +151,10 @@ def outputs(records:list[dict[str,Any]],overlay:list[dict[str,Any]],reference_ro
  lines=['# Verified Source Metadata','','This overlay supplements the intake catalog without changing archived Markdown. API verification does not mean the full source was read.','','| ID | Catalog title | Verified title | Authors | Year | Link | Status |','|---|---|---|---|---:|---|---|']
  for r in overlay:lines.append(f"| `{r['source_id']}` | {esc(r['catalog_title'])} | {esc(r['verified_title'])} | {esc(r['authors'])} | {esc(r['year'])} | {esc(r['official_url'])} | {r['verification_status']} |")
  (OUT/'VERIFIED_SOURCE_METADATA.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
- write_csv(QUE/'REFERENCES_TO_SCREEN.csv',reference_rows,['candidate_url','origin_count','origin_ids','already_cataloged','screening_status','decision','notes'])
+ write_csv(QUE/'REFERENCES_TO_SCREEN.csv',reference_rows,['candidate_key','candidate_text','candidate_url','origin_count','origin_ids','already_cataloged','screening_status','decision','notes'])
  known={norm(r.get('title','')) for r in records}; nxt=['# Next Sources to Add or Verify','','This is a screening queue, not an approved bibliography.','','## Known priority targets','']
  for t,u,c in TARGETS:nxt.append(f"- [{'x' if norm(t) in known else ' '}] **{t}** — {c} — {u}")
- pending=[r for r in reference_rows if r['screening_status']=='pending']; nxt+=['','## Reference-mining queue','',f'Pending candidates: **{len(pending)}**. See `REFERENCES_TO_SCREEN.csv`; prioritize candidates cited by several high-relevance sources.']
+ pending=[r for r in reference_rows if r['screening_status'] in {'pending','pending-text-verification'}]; nxt+=['','## Reference-mining queue','',f'Pending candidates: **{len(pending)}**. See `REFERENCES_TO_SCREEN.csv`; prioritize candidates cited by several high-relevance sources.']
  (QUE/'NEXT_SOURCES.md').write_text('\n'.join(nxt)+'\n',encoding='utf-8')
  bad=[]; ov={r['source_id']:r for r in overlay}
  for r in records:
