@@ -7,7 +7,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=g6eHhvHMSy8",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -33,7 +33,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/playlist",
+    "official_url": "https://www.youtube.com/playlist?list=PLW4eqbV8qk8YUmaN0vIyGxUNOVqFzC2pd",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -96,7 +96,7 @@
     "verified_title": "",
     "authors": "",
     "year": "",
-    "doi": "10.3929/ethz-b-000671017",
+    "doi": "",
     "arxiv_id": "",
     "official_url": "https://research-collection.ethz.ch/bitstreams/3b278f1d-c38d-4782-8996-01ee9558d7db/download",
     "verification_status": "recorded-source-url",
@@ -145,15 +145,15 @@
   {
     "source_id": "SRC-07D747621D",
     "catalog_title": "Learn to Human-level Control in Dynamic Environment Using Incremental Batch Interrupting Temporal Abstraction - Semantic Scholar",
-    "verified_title": "Learn to human-level control in dynamic environment using incremental batch interrupting temporal abstraction",
-    "authors": "Yuchen Fu; Zhipeng Xu; Fei Zhu; Quan Liu; Xiaoke Zhou",
-    "year": "2016",
-    "doi": "10.2298/csis160210015f",
+    "verified_title": "",
+    "authors": "",
+    "year": "",
+    "doi": "",
     "arxiv_id": "",
     "official_url": "",
-    "verification_status": "verified-crossref-api",
-    "provider": "Crossref API",
-    "match_score": 1.0
+    "verification_status": "unresolved",
+    "provider": "",
+    "match_score": ""
   },
   {
     "source_id": "SRC-081F931CFA",
@@ -223,15 +223,15 @@
   {
     "source_id": "SRC-0BC87F6189",
     "catalog_title": "Agentic AI - Wikipedia",
-    "verified_title": "The role of agentic AI in shaping a smart future: A systematic review",
-    "authors": "Soodeh Hosseini; Hossein Seilani",
-    "year": "2025",
-    "doi": "10.1016/j.array.2025.100399",
-    "arxiv_id": "2503.16586",
+    "verified_title": "",
+    "authors": "",
+    "year": "",
+    "doi": "",
+    "arxiv_id": "",
     "official_url": "https://en.wikipedia.org/wiki/Agentic_AI",
-    "verification_status": "verified-crossref-api",
-    "provider": "Crossref API",
-    "match_score": 1.0
+    "verification_status": "recorded-source-url",
+    "provider": "",
+    "match_score": ""
   },
   {
     "source_id": "SRC-118F674D11",
@@ -254,7 +254,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=cwzUeoXiSPA",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -280,7 +280,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=dRIhrn8cc9w",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -314,15 +314,15 @@
   {
     "source_id": "SRC-18D64222C0",
     "catalog_title": "multiagent-systems-pr 2740350560a3678fa4cc670ce86db9d0",
-    "verified_title": "Special Issue “Multi-Agent Systems”: Editorial",
-    "authors": "Stefano Mariani; Andrea Omicini",
-    "year": "2019",
-    "doi": "10.3390/app9050954",
+    "verified_title": "",
+    "authors": "",
+    "year": "",
+    "doi": "",
     "arxiv_id": "",
     "official_url": "",
-    "verification_status": "verified-crossref-api",
-    "provider": "Crossref API",
-    "match_score": 1.0
+    "verification_status": "unresolved",
+    "provider": "",
+    "match_score": ""
   },
   {
     "source_id": "SRC-1927FEAD47",
@@ -340,15 +340,15 @@
   {
     "source_id": "SRC-1A1238261D",
     "catalog_title": "Forgetting as Control- A Theoretical Framework for Selective Behavioral Erasure in Post-Deployment R",
-    "verified_title": "Forgetting as Control: A Theoretical Framework for Selective Behavioral Erasure in Post-Deployment Reinforcement Learning Agents",
-    "authors": "Mehdi Samieiyeganeh; Parisa Bahraminikoo; Soobia Saeed; Saraswathy Gunasekaran; Saadat Ahmed",
-    "year": "2026",
-    "doi": "10.20944/preprints202606.0911.v1",
+    "verified_title": "",
+    "authors": "",
+    "year": "",
+    "doi": "",
     "arxiv_id": "",
     "official_url": "https://preprints.org/manuscript/202606.0911",
-    "verification_status": "verified-crossref-api",
-    "provider": "Crossref API",
-    "match_score": 1.0
+    "verification_status": "recorded-source-url",
+    "provider": "",
+    "match_score": ""
   },
   {
     "source_id": "SRC-1A349E1354",
@@ -397,7 +397,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=WLvQCIUWebs",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -436,7 +436,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=eElfR_BnL5k",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -488,7 +488,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=XVO3zsHdvio",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -579,7 +579,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=1qrTWP-DtuM",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -616,7 +616,7 @@
     "verified_title": "Creating an LLM-based AI-agent: A high-level methodology towards enhancing LLMs with APIs",
     "authors": "Ioannis Tzachristas",
     "year": "2024",
-    "doi": "10.48550/arxiv.2412.13233",
+    "doi": "",
     "arxiv_id": "2412.13233",
     "official_url": "https://arxiv.org/abs/2412.13233",
     "verification_status": "verified-arxiv-api",
@@ -709,7 +709,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/playlist",
+    "official_url": "https://www.youtube.com/playlist?list=PLYXvCE1En13epbogBmgafC_Yyyk9oQogl",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -730,15 +730,15 @@
   {
     "source_id": "SRC-2E9F8BFC39",
     "catalog_title": "A Survey of Human-in-the-Loop Reinforcement Learning for Critical Systems",
-    "verified_title": "Humans as Safety Constraints: A Survey of Human-in-the-Loop Reinforcement Learning for Critical Systems",
-    "authors": "Kenneth Besigomwe",
-    "year": "2026",
-    "doi": "10.47760/cognizance.2026.v06i04.002",
+    "verified_title": "",
+    "authors": "",
+    "year": "",
+    "doi": "",
     "arxiv_id": "",
     "official_url": "https://cognizancejournal.com/vol6issue4/V6I402.pdf",
-    "verification_status": "verified-crossref-api",
-    "provider": "Crossref API",
-    "match_score": 1.0
+    "verification_status": "recorded-source-url",
+    "provider": "",
+    "match_score": ""
   },
   {
     "source_id": "SRC-2FF5CF5951",
@@ -787,7 +787,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=wOSXnNi7Big",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -891,7 +891,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=YunzhuLi_Tutorial+%28link",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -930,7 +930,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=Up6XSRWlcb4",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -1008,7 +1008,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/playlist",
+    "official_url": "https://www.youtube.com/playlist?list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -1034,7 +1034,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=uvXb0P1knRw",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -1084,7 +1084,7 @@
     "verified_title": "",
     "authors": "",
     "year": "",
-    "doi": "10.34657/33678",
+    "doi": "",
     "arxiv_id": "",
     "official_url": "https://oa.tib.eu/renate/items/65e85068-8c40-401c-87a7-8f654ae6455d/full",
     "verification_status": "recorded-source-url",
@@ -1120,15 +1120,15 @@
   {
     "source_id": "SRC-46BAF06A2C",
     "catalog_title": "Academic Editors: Phivos Mylonas,",
-    "verified_title": "CoReaAgents: A Collaboration and Reasoning Framework Based on LLM-Powered Agents for Complex Reasoning Tasks",
-    "authors": "Zhonghe Han; Jiaxin Wang; Xiaolu Yan; Zhiying Jiang; Yuanben Zhang; Siye Liu; Qihang Gong; Chenwei Song",
-    "year": "2025",
-    "doi": "10.3390/app15105663",
+    "verified_title": "",
+    "authors": "",
+    "year": "",
+    "doi": "",
     "arxiv_id": "",
     "official_url": "",
-    "verification_status": "verified-crossref-api",
-    "provider": "Crossref API",
-    "match_score": 1.0
+    "verification_status": "unresolved",
+    "provider": "",
+    "match_score": ""
   },
   {
     "source_id": "SRC-46FA10A281",
@@ -1147,27 +1147,27 @@
     "source_id": "SRC-47085E14BA",
     "catalog_title": "Resilient Multi-Agent Reinforcement Learning with Adversarial Value Decomposition",
     "verified_title": "Resilient Multi-Agent Reinforcement Learning with Adversarial Value Decomposition",
-    "authors": "Thomy Phan; Lenz Belzner; Thomas Gabor; Andreas Sedlmeier; Fabian Ritz; Claudia Linnhoff-Popien",
+    "authors": "Thomy Phan; Lenz Belzner; Thomas Gabor; Andreas Sedlmeier; Fabian Ritz; Claudia Linnhoff–Popien",
     "year": "2021",
     "doi": "10.1609/aaai.v35i13.17348",
     "arxiv_id": "",
-    "official_url": "https://ojs.aaai.org/index.php/AAAI/article/view/17348",
-    "verification_status": "verified-crossref-api",
-    "provider": "Crossref API",
+    "official_url": "https://doi.org/10.1609/aaai.v35i13.17348",
+    "verification_status": "probable-openalex-match",
+    "provider": "OpenAlex API",
     "match_score": 1.0
   },
   {
     "source_id": "SRC-486FAE4C93",
     "catalog_title": "Artificial Intelligence Risk Management Framework (AI RMF 1.0) NIST AI 100-1",
-    "verified_title": "Artificial Intelligence Risk Management Framework (AI RMF 1.0)",
-    "authors": "Elham Tabassi",
-    "year": "2023",
-    "doi": "10.6028/nist.ai.100-1",
+    "verified_title": "",
+    "authors": "",
+    "year": "",
+    "doi": "",
     "arxiv_id": "",
     "official_url": "https://nvlpubs.nist.gov/nistpubs/ai/nist.ai.100-1.pdf",
-    "verification_status": "verified-crossref-api",
-    "provider": "Crossref API",
-    "match_score": 1.0
+    "verification_status": "recorded-source-url",
+    "provider": "",
+    "match_score": ""
   },
   {
     "source_id": "SRC-49195612A3",
@@ -1189,7 +1189,7 @@
     "authors": "",
     "year": "",
     "doi": "",
-    "arxiv_id": "2407.17032",
+    "arxiv_id": "",
     "official_url": "https://gymnasium.farama.org/tutorials/gymnasium_basics/environment_creation",
     "verification_status": "recorded-source-url",
     "provider": "",
@@ -1216,7 +1216,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=Ph34wsFKeHo",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -1255,7 +1255,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=JxupzRqTbuM",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -1302,15 +1302,15 @@
   {
     "source_id": "SRC-4CA982BE87",
     "catalog_title": "Learn to Human-level Control in Dynamic Environment Using Incremental Batch Interrupting Temporal Abstraction - Semantic Scholar",
-    "verified_title": "Learn to human-level control in dynamic environment using incremental batch interrupting temporal abstraction",
-    "authors": "Yuchen Fu; Zhipeng Xu; Fei Zhu; Quan Liu; Xiaoke Zhou",
-    "year": "2016",
-    "doi": "10.2298/csis160210015f",
+    "verified_title": "",
+    "authors": "",
+    "year": "",
+    "doi": "",
     "arxiv_id": "",
     "official_url": "",
-    "verification_status": "verified-crossref-api",
-    "provider": "Crossref API",
-    "match_score": 1.0
+    "verification_status": "unresolved",
+    "provider": "",
+    "match_score": ""
   },
   {
     "source_id": "SRC-4D828826BB",
@@ -1398,7 +1398,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=cNF1-lFfNs4",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -1463,7 +1463,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://openreview.net/pdf",
+    "official_url": "https://openreview.net/pdf?id=Bp2axGAs18",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -1502,7 +1502,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=tPaSxFvpAnY",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -1514,7 +1514,7 @@
     "authors": "",
     "year": "",
     "doi": "",
-    "arxiv_id": "2305.06657",
+    "arxiv_id": "",
     "official_url": "",
     "verification_status": "unresolved",
     "provider": "",
@@ -1536,15 +1536,15 @@
   {
     "source_id": "SRC-54E00B5A43",
     "catalog_title": "Efficient Policy Optimization in Robust Constrained MDPs with Iteration Complexity Guarantees - arXi",
-    "verified_title": "Efficient Policy Optimization in Robust Constrained MDPs with Iteration Complexity Guarantees",
-    "authors": "Sourav Ganguly; Kishan Panaganti; Arnob Ghosh; Adam Wierman",
-    "year": "2025",
+    "verified_title": "",
+    "authors": "",
+    "year": "",
     "doi": "",
     "arxiv_id": "2505.19238",
     "official_url": "https://arxiv.org/abs/2505.19238",
-    "verification_status": "verified-arxiv-api",
-    "provider": "arXiv API",
-    "match_score": 1.0
+    "verification_status": "recorded-source-url",
+    "provider": "",
+    "match_score": ""
   },
   {
     "source_id": "SRC-55EB060C37",
@@ -1606,7 +1606,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=DL82mGde6wo",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -1658,7 +1658,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=HfkcXxC-JUs",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -1736,7 +1736,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=NnHUtizWcAo",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -1757,15 +1757,15 @@
   {
     "source_id": "SRC-65A11D9ADB",
     "catalog_title": "[2410.02820] Heuristics and Biases in AI Decision-Making- Implications for Responsible AGI",
-    "verified_title": "Heuristics and Biases in AI Decision-Making: Implications for Responsible AGI",
-    "authors": "Payam Saeedi; Mahsa Goodarzi; M Abdullah Canbaz",
-    "year": "2024",
-    "doi": "10.1109/AIRC64931.2025.11077505",
+    "verified_title": "",
+    "authors": "",
+    "year": "",
+    "doi": "",
     "arxiv_id": "2410.02820",
     "official_url": "https://arxiv.org/abs/2410.02820",
-    "verification_status": "verified-arxiv-api",
-    "provider": "arXiv API",
-    "match_score": 1.0
+    "verification_status": "recorded-source-url",
+    "provider": "",
+    "match_score": ""
   },
   {
     "source_id": "SRC-66A863A262",
@@ -1788,7 +1788,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=LSk5KaEGVk4",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -1814,7 +1814,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=4pYzYmSdSH4",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -1838,7 +1838,7 @@
     "verified_title": "",
     "authors": "",
     "year": "",
-    "doi": "10.48550/arxiv.2501.05435",
+    "doi": "",
     "arxiv_id": "2501.05435",
     "official_url": "https://arxiv.org/abs/2501.05435",
     "verification_status": "recorded-source-url",
@@ -1853,7 +1853,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/channel/AI-Explorations-Sauradeep",
+    "official_url": "https://www.youtube.com/channel/AI-Explorations-Sauradeep",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -1879,7 +1879,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=R9U0X0T6OAs+%28link",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -1939,15 +1939,15 @@
   {
     "source_id": "SRC-732D12A2CC",
     "catalog_title": "Towards a Science of AI Agent Reliability - arXiv",
-    "verified_title": "",
-    "authors": "",
-    "year": "",
+    "verified_title": "Towards a Science of AI Agent Reliability",
+    "authors": "Stephan Rabanser; Sayash Kapoor; Peter Kirgis; Kangheng Liu; Saiteja Utpala; Arvind Narayanan",
+    "year": "2026",
     "doi": "",
     "arxiv_id": "2602.16666",
     "official_url": "https://arxiv.org/abs/2602.16666",
-    "verification_status": "recorded-source-url",
-    "provider": "",
-    "match_score": ""
+    "verification_status": "verified-arxiv-api",
+    "provider": "arXiv API",
+    "match_score": 1.0
   },
   {
     "source_id": "SRC-73DA396BA9",
@@ -1970,7 +1970,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=ELE2_Mftqoc",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -2048,7 +2048,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=example1",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -2108,15 +2108,15 @@
   {
     "source_id": "SRC-7DA66E226E",
     "catalog_title": "applsci-15-05663-v2.pdf",
-    "verified_title": "CoReaAgents: A Collaboration and Reasoning Framework Based on LLM-Powered Agents for Complex Reasoning Tasks",
-    "authors": "Zhonghe Han; Jiaxin Wang; Xiaolu Yan; Zhiying Jiang; Yuanben Zhang; Siye Liu; Qihang Gong; Chenwei Song",
-    "year": "2025",
-    "doi": "10.3390/app15105663",
+    "verified_title": "",
+    "authors": "",
+    "year": "",
+    "doi": "",
     "arxiv_id": "",
     "official_url": "",
-    "verification_status": "verified-crossref-api",
-    "provider": "Crossref API",
-    "match_score": 1.0
+    "verification_status": "unresolved",
+    "provider": "",
+    "match_score": ""
   },
   {
     "source_id": "SRC-7E0A9AEEAA",
@@ -2160,15 +2160,15 @@
   {
     "source_id": "SRC-7F135E4F0C",
     "catalog_title": "Deep Reinforcement Learning in Non-stationary Environments",
-    "verified_title": "Deep Reinforcement Learning in Nonstationary Environments With Unknown Change Points",
-    "authors": "Zihe Liu; Jie Lu; Junyu Xuan; Guangquan Zhang",
-    "year": "2024",
-    "doi": "10.1109/tcyb.2024.3356981",
+    "verified_title": "",
+    "authors": "",
+    "year": "",
+    "doi": "",
     "arxiv_id": "",
     "official_url": "https://opus.lib.uts.edu.au/bitstream/10453/186408/1/thesis.pdf",
-    "verification_status": "verified-crossref-api",
-    "provider": "Crossref API",
-    "match_score": 1.0
+    "verification_status": "recorded-source-url",
+    "provider": "",
+    "match_score": ""
   },
   {
     "source_id": "SRC-7F1C63CC49",
@@ -2191,7 +2191,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=mNcXue7X8H0",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -2254,7 +2254,7 @@
     "verified_title": "",
     "authors": "",
     "year": "",
-    "doi": "10.26267/unipi_dione/4544",
+    "doi": "",
     "arxiv_id": "",
     "official_url": "https://dione.lib.unipi.gr/xmlui/handle/unipi/17121",
     "verification_status": "recorded-source-url",
@@ -2295,7 +2295,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=80favn_f_VQ",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -2451,7 +2451,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=jeJ4x1EyIFM",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -2498,15 +2498,15 @@
   {
     "source_id": "SRC-8E6D76457D",
     "catalog_title": "Agentic AI Frameworks- Architectures, Protocols, and Design Challenges - arXiv",
-    "verified_title": "",
-    "authors": "",
-    "year": "",
+    "verified_title": "Agentic AI Frameworks: Architectures, Protocols, and Design Challenges",
+    "authors": "Hana Derouiche; Zaki Brahmi; Haithem Mazeni",
+    "year": "2025",
     "doi": "",
     "arxiv_id": "2508.10146",
     "official_url": "https://arxiv.org/abs/2508.10146",
-    "verification_status": "recorded-source-url",
-    "provider": "",
-    "match_score": ""
+    "verification_status": "verified-arxiv-api",
+    "provider": "arXiv API",
+    "match_score": 1.0
   },
   {
     "source_id": "SRC-8E786113C3",
@@ -2516,7 +2516,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/playlist",
+    "official_url": "https://www.youtube.com/playlist?list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -2529,7 +2529,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/playlist",
+    "official_url": "https://www.youtube.com/playlist?list=PLTrdDEfEeShlz6JKPb1KdRmtkXB_ftSCV",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -2607,23 +2607,23 @@
     "year": "2016",
     "doi": "10.2298/csis160210015f",
     "arxiv_id": "",
-    "official_url": "https://pdfs.semanticscholar.org/6f84/f99dd51e319ababffa88f25aa285e1462f4b.pdf",
-    "verification_status": "verified-crossref-api",
-    "provider": "Crossref API",
-    "match_score": 1.0
+    "official_url": "https://doi.org/10.2298/csis160210015f",
+    "verification_status": "probable-openalex-match",
+    "provider": "OpenAlex API",
+    "match_score": 0.9569
   },
   {
     "source_id": "SRC-92C828647B",
     "catalog_title": "Liability for harm caused by AI in healthcare- an overview of the core legal concepts - PMC",
-    "verified_title": "Liability for harm caused by AI in healthcare: an overview of the core legal concepts",
-    "authors": "Dane Bottomley; Donrich Thaldar",
-    "year": "2023",
-    "doi": "10.3389/fphar.2023.1297353",
+    "verified_title": "",
+    "authors": "",
+    "year": "",
+    "doi": "",
     "arxiv_id": "",
     "official_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10755877",
-    "verification_status": "verified-crossref-api",
-    "provider": "Crossref API",
-    "match_score": 1.0
+    "verification_status": "recorded-source-url",
+    "provider": "",
+    "match_score": ""
   },
   {
     "source_id": "SRC-93F2331D50",
@@ -2633,7 +2633,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=fXizBc03D7E",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -2685,7 +2685,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=bHeeaXgqVig",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -2719,15 +2719,15 @@
   {
     "source_id": "SRC-98623817E7",
     "catalog_title": "Adversarial Machine Learning- A Taxonomy and Terminology of Attacks and Mitigations - NIST Technical",
-    "verified_title": "Adversarial Machine Learning:",
-    "authors": "Apostol Vassilev",
-    "year": "2025",
-    "doi": "10.6028/nist.ai.100-2e2025",
+    "verified_title": "",
+    "authors": "",
+    "year": "",
+    "doi": "",
     "arxiv_id": "",
     "official_url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-2e2025.pdf",
-    "verification_status": "verified-crossref-api",
-    "provider": "Crossref API",
-    "match_score": 1.0
+    "verification_status": "recorded-source-url",
+    "provider": "",
+    "match_score": ""
   },
   {
     "source_id": "SRC-98B4CE528B",
@@ -2813,7 +2813,7 @@
     "verified_title": "Neuro-symbolic Meta Reinforcement Learning for Trading",
     "authors": "S I Harini; Gautam Shroff; Ashwin Srinivasan; Prayushi Faldu; Lovekesh Vig",
     "year": "2023",
-    "doi": "10.48550/arxiv.2302.08996",
+    "doi": "",
     "arxiv_id": "2302.08996",
     "official_url": "https://arxiv.org/abs/2302.08996",
     "verification_status": "verified-arxiv-api",
@@ -2854,7 +2854,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=bSF8bTQQ_Z4",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -2867,7 +2867,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=ojutZEaKvfY",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -2906,7 +2906,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/playlist",
+    "official_url": "https://www.youtube.com/playlist?list=PLW4eqbV8qk8YUmaN0vIyGxUNOVqFzC2pd",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -3010,7 +3010,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=KrRD7r7y7NY",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -3044,15 +3044,15 @@
   {
     "source_id": "SRC-AABAFA12BF",
     "catalog_title": "A Survey of Human-in-the-Loop Reinforcement Learning for Critical Systems",
-    "verified_title": "Humans as Safety Constraints: A Survey of Human-in-the-Loop Reinforcement Learning for Critical Systems",
-    "authors": "Kenneth Besigomwe",
-    "year": "2026",
-    "doi": "10.47760/cognizance.2026.v06i04.002",
+    "verified_title": "",
+    "authors": "",
+    "year": "",
+    "doi": "",
     "arxiv_id": "",
     "official_url": "",
-    "verification_status": "verified-crossref-api",
-    "provider": "Crossref API",
-    "match_score": 1.0
+    "verification_status": "unresolved",
+    "provider": "",
+    "match_score": ""
   },
   {
     "source_id": "SRC-AB4BE17ED0",
@@ -3153,7 +3153,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=qU3fmidNbJE",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -3244,7 +3244,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=wD8Q-ssEMMM",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -3296,7 +3296,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=s85NsbMbaJA",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -3413,7 +3413,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/playlist",
+    "official_url": "https://www.youtube.com/playlist?list=PLcQkc_kwvWOTbtqNRL7dvsJb_SiqyZF0E",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -3426,7 +3426,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=EH5jx5qPabU",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -3634,7 +3634,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=RGIK0zLaPbo",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -3672,7 +3672,7 @@
     "authors": "",
     "year": "",
     "doi": "",
-    "arxiv_id": "2508.07790",
+    "arxiv_id": "",
     "official_url": "https://ojs.aaai.org/index.php/AAAI/article/view/40929/44890",
     "verification_status": "recorded-source-url",
     "provider": "",
@@ -3681,15 +3681,15 @@
   {
     "source_id": "SRC-CCCFFD4365",
     "catalog_title": "An Empirical Approach to Capture Moral Uncertainty in AI - Aies Conference",
-    "verified_title": "An Empirical Approach to Capture Moral Uncertainty in AI",
-    "authors": "Andreia Martinho; Maarten Kroesen; Caspar Chorus",
-    "year": "2020",
-    "doi": "10.1145/3375627.3375805",
+    "verified_title": "",
+    "authors": "",
+    "year": "",
+    "doi": "",
     "arxiv_id": "",
     "official_url": "https://aies-conference.com/2020/wp-content/papers/034.pdf",
-    "verification_status": "verified-crossref-api",
-    "provider": "Crossref API",
-    "match_score": 1.0
+    "verification_status": "recorded-source-url",
+    "provider": "",
+    "match_score": ""
   },
   {
     "source_id": "SRC-CDCA1BACF3",
@@ -3829,7 +3829,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -3967,15 +3967,15 @@
   {
     "source_id": "SRC-DBDFB80961",
     "catalog_title": "Foundations and TrendsR© in Machine Learning Vol. 8, No. 5-6 (2015) 359–492 c© 2015 M. Ghavamzadeh, S. Mannor, J. Pineau, and",
-    "verified_title": "Bayesian Reinforcement Learning: A Survey",
-    "authors": "Mohammad Ghavamzadeh; Shie Mannor; Joelle Pineau; Aviv Tamar",
-    "year": "2015",
-    "doi": "10.1561/2200000049",
+    "verified_title": "",
+    "authors": "",
+    "year": "",
+    "doi": "",
     "arxiv_id": "1609.04436",
     "official_url": "https://arxiv.org/abs/1609.04436",
-    "verification_status": "verified-crossref-api",
-    "provider": "Crossref API",
-    "match_score": 1.0
+    "verification_status": "recorded-source-url",
+    "provider": "",
+    "match_score": ""
   },
   {
     "source_id": "SRC-DBEEB3814F",
@@ -3984,7 +3984,7 @@
     "authors": "",
     "year": "",
     "doi": "",
-    "arxiv_id": "2305.06657",
+    "arxiv_id": "",
     "official_url": "",
     "verification_status": "unresolved",
     "provider": "",
@@ -4050,7 +4050,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=ToTyofKeE7s",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -4201,15 +4201,15 @@
   {
     "source_id": "SRC-E848728028",
     "catalog_title": "IEEE P7001- A Proposed Standard on Transparency - PMC - NIH",
-    "verified_title": "IEEE P7001: A Proposed Standard on Transparency",
-    "authors": "Alan F. T. Winfield; Serena Booth; Louise A. Dennis; Takashi Egawa; Helen Hastie; Naomi Jacobs; Roderick I. Muttram; Joanna I. Olszewska; Fahimeh Rajabiyazdi; Andreas Theodorou; Mark A. Underwood; Robert H. Wortham; Eleanor Watson",
-    "year": "2021",
-    "doi": "10.3389/frobt.2021.665729",
+    "verified_title": "",
+    "authors": "",
+    "year": "",
+    "doi": "",
     "arxiv_id": "",
     "official_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8351056",
-    "verification_status": "verified-crossref-api",
-    "provider": "Crossref API",
-    "match_score": 1.0
+    "verification_status": "recorded-source-url",
+    "provider": "",
+    "match_score": ""
   },
   {
     "source_id": "SRC-E88EE290D1",
@@ -4256,7 +4256,7 @@
     "verified_title": "Bridging the Gap to Real-World Object-Centric Learning",
     "authors": "Maximilian Seitzer; Max Horn; Andrii Zadaianchuk; Dominik Zietlow; Tianjun Xiao; Carl-Johann Simon-Gabriel; Tong He; Zheng Zhang; Bernhard Schölkopf; Thomas Brox; Francesco Locatello",
     "year": "2022",
-    "doi": "10.3929/ethz-b-000671017",
+    "doi": "",
     "arxiv_id": "2209.14860",
     "official_url": "https://arxiv.org/abs/2209.14860",
     "verification_status": "verified-arxiv-api",
@@ -4271,7 +4271,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=KamilaZdybal+%28link",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -4305,14 +4305,14 @@
   {
     "source_id": "SRC-F1A037DD47",
     "catalog_title": "Online MDP with Prototypes Information- A Robust Adaptive Approach",
-    "verified_title": "Online MDP with Transition Prototypes: A Robust Adaptive Approach",
-    "authors": "Shuo Sun; Meng Qi; Zuo-Jun Max Shen",
-    "year": "2024",
-    "doi": "",
-    "arxiv_id": "2412.14075",
-    "official_url": "https://ojs.aaai.org/index.php/AAAI/article/view/34283/36438",
-    "verification_status": "verified-arxiv-api",
-    "provider": "arXiv API",
+    "verified_title": "Online MDP with Prototypes Information: A Robust Adaptive Approach",
+    "authors": "Shuo Sun; Qi Meng; Zuo‐Jun Max Shen",
+    "year": "2025",
+    "doi": "10.1609/aaai.v39i19.34283",
+    "arxiv_id": "",
+    "official_url": "https://doi.org/10.1609/aaai.v39i19.34283",
+    "verification_status": "probable-openalex-match",
+    "provider": "OpenAlex API",
     "match_score": 1.0
   },
   {
@@ -4349,7 +4349,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=Xwu38vQb9Gk",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -4362,7 +4362,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=kQ7X0pfF_0U",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -4375,7 +4375,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=uhfysmruABU",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -4388,7 +4388,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=_Udb5NC6vTI",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
@@ -4422,15 +4422,15 @@
   {
     "source_id": "SRC-F491B6986C",
     "catalog_title": "AI 100-2 E2025, Adversarial Machine Learning- A Taxonomy and Terminology of Attacks and Mitigations",
-    "verified_title": "Adversarial Machine Learning:",
-    "authors": "Apostol Vassilev",
-    "year": "2025",
-    "doi": "10.6028/nist.ai.100-2e2025",
+    "verified_title": "",
+    "authors": "",
+    "year": "",
+    "doi": "",
     "arxiv_id": "",
     "official_url": "https://csrc.nist.gov/pubs/ai/100/2/e2025/final",
-    "verification_status": "verified-crossref-api",
-    "provider": "Crossref API",
-    "match_score": 1.0
+    "verification_status": "recorded-source-url",
+    "provider": "",
+    "match_score": ""
   },
   {
     "source_id": "SRC-F494F45A40",
@@ -4526,15 +4526,15 @@
   {
     "source_id": "SRC-F7E28839C8",
     "catalog_title": "https opus.lib.uts.edu.au bitstream 10453 186408 1 thesis",
-    "verified_title": "Deep Reinforcement Learning in Nonstationary Environments With Unknown Change Points",
-    "authors": "Zihe Liu; Jie Lu; Junyu Xuan; Guangquan Zhang",
-    "year": "2024",
-    "doi": "10.1109/tcyb.2024.3356981",
+    "verified_title": "",
+    "authors": "",
+    "year": "",
+    "doi": "",
     "arxiv_id": "",
     "official_url": "",
-    "verification_status": "verified-crossref-api",
-    "provider": "Crossref API",
-    "match_score": 1.0
+    "verification_status": "unresolved",
+    "provider": "",
+    "match_score": ""
   },
   {
     "source_id": "SRC-F7E7C38BFD",
@@ -4607,7 +4607,7 @@
     "verified_title": "",
     "authors": "",
     "year": "",
-    "doi": "10.6028/nist.ai.100-2e2025local",
+    "doi": "",
     "arxiv_id": "",
     "official_url": "https://nist.gov/publications/adversarial-machine-learning-taxonomy-and-terminology-attacks-and-mitigations-0",
     "verification_status": "recorded-source-url",
@@ -4713,7 +4713,7 @@
     "year": "",
     "doi": "",
     "arxiv_id": "",
-    "official_url": "https://youtube.com/watch",
+    "official_url": "https://www.youtube.com/watch?v=sHRtClt-040",
     "verification_status": "recorded-source-url",
     "provider": "",
     "match_score": ""
