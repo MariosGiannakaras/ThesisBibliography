@@ -1,4 +1,4 @@
-name: Build bibliography inventory
+name: Curate bibliography corpus
 
 on:
   push:
@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 jobs:
-  inventory:
+  curate:
     if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
@@ -18,20 +18,25 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Validate inventory script
-        run: python -m py_compile scripts/build_repository_inventory.py
+      - name: Validate scripts
+        run: |
+          python -m py_compile scripts/build_repository_inventory.py
+          python -m py_compile scripts/curate_bibliography.py
 
-      - name: Build inventory
+      - name: Record pre-migration inventory
         run: python scripts/build_repository_inventory.py
 
-      - name: Commit generated inventory
+      - name: Normalize and index corpus
+        run: python scripts/curate_bibliography.py
+
+      - name: Commit curated corpus
         run: |
-          if git diff --quiet -- workspace/ && [ -z "$(git status --porcelain workspace/)" ]; then
-            echo "Inventory unchanged."
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "Curation produced no changes."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add workspace/repository-inventory.json workspace/group-companion-files.md
-          git commit -m "chore: record complete bibliography inventory [skip ci]"
+          git add -A
+          git commit -m "feat: normalize and index bibliography corpus [skip ci]"
           git push
