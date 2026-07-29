@@ -35,9 +35,16 @@ def canon(u:str)->str:
  u=u.strip().rstrip('.,;:)>]}"'); p=urllib.parse.urlparse(u); h=p.netloc.lower().removeprefix('www.'); a=ARX.search(u)
  if a:return f'https://arxiv.org/abs/{a.group(1)}'
  if h=='doi.org':return f"https://doi.org/{p.path.lstrip('/').lower()}"
- return f'{p.scheme or "https"}://{h}{p.path.rstrip("/")}' if h else u
+ if h in {'youtube.com','m.youtube.com'}:
+  q=urllib.parse.parse_qs(p.query); keep=[]
+  for key in ('v','list'):
+   if q.get(key):keep.append((key,q[key][0]))
+  return 'https://www.youtube.com'+p.path+('?' + urllib.parse.urlencode(keep) if keep else '')
+ if h=='youtu.be':return 'https://www.youtube.com/watch?v='+p.path.lstrip('/')
+ query=[(k,v) for k,vals in urllib.parse.parse_qs(p.query).items() if not k.lower().startswith(('utm_','fbclid','gclid')) for v in vals]
+ return f'{p.scheme or "https"}://{h}{p.path.rstrip("/")}' + ('?' + urllib.parse.urlencode(query) if query else '') if h else u
 def ids(r:dict[str,Any],text:str)->tuple[str,str]:
- region='\n'.join([str(r.get('url') or ''),str(r.get('title') or ''),text[:9000]]); d=DOI.search(region); a=ARX.search(region)
+ region='\n'.join([str(r.get('url') or ''),str(r.get('title') or '')]); d=DOI.search(region); a=ARX.search(region)
  return (d.group(0).rstrip('.,;)').lower() if d else '',a.group(1) if a else '')
 def get_json(url:str)->dict[str,Any]|None:
  for i in range(3):
@@ -97,6 +104,11 @@ def build_overlay(records:list[dict[str,Any]],online:bool)->list[dict[str,Any]]:
   rows.append(row)
  return rows
 def refs(records:list[dict[str,Any]],overlay:list[dict[str,Any]])->list[dict[str,Any]]:
+ existing={}
+ queue_path=QUE/'REFERENCES_TO_SCREEN.csv'
+ if queue_path.exists():
+  try:existing={r['candidate_url']:r for r in csv.DictReader(queue_path.open(encoding='utf-8',newline=''))}
+  except Exception:existing={}
  present={canon(r.get('url','')) for r in records if r.get('url')}; present|={canon(r.get('official_url','')) for r in overlay if r.get('official_url')}; found=defaultdict(set)
  for r in records:
   text=(ROOT/r['normalized_path']).read_text(encoding='utf-8',errors='replace'); m=list(REFH.finditer(text)); region=text[m[-1].start():] if m else ''
@@ -113,7 +125,9 @@ def refs(records:list[dict[str,Any]],overlay:list[dict[str,Any]])->list[dict[str
     if u:found[u].add('notebooklm:'+table.parent.name)
   except Exception:pass
  rows=[]
- for u,orig in sorted(found.items(),key=lambda x:(-len(x[1]),x[0])):rows.append({'candidate_url':u,'origin_count':len(orig),'origin_ids':sorted(orig),'already_cataloged':u in present,'screening_status':'already-present' if u in present else 'pending','decision':'','notes':''})
+ for u,orig in sorted(found.items(),key=lambda x:(-len(x[1]),x[0])):
+  old=existing.get(u,{})
+  rows.append({'candidate_url':u,'origin_count':len(orig),'origin_ids':sorted(orig),'already_cataloged':u in present,'screening_status':'already-present' if u in present else 'pending','decision':old.get('decision',''),'notes':old.get('notes','')})
  return rows
 def esc(value:Any)->str:return str(value or '—').replace('|','\\|')
 def outputs(records:list[dict[str,Any]],overlay:list[dict[str,Any]],reference_rows:list[dict[str,Any]]):
