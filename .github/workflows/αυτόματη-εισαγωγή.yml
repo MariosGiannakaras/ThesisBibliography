@@ -18,20 +18,31 @@ jobs:
   process:
     if: ${{ github.event_name == 'workflow_dispatch' || !contains(github.event.head_commit.message, '[skip ci]') }}
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 120
     steps:
       - name: Λήψη αποθετηρίου
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          lfs: false
+
+      - name: Ρύθμιση Git LFS
+        run: |
+          git lfs install --local
+          git lfs pull --include="νέες-πηγές/**" --exclude="" || true
 
       - name: Ρύθμιση Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: Έλεγχος εργαλείων
-        run: python -m py_compile εργαλεία/εισαγωγή.py εργαλεία/μεταδεδομένα.py εργαλεία/έλεγχος.py
+      - name: Εγκατάσταση αναγνώστη PDF
+        run: python -m pip install --disable-pip-version-check pypdf
+
+      - name: Έλεγχος εργαλείων και δοκιμών
+        run: |
+          python -m py_compile εργαλεία/εισαγωγή.py εργαλεία/μεταδεδομένα.py εργαλεία/διόρθωση-τίτλων.py εργαλεία/έλεγχος.py εργαλεία/κοινά_πηγών.py εργαλεία/καθαρισμός-συνδέσεων.py εργαλεία/πρωτότυπα.py
+          python -m unittest discover -s tests -v
 
       - name: Εισαγωγή νέων πηγών
         run: python εργαλεία/εισαγωγή.py
@@ -40,6 +51,16 @@ jobs:
         id: metadata
         continue-on-error: true
         run: python εργαλεία/μεταδεδομένα.py
+
+      - name: Διόρθωση γενικών τίτλων
+        continue-on-error: true
+        run: python εργαλεία/διόρθωση-τίτλων.py
+
+      - name: Έλεγχος συνδέσεων και βέβαιων διπλοτύπων
+        run: python εργαλεία/καθαρισμός-συνδέσεων.py
+
+      - name: Αντιστοίχιση και πρώτη λήψη πρωτοτύπων
+        run: python εργαλεία/πρωτότυπα.py --download --limit 20
 
       - name: Έλεγχος αποθετηρίου
         run: python εργαλεία/έλεγχος.py
@@ -53,9 +74,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "chore: αυτόματη εισαγωγή νέων πηγών [skip ci]"
+          git commit -m "chore: αυτόματη εισαγωγή νέων πηγών και πρωτοτύπων [skip ci]"
           git push
 
       - name: Αναφορά αποτυχίας εξωτερικών υπηρεσιών
         if: steps.metadata.outcome == 'failure'
-        run: echo "Η εισαγωγή ολοκληρώθηκε, αλλά η επιβεβαίωση μεταδεδομένων θα επαναληφθεί από τον προγραμματισμένο αυτοματισμό."
+        run: echo "Η εισαγωγή και η λήψη πρωτοτύπων ολοκληρώθηκαν, αλλά η επιβεβαίωση μεταδεδομένων θα επαναληφθεί."
