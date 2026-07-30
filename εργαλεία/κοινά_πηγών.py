@@ -13,6 +13,10 @@ DOI_RE = re.compile(r"\b10\.\d{4,9}/[-._;()/:A-Z0-9]+", re.IGNORECASE)
 ARXIV_RE = re.compile(r"(?:arxiv\.org/(?:abs|pdf|html)/|arXiv:\s*)(\d{4}\.\d{4,5})(?:v\d+)?", re.IGNORECASE)
 OPENREVIEW_RE = re.compile(r"openreview\.net/(?:forum|pdf)\?(?:id=)?([A-Za-z0-9_-]+)", re.IGNORECASE)
 SOURCE_MARKER_RE = re.compile(r"^>\s*Source:\s*(\S+)", re.IGNORECASE | re.MULTILINE)
+STANDALONE_ID_URL_RE = re.compile(
+    r"^https?://(?:www\.)?(?:doi\.org/10\.|arxiv\.org/(?:abs|pdf|html)/|openreview\.net/(?:forum|pdf)\?)\S+$",
+    re.IGNORECASE,
+)
 
 
 def clean(value: str) -> str:
@@ -47,17 +51,15 @@ def canonical_url(url: str) -> str:
 
 
 def explicit_source_sample(link: str, title: str, text: str) -> str:
+    """Κρατά μόνο ρητά στοιχεία κεφαλίδας και όχι citations του σώματος."""
     lines: list[str] = []
     for line in text.splitlines()[:100]:
-        low = line.casefold().strip()
-        if (
-            low.startswith(("> source:", "source:", "doi:", "arxiv:"))
-            or "doi.org/" in low
-            or "arxiv.org/abs/" in low
-            or "openreview.net/forum?" in low
-            or "openreview.net/pdf?" in low
-        ):
-            lines.append(line)
+        stripped = line.strip()
+        low = stripped.casefold()
+        if low.startswith(("> source:", "source:", "doi:", "arxiv:", "citation:")):
+            lines.append(stripped)
+        elif STANDALONE_ID_URL_RE.fullmatch(stripped):
+            lines.append(stripped)
     return "\n".join([link or "", title or "", *lines])
 
 
