@@ -100,7 +100,9 @@ def validate() -> tuple[list[str], list[dict[str, str]], dict[str, dict[str, str
         if not is_exported(row):
             continue
         exported.append(row)
-        if role == "απόρριψη":
+        if role not in ALLOWED_ROLES:
+            errors.append(f"{source_id}: απαιτείται έγκυρος ρόλος πριν από την εξαγωγή")
+        elif role == "απόρριψη":
             errors.append(f"{source_id}: πηγή με ρόλο απόρριψης δεν μπορεί να εξαχθεί")
         if status != "επαληθευμένη":
             errors.append(f"{source_id}: εξαγωγή επιτρέπεται μόνο με κατάσταση «επαληθευμένη»")
@@ -121,11 +123,12 @@ def validate() -> tuple[list[str], list[dict[str, str]], dict[str, dict[str, str
             errors.append(f"{source_id}: λείπει το αρχείο επαληθευμένων αποσπασμάτων")
         else:
             excerpt_text = excerpt_path.read_text(encoding="utf-8", errors="replace")
+            excerpt_lower = excerpt_text.lower()
             if "κατάσταση: επαληθευμένο" not in normalize(excerpt_text):
                 errors.append(f"{source_id}: τα αποσπάσματα δεν δηλώνουν επαληθευμένη κατάσταση")
-            if "**θέση:**" not in normalize(excerpt_text):
+            if "**θέση:**" not in excerpt_lower:
                 errors.append(f"{source_id}: λείπει ακριβής θέση στα αποσπάσματα")
-            if "**ισχυρισμός:**" not in normalize(excerpt_text):
+            if "**ισχυρισμός:**" not in excerpt_lower:
                 errors.append(f"{source_id}: λείπει ο ισχυρισμός που υποστηρίζεται")
 
     return errors, exported, catalog, catalog_fields
