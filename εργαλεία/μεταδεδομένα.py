@@ -238,28 +238,30 @@ def main() -> int:
     with CATALOG_CSV.open(encoding="utf-8", newline="") as handle:
         rows = [dict(row) for row in csv.DictReader(handle)]
 
-    openalex_budget = 40
     updated = 0
     for row in rows:
         doi, arxiv_id = source_level_identifiers(row)
         metadata = None
+        attempted_openalex = False
         if arxiv_id:
             metadata = arxiv_metadata(arxiv_id, row["Τίτλος"])
         elif doi:
             metadata = crossref_metadata(doi, row["Τίτλος"])
         elif (
-            openalex_budget > 0
-            and row["Τύπος"] in {"ακαδημαϊκή εργασία", "διπλωματική ή διατριβή"}
+            row["Τύπος"] in {"ακαδημαϊκή εργασία", "διπλωματική ή διατριβή"}
             and row["Προτεραιότητα"] in {"υψηλή", "μεσαία"}
-            and row["Επιβεβαίωση"] not in {"επιβεβαιωμένη μέσω arXiv", "επιβεβαιωμένη μέσω Crossref"}
+            and row["Επιβεβαίωση"] in {"εκκρεμεί", "μόνο καταγεγραμμένος σύνδεσμος"}
         ):
+            attempted_openalex = True
             metadata = openalex_metadata(row["Τίτλος"])
-            openalex_budget -= 1
+
         if metadata:
             for key, value in metadata.items():
                 if value:
                     row[key] = value
             updated += 1
+        elif attempted_openalex:
+            row["Επιβεβαίωση"] = "δεν βρέθηκε αυτόματη αντιστοίχιση"
         elif row.get("Σύνδεσμος") and row.get("Επιβεβαίωση") == "εκκρεμεί":
             row["Επιβεβαίωση"] = "μόνο καταγεγραμμένος σύνδεσμος"
 
@@ -269,7 +271,11 @@ def main() -> int:
         writer.writerows(rows)
 
     write_next_sources(rows)
-    subprocess.run([sys.executable, str(ROOT / "εργαλεία" / "εισαγωγή.py")], cwd=ROOT, check=True)
+    subprocess.run(
+        [sys.executable, str(ROOT / "εργαλεία" / "εισαγωγή.py"), "--catalog-only"],
+        cwd=ROOT,
+        check=True,
+    )
     print(f"Ενημερώθηκαν {updated} εγγραφές μεταδεδομένων.")
     return 0
 
