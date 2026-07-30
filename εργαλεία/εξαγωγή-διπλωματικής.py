@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import re
 import shutil
 import subprocess
 import sys
@@ -28,6 +29,8 @@ SELECTION_FIELDS = [
 ALLOWED_ROLES = {"κύρια", "υποστηρικτική", "υπόβαθρο", "απόρριψη"}
 ALLOWED_STATUSES = {"προς ανάλυση", "πρόχειρη", "επαληθευμένη", "απορρίφθηκε"}
 YES_VALUES = {"ναι", "yes", "true", "1"}
+MIN_ANALYSIS_WORDS = 150
+MIN_EXCERPT_WORDS = 120
 REQUIRED_ANALYSIS_HEADINGS = (
     "## Βιβλιογραφική ταυτότητα",
     "## Σύνοψη",
@@ -41,6 +44,17 @@ REQUIRED_ANALYSIS_HEADINGS = (
 
 def normalize(value: str | None) -> str:
     return (value or "").strip().casefold()
+
+
+def meaningful_word_count(text: str) -> int:
+    text = re.sub(r"https?://\S+", " ", text)
+    text = re.sub(r"[`#>*_\-|:\[\]()]+", " ", text)
+    words = re.findall(r"[A-Za-zΑ-Ωα-ωΆ-ώ0-9]{2,}", text)
+    boilerplate = {
+        "source", "πηγή", "τίτλος", "συγγραφείς", "έτος", "σύνδεσμος",
+        "πρωτότυπο", "χρειάζεται", "έλεγχο", "μεταδεδομένα",
+    }
+    return sum(word.casefold() not in boilerplate for word in words)
 
 
 def read_csv(path: Path) -> tuple[list[str], list[dict[str, str]]]:
@@ -118,6 +132,11 @@ def validate() -> tuple[list[str], list[dict[str, str]], dict[str, dict[str, str
                     errors.append(f"{source_id}: λείπει από την ανάλυση η ενότητα «{heading}»")
             if "κατάσταση: επαληθευμένη" not in normalize(analysis_text):
                 errors.append(f"{source_id}: η ανάλυση δεν δηλώνει επαληθευμένη κατάσταση")
+            if meaningful_word_count(analysis_text) < MIN_ANALYSIS_WORDS:
+                errors.append(
+                    f"{source_id}: η ανάλυση δεν έχει αρκετό ουσιαστικό περιεχόμενο "
+                    f"({meaningful_word_count(analysis_text)}/{MIN_ANALYSIS_WORDS} λέξεις)"
+                )
 
         if not excerpt_path.exists():
             errors.append(f"{source_id}: λείπει το αρχείο επαληθευμένων αποσπασμάτων")
@@ -130,6 +149,11 @@ def validate() -> tuple[list[str], list[dict[str, str]], dict[str, dict[str, str
                 errors.append(f"{source_id}: λείπει ακριβής θέση στα αποσπάσματα")
             if "**ισχυρισμός:**" not in excerpt_lower:
                 errors.append(f"{source_id}: λείπει ο ισχυρισμός που υποστηρίζεται")
+            if meaningful_word_count(excerpt_text) < MIN_EXCERPT_WORDS:
+                errors.append(
+                    f"{source_id}: τα αποσπάσματα δεν έχουν αρκετό ουσιαστικό περιεχόμενο "
+                    f"({meaningful_word_count(excerpt_text)}/{MIN_EXCERPT_WORDS} λέξεις)"
+                )
 
     return errors, exported, catalog, catalog_fields
 
