@@ -15,6 +15,8 @@ from πρωτότυπα_κοινά import DownloadResult, ORIGINALS, url_is_dire
 
 USER_AGENT = "ThesisBibliography/1.1 (+https://github.com/MariosGiannakaras/ThesisBibliography)"
 MAX_DOWNLOAD_BYTES = 180 * 1024 * 1024
+MAX_SOURCE_CANDIDATES = 8
+MAX_PAGE_CANDIDATES = 4
 ANTI_BOT = (
     b"verifying your browser", b"complete the check below", b"captcha",
     b"making sure you're not a bot", b"cloudflare",
@@ -37,7 +39,7 @@ class LinkCollector(HTMLParser):
 def request_bytes(
     url: str,
     *,
-    timeout: int = 35,
+    timeout: int = 25,
     limit: int = MAX_DOWNLOAD_BYTES,
 ) -> tuple[bytes, str, str]:
     request = Request(
@@ -84,7 +86,7 @@ def page_pdf_links(data: bytes, base_url: str) -> list[str]:
             or "download?" in low
         ):
             result.append(url)
-    return list(dict.fromkeys(result))[:15]
+    return list(dict.fromkeys(result))[:MAX_PAGE_CANDIDATES]
 
 
 def openalex_candidates(row: dict[str, str], text: str) -> list[str]:
@@ -95,7 +97,7 @@ def openalex_candidates(row: dict[str, str], text: str) -> list[str]:
         doi = identity[4:]
         endpoint = f"https://api.openalex.org/works/https://doi.org/{quote(doi, safe='/:')}"
         try:
-            data, _, _ = request_bytes(endpoint, timeout=25, limit=5 * 1024 * 1024)
+            data, _, _ = request_bytes(endpoint, timeout=20, limit=5 * 1024 * 1024)
             payload = json.loads(data.decode("utf-8"))
         except Exception:
             continue
@@ -126,7 +128,7 @@ def candidate_urls(row: dict[str, str], text: str) -> list[str]:
 
     result: list[str] = []
     for raw in seeds:
-        url = raw.rstrip(".,;:)")
+        url = raw.rstrip(".,;:")
         arxiv = ARXIV_RE.search(url)
         if arxiv:
             result.append(f"https://arxiv.org/pdf/{arxiv.group(1)}")
@@ -147,7 +149,7 @@ def candidate_urls(row: dict[str, str], text: str) -> list[str]:
             result.append(url.rstrip("/") + "/pdf")
         result.append(url)
     result.extend(openalex_candidates(row, text))
-    return list(dict.fromkeys(url for url in result if url))
+    return list(dict.fromkeys(url for url in result if url))[:MAX_SOURCE_CANDIDATES]
 
 
 def download_pdf(source_id: str, row: dict[str, str], text: str) -> DownloadResult:
