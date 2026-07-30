@@ -9,7 +9,12 @@ import time
 from pathlib import Path
 
 from κοινά_πηγών import SOURCE_ID_RE, source_text
-from πρωτότυπα_αρχεία import import_uploaded, write_pending_report, write_report
+from πρωτότυπα_αρχεία import (
+    import_uploaded,
+    match_uploaded,
+    write_pending_report,
+    write_report,
+)
 from πρωτότυπα_κοινά import (
     ORIGINALS,
     ROOT,
@@ -21,7 +26,15 @@ from πρωτότυπα_κοινά import (
     write_catalog,
     write_shortcut,
 )
-from πρωτότυπα_λήψεις import download_pdf
+from πρωτότυπα_λήψεις import candidate_urls, download_pdf, looks_like_pdf
+
+__all__ = [
+    "candidate_urls",
+    "download_pdf",
+    "looks_like_pdf",
+    "match_uploaded",
+    "main",
+]
 
 
 def requested_ids(path: Path | None) -> set[str] | None:
