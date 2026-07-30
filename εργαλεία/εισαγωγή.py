@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
-"""Εισάγει νέες πηγές από οποιαδήποτε δομή φακέλων κάτω από `νέες-πηγές/`."""
+"""Εισάγει πηγές από οποιαδήποτε δομή φακέλων κάτω από `νέες-πηγές/`."""
 
 from __future__ import annotations
 
+import argparse
 import csv
 import hashlib
 import re
+import secrets
 import shutil
 import unicodedata
 from collections import Counter
@@ -72,8 +74,11 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
-def source_id(content_hash: str) -> str:
-    return f"ΠΗΓΗ-{content_hash[:10].upper()}"
+def new_source_id(existing: set[str]) -> str:
+    while True:
+        candidate = f"SRC-{secrets.token_hex(5).upper()}"
+        if candidate not in existing:
+            return candidate
 
 
 def clean(value: str) -> str:
@@ -83,6 +88,11 @@ def clean(value: str) -> str:
 def slug_key(value: str) -> str:
     normalized = unicodedata.normalize("NFKD", value).casefold()
     return "".join(ch for ch in normalized if ch.isalnum())
+
+
+def association_key(path: Path) -> tuple[str, str]:
+    relative = path.relative_to(INCOMING)
+    return relative.parent.as_posix().casefold(), slug_key(path.stem)
 
 
 def canonical_url(url: str) -> str:
@@ -170,7 +180,7 @@ def source_type(title: str, url: str, text: str) -> str:
     )):
         return "ακαδημαϊκή εργασία"
     opening = text[:5000].lower()
-    if len(text) > 8000 and "abstract" in opening and "references" in text.lower():
+    if len(text) > 10000 and "abstract" in opening and "references" in text.lower():
         return "ακαδημαϊκή εργασία"
     if any(term in lower for term in ("documentation", "tutorial", "course", "lecture", "seminar")):
         return "τεκμηρίωση ή εκπαιδευτικό υλικό"
@@ -192,9 +202,10 @@ def content_status(text: str) -> str:
     stripped = text.strip()
     if "Failed to load source content" in stripped or stripped.startswith("> Error:"):
         return "αποτυχημένη εισαγωγή"
-    if len(stripped) < 200 or len(stripped.splitlines()) <= 3:
+    words = len(re.findall(r"\b\w+\b", stripped, flags=re.UNICODE))
+    if len(stripped) < 200 or words < 40:
         return "μόνο μεταδεδομένα"
-    if len(stripped) < 2000:
+    if len(stripped) < 2000 or words < 300:
         return "ελλιπές κείμενο"
     return "διαθέσιμο πλήρες κείμενο"
 
@@ -259,7 +270,7 @@ def write_catalog(rows: list[dict[str, str]]) -> None:
         if row["Κατάσταση"] != "διαθέσιμο πλήρες κείμενο"
         or not row["Σύνδεσμος"]
         or row["Τύπος"] == "άγνωστος τύπος"
-        or (row["Τύπος"] in {"ακαδημαϊκή εργασία", "διπλωματική ή διατριβή"} and row["Επιβεβαίωση"] == "εκκρεμεί")
+        or (row["Τύπος"] in {"ακαδημαϊκή εργασία", "διπλωματική ή διατριβή"} and row["Επιβεβαίωση"] in {"εκκρεμεί", "δεν βρέθηκε αυτόματη αντιστοίχιση"})
     ]
     problem_lines = [
         "# Πηγές που χρειάζονται διόρθωση", "",
@@ -273,7 +284,7 @@ def write_catalog(rows: list[dict[str, str]]) -> None:
             problems.append("σύνδεσμος")
         if row["Τύπος"] == "άγνωστος τύπος":
             problems.append("τύπος πηγής")
-        if row["Τύπος"] in {"ακαδημαϊκή εργασία", "διπλωματική ή διατριβή"} and row["Επιβεβαίωση"] == "εκκρεμεί":
+        if row["Τύπος"] in {"ακαδημαϊκή εργασία", "διπλωματική ή διατριβή"} and row["Επιβεβαίωση"] in {"εκκρεμεί", "δεν βρέθηκε αυτόματη αντιστοίχιση"}:
             problems.append("επιβεβαίωση μεταδεδομένων")
         problem_lines.append(
             f"| `{row['Κωδικός']}` | {markdown_escape(row['Τίτλος'])} | {', '.join(dict.fromkeys(problems))} |"
@@ -294,13 +305,23 @@ def clear_incoming() -> None:
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--μόνο-κατάλογος", "--catalog-only", action="store_true")
+    args = parser.parse_args()
+
     SOURCES.mkdir(parents=True, exist_ok=True)
     ORIGINALS.mkdir(parents=True, exist_ok=True)
     INCOMING.mkdir(parents=True, exist_ok=True)
 
+    rows = load_catalog()
+    if args.μόνο_κατάλογος:
+        write_catalog(rows)
+        print("Ο κατάλογος ανανεώθηκε χωρίς εισαγωγή αρχείων.")
+        return 0
+
     files = [path for path in INCOMING.rglob("*") if path.is_file() and path.name != "README.md"]
     if not files:
-        write_catalog(load_catalog())
+        write_catalog(rows)
         print("Δεν βρέθηκαν νέες πηγές. Ο κατάλογος ανανεώθηκε.")
         return 0
 
@@ -309,10 +330,9 @@ def main() -> int:
         names = ", ".join(str(path.relative_to(INCOMING)) for path in unsupported[:10])
         raise RuntimeError(f"Μη υποστηριζόμενα αρχεία: {names}")
 
-    rows = load_catalog()
     existing_ids = {row["Κωδικός"] for row in rows}
     existing_hashes = {sha256(path) for path in SOURCES.glob("*.md")}
-    stem_to_id: dict[str, str] = {}
+    markdown_to_id: dict[tuple[str, str], str] = {}
     imported = 0
     skipped_duplicates = 0
     ignored_helpers = 0
@@ -326,10 +346,7 @@ def main() -> int:
         if content_hash in existing_hashes:
             skipped_duplicates += 1
             continue
-        sid = source_id(content_hash)
-        if sid in existing_ids:
-            skipped_duplicates += 1
-            continue
+        sid = new_source_id(existing_ids)
         title = extract_title(path, text)
         link = extract_url(text)
         kind = source_type(title, link, text)
@@ -352,14 +369,16 @@ def main() -> int:
         })
         existing_hashes.add(content_hash)
         existing_ids.add(sid)
-        stem_to_id[slug_key(path.stem)] = sid
+        markdown_to_id[association_key(path)] = sid
         imported += 1
 
     for path in sorted(path for path in files if path.suffix.lower() == ".pdf"):
         content_hash = sha256(path)
-        matched = stem_to_id.get(slug_key(path.stem))
+        matched = markdown_to_id.get(association_key(path))
         name = f"{matched}.pdf" if matched else f"PDF-{content_hash[:10].upper()}.pdf"
         target = ORIGINALS / name
+        if target.exists() and sha256(target) != content_hash:
+            target = ORIGINALS / f"{target.stem}-{content_hash[:8].upper()}.pdf"
         if not target.exists():
             shutil.copy2(path, target)
 
