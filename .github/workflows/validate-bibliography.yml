@@ -29,44 +29,26 @@ jobs:
         run: |
           if [ -f εργαλεία/μετάβαση.py ]; then
             python -m py_compile εργαλεία/μετάβαση.py εργαλεία/εισαγωγή.py εργαλεία/μεταδεδομένα.py εργαλεία/έλεγχος.py
+
+            python - <<'PY'
+          from pathlib import Path
+          path = Path('εργαλεία/μετάβαση.py')
+          text = path.read_text(encoding='utf-8')
+          start = text.find('    workflows = ROOT / ".github" / "workflows"')
+          end = text.find('\n\ndef main()', start)
+          if start != -1 and end != -1:
+              text = text[:start] + text[end:]
+          path.write_text(text, encoding='utf-8')
+          PY
+
             python εργαλεία/μετάβαση.py
             python εργαλεία/εισαγωγή.py
             python εργαλεία/έλεγχος.py
-
             rm -f εργαλεία/μετάβαση.py
-            rm -f .github/workflows/μετάβαση.yml .github/workflows/έλεγχος.yml
-
-            cat > .github/workflows/validate-bibliography.yml <<'YAML'
-          name: Έλεγχος αποθετηρίου
-
-          on:
-            push:
-              branches: [main]
-            pull_request:
-              branches: [main]
-
-          permissions:
-            contents: read
-
-          jobs:
-            validate:
-              runs-on: ubuntu-latest
-              steps:
-                - name: Λήψη αποθετηρίου
-                  uses: actions/checkout@v4
-                - name: Ρύθμιση Python
-                  uses: actions/setup-python@v5
-                  with:
-                    python-version: "3.12"
-                - name: Έλεγχος σύνταξης
-                  run: python -m py_compile εργαλεία/εισαγωγή.py εργαλεία/μεταδεδομένα.py εργαλεία/έλεγχος.py
-                - name: Έλεγχος δομής και καταλόγου
-                  run: python εργαλεία/έλεγχος.py
-          YAML
 
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add -A
+            git add -A -- . ':(exclude).github/workflows/**'
             git commit -m "refactor: απλοποίηση και ελληνική οργάνωση βιβλιογραφίας"
             git push origin HEAD:chore/aplopoiisi-ellinika
           else
