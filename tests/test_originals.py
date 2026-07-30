@@ -23,6 +23,15 @@ class OriginalsTests(unittest.TestCase):
         }
         self.assertIn("https://arxiv.org/pdf/2203.12117", MODULE.candidate_urls(row, ""))
 
+    def test_trailing_parenthesis_is_removed_from_candidate_url(self):
+        row = {
+            "Σύνδεσμος": "https://example.org/report.pdf)",
+            "Τίτλος": "Report",
+            "Τύπος": "ακαδημαϊκή εργασία",
+        }
+        self.assertIn("https://example.org/report.pdf", MODULE.candidate_urls(row, ""))
+        self.assertNotIn("https://example.org/report.pdf)", MODULE.candidate_urls(row, ""))
+
     def test_direct_pdf_is_document_candidate_even_with_wrong_type(self):
         row = {
             "Σύνδεσμος": "https://example.org/papers/report.pdf",

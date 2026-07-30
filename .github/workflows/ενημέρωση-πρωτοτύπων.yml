@@ -21,7 +21,7 @@ on:
       limit:
         description: "Μέγιστες νέες λήψεις PDF"
         required: false
-        default: "100"
+        default: "30"
       retry:
         description: "Επανάληψη πηγών που απέτυχαν τρεις φορές"
         type: boolean
@@ -107,7 +107,7 @@ jobs:
 
       - name: Αντιστοίχιση και λήψη πρωτοτύπων
         env:
-          LIMIT: ${{ inputs.limit || '100' }}
+          LIMIT: ${{ inputs.limit || '30' }}
           RETRY: ${{ inputs.retry || 'false' }}
         run: |
           EXTRA=""

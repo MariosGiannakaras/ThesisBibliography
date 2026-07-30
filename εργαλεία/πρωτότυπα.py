@@ -47,7 +47,7 @@ def requested_ids(path: Path | None) -> set[str] | None:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--λήψη", "--download", action="store_true")
-    parser.add_argument("--όριο", "--limit", type=int, default=100)
+    parser.add_argument("--όριο", "--limit", type=int, default=30)
     parser.add_argument("--κωδικοί-αρχείο", "--ids-file", type=Path)
     parser.add_argument("--επανάληψη", "--retry", action="store_true")
     parser.add_argument("--χωρίς-νέες-εγγραφές", "--no-create-missing", action="store_true")
