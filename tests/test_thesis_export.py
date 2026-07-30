@@ -79,6 +79,33 @@ class ThesisExportTests(unittest.TestCase):
 
     def write_verified_files(self):
         headings = "\n\n".join(MODULE.REQUIRED_ANALYSIS_HEADINGS)
+        analysis_payload = (
+            "The study defines the research question, assumptions, experimental environment, algorithms, "
+            "baselines, evaluation metrics, quantitative findings, limitations, validity threats, and the exact "
+            "way each result may support a claim about robust agents under uncertainty. " * 12
+        )
+        (MODULE.ANALYSES / "SRC-TEST000001.md").write_text(
+            "---\nκατάσταση: επαληθευμένη\n---\n\n"
+            + headings
+            + "\n\n"
+            + analysis_payload,
+            encoding="utf-8",
+        )
+        excerpt_payload = (
+            "The verified evidence is interpreted in its original context and linked to a narrowly stated claim. "
+            "The surrounding assumptions, scope conditions, measurement procedure, and limitations are recorded "
+            "so the thesis cannot overgeneralize the reported result. " * 10
+        )
+        (MODULE.EXCERPTS / "SRC-TEST000001.md").write_text(
+            "---\nκατάσταση: επαληθευμένο\n---\n\n"
+            "- **Θέση:** σελίδα 4, ενότητα 2.1, πίνακας 1\n"
+            "- **Ισχυρισμός:** Το εύρημα υποστηρίζει μόνο τον συγκεκριμένο δοκιμαστικό ισχυρισμό.\n\n"
+            + excerpt_payload,
+            encoding="utf-8",
+        )
+
+    def write_template_only_files(self):
+        headings = "\n\n".join(MODULE.REQUIRED_ANALYSIS_HEADINGS)
         (MODULE.ANALYSES / "SRC-TEST000001.md").write_text(
             "---\nκατάσταση: επαληθευμένη\n---\n\n" + headings + "\n",
             encoding="utf-8",
@@ -86,7 +113,7 @@ class ThesisExportTests(unittest.TestCase):
         (MODULE.EXCERPTS / "SRC-TEST000001.md").write_text(
             "---\nκατάσταση: επαληθευμένο\n---\n\n"
             "- **Θέση:** σελίδα 4\n"
-            "- **Ισχυρισμός:** Το εύρημα υποστηρίζει τον δοκιμαστικό ισχυρισμό.\n",
+            "- **Ισχυρισμός:** δοκιμαστικός ισχυρισμός\n",
             encoding="utf-8",
         )
 
@@ -102,6 +129,12 @@ class ThesisExportTests(unittest.TestCase):
         self.write_selection(status="πρόχειρη", export="ναι")
         errors, _, _, _ = MODULE.validate()
         self.assertTrue(any("μόνο με κατάσταση" in error for error in errors))
+
+    def test_template_only_files_cannot_be_exported(self):
+        self.write_selection()
+        self.write_template_only_files()
+        errors, _, _, _ = MODULE.validate()
+        self.assertTrue(any("αρκετό ουσιαστικό περιεχόμενο" in error for error in errors))
 
     def test_verified_source_builds_package(self):
         self.write_selection()
