@@ -19,6 +19,7 @@ from πρωτότυπα_κοινά import (
     write_shortcut,
 )
 
+ANALYSES = ROOT / "αναλύσεις"
 EXCERPTS = ROOT / "αποσπάσματα"
 PENDING_REPORT = ROOT / "κατάλογος" / "εκκρεμή-πρωτότυπα.md"
 REPORT_MD = ROOT / "κατάλογος" / "πρωτότυπα.md"
@@ -29,7 +30,7 @@ def linked_pdfs(source_id: str) -> list[Path]:
     return sorted(ORIGINALS.glob(f"{source_id}*.pdf"))
 
 
-def meaningful_text(path: Path) -> bool:
+def meaningful_text(path: Path, minimum_words: int = 40) -> bool:
     if not path.exists():
         return False
     text = path.read_text(encoding="utf-8", errors="replace")
@@ -41,15 +42,24 @@ def meaningful_text(path: Path) -> bool:
         "πρωτότυπο", "χρειάζεται", "έλεγχο", "μεταδεδομένα",
     }
     useful = [word for word in words if word.casefold() not in boilerplate]
-    return len(useful) >= 40
+    return len(useful) >= minimum_words
 
 
 def has_useful_content(source_id: str) -> bool:
-    return meaningful_text(SOURCES / f"{source_id}.md") or meaningful_text(EXCERPTS / f"{source_id}.md")
+    return (
+        meaningful_text(SOURCES / f"{source_id}.md", 40)
+        or meaningful_text(ANALYSES / f"{source_id}.md", 150)
+        or meaningful_text(EXCERPTS / f"{source_id}.md", 120)
+    )
 
 
 def remove_related(source_id: str) -> None:
-    for path in [SOURCES / f"{source_id}.md", EXCERPTS / f"{source_id}.md", ORIGINALS / f"{source_id}.url"]:
+    for path in [
+        SOURCES / f"{source_id}.md",
+        ANALYSES / f"{source_id}.md",
+        EXCERPTS / f"{source_id}.md",
+        ORIGINALS / f"{source_id}.url",
+    ]:
         if path.exists():
             path.unlink()
     for path in linked_pdfs(source_id):
@@ -103,7 +113,7 @@ def write_final_report(rows: list[dict[str, str]]) -> None:
         elif useful:
             status = "διαθέσιμο περιεχόμενο"
             filename = f"{source_id}.md"
-            note = "διατηρείται επειδή περιέχει χρήσιμες πληροφορίες ή αποσπάσματα"
+            note = "διατηρείται επειδή περιέχει χρήσιμες πληροφορίες, ανάλυση ή αποσπάσματα"
         else:
             continue
         records.append({
@@ -132,7 +142,7 @@ def write_final_report(rows: list[dict[str, str]]) -> None:
         f"- Σύνδεσμοι: **{link_count}**",
         f"- Πηγές μόνο με χρήσιμο περιεχόμενο: **{content_count}**",
         "- Εκκρεμούν: **0**", "",
-        "> Κάθε εγγραφή έχει PDF, σύνδεσμο ή ουσιαστικό Markdown/απόσπασμα.", "",
+        "> Κάθε εγγραφή έχει PDF, σύνδεσμο ή ουσιαστικό Markdown/ανάλυση/απόσπασμα.", "",
         "| Κωδικός | Τίτλος | Κατάσταση | Αρχείο ή σύνδεσμος |",
         "|---|---|---|---|",
     ]
