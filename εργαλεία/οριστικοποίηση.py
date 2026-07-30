@@ -1,13 +1,23 @@
 #!/usr/bin/env python3
-"""Κλείνει όλες τις εκκρεμότητες της βιβλιογραφίας."""
+"""Κλείνει τις εκκρεμότητες χωρίς να διαγράφει χρήσιμο περιεχόμενο."""
 from __future__ import annotations
 
 import csv
+import re
 import subprocess
 import sys
 from pathlib import Path
 
-from πρωτότυπα_κοινά import CATALOG, CATALOG_FIELDS, INCOMING, ORIGINALS, REPORT_CSV, ROOT, SOURCES, write_shortcut
+from πρωτότυπα_κοινά import (
+    CATALOG,
+    CATALOG_FIELDS,
+    INCOMING,
+    ORIGINALS,
+    REPORT_CSV,
+    ROOT,
+    SOURCES,
+    write_shortcut,
+)
 
 EXCERPTS = ROOT / "αποσπάσματα"
 PENDING_REPORT = ROOT / "κατάλογος" / "εκκρεμή-πρωτότυπα.md"
@@ -16,6 +26,25 @@ REPORT_MD = ROOT / "κατάλογος" / "πρωτότυπα.md"
 
 def linked_pdfs(source_id: str) -> list[Path]:
     return sorted(ORIGINALS.glob(f"{source_id}*.pdf"))
+
+
+def meaningful_text(path: Path) -> bool:
+    if not path.exists():
+        return False
+    text = path.read_text(encoding="utf-8", errors="replace")
+    text = re.sub(r"https?://\S+", " ", text)
+    text = re.sub(r"[`#>*_\-|:\[\]()]+", " ", text)
+    words = re.findall(r"[A-Za-zΑ-Ωα-ωΆ-ώ0-9]{2,}", text)
+    boilerplate = {
+        "source", "πηγή", "τίτλος", "συγγραφείς", "έτος", "σύνδεσμος",
+        "πρωτότυπο", "χρειάζεται", "έλεγχο", "μεταδεδομένα",
+    }
+    useful = [word for word in words if word.casefold() not in boilerplate]
+    return len(useful) >= 40
+
+
+def has_useful_content(source_id: str) -> bool:
+    return meaningful_text(SOURCES / f"{source_id}.md") or meaningful_text(EXCERPTS / f"{source_id}.md")
 
 
 def remove_related(source_id: str) -> None:
@@ -61,47 +90,89 @@ def write_final_report(rows: list[dict[str, str]]) -> None:
         source_id = row["Κωδικός"]
         pdfs = linked_pdfs(source_id)
         url = row.get("Σύνδεσμος", "").strip()
+        useful = has_useful_content(source_id)
         if pdfs:
             status, filename, note = "διαθέσιμο PDF", pdfs[0].name, "αρχειακό πρωτότυπο"
-        else:
+        elif url:
             status = "μόνο σύνδεσμος"
             filename = write_shortcut(source_id, url).name
-            note = "δεν βρέθηκε δημόσιο PDF· διατηρείται ο επαληθεύσιμος σύνδεσμος"
+            note = "δεν βρέθηκε δημόσιο PDF· διατηρείται ο σύνδεσμος"
+        elif useful:
+            status = "διαθέσιμο περιεχόμενο"
+            filename = f"{source_id}.md"
+            note = "διατηρείται επειδή περιέχει χρήσιμες πληροφορίες ή αποσπάσματα"
+        else:
+            continue
         records.append({
-            "Κωδικός": source_id, "Τίτλος": row.get("Τίτλος", ""), "Κατάσταση": status,
-            "Αρχείο": filename, "Σύνδεσμος": url, "Προσπάθειες": "1" if url and not pdfs else "0",
-            "Τελευταίος έλεγχος": "", "Σημείωση": note,
+            "Κωδικός": source_id,
+            "Τίτλος": row.get("Τίτλος", ""),
+            "Κατάσταση": status,
+            "Αρχείο": filename,
+            "Σύνδεσμος": url,
+            "Προσπάθειες": "1" if url and not pdfs else "0",
+            "Τελευταίος έλεγχος": "",
+            "Σημείωση": note,
         })
 
     fields = ["Κωδικός", "Τίτλος", "Κατάσταση", "Αρχείο", "Σύνδεσμος", "Προσπάθειες", "Τελευταίος έλεγχος", "Σημείωση"]
     with REPORT_CSV.open("w", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=fields, lineterminator="\n")
-        writer.writeheader(); writer.writerows(records)
+        writer.writeheader()
+        writer.writerows(records)
 
-    pdf_count = sum(1 for item in records if item["Κατάσταση"] == "διαθέσιμο PDF")
-    lines = ["# Πρωτότυπα πηγών", "", f"- PDF: **{pdf_count}**", f"- Σύνδεσμοι: **{len(records)-pdf_count}**", "- Εκκρεμούν: **0**", "", "> Δεν υπάρχουν εκκρεμείς πηγές. Κάθε εγγραφή έχει είτε PDF είτε επαληθεύσιμο σύνδεσμο.", "", "| Κωδικός | Τίτλος | Κατάσταση | Αρχείο ή σύνδεσμος |", "|---|---|---|---|"]
+    pdf_count = sum(item["Κατάσταση"] == "διαθέσιμο PDF" for item in records)
+    link_count = sum(item["Κατάσταση"] == "μόνο σύνδεσμος" for item in records)
+    content_count = sum(item["Κατάσταση"] == "διαθέσιμο περιεχόμενο" for item in records)
+    lines = [
+        "# Πρωτότυπα πηγών", "",
+        f"- PDF: **{pdf_count}**",
+        f"- Σύνδεσμοι: **{link_count}**",
+        f"- Πηγές μόνο με χρήσιμο περιεχόμενο: **{content_count}**",
+        "- Εκκρεμούν: **0**", "",
+        "> Κάθε εγγραφή έχει PDF, σύνδεσμο ή ουσιαστικό Markdown/απόσπασμα.", "",
+        "| Κωδικός | Τίτλος | Κατάσταση | Αρχείο ή σύνδεσμος |",
+        "|---|---|---|---|",
+    ]
     for item in records:
         title = item["Τίτλος"].replace("|", "\\|")
-        target = item["Αρχείο"] if item["Κατάσταση"] == "διαθέσιμο PDF" else f"[άνοιγμα]({item['Σύνδεσμος']})"
+        if item["Κατάσταση"] == "μόνο σύνδεσμος":
+            target = f"[άνοιγμα]({item['Σύνδεσμος']})"
+        else:
+            target = item["Αρχείο"]
         lines.append(f"| `{item['Κωδικός']}` | {title} | {item['Κατάσταση']} | {target} |")
     REPORT_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
     PENDING_REPORT.write_text("# Εκκρεμή πρωτότυπα\n\nΔεν υπάρχουν εκκρεμή πρωτότυπα.\n", encoding="utf-8")
 
 
 def main() -> int:
-    rows = read_rows(); kept = []; deleted = []
+    rows = read_rows()
+    kept: list[dict[str, str]] = []
+    deleted: list[str] = []
+    content_only = 0
     for row in rows:
         source_id = row["Κωδικός"]
-        if linked_pdfs(source_id) or row.get("Σύνδεσμος", "").strip():
+        has_pdf = bool(linked_pdfs(source_id))
+        has_url = bool(row.get("Σύνδεσμος", "").strip())
+        useful = has_useful_content(source_id)
+        if has_pdf or has_url or useful:
             kept.append(row)
+            if useful and not has_pdf and not has_url:
+                content_only += 1
         else:
-            deleted.append(source_id); remove_related(source_id)
+            deleted.append(source_id)
+            remove_related(source_id)
+
     removed_uploads = delete_unmatched_uploads()
     write_rows(kept)
-    subprocess.run([sys.executable, str(ROOT / "εργαλεία" / "εισαγωγή.py"), "--catalog-only"], cwd=ROOT, check=True)
+    subprocess.run(
+        [sys.executable, str(ROOT / "εργαλεία" / "εισαγωγή.py"), "--catalog-only"],
+        cwd=ROOT,
+        check=True,
+    )
     write_final_report(kept)
-    print(f"Διαγράφηκαν {len(deleted)} πηγές χωρίς PDF/URL και {removed_uploads} μη αντιστοιχισμένα αρχεία.")
-    print(f"Παρέμειναν {len(kept)} πλήρως κλεισμένες εγγραφές και 0 εκκρεμότητες.")
+    print(f"Διαγράφηκαν {len(deleted)} πραγματικά κενές πηγές και {removed_uploads} μη αντιστοιχισμένα αρχεία.")
+    print(f"Διατηρήθηκαν {content_only} πηγές χωρίς PDF/URL επειδή έχουν χρήσιμο περιεχόμενο.")
+    print(f"Παρέμειναν {len(kept)} κλεισμένες εγγραφές και 0 εκκρεμότητες.")
     return 0
 
 
