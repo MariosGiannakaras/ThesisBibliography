@@ -114,6 +114,7 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
+          import hashlib
           import re
           import shutil
 
@@ -131,7 +132,8 @@ jobs:
           for path in candidates:
               target = pending / path.name
               if target.exists():
-                  target = pending / f"{path.stem}__{abs(hash(path.as_posix())):x}.pdf"
+                  suffix = hashlib.sha256(path.as_posix().encode()).hexdigest()[:8]
+                  target = pending / f"{path.stem}__{suffix}.pdf"
               shutil.move(str(path), target)
           PY
 
