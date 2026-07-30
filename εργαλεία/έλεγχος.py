@@ -108,6 +108,8 @@ def validate_sources(rows: list[dict[str, str]], errors: list[str]) -> set[str]:
 def validate_originals(catalog_ids: set[str], errors: list[str]) -> None:
     if ORIGINALS.exists():
         for path in sorted(item for item in ORIGINALS.iterdir() if item.is_file()):
+            if path.name == "README.md":
+                continue
             match = LINKED_ORIGINAL_RE.fullmatch(path.name)
             if match:
                 if match.group(1).upper() not in catalog_ids:
