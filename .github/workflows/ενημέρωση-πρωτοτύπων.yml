@@ -1,0 +1,100 @@
+name: Ενημέρωση πρωτοτύπων
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "νέα-πρωτότυπα/**"
+      - "κατάλογος/πηγές.csv"
+      - "πηγές/**"
+      - "εργαλεία/πρωτότυπα.py"
+      - "εργαλεία/καθαρισμός-συνδέσεων.py"
+      - "εργαλεία/κοινά_πηγών.py"
+      - ".gitattributes"
+      - ".github/workflows/ενημέρωση-πρωτοτύπων.yml"
+  schedule:
+    - cron: "30 3 * * *"
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Μέγιστες νέες λήψεις PDF"
+        required: false
+        default: "30"
+      retry:
+        description: "Επανάληψη πηγών που απέτυχαν τρεις φορές"
+        type: boolean
+        required: false
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ενημέρωση-πρωτοτύπων
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    if: ${{ github.event_name != 'push' || !contains(github.event.head_commit.message, '[skip ci]') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Λήψη αποθετηρίου χωρίς όλα τα παλιά LFS αρχεία
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: false
+
+      - name: Ρύθμιση Git LFS
+        run: |
+          git lfs install --local
+          git lfs pull --include="νέα-πρωτότυπα/**" --exclude="" || true
+
+      - name: Ρύθμιση Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Εγκατάσταση αναγνώστη PDF
+        run: python -m pip install --disable-pip-version-check pypdf
+
+      - name: Έλεγχος σύνταξης και δοκιμών
+        run: |
+          python -m py_compile εργαλεία/κοινά_πηγών.py εργαλεία/πρωτότυπα.py εργαλεία/καθαρισμός-συνδέσεων.py
+          python -m unittest discover -s tests -v
+
+      - name: Ενημέρωση μεταδεδομένων
+        id: metadata
+        continue-on-error: true
+        run: python εργαλεία/μεταδεδομένα.py
+
+      - name: Έλεγχος συνδέσεων και βέβαιων διπλοτύπων
+        run: python εργαλεία/καθαρισμός-συνδέσεων.py
+
+      - name: Αντιστοίχιση και λήψη πρωτοτύπων
+        env:
+          LIMIT: ${{ inputs.limit || '30' }}
+          RETRY: ${{ inputs.retry || 'false' }}
+        run: |
+          EXTRA=""
+          if [ "$RETRY" = "true" ]; then EXTRA="--retry"; fi
+          python εργαλεία/πρωτότυπα.py --download --limit "$LIMIT" $EXTRA
+
+      - name: Έλεγχος αποθετηρίου
+        run: python εργαλεία/έλεγχος.py
+
+      - name: Αποθήκευση αποτελεσμάτων και LFS αντικειμένων
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "Δεν προέκυψαν αλλαγές."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore: ενημέρωση πρωτοτύπων και συνδέσεων [skip ci]"
+          git push
+
+      - name: Αναφορά προσωρινής αποτυχίας μεταδεδομένων
+        if: steps.metadata.outcome == 'failure'
+        run: echo "Η λήψη πρωτοτύπων ολοκληρώθηκε, αλλά ο εξωτερικός έλεγχος μεταδεδομένων θα επαναληφθεί."
