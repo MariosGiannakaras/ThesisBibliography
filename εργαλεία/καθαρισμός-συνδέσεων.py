@@ -23,6 +23,7 @@ from κοινά_πηγών import (
     normalized_words,
     source_text,
 )
+from πρωτότυπα_κοινά import GENERIC_TITLE
 
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG = ROOT / "κατάλογος" / "πηγές.csv"
@@ -39,11 +40,6 @@ ANTI_BOT = re.compile(
     re.IGNORECASE,
 )
 HELPERS = {"audit", "audit2", "source audit", "notebooklm audit"}
-GENERIC_TITLE = re.compile(
-    r"^(?:https?[-_:]|thesis(?:\.pdf)?$|applsci-\d|academic editors?:|"
-    r"verifying your browser|pdf[-_]|ebook[-_]|final-web-version-report|agents\s*-\s*kaggle)",
-    re.IGNORECASE,
-)
 
 
 def status_score(value: str) -> int:
@@ -112,26 +108,48 @@ def merge_rows(primary: dict[str, str], duplicate: dict[str, str]) -> None:
     primary["Σημειώσεις"] = " | ".join(dict.fromkeys(value for value in notes if value))
 
 
+def file_sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def move_one_related(old: Path, new: Path, changes: list[str]) -> None:
+    if not old.exists():
+        return
+    if not new.exists():
+        old.rename(new)
+        changes.append(f"Μεταφέρθηκε `{old.name}` στο `{new.name}`.")
+        return
+    try:
+        same = file_sha256(old) == file_sha256(new)
+    except OSError:
+        same = False
+    if same:
+        old.unlink()
+        return
+    suffix = old.suffix
+    conflict = new.with_name(f"{new.stem}__σύγκρουση-{file_sha256(old)[:10].upper()}{suffix}")
+    old.rename(conflict)
+    changes.append(f"Διατηρήθηκε διαφορετικό αρχείο ως `{conflict.name}`.")
+
+
 def move_related(primary_id: str, duplicate_id: str, changes: list[str]) -> None:
-    for folder, suffix in ((EXCERPTS, ".md"), (ORIGINALS, ".pdf"), (ORIGINALS, ".url")):
-        old = folder / f"{duplicate_id}{suffix}"
-        new = folder / f"{primary_id}{suffix}"
-        if not old.exists():
-            continue
-        if not new.exists():
-            old.rename(new)
-            changes.append(f"Μεταφέρθηκε `{old.name}` στο `{new.name}`.")
-            continue
-        try:
-            same = hashlib.sha256(old.read_bytes()).digest() == hashlib.sha256(new.read_bytes()).digest()
-        except OSError:
-            same = False
-        if same:
-            old.unlink()
-        else:
-            conflict = folder / f"{primary_id}__εναλλακτικό-{duplicate_id}{suffix}"
-            old.rename(conflict)
-            changes.append(f"Διατηρήθηκε διαφορετικό αρχείο ως `{conflict.name}`.")
+    move_one_related(
+        EXCERPTS / f"{duplicate_id}.md",
+        EXCERPTS / f"{primary_id}.md",
+        changes,
+    )
+    for old in sorted(ORIGINALS.glob(f"{duplicate_id}*.pdf")):
+        tail = old.stem[len(duplicate_id):]
+        move_one_related(old, ORIGINALS / f"{primary_id}{tail}.pdf", changes)
+    move_one_related(
+        ORIGINALS / f"{duplicate_id}.url",
+        ORIGINALS / f"{primary_id}.url",
+        changes,
+    )
 
 
 def request_json(url: str) -> dict | None:
@@ -159,7 +177,11 @@ def openreview_metadata(openreview_id: str) -> dict[str, str] | None:
         content = note.get("content") or {}
         title = str(field_value(content.get("title")) or "").strip()
         authors_raw = field_value(content.get("authors")) or []
-        authors = authors_raw if isinstance(authors_raw, str) else "; ".join(str(item).strip() for item in authors_raw if str(item).strip())
+        authors = (
+            authors_raw
+            if isinstance(authors_raw, str)
+            else "; ".join(str(item).strip() for item in authors_raw if str(item).strip())
+        )
         timestamp = note.get("pdate") or note.get("cdate") or note.get("tcdate")
         year = ""
         if isinstance(timestamp, (int, float)):
@@ -198,7 +220,7 @@ def enrich_rows(rows: list[dict[str, str]], changes: list[str]) -> None:
 
 def authors_compatible(left: str, right: str) -> bool:
     if not left.strip() or not right.strip():
-        return True
+        return False
     a = normalized_words(left)
     b = normalized_words(right)
     return a == b or a in b or b in a
@@ -208,8 +230,27 @@ def years_compatible(left: str, right: str) -> bool:
     if not left.strip() or not right.strip():
         return True
     if not left.isdigit() or not right.isdigit():
-        return True
+        return False
     return abs(int(left) - int(right)) <= 1
+
+
+def texts_are_exact_duplicates(left: str, right: str) -> bool:
+    a = normalized_words(left)
+    b = normalized_words(right)
+    return len(a) >= 300 and a == b
+
+
+def orphan_corroborated(
+    primary: dict[str, str],
+    duplicate: dict[str, str],
+    texts: dict[str, str],
+) -> bool:
+    if authors_compatible(primary.get("Συγγραφείς", ""), duplicate.get("Συγγραφείς", "")):
+        return years_compatible(primary.get("Έτος", ""), duplicate.get("Έτος", ""))
+    return texts_are_exact_duplicates(
+        texts.get(primary["Κωδικός"], ""),
+        texts.get(duplicate["Κωδικός"], ""),
+    )
 
 
 def merge_one(
@@ -246,12 +287,23 @@ def merge_strong_identities(
         for row in rows:
             for key in identities(row.get("Σύνδεσμος", ""), row.get("Τίτλος", ""), texts[row["Κωδικός"]]):
                 index[key].append(row)
-        group = next(((key, values) for key, values in index.items() if len({item["Κωδικός"] for item in values}) > 1), None)
+        group = next(
+            (
+                (key, values)
+                for key, values in index.items()
+                if len({item["Κωδικός"] for item in values}) > 1
+            ),
+            None,
+        )
         if group is None:
             return rows
         key, values = group
         unique = {item["Κωδικός"]: item for item in values}
-        ordered = sorted(unique.values(), key=lambda item: source_score(item, texts[item["Κωδικός"]]), reverse=True)
+        ordered = sorted(
+            unique.values(),
+            key=lambda item: source_score(item, texts[item["Κωδικός"]]),
+            reverse=True,
+        )
         primary = ordered[0]
         for duplicate in ordered[1:]:
             rows = merge_one(rows, texts, primary, duplicate, key, changes, merged)
@@ -263,10 +315,10 @@ def merge_exact_title_orphans(
     changes: list[str],
     merged: list[tuple[str, str, str]],
 ) -> list[dict[str, str]]:
-    """Συγχωνεύει exact-title orphan μόνο με συμβατούς δημιουργούς/έτη.
+    """Συγχωνεύει exact-title orphan μόνο με δεύτερο ισχυρό τεκμήριο.
 
-    Ο κανόνας εφαρμόζεται αποκλειστικά όταν τουλάχιστον μία εγγραφή δεν έχει
-    σύνδεσμο και ο τίτλος είναι ακριβώς ίδιος μετά από απλή κανονικοποίηση.
+    Απαιτεί είτε συμβατούς, μη κενούς δημιουργούς είτε ακριβώς ίδιο πλήρες
+    Markdown. Το ίδιο έτος μόνο του και η απουσία μεταδεδομένων δεν αρκούν.
     """
     groups: dict[str, list[dict[str, str]]] = defaultdict(list)
     for row in rows:
@@ -275,28 +327,41 @@ def merge_exact_title_orphans(
             groups[title_key].append(row)
 
     for title_key, values in list(groups.items()):
-        current = [row for row in values if any(item["Κωδικός"] == row["Κωδικός"] for item in rows)]
+        current = [
+            row for row in values
+            if any(item["Κωδικός"] == row["Κωδικός"] for item in rows)
+        ]
         if len(current) < 2 or all(row.get("Σύνδεσμος") for row in current):
             continue
-        ordered = sorted(current, key=lambda item: source_score(item, texts[item["Κωδικός"]]), reverse=True)
+        ordered = sorted(
+            current,
+            key=lambda item: source_score(item, texts[item["Κωδικός"]]),
+            reverse=True,
+        )
         primary = ordered[0]
-        primary_ids = identities(primary.get("Σύνδεσμος", ""), primary.get("Τίτλος", ""), texts[primary["Κωδικός"]])
         for duplicate in ordered[1:]:
             if primary.get("Σύνδεσμος") and duplicate.get("Σύνδεσμος"):
                 continue
-            if not authors_compatible(primary.get("Συγγραφείς", ""), duplicate.get("Συγγραφείς", "")):
-                continue
-            if not years_compatible(primary.get("Έτος", ""), duplicate.get("Έτος", "")):
-                continue
-            duplicate_ids = identities(duplicate.get("Σύνδεσμος", ""), duplicate.get("Τίτλος", ""), texts[duplicate["Κωδικός"]])
+            primary_ids = identities(
+                primary.get("Σύνδεσμος", ""),
+                primary.get("Τίτλος", ""),
+                texts[primary["Κωδικός"]],
+            )
+            duplicate_ids = identities(
+                duplicate.get("Σύνδεσμος", ""),
+                duplicate.get("Τίτλος", ""),
+                texts[duplicate["Κωδικός"]],
+            )
             if primary_ids and duplicate_ids and not (primary_ids & duplicate_ids):
+                continue
+            if not orphan_corroborated(primary, duplicate, texts):
                 continue
             rows = merge_one(
                 rows,
                 texts,
                 primary,
                 duplicate,
-                f"exact-title-orphan:{title_key}",
+                f"exact-title-corroborated:{title_key}",
                 changes,
                 merged,
             )
@@ -309,7 +374,6 @@ def append_report(
     changes: list[str],
 ) -> None:
     if not merged and not removed and not changes:
-        # Δεν σβήνουμε το προηγούμενο χρήσιμο ιστορικό με μία κενή εκτέλεση.
         return
     timestamp = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     if REPORT.exists() and REPORT.read_text(encoding="utf-8", errors="replace").strip():
@@ -317,8 +381,8 @@ def append_report(
     else:
         lines = [
             "# Έλεγχος συνδέσεων πηγών", "",
-            "Συγχώνευση γίνεται με κοινό DOI, arXiv ID, OpenReview ID, ακριβώς ίδιο συγκεκριμένο σύνδεσμο ή ακριβώς ίδιο τίτλο όταν μία εγγραφή είναι ορφανή και τα στοιχεία είναι συμβατά.",
-            "Παρόμοιος τίτλος από μόνος του δεν αρκεί.", "",
+            "Συγχώνευση γίνεται με κοινό DOI, arXiv ID, OpenReview ID, ακριβώς ίδιο συγκεκριμένο σύνδεσμο ή ακριβώς ίδιο τίτλο μαζί με συμβατούς δημιουργούς/ακριβώς ίδιο κείμενο.",
+            "Παρόμοιος τίτλος ή κενά μεταδεδομένα από μόνα τους δεν αρκούν.", "",
         ]
     lines.extend([
         f"## Έλεγχος {timestamp}", "",
@@ -327,7 +391,11 @@ def append_report(
         f"- Άλλες ασφαλείς διορθώσεις: **{len(changes)}**", "",
     ])
     if merged:
-        lines.extend(["### Συγχωνεύσεις", "", "| Παλαιός κωδικός | Κύριος κωδικός | Τεκμήριο |", "|---|---|---|"])
+        lines.extend([
+            "### Συγχωνεύσεις", "",
+            "| Παλαιός κωδικός | Κύριος κωδικός | Τεκμήριο |",
+            "|---|---|---|",
+        ])
         lines.extend(f"| `{old}` | `{new}` | `{key}` |" for old, new, key in merged)
         lines.append("")
     if removed:
@@ -351,19 +419,24 @@ def main() -> int:
         source_id = row["Κωδικός"]
         text = source_text(SOURCES, source_id)
         title_key = normalized_words(row.get("Τίτλος", ""))
-        is_helper = title_key in HELPERS or ("notebooklm" in text[:5000].casefold() and "audit" in title_key)
+        is_helper = title_key in HELPERS or (
+            "notebooklm" in text[:5000].casefold() and "audit" in title_key
+        )
         is_empty = not normalized_words(text) and not row.get("Σύνδεσμος")
         original = ORIGINALS / f"{source_id}.pdf"
         if is_helper:
             path = SOURCES / f"{source_id}.md"
             if path.exists():
                 path.unlink()
-            for related in (EXCERPTS / f"{source_id}.md", original, ORIGINALS / f"{source_id}.url"):
+            for related in (
+                EXCERPTS / f"{source_id}.md",
+                original,
+                ORIGINALS / f"{source_id}.url",
+            ):
                 if related.exists():
                     related.unlink()
             removed.append(f"`{source_id}` — {row.get('Τίτλος', '')}")
         elif is_empty and original.exists():
-            # Δεν πετάμε πρωτότυπο επειδή το NotebookLM export ήταν κενό.
             (SOURCES / f"{source_id}.md").write_text(
                 f"# {row.get('Τίτλος', source_id)}\n\n"
                 "> Υπάρχει το πρωτότυπο PDF, αλλά το πλήρες Markdown δεν έχει ακόμη δημιουργηθεί ή ελεγχθεί.\n",
@@ -392,7 +465,11 @@ def main() -> int:
         writer.writeheader()
         writer.writerows(sorted(rows, key=lambda row: row["Τίτλος"].casefold()))
 
-    subprocess.run([sys.executable, str(ROOT / "εργαλεία" / "εισαγωγή.py"), "--catalog-only"], cwd=ROOT, check=True)
+    subprocess.run(
+        [sys.executable, str(ROOT / "εργαλεία" / "εισαγωγή.py"), "--catalog-only"],
+        cwd=ROOT,
+        check=True,
+    )
     append_report(merged, removed, changes)
     print(f"Συγχωνεύθηκαν {len(merged)} βέβαια διπλότυπα και αφαιρέθηκαν {len(removed)} μη πηγές.")
     return 0
