@@ -40,6 +40,12 @@ REQUIRED_ANALYSIS_HEADINGS = (
     "## Χρήση στη διπλωματική",
     "## Κατάσταση επαλήθευσης",
 )
+POSITION_PLACEHOLDERS = {
+    "σελίδα, ενότητα, πίνακας, σχήμα ή χρονική σήμανση",
+}
+CLAIM_PLACEHOLDERS = {
+    "ποια ακριβώς πρόταση της διπλωματικής υποστηρίζει",
+}
 
 
 def normalize(value: str | None) -> str:
@@ -55,6 +61,14 @@ def meaningful_word_count(text: str) -> int:
         "πρωτότυπο", "χρειάζεται", "έλεγχο", "μεταδεδομένα",
     }
     return sum(word.casefold() not in boilerplate for word in words)
+
+
+def markdown_label_values(text: str, label: str) -> list[str]:
+    pattern = re.compile(
+        rf"^\s*-\s*\*\*{re.escape(label)}:\*\*\s*(.*?)\s*$",
+        re.IGNORECASE | re.MULTILINE,
+    )
+    return [match.group(1).strip() for match in pattern.finditer(text)]
 
 
 def read_csv(path: Path) -> tuple[list[str], list[dict[str, str]]]:
@@ -127,32 +141,47 @@ def validate() -> tuple[list[str], list[dict[str, str]], dict[str, dict[str, str
             errors.append(f"{source_id}: λείπει η δομημένη ανάλυση")
         else:
             analysis_text = analysis_path.read_text(encoding="utf-8", errors="replace")
+            analysis_normalized = normalize(analysis_text)
             for heading in REQUIRED_ANALYSIS_HEADINGS:
                 if heading not in analysis_text:
                     errors.append(f"{source_id}: λείπει από την ανάλυση η ενότητα «{heading}»")
-            if "κατάσταση: επαληθευμένη" not in normalize(analysis_text):
+            if "κατάσταση: επαληθευμένη" not in analysis_normalized:
                 errors.append(f"{source_id}: η ανάλυση δεν δηλώνει επαληθευμένη κατάσταση")
-            if meaningful_word_count(analysis_text) < MIN_ANALYSIS_WORDS:
+            if "ελεγχθέν-πρωτότυπο: ναι" not in analysis_normalized:
+                errors.append(f"{source_id}: η ανάλυση δεν δηλώνει ότι ελέγχθηκε το πρωτότυπο")
+            analysis_words = meaningful_word_count(analysis_text)
+            if analysis_words < MIN_ANALYSIS_WORDS:
                 errors.append(
                     f"{source_id}: η ανάλυση δεν έχει αρκετό ουσιαστικό περιεχόμενο "
-                    f"({meaningful_word_count(analysis_text)}/{MIN_ANALYSIS_WORDS} λέξεις)"
+                    f"({analysis_words}/{MIN_ANALYSIS_WORDS} λέξεις)"
                 )
 
         if not excerpt_path.exists():
             errors.append(f"{source_id}: λείπει το αρχείο επαληθευμένων αποσπασμάτων")
         else:
             excerpt_text = excerpt_path.read_text(encoding="utf-8", errors="replace")
-            excerpt_lower = excerpt_text.lower()
-            if "κατάσταση: επαληθευμένο" not in normalize(excerpt_text):
+            excerpt_normalized = normalize(excerpt_text)
+            positions = markdown_label_values(excerpt_text, "Θέση")
+            claims = markdown_label_values(excerpt_text, "Ισχυρισμός")
+            if "κατάσταση: επαληθευμένο" not in excerpt_normalized:
                 errors.append(f"{source_id}: τα αποσπάσματα δεν δηλώνουν επαληθευμένη κατάσταση")
-            if "**θέση:**" not in excerpt_lower:
-                errors.append(f"{source_id}: λείπει ακριβής θέση στα αποσπάσματα")
-            if "**ισχυρισμός:**" not in excerpt_lower:
-                errors.append(f"{source_id}: λείπει ο ισχυρισμός που υποστηρίζεται")
-            if meaningful_word_count(excerpt_text) < MIN_EXCERPT_WORDS:
+            if "ελεγχθέν-πρωτότυπο: ναι" not in excerpt_normalized:
+                errors.append(f"{source_id}: τα αποσπάσματα δεν δηλώνουν ότι ελέγχθηκε το πρωτότυπο")
+            if "## Τεκμήριο" not in excerpt_text:
+                errors.append(f"{source_id}: λείπει δομημένη ενότητα τεκμηρίου")
+            if not positions or any(
+                not value or value.lower() in POSITION_PLACEHOLDERS for value in positions
+            ):
+                errors.append(f"{source_id}: λείπει πραγματική ακριβής θέση στα αποσπάσματα")
+            if not claims or any(
+                not value or value.lower() in CLAIM_PLACEHOLDERS for value in claims
+            ):
+                errors.append(f"{source_id}: λείπει πραγματικός ισχυρισμός που υποστηρίζεται")
+            excerpt_words = meaningful_word_count(excerpt_text)
+            if excerpt_words < MIN_EXCERPT_WORDS:
                 errors.append(
                     f"{source_id}: τα αποσπάσματα δεν έχουν αρκετό ουσιαστικό περιεχόμενο "
-                    f"({meaningful_word_count(excerpt_text)}/{MIN_EXCERPT_WORDS} λέξεις)"
+                    f"({excerpt_words}/{MIN_EXCERPT_WORDS} λέξεις)"
                 )
 
     return errors, exported, catalog, catalog_fields
