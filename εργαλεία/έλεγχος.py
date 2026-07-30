@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Ελέγχει ότι η απλή ελληνική δομή και οι συνδέσεις πηγών παραμένουν συνεπείς."""
+"""Ελέγχει ότι η ελληνική δομή και οι συνδέσεις πηγών παραμένουν συνεπείς."""
 from __future__ import annotations
 
 import csv
@@ -10,7 +10,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SOURCES = ROOT / "πηγές"
 ORIGINALS = ROOT / "πρωτότυπα"
+ANALYSES = ROOT / "αναλύσεις"
+EXCERPTS = ROOT / "αποσπάσματα"
 CATALOG = ROOT / "κατάλογος" / "πηγές.csv"
+SELECTION = ROOT / "κατάλογος" / "επιλογή-διπλωματικής.csv"
 ORIGINALS_REPORT = ROOT / "κατάλογος" / "πρωτότυπα.csv"
 INCOMING = ROOT / "νέες-πηγές"
 INCOMING_ORIGINALS = ROOT / "νέα-πρωτότυπα"
@@ -19,6 +22,9 @@ GIT_ATTRIBUTES = ROOT / ".gitattributes"
 REQUIRED_COLUMNS = {
     "Κωδικός", "Τίτλος", "Συγγραφείς", "Έτος", "Σύνδεσμος", "Τύπος",
     "Θέματα", "Κατάσταση", "Επιβεβαίωση", "Προτεραιότητα", "Σημειώσεις",
+}
+SELECTION_COLUMNS = {
+    "Κωδικός", "Ρόλος", "Κατάσταση", "Κεφάλαια", "Θέματα", "Εξαγωγή", "Σημείωση",
 }
 ORIGINAL_REPORT_COLUMNS = {
     "Κωδικός", "Τίτλος", "Κατάσταση", "Αρχείο", "Σύνδεσμος",
@@ -116,7 +122,6 @@ def validate_originals(catalog_ids: set[str], errors: list[str]) -> None:
                     errors.append(f"Πρωτότυπο για ανύπαρκτη πηγή: {path.name}")
                 continue
             if path.suffix.casefold() == ".pdf":
-                # Παλιό/γενικό όνομα επιτρέπεται προσωρινά μέχρι τον συγχρονισμό.
                 continue
             errors.append(f"Μη αναγνωρισμένο αρχείο στον φάκελο πρωτοτύπων: {path.name}")
 
@@ -138,11 +143,42 @@ def validate_originals(catalog_ids: set[str], errors: list[str]) -> None:
         errors.append("Το Git LFS δεν είναι ρυθμισμένο για όλα τα PDF")
 
 
+def validate_analysis_assets(catalog_ids: set[str], errors: list[str]) -> None:
+    for directory, label in ((ANALYSES, "ανάλυση"), (EXCERPTS, "απόσπασμα")):
+        if not directory.exists():
+            errors.append(f"Λείπει ο φάκελος: {directory.relative_to(ROOT)}")
+            continue
+        for path in sorted(directory.glob("*.md")):
+            if path.name == "README.md":
+                continue
+            if not SOURCE_ID_RE.fullmatch(path.stem):
+                errors.append(f"Μη έγκυρο όνομα αρχείου {label}: {path.name}")
+            elif path.stem not in catalog_ids:
+                errors.append(f"{label.capitalize()} για ανύπαρκτη πηγή: {path.name}")
+
+    if not SELECTION.exists():
+        errors.append("Λείπει το κατάλογος/επιλογή-διπλωματικής.csv")
+    else:
+        with SELECTION.open(encoding="utf-8", newline="") as handle:
+            reader = csv.DictReader(handle)
+            rows = list(reader)
+            columns = set(reader.fieldnames or [])
+        if columns != SELECTION_COLUMNS:
+            errors.append(f"Λανθασμένες στήλες μητρώου επιλογής: {sorted(columns)}")
+        ids = [row.get("Κωδικός", "").strip() for row in rows if row.get("Κωδικός", "").strip()]
+        if len(ids) != len(set(ids)):
+            errors.append("Υπάρχουν διπλοί κωδικοί στο μητρώο επιλογής")
+        unknown = sorted(set(ids) - catalog_ids)
+        if unknown:
+            errors.append(f"Το μητρώο επιλογής περιέχει ανύπαρκτους κωδικούς: {', '.join(unknown[:10])}")
+
+
 def main() -> int:
     errors: list[str] = []
     rows = read_catalog(errors)
     catalog_ids = validate_sources(rows, errors)
     validate_originals(catalog_ids, errors)
+    validate_analysis_assets(catalog_ids, errors)
 
     for relative in OBSOLETE_PATHS:
         if (ROOT / relative).exists():
@@ -166,9 +202,17 @@ def main() -> int:
 
     required = [
         ROOT / "README.md",
+        ROOT / "αναλύσεις" / "README.md",
+        ROOT / "αποσπάσματα" / "README.md",
+        ROOT / "πρότυπα" / "ανάλυση-πηγής.md",
+        ROOT / "πρότυπα" / "απόσπασμα-πηγής.md",
         ROOT / "κατάλογος" / "πηγές.md",
         ROOT / "κατάλογος" / "προβληματικές-πηγές.md",
         ROOT / "κατάλογος" / "προς-προσθήκη.md",
+        ROOT / "κατάλογος" / "επιλογή-διπλωματικής.csv",
+        ROOT / "κατάλογος" / "επιλογή-διπλωματικής.md",
+        ROOT / "συγχρονισμός" / "README.md",
+        ROOT / "συγχρονισμός" / "prompt-για-κύριο-repo.md",
         ROOT / "νέες-πηγές" / "README.md",
         ROOT / "νέα-πρωτότυπα" / "README.md",
     ]
