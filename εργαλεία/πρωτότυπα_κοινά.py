@@ -40,7 +40,7 @@ SUSPICIOUS_DISTRIBUTION = re.compile(
     re.IGNORECASE,
 )
 LINKED_PDF_STEM_RE = re.compile(
-    r"SRC-[A-F0-9]{10}(?:__εναλλακτικό-(?:SRC-[A-F0-9]{10}|[A-F0-9]{10}))?",
+    r"SRC-[A-F0-9]{10}(?:__(?:εναλλακτικό|σύγκρουση)-(?:SRC-[A-F0-9]{10}|[A-F0-9]{10,16}))?",
     re.IGNORECASE,
 )
 DOCUMENT_TYPES = {
