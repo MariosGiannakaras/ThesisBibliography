@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   validate:
@@ -15,27 +15,11 @@ jobs:
     steps:
       - name: Λήψη αποθετηρίου
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event_name == 'pull_request' && github.head_ref || github.ref_name }}
-          fetch-depth: 0
 
       - name: Ρύθμιση Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-
-      - name: Αποκατάσταση μόνιμων κωδικών
-        if: ${{ hashFiles('εργαλεία/αποκατάσταση-κωδικών.py') != '' }}
-        run: |
-          python εργαλεία/αποκατάσταση-κωδικών.py
-          python εργαλεία/εισαγωγή.py --catalog-only
-          rm εργαλεία/αποκατάσταση-κωδικών.py
-          python εργαλεία/έλεγχος.py
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A -- . ':(exclude).github/workflows/**'
-          git commit -m "fix: επαναφορά μόνιμων κωδικών πηγών"
-          git push origin HEAD:${{ github.head_ref }}
 
       - name: Έλεγχος σύνταξης
         run: python -m py_compile εργαλεία/εισαγωγή.py εργαλεία/μεταδεδομένα.py εργαλεία/έλεγχος.py
