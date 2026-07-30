@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import csv
 import hashlib
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -22,9 +23,11 @@ ALLOWED_STATUS = {
 }
 ALLOWED_VERIFICATION = {
     "επιβεβαιωμένη μέσω arXiv", "επιβεβαιωμένη μέσω Crossref",
-    "πιθανή αντιστοίχιση OpenAlex", "μόνο καταγεγραμμένος σύνδεσμος", "εκκρεμεί",
+    "πιθανή αντιστοίχιση OpenAlex", "μόνο καταγεγραμμένος σύνδεσμος",
+    "δεν βρέθηκε αυτόματη αντιστοίχιση", "εκκρεμεί",
 }
 ALLOWED_PRIORITY = {"υψηλή", "μεσαία", "χαμηλή", "χρειάζεται διόρθωση"}
+SOURCE_ID_RE = re.compile(r"SRC-[A-F0-9]{10}")
 OBSOLETE_PATHS = [
     "catalog", "curation", "imports", "notes", "queues", "sources", "incoming",
     "archive", "workspace", "AGENTS.md",
@@ -56,7 +59,11 @@ def main() -> int:
     if len(ids) != len(set(ids)):
         errors.append("Υπάρχουν διπλοί κωδικοί πηγών")
 
-    source_files = sorted(SOURCES.glob("ΠΗΓΗ-*.md")) if SOURCES.exists() else []
+    all_markdown = sorted(SOURCES.glob("*.md")) if SOURCES.exists() else []
+    invalid_names = [path.name for path in all_markdown if not SOURCE_ID_RE.fullmatch(path.stem)]
+    if invalid_names:
+        errors.append(f"Μη έγκυρα ονόματα αρχείων πηγών: {', '.join(invalid_names[:10])}")
+    source_files = [path for path in all_markdown if SOURCE_ID_RE.fullmatch(path.stem)]
     file_ids = {path.stem for path in source_files}
     if set(ids) != file_ids:
         missing = sorted(set(ids) - file_ids)
@@ -66,13 +73,13 @@ def main() -> int:
         if extra:
             errors.append(f"Υπάρχουν αρχεία χωρίς καταχώριση: {', '.join(extra[:10])}")
 
-    hashes = [sha256(path) for path in source_files]
+    hashes = [sha256(path) for path in all_markdown]
     if len(hashes) != len(set(hashes)):
         errors.append("Υπάρχουν ακριβή διπλότυπα αρχεία Markdown")
 
     for row in rows:
         sid = row.get("Κωδικός", "")
-        if not sid.startswith("ΠΗΓΗ-"):
+        if not SOURCE_ID_RE.fullmatch(sid):
             errors.append(f"Μη έγκυρος κωδικός: {sid}")
         if not row.get("Τίτλος"):
             errors.append(f"{sid}: λείπει τίτλος")
@@ -88,10 +95,7 @@ def main() -> int:
             errors.append(f"Παρέμεινε παλιά διαδρομή: {relative}")
 
     if INCOMING.exists():
-        leftovers = [
-            path for path in INCOMING.rglob("*")
-            if path.is_file() and path.name != "README.md"
-        ]
+        leftovers = [path for path in INCOMING.rglob("*") if path.is_file() and path.name != "README.md"]
         if leftovers:
             errors.append("Ο φάκελος νέες-πηγές περιέχει μη επεξεργασμένα αρχεία")
 
