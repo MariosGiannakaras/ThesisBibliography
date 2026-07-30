@@ -1,0 +1,15 @@
+> Source: https://repository.tudelft.nl/record/uuid%3Adde4e58f-e109-4e7f-8ecb-ed1734294e5c
+
+Library  Repository Home account_circle  Login TitleMetadataAbstractFilesModel Free Reinforcement Learning with Stability Guarantee
+ Master Thesis (2019)  Author(s)  
+ Yuan Tian  (TU Delft - Mechanical Engineering)
+Contributor(s)  
+ Wei Pan  – Mentor (TU Delft - Mechanical Engineering)
+ Hongpeng Zhou  – Graduation committee member (TU Delft - Mechanical Engineering)
+Faculty   Mechanical Engineering  Reinforcement Learning  To reference this document use  https://resolver.tudelft.nl/uuid:dde4e58f-e109-4e7f-8ecb-ed1734294e5c More Info    expand_more   Publication Year  2019  Language  English  Graduation Date  29-08-2019  Awarding Institution  Delft University of Technology  Programme  Mechanical Engineering, Vehicle Engineering  Faculty   Mechanical Engineering   Downloads counter  364  Collections  thesis  Reuse Rights  
+ Other than for strictly personal use, it is not permitted to download, forward or distribute the text or part of it, without the consent of the author(s) and/or copyright holder(s), unless the work is under an open content license such as Creative Commons. 
+Abstract
+Model-free reinforcement learning has proved to be successful in many tasks such as robotic manipulator, video games, and even stock trading. However, as the dynamics of the environment is unmodelled, it is fundamentally difficult to ensure the learned policy to be absolutely reliable and its performance is guaranteed. In this thesis, we borrow the concept of stability and Lyapunov analysis in control theory to design a policy with stability guarantee and assure the guaranteed behaviors of the agent. A novel sample-based approach is proposed for analyzing the stability of a learning control system, and on the basis of the theoretical result, we establish a practical model-free learning framework with provable stability, safety and performance guarantees. 
+ % Specifically, a novel locally constrained method is proposed to solve the safety constrained problems with lower conservatism. In our solution, a Lyapunov function is searched automatically to guarantee the closed-loop system stability, which also guides the simultaneous learning (covering both the policy and value-based learning methods). Our approach is evaluated on a series of discrete and continuous control benchmarks and largely outperforms the state-of-the-art results concerning unconstrained and constrained problems. It is also shown that the algorithm has the ability of recovery to equilibrium under perturbation using the policy with stability guarantee. (Anonymous code is available to reproduce the experimental esults\footnote{\url{https://github.com/RLControlTheoreticGuarantee/Guarantee_Learning_Control}}.) Since sometimes the constraint is hard to define, we introduce a novel method to learn a constraint by representing the bad cases or situations as a distribution, and the constraint is the Wasserstein distance between the distribution. 
+Files
+Thesis_2.pdf (pdf | 6.19 Mb)   License info not available 
