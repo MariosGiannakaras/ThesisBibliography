@@ -1,9 +1,9 @@
-## ΠΗΓΗ-D5B1C4977B — Robust Policy Learning over Multiple Uncertainty Sets
+## SRC-AC79E9A264 — Robust Policy Learning over Multiple Uncertainty Sets
 
 - **Προτεραιότητα:** P2-supporting
 - **Θέματα:** robust-rl
 - **Πηγή:** URL not extracted
-- **Αρχείο:** `sources/markdown/ΠΗΓΗ-D5B1C4977B__robust-policy-learning-over-multiple-uncertainty-sets.md`
+- **Αρχείο:** `πηγές/SRC-AC79E9A264.md`
 - **Κατάσταση ελέγχου:** αυτόματη επιλογή· εκκρεμεί έλεγχος του πλήρους κειμένου
 
 > Abstract Reinforcement learning (RL) agents need to be robust to variations in safety-critical environments. While system identification methods provide a way to infer the variation from online experience, they can fail in settings where fast identification is not possible. Another dominant approach is robust RL which produces a policy that can handle worst-case scenarios, but these methods are generally designed to achieve robustness to a single uncertainty set that must be specified at train time. Towards a more general solution, we formulate the multi-set robustness problem to learn a policy robust to different perturbation sets. We then design an algorithm that enjoys the benefits of both system identification and robust RL: it reduces uncertainty where possible given a few interactions, but can still act robustly with respect to the remaining uncertainty. On a diverse set of control…
