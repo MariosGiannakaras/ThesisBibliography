@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Αντιστοίχιση εισερχόμενων PDF, νέες εγγραφές και αναφορές."""
+"""Αντιστοίχιση εισερχόμενων PDF, ασφαλείς νέες εγγραφές και αναφορές."""
 from __future__ import annotations
 
 import csv
@@ -12,6 +12,7 @@ from κοινά_πηγών import SOURCE_ID_RE, identities, normalized_words, so
 from πρωτότυπα_κοινά import (
     GENERIC_TITLE,
     INCOMING,
+    LINKED_PDF_STEM_RE,
     ORIGINALS,
     PENDING_REPORT,
     REPORT_CSV,
@@ -21,9 +22,11 @@ from πρωτότυπα_κοινά import (
     DownloadResult,
     MatchResult,
     PdfInfo,
+    can_create_source_from_pdf,
     inspect_pdf,
     sha256,
     strong_new_title,
+    strong_pdf_identities,
     title_score,
 )
 
@@ -34,8 +37,7 @@ def match_uploaded(path: Path, rows: list[dict[str, str]], texts: dict[str, str]
     if id_in_name and any(row["Κωδικός"] == id_in_name.group(0) for row in rows):
         return MatchResult(id_in_name.group(0), "κωδικός στο όνομα", info)
 
-    pdf_ids = {f"doi:{value.casefold()}" for value in info.doi}
-    pdf_ids.update(f"arxiv:{value}" for value in info.arxiv)
+    pdf_ids = strong_pdf_identities(info)
     strong_matches: list[str] = []
     for row in rows:
         row_ids = identities(
@@ -46,7 +48,7 @@ def match_uploaded(path: Path, rows: list[dict[str, str]], texts: dict[str, str]
         if pdf_ids & row_ids:
             strong_matches.append(row["Κωδικός"])
     if len(strong_matches) == 1:
-        return MatchResult(strong_matches[0], "DOI ή arXiv ID", info)
+        return MatchResult(strong_matches[0], "μοναδικό DOI ή arXiv ID", info)
     if len(strong_matches) > 1:
         return MatchResult(None, "πολλαπλές εγγραφές με το ίδιο ισχυρό αναγνωριστικό", info)
 
@@ -87,7 +89,7 @@ def inferred_type(path: Path, info: PdfInfo) -> str:
 
 def new_source_id(path: Path, existing_ids: set[str]) -> str:
     digest = sha256(path).upper()
-    for offset in range(0, len(digest) - 10):
+    for offset in range(0, len(digest) - 9):
         source_id = "SRC-" + digest[offset:offset + 10]
         if source_id not in existing_ids:
             return source_id
@@ -99,16 +101,18 @@ def create_source_from_pdf(
     info: PdfInfo,
     rows: list[dict[str, str]],
 ) -> tuple[str | None, str]:
+    allowed, evidence = can_create_source_from_pdf(path, info)
+    if not allowed:
+        return None, evidence
+
     title = strong_new_title(info, path)
-    if not title or len(info.text.strip()) < 120:
-        return None, "δεν υπάρχουν αρκετά αξιόπιστα στοιχεία για νέα πηγή"
     source_id = new_source_id(path, {row["Κωδικός"] for row in rows})
     link = ""
     verification = "εκκρεμεί"
-    if info.doi:
+    if len(info.doi) == 1:
         link = f"https://doi.org/{info.doi[0]}"
         verification = "μόνο καταγεγραμμένος σύνδεσμος"
-    elif info.arxiv:
+    elif len(info.arxiv) == 1:
         link = f"https://arxiv.org/abs/{info.arxiv[0]}"
         verification = "μόνο καταγεγραμμένος σύνδεσμος"
 
@@ -117,6 +121,9 @@ def create_source_from_pdf(
         "> Η εγγραφή δημιουργήθηκε από πρωτότυπο PDF που δεν υπήρχε ακόμη στον κατάλογο.",
         "> Χρειάζεται πλήρης μετατροπή σε Markdown και έλεγχος πριν χρησιμοποιηθεί ως παραπομπή.", "",
     ]
+    if link:
+        markdown.insert(2, f"> Source: {link}")
+        markdown.insert(3, "")
     if info.authors:
         markdown.append(f"- **Συγγραφείς:** {info.authors}")
     if info.year:
@@ -136,10 +143,13 @@ def create_source_from_pdf(
         "Κατάσταση": "μόνο μεταδεδομένα",
         "Επιβεβαίωση": verification,
         "Προτεραιότητα": "χρειάζεται διόρθωση",
-        "Σημειώσεις": "Δημιουργήθηκε από πρωτότυπο PDF· χρειάζεται πλήρης μετατροπή και θεματική αξιολόγηση.",
+        "Σημειώσεις": (
+            "Δημιουργήθηκε από πρωτότυπο PDF με " + evidence
+            + "· χρειάζεται πλήρης μετατροπή και θεματική αξιολόγηση."
+        ),
     })
     shutil.move(str(path), ORIGINALS / f"{source_id}.pdf")
-    return source_id, f"δημιουργήθηκε νέα εγγραφή «{title}»"
+    return source_id, f"δημιουργήθηκε νέα εγγραφή «{title}» ({evidence})"
 
 
 def repair_row_from_pdf(row: dict[str, str], info: PdfInfo) -> bool:
@@ -160,15 +170,27 @@ def repair_row_from_pdf(row: dict[str, str], info: PdfInfo) -> bool:
         row["Έτος"] = info.year
         changed = True
     if not row.get("Σύνδεσμος"):
-        if info.doi:
+        if len(info.doi) == 1:
             row["Σύνδεσμος"] = f"https://doi.org/{info.doi[0]}"
             row["Επιβεβαίωση"] = "μόνο καταγεγραμμένος σύνδεσμος"
             changed = True
-        elif info.arxiv:
+        elif len(info.arxiv) == 1:
             row["Σύνδεσμος"] = f"https://arxiv.org/abs/{info.arxiv[0]}"
             row["Επιβεβαίωση"] = "μόνο καταγεγραμμένος σύνδεσμος"
             changed = True
     return changed
+
+
+def _store_alternate(path: Path, source_id: str) -> tuple[Path | None, str]:
+    digest = sha256(path).upper()
+    alternate = ORIGINALS / f"{source_id}__εναλλακτικό-{digest[:10]}.pdf"
+    if alternate.exists():
+        if sha256(alternate) == digest.casefold():
+            path.unlink()
+            return None, "αφαιρέθηκε ακριβές διπλότυπο εναλλακτικής έκδοσης"
+        alternate = ORIGINALS / f"{source_id}__εναλλακτικό-{digest[:16]}.pdf"
+    shutil.move(str(path), alternate)
+    return alternate, "διαφορετική έκδοση της ίδιας πηγής"
 
 
 def import_uploaded(
@@ -183,20 +205,28 @@ def import_uploaded(
     pending: list[tuple[Path, MatchResult]] = []
     catalog_changed = False
     candidates = list(INCOMING.rglob("*.pdf"))
-    candidates.extend(path for path in ORIGINALS.glob("*.pdf") if not SOURCE_ID_RE.fullmatch(path.stem))
+    candidates.extend(
+        path for path in ORIGINALS.glob("*.pdf")
+        if not LINKED_PDF_STEM_RE.fullmatch(path.stem)
+    )
 
     for path in sorted(set(candidates)):
         result = match_uploaded(path, rows, texts)
         if not result.source_id:
+            creation_reason = ""
             if create_missing:
-                source_id, reason = create_source_from_pdf(path, result.info, rows)
+                source_id, creation_reason = create_source_from_pdf(path, result.info, rows)
                 if source_id:
                     texts[source_id] = source_text(SOURCES, source_id)
-                    notes.append(f"{path.name} → {source_id}.pdf ({reason})")
+                    notes.append(f"{path.name} → {source_id}.pdf ({creation_reason})")
                     catalog_changed = True
                     continue
-            notes.append(f"{path.name}: {result.reason}")
-            pending.append((path, result))
+            reason = result.reason
+            if creation_reason:
+                reason += f"· {creation_reason}"
+            pending_result = MatchResult(None, reason, result.info, result.candidates)
+            notes.append(f"{path.name}: {reason}")
+            pending.append((path, pending_result))
             continue
 
         target = ORIGINALS / f"{result.source_id}.pdf"
@@ -207,11 +237,11 @@ def import_uploaded(
                 path.unlink()
                 notes.append(f"{path.name}: αφαιρέθηκε ακριβές διπλότυπο του {result.source_id}")
             else:
-                alternate = ORIGINALS / (
-                    f"{result.source_id}__εναλλακτικό-{sha256(path)[:10].upper()}.pdf"
-                )
-                shutil.move(str(path), alternate)
-                notes.append(f"{path.name} → {alternate.name} (διαφορετική έκδοση της ίδιας πηγής)")
+                alternate, reason = _store_alternate(path, result.source_id)
+                if alternate:
+                    notes.append(f"{path.name} → {alternate.name} ({reason})")
+                else:
+                    notes.append(f"{path.name}: {reason}")
             continue
         shutil.move(str(path), target)
         notes.append(f"{path.name} → {target.name} ({result.reason})")
@@ -232,9 +262,10 @@ def write_pending_report(pending: list[tuple[Path, MatchResult]]) -> None:
             f"- **Αποτέλεσμα:** {result.reason}",
             f"- **Τίτλος PDF:** {info.title or 'δεν αναγνωρίστηκε'}",
             f"- **Συγγραφείς:** {info.authors or 'δεν αναγνωρίστηκαν'}",
+            f"- **Έτος:** {info.year or 'δεν αναγνωρίστηκε'}",
             f"- **Σελίδες:** {info.pages or 'άγνωστο'}",
-            f"- **DOI:** {', '.join(info.doi) or 'δεν βρέθηκε'}",
-            f"- **arXiv:** {', '.join(info.arxiv) or 'δεν βρέθηκε'}",
+            f"- **DOI κεφαλίδας:** {', '.join(info.doi) or 'δεν βρέθηκε'}",
+            f"- **arXiv κεφαλίδας:** {', '.join(info.arxiv) or 'δεν βρέθηκε'}",
         ])
         if result.candidates:
             lines.extend(["", "Καλύτεροι υποψήφιοι:", ""])
