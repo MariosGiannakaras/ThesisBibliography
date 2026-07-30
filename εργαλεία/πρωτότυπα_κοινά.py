@@ -32,7 +32,8 @@ GENERIC_TITLE = re.compile(
     r"^(?:untitled\b|document\b|thesis(?:\.pdf)?$|fulltext\d*(?:\.pdf)?$|"
     r"brketi-?\d+(?:\.pdf)?$|https?[-_:]|pdf[-_]|ebook[-_]|"
     r"academic editors?\b|verifying your browser|applsci-\d|"
-    r"final-web-version-report|ssrn-\d+(?:\.pdf)?$)",
+    r"final-web-version-report|ssrn-\d+(?:\.pdf)?$|degree project\b|"
+    r"a appendix\b|[\s•·]*[a-z]{3,}[a-z0-9]*-\d{4}\b)",
     re.IGNORECASE,
 )
 SUSPICIOUS_DISTRIBUTION = re.compile(
@@ -175,7 +176,8 @@ def likely_title_from_text(text: str) -> str:
     lines = [line for line in lines if line]
     ignored = re.compile(
         r"^(?:arxiv|doi|abstract|contents|table of contents|copyright|page \d+|"
-        r"university|department|faculty|submitted|author(?:s)?\s*:|academic editors?\b)",
+        r"university|department|faculty|submitted|author(?:s)?\s*:|academic editors?\b|"
+        r"degree project\b|a appendix\b|[\s•·]*[a-z]{3,}[a-z0-9]*-\d{4}\b)",
         re.IGNORECASE,
     )
     candidates: list[tuple[int, str]] = []
@@ -256,7 +258,7 @@ def title_score(row_title: str, path: Path, info: PdfInfo) -> float:
 
 
 def strong_new_title(info: PdfInfo, path: Path) -> str:
-    title = re.sub(r"\s+", " ", info.title).strip(" -_:.")
+    title = re.sub(r"\s+", " ", info.title).strip(" -_:.•·")
     if not title or GENERIC_TITLE.search(title) or len(normalized_words(title)) < 15:
         return ""
     return title[:300]
@@ -271,8 +273,8 @@ def can_create_source_from_pdf(path: Path, info: PdfInfo) -> tuple[bool, str]:
         return False, "δεν υπάρχουν αρκετά αξιόπιστα στοιχεία για νέα πηγή"
     if strong_pdf_identities(info):
         return True, "μοναδικό DOI ή arXiv ID"
-    title_in_header = normalized(title) in normalized(info.text[:7000])
+    title_in_header = normalized(title) in normalized(info.text[:2500])
     complete_metadata = bool(info.authors.strip() and info.year.isdigit() and info.pages >= 2)
     if title_in_header and complete_metadata:
-        return True, "τίτλος, δημιουργός και έτος από το ίδιο PDF"
+        return True, "τίτλος, δημιουργός και έτος από την αρχική σελίδα του ίδιου PDF"
     return False, "λείπει μοναδικό αναγνωριστικό ή πλήρες σύνολο τίτλου-δημιουργού-έτους"
