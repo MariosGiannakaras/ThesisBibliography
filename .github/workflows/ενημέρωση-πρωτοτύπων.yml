@@ -20,9 +20,9 @@ on:
   workflow_dispatch:
     inputs:
       limit:
-        description: "Μέγιστες νέες λήψεις PDF πριν την οριστικοποίηση"
+        description: "Προαιρετικές νέες λήψεις PDF πριν την οριστικοποίηση"
         required: false
-        default: "100"
+        default: "0"
 
 permissions:
   contents: write
@@ -101,9 +101,9 @@ jobs:
       - name: Έλεγχος συνδέσεων και βέβαιων διπλοτύπων
         run: python εργαλεία/καθαρισμός-συνδέσεων.py
 
-      - name: Τελική προσπάθεια λήψης πρωτοτύπων
+      - name: Προαιρετική τελευταία προσπάθεια λήψης πρωτοτύπων
         env:
-          LIMIT: ${{ inputs.limit || '100' }}
+          LIMIT: ${{ inputs.limit || '0' }}
         run: python εργαλεία/πρωτότυπα.py --download --limit "$LIMIT" --retry
 
       - name: Οριστικοποίηση χωρίς εκκρεμότητες
