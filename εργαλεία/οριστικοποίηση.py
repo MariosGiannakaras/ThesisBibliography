@@ -30,7 +30,7 @@ def linked_pdfs(source_id: str) -> list[Path]:
     return sorted(ORIGINALS.glob(f"{source_id}*.pdf"))
 
 
-def meaningful_text(path: Path) -> bool:
+def meaningful_text(path: Path, minimum_words: int = 40) -> bool:
     if not path.exists():
         return False
     text = path.read_text(encoding="utf-8", errors="replace")
@@ -42,13 +42,14 @@ def meaningful_text(path: Path) -> bool:
         "πρωτότυπο", "χρειάζεται", "έλεγχο", "μεταδεδομένα",
     }
     useful = [word for word in words if word.casefold() not in boilerplate]
-    return len(useful) >= 40
+    return len(useful) >= minimum_words
 
 
 def has_useful_content(source_id: str) -> bool:
-    return any(
-        meaningful_text(directory / f"{source_id}.md")
-        for directory in (SOURCES, ANALYSES, EXCERPTS)
+    return (
+        meaningful_text(SOURCES / f"{source_id}.md", 40)
+        or meaningful_text(ANALYSES / f"{source_id}.md", 150)
+        or meaningful_text(EXCERPTS / f"{source_id}.md", 120)
     )
 
 
