@@ -23,6 +23,15 @@ class OriginalsTests(unittest.TestCase):
         }
         self.assertIn("https://arxiv.org/pdf/2203.12117", MODULE.candidate_urls(row, ""))
 
+    def test_direct_pdf_is_document_candidate_even_with_wrong_type(self):
+        row = {
+            "Σύνδεσμος": "https://example.org/papers/report.pdf",
+            "Τίτλος": "Report",
+            "Τύπος": "ιστοσελίδα",
+        }
+        self.assertTrue(MODULE.is_document_candidate(row))
+        self.assertFalse(MODULE.is_url_only(row))
+
     def test_html_is_not_accepted_as_pdf(self):
         self.assertFalse(MODULE.looks_like_pdf(b"<html>Verifying your browser</html>"))
         self.assertTrue(MODULE.looks_like_pdf(b"%PDF-1.7\n" + b"x" * 2000))
@@ -32,9 +41,9 @@ class OriginalsTests(unittest.TestCase):
             path = Path(directory) / "random_SRC-ABCDEF1234_document.pdf"
             path.write_bytes(b"%PDF-1.4\n" + b"x" * 2000)
             rows = [{"Κωδικός": "SRC-ABCDEF1234", "Τίτλος": "A Paper", "Σύνδεσμος": ""}]
-            source_id, reason = MODULE.match_uploaded(path, rows, {"SRC-ABCDEF1234": ""})
-            self.assertEqual("SRC-ABCDEF1234", source_id)
-            self.assertIn("κωδικός", reason)
+            result = MODULE.match_uploaded(path, rows, {"SRC-ABCDEF1234": ""})
+            self.assertEqual("SRC-ABCDEF1234", result.source_id)
+            self.assertIn("κωδικός", result.reason)
 
     def test_body_citation_is_not_source_identity(self):
         from κοινά_πηγών import identities
