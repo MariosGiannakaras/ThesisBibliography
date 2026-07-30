@@ -22,6 +22,7 @@ from πρωτότυπα_κοινά import (
 EXCERPTS = ROOT / "αποσπάσματα"
 PENDING_REPORT = ROOT / "κατάλογος" / "εκκρεμή-πρωτότυπα.md"
 REPORT_MD = ROOT / "κατάλογος" / "πρωτότυπα.md"
+PRESERVED_INCOMING_FILES = {"README.md", ".gitkeep"}
 
 
 def linked_pdfs(source_id: str) -> list[Path]:
@@ -73,6 +74,8 @@ def delete_unmatched_uploads() -> int:
     removed = 0
     for path in sorted(INCOMING.rglob("*"), reverse=True):
         if path.is_file():
+            if path.parent == INCOMING and path.name in PRESERVED_INCOMING_FILES:
+                continue
             path.unlink()
             removed += 1
         elif path.is_dir():
