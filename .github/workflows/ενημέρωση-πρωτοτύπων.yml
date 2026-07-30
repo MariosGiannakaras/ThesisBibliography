@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "νέα-πρωτότυπα/**"
+      - "πρωτότυπα/**"
       - "κατάλογος/πηγές.csv"
       - "πηγές/**"
       - "εργαλεία/πρωτότυπα.py"
@@ -46,10 +47,34 @@ jobs:
           fetch-depth: 0
           lfs: false
 
-      - name: Ρύθμιση Git LFS
+      - name: Ρύθμιση Git LFS και λήψη μόνο των μη επεξεργασμένων PDF
         run: |
           git lfs install --local
-          git lfs pull --include="νέα-πρωτότυπα/**" --exclude="" || true
+          git lfs pull --include="νέα-πρωτότυπα/**" --exclude="νέα-πρωτότυπα/εκκρεμή/**" || true
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          import subprocess
+
+          linked = re.compile(r"SRC-[A-F0-9]{10}(?:__εναλλακτικό-SRC-[A-F0-9]{10})?\.pdf", re.I)
+          for path in Path("πρωτότυπα").glob("*"):
+              if path.is_file() and path.suffix.casefold() == ".pdf" and not linked.fullmatch(path.name):
+                  subprocess.run(["git", "lfs", "pull", f"--include={path.as_posix()}", "--exclude="], check=False)
+          PY
+
+      - name: Κανονικοποίηση κατάληξης PDF
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          for root in (Path("πρωτότυπα"), Path("νέα-πρωτότυπα")):
+              if not root.exists():
+                  continue
+              for path in list(root.rglob("*")):
+                  if path.is_file() and path.suffix == ".PDF":
+                      target = path.with_suffix(".pdf")
+                      if not target.exists():
+                          path.rename(target)
+          PY
 
       - name: Ρύθμιση Python
         uses: actions/setup-python@v5
@@ -84,6 +109,31 @@ jobs:
           EXTRA=""
           if [ "$RETRY" = "true" ]; then EXTRA="--retry"; fi
           python εργαλεία/πρωτότυπα.py --download --limit "$LIMIT" $EXTRA
+
+      - name: Μεταφορά όσων δεν αντιστοιχίστηκαν
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          import shutil
+
+          pending = Path("νέα-πρωτότυπα/εκκρεμή")
+          pending.mkdir(parents=True, exist_ok=True)
+          linked = re.compile(r"SRC-[A-F0-9]{10}(?:__εναλλακτικό-SRC-[A-F0-9]{10})?\.pdf", re.I)
+          candidates = [
+              path for path in Path("πρωτότυπα").glob("*.pdf")
+              if not linked.fullmatch(path.name)
+          ]
+          candidates.extend(
+              path for path in Path("νέα-πρωτότυπα").rglob("*.pdf")
+              if pending not in path.parents
+          )
+          for path in candidates:
+              target = pending / path.name
+              if target.exists():
+                  target = pending / f"{path.stem}__{abs(hash(path.as_posix())):x}.pdf"
+              shutil.move(str(path), target)
+          PY
 
       - name: Έλεγχος αποθετηρίου
         run: python εργαλεία/έλεγχος.py
