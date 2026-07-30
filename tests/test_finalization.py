@@ -39,6 +39,30 @@ class FinalizationTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             self.assertFalse(MODULE.meaningful_text(Path(directory) / "missing.md"))
 
+    def test_useful_analysis_protects_source_without_pdf_or_url(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            original = (MODULE.SOURCES, MODULE.ANALYSES, MODULE.EXCERPTS)
+            try:
+                MODULE.SOURCES = root / "πηγές"
+                MODULE.ANALYSES = root / "αναλύσεις"
+                MODULE.EXCERPTS = root / "αποσπάσματα"
+                for folder in (MODULE.SOURCES, MODULE.ANALYSES, MODULE.EXCERPTS):
+                    folder.mkdir()
+                (MODULE.SOURCES / "SRC-TEST000001.md").write_text(
+                    "# Metadata only\n\n- Έτος: άγνωστο\n",
+                    encoding="utf-8",
+                )
+                (MODULE.ANALYSES / "SRC-TEST000001.md").write_text(
+                    "# Analysis\n\n"
+                    + "The analysis documents the method, assumptions, experimental design, metrics, "
+                    + "results, limitations, validity threats, and relevance to robust agents. " * 8,
+                    encoding="utf-8",
+                )
+                self.assertTrue(MODULE.has_useful_content("SRC-TEST000001"))
+            finally:
+                MODULE.SOURCES, MODULE.ANALYSES, MODULE.EXCERPTS = original
+
 
 if __name__ == "__main__":
     unittest.main()
