@@ -42,6 +42,16 @@ class OriginalsTests(unittest.TestCase):
         text = "# Different paper\n\nBody citation https://arxiv.org/abs/2203.12117"
         self.assertNotIn("arxiv:2203.12117", identities("", "Different paper", text))
 
+    def test_homepage_and_channel_are_not_duplicate_identity(self):
+        from κοινά_πηγών import identities
+
+        self.assertEqual(set(), identities("https://openreview.net/", "Unknown", ""))
+        self.assertEqual(set(), identities("https://youtube.com/@example", "A lecture", ""))
+        self.assertIn(
+            "url:https://youtube.com/watch?v=abc123",
+            identities("https://youtube.com/watch?v=abc123", "A lecture", ""),
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
