@@ -1,0 +1,61 @@
+name: Αυτόματη εισαγωγή πηγών
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "νέες-πηγές/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: αυτόματη-εισαγωγή
+  cancel-in-progress: false
+
+jobs:
+  process:
+    if: ${{ github.event_name == 'workflow_dispatch' || !contains(github.event.head_commit.message, '[skip ci]') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Λήψη αποθετηρίου
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Ρύθμιση Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Έλεγχος εργαλείων
+        run: python -m py_compile εργαλεία/εισαγωγή.py εργαλεία/μεταδεδομένα.py εργαλεία/έλεγχος.py
+
+      - name: Εισαγωγή νέων πηγών
+        run: python εργαλεία/εισαγωγή.py
+
+      - name: Ενημέρωση μεταδεδομένων
+        id: metadata
+        continue-on-error: true
+        run: python εργαλεία/μεταδεδομένα.py
+
+      - name: Έλεγχος αποθετηρίου
+        run: python εργαλεία/έλεγχος.py
+
+      - name: Αποθήκευση αποτελεσμάτων
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "Δεν προέκυψαν αλλαγές."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore: αυτόματη εισαγωγή νέων πηγών [skip ci]"
+          git push
+
+      - name: Αναφορά αποτυχίας εξωτερικών υπηρεσιών
+        if: steps.metadata.outcome == 'failure'
+        run: echo "Η εισαγωγή ολοκληρώθηκε, αλλά η επιβεβαίωση μεταδεδομένων θα επαναληφθεί από τον προγραμματισμένο αυτοματισμό."

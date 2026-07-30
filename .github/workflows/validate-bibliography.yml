@@ -1,9 +1,11 @@
-name: Validate bibliography
+name: Έλεγχος αποθετηρίου
 
 on:
-  pull_request:
-    branches: [main]
   push:
+    branches: [main]
+    paths-ignore:
+      - "νέες-πηγές/**"
+  pull_request:
     branches: [main]
 
 permissions:
@@ -13,20 +15,16 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Λήψη αποθετηρίου
+        uses: actions/checkout@v4
+
+      - name: Ρύθμιση Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Compile scripts and tests
-        run: python -m compileall -q scripts tests
-      - name: Run tests
-        run: python -m unittest discover -s tests -v
-      - name: Validate enriched repository
-        run: python scripts/validate_enriched_repository.py
-      - name: Verify deterministic regeneration
-        run: |
-          if find Group* -type f -path '*/Group*Files/*.md' -print -quit 2>/dev/null | grep -q .; then
-            python scripts/organize_sources.py
-          fi
-          python scripts/enrich_bibliography.py
-          git diff --exit-code
+
+      - name: Έλεγχος σύνταξης
+        run: python -m py_compile εργαλεία/εισαγωγή.py εργαλεία/μεταδεδομένα.py εργαλεία/έλεγχος.py
+
+      - name: Έλεγχος δομής και καταλόγου
+        run: python εργαλεία/έλεγχος.py

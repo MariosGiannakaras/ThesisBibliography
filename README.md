@@ -1,62 +1,139 @@
-# ThesisBibliography
+# Βιβλιογραφία διπλωματικής
 
-Temporary staging repository for literature collected through Gemini NotebookLM for the thesis **“Comparison and Evaluation of Resilient AI Agents in Uncertain Environments.”**
+Αυτό το αποθετήριο είναι ο προσωρινός χώρος συλλογής και διαλογής πηγών για τη διπλωματική με θέμα την **αξιολόγηση ανθεκτικών πρακτόρων τεχνητής νοημοσύνης σε περιβάλλοντα αβεβαιότητας**.
 
-The repository is a source-processing workspace, not the final thesis bibliography and not the authority for models, metrics or experimental design.
+> Δεν είναι η τελική βιβλιογραφία. Οι πηγές μεταφέρονται στο κύριο αποθετήριο της διπλωματικής μόνο αφού ελεγχθούν.
 
-## Current corpus
+---
 
-- **363** uploaded source records are preserved as Markdown;
-- **32** records have explicit arXiv/Crossref metadata;
-- **15** records have strict but still reviewable OpenAlex matches;
-- **25** source-specific candidate excerpt files were generated;
-- **1,151** reference candidates were extracted, including URL-free bibliography entries.
+## Γρήγορη χρήση
 
-These are curation states, not final source approval.
+### Βήμα 1 — Ανέβασε έναν φάκελο στο `νέες-πηγές/`
 
-## Repository map
+Ο φάκελος μπορεί να έχει οποιοδήποτε όνομα και οποιαδήποτε εσωτερική δομή. Μπορεί να περιέχει:
 
-- `sources/markdown/` — all uploaded source Markdown files in one flat archive;
-- `catalog/SOURCE_CATALOG.md` — readable master index;
-- `catalog/SOURCE_CATALOG.csv` and `catalog/source_catalog.json` — machine-readable intake authorities;
-- `catalog/VERIFIED_SOURCE_METADATA.md` and `.csv` — non-destructive metadata overlay;
-- `catalog/MALFORMED_OR_MISSING_DATA.md` — missing, incomplete or unresolved source data;
-- `catalog/DUPLICATE_REVIEW.md` — suspected duplicates, retained rather than deleted;
-- `catalog/COVERAGE_GAPS.md` — current topic and evidence gaps;
-- `catalog/ENRICHMENT_METHOD.md` — meaning and limits of metadata states;
-- `curation/USEFUL_EXCERPTS.md` — combined initial passage candidates;
-- `curation/excerpts/by-source/` — one candidate excerpt file per selected source;
-- `notes/by-source/` — verified full-text notes and template;
-- `queues/NEXT_SOURCES.md` — known high-priority additions and verification targets;
-- `queues/REFERENCES_TO_SCREEN.csv` — references mined from source bibliographies and NotebookLM tables;
-- `imports/notebooklm/` — original group audits and extracted reference tables;
-- `incoming/` — staging location for future complete source groups;
-- `scripts/` — repeatable organization, intake, enrichment and validation tools.
+- πηγές σε Markdown (`.md`),
+- προαιρετικά τα αρχικά PDF,
+- την προσωρινή αναφορά ελέγχου του NotebookLM,
+- πίνακες CSV του NotebookLM.
 
-## Evidence rules
-
-- NotebookLM reports, labels and suggestions are advisory.
-- Metadata verification does not mean the source was read or its claims checked.
-- Candidate excerpts are not citation-ready.
-- References mined from a bibliography are screening leads, not automatic additions.
-- Original source Markdown is not modified by enrichment.
-- Duplicate and peripheral files remain archived until an explicit reviewed decision.
-
-## Future intake
-
-Place a complete new batch under:
+Παράδειγμα:
 
 ```text
-incoming/GroupN/
-├── GroupNFiles/*.md
-├── <NotebookLM audit>.md
-└── <NotebookLM source/reference table>.csv
+νέες-πηγές/
+└── νέα-συλλογή/
+    ├── πηγή-1.md
+    ├── πηγή-2.md
+    ├── πηγή-1.pdf
+    ├── αναφορά-ελέγχου.md
+    └── πίνακας-πηγών.csv
 ```
 
-Then run:
+Δεν απαιτούνται ομάδες, ειδικά ονόματα ή συγκεκριμένοι υποφάκελοι.
+
+### Βήμα 2 — Το GitHub επεξεργάζεται αυτόματα τα αρχεία
+
+Μετά το ανέβασμα:
+
+1. εντοπίζει τις πραγματικές πηγές,
+2. αγνοεί και αφαιρεί τις προσωρινές αναφορές ελέγχου,
+3. απορρίπτει μόνο τα αρχεία με ακριβώς ίδιο περιεχόμενο,
+4. τοποθετεί τις πηγές στον φάκελο `πηγές/`,
+5. ενημερώνει τον κατάλογο,
+6. ελέγχει βιβλιογραφικά στοιχεία μέσω arXiv, Crossref και OpenAlex όπου η αντιστοίχιση είναι ασφαλής,
+7. ενημερώνει τις προβληματικές και τις επόμενες πηγές,
+8. αδειάζει τον φάκελο `νέες-πηγές/`.
+
+### Βήμα 3 — Κοίτα μόνο αυτά τα τρία αρχεία
+
+| Αρχείο | Περιεχόμενο |
+|---|---|
+| [`κατάλογος/πηγές.md`](κατάλογος/πηγές.md) | όλες οι ενεργές πηγές, ταξινομημένες και ευανάγνωστες |
+| [`κατάλογος/προβληματικές-πηγές.md`](κατάλογος/προβληματικές-πηγές.md) | όσα λείπουν ή χρειάζονται διόρθωση |
+| [`κατάλογος/προς-προσθήκη.md`](κατάλογος/προς-προσθήκη.md) | βασικές ελλείψεις και επαναλαμβανόμενες βιβλιογραφικές αναφορές |
+
+---
+
+## Δομή αποθετηρίου
+
+```text
+.
+├── README.md
+├── πηγές/                    # όλα τα ενεργά αρχεία Markdown
+├── πρωτότυπα/                # προαιρετικά αρχικά PDF
+├── κατάλογος/
+│   ├── πηγές.md              # ευανάγνωστος κατάλογος
+│   ├── πηγές.csv             # ο μοναδικός δομημένος κατάλογος
+│   ├── προβληματικές-πηγές.md
+│   └── προς-προσθήκη.md
+├── αποσπάσματα/              # υποψήφια χρήσιμα αποσπάσματα
+├── νέες-πηγές/               # προσωρινός χώρος ανεβάσματος
+└── εργαλεία/                 # αυτοματισμοί του GitHub
+```
+
+### Πληροφορίες που δεν διατηρούνται στην ενεργή δομή
+
+- ομάδες του NotebookLM,
+- αρχικές διαδρομές ομάδων,
+- προσωρινές αναφορές ελέγχου μετά την επεξεργασία,
+- ξεχωριστές αναφορές διπλοτύπων,
+- αποτυπώματα αρχείων, μεγέθη και αριθμοί γραμμών μέσα στον κατάλογο,
+- πολλαπλά αρχεία JSON, CSV και Markdown με τα ίδια δεδομένα,
+- πηγές που είχαν ταξινομηθεί καθαρά ως άσχετες με τη διπλωματική,
+- συνθέσεις του NotebookLM που δεν αποτελούν πραγματικές πηγές.
+
+Τα ακριβή διπλότυπα διατηρούνται μία φορά. Αρχεία με ίδιο ή παρόμοιο τίτλο αλλά διαφορετικό περιεχόμενο δεν διαγράφονται αυτόματα.
+
+Οι προηγούμενες καταστάσεις παραμένουν διαθέσιμες στο ιστορικό του Git. Δεν επιβαρύνουν όμως την ενεργή δομή και τον κατάλογο.
+
+---
+
+## Στήλες του καταλόγου
+
+| Στήλη | Χρήση |
+|---|---|
+| `Κωδικός` | μόνιμος σύντομος κωδικός της πηγής |
+| `Τίτλος`, `Συγγραφείς`, `Έτος`, `Σύνδεσμος` | βασικά βιβλιογραφικά στοιχεία |
+| `Τύπος` | ακαδημαϊκή εργασία, διατριβή, βιβλίο, ιστοσελίδα, βίντεο κ.λπ. |
+| `Θέματα` | σύνδεση με GridWorld, εύρωστη μάθηση, μη στασιμότητα, ανθεκτικότητα κ.λπ. |
+| `Κατάσταση` | αν υπάρχει πλήρες, ελλιπές ή αποτυχημένο κείμενο |
+| `Επιβεβαίωση` | αν τα στοιχεία επιβεβαιώθηκαν μέσω arXiv, Crossref ή OpenAlex |
+| `Προτεραιότητα` | πόσο άμεσα αξίζει να ελεγχθεί για τη διπλωματική |
+| `Σημειώσεις` | μόνο δικές σου χειροκίνητες σημειώσεις |
+
+Η ένδειξη «επιβεβαιωμένη» αφορά μόνο τα βιβλιογραφικά στοιχεία. Δεν σημαίνει ότι έχουν ελεγχθεί οι μέθοδοι, τα πειράματα ή τα συμπεράσματα της πηγής.
+
+---
+
+## Αυτοματισμοί GitHub
+
+| Αυτοματισμός | Πότε εκτελείται | Τι κάνει |
+|---|---|---|
+| **Αυτόματη εισαγωγή** | όταν αλλάζει το `νέες-πηγές/` | εισαγωγή, καθαρισμός, μεταδεδομένα, κατάλογος και έλεγχος |
+| **Έλεγχος αποθετηρίου** | σε κάθε αλλαγή και αίτημα συγχώνευσης | ελέγχει ότι δεν λείπουν αρχεία και δεν υπάρχουν ακριβή διπλότυπα |
+| **Ενημέρωση μεταδεδομένων** | κάθε Κυριακή ή χειροκίνητα | επανελέγχει εκκρεμή βιβλιογραφικά στοιχεία και ενημερώνει τις επόμενες πηγές |
+
+Οι αυτοματισμοί δεν αλλάζουν το κείμενο των πηγών. Αλλάζουν μόνο τη θέση των αρχείων και τα βοηθητικά στοιχεία του καταλόγου.
+
+---
+
+## Χειροκίνητη εκτέλεση
+
+Δεν χρειάζεται για την κανονική χρήση. Υπάρχει μόνο για έλεγχο ή τοπική εργασία.
 
 ```bash
-python scripts/process_incoming.py
+python εργαλεία/εισαγωγή.py
+python εργαλεία/μεταδεδομένα.py
+python εργαλεία/έλεγχος.py
 ```
 
-The command preflights every group before moving anything, rejects uncataloged non-Markdown source files, runs the organizer and performs online scholarly metadata enrichment by default. `--offline` is available only for an explicitly incomplete local pass.
+---
+
+## Κανόνας χρήσης στη διπλωματική
+
+Μια πηγή χρησιμοποιείται ως παραπομπή μόνο όταν:
+
+1. επιβεβαιωθεί η πραγματική έκδοση και ο σύνδεσμός της,
+2. διαβαστεί το σχετικό τμήμα του πλήρους κειμένου,
+3. καταγραφεί η ακριβής σελίδα, ενότητα, εικόνα ή πίνακας,
+4. ελεγχθεί ότι πράγματι υποστηρίζει τον ισχυρισμό της διπλωματικής.
