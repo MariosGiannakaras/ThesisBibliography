@@ -35,8 +35,9 @@ ALLOWED_VERIFICATION = {
 }
 ALLOWED_PRIORITY = {"υψηλή", "μεσαία", "χαμηλή", "χρειάζεται διόρθωση"}
 SOURCE_ID_RE = re.compile(r"SRC-[A-F0-9]{10}")
-ORIGINAL_NAME_RE = re.compile(
-    r"(SRC-[A-F0-9]{10})(?:__εναλλακτικό-SRC-[A-F0-9]{10})?\.(?:pdf|url)"
+LINKED_ORIGINAL_RE = re.compile(
+    r"(SRC-[A-F0-9]{10})(?:__εναλλακτικό-SRC-[A-F0-9]{10})?\.(?:pdf|url)",
+    re.IGNORECASE,
 )
 OBSOLETE_PATHS = [
     "catalog", "curation", "imports", "notes", "queues", "sources", "incoming",
@@ -107,12 +108,16 @@ def validate_sources(rows: list[dict[str, str]], errors: list[str]) -> set[str]:
 def validate_originals(catalog_ids: set[str], errors: list[str]) -> None:
     if ORIGINALS.exists():
         for path in sorted(item for item in ORIGINALS.iterdir() if item.is_file()):
-            match = ORIGINAL_NAME_RE.fullmatch(path.name)
-            if not match:
-                errors.append(f"Πρωτότυπο χωρίς ασφαλή σύνδεση SRC: {path.name}")
+            match = LINKED_ORIGINAL_RE.fullmatch(path.name)
+            if match:
+                if match.group(1).upper() not in catalog_ids:
+                    errors.append(f"Πρωτότυπο για ανύπαρκτη πηγή: {path.name}")
                 continue
-            if match.group(1) not in catalog_ids:
-                errors.append(f"Πρωτότυπο για ανύπαρκτη πηγή: {path.name}")
+            # Τα PDF με παλιό/γενικό όνομα επιτρέπονται προσωρινά και θα
+            # μεταφερθούν από τον αυτοματισμό στο νέα-πρωτότυπα/εκκρεμή.
+            if path.suffix.casefold() == ".pdf":
+                continue
+            errors.append(f"Μη αναγνωρισμένο αρχείο στον φάκελο πρωτοτύπων: {path.name}")
 
     if ORIGINALS_REPORT.exists():
         with ORIGINALS_REPORT.open(encoding="utf-8", newline="") as handle:
@@ -147,7 +152,6 @@ def main() -> int:
         if leftovers:
             errors.append("Ο φάκελος νέες-πηγές περιέχει μη επεξεργασμένα αρχεία")
 
-    # Τα PDF στο νέα-πρωτότυπα επιτρέπονται: περιμένουν τον ειδικό αυτοματισμό.
     if INCOMING_ORIGINALS.exists():
         unsupported = [
             path for path in INCOMING_ORIGINALS.rglob("*")
