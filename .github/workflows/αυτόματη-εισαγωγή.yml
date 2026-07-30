@@ -33,7 +33,7 @@ jobs:
 
       - name: Προκαταρκτικός έλεγχος εργαλείων διόρθωσης
         run: |
-          python -m py_compile εργαλεία/γνωστές-διορθώσεις.py εργαλεία/ακριβή-διπλότυπα.py εργαλεία/καθαρισμός-συνδέσεων.py εργαλεία/πρωτότυπα_κοινά.py
+          python -m py_compile εργαλεία/γνωστές-διορθώσεις.py εργαλεία/ακριβή-διπλότυπα.py εργαλεία/καθαρισμός-συνδέσεων.py εργαλεία/πρωτότυπα_κοινά.py εργαλεία/οριστικοποίηση.py
 
       - name: Εφαρμογή τεκμηριωμένων διορθώσεων
         run: python εργαλεία/γνωστές-διορθώσεις.py
@@ -65,7 +65,7 @@ jobs:
 
       - name: Έλεγχος εργαλείων και δοκιμών
         run: |
-          python -m py_compile εργαλεία/εισαγωγή.py εργαλεία/μεταδεδομένα.py εργαλεία/διόρθωση-τίτλων.py εργαλεία/έλεγχος.py εργαλεία/κοινά_πηγών.py εργαλεία/καθαρισμός-συνδέσεων.py εργαλεία/γνωστές-διορθώσεις.py εργαλεία/ακριβή-διπλότυπα.py εργαλεία/πρωτότυπα.py εργαλεία/πρωτότυπα_κοινά.py εργαλεία/πρωτότυπα_λήψεις.py εργαλεία/πρωτότυπα_αρχεία.py
+          python -m py_compile εργαλεία/εισαγωγή.py εργαλεία/μεταδεδομένα.py εργαλεία/διόρθωση-τίτλων.py εργαλεία/έλεγχος.py εργαλεία/κοινά_πηγών.py εργαλεία/καθαρισμός-συνδέσεων.py εργαλεία/γνωστές-διορθώσεις.py εργαλεία/ακριβή-διπλότυπα.py εργαλεία/οριστικοποίηση.py εργαλεία/πρωτότυπα.py εργαλεία/πρωτότυπα_κοινά.py εργαλεία/πρωτότυπα_λήψεις.py εργαλεία/πρωτότυπα_αρχεία.py
           python -m unittest discover -s tests -v
 
       - name: Εισαγωγή νέων πηγών
@@ -86,29 +86,8 @@ jobs:
       - name: Αντιστοίχιση και πρώτη λήψη πρωτοτύπων
         run: python εργαλεία/πρωτότυπα.py --download --limit 30
 
-      - name: Μεταφορά μη αντιστοιχισμένων PDF
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          import hashlib
-          import shutil
-          import sys
-
-          sys.path.insert(0, "εργαλεία")
-          from πρωτότυπα_κοινά import LINKED_PDF_STEM_RE
-
-          pending = Path("νέα-πρωτότυπα/εκκρεμή")
-          pending.mkdir(parents=True, exist_ok=True)
-          for path in [
-              item for item in Path("πρωτότυπα").glob("*.pdf")
-              if not LINKED_PDF_STEM_RE.fullmatch(item.stem)
-          ]:
-              target = pending / path.name
-              if target.exists():
-                  suffix = hashlib.sha256(path.as_posix().encode()).hexdigest()[:8]
-                  target = pending / f"{path.stem}__{suffix}.pdf"
-              shutil.move(str(path), target)
-          PY
+      - name: Οριστικοποίηση χωρίς απώλεια χρήσιμου περιεχομένου
+        run: python εργαλεία/οριστικοποίηση.py
 
       - name: Έλεγχος αποθετηρίου
         run: python εργαλεία/έλεγχος.py
@@ -122,9 +101,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "chore: αυτόματη εισαγωγή νέων πηγών και πρωτοτύπων [skip ci]"
+          git commit -m "chore: αυτόματη εισαγωγή και οριστικοποίηση πηγών [skip ci]"
           git push
 
       - name: Αναφορά αποτυχίας εξωτερικών υπηρεσιών
         if: steps.metadata.outcome == 'failure'
-        run: echo "Η εισαγωγή και η λήψη πρωτοτύπων ολοκληρώθηκαν, αλλά η επιβεβαίωση μεταδεδομένων θα επαναληφθεί."
+        run: echo "Η εισαγωγή ολοκληρώθηκε, αλλά η επιβεβαίωση μεταδεδομένων θα επαναληφθεί."
