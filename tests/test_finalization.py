@@ -1,10 +1,12 @@
 import importlib.util
+import sys
 import tempfile
 import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 TOOLS = ROOT / "εργαλεία"
+sys.path.insert(0, str(TOOLS))
 SPEC = importlib.util.spec_from_file_location("finalization_tool", TOOLS / "οριστικοποίηση.py")
 MODULE = importlib.util.module_from_spec(SPEC)
 assert SPEC.loader
