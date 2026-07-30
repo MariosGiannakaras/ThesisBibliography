@@ -6,6 +6,7 @@ SRC-3ADFA80991,[AAAI-25 Tutorial] Robotic Foundation Models & Remaining Challeng
 SRC-A1D7E951DB,[AAAI-25 Tutorial] Robotic Foundation Models & Remaining Challenges,μόνο σύνδεσμος,SRC-A1D7E951DB.url,https://www.youtube.com/watch?v=ojutZEaKvfY,0,,
 SRC-B790DF867B,[Lecture] Monte Carlo evaluation and control- A Gridworld Example - Intro to Markov Chains and RL,μόνο σύνδεσμος,SRC-B790DF867B.url,https://www.youtube.com/watch?v=s85NsbMbaJA,0,,
 SRC-AE8219876F,[Lecture] Monte Carlo evaluation and control: A Gridworld Example | Intro to Markov Chains and RL,χωρίς σύνδεσμο,,,0,,
+SRC-A6616BE773,A Baseline for Detecting Misclassified and Out-of-Distribution Examples in Neural Networks,διαθέσιμο PDF,SRC-A6616BE773.pdf,https://arxiv.org/pdf/1610.02136,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
 SRC-0AEF7EF16A,A Bayesian Approach to Robust Reinforcement Learning - Association for Uncertainty in Artificial Int,διαθέσιμο PDF,SRC-0AEF7EF16A.pdf,https://auai.org/uai2019/proceedings/papers/228.pdf,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
 SRC-2455B5D0A7,"A Comprehensive Survey on Test-Time Adaptation under Distribution Shifts (Liang et al., 2023)",διαθέσιμο PDF,SRC-2455B5D0A7.pdf,https://arxiv.org/pdf/2303.15361,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
 SRC-23A2C07D09,A Formal Verification Framework for Runtime Assurance - NASA Technical Reports Server (NTRS),εκκρεμεί,,https://ntrs.nasa.gov/citations/20230017350,0,,
@@ -21,6 +22,8 @@ SRC-60ECE049E6,A Survey of Reinforcement Learning For Economics - arXiv,διαθ
 SRC-21EBE15D15,A Survey of Zero-shot Generalisation in Deep Reinforcement Learning,εκκρεμεί,,https://arxiv.org/abs/2111.09794,0,,
 SRC-E242123630,"A Survey on Uncertainty Quantification of Large Language Models: Taxonomy, Open Research Challenges, and Future Directions",εκκρεμεί,,https://doi.org/10.1145/3744238,0,,
 SRC-46BAF06A2C,"Academic Editors: Phivos Mylonas,",χωρίς σύνδεσμο,,,0,,
+SRC-81A15E6905,Action Robust Reinforcement Learning and Applications in Continuous Control,διαθέσιμο PDF,SRC-81A15E6905.pdf,https://arxiv.org/pdf/1901.09184,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
+SRC-556A26CC39,"Active Learning for Autonomous Intelligent Agents: Exploration, Curiosity, and Interaction",διαθέσιμο PDF,SRC-556A26CC39.pdf,https://arxiv.org/pdf/1403.1497,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
 SRC-8F1C2D6CE4,ADARL: Adaptive Low-Rank Structures for Robust Policy Learning under Uncertainty,διαθέσιμο PDF,SRC-8F1C2D6CE4.pdf,https://arxiv.org/pdf/2510.11899,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
 SRC-7714A58280,Adversarial attacks and robustness in deep neural networks for sound event detection - Δ.Π.Μ.Σ. στην,μόνο σύνδεσμος,SRC-7714A58280.url,https://msc-ai.iit.demokritos.gr/en/thesis/adversarial-attacks-and-robustness-deep-neural-networks-sound-event-detection,0,,
 SRC-98623817E7,Adversarial Machine Learning- A Taxonomy and Terminology of Attacks and Mitigations - NIST Technical,εκκρεμεί,,https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-2e2025.pdf,0,,
@@ -49,14 +52,16 @@ SRC-F4B012F78F,An Economy of AI Agents,εκκρεμεί,,https://arxiv.org/abs/2
 SRC-CCCFFD4365,An Empirical Approach to Capture Moral Uncertainty in AI - Aies Conference,μόνο σύνδεσμος,SRC-CCCFFD4365.url,https://aies-conference.com/2020/wp-content/papers/034.pdf,0,,
 SRC-A6DBFC5357,Andrew Ng Explores The Rise Of AI Agents And Agentic Reasoning - BUILD 2024 Keynote,μόνο σύνδεσμος,SRC-A6DBFC5357.url,https://www.youtube.com/watch?v=KrRD7r7y7NY,0,,
 SRC-69F70663B3,Andrew Ng- State of AI Agents - LangChain Interrupt,μόνο σύνδεσμος,SRC-69F70663B3.url,https://www.youtube.com/watch?v=4pYzYmSdSH4,0,,
-SRC-7DA66E226E,applsci-15-05663-v2.pdf,χωρίς σύνδεσμο,,,0,,
+SRC-7DA66E226E,applsci-15-05663-v2.pdf,διαθέσιμο PDF,SRC-7DA66E226E.pdf,,0,,
 SRC-9CC11ECF41,Approximate Bilevel Difference Convex Programming for Bayesian Risk Markov Decision Processes,χρειάζεται χειροκίνητη λήψη,,https://ojs.aaai.org/index.php/AAAI/article/view/34862/37017,1,2026-07-30,δεν βρέθηκε δημόσιο PDF μετά από 1 ασφαλείς δοκιμές
 SRC-8FC523FC42,Architecture strategies for self-healing and self-preservation - Microsoft Azure Well-Architected Fr,μόνο σύνδεσμος,SRC-8FC523FC42.url,https://learn.microsoft.com/en-us/azure/well-architected/reliability/self-preservation,0,,
 SRC-486FAE4C93,Artificial Intelligence Risk Management Framework (AI RMF 1.0) NIST AI 100-1,διαθέσιμο PDF,SRC-486FAE4C93.pdf,https://nvlpubs.nist.gov/nistpubs/ai/nist.ai.100-1.pdf,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
+SRC-0882A9B2B0,Assessing Generalization in Deep Reinforcement Learning,διαθέσιμο PDF,SRC-0882A9B2B0.pdf,https://arxiv.org/pdf/1810.12282,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
 SRC-A62DDB9298,Avoiding Catastrophic Forgetting in Safety Gridworld ECE 517- Reinforcement Learning Final Project R,μόνο σύνδεσμος,SRC-A62DDB9298.url,https://cnedwards.com/files/Final_Project_Report_Edwards_Mathis.pdf,0,,
 SRC-D30B6E2BD6,Avoiding Catastrophic Forgetting in Safety Gridworld ECE 517: Reinforcement Learning Final Project Report - Carl Edwards,χωρίς σύνδεσμο,,,0,,
 SRC-13B66B20D8,BALLOCH-DISSERTATION-2024.pdf,διαθέσιμο PDF,SRC-13B66B20D8.pdf,,0,,
 SRC-3856071502,"Bayesian Online Changepoint Detection (Adams & MacKay, 2007)",εκκρεμεί,,https://arxiv.org/abs/0710.3742,0,,
+SRC-4000D2B40A,Behaviour Suite for Reinforcement Learning,διαθέσιμο PDF,SRC-4000D2B40A.pdf,https://arxiv.org/pdf/1908.03568,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
 SRC-AFCB3FE8DF,Belief-Enriched Pessimistic Q-Learning against Adversarial State Perturbations,διαθέσιμο PDF,SRC-AFCB3FE8DF.pdf,https://arxiv.org/pdf/2403.04050,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
 SRC-822FFD1EF7,BELIEF-ENRICHED PESSIMISTIC Q-LEARNING AGAINST ADVERSARIAL STATE PERTURBATIONS - ICLR Proceedings,διαθέσιμο PDF,SRC-822FFD1EF7.pdf,https://proceedings.iclr.cc/paper_files/paper/2024/file/64d67497ccd0afc0131e2fec8b18e2ab-Paper-Conference.pdf,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
 SRC-9786866C8F,Belief–desire–intention software model - Wikipedia,χωρίς σύνδεσμο,,,0,,
@@ -72,12 +77,14 @@ SRC-F355021435,Building AI Agents In 44 Minutes,μόνο σύνδεσμος,SRC-
 SRC-F7E7C38BFD,"Building resilient applications with AI agents- Profiles, prescriptions and peace of mind - IBM",μόνο σύνδεσμος,SRC-F7E7C38BFD.url,https://ibm.com/new/product-blog/building-resilient-applications-with-ai-agents-profiles-prescriptions-and-peace-of-mind,0,,
 SRC-98B4CE528B,"Building safe artificial intelligence- specification, robustness, and assurance - Medium",μόνο σύνδεσμος,SRC-98B4CE528B.url,https://deepmindsafetyresearch.medium.com/building-safe-artificial-intelligence-52f5f75058f1,0,,
 SRC-BBF78C19F5,CARLA Simulator,μόνο σύνδεσμος,SRC-BBF78C19F5.url,https://carla.readthedocs.io/en/latest/,0,,
+SRC-56EDEC52D6,CARLA: An Open Urban Driving Simulator,εκκρεμεί,,https://arxiv.org/abs/1711.03938,0,,
 SRC-B79D67A2F3,Chi Jin @ Princeton - YouTube,μόνο σύνδεσμος,SRC-B79D67A2F3.url,https://youtube.com/@chi-jin-princeton,0,,
 SRC-FA9D3A489B,Cliff Walking - Gymnasium Documentation,μόνο σύνδεσμος,SRC-FA9D3A489B.url,https://gymnasium.farama.org/environments/toy_text/cliff_walking/,0,,
 SRC-7AA9141602,Cognitive Architectures for Language Agents,εκκρεμεί,,https://arxiv.org/abs/2309.02427,0,,
 SRC-364FF54942,Collaboration in Multi-Agent Systems: Adaptivity and Active Learning,εκκρεμεί,,https://doi.org/10.3929/ethz-a-010513480,0,,
 SRC-58201435EE,Common ethical challenges in AI - Human Rights and Biomedicine - The Council of Europe,μόνο σύνδεσμος,SRC-58201435EE.url,https://coe.int/en/web/human-rights-and-biomedicine/common-ethical-challenges-in-ai,0,,
 SRC-58E97B7CA7,"Comparing the Top 5 AI Agent Architectures in 2025: Hierarchical, Swarm, Meta Learning, Modular, Evolutionary - MarkTechPost",μόνο σύνδεσμος,SRC-58E97B7CA7.url,https://marktechpost.com/2025/11/15/comparing-the-top-5-ai-agent-architectures-in-2025-hierarchical-swarm-meta-learning-modular-evolutionary,0,,
+SRC-8396F66954,Concrete Problems in AI Safety,εκκρεμεί,,https://arxiv.org/abs/1606.06565,0,,
 SRC-D14764616F,Context-Switching and Adaptation- Brain-Inspired Mechanisms for Handling Environmental Changes - Uni,διαθέσιμο PDF,SRC-D14764616F.pdf,https://people.uleth.ca/~luczak/papers/Context_Switching_Eric_IEEE_Vanc2016.pdf,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
 SRC-DC63A2D5E7,Context-Switching and Adaptation: Brain-Inspired Mechanisms for Handling Environmental Changes - University of Lethbridge,χωρίς σύνδεσμο,,,0,,
 SRC-7F1C63CC49,Continual reinforcement learning in a resource allocation simulator,χωρίς σύνδεσμο,,,0,,
@@ -92,32 +99,35 @@ SRC-87C9BF9456,Decision Making Under Uncertainty - Stanford University,μόνο 
 SRC-27B5CE6877,Decision-Making Under Uncertainty in Multi-Agent and Multi-Robot Systems- Planning and Learning - IJ,εκκρεμεί,,https://ijcai.org/proceedings/2018/0805.pdf,0,,
 SRC-BB9CAB4CBB,Decision-making under uncertainty- beyond probabilities - International Journal on Software Tools fo,χρειάζεται χειροκίνητη λήψη,,https://link.springer.com/article/10.1007/s10009-023-00704-3,1,2026-07-30,δεν βρέθηκε δημόσιο PDF μετά από 6 ασφαλείς δοκιμές
 SRC-BE53B7970E,Deep Reinforcement Learning with Double Q-learning,διαθέσιμο PDF,SRC-BE53B7970E.pdf,https://arxiv.org/pdf/1509.06461,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
+SRC-DDCD35F7EE,Deep Reinforcement Learning: An Overview,εκκρεμεί,,https://arxiv.org/abs/1701.07274,0,,
 SRC-D841C93160,DeepMind - Wikipedia,μόνο σύνδεσμος,SRC-D841C93160.url,https://it.wikipedia.org/wiki/DeepMind,0,,
 SRC-E477BC2505,Difference Between Goal-based and Utility-based Agents - Baeldung on Computer Science,μόνο σύνδεσμος,SRC-E477BC2505.url,https://baeldung.com/cs/goal-based-vs-utility-based-agents,0,,
 SRC-056F8911C7,Discovering and Using Structure in Autonomous Machine Learning - Research Collection,μόνο σύνδεσμος,SRC-056F8911C7.url,https://research-collection.ethz.ch/bitstreams/3b278f1d-c38d-4782-8996-01ee9558d7db/download,0,,
+SRC-F3F3FBE48F,Distributionally Robust Reinforcement Learning,διαθέσιμο PDF,SRC-F3F3FBE48F.pdf,https://arxiv.org/pdf/1902.08708,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
 SRC-055929F1C1,Distributionally Robust Reinforcement Learning with Human Feedback,διαθέσιμο PDF,SRC-055929F1C1.pdf,https://arxiv.org/pdf/2503.00539,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
 SRC-8252722D46,Distributionally Robust Reinforcement Learning with Interactive Data Collection- Fundamental Hardnes,διαθέσιμο PDF,SRC-8252722D46.pdf,https://proceedings.neurips.cc/paper_files/paper/2024/file/170dc3e41f2d03e327e04dbab0fccbfb-Paper-Conference.pdf,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
 SRC-E9D551F27C,Distributionally Robust Self Paced Curriculum Reinforcement Learning,διαθέσιμο PDF,SRC-E9D551F27C.pdf,https://arxiv.org/pdf/2511.05694,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
 SRC-93384F0217,"Diversity Is All You Need (DIAYN) (Eysenbach et al., 2019)",διαθέσιμο PDF,SRC-93384F0217.pdf,https://arxiv.org/pdf/1802.06070,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
+SRC-7C18826BEE,Dropout as a Bayesian Approximation: Representing Model Uncertainty in Deep Learning,εκκρεμεί,,https://arxiv.org/abs/1506.02142,0,,
 SRC-FE3CDA383A,Ebook-Agentic-AI,διαθέσιμο PDF,SRC-FE3CDA383A.pdf,,0,,
 SRC-8E12FE2688,Efficient Action Robust Reinforcement Learning with Probabilistic Policy Execution Uncertainty,διαθέσιμο PDF,SRC-8E12FE2688.pdf,https://arxiv.org/pdf/2307.07666,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
 SRC-54E00B5A43,Efficient Policy Optimization in Robust Constrained MDPs with Iteration Complexity Guarantees - arXi,διαθέσιμο PDF,SRC-54E00B5A43.pdf,https://arxiv.org/pdf/2505.19238,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
 SRC-2C9FFED27E,Efficient Policy Optimization in Robust Constrained MDPs with Iteration Complexity Guarantees - NIPS,διαθέσιμο PDF,SRC-2C9FFED27E.pdf,https://proceedings.neurips.cc/paper_files/paper/2025/file/0d7a32dbc94af8193b9bb9e798e4f4a8-Paper-Conference.pdf,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
 SRC-781B58434A,Efficient Uncertainty Quantification in Deep Reinforcement Learning - TU Delft Repository,μόνο σύνδεσμος,SRC-781B58434A.url,https://repository.tudelft.nl/record/uuid%3A310f94fd-d818-4c23-ba1f-bfff87ca5ec4,0,,
 SRC-C6B4E40E10,"Else (MacOS): export PATH=""$PATH:$HOME/Library/Python/3.7/bin"" ln -s $HOME/Library/Python/3.7/bin/pip3 $HOME/Library/Python/3.7/bin/mypip3",διαθέσιμο PDF,SRC-C6B4E40E10.pdf,https://arxiv.org/pdf/1908.09453,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
-SRC-49CA580DE9,Emergence in Multi-Agent Systems- A Safety Perspective - arXiv,εκκρεμεί,,https://arxiv.org/abs/2408.04514,0,,
-SRC-E05A14A571,Emergent Complexity and Zero-shot Transfer via Unsupervised Environment Design (PAIRED),εκκρεμεί,,http://aima.eecs.berkeley.edu/~russell/papers/neurips20-paired.pdf,0,,
+SRC-49CA580DE9,Emergence in Multi-Agent Systems- A Safety Perspective - arXiv,διαθέσιμο PDF,SRC-49CA580DE9.pdf,https://arxiv.org/pdf/2408.04514,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
+SRC-E05A14A571,Emergent Complexity and Zero-shot Transfer via Unsupervised Environment Design (PAIRED),διαθέσιμο PDF,SRC-E05A14A571.pdf,http://aima.eecs.berkeley.edu/~russell/papers/neurips20-paired.pdf,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
 SRC-85335DDDA6,Empirical Study on Robustness and Resilience in Cooperative Multi-Agent Reinforcement Learning,μόνο σύνδεσμος,SRC-85335DDDA6.url,https://github.com/BUAA-TrustworthyMARL/adv_marl_benchmark,0,,
 SRC-3930A38085,Enabling Learning in Resilient Adaptive Systems: From Network Fortification to Mindful Organising,μόνο σύνδεσμος,SRC-3930A38085.url,https://doi.org/10.3929/ethz-b-000466304,0,,
-SRC-2CEF0D3E68,"Enhanced POET (Wang et al., 2020)",εκκρεμεί,,https://arxiv.org/abs/2003.08536,0,,
+SRC-2CEF0D3E68,"Enhanced POET (Wang et al., 2020)",διαθέσιμο PDF,SRC-2CEF0D3E68.pdf,https://arxiv.org/pdf/2003.08536,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
 SRC-A3CF75E7FD,Ensuring Safety in Online Reinforcement Learning by Leveraging Offline Data,μόνο σύνδεσμος,SRC-A3CF75E7FD.url,https://youtube.com/watch?v=QY2bpOIdn-Q,0,,
-SRC-55EB060C37,ETHICAL & SOCIETAL IMPLICATIONS OF AI – IEEE CAI 2025,εκκρεμεί,,https://cai.ieee.org/2025/ethics,0,,
+SRC-55EB060C37,ETHICAL & SOCIETAL IMPLICATIONS OF AI – IEEE CAI 2025,διαθέσιμο PDF,SRC-55EB060C37.pdf,https://cai.ieee.org/2025/wp-content/uploads/sites/3/2025/04/Updated-CFP_pdf.pdf,1,2026-07-30,λήψη από επίσημη σελίδα
 SRC-3B01300AF5,Evaluating the Efficiency of Reinforcement Learning Algorithms in Dynamic Environment Simulations -,μόνο σύνδεσμος,SRC-3B01300AF5.url,https://iscsitr.in/index.php/ISCSITR-IJDE/article/download/ISCSITR-IJDE_05-01-02/ISCSITR-IJDE_05-01-02/1503,0,,
 SRC-DFF2EC4502,Excessive Agency to Emergent Behavior The 4 Critical Gaps in AI Autonomous Agent Safety Research,διαθέσιμο PDF,SRC-DFF2EC4502.pdf,https://arxiv.org/abs/2212.08073,0,,
 SRC-AEAC8CED1E,Explainable Reinforcement Learning using Interpretable Models - Δ.Π.Μ.Σ. στην Τεχνητή Νοημοσύνη,μόνο σύνδεσμος,SRC-AEAC8CED1E.url,https://msc-ai.iit.demokritos.gr/en/thesis/explainable-reinforcement-learning-using-interpretable-models,0,,
-SRC-F622BE6812,"Exploration by Random Network Distillation (Burda et al., 2018)",εκκρεμεί,,https://arxiv.org/abs/1810.12894,0,,
-SRC-3EF7E5F425,Feasible Adversarial Robust Reinforcement Learning for Underspecified Environments,εκκρεμεί,,https://arxiv.org/abs/2207.09597,0,,
-SRC-A784C81711,Feasible Adversarial Robust Reinforcement Learning for Underspecified Environments - Intelligent Dyn,εκκρεμεί,,https://indylab.org/pub/pdf/Lanier2022FARR.pdf,0,,
+SRC-F622BE6812,"Exploration by Random Network Distillation (Burda et al., 2018)",διαθέσιμο PDF,SRC-F622BE6812.pdf,https://arxiv.org/pdf/1810.12894,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
+SRC-3EF7E5F425,Feasible Adversarial Robust Reinforcement Learning for Underspecified Environments,διαθέσιμο PDF,SRC-3EF7E5F425.pdf,https://arxiv.org/pdf/2207.09597,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
+SRC-A784C81711,Feasible Adversarial Robust Reinforcement Learning for Underspecified Environments - Intelligent Dyn,διαθέσιμο PDF,SRC-A784C81711.pdf,https://indylab.org/pub/pdf/Lanier2022FARR.pdf,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
 SRC-C2F4845EEB,Final-Web-Version-Report-AI-Agents,διαθέσιμο PDF,SRC-C2F4845EEB.pdf,,0,,
 SRC-B2A9EDBBDA,Forgetting as Control: A Theoretical Framework for Selective Behavioral Erasure in Post-Deployment Reinforcement Learning Agents,μόνο σύνδεσμος,SRC-B2A9EDBBDA.url,https://doi.org/10.20944/preprints202606.0911.v1,0,,
 SRC-E1EFA55EAE,Formal methods for safety-critical machine learning- a systematic literature review - Frontiers,εκκρεμεί,,https://frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2026.1749956/pdf,0,,
@@ -157,58 +167,38 @@ SRC-A635CEC4CF,GitHub - zaiyan-x-RFQI- Implementation of Robust Reinforcement Le
 SRC-1448476D70,Grid World Value Iteration,μόνο σύνδεσμος,SRC-1448476D70.url,https://www.youtube.com/watch?v=cwzUeoXiSPA,0,,
 SRC-942810E252,Gridworld Example (Lectures on Reinforcement Learning),χωρίς σύνδεσμο,,,0,,
 SRC-9E42BE7AFE,Gridworld Example (Lectures on Reinforcement Learning),μόνο σύνδεσμος,SRC-9E42BE7AFE.url,https://www.youtube.com/watch?v=bSF8bTQQ_Z4,0,,
-SRC-80D1CDD66B,Guiding Reinforcement Learning Using Uncertainty-Aware Large Language Models,εκκρεμεί,,https://arxiv.org/abs/2411.14457,0,,
-SRC-65A11D9ADB,Heuristics and Biases in AI Decision-Making: Implications for Responsible AGI,εκκρεμεί,,https://arxiv.org/abs/2410.02820,0,,
+SRC-80D1CDD66B,Guiding Reinforcement Learning Using Uncertainty-Aware Large Language Models,διαθέσιμο PDF,SRC-80D1CDD66B.pdf,https://arxiv.org/pdf/2411.14457,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
+SRC-65A11D9ADB,Heuristics and Biases in AI Decision-Making: Implications for Responsible AGI,διαθέσιμο PDF,SRC-65A11D9ADB.pdf,https://arxiv.org/pdf/2410.02820,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
 SRC-0B1E2F30F6,Hierarchical Reinforcement Learning for Playing a Dynamic Dungeon Crawler Game - Bernoulli Institute,εκκρεμεί,,https://ai.rug.nl/~mwiering/GROUP/ARTICLES/DHRL.pdf,0,,
 SRC-E59631E883,"Hierarchical Reinforcement Learning for Playing a Dynamic Dungeon Crawler Game - Bernoulli Institute for Mathematics, Computer Science and Artificial Intelligence",χωρίς σύνδεσμο,,,0,,
-SRC-6AE1A85EA9,"High-Dimensional Continuous Control Using GAE (Schulman et al., 2016)",εκκρεμεί,,https://arxiv.org/abs/1506.02438,0,,
+SRC-6AE1A85EA9,"High-Dimensional Continuous Control Using GAE (Schulman et al., 2016)",διαθέσιμο PDF,SRC-6AE1A85EA9.pdf,https://arxiv.org/pdf/1506.02438,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
 SRC-30334BD5A0,HighwayEnv Documentation,μόνο σύνδεσμος,SRC-30334BD5A0.url,https://highway-env.farama.org/,0,,
 SRC-F35101B1F4,How AI Makes Decisions Under Uncertainty,μόνο σύνδεσμος,SRC-F35101B1F4.url,https://www.youtube.com/watch?v=uhfysmruABU,0,,
 SRC-A3B0F58C93,How do we prevent AI agents from going rogue- It starts with a new kind of measurement - Bruce Schne,μόνο σύνδεσμος,SRC-A3B0F58C93.url,https://theguardian.com/commentisfree/2026/jul/28/rogue-ai-agent-instructions,0,,
 SRC-DF33B5D172,How to Master AI Agents in 2025 (Full Guide),μόνο σύνδεσμος,SRC-DF33B5D172.url,https://www.youtube.com/watch?v=ToTyofKeE7s,0,,
-SRC-60EF27E7AD,How to Measure Cyber Resilience of an Autonomous Agent: Approaches and Challenges,εκκρεμεί,,https://arxiv.org/abs/2102.00528,0,,
+SRC-60EF27E7AD,How to Measure Cyber Resilience of an Autonomous Agent: Approaches and Challenges,διαθέσιμο PDF,SRC-60EF27E7AD.pdf,https://arxiv.org/pdf/2102.00528,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
 SRC-701E163AC8,http---incompleteideas.net-book-RLbook2020.pdf,εκκρεμεί,,http://incompleteideas.net/book/RLbook2020.pdf,0,,
 SRC-EBCD9DDFBF,https---aaltodoc.aalto.fi-bitstreams-20230aa7-e046-437e-bb26-56c0fbc7109a-download,εκκρεμεί,,https://aaltodoc.aalto.fi/bitstreams/20230aa7-e046-437e-bb26-56c0fbc7109a/download,0,,
 SRC-F675E9E632,https---aaltodoc.aalto.fi-bitstreams-ad6a569f-e242-4e6f-8976-61a242efe719-download,εκκρεμεί,,https://aaltodoc.aalto.fi/bitstreams/ad6a569f-e242-4e6f-8976-61a242efe719/download,0,,
-SRC-FC9E2DFAB9,https---arxiv.org-pdf-1106.0234,εκκρεμεί,,https://arxiv.org/abs/1106.0234,0,,
-SRC-556A26CC39,https---arxiv.org-pdf-1403.1497,εκκρεμεί,,https://arxiv.org/abs/1403.1497,0,,
-SRC-7C18826BEE,https---arxiv.org-pdf-1506.02142,εκκρεμεί,,https://arxiv.org/abs/1506.02142,0,,
-SRC-8396F66954,https---arxiv.org-pdf-1606.06565,εκκρεμεί,,https://arxiv.org/abs/1606.06565,0,,
-SRC-A6616BE773,https---arxiv.org-pdf-1610.02136,εκκρεμεί,,https://arxiv.org/abs/1610.02136,0,,
-SRC-DDCD35F7EE,https---arxiv.org-pdf-1701.07274,εκκρεμεί,,https://arxiv.org/abs/1701.07274,0,,
-SRC-6C5FB230E1,https---arxiv.org-pdf-1702.00539,εκκρεμεί,,https://arxiv.org/abs/1702.00539,0,,
-SRC-8E77CE2389,https---arxiv.org-pdf-1705.08551,εκκρεμεί,,https://arxiv.org/abs/1705.08551,0,,
-SRC-FFE02BA5EF,https---arxiv.org-pdf-1706.02275,εκκρεμεί,,https://arxiv.org/abs/1706.02275,0,,
-SRC-8718299821,https---arxiv.org-pdf-1708.08611,εκκρεμεί,,https://arxiv.org/abs/1708.08611,0,,
-SRC-56EDEC52D6,https---arxiv.org-pdf-1711.03938,εκκρεμεί,,https://arxiv.org/abs/1711.03938,0,,
-SRC-A87F481B4C,https---arxiv.org-pdf-1711.07478,εκκρεμεί,,https://arxiv.org/abs/1711.07478,0,,
-SRC-BA15D8CA60,https---arxiv.org-pdf-1802.09810,εκκρεμεί,,https://arxiv.org/abs/1802.09810,0,,
-SRC-64AA1D82C6,https---arxiv.org-pdf-1803.11485,εκκρεμεί,,https://arxiv.org/abs/1803.11485,0,,
-SRC-0882A9B2B0,https---arxiv.org-pdf-1810.12282,εκκρεμεί,,https://arxiv.org/abs/1810.12282,0,,
-SRC-62996FD690,https---arxiv.org-pdf-1901.02219,εκκρεμεί,,https://arxiv.org/abs/1901.02219,0,,
-SRC-81A15E6905,https---arxiv.org-pdf-1901.09184,εκκρεμεί,,https://arxiv.org/abs/1901.09184,0,,
-SRC-F020E1D46A,https---arxiv.org-pdf-1901.10031,εκκρεμεί,,https://arxiv.org/abs/1901.10031,0,,
-SRC-F3F3FBE48F,https---arxiv.org-pdf-1902.08708,εκκρεμεί,,https://arxiv.org/abs/1902.08708,0,,
-SRC-4000D2B40A,https---arxiv.org-pdf-1908.03568,εκκρεμεί,,https://arxiv.org/abs/1908.03568,0,,
 SRC-CDCEC02AAA,https---arxiv.org-pdf-1910.01708,εκκρεμεί,,https://arxiv.org/abs/1910.01708,0,,
-SRC-CD69FAEC54,https---arxiv.org-pdf-1911.10635,εκκρεμεί,,https://arxiv.org/abs/1911.10635,0,,
+SRC-CD69FAEC54,https---arxiv.org-pdf-1911.10635,διαθέσιμο PDF,SRC-CD69FAEC54.pdf,https://arxiv.org/pdf/1911.10635,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
 SRC-630F83DAD7,https---arxiv.org-pdf-1912.01588,εκκρεμεί,,https://arxiv.org/abs/1912.01588,0,,
 SRC-0490CF519D,https---arxiv.org-pdf-2002.00444,εκκρεμεί,,https://arxiv.org/abs/2002.00444,0,,
-SRC-620F17076C,https---arxiv.org-pdf-2003.08938,εκκρεμεί,,https://arxiv.org/abs/2003.08938,0,,
+SRC-620F17076C,https---arxiv.org-pdf-2003.08938,διαθέσιμο PDF,SRC-620F17076C.pdf,https://arxiv.org/pdf/2003.08938,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
 SRC-7702DAEF48,https---arxiv.org-pdf-2010.15920,εκκρεμεί,,https://arxiv.org/abs/2010.15920,0,,
-SRC-50C47A7AF2,https---arxiv.org-pdf-2011.00583,εκκρεμεί,,https://arxiv.org/abs/2011.00583,0,,
-SRC-7EFBF9DA62,https---arxiv.org-pdf-2011.06225,εκκρεμεί,,https://arxiv.org/abs/2011.06225,0,,
-SRC-1BB6DA9CB7,https---arxiv.org-pdf-2105.03863,εκκρεμεί,,https://arxiv.org/abs/2105.03863,0,,
-SRC-E695631B14,https---arxiv.org-pdf-2107.07599,εκκρεμεί,,https://arxiv.org/abs/2107.07599,0,,
+SRC-50C47A7AF2,https---arxiv.org-pdf-2011.00583,διαθέσιμο PDF,SRC-50C47A7AF2.pdf,https://arxiv.org/pdf/2011.00583,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
+SRC-7EFBF9DA62,https---arxiv.org-pdf-2011.06225,διαθέσιμο PDF,SRC-7EFBF9DA62.pdf,https://arxiv.org/pdf/2011.06225,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
+SRC-1BB6DA9CB7,https---arxiv.org-pdf-2105.03863,διαθέσιμο PDF,SRC-1BB6DA9CB7.pdf,https://arxiv.org/pdf/2105.03863,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
+SRC-E695631B14,https---arxiv.org-pdf-2107.07599,διαθέσιμο PDF,SRC-E695631B14.pdf,https://arxiv.org/pdf/2107.07599,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
 SRC-E918E4D675,https---arxiv.org-pdf-2108.06266,εκκρεμεί,,https://arxiv.org/abs/2108.06266,0,,
-SRC-1E3C1CF3A7,https---arxiv.org-pdf-2108.08993,εκκρεμεί,,https://arxiv.org/abs/2108.08993,0,,
-SRC-0A4AFAC8E9,https---arxiv.org-pdf-2108.13264,εκκρεμεί,,https://arxiv.org/abs/2108.13264,0,,
-SRC-3F84F52F97,https---arxiv.org-pdf-2110.02102,εκκρεμεί,,https://arxiv.org/abs/2110.02102,0,,
+SRC-1E3C1CF3A7,https---arxiv.org-pdf-2108.08993,διαθέσιμο PDF,SRC-1E3C1CF3A7.pdf,https://arxiv.org/pdf/2108.08993,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
+SRC-0A4AFAC8E9,https---arxiv.org-pdf-2108.13264,διαθέσιμο PDF,SRC-0A4AFAC8E9.pdf,https://arxiv.org/pdf/2108.13264,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
+SRC-3F84F52F97,https---arxiv.org-pdf-2110.02102,διαθέσιμο PDF,SRC-3F84F52F97.pdf,https://arxiv.org/pdf/2110.02102,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
 SRC-0A4446E662,https---arxiv.org-pdf-2110.11334,εκκρεμεί,,https://arxiv.org/abs/2110.11334,0,,
-SRC-DDD62BEA2D,https---arxiv.org-pdf-2110.11385,εκκρεμεί,,https://arxiv.org/abs/2110.11385,0,,
-SRC-19C2E91926,https---arxiv.org-pdf-2112.02694,εκκρεμεί,,https://arxiv.org/abs/2112.02694,0,,
-SRC-36FFE35022,https---arxiv.org-pdf-2202.08444,εκκρεμεί,,https://arxiv.org/abs/2202.08444,0,,
-SRC-CF2FB64E6A,https---arxiv.org-pdf-2203.00543,εκκρεμεί,,https://arxiv.org/abs/2203.00543,0,,
+SRC-DDD62BEA2D,https---arxiv.org-pdf-2110.11385,διαθέσιμο PDF,SRC-DDD62BEA2D.pdf,https://arxiv.org/pdf/2110.11385,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
+SRC-19C2E91926,https---arxiv.org-pdf-2112.02694,διαθέσιμο PDF,SRC-19C2E91926.pdf,https://arxiv.org/pdf/2112.02694,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
+SRC-36FFE35022,https---arxiv.org-pdf-2202.08444,διαθέσιμο PDF,SRC-36FFE35022.pdf,https://arxiv.org/pdf/2202.08444,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
+SRC-CF2FB64E6A,https---arxiv.org-pdf-2203.00543,διαθέσιμο PDF,SRC-CF2FB64E6A.pdf,https://arxiv.org/pdf/2203.00543,1,2026-07-30,λήψη από δημόσια διαθέσιμη πηγή
 SRC-DFFF269D33,https---arxiv.org-pdf-2203.08975,εκκρεμεί,,https://arxiv.org/abs/2203.08975,0,,
 SRC-0F8A6588DC,https---arxiv.org-pdf-2203.12117,εκκρεμεί,,https://arxiv.org/abs/2203.12117,0,,
 SRC-B9911A6CFB,https---arxiv.org-pdf-2204.00755,εκκρεμεί,,https://arxiv.org/abs/2204.00755,0,,
@@ -290,6 +280,7 @@ SRC-ACB00B414D,https---www.mdpi.com-2076-3417-15-10-5663-pdf,εκκρεμεί,,h
 SRC-688842E0FD,https---www.oracle.com-ae-a-ocom-docs-applications-the-rise-of-ai-agents-unleashing-productivity-and,μόνο σύνδεσμος,SRC-688842E0FD.url,https://oracle.com/ae/a/ocom/docs/applications/the-rise-of-ai-agents-unleashing-productivity-and-innovation-ae.pdf,0,,
 SRC-93C76089FF,https---www.research-collection.ethz.ch-server-api-core-bitstreams-6e9a9b06-2d1f-409b-81d9-ca09f2725,μόνο σύνδεσμος,SRC-93C76089FF.url,https://research-collection.ethz.ch/server/api/core/bitstreams/6e9a9b06-2d1f-409b-81d9-ca09f27252dc/content,0,,
 SRC-6E7AFA8AC0,https---zhangliangyu32.github.io-files-papers-RobustMDP2022.pdf,μόνο σύνδεσμος,SRC-6E7AFA8AC0.url,https://zhangliangyu32.github.io/files/papers/RobustMDP2022.pdf,0,,
+SRC-BA15D8CA60,Human-in-the-Loop Synthesis for Partially Observable Markov Decision Processes,εκκρεμεί,,https://arxiv.org/abs/1802.09810,0,,
 SRC-52E64293F2,Humans as Safety Constraints- A Survey of Human-in-the-Loop Reinforcement Learning for Critical Syst,μόνο σύνδεσμος,SRC-52E64293F2.url,https://zenodo.org/records/18354867,0,,
 SRC-BB5ECDA0CD,ICML Poster Online Robust Reinforcement Learning Through Monte-Carlo Planning,μόνο σύνδεσμος,SRC-BB5ECDA0CD.url,https://icml.cc/virtual/2025/poster/44177,0,,
 SRC-3B098152C8,IEEE Ethics for AI System Design Training,εκκρεμεί,,https://standards.ieee.org/about/training/ethics-for-ai-system-design,0,,
@@ -298,6 +289,7 @@ SRC-DF262CEA9A,IEEE P7001: A Proposed Standard on Transparency,εκκρεμεί,
 SRC-7574A4DDCC,ilide.info-agentic-ai-projects-pr 8274957092840810572421abca7eb2c6,διαθέσιμο PDF,SRC-7574A4DDCC.pdf,,0,,
 SRC-405E00D8AB,ilide.info-ai-agents-and-automation-trends-2025-ebook-pr 1457e778f93e4de20f71dbd2371b0937,διαθέσιμο PDF,SRC-405E00D8AB.pdf,,0,,
 SRC-255529AC11,ilide.info-mastering-multi-agent-systems-pr 03b6784b619ed204bafad6a04a2f6b46,διαθέσιμο PDF,SRC-255529AC11.pdf,,0,,
+SRC-A87F481B4C,Implementing the Deep Q-Network,εκκρεμεί,,https://arxiv.org/abs/1711.07478,0,,
 SRC-BAEE694D5B,Intelligent agent - Wikipedia,μόνο σύνδεσμος,SRC-BAEE694D5B.url,https://en.wikipedia.org/wiki/Intelligent_agent,0,,
 SRC-5DFB680F53,Interaction-Breaking Adversarial Learning Framework for Robust Multi-Agent Reinforcement Learning,εκκρεμεί,,https://arxiv.org/abs/2605.18024,0,,
 SRC-503A8B421C,Interpretable Operations Research for High-Sta... - Πέργαμος,μόνο σύνδεσμος,SRC-503A8B421C.url,https://pergamos.lib.uoa.gr/uoa/dl/object/3344931,0,,
@@ -318,6 +310,7 @@ SRC-23C1899DBE,Leveraging the Beliefs-Desires-Intentions Agent Architecture - Mi
 SRC-40FD71BC15,Leveraging the Beliefs-Desires-Intentions Agent Architecture | Microsoft Learn,μόνο σύνδεσμος,SRC-40FD71BC15.url,https://learn.microsoft.com/archive/msdn-magazine/authors/Arnaldo_Perez,0,,
 SRC-92C828647B,Liability for harm caused by AI in healthcare- an overview of the core legal concepts - PMC,μόνο σύνδεσμος,SRC-92C828647B.url,https://pmc.ncbi.nlm.nih.gov/articles/PMC10755877,0,,
 SRC-A4DC00B75B,"load the environment in upper-left corner of Figure 1 env = gym.make(""MiniGrid-BlockedUnlockPickup-v0"", render_mode=""human"")",εκκρεμεί,,https://arxiv.org/abs/2306.13831,0,,
+SRC-F020E1D46A,Lyapunov-based Safe Policy Optimization for Continuous Control,εκκρεμεί,,https://arxiv.org/abs/1901.10031,0,,
 SRC-495952EBB9,Make your own custom environment - Gymnasium Documentation,μόνο σύνδεσμος,SRC-495952EBB9.url,https://gymnasium.farama.org/tutorials/gymnasium_basics/environment_creation,0,,
 SRC-D0EDFCACAC,Markov decision process - Wikipedia,μόνο σύνδεσμος,SRC-D0EDFCACAC.url,https://en.wikipedia.org/wiki/Markov_decision_process,0,,
 SRC-E842F87F3F,mastering-ai-agents-galileo,διαθέσιμο PDF,SRC-E842F87F3F.pdf,,0,,
@@ -329,6 +322,7 @@ SRC-513B748715,Misalignment Examples - AI Alignment,μόνο σύνδεσμος,
 SRC-626E641889,Model Free Reinforcement Learning with Stability Guarantee - TU Delft Repository,μόνο σύνδεσμος,SRC-626E641889.url,https://repository.tudelft.nl/record/uuid%3Adde4e58f-e109-4e7f-8ecb-ed1734294e5c,0,,
 SRC-89009123A3,Model-Free and Model-Based Policy Evaluation when Causality is Uncertain - Proceedings of Machine Le,εκκρεμεί,,https://proceedings.mlr.press/v139/bruns-smith21a/bruns-smith21a.pdf,0,,
 SRC-A391B94101,MONTE CARLO TREE SEARCH: A TUTORIAL,εκκρεμεί,,https://doi.org/10.1109/wsc.2018.8632344,0,,
+SRC-FFE02BA5EF,Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments,εκκρεμεί,,https://arxiv.org/abs/1706.02275,0,,
 SRC-FFDA13CA36,Multi-agent reinforcement learning - Wikipedia,μόνο σύνδεσμος,SRC-FFDA13CA36.url,https://en.wikipedia.org/wiki/Multi-agent_reinforcement_learning,0,,
 SRC-22F8C2C41C,Multi-agent reinforcement learning with diffusion models,μόνο σύνδεσμος,SRC-22F8C2C41C.url,https://dione.lib.unipi.gr/xmlui/handle/unipi/18088,0,,
 SRC-23E79861CF,Multi-model Partially Observable Markov Decision Processes - Optimization Online,εκκρεμεί,,https://optimization-online.org/wp-content/uploads/2023/04/MPOMDP_INFORMS_JOC_OptOnline_copy-2.pdf,0,,
@@ -372,7 +366,9 @@ SRC-D546F0AACB,Practices for governing agentic AI systems- OpenAI's seven safety
 SRC-2CF79C378A,Princeton University Lectures - Foundations of Reinforcement Learning - YouTube,μόνο σύνδεσμος,SRC-2CF79C378A.url,https://www.youtube.com/playlist?list=PLYXvCE1En13epbogBmgafC_Yyyk9oQogl,0,,
 SRC-3A71103B05,Princeton University Lectures - Foundations of Reinforcement Learning - YouTube,χωρίς σύνδεσμο,,,0,,
 SRC-A203ABEEFE,Prioritized Experience Replay,εκκρεμεί,,https://arxiv.org/abs/1511.05952,0,,
+SRC-6C5FB230E1,Procedural Content Generation via Machine Learning (PCGML),εκκρεμεί,,https://arxiv.org/abs/1702.00539,0,,
 SRC-CD5F67F3E6,"Proximal Policy Optimization Algorithms (Schulman et al., 2017)",εκκρεμεί,,https://arxiv.org/abs/1707.06347,0,,
+SRC-64AA1D82C6,QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning,εκκρεμεί,,https://arxiv.org/abs/1803.11485,0,,
 SRC-02987450DF,QRES-MARL - TU Delft Repository,μόνο σύνδεσμος,SRC-02987450DF.url,https://repository.tudelft.nl/record/uuid%3A16fb3161-1ec4-4c5d-923e-bce32717e25d,0,,
 SRC-2899809E90,Reactive and Deliberative AI agents - Vikas Goyal,μόνο σύνδεσμος,SRC-2899809E90.url,https://vikasgoyal.github.io/agentic/reactivedeliberativeagents.html,0,,
 SRC-8544F25BD9,Reactive vs Deliberative AI Agents - GeeksforGeeks,μόνο σύνδεσμος,SRC-8544F25BD9.url,https://geeksforgeeks.org/artificial-intelligence/reactive-vs-deliberative-ai-agents,0,,
@@ -414,6 +410,7 @@ SRC-02655A05A2,Robust Reinforcement Learning: A Review of Foundations and Recent
 SRC-C0A186F672,Robust sequential decision-making in adversarial environments,μόνο σύνδεσμος,SRC-C0A186F672.url,https://tandfonline.com/doi/full/10.1080/21642583.2026.2646376,0,,
 SRC-4B7D6242D0,Robustness Archives - AI Standards Hub,εκκρεμεί,,https://aistandardshub.org/standards_topic/robustness,0,,
 SRC-FFBA467166,Robustness Archives - AI Standards Hub,εκκρεμεί,,https://aistandardshub.org/ai-standards/ieee-standard-for-robustness-evaluation-test-methods-for-a-natural-language-processing-service-that-uses-machine-learning,0,,
+SRC-8E77CE2389,Safe Model-based Reinforcement Learning with Stability Guarantees,εκκρεμεί,,https://arxiv.org/abs/1705.08551,0,,
 SRC-F24D141550,Safe Model-based Reinforcement Learning with Stability Guarantees (NIPS 2017 Spotlight),μόνο σύνδεσμος,SRC-F24D141550.url,https://www.youtube.com/watch?v=Xwu38vQb9Gk,0,,
 SRC-F5B30543D7,Safe Model-based Reinforcement Learning with Stability Guarantees (NIPS 2017 Spotlight),χωρίς σύνδεσμο,,,0,,
 SRC-4F944A9FEB,Safe reinforcement learning for real robots,μόνο σύνδεσμος,SRC-4F944A9FEB.url,https://urn.fi/URN:NBN:fi:aalto-202401071329,0,,
@@ -422,6 +419,7 @@ SRC-49A9ACCA53,Safe Reinforcement Learning in the Presence of Non-stationarity- 
 SRC-77CEB5795F,Safe Reinforcement Learning in the Presence of Non-stationarity: Theory and Algorithms,μόνο σύνδεσμος,SRC-77CEB5795F.url,https://www.youtube.com/watch?v=example1,0,,
 SRC-A6ADFC081F,Safe Reinforcement Learning Online Seminar - YouTube,χωρίς σύνδεσμο,,,0,,
 SRC-BD5C631CA8,Safe Reinforcement Learning Online Seminar - YouTube,μόνο σύνδεσμος,SRC-BD5C631CA8.url,https://www.youtube.com/playlist?list=PLcQkc_kwvWOTbtqNRL7dvsJb_SiqyZF0E,0,,
+SRC-8718299821,Safe Reinforcement Learning via Shielding,εκκρεμεί,,https://arxiv.org/abs/1708.08611,0,,
 SRC-B4BE53C707,SafeAI@UAI 2026 — 2nd Workshop on Safe AI - GitHub Pages,μόνο σύνδεσμος,SRC-B4BE53C707.url,https://safe-ai-workshop.github.io/uai-2026,0,,
 SRC-2FF5CF5951,Safeguarding agentic AI- Why autonomy demands governance and security,μόνο σύνδεσμος,SRC-2FF5CF5951.url,https://thomsonreuters.com/en-us/posts/technology/safeguarding-agentic-ai,0,,
 SRC-1791ECC7FA,Sample Complexity of Robust Reinforcement Learning with a Generative Model,εκκρεμεί,,https://arxiv.org/abs/2112.01506,0,,
@@ -473,11 +471,13 @@ SRC-A5B2810B39,Uncertainty-Aware LLM-Guided Policy Shaping for Sparse-Reward Rei
 SRC-A881937D50,Uncertainty-Aware Reinforcement Learning for Flight Control - TU Delft Repository,μόνο σύνδεσμος,SRC-A881937D50.url,https://repository.tudelft.nl/record/uuid%3A1553d8c9-79df-44dd-8c9f-d2eb9f7017b8,0,,
 SRC-A70670C0C6,Uncertainty-Aware Reinforcement Learning for Flight Control - TU Delft Repository,μόνο σύνδεσμος,SRC-A70670C0C6.url,https://repository.tudelft.nl/record/uuid:1553d8c9-79df-44dd-8c9f-d2eb9f7017b8,0,,
 SRC-C0818241AF,Uncertainty-Aware Reinforcement Learning for Flight Control | TU Delft Repository,χωρίς σύνδεσμο,,,0,,
+SRC-62996FD690,Uncertainty-Based Out-of-Distribution Detection in Deep Reinforcement Learning,εκκρεμεί,,https://arxiv.org/abs/1901.02219,0,,
 SRC-8DDCC8572D,"Understanding AI Agents, LLMs, and Experts- A Modern AI Architecture - by Matt White",μόνο σύνδεσμος,SRC-8DDCC8572D.url,https://matthewdwhite.medium.com/understanding-ai-agents-llms-and-experts-a-modern-ai-architecture-7c84bb574208,0,,
 SRC-B6F8016808,"Understanding AI Agents, LLMs, and Experts: A Modern AI Architecture | by Matt White",χωρίς σύνδεσμο,,,0,,
 SRC-A2D5B3B08E,Unity ML-Agents Toolkit,μόνο σύνδεσμος,SRC-A2D5B3B08E.url,https://unity-technologies.github.io/ml-agents/,0,,
 SRC-F494F45A40,Using Gen AI Agents With GAE and VAE to Enhance Resilience of US Markets,διαθέσιμο PDF,SRC-F494F45A40.pdf,https://doi.org/10.5121/ijcsitce.2025.12102 (link,0,,
 SRC-ACFA271318,Value Iteration vs. Policy Iteration - GeeksforGeeks,μόνο σύνδεσμος,SRC-ACFA271318.url,https://geeksforgeeks.org/machine-learning/what-is-the-difference-between-value-iteration-and-policy-iteration,0,,
+SRC-FC9E2DFAB9,Value-Function Approximations for Partially Observable Markov Decision Processes,εκκρεμεί,,https://arxiv.org/abs/1106.0234,0,,
 SRC-1A364A4551,Verifying your browser - OpenReview,εκκρεμεί,,https://openreview.net/pdf?id=r1xfz_93oN,0,,
 SRC-1C334CCF9D,Verifying your browser - OpenReview,εκκρεμεί,,https://openreview.net/pdf?id=2uQBSa2X4R,0,,
 SRC-50F04B5AB0,Vertex AI Agent Builder - Google Cloud,μόνο σύνδεσμος,SRC-50F04B5AB0.url,https://cloud.google.com/products/agent-builder,0,,
