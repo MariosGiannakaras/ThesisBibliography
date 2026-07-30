@@ -31,6 +31,17 @@ jobs:
           git lfs install --local
           git lfs pull --include="νέες-πηγές/**" --exclude="" || true
 
+      - name: Κανονικοποίηση κατάληξης PDF
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          for path in list(Path("νέες-πηγές").rglob("*")):
+              if path.is_file() and path.suffix == ".PDF":
+                  target = path.with_suffix(".pdf")
+                  if not target.exists():
+                      path.rename(target)
+          PY
+
       - name: Ρύθμιση Python
         uses: actions/setup-python@v5
         with:
@@ -61,6 +72,25 @@ jobs:
 
       - name: Αντιστοίχιση και πρώτη λήψη πρωτοτύπων
         run: python εργαλεία/πρωτότυπα.py --download --limit 20
+
+      - name: Μεταφορά μη αντιστοιχισμένων PDF
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib
+          import re
+          import shutil
+
+          pending = Path("νέα-πρωτότυπα/εκκρεμή")
+          pending.mkdir(parents=True, exist_ok=True)
+          linked = re.compile(r"SRC-[A-F0-9]{10}(?:__εναλλακτικό-SRC-[A-F0-9]{10})?\.pdf", re.I)
+          for path in [p for p in Path("πρωτότυπα").glob("*.pdf") if not linked.fullmatch(p.name)]:
+              target = pending / path.name
+              if target.exists():
+                  suffix = hashlib.sha256(path.as_posix().encode()).hexdigest()[:8]
+                  target = pending / f"{path.stem}__{suffix}.pdf"
+              shutil.move(str(path), target)
+          PY
 
       - name: Έλεγχος αποθετηρίου
         run: python εργαλεία/έλεγχος.py
