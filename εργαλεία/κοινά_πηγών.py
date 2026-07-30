@@ -50,6 +50,24 @@ def canonical_url(url: str) -> str:
     return parts._replace(netloc=host, fragment="").geturl().rstrip("/")
 
 
+def meaningful_resource_url(url: str) -> bool:
+    """Αποκλείει homepages και κανάλια που μπορεί να φιλοξενούν πολλές πηγές."""
+    if not url:
+        return False
+    parts = urlsplit(url)
+    host = parts.netloc.casefold().removeprefix("www.")
+    path = parts.path.rstrip("/")
+    if not path and not parts.query:
+        return False
+    if host in {"youtube.com", "m.youtube.com"} and (
+        path.startswith("/@") or path.startswith("/channel/") or path.startswith("/c/")
+    ):
+        return False
+    if host == "openreview.net" and path in {"", "/"}:
+        return False
+    return True
+
+
 def explicit_source_sample(link: str, title: str, text: str) -> str:
     """Κρατά μόνο ρητά στοιχεία κεφαλίδας και όχι citations του σώματος."""
     lines: list[str] = []
@@ -73,7 +91,7 @@ def identities(link: str, title: str, text: str) -> set[str]:
     for match in OPENREVIEW_RE.finditer(sample):
         result.add(f"openreview:{match.group(1)}")
     url = canonical_url(link)
-    if url:
+    if meaningful_resource_url(url):
         result.add(f"url:{url.casefold()}")
     return result
 
