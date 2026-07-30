@@ -1,9 +1,0 @@
-## SRC-81ACE350D5 — NIST Issues New Artificial Intelligence Risk Management Framework
-
-- **Priority:** P2-supporting
-- **Topics:** resilience-recovery, governance-ethics
-- **Source:** https://acc.com/sites/default/files/resources/upload/NIST%20Issues%20New%20Artificial%20Intelligence%20Risk%20Management%20Framework.pdf
-- **Markdown:** `sources/markdown/SRC-81ACE350D5__nist-issues-new-artificial-intelligence-risk-management-framework.md`
-- **Review status:** machine-selected; full-text verification pending
-
-> NIST Issues New Artificial Intelligence Risk Management Framework Christopher Dodson │cdodson@cozen.com The National Institute of Standards and Technology (NIST) recently released version 1.0 of its Artificial Intelligence Risk Management Framework. The framework is available at https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf, and a full set of supporting documents is available at https://www.nist.gov/itl/ai-risk-management-framework. There is an emerging consensus that AI systems present a significantly different risk profile than conventional information technology systems. While there is currently no legal requirement to use a risk management framework when developing AI systems, there are a growing number of proposals that would require the use of a risk management framework or offer a safe harbor from certain types of liability if one is used. The framework identifies 6 facto…
