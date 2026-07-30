@@ -33,7 +33,7 @@ permissions:
 
 concurrency:
   group: ενημέρωση-πρωτοτύπων
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   sync:
@@ -57,9 +57,16 @@ jobs:
           import subprocess
 
           linked = re.compile(r"SRC-[A-F0-9]{10}(?:__εναλλακτικό-SRC-[A-F0-9]{10})?\.pdf", re.I)
-          for path in Path("πρωτότυπα").glob("*"):
-              if path.is_file() and path.suffix.casefold() == ".pdf" and not linked.fullmatch(path.name):
-                  subprocess.run(["git", "lfs", "pull", f"--include={path.as_posix()}", "--exclude="], check=False)
+          paths = [
+              path.as_posix()
+              for path in Path("πρωτότυπα").glob("*")
+              if path.is_file() and path.suffix.casefold() == ".pdf" and not linked.fullmatch(path.name)
+          ]
+          if paths:
+              subprocess.run(
+                  ["git", "lfs", "pull", "--include=" + ",".join(paths), "--exclude="],
+                  check=False,
+              )
           PY
 
       - name: Κανονικοποίηση κατάληξης PDF
@@ -88,11 +95,6 @@ jobs:
         run: |
           python -m py_compile εργαλεία/κοινά_πηγών.py εργαλεία/πρωτότυπα.py εργαλεία/καθαρισμός-συνδέσεων.py εργαλεία/διόρθωση-τίτλων.py εργαλεία/έλεγχος.py
           python -m unittest discover -s tests -v
-
-      - name: Ενημέρωση μεταδεδομένων
-        id: metadata
-        continue-on-error: true
-        run: python εργαλεία/μεταδεδομένα.py
 
       - name: Διόρθωση γενικών τίτλων
         continue-on-error: true
@@ -151,7 +153,3 @@ jobs:
           git add -A
           git commit -m "chore: ενημέρωση πρωτοτύπων και συνδέσεων [skip ci]"
           git push
-
-      - name: Αναφορά προσωρινής αποτυχίας μεταδεδομένων
-        if: steps.metadata.outcome == 'failure'
-        run: echo "Η λήψη πρωτοτύπων ολοκληρώθηκε, αλλά ο εξωτερικός έλεγχος μεταδεδομένων θα επαναληφθεί."
