@@ -53,14 +53,16 @@ jobs:
           git lfs pull --include="νέα-πρωτότυπα/**" --exclude="" || true
           python - <<'PY'
           from pathlib import Path
-          import re
           import subprocess
+          import sys
 
-          linked = re.compile(r"SRC-[A-F0-9]{10}(?:__εναλλακτικό-(?:SRC-)?[A-F0-9]{10})?\.pdf", re.I)
+          sys.path.insert(0, "εργαλεία")
+          from πρωτότυπα_κοινά import LINKED_PDF_STEM_RE
+
           paths = [
               path.as_posix()
-              for path in Path("πρωτότυπα").glob("*")
-              if path.is_file() and path.suffix.casefold() == ".pdf" and not linked.fullmatch(path.name)
+              for path in Path("πρωτότυπα").glob("*.pdf")
+              if path.is_file() and not LINKED_PDF_STEM_RE.fullmatch(path.stem)
           ]
           if paths:
               subprocess.run(
@@ -117,15 +119,17 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           import hashlib
-          import re
           import shutil
+          import sys
+
+          sys.path.insert(0, "εργαλεία")
+          from πρωτότυπα_κοινά import LINKED_PDF_STEM_RE
 
           pending = Path("νέα-πρωτότυπα/εκκρεμή")
           pending.mkdir(parents=True, exist_ok=True)
-          linked = re.compile(r"SRC-[A-F0-9]{10}(?:__εναλλακτικό-(?:SRC-)?[A-F0-9]{10})?\.pdf", re.I)
           candidates = [
               path for path in Path("πρωτότυπα").glob("*.pdf")
-              if not linked.fullmatch(path.name)
+              if not LINKED_PDF_STEM_RE.fullmatch(path.stem)
           ]
           candidates.extend(
               path for path in Path("νέα-πρωτότυπα").rglob("*.pdf")
