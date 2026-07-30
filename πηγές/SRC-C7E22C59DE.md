@@ -1,8 +1,11 @@
-# • LTRCRT-3100 - Building Python Applications for DevNet Professional and Expert Candidates
+# AI Agents 101: An Introduction to Agents and Examples of How to Build Them
 
-> Η εγγραφή δημιουργήθηκε από πρωτότυπο PDF που δεν υπήρχε ακόμη στον κατάλογο.
-> Χρειάζεται πλήρης μετατροπή σε Markdown και έλεγχος πριν χρησιμοποιηθεί ως παραπομπή.
+> Source: https://www.ciscolive.com/c/dam/r/ciscolive/global-event/docs/2025/pdf/BRKETI-1008.pdf
 
-- **Συγγραφείς:** Roshan Ganjei -X (rganjei - CHANNEL IMPACT at Cisco)
-- **Έτος:** 2025
+- **Παρουσιαστής:** Timothy Miller
+- **Διοργάνωση:** Cisco Live 2025
+- **Κωδικός συνεδρίας:** BRKETI-1008
+- **Τύπος:** διαφάνειες τεχνικής παρουσίασης
 - **Πρωτότυπο:** `πρωτότυπα/SRC-C7E22C59DE.pdf`
+
+Η παλαιότερη αυτόματη ονομασία προερχόταν από εσωτερική διαφάνεια άλλης συνεδρίας και διορθώθηκε από το επίσημο όνομα του αρχείου και την επίσημη σελίδα του Cisco Live.
