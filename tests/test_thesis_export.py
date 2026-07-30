@@ -77,7 +77,7 @@ class ThesisExportTests(unittest.TestCase):
                 }
             )
 
-    def write_verified_files(self):
+    def write_verified_files(self, checked="ναι"):
         headings = "\n\n".join(MODULE.REQUIRED_ANALYSIS_HEADINGS)
         analysis_payload = (
             "The study defines the research question, assumptions, experimental environment, algorithms, "
@@ -85,7 +85,10 @@ class ThesisExportTests(unittest.TestCase):
             "way each result may support a claim about robust agents under uncertainty. " * 12
         )
         (MODULE.ANALYSES / "SRC-TEST000001.md").write_text(
-            "---\nκατάσταση: επαληθευμένη\n---\n\n"
+            "---\n"
+            "κατάσταση: επαληθευμένη\n"
+            f"ελεγχθέν-πρωτότυπο: {checked}\n"
+            "---\n\n"
             + headings
             + "\n\n"
             + analysis_payload,
@@ -97,7 +100,11 @@ class ThesisExportTests(unittest.TestCase):
             "so the thesis cannot overgeneralize the reported result. " * 10
         )
         (MODULE.EXCERPTS / "SRC-TEST000001.md").write_text(
-            "---\nκατάσταση: επαληθευμένο\n---\n\n"
+            "---\n"
+            "κατάσταση: επαληθευμένο\n"
+            f"ελεγχθέν-πρωτότυπο: {checked}\n"
+            "---\n\n"
+            "## Τεκμήριο E1\n\n"
             "- **Θέση:** σελίδα 4, ενότητα 2.1, πίνακας 1\n"
             "- **Ισχυρισμός:** Το εύρημα υποστηρίζει μόνο τον συγκεκριμένο δοκιμαστικό ισχυρισμό.\n\n"
             + excerpt_payload,
@@ -107,13 +114,22 @@ class ThesisExportTests(unittest.TestCase):
     def write_template_only_files(self):
         headings = "\n\n".join(MODULE.REQUIRED_ANALYSIS_HEADINGS)
         (MODULE.ANALYSES / "SRC-TEST000001.md").write_text(
-            "---\nκατάσταση: επαληθευμένη\n---\n\n" + headings + "\n",
+            "---\n"
+            "κατάσταση: επαληθευμένη\n"
+            "ελεγχθέν-πρωτότυπο: ναι\n"
+            "---\n\n"
+            + headings
+            + "\n",
             encoding="utf-8",
         )
         (MODULE.EXCERPTS / "SRC-TEST000001.md").write_text(
-            "---\nκατάσταση: επαληθευμένο\n---\n\n"
-            "- **Θέση:** σελίδα 4\n"
-            "- **Ισχυρισμός:** δοκιμαστικός ισχυρισμός\n",
+            "---\n"
+            "κατάσταση: επαληθευμένο\n"
+            "ελεγχθέν-πρωτότυπο: ναι\n"
+            "---\n\n"
+            "## Τεκμήριο E1\n\n"
+            "- **Θέση:** σελίδα, ενότητα, πίνακας, σχήμα ή χρονική σήμανση\n"
+            "- **Ισχυρισμός:** ποια ακριβώς πρόταση της διπλωματικής υποστηρίζει\n",
             encoding="utf-8",
         )
 
@@ -135,6 +151,14 @@ class ThesisExportTests(unittest.TestCase):
         self.write_template_only_files()
         errors, _, _, _ = MODULE.validate()
         self.assertTrue(any("αρκετό ουσιαστικό περιεχόμενο" in error for error in errors))
+        self.assertTrue(any("πραγματική ακριβής θέση" in error for error in errors))
+        self.assertTrue(any("πραγματικός ισχυρισμός" in error for error in errors))
+
+    def test_unchecked_original_cannot_be_exported(self):
+        self.write_selection()
+        self.write_verified_files(checked="όχι")
+        errors, _, _, _ = MODULE.validate()
+        self.assertTrue(any("ελέγχθηκε το πρωτότυπο" in error for error in errors))
 
     def test_verified_source_builds_package(self):
         self.write_selection()
