@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Διορθώνει γενικά/λανθασμένα ονόματα όταν υπάρχει ρητό DOI ή arXiv ID."""
+"""Διορθώνει τίτλους και εμφανώς λανθασμένα έτη από DOI ή arXiv."""
 from __future__ import annotations
 
 import csv
@@ -11,6 +11,7 @@ import time
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
+from datetime import datetime, timezone
 from pathlib import Path
 
 from κοινά_πηγών import ARXIV_RE, DOI_RE, explicit_source_sample, source_text
@@ -28,6 +29,8 @@ GENERIC_TITLE = re.compile(
     r"arxiv[-_:]|\[?\d{4}\.\d{4,5}\]?)",
     re.IGNORECASE,
 )
+CONFIRMED = {"επιβεβαιωμένη μέσω arXiv", "επιβεβαιωμένη μέσω Crossref"}
+CURRENT_YEAR = datetime.now(timezone.utc).year
 
 
 def request(url: str, accept: str) -> bytes:
@@ -104,41 +107,87 @@ def crossref_metadata(doi: str) -> dict[str, str] | None:
     }
 
 
+def arxiv_expected_year(arxiv_id: str) -> int | None:
+    try:
+        prefix = int(arxiv_id[:2])
+    except (TypeError, ValueError):
+        return None
+    # Το σύγχρονο YYMM.nnnnn format ξεκινά το 2007.
+    return 2000 + prefix if 7 <= prefix <= 99 else None
+
+
+def year_is_suspicious(row: dict[str, str], arxiv_id: str | None) -> bool:
+    raw = row.get("Έτος", "").strip()
+    if not raw.isdigit():
+        return True
+    year = int(raw)
+    if year < 1950 or year > CURRENT_YEAR + 1:
+        return True
+    if arxiv_id:
+        expected = arxiv_expected_year(arxiv_id)
+        if expected and abs(year - expected) > 1:
+            return True
+    return False
+
+
+def needs_refresh(row: dict[str, str], arxiv_id: str | None, doi: str | None) -> bool:
+    if GENERIC_TITLE.search(row.get("Τίτλος", "")):
+        return True
+    if year_is_suspicious(row, arxiv_id):
+        return True
+    if row.get("Επιβεβαίωση", "") not in CONFIRMED and (arxiv_id or doi):
+        return True
+    return False
+
+
+def add_note(row: dict[str, str], note: str) -> None:
+    notes = [value.strip() for value in row.get("Σημειώσεις", "").split(" | ") if value.strip()]
+    if note not in notes:
+        notes.append(note)
+    row["Σημειώσεις"] = " | ".join(notes)
+
+
 def main() -> int:
     with CATALOG.open(encoding="utf-8", newline="") as handle:
         rows = [dict(row) for row in csv.DictReader(handle)]
 
     updated = 0
+    attempted = 0
     for row in rows:
-        if not GENERIC_TITLE.search(row.get("Τίτλος", "")):
-            continue
         text = source_text(SOURCES, row["Κωδικός"])
         sample = explicit_source_sample(row.get("Σύνδεσμος", ""), row.get("Τίτλος", ""), text)
-        arxiv = ARXIV_RE.search(sample)
-        doi = DOI_RE.search(sample)
+        arxiv_match = ARXIV_RE.search(sample)
+        doi_match = DOI_RE.search(sample)
+        arxiv_id = arxiv_match.group(1) if arxiv_match else None
+        doi = doi_match.group(0).rstrip(".") if doi_match else None
+        if not needs_refresh(row, arxiv_id, doi):
+            continue
+        attempted += 1
         metadata = None
         try:
-            if arxiv:
-                metadata = arxiv_metadata(arxiv.group(1))
+            if arxiv_id:
+                metadata = arxiv_metadata(arxiv_id)
             elif doi:
-                metadata = crossref_metadata(doi.group(0).rstrip("."))
-        except RuntimeError:
+                metadata = crossref_metadata(doi)
+        except (RuntimeError, ET.ParseError, KeyError, json.JSONDecodeError):
             continue
         if metadata:
-            old_title = row["Τίτλος"]
+            old_title = row.get("Τίτλος", "")
+            old_year = row.get("Έτος", "")
             row.update({key: value for key, value in metadata.items() if value})
-            row["Σημειώσεις"] = " | ".join(
-                value for value in [row.get("Σημειώσεις", "").strip(), f"Αυτόματη διόρθωση παλιού τίτλου: {old_title}"] if value
-            )
+            if old_title != row.get("Τίτλος"):
+                add_note(row, f"Αυτόματη διόρθωση παλιού τίτλου: {old_title}")
+            if old_year and old_year != row.get("Έτος"):
+                add_note(row, f"Αυτόματη διόρθωση παλιού έτους: {old_year}")
             updated += 1
-            time.sleep(0.2)
+            time.sleep(0.15)
 
     with CATALOG.open("w", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=FIELDS, lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
     subprocess.run([sys.executable, str(ROOT / "εργαλεία" / "εισαγωγή.py"), "--catalog-only"], cwd=ROOT, check=True)
-    print(f"Διορθώθηκαν {updated} γενικοί ή λανθασμένοι τίτλοι.")
+    print(f"Ελέγχθηκαν {attempted} εγγραφές και διορθώθηκαν {updated} τίτλοι ή έτη.")
     return 0
 
 

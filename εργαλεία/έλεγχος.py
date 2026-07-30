@@ -36,7 +36,7 @@ ALLOWED_VERIFICATION = {
 ALLOWED_PRIORITY = {"υψηλή", "μεσαία", "χαμηλή", "χρειάζεται διόρθωση"}
 SOURCE_ID_RE = re.compile(r"SRC-[A-F0-9]{10}")
 LINKED_ORIGINAL_RE = re.compile(
-    r"(SRC-[A-F0-9]{10})(?:__εναλλακτικό-SRC-[A-F0-9]{10})?\.(?:pdf|url)",
+    r"(SRC-[A-F0-9]{10})(?:__(?:εναλλακτικό|σύγκρουση)-(?:SRC-[A-F0-9]{10}|[A-F0-9]{10,16}))?\.(?:pdf|url)",
     re.IGNORECASE,
 )
 OBSOLETE_PATHS = [
@@ -115,9 +115,8 @@ def validate_originals(catalog_ids: set[str], errors: list[str]) -> None:
                 if match.group(1).upper() not in catalog_ids:
                     errors.append(f"Πρωτότυπο για ανύπαρκτη πηγή: {path.name}")
                 continue
-            # Τα PDF με παλιό/γενικό όνομα επιτρέπονται προσωρινά και θα
-            # μεταφερθούν από τον αυτοματισμό στο νέα-πρωτότυπα/εκκρεμή.
             if path.suffix.casefold() == ".pdf":
+                # Παλιό/γενικό όνομα επιτρέπεται προσωρινά μέχρι τον συγχρονισμό.
                 continue
             errors.append(f"Μη αναγνωρισμένο αρχείο στον φάκελο πρωτοτύπων: {path.name}")
 

@@ -12,7 +12,7 @@ permissions:
 
 concurrency:
   group: αυτόματη-εισαγωγή
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   process:
@@ -29,17 +29,20 @@ jobs:
       - name: Ρύθμιση Git LFS
         run: |
           git lfs install --local
-          git lfs pull --include="νέες-πηγές/**" --exclude="" || true
+          git lfs pull --include="νέες-πηγές/**,νέα-πρωτότυπα/**" --exclude="" || true
 
       - name: Κανονικοποίηση κατάληξης PDF
         run: |
           python - <<'PY'
           from pathlib import Path
-          for path in list(Path("νέες-πηγές").rglob("*")):
-              if path.is_file() and path.suffix == ".PDF":
-                  target = path.with_suffix(".pdf")
-                  if not target.exists():
-                      path.rename(target)
+          for root in (Path("νέες-πηγές"), Path("νέα-πρωτότυπα")):
+              if not root.exists():
+                  continue
+              for path in list(root.rglob("*")):
+                  if path.is_file() and path.suffix == ".PDF":
+                      target = path.with_suffix(".pdf")
+                      if not target.exists():
+                          path.rename(target)
           PY
 
       - name: Ρύθμιση Python
@@ -52,7 +55,7 @@ jobs:
 
       - name: Έλεγχος εργαλείων και δοκιμών
         run: |
-          python -m py_compile εργαλεία/εισαγωγή.py εργαλεία/μεταδεδομένα.py εργαλεία/διόρθωση-τίτλων.py εργαλεία/έλεγχος.py εργαλεία/κοινά_πηγών.py εργαλεία/καθαρισμός-συνδέσεων.py εργαλεία/πρωτότυπα.py
+          python -m py_compile εργαλεία/εισαγωγή.py εργαλεία/μεταδεδομένα.py εργαλεία/διόρθωση-τίτλων.py εργαλεία/έλεγχος.py εργαλεία/κοινά_πηγών.py εργαλεία/καθαρισμός-συνδέσεων.py εργαλεία/πρωτότυπα.py εργαλεία/πρωτότυπα_κοινά.py εργαλεία/πρωτότυπα_λήψεις.py εργαλεία/πρωτότυπα_αρχεία.py
           python -m unittest discover -s tests -v
 
       - name: Εισαγωγή νέων πηγών
@@ -63,7 +66,7 @@ jobs:
         continue-on-error: true
         run: python εργαλεία/μεταδεδομένα.py
 
-      - name: Διόρθωση γενικών τίτλων
+      - name: Διόρθωση τίτλων και ετών
         continue-on-error: true
         run: python εργαλεία/διόρθωση-τίτλων.py
 
@@ -71,20 +74,25 @@ jobs:
         run: python εργαλεία/καθαρισμός-συνδέσεων.py
 
       - name: Αντιστοίχιση και πρώτη λήψη πρωτοτύπων
-        run: python εργαλεία/πρωτότυπα.py --download --limit 20
+        run: python εργαλεία/πρωτότυπα.py --download --limit 30
 
       - name: Μεταφορά μη αντιστοιχισμένων PDF
         run: |
           python - <<'PY'
           from pathlib import Path
           import hashlib
-          import re
           import shutil
+          import sys
+
+          sys.path.insert(0, "εργαλεία")
+          from πρωτότυπα_κοινά import LINKED_PDF_STEM_RE
 
           pending = Path("νέα-πρωτότυπα/εκκρεμή")
           pending.mkdir(parents=True, exist_ok=True)
-          linked = re.compile(r"SRC-[A-F0-9]{10}(?:__εναλλακτικό-SRC-[A-F0-9]{10})?\.pdf", re.I)
-          for path in [p for p in Path("πρωτότυπα").glob("*.pdf") if not linked.fullmatch(p.name)]:
+          for path in [
+              item for item in Path("πρωτότυπα").glob("*.pdf")
+              if not LINKED_PDF_STEM_RE.fullmatch(item.stem)
+          ]:
               target = pending / path.name
               if target.exists():
                   suffix = hashlib.sha256(path.as_posix().encode()).hexdigest()[:8]

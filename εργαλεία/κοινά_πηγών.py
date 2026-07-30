@@ -17,6 +17,7 @@ STANDALONE_ID_URL_RE = re.compile(
     r"^https?://(?:www\.)?(?:doi\.org/10\.|arxiv\.org/(?:abs|pdf|html)/|openreview\.net/(?:forum|pdf)\?)\S+$",
     re.IGNORECASE,
 )
+HEADER_MARKERS = ("> source:", "source:", "doi:", "arxiv:", "citation:")
 
 
 def clean(value: str) -> str:
@@ -68,17 +69,43 @@ def meaningful_resource_url(url: str) -> bool:
     return True
 
 
+def _joined_header_lines(text: str) -> list[str]:
+    """Συλλέγει ρητές γραμμές κεφαλίδας και σύντομες συνέχειές τους.
+
+    Πολλά PDF exports σπάνε DOI και τίτλους citation σε διαδοχικές γραμμές,
+    π.χ. ``https://`` σε μία γραμμή και ``doi.org/...`` στην επόμενη.
+    Κρατάμε μόνο μικρά παράθυρα μετά από ρητό marker ώστε να μη θεωρούνται
+    οι βιβλιογραφικές αναφορές του σώματος ταυτότητα της πηγής.
+    """
+    raw_lines = text.splitlines()[:120]
+    selected: list[str] = []
+    continuation = 0
+    for raw in raw_lines:
+        stripped = raw.strip()
+        low = stripped.casefold()
+        if low.startswith(HEADER_MARKERS):
+            selected.append(stripped)
+            continuation = 8 if low.startswith("citation:") else 3
+            continue
+        if STANDALONE_ID_URL_RE.fullmatch(stripped):
+            selected.append(stripped)
+            continuation = 0
+            continue
+        if continuation > 0:
+            if not stripped:
+                continuation = 0
+                continue
+            selected.append(stripped)
+            continuation -= 1
+    return selected
+
+
 def explicit_source_sample(link: str, title: str, text: str) -> str:
     """Κρατά μόνο ρητά στοιχεία κεφαλίδας και όχι citations του σώματος."""
-    lines: list[str] = []
-    for line in text.splitlines()[:100]:
-        stripped = line.strip()
-        low = stripped.casefold()
-        if low.startswith(("> source:", "source:", "doi:", "arxiv:", "citation:")):
-            lines.append(stripped)
-        elif STANDALONE_ID_URL_RE.fullmatch(stripped):
-            lines.append(stripped)
-    return "\n".join([link or "", title or "", *lines])
+    lines = _joined_header_lines(text)
+    # Η ενοποίηση whitespace επιτρέπει την αναγνώριση line-broken DOI.
+    joined = clean(" ".join(lines))
+    return "\n".join([link or "", title or "", joined])
 
 
 def identities(link: str, title: str, text: str) -> set[str]:
