@@ -3,6 +3,8 @@ name: Έλεγχος αποθετηρίου
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - "νέες-πηγές/**"
   pull_request:
     branches: [main]
 
