@@ -1,0 +1,157 @@
+name: Ενημέρωση πρωτοτύπων
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "νέα-πρωτότυπα/**"
+      - "πρωτότυπα/**"
+      - "κατάλογος/πηγές.csv"
+      - "πηγές/**"
+      - "εργαλεία/πρωτότυπα.py"
+      - "εργαλεία/καθαρισμός-συνδέσεων.py"
+      - "εργαλεία/διόρθωση-τίτλων.py"
+      - "εργαλεία/κοινά_πηγών.py"
+      - ".gitattributes"
+      - ".github/workflows/ενημέρωση-πρωτοτύπων.yml"
+  schedule:
+    - cron: "30 3 * * *"
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Μέγιστες νέες λήψεις PDF"
+        required: false
+        default: "30"
+      retry:
+        description: "Επανάληψη πηγών που απέτυχαν τρεις φορές"
+        type: boolean
+        required: false
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ενημέρωση-πρωτοτύπων
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    if: ${{ github.event_name != 'push' || !contains(github.event.head_commit.message, '[skip ci]') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Λήψη αποθετηρίου χωρίς όλα τα παλιά LFS αρχεία
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: false
+
+      - name: Ρύθμιση Git LFS και λήψη μόνο των μη επεξεργασμένων PDF
+        run: |
+          git lfs install --local
+          git lfs pull --include="νέα-πρωτότυπα/**" --exclude="νέα-πρωτότυπα/εκκρεμή/**" || true
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          import subprocess
+
+          linked = re.compile(r"SRC-[A-F0-9]{10}(?:__εναλλακτικό-SRC-[A-F0-9]{10})?\.pdf", re.I)
+          for path in Path("πρωτότυπα").glob("*"):
+              if path.is_file() and path.suffix.casefold() == ".pdf" and not linked.fullmatch(path.name):
+                  subprocess.run(["git", "lfs", "pull", f"--include={path.as_posix()}", "--exclude="], check=False)
+          PY
+
+      - name: Κανονικοποίηση κατάληξης PDF
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          for root in (Path("πρωτότυπα"), Path("νέα-πρωτότυπα")):
+              if not root.exists():
+                  continue
+              for path in list(root.rglob("*")):
+                  if path.is_file() and path.suffix == ".PDF":
+                      target = path.with_suffix(".pdf")
+                      if not target.exists():
+                          path.rename(target)
+          PY
+
+      - name: Ρύθμιση Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Εγκατάσταση αναγνώστη PDF
+        run: python -m pip install --disable-pip-version-check pypdf
+
+      - name: Έλεγχος σύνταξης και δοκιμών
+        run: |
+          python -m py_compile εργαλεία/κοινά_πηγών.py εργαλεία/πρωτότυπα.py εργαλεία/καθαρισμός-συνδέσεων.py εργαλεία/διόρθωση-τίτλων.py εργαλεία/έλεγχος.py
+          python -m unittest discover -s tests -v
+
+      - name: Ενημέρωση μεταδεδομένων
+        id: metadata
+        continue-on-error: true
+        run: python εργαλεία/μεταδεδομένα.py
+
+      - name: Διόρθωση γενικών τίτλων
+        continue-on-error: true
+        run: python εργαλεία/διόρθωση-τίτλων.py
+
+      - name: Έλεγχος συνδέσεων και βέβαιων διπλοτύπων
+        run: python εργαλεία/καθαρισμός-συνδέσεων.py
+
+      - name: Αντιστοίχιση και λήψη πρωτοτύπων
+        env:
+          LIMIT: ${{ inputs.limit || '30' }}
+          RETRY: ${{ inputs.retry || 'false' }}
+        run: |
+          EXTRA=""
+          if [ "$RETRY" = "true" ]; then EXTRA="--retry"; fi
+          python εργαλεία/πρωτότυπα.py --download --limit "$LIMIT" $EXTRA
+
+      - name: Μεταφορά όσων δεν αντιστοιχίστηκαν
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib
+          import re
+          import shutil
+
+          pending = Path("νέα-πρωτότυπα/εκκρεμή")
+          pending.mkdir(parents=True, exist_ok=True)
+          linked = re.compile(r"SRC-[A-F0-9]{10}(?:__εναλλακτικό-SRC-[A-F0-9]{10})?\.pdf", re.I)
+          candidates = [
+              path for path in Path("πρωτότυπα").glob("*.pdf")
+              if not linked.fullmatch(path.name)
+          ]
+          candidates.extend(
+              path for path in Path("νέα-πρωτότυπα").rglob("*.pdf")
+              if pending not in path.parents
+          )
+          for path in candidates:
+              target = pending / path.name
+              if target.exists():
+                  suffix = hashlib.sha256(path.as_posix().encode()).hexdigest()[:8]
+                  target = pending / f"{path.stem}__{suffix}.pdf"
+              shutil.move(str(path), target)
+          PY
+
+      - name: Έλεγχος αποθετηρίου
+        run: python εργαλεία/έλεγχος.py
+
+      - name: Αποθήκευση αποτελεσμάτων και LFS αντικειμένων
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "Δεν προέκυψαν αλλαγές."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore: ενημέρωση πρωτοτύπων και συνδέσεων [skip ci]"
+          git push
+
+      - name: Αναφορά προσωρινής αποτυχίας μεταδεδομένων
+        if: steps.metadata.outcome == 'failure'
+        run: echo "Η λήψη πρωτοτύπων ολοκληρώθηκε, αλλά ο εξωτερικός έλεγχος μεταδεδομένων θα επαναληφθεί."
