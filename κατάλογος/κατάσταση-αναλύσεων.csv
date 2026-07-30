@@ -18,7 +18,7 @@ SRC-847A095FA3,A Safe Reinforcement Learning Approach for Ene... - Pergamos,υψ
 SRC-F82F4BD836,A Safe Reinforcement Learning Approach for Ene... - Pergamos,μεσαία,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-B9111B3600,A Study of Genetic Algorithm in Evolving Agents for Autonomous Decision-Making in Dynamic Environmen,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,πρόχειρο,,
 SRC-211B10ADBA,A Survey Analyzing Generalization in Deep Reinforcement Learning,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
-SRC-F909CABDEB,A Survey of Continual Reinforcement Learning,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
+SRC-F909CABDEB,A Survey of Continual Reinforcement Learning,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,υποστηρικτική,ναι
 SRC-AABAFA12BF,A Survey of Human-in-the-Loop Reinforcement Learning for Critical Systems,μεσαία,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-DFFF269D33,A Survey of Multi-Agent Deep Reinforcement Learning with Communication,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-60ECE049E6,A Survey of Reinforcement Learning For Economics,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
@@ -60,7 +60,7 @@ SRC-7DA66E226E,applsci-15-05663-v2.pdf,μεσαία,διαθέσιμο πλήρ�
 SRC-9CC11ECF41,Approximate Bilevel Difference Convex Programming for Bayesian Risk Markov Decision Processes,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-8FC523FC42,Architecture strategies for self-healing and self-preservation - Microsoft Azure Well-Architected Fr,μεσαία,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-486FAE4C93,Artificial Intelligence Risk Management Framework (AI RMF 1.0) NIST AI 100-1,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
-SRC-0882A9B2B0,Assessing Generalization in Deep Reinforcement Learning,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
+SRC-0882A9B2B0,Assessing Generalization in Deep Reinforcement Learning,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
 SRC-41B78C510C,Autonomous Driving with Deep Reinforcement Learning in CARLA Simulation,χαμηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-A62DDB9298,Avoiding Catastrophic Forgetting in Safety Gridworld ECE 517- Reinforcement Learning Final Project R,μεσαία,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-D30B6E2BD6,Avoiding Catastrophic Forgetting in Safety Gridworld ECE 517: Reinforcement Learning Final Project Report - Carl Edwards,μεσαία,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
@@ -106,7 +106,7 @@ SRC-2CA4104ACF,Cross-Domain Transfer for Reinforcement Learning - UT Austin Comp
 SRC-87C9BF9456,Decision Making Under Uncertainty - Stanford University,μεσαία,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-27B5CE6877,Decision-Making Under Uncertainty in Multi-Agent and Multi-Robot Systems- Planning and Learning - IJ,μεσαία,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-BB9CAB4CBB,Decision-making under uncertainty: beyond probabilities,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
-SRC-0A4AFAC8E9,Deep Reinforcement Learning at the Edge of the Statistical Precipice,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
+SRC-0A4AFAC8E9,Deep Reinforcement Learning at the Edge of the Statistical Precipice,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
 SRC-0490CF519D,Deep Reinforcement Learning for Autonomous Driving: A Survey,χαμηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-95C9DAEE68,Deep reinforcement learning in non-stationary environments,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
 SRC-BE53B7970E,Deep Reinforcement Learning with Double Q-learning,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
