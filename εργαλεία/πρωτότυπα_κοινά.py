@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Κοινά δεδομένα και βοηθητικές συναρτήσεις για τα πρωτότυπα."""
+"""Κοινά δεδομένα και αυστηρές βοηθητικές συναρτήσεις για τα πρωτότυπα."""
 from __future__ import annotations
 
 import csv
@@ -29,8 +29,18 @@ REPORT_FIELDS = [
     "Προσπάθειες", "Τελευταίος έλεγχος", "Σημείωση",
 ]
 GENERIC_TITLE = re.compile(
-    r"^(?:untitled|document|thesis(?:\.pdf)?|fulltext\d*|brketi-?\d+|"
-    r"https?[-_:]|pdf[-_]|ebook[-_]|academic editors?:|verifying your browser)$",
+    r"^(?:untitled\b|document\b|thesis(?:\.pdf)?$|fulltext\d*(?:\.pdf)?$|"
+    r"brketi-?\d+(?:\.pdf)?$|https?[-_:]|pdf[-_]|ebook[-_]|"
+    r"academic editors?\b|verifying your browser|applsci-\d|"
+    r"final-web-version-report|ssrn-\d+(?:\.pdf)?$)",
+    re.IGNORECASE,
+)
+SUSPICIOUS_DISTRIBUTION = re.compile(
+    r"(?:oceanofpdf|ilide\.info|free[-_ ]?ebook|pirate|z[-_ ]?library)",
+    re.IGNORECASE,
+)
+LINKED_PDF_STEM_RE = re.compile(
+    r"SRC-[A-F0-9]{10}(?:__εναλλακτικό-(?:SRC-[A-F0-9]{10}|[A-F0-9]{10}))?",
     re.IGNORECASE,
 )
 DOCUMENT_TYPES = {
@@ -165,7 +175,7 @@ def likely_title_from_text(text: str) -> str:
     lines = [line for line in lines if line]
     ignored = re.compile(
         r"^(?:arxiv|doi|abstract|contents|table of contents|copyright|page \d+|"
-        r"university|department|faculty|submitted|author(?:s)?\s*:)$",
+        r"university|department|faculty|submitted|author(?:s)?\s*:|academic editors?\b)",
         re.IGNORECASE,
     )
     candidates: list[tuple[int, str]] = []
@@ -200,16 +210,30 @@ def inspect_pdf(path: Path) -> PdfInfo:
         creation = clean_pdf_metadata(metadata.get("/CreationDate"))
         year_match = re.search(r"(?:19|20)\d{2}", creation)
         info.year = year_match.group(0) if year_match else ""
-        info.text = "\n".join((page.extract_text() or "") for page in reader.pages[:5])[:50000]
+        page_texts = [(page.extract_text() or "") for page in reader.pages[:5]]
+        info.text = "\n\n--- PAGE ---\n\n".join(page_texts)[:50000]
     except Exception as exc:
         info.metadata_error = type(exc).__name__
         return info
     if not info.title or GENERIC_TITLE.search(info.title.strip()):
         info.title = likely_title_from_text(info.text) or info.title
-    sample = "\n".join([info.title, info.authors, info.text[:20000]])
+
+    # Η ταυτότητα του ίδιου του τεκμηρίου αναζητείται μόνο στην κεφαλίδα και
+    # στην αρχή του PDF, όχι σε ολόκληρο το σώμα όπου υπάρχουν βιβλιογραφικές αναφορές.
+    sample = "\n".join([info.title, info.authors, info.text[:7000]])
     info.doi = list(dict.fromkeys(match.group(0).rstrip(".,;") for match in DOI_RE.finditer(sample)))
     info.arxiv = list(dict.fromkeys(match.group(1) for match in ARXIV_RE.finditer(sample)))
     return info
+
+
+def strong_pdf_identities(info: PdfInfo) -> set[str]:
+    """Επιστρέφει μόνο μοναδικό DOI/arXiv ώστε citations να μη γίνουν ταυτότητα."""
+    result: set[str] = set()
+    if len(info.doi) == 1:
+        result.add(f"doi:{info.doi[0].casefold()}")
+    if len(info.arxiv) == 1:
+        result.add(f"arxiv:{info.arxiv[0]}")
+    return result
 
 
 def title_score(row_title: str, path: Path, info: PdfInfo) -> float:
@@ -234,10 +258,21 @@ def title_score(row_title: str, path: Path, info: PdfInfo) -> float:
 def strong_new_title(info: PdfInfo, path: Path) -> str:
     title = re.sub(r"\s+", " ", info.title).strip(" -_:.")
     if not title or GENERIC_TITLE.search(title) or len(normalized_words(title)) < 15:
-        filename = re.sub(r"[_-]+", " ", path.stem)
-        filename = re.sub(r"\s+", " ", filename).strip()
-        if not GENERIC_TITLE.search(filename) and len(normalized_words(filename)) >= 20:
-            title = filename
-    if not title or GENERIC_TITLE.search(title) or len(normalized_words(title)) < 15:
         return ""
     return title[:300]
+
+
+def can_create_source_from_pdf(path: Path, info: PdfInfo) -> tuple[bool, str]:
+    """Νέα εγγραφή επιτρέπεται μόνο με ισχυρά και νόμιμα ελέγξιμα στοιχεία."""
+    if SUSPICIOUS_DISTRIBUTION.search(path.name):
+        return False, "χρειάζεται χειροκίνητος έλεγχος προέλευσης και δικαιωμάτων"
+    title = strong_new_title(info, path)
+    if not title or len(info.text.strip()) < 120:
+        return False, "δεν υπάρχουν αρκετά αξιόπιστα στοιχεία για νέα πηγή"
+    if strong_pdf_identities(info):
+        return True, "μοναδικό DOI ή arXiv ID"
+    title_in_header = normalized(title) in normalized(info.text[:7000])
+    complete_metadata = bool(info.authors.strip() and info.year.isdigit() and info.pages >= 2)
+    if title_in_header and complete_metadata:
+        return True, "τίτλος, δημιουργός και έτος από το ίδιο PDF"
+    return False, "λείπει μοναδικό αναγνωριστικό ή πλήρες σύνολο τίτλου-δημιουργού-έτους"
