@@ -11,8 +11,7 @@ from urllib.parse import quote, urljoin, urlsplit
 from urllib.request import Request, urlopen
 
 from κοινά_πηγών import ARXIV_RE, OPENREVIEW_RE, URL_RE, explicit_source_sample, identities
-from πρωτότυπα_κοινά import DownloadResult, MAX_BYTES if False else None
-from πρωτότυπα_κοινά import ORIGINALS, url_is_direct_pdf
+from πρωτότυπα_κοινά import DownloadResult, ORIGINALS, url_is_direct_pdf
 
 USER_AGENT = "ThesisBibliography/1.1 (+https://github.com/MariosGiannakaras/ThesisBibliography)"
 MAX_DOWNLOAD_BYTES = 180 * 1024 * 1024
