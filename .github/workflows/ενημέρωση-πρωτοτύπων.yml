@@ -8,7 +8,7 @@ on:
       - "πρωτότυπα/**"
       - "κατάλογος/πηγές.csv"
       - "πηγές/**"
-      - "εργαλεία/πρωτότυπα.py"
+      - "εργαλεία/πρωτότυπα*.py"
       - "εργαλεία/καθαρισμός-συνδέσεων.py"
       - "εργαλεία/διόρθωση-τίτλων.py"
       - "εργαλεία/κοινά_πηγών.py"
@@ -21,7 +21,7 @@ on:
       limit:
         description: "Μέγιστες νέες λήψεις PDF"
         required: false
-        default: "30"
+        default: "100"
       retry:
         description: "Επανάληψη πηγών που απέτυχαν τρεις φορές"
         type: boolean
@@ -47,16 +47,16 @@ jobs:
           fetch-depth: 0
           lfs: false
 
-      - name: Ρύθμιση Git LFS και λήψη μόνο των μη επεξεργασμένων PDF
+      - name: Ρύθμιση Git LFS και λήψη των εισερχόμενων PDF
         run: |
           git lfs install --local
-          git lfs pull --include="νέα-πρωτότυπα/**" --exclude="νέα-πρωτότυπα/εκκρεμή/**" || true
+          git lfs pull --include="νέα-πρωτότυπα/**" --exclude="" || true
           python - <<'PY'
           from pathlib import Path
           import re
           import subprocess
 
-          linked = re.compile(r"SRC-[A-F0-9]{10}(?:__εναλλακτικό-SRC-[A-F0-9]{10})?\.pdf", re.I)
+          linked = re.compile(r"SRC-[A-F0-9]{10}(?:__εναλλακτικό-(?:SRC-)?[A-F0-9]{10})?\.pdf", re.I)
           paths = [
               path.as_posix()
               for path in Path("πρωτότυπα").glob("*")
@@ -93,10 +93,10 @@ jobs:
 
       - name: Έλεγχος σύνταξης και δοκιμών
         run: |
-          python -m py_compile εργαλεία/κοινά_πηγών.py εργαλεία/πρωτότυπα.py εργαλεία/καθαρισμός-συνδέσεων.py εργαλεία/διόρθωση-τίτλων.py εργαλεία/έλεγχος.py
+          python -m py_compile εργαλεία/κοινά_πηγών.py εργαλεία/πρωτότυπα.py εργαλεία/πρωτότυπα_κοινά.py εργαλεία/πρωτότυπα_λήψεις.py εργαλεία/πρωτότυπα_αρχεία.py εργαλεία/καθαρισμός-συνδέσεων.py εργαλεία/διόρθωση-τίτλων.py εργαλεία/έλεγχος.py
           python -m unittest discover -s tests -v
 
-      - name: Διόρθωση γενικών τίτλων
+      - name: Διόρθωση τίτλων και ετών
         continue-on-error: true
         run: python εργαλεία/διόρθωση-τίτλων.py
 
@@ -105,7 +105,7 @@ jobs:
 
       - name: Αντιστοίχιση και λήψη πρωτοτύπων
         env:
-          LIMIT: ${{ inputs.limit || '30' }}
+          LIMIT: ${{ inputs.limit || '100' }}
           RETRY: ${{ inputs.retry || 'false' }}
         run: |
           EXTRA=""
@@ -122,7 +122,7 @@ jobs:
 
           pending = Path("νέα-πρωτότυπα/εκκρεμή")
           pending.mkdir(parents=True, exist_ok=True)
-          linked = re.compile(r"SRC-[A-F0-9]{10}(?:__εναλλακτικό-SRC-[A-F0-9]{10})?\.pdf", re.I)
+          linked = re.compile(r"SRC-[A-F0-9]{10}(?:__εναλλακτικό-(?:SRC-)?[A-F0-9]{10})?\.pdf", re.I)
           candidates = [
               path for path in Path("πρωτότυπα").glob("*.pdf")
               if not linked.fullmatch(path.name)
