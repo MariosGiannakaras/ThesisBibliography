@@ -1,1 +1,5 @@
 Κωδικός,Ρόλος,Κατάσταση,Κεφάλαια,Θέματα,Εξαγωγή,Σημείωση
+SRC-FE2C0A3E00,κύρια,επαληθευμένη,"Θεωρητικό υπόβαθρο; Σχετικές εργασίες; Πειραματικό περιβάλλον; Μετρικές; Threats to validity","gridworld; distribution shift; performance function; benchmark design",ναι,"Αιτιολογεί minimal testbed και ανεξάρτητη αξιολόγηση πέρα από το return."
+SRC-95C9DAEE68,κύρια,επαληθευμένη,"Θεωρητικό υπόβαθρο; Σχετικές εργασίες; Ερευνητικά ερωτήματα; Μεθοδολογία; Μετρικές","non-stationarity; change detection; adaptation; recovery; multiple changes",ναι,"Κεντρική πηγή για detection–adaptation decomposition και post-change evaluation."
+SRC-81A15E6905,κύρια,επαληθευμένη,"Θεωρητικό υπόβαθρο; Σχετικές εργασίες; Μοντέλο αβεβαιότητας; Πειραματικά σενάρια","action failure; action noise; robust MDP; perturbation severity",ναι,"Άμεση τεκμηρίωση για αποτυχίες εκτέλεσης ενεργειών και robustness trade-offs."
+SRC-3856071502,υποστηρικτική,επαληθευμένη,"Θεωρητικό υπόβαθρο; Σχετικές εργασίες; Μεθοδολογία","online changepoint detection; Bayesian uncertainty; run length; hazard function",ναι,"Υποστηρικτική μέθοδος detection· δεν αποτελεί adaptation ή resilience algorithm."
