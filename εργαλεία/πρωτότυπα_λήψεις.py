@@ -128,7 +128,7 @@ def candidate_urls(row: dict[str, str], text: str) -> list[str]:
 
     result: list[str] = []
     for raw in seeds:
-        url = raw.rstrip(".,;:")
+        url = raw.rstrip(".,;:)")
         arxiv = ARXIV_RE.search(url)
         if arxiv:
             result.append(f"https://arxiv.org/pdf/{arxiv.group(1)}")
