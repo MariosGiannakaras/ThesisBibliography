@@ -16,8 +16,10 @@ on:
 permissions:
   contents: write
 
+# Μοιράζεται την ίδια ουρά με όλα τα workflows που παράγουν και κάνουν
+# commit αρχεία στο main, ώστε να αποφεύγονται non-fast-forward pushes.
 concurrency:
-  group: ενημέρωση-μεταδεδομένων
+  group: παραγόμενα-αρχεία-main
   cancel-in-progress: false
 
 jobs:
@@ -25,10 +27,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - name: Λήψη αποθετηρίου
+      - name: Λήψη του πιο πρόσφατου main
         uses: actions/checkout@v4
         with:
+          ref: main
           fetch-depth: 0
+          lfs: false
 
       - name: Ρύθμιση Python
         uses: actions/setup-python@v5
@@ -43,12 +47,12 @@ jobs:
 
       - name: Αποθήκευση αλλαγών
         run: |
-          if [ -z "$(git status --porcelain)" ]; then
+          if [ -z "$(git status --porcelain -- κατάλογος)" ]; then
             echo "Δεν προέκυψαν αλλαγές."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add κατάλογος
-          git commit -m "chore: ενημέρωση βιβλιογραφικών μεταδεδομένων [skip ci]"
-          git push
+          git commit -m "chore: ενημέρωση βιβλιογραφικών μεταδεδομένων"
+          git push origin HEAD:main
