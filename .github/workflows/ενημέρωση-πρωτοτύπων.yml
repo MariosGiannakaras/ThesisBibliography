@@ -57,10 +57,10 @@ jobs:
       - name: Συγχώνευση ακριβώς ίδιων PDF
         run: python εργαλεία/ακριβή-διπλότυπα.py
 
-      - name: Ρύθμιση Git LFS και λήψη των εισερχόμενων PDF
+      - name: Ρύθμιση Git LFS και λήψη εισερχόμενων και μη ταυτοποιημένων PDF
         run: |
           git lfs install --local
-          git lfs pull --include="νέα-πρωτότυπα/**" --exclude="" || true
+          git lfs pull --include="νέα-πρωτότυπα/**,πρωτότυπα/μη-ταυτοποιημένα/**" --exclude="" || true
           python - <<'PY'
           from pathlib import Path
           import subprocess
@@ -106,7 +106,7 @@ jobs:
           LIMIT: ${{ inputs.limit || '0' }}
         run: python εργαλεία/πρωτότυπα.py --download --limit "$LIMIT" --retry
 
-      - name: Οριστικοποίηση χωρίς εκκρεμότητες
+      - name: Οριστικοποίηση χωρίς απώλεια πρωτοτύπων
         run: python εργαλεία/οριστικοποίηση.py
 
       - name: Έλεγχος αποθετηρίου
@@ -121,5 +121,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "chore: οριστικοποίηση βιβλιογραφίας χωρίς εκκρεμότητες [skip ci]"
+          git commit -m "chore: οριστικοποίηση βιβλιογραφίας χωρίς απώλεια πρωτοτύπων [skip ci]"
           git push
