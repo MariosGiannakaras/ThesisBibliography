@@ -8,8 +8,8 @@ SRC-B790DF867B,[Lecture] Monte Carlo evaluation and control- A Gridworld Example
 SRC-AE8219876F,[Lecture] Monte Carlo evaluation and control: A Gridworld Example | Intro to Markov Chains and RL,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,πρόχειρο,,
 SRC-A6616BE773,A Baseline for Detecting Misclassified and Out-of-Distribution Examples in Neural Networks,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-0AEF7EF16A,A Bayesian Approach to Robust Reinforcement Learning - Association for Uncertainty in Artificial Int,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
-SRC-2455B5D0A7,A Comprehensive Survey on Test-Time Adaptation under Distribution Shifts,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
-SRC-23A2C07D09,A Formal Verification Framework for Runtime Assurance - NASA Technical Reports Server (NTRS),χαμηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
+SRC-2455B5D0A7,A Comprehensive Survey on Test-Time Adaptation under Distribution Shifts,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,υποστηρικτική,ναι
+SRC-23A2C07D09,A Formal Verification Framework for Runtime Assurance - NASA Technical Reports Server (NTRS),χαμηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,υποστηρικτική,ναι
 SRC-897C38AAF8,A Practical Deep Dive Into Memory Optimization for Agentic Systems (Part A),μεσαία,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-44678B246F,A Review of Fault Tolerance Techniques in Generative Multi-Agent Systems for Real-Time Applications,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,πρόχειρο,,
 SRC-3A5E2C9E2C,"A Review of Safe Reinforcement Learning: Methods, Theory and Applications",υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,υποστηρικτική,ναι
@@ -67,7 +67,7 @@ SRC-D30B6E2BD6,Avoiding Catastrophic Forgetting in Safety Gridworld ECE 517: Rei
 SRC-13B66B20D8,BALLOCH-DISSERTATION-2024.pdf,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-3856071502,Bayesian Online Changepoint Detection,χαμηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,υποστηρικτική,ναι
 SRC-DBDFB80961,Bayesian Reinforcement Learning: A Survey,μεσαία,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
-SRC-4000D2B40A,Behaviour Suite for Reinforcement Learning,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
+SRC-4000D2B40A,Behaviour Suite for Reinforcement Learning,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
 SRC-AFCB3FE8DF,Belief-Enriched Pessimistic Q-Learning against Adversarial State Perturbations,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-822FFD1EF7,BELIEF-ENRICHED PESSIMISTIC Q-LEARNING AGAINST ADVERSARIAL STATE PERTURBATIONS - ICLR Proceedings,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,πρόχειρο,,
 SRC-5736A9A37B,Belief–desire–intention software model - Wikipedia,χαμηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
