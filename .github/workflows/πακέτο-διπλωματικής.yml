@@ -16,17 +16,20 @@ on:
 permissions:
   contents: write
 
+# Μοιράζεται την ίδια ουρά με τα υπόλοιπα generated αρχεία. Έτσι δύο
+# workflows δεν κάνουν push ταυτόχρονα πάνω στο main.
 concurrency:
-  group: πακέτο-διπλωματικής
-  cancel-in-progress: true
+  group: παραγόμενα-αρχεία-main
+  cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Λήψη αποθετηρίου
+      - name: Λήψη του πιο πρόσφατου main
         uses: actions/checkout@v4
         with:
+          ref: main
           fetch-depth: 0
           lfs: false
 
@@ -54,4 +57,4 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add κατάλογος/κατάσταση-αναλύσεων.csv κατάλογος/κατάσταση-αναλύσεων.md πακέτο-διπλωματικής
           git commit -m "chore: ενημέρωση επαληθευμένου πακέτου διπλωματικής [skip ci]"
-          git push
+          git push origin HEAD:main

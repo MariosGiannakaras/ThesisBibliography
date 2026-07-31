@@ -14,18 +14,21 @@ on:
 permissions:
   contents: write
 
+# Κοινή ουρά με το workflow του πακέτου διπλωματικής. Κάθε εργασία
+# ξεκινά μετά την προηγούμενη και διαβάζει το πιο πρόσφατο main.
 concurrency:
-  group: ενημέρωση-συγκεντρωτικών
-  cancel-in-progress: true
+  group: παραγόμενα-αρχεία-main
+  cancel-in-progress: false
 
 jobs:
   generate:
     if: ${{ github.event_name == 'workflow_dispatch' || !contains(github.event.head_commit.message, '[skip ci]') }}
     runs-on: ubuntu-latest
     steps:
-      - name: Λήψη αποθετηρίου
+      - name: Λήψη του πιο πρόσφατου main
         uses: actions/checkout@v4
         with:
+          ref: main
           fetch-depth: 0
           lfs: false
 
@@ -52,4 +55,4 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add ΑΡΧΕΙΟ_ΠΗΓΩΝ.md ΧΡΗΣΙΜΑ_ΑΠΟΣΠΑΣΜΑΤΑ.md
           git commit -m "chore: ενημέρωση συγκεντρωτικών αρχείων [skip ci]"
-          git push
+          git push origin HEAD:main
