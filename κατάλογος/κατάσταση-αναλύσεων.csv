@@ -135,7 +135,7 @@ SRC-2CEF0D3E68,Enhanced POET: Open-Ended Reinforcement Learning through Unbounde
 SRC-CD31230403,Enhancing Security in Deep Reinforcement Learning: A Comprehensive Survey on Adversarial Attacks and Defenses,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-A3CF75E7FD,Ensuring Safety in Online Reinforcement Learning by Leveraging Offline Data,μεσαία,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-55EB060C37,ETHICAL & SOCIETAL IMPLICATIONS OF AI – IEEE CAI 2025,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
-SRC-3B01300AF5,Evaluating the Efficiency of Reinforcement Learning Algorithms in Dynamic Environment Simulations -,μεσαία,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
+SRC-3B01300AF5,Evaluating the Efficiency of Reinforcement Learning Algorithms in Dynamic Environment Simulations -,μεσαία,διαθέσιμο πλήρες κείμενο,επαληθευμένη,κανένα,απόρριψη,όχι
 SRC-AEAC8CED1E,Explainable Reinforcement Learning using Interpretable Models - Δ.Π.Μ.Σ. στην Τεχνητή Νοημοσύνη,χαμηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-F622BE6812,Exploration by Random Network Distillation,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-3EF7E5F425,Feasible Adversarial Robust Reinforcement Learning for Underspecified Environments,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
@@ -210,9 +210,9 @@ SRC-EBB14FC4CB,https---proceedings.mlr.press-v119-cheung20a-cheung20a.pdf,υψη
 SRC-6126015212,https---proceedings.mlr.press-v119-wachi20a-wachi20a.pdf,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-0A8E4489E8,https---proceedings.mlr.press-v134-wei21b-wei21b.pdf,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-91D56A10CF,https---proceedings.mlr.press-v139-xie21c-xie21c.pdf,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
-SRC-702F9AB94C,https---proceedings.mlr.press-v168-sodhani22a-sodhani22a.pdf,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
+SRC-702F9AB94C,https---proceedings.mlr.press-v168-sodhani22a-sodhani22a.pdf,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,υποστηρικτική,ναι
 SRC-153C917DE1,https---proceedings.mlr.press-v199-luketina22a-luketina22a.pdf,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,υποστηρικτική,ναι
-SRC-660560956D,https---proceedings.mlr.press-v199-steinparz22a-steinparz22a.pdf,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
+SRC-660560956D,https---proceedings.mlr.press-v199-steinparz22a-steinparz22a.pdf,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
 SRC-4B456A9363,https---proceedings.mlr.press-v202-feng23e-feng23e.pdf,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-5775601BD7,https---proceedings.mlr.press-v232-abbas23a-abbas23a.pdf,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-7456165CEA,https---proceedings.mlr.press-v232-alami23a-alami23a.pdf,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
