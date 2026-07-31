@@ -183,7 +183,8 @@ def parse_front_matter(text: str) -> tuple[dict[str, str], str]:
     for line in text[4:closing].splitlines():
         key, separator, value = line.partition(":")
         if separator:
-            metadata[normalize(key).casefold()] = normalize(value).strip("\"'")
+            # Δεν γίνεται casefold στα keys: το ελληνικό τελικό ς θα μετατρεπόταν σε σ.
+            metadata[normalize(key)] = normalize(value).strip("\"'")
     return metadata, text[closing + 5 :].strip()
 
 
@@ -208,7 +209,6 @@ def verified_excerpt_files(root: Path) -> list[tuple[str, Path, dict[str, str], 
         metadata, body = parse_front_matter(path.read_text(encoding="utf-8"))
         code = normalize(metadata.get("κωδικός", "")) or path.stem
 
-        # Η ταυτότητα ελέγχεται για κάθε αρχείο, ακόμη και αν είναι πρόχειρο.
         if SOURCE_ID_RE.fullmatch(code) is None:
             raise ValueError(f"Μη έγκυρος κωδικός στο {path}: {code!r}")
         if code != path.stem:
