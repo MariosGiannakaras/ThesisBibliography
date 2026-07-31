@@ -62,8 +62,8 @@ SRC-8FC523FC42,Architecture strategies for self-healing and self-preservation - 
 SRC-486FAE4C93,Artificial Intelligence Risk Management Framework (AI RMF 1.0) NIST AI 100-1,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,υπόβαθρο,ναι
 SRC-0882A9B2B0,Assessing Generalization in Deep Reinforcement Learning,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
 SRC-41B78C510C,Autonomous Driving with Deep Reinforcement Learning in CARLA Simulation,χαμηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
-SRC-A62DDB9298,Avoiding Catastrophic Forgetting in Safety Gridworld ECE 517- Reinforcement Learning Final Project R,μεσαία,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
-SRC-D30B6E2BD6,Avoiding Catastrophic Forgetting in Safety Gridworld ECE 517: Reinforcement Learning Final Project Report - Carl Edwards,μεσαία,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
+SRC-A62DDB9298,Avoiding Catastrophic Forgetting in Safety Gridworld ECE 517- Reinforcement Learning Final Project R,μεσαία,διαθέσιμο πλήρες κείμενο,επαληθευμένη,κανένα,απόρριψη,όχι
+SRC-D30B6E2BD6,Avoiding Catastrophic Forgetting in Safety Gridworld ECE 517: Reinforcement Learning Final Project Report - Carl Edwards,μεσαία,διαθέσιμο πλήρες κείμενο,επαληθευμένη,κανένα,απόρριψη,όχι
 SRC-13B66B20D8,BALLOCH-DISSERTATION-2024.pdf,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-3856071502,Bayesian Online Changepoint Detection,χαμηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,υποστηρικτική,ναι
 SRC-DBDFB80961,Bayesian Reinforcement Learning: A Survey,μεσαία,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
@@ -215,7 +215,7 @@ SRC-153C917DE1,https---proceedings.mlr.press-v199-luketina22a-luketina22a.pdf,υ
 SRC-660560956D,https---proceedings.mlr.press-v199-steinparz22a-steinparz22a.pdf,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-4B456A9363,https---proceedings.mlr.press-v202-feng23e-feng23e.pdf,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-5775601BD7,https---proceedings.mlr.press-v232-abbas23a-abbas23a.pdf,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
-SRC-7456165CEA,https---proceedings.mlr.press-v232-alami23a-alami23a.pdf,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
+SRC-7456165CEA,https---proceedings.mlr.press-v232-alami23a-alami23a.pdf,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
 SRC-3C543330E4,https---proceedings.mlr.press-v237-peng24a-peng24a.pdf,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-91D94DB95B,https---proceedings.mlr.press-v70-achiam17a-achiam17a.pdf,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-70AEC665B2,https---proceedings.mlr.press-v70-guo17a-guo17a.pdf,χαμηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
@@ -361,7 +361,7 @@ SRC-16E5F21F41,Reward-Free Safe Reinforcement Learning Exploration using Differe
 SRC-AA093F6111,Reward-Preserving Attacks For Robust Reinforcement Learning,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-EC8E7E4711,Rise of agentic AI - Capgemini,χαμηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-3EF475E25A,Robust Average-Reward Markov Decision Processes,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
-SRC-620F17076C,Robust Deep Reinforcement Learning against Adversarial Perturbations on State Observations,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
+SRC-620F17076C,Robust Deep Reinforcement Learning against Adversarial Perturbations on State Observations,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,υποστηρικτική,ναι
 SRC-A3D907D882,Robust Gymnasium: A Unified Modular Benchmark for Robust Reinforcement Learning,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
 SRC-9D663D35D0,Robust Markov Decision Processes without Model Estimation,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-F36BDC75F4,Robust Markov Decision Processes- A Place Where AI and Formal Methods Meet,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
