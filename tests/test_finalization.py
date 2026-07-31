@@ -83,6 +83,32 @@ class FinalizationTests(unittest.TestCase):
             finally:
                 MODULE.SOURCES, MODULE.ANALYSES, MODULE.EXCERPTS = original
 
+    def test_finalization_archives_unmatched_and_removes_only_exact_duplicate(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            original = (MODULE.INCOMING, MODULE.ORIGINALS, MODULE.UNMATCHED)
+            try:
+                MODULE.INCOMING = root / "νέα-πρωτότυπα"
+                MODULE.ORIGINALS = root / "πρωτότυπα"
+                MODULE.UNMATCHED = MODULE.ORIGINALS / "μη-ταυτοποιημένα"
+                MODULE.INCOMING.mkdir(parents=True)
+                first = MODULE.INCOMING / "first.pdf"
+                duplicate = MODULE.INCOMING / "duplicate.pdf"
+                distinct = MODULE.INCOMING / "distinct.pdf"
+                payload = b"%PDF-1.4\n" + b"same" * 300
+                first.write_bytes(payload)
+                duplicate.write_bytes(payload)
+                distinct.write_bytes(b"%PDF-1.4\n" + b"different" * 300)
+
+                archived, duplicates = MODULE.preserve_unmatched_uploads()
+
+                self.assertEqual(2, archived)
+                self.assertEqual(1, duplicates)
+                self.assertEqual(2, len(list(MODULE.UNMATCHED.glob("*.pdf"))))
+                self.assertEqual([], list(MODULE.INCOMING.glob("*.pdf")))
+            finally:
+                MODULE.INCOMING, MODULE.ORIGINALS, MODULE.UNMATCHED = original
+
 
 if __name__ == "__main__":
     unittest.main()
