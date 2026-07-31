@@ -12,8 +12,8 @@ SRC-2455B5D0A7,A Comprehensive Survey on Test-Time Adaptation under Distribution
 SRC-23A2C07D09,A Formal Verification Framework for Runtime Assurance - NASA Technical Reports Server (NTRS),χαμηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-897C38AAF8,A Practical Deep Dive Into Memory Optimization for Agentic Systems (Part A),μεσαία,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-44678B246F,A Review of Fault Tolerance Techniques in Generative Multi-Agent Systems for Real-Time Applications,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,πρόχειρο,,
-SRC-3A5E2C9E2C,"A Review of Safe Reinforcement Learning: Methods, Theory and Applications",υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
-SRC-7EFBF9DA62,"A Review of Uncertainty Quantification in Deep Learning: Techniques, Applications and Challenges",υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
+SRC-3A5E2C9E2C,"A Review of Safe Reinforcement Learning: Methods, Theory and Applications",υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,υποστηρικτική,ναι
+SRC-7EFBF9DA62,"A Review of Uncertainty Quantification in Deep Learning: Techniques, Applications and Challenges",υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,υποστηρικτική,ναι
 SRC-847A095FA3,A Safe Reinforcement Learning Approach for Ene... - Pergamos,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-F82F4BD836,A Safe Reinforcement Learning Approach for Ene... - Pergamos,μεσαία,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-B9111B3600,A Study of Genetic Algorithm in Evolving Agents for Autonomous Decision-Making in Dynamic Environmen,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,πρόχειρο,,
@@ -23,7 +23,7 @@ SRC-AABAFA12BF,A Survey of Human-in-the-Loop Reinforcement Learning for Critical
 SRC-DFFF269D33,A Survey of Multi-Agent Deep Reinforcement Learning with Communication,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-60ECE049E6,A Survey of Reinforcement Learning For Economics,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-BE5B937542,A Survey of Safe Reinforcement Learning and Constrained MDPs: A Technical Survey on Single-Agent and Multi-Agent Safety,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
-SRC-21EBE15D15,A Survey of Zero-shot Generalisation in Deep Reinforcement Learning,χαμηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
+SRC-21EBE15D15,A Survey of Zero-shot Generalisation in Deep Reinforcement Learning,χαμηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
 SRC-E242123630,"A Survey on Uncertainty Quantification of Large Language Models: Taxonomy, Open Research Challenges, and Future Directions",χαμηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-81A15E6905,Action Robust Reinforcement Learning and Applications in Continuous Control,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
 SRC-556A26CC39,"Active Learning for Autonomous Intelligent Agents: Exploration, Curiosity, and Interaction",υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
