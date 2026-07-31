@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
-"""Παράγει τα δύο συγκεντρωτικά αρχεία πρώτης πρόσβασης του repository.
+"""Παράγει τις συγκεντρωτικές προβολές του bibliography repository.
 
-- ΑΡΧΕΙΟ_ΠΗΓΩΝ.md: πλήρης πίνακας όλων των ενεργών πηγών.
-- ΧΡΗΣΙΜΑ_ΑΠΟΣΠΑΣΜΑΤΑ.md: συγκεντρωτική προβολή μόνο επαληθευμένων αποσπασμάτων.
+Παράγωγα αρχεία:
+- ΑΡΧΕΙΟ_ΠΗΓΩΝ.md
+- ΧΡΗΣΙΜΑ_ΑΠΟΣΠΑΣΜΑΤΑ.md
 
-Τα αρχεία είναι παράγωγα. Η πηγή αλήθειας παραμένει το
-`κατάλογος/πηγές.csv`, τα `πηγές/SRC-*.md` και τα
-`αποσπάσματα/SRC-*.md`.
+Πηγές αλήθειας:
+- κατάλογος/πηγές.csv
+- πηγές/SRC-*.md
+- αποσπάσματα/SRC-*.md
 """
 
 from __future__ import annotations
@@ -36,90 +38,75 @@ REQUIRED_COLUMNS = (
 ARCHIVE_FILENAME = "ΑΡΧΕΙΟ_ΠΗΓΩΝ.md"
 EXCERPTS_FILENAME = "ΧΡΗΣΙΜΑ_ΑΠΟΣΠΑΣΜΑΤΑ.md"
 VERIFIED_STATUS = "επαληθευμένο"
+SOURCE_ID_RE = re.compile(r"SRC-[0-9A-F]{10}")
 
 
 def normalize(value: object) -> str:
-    """Επιστρέφει καθαρό κείμενο χωρίς περιττά κενά."""
-
     return " ".join(str(value or "").split())
 
 
 def markdown_escape(value: object) -> str:
-    """Καθαρίζει τιμές για ασφαλή χρήση σε Markdown table cell."""
-
     text = normalize(value)
     return text.replace("\\", "\\\\").replace("|", "\\|") or "—"
 
 
 def safe_link(url: object, label: str = "άνοιγμα") -> str:
-    """Δημιουργεί σύνδεσμο μόνο για HTTP(S) URL."""
-
     value = normalize(url)
     if not re.match(r"^https?://", value, flags=re.IGNORECASE):
         return "—"
     return f"[{markdown_escape(label)}]({value})"
 
 
-def read_catalog(catalog_path: Path) -> list[dict[str, str]]:
-    if not catalog_path.is_file():
-        raise FileNotFoundError(f"Δεν βρέθηκε ο κατάλογος: {catalog_path}")
+def read_catalog(path: Path) -> list[dict[str, str]]:
+    if not path.is_file():
+        raise FileNotFoundError(f"Δεν βρέθηκε ο κατάλογος: {path}")
 
-    with catalog_path.open("r", encoding="utf-8-sig", newline="") as handle:
+    with path.open("r", encoding="utf-8-sig", newline="") as handle:
         reader = csv.DictReader(handle)
         fieldnames = tuple(reader.fieldnames or ())
-        missing = [column for column in REQUIRED_COLUMNS if column not in fieldnames]
+        missing = [name for name in REQUIRED_COLUMNS if name not in fieldnames]
         if missing:
-            raise ValueError(
-                "Ο κατάλογος δεν περιέχει τα υποχρεωτικά πεδία: "
-                + ", ".join(missing)
-            )
+            raise ValueError("Λείπουν πεδία καταλόγου: " + ", ".join(missing))
 
         rows: list[dict[str, str]] = []
-        seen_codes: set[str] = set()
-        for line_number, raw_row in enumerate(reader, start=2):
-            row = {column: normalize(raw_row.get(column, "")) for column in REQUIRED_COLUMNS}
+        seen: set[str] = set()
+        for line_number, raw in enumerate(reader, start=2):
+            row = {name: normalize(raw.get(name, "")) for name in REQUIRED_COLUMNS}
             code = row["Κωδικός"]
-            if not re.fullmatch(r"SRC-[0-9A-F]{10}", code):
+            if SOURCE_ID_RE.fullmatch(code) is None:
                 raise ValueError(f"Μη έγκυρος κωδικός στη γραμμή {line_number}: {code!r}")
-            if code in seen_codes:
+            if code in seen:
                 raise ValueError(f"Διπλός κωδικός στον κατάλογο: {code}")
-            seen_codes.add(code)
+            seen.add(code)
             rows.append(row)
 
     return sorted(
         rows,
-        key=lambda item: (
-            item["Τίτλος"].casefold(),
-            item["Έτος"],
-            item["Κωδικός"],
-        ),
+        key=lambda row: (row["Τίτλος"].casefold(), row["Έτος"], row["Κωδικός"]),
     )
 
 
 def split_topics(value: str) -> Iterable[str]:
-    for topic in value.split(";"):
-        cleaned = normalize(topic)
-        if cleaned:
-            yield cleaned
+    for item in value.split(";"):
+        item = normalize(item)
+        if item:
+            yield item
 
 
-def count_values(rows: Sequence[Mapping[str, str]], column: str) -> Counter[str]:
+def count_column(rows: Sequence[Mapping[str, str]], column: str) -> Counter[str]:
     return Counter(normalize(row.get(column, "")) or "χωρίς τιμή" for row in rows)
 
 
 def count_topics(rows: Sequence[Mapping[str, str]]) -> Counter[str]:
-    counter: Counter[str] = Counter()
+    result: Counter[str] = Counter()
     for row in rows:
         topics = list(split_topics(normalize(row.get("Θέματα", ""))))
-        if topics:
-            counter.update(topics)
-        else:
-            counter["χωρίς κατηγορία"] += 1
-    return counter
+        result.update(topics or ["χωρίς κατηγορία"])
+    return result
 
 
-def counter_table(counter: Counter[str], first_header: str) -> list[str]:
-    lines = [f"| {first_header} | Πλήθος |", "|---|---:|"]
+def render_counter(counter: Counter[str], heading: str) -> list[str]:
+    lines = [f"| {heading} | Πλήθος |", "|---|---:|"]
     for label, count in sorted(counter.items(), key=lambda item: (-item[1], item[0].casefold())):
         lines.append(f"| {markdown_escape(label)} | {count} |")
     return lines
@@ -127,34 +114,32 @@ def counter_table(counter: Counter[str], first_header: str) -> list[str]:
 
 def generate_archive(root: Path, rows: Sequence[Mapping[str, str]]) -> str:
     source_dir = root / "πηγές"
-    missing_source_files = [
-        row["Κωδικός"] for row in rows if not (source_dir / f"{row['Κωδικός']}.md").is_file()
-    ]
+    missing = [row["Κωδικός"] for row in rows if not (source_dir / f"{row['Κωδικός']}.md").is_file()]
 
     lines = [
         "# Αρχείο πηγών",
         "",
-        "> Αυτό το αρχείο παράγεται αυτόματα. Μην το επεξεργάζεσαι χειροκίνητα.",
-        "> Η δομημένη πηγή αλήθειας είναι το `κατάλογος/πηγές.csv` και τα πλήρη",
+        "> Generated αρχείο. Μην το επεξεργάζεσαι χειροκίνητα.",
+        "> Η δομημένη πηγή αλήθειας είναι το `κατάλογος/πηγές.csv` και όλα τα πλήρη",
         "> Markdown βρίσκονται στον ενιαίο φάκελο `πηγές/`.",
         "",
         f"- **Συνολικές ενεργές πηγές:** {len(rows)}",
-        f"- **Πλήρη αρχεία Markdown που λείπουν:** {len(missing_source_files)}",
-        "- **Σκοπός:** απογραφή, φιλτράρισμα, έλεγχος μεταδεδομένων και προετοιμασία επιλογής για τη διπλωματική.",
+        f"- **Πλήρη Markdown που λείπουν:** {len(missing)}",
+        "- **Χρήση:** απογραφή, φίλτρα, έλεγχος μεταδεδομένων και επιλογή πηγών για τη διπλωματική.",
         "",
-        "Η παρουσία μιας πηγής στον πίνακα δεν σημαίνει ότι έχει επαληθευτεί ή εγκριθεί για παραπομπή.",
+        "Η καταχώριση δεν σημαίνει ότι η πηγή έχει επαληθευτεί ή εγκριθεί για παραπομπή.",
         "",
         "## Σύνοψη ανά τύπο",
         "",
-        *counter_table(count_values(rows, "Τύπος"), "Τύπος πηγής"),
+        *render_counter(count_column(rows, "Τύπος"), "Τύπος πηγής"),
         "",
         "## Σύνοψη ανά θέμα / tag",
         "",
-        *counter_table(count_topics(rows), "Θέμα / tag"),
+        *render_counter(count_topics(rows), "Θέμα / tag"),
         "",
         "## Σύνοψη κατάστασης",
         "",
-        *counter_table(count_values(rows, "Κατάσταση"), "Κατάσταση"),
+        *render_counter(count_column(rows, "Κατάσταση"), "Κατάσταση"),
         "",
         "## Πλήρης πίνακας πηγών",
         "",
@@ -164,8 +149,7 @@ def generate_archive(root: Path, rows: Sequence[Mapping[str, str]]) -> str:
 
     for row in rows:
         code = row["Κωδικός"]
-        source_path = source_dir / f"{code}.md"
-        markdown_link = f"[πηγή](πηγές/{code}.md)" if source_path.is_file() else "λείπει"
+        local = source_dir / f"{code}.md"
         cells = (
             f"`{code}`",
             markdown_escape(row["Τίτλος"]),
@@ -176,30 +160,21 @@ def generate_archive(root: Path, rows: Sequence[Mapping[str, str]]) -> str:
             markdown_escape(row["Κατάσταση"]),
             markdown_escape(row["Επιβεβαίωση"]),
             markdown_escape(row["Προτεραιότητα"]),
-            markdown_link,
+            f"[πηγή](πηγές/{code}.md)" if local.is_file() else "λείπει",
             safe_link(row["Σύνδεσμος"]),
             markdown_escape(row["Σημειώσεις"]),
         )
         lines.append("| " + " | ".join(cells) + " |")
 
-    if missing_source_files:
-        lines.extend(
-            [
-                "",
-                "## Αρχεία Markdown που λείπουν",
-                "",
-                *[f"- `{code}`" for code in missing_source_files],
-            ]
-        )
+    if missing:
+        lines.extend(["", "## Markdown που λείπουν", "", *[f"- `{code}`" for code in missing]])
 
-    lines.append("")
-    return "\n".join(lines)
+    return "\n".join([*lines, ""])
 
 
 def parse_front_matter(text: str) -> tuple[dict[str, str], str]:
     if not text.startswith("---\n"):
         return {}, text.strip()
-
     closing = text.find("\n---\n", 4)
     if closing == -1:
         return {}, text.strip()
@@ -208,7 +183,7 @@ def parse_front_matter(text: str) -> tuple[dict[str, str], str]:
     for line in text[4:closing].splitlines():
         key, separator, value = line.partition(":")
         if separator:
-            metadata[normalize(key).casefold()] = normalize(value).strip('"\'')
+            metadata[normalize(key).casefold()] = normalize(value).strip("\"'")
     return metadata, text[closing + 5 :].strip()
 
 
@@ -224,23 +199,27 @@ def remove_first_h1(body: str) -> str:
 
 
 def verified_excerpt_files(root: Path) -> list[tuple[str, Path, dict[str, str], str]]:
-    excerpt_dir = root / "αποσπάσματα"
-    results: list[tuple[str, Path, dict[str, str], str]] = []
-    if not excerpt_dir.is_dir():
-        return results
+    folder = root / "αποσπάσματα"
+    if not folder.is_dir():
+        return []
 
-    for path in sorted(excerpt_dir.glob("SRC-*.md"), key=lambda item: item.name):
-        text = path.read_text(encoding="utf-8")
-        metadata, body = parse_front_matter(text)
+    result: list[tuple[str, Path, dict[str, str], str]] = []
+    for path in sorted(folder.glob("SRC-*.md"), key=lambda item: item.name):
+        metadata, body = parse_front_matter(path.read_text(encoding="utf-8"))
         code = normalize(metadata.get("κωδικός", "")) or path.stem
-        status = normalize(metadata.get("κατάσταση", "")).casefold()
-        checked_original = normalize(metadata.get("ελεγχθέν-πρωτότυπο", "")).casefold()
-        if status != VERIFIED_STATUS or checked_original not in {"ναι", "yes", "true"}:
-            continue
+
+        # Η ταυτότητα ελέγχεται για κάθε αρχείο, ακόμη και αν είναι πρόχειρο.
+        if SOURCE_ID_RE.fullmatch(code) is None:
+            raise ValueError(f"Μη έγκυρος κωδικός στο {path}: {code!r}")
         if code != path.stem:
             raise ValueError(f"Ασυμφωνία κωδικού στο {path}: {code} != {path.stem}")
-        results.append((code, path, metadata, remove_first_h1(body)))
-    return results
+
+        status = normalize(metadata.get("κατάσταση", "")).casefold()
+        checked = normalize(metadata.get("ελεγχθέν-πρωτότυπο", "")).casefold()
+        if status != VERIFIED_STATUS or checked not in {"ναι", "yes", "true"}:
+            continue
+        result.append((code, path, metadata, remove_first_h1(body)))
+    return result
 
 
 def generate_excerpts(root: Path, rows: Sequence[Mapping[str, str]]) -> str:
@@ -250,45 +229,39 @@ def generate_excerpts(root: Path, rows: Sequence[Mapping[str, str]]) -> str:
     lines = [
         "# Χρήσιμα αποσπάσματα",
         "",
-        "> Αυτό το αρχείο παράγεται αυτόματα από τα επαληθευμένα αρχεία του φακέλου `αποσπάσματα/`.",
-        "> Περιλαμβάνονται μόνο εγγραφές με `κατάσταση: επαληθευμένο` και",
-        "> `ελεγχθέν-πρωτότυπο: ναι`. Πρόχειρες επιλογές του NotebookLM δεν εμφανίζονται ως citation-ready evidence.",
+        "> Generated αρχείο από τα επαληθευμένα `αποσπάσματα/SRC-*.md`.",
+        "> Περιλαμβάνονται μόνο αρχεία με `κατάσταση: επαληθευμένο` και",
+        "> `ελεγχθέν-πρωτότυπο: ναι`. Πρόχειρες επιλογές NotebookLM δεν είναι citation-ready evidence.",
         "",
         f"- **Πηγές με επαληθευμένα αποσπάσματα:** {len(included)}",
-        "- **Μονάδα ιχνηλασιμότητας:** κωδικός `SRC-*`, ακριβής θέση, ισχυρισμός, συμφραζόμενα και περιορισμοί.",
+        "- **Ιχνηλασιμότητα:** κωδικός `SRC-*`, ακριβής θέση, ισχυρισμός, συμφραζόμενα και περιορισμοί.",
         "",
         "## Ευρετήριο",
         "",
-        "| Κωδικός | Πηγή | Συγγραφείς | Έτος | Θέματα | Αρχείο αποσπασμάτων | Πλήρες Markdown | Link |",
+        "| Κωδικός | Πηγή | Συγγραφείς | Έτος | Θέματα | Αποσπάσματα | Πλήρες Markdown | Link |",
         "|---|---|---|---:|---|---|---|---|",
     ]
 
     for code, path, _metadata, _body in included:
         row = catalog.get(code)
         if row is None:
-            raise ValueError(f"Το αρχείο αποσπασμάτων {path} δεν υπάρχει στον κατάλογο")
-        lines.append(
-            "| "
-            + " | ".join(
-                (
-                    f"`{code}`",
-                    markdown_escape(row["Τίτλος"]),
-                    markdown_escape(row["Συγγραφείς"]),
-                    markdown_escape(row["Έτος"]),
-                    markdown_escape(row["Θέματα"]),
-                    f"[αποσπάσματα](αποσπάσματα/{code}.md)",
-                    f"[πηγή](πηγές/{code}.md)",
-                    safe_link(row["Σύνδεσμος"]),
-                )
-            )
-            + " |"
+            raise ValueError(f"Το {path} δεν αντιστοιχεί σε καταχωρισμένη πηγή")
+        cells = (
+            f"`{code}`",
+            markdown_escape(row["Τίτλος"]),
+            markdown_escape(row["Συγγραφείς"]),
+            markdown_escape(row["Έτος"]),
+            markdown_escape(row["Θέματα"]),
+            f"[αρχείο](αποσπάσματα/{code}.md)",
+            f"[πηγή](πηγές/{code}.md)",
+            safe_link(row["Σύνδεσμος"]),
         )
+        lines.append("| " + " | ".join(cells) + " |")
 
     if not included:
-        lines.extend(["", "Δεν υπάρχουν ακόμη επαληθευμένα αποσπάσματα.", ""])
-        return "\n".join(lines)
+        return "\n".join([*lines, "", "Δεν υπάρχουν ακόμη επαληθευμένα αποσπάσματα.", ""])
 
-    for code, path, metadata, body in included:
+    for code, _path, metadata, body in included:
         row = catalog[code]
         lines.extend(
             [
@@ -302,15 +275,14 @@ def generate_excerpts(root: Path, rows: Sequence[Mapping[str, str]]) -> str:
                 f"- **Τύπος:** {row['Τύπος'] or '—'}",
                 f"- **Θέματα / tags:** {row['Θέματα'] or '—'}",
                 f"- **Ημερομηνία ελέγχου:** {metadata.get('ημερομηνία-ελέγχου', '—') or '—'}",
-                f"- **Αρχεία:** [πλήρες Markdown](πηγές/{code}.md) · [αρχείο αποσπασμάτων](αποσπάσματα/{code}.md)",
+                f"- **Αρχεία:** [πλήρες Markdown](πηγές/{code}.md) · [αποσπάσματα](αποσπάσματα/{code}.md)",
                 f"- **Εξωτερική πηγή:** {safe_link(row['Σύνδεσμος'])}",
                 "",
                 body or "_Δεν υπάρχει σώμα αποσπασμάτων._",
             ]
         )
 
-    lines.append("")
-    return "\n".join(lines)
+    return "\n".join([*lines, ""])
 
 
 def generate_outputs(root: Path) -> dict[Path, str]:
@@ -331,11 +303,11 @@ def write_outputs(outputs: Mapping[Path, str]) -> None:
 
 
 def check_outputs(outputs: Mapping[Path, str]) -> bool:
-    stale: list[Path] = []
-    for path, expected in outputs.items():
-        actual = path.read_text(encoding="utf-8") if path.is_file() else None
-        if actual != expected:
-            stale.append(path)
+    stale = [
+        path
+        for path, expected in outputs.items()
+        if not path.is_file() or path.read_text(encoding="utf-8") != expected
+    ]
     if stale:
         print("Τα παρακάτω συγκεντρωτικά αρχεία λείπουν ή είναι παρωχημένα:", file=sys.stderr)
         for path in stale:
@@ -344,24 +316,12 @@ def check_outputs(outputs: Mapping[Path, str]) -> bool:
     return True
 
 
-def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument(
-        "--root",
-        type=Path,
-        default=Path(__file__).resolve().parents[1],
-        help="ρίζα repository (χρήσιμο για tests)",
-    )
-    parser.add_argument(
-        "--check",
-        action="store_true",
-        help="έλεγχος ότι τα ήδη αποθηκευμένα αρχεία είναι ενημερωμένα",
-    )
-    return parser
-
-
 def main(argv: Sequence[str] | None = None) -> int:
-    args = build_parser().parse_args(argv)
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
+    parser.add_argument("--check", action="store_true")
+    args = parser.parse_args(argv)
+
     try:
         outputs = generate_outputs(args.root)
         if args.check:
