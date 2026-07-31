@@ -8,6 +8,7 @@ on:
       - "πηγές/**"
       - "πρωτότυπα/**"
       - "εργαλεία/μεταδεδομένα.py"
+      - "εργαλεία/επόμενες-πηγές.py"
       - ".github/workflows/ενημέρωση-μεταδεδομένων.yml"
   schedule:
     - cron: "0 4 * * 0"
@@ -39,7 +40,12 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Ενημέρωση μεταδεδομένων και επόμενων πηγών
+      - name: Γρήγορη ενημέρωση λίστας επόμενων πηγών
+        if: ${{ github.event_name == 'push' }}
+        run: python εργαλεία/επόμενες-πηγές.py
+
+      - name: Πλήρες βιβλιογραφικό enrichment
+        if: ${{ github.event_name != 'push' }}
         run: python εργαλεία/μεταδεδομένα.py
 
       - name: Έλεγχος αποθετηρίου
@@ -54,5 +60,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add κατάλογος
-          git commit -m "chore: ενημέρωση βιβλιογραφικών μεταδεδομένων"
+          if [ "${{ github.event_name }}" = "push" ]; then
+            git commit -m "chore: ενημέρωση λίστας προτεινόμενων πηγών"
+          else
+            git commit -m "chore: ενημέρωση βιβλιογραφικών μεταδεδομένων"
+          fi
           git push origin HEAD:main
