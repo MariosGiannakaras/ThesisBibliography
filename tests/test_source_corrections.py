@@ -20,6 +20,7 @@ def load_script(module_name: str, filename: str):
 
 
 DUPLICATES = load_script("exact_pdf_duplicates_test", "ακριβή-διπλότυπα.py")
+CORRECTIONS = load_script("known_source_corrections_test", "γνωστές-διορθώσεις.py")
 
 
 class SourceCorrectionTests(unittest.TestCase):
@@ -46,6 +47,13 @@ class SourceCorrectionTests(unittest.TestCase):
         )
         allowed, _ = can_create_source_from_pdf(Path("FULLTEXT02.pdf"), info)
         self.assertFalse(allowed)
+
+    def test_combined_notes_are_idempotent_across_existing_delimited_text(self):
+        existing = "πρώτη σημείωση | επαναλαμβανόμενη σημείωση | επαναλαμβανόμενη σημείωση"
+        self.assertEqual(
+            "πρώτη σημείωση | επαναλαμβανόμενη σημείωση | νέα σημείωση",
+            CORRECTIONS.combine_notes(existing, "επαναλαμβανόμενη σημείωση", "νέα σημείωση"),
+        )
 
     def test_lfs_pointer_uses_object_oid(self):
         oid = "a" * 64
