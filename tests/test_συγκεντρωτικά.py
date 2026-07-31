@@ -62,7 +62,8 @@ class ConsolidatedViewsTests(unittest.TestCase):
                 f"# {code}\n\nFull source text.\n", encoding="utf-8"
             )
 
-        (self.root / "αποσπάσματα" / "SRC-AAAAAAAAAA.md").write_text(
+        self.verified_excerpt_path = self.root / "αποσπάσματα" / "SRC-AAAAAAAAAA.md"
+        self.verified_excerpt_path.write_text(
             """---
 κωδικός: SRC-AAAAAAAAAA
 κατάσταση: επαληθευμένο
@@ -121,11 +122,22 @@ This must not be exported.
         self.assertFalse(MODULE.check_outputs(MODULE.generate_outputs(self.root)))
 
     def test_rejects_excerpt_code_mismatch(self) -> None:
-        path = self.root / "αποσπάσματα" / "SRC-AAAAAAAAAA.md"
-        text = path.read_text(encoding="utf-8").replace(
-            "κωδικός: SRC-AAAAAAAAAA", "κωδικός: SRC-CCCCCCCCCC"
+        self.verified_excerpt_path.write_text(
+            """---
+κωδικός: SRC-CCCCCCCCCC
+κατάσταση: επαληθευμένο
+ελεγχθέν-πρωτότυπο: ναι
+---
+
+# Mismatched evidence
+""",
+            encoding="utf-8",
         )
-        path.write_text(text, encoding="utf-8")
+
+        metadata, _ = MODULE.parse_front_matter(
+            self.verified_excerpt_path.read_text(encoding="utf-8")
+        )
+        self.assertEqual(metadata["κωδικός"], "SRC-CCCCCCCCCC")
 
         with self.assertRaises(ValueError):
             MODULE.generate_outputs(self.root)
