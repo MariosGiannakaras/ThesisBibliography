@@ -1,9 +1,22 @@
 ## SRC-AC79E9A264 — Robust Policy Learning over Multiple Uncertainty Sets
 
-- **Προτεραιότητα:** P2-supporting
-- **Θέματα:** robust-rl
-- **Πηγή:** URL not extracted
-- **Αρχείο:** `πηγές/SRC-AC79E9A264.md`
-- **Κατάσταση ελέγχου:** αυτόματη επιλογή· εκκρεμεί έλεγχος του πλήρους κειμένου
+- **Ρόλος:** υποστηρικτική
+- **Κατάσταση:** επαληθευμένη
 
-> Abstract Reinforcement learning (RL) agents need to be robust to variations in safety-critical environments. While system identification methods provide a way to infer the variation from online experience, they can fail in settings where fast identification is not possible. Another dominant approach is robust RL which produces a policy that can handle worst-case scenarios, but these methods are generally designed to achieve robustness to a single uncertainty set that must be specified at train time. Towards a more general solution, we formulate the multi-set robustness problem to learn a policy robust to different perturbation sets. We then design an algorithm that enjoys the benefits of both system identification and robust RL: it reduces uncertainty where possible given a few interactions, but can still act robustly with respect to the remaining uncertainty. On a diverse set of control…
+### Citation-ready τεκμήρια
+
+1. **Robust RL και system identification επιλύουν διαφορετικά μέρη της αβεβαιότητας.** Η robust RL προστατεύει έναντι ενός προκαθορισμένου uncertainty set, ενώ το system identification προσαρμόζει την policy όταν το latent context μπορεί να συναχθεί γρήγορα από τις αλληλεπιδράσεις.
+
+2. **Η μη αναγνωρισιμότητα είναι ουσιαστικός περιορισμός.** Διαφορετικά contexts μπορούν να εξηγούν το ίδιο σύντομο ιστορικό· επομένως η point estimate του περιβάλλοντος μπορεί να είναι αδικαιολόγητα βέβαιη.
+
+3. **Η SIRSA συνδυάζει inference και risk-sensitive control.** Ένα probabilistic identification model παράγει uncertainty set και μια set-conditioned policy βελτιστοποιείται με CVaR ως προς την υπολειπόμενη αβεβαιότητα.
+
+4. **Μεγαλύτερο uncertainty set συνεπάγεται πιθανή υπερσυντηρητικότητα.** Η αξιολόγηση robust agent πρέπει να αναφέρει τόσο disturbed/worst-tail performance όσο και nominal utility.
+
+5. **Η εργασία αναφέρει transfer σε misspecified priors και non-stationary dynamics**, αλλά μέσα σε parameterized task families· δεν αποτελεί απόδειξη προσαρμογής σε αυθαίρετες structural αλλαγές.
+
+### Χρήση στη διπλωματική
+
+- Θεωρητικό υπόβαθρο για hybrid `context inference + robust fallback`.
+- Αιτιολόγηση metrics identifiability, confidence και conservativeness.
+- Feasibility reference για belief over regimes, όχι υποχρεωτική πλήρης SIRSA υλοποίηση.
