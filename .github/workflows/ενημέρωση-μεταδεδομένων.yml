@@ -1,6 +1,14 @@
 name: Ενημέρωση μεταδεδομένων
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - "πηγές/**"
+      - "πρωτότυπα/**"
+      - "εργαλεία/μεταδεδομένα.py"
+      - ".github/workflows/ενημέρωση-μεταδεδομένων.yml"
   schedule:
     - cron: "0 4 * * 0"
   workflow_dispatch:
