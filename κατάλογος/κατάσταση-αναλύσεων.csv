@@ -7,7 +7,7 @@ SRC-A1D7E951DB,[AAAI-25 Tutorial] Robotic Foundation Models & Remaining Challeng
 SRC-B790DF867B,[Lecture] Monte Carlo evaluation and control- A Gridworld Example - Intro to Markov Chains and RL,μεσαία,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-AE8219876F,[Lecture] Monte Carlo evaluation and control: A Gridworld Example | Intro to Markov Chains and RL,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,πρόχειρο,,
 SRC-A6616BE773,A Baseline for Detecting Misclassified and Out-of-Distribution Examples in Neural Networks,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
-SRC-0AEF7EF16A,A Bayesian Approach to Robust Reinforcement Learning - Association for Uncertainty in Artificial Int,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
+SRC-0AEF7EF16A,A Bayesian Approach to Robust Reinforcement Learning - Association for Uncertainty in Artificial Int,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
 SRC-2455B5D0A7,A Comprehensive Survey on Test-Time Adaptation under Distribution Shifts,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-23A2C07D09,A Formal Verification Framework for Runtime Assurance - NASA Technical Reports Server (NTRS),χαμηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-897C38AAF8,A Practical Deep Dive Into Memory Optimization for Agentic Systems (Part A),μεσαία,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
@@ -76,7 +76,7 @@ SRC-CDCEC02AAA,Benchmarking Batch Deep Reinforcement Learning Algorithms,χαμ�
 SRC-CC5B34C28C,Best-Effort Policies for Robust Markov Decision Processes,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-F43D9994F4,Best-Effort Policies for Robust Markov Decision Processes,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-E41D012B99,Best-Effort Policies for Robust Markov Decision Processes,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
-SRC-09DD20BA85,Bounded Robustness in Reinforcement Learning via Lexicographic Objectives,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
+SRC-09DD20BA85,Bounded Robustness in Reinforcement Learning via Lexicographic Objectives,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
 SRC-EDCA7955BD,Bridging the Gap to Real-World Object-Centric Learning,μεσαία,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-24038FBE78,Build Everything with AI Agents- Here's How,χρειάζεται διόρθωση,μόνο μεταδεδομένα,προς ανάλυση,κανένα,,
 SRC-B1B0E55CA6,Build resilient generative AI agents - AWS Architecture Blog,μεσαία,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
@@ -98,7 +98,7 @@ SRC-DFF2EC4502,Constitutional AI: Harmlessness from AI Feedback,μεσαία,δ�
 SRC-D14764616F,Context-Switching and Adaptation- Brain-Inspired Mechanisms for Handling Environmental Changes - Uni,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,πρόχειρο,,
 SRC-DC63A2D5E7,Context-Switching and Adaptation: Brain-Inspired Mechanisms for Handling Environmental Changes - University of Lethbridge,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,πρόχειρο,,
 SRC-5F508C4383,Continual reinforcement learning in a resource allocation simulator,μεσαία,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
-SRC-0A594EACC0,Cooperative Resilience in Artificial Intelligence Multiagent Systems,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
+SRC-0A594EACC0,Cooperative Resilience in Artificial Intelligence Multiagent Systems,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
 SRC-ACB00B414D,CoReaAgents: A Collaboration and Reasoning Framework Based on LLM-Powered Agents for Complex Reasoning Tasks,μεσαία,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-7689DE9EF2,Create Custom Grid World Environments - MATLAB & Simulink - MathWorks,μεσαία,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-29B8223CEB,Creating an LLM-based AI-agent: A high-level methodology towards enhancing LLMs with APIs,μεσαία,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
@@ -362,7 +362,7 @@ SRC-AA093F6111,Reward-Preserving Attacks For Robust Reinforcement Learning,υψ�
 SRC-EC8E7E4711,Rise of agentic AI - Capgemini,χαμηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-3EF475E25A,Robust Average-Reward Markov Decision Processes,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-620F17076C,Robust Deep Reinforcement Learning against Adversarial Perturbations on State Observations,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
-SRC-A3D907D882,Robust Gymnasium: A Unified Modular Benchmark for Robust Reinforcement Learning,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
+SRC-A3D907D882,Robust Gymnasium: A Unified Modular Benchmark for Robust Reinforcement Learning,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
 SRC-9D663D35D0,Robust Markov Decision Processes without Model Estimation,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-F36BDC75F4,Robust Markov Decision Processes- A Place Where AI and Formal Methods Meet,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-DD7CA18422,Robust Markov Decision Processes: A Place Where AI and Formal Methods Meet,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
@@ -408,7 +408,7 @@ SRC-439938DD4C,Sergey Levine-Talk Title: Safety in Reinforcement Learning by Lev
 SRC-AE21B23099,"Simple Statistical Gradient-Following Algorithms for Connectionist RL (Williams, 1992)",υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-2583FFAA52,SoK: Adversarial Machine Learning Attacks and Defences in Multi-Agent Reinforcement Learning,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-7E393FD42E,Solving Real-World Tasks with AI Agents - Carnegie Mellon University,μεσαία,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
-SRC-3EA1176D3A,Solving robust MDPs as a sequence of static RL problems,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
+SRC-3EA1176D3A,Solving robust MDPs as a sequence of static RL problems,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
 SRC-070BF489A5,Solving robust MDPs as a sequence of static RL problems - OpenReview,χρειάζεται διόρθωση,ελλιπές κείμενο,προς ανάλυση,κανένα,,
 SRC-8E786113C3,Stanford CS224R Deep Reinforcement Learning - YouTube,μεσαία,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-1550322156,Stanford CS234- Reinforcement Learning - Winter 2019 - Lecture 3 - Model-Free Policy Evaluation,μεσαία,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
