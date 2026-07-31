@@ -122,8 +122,8 @@ SRC-4D2B7DDC38,Distributionally Robust Reinforcement Learning with Interactive D
 SRC-E9D551F27C,Distributionally Robust Self Paced Curriculum Reinforcement Learning,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-93384F0217,Diversity is All You Need: Learning Skills without a Reward Function,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-7C18826BEE,Dropout as a Bayesian Approximation: Representing Model Uncertainty in Deep Learning,χαμηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
-SRC-8E12FE2688,Efficient Action Robust Reinforcement Learning with Probabilistic Policy Execution Uncertainty,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
-SRC-B88D51FA3F,Efficient Adaptation of Reinforcement Learning Agents to Sudden Environmental Change,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
+SRC-8E12FE2688,Efficient Action Robust Reinforcement Learning with Probabilistic Policy Execution Uncertainty,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,υποστηρικτική,ναι
+SRC-B88D51FA3F,Efficient Adaptation of Reinforcement Learning Agents to Sudden Environmental Change,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
 SRC-54E00B5A43,Efficient Policy Optimization in Robust Constrained MDPs with Iteration Complexity Guarantees,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-2C9FFED27E,Efficient Policy Optimization in Robust Constrained MDPs with Iteration Complexity Guarantees - NIPS,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-781B58434A,Efficient Uncertainty Quantification in Deep Reinforcement Learning - TU Delft Repository,χαμηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
@@ -373,7 +373,7 @@ SRC-A146798ADC,Robust Optimization for Mitigating Reward Hacking with Correlated
 SRC-3D73F42552,ROBUST OPTIMIZATION FOR MITIGATING REWARD HACKING WITH CORRELATED PROXIES - Computer Science,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-AC79E9A264,Robust Policy Learning over Multiple Uncertainty Sets,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,πρόχειρο,,
 SRC-797302A5EE,Robust proximal policy optimization for reinforcement learning,μεσαία,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
-SRC-71F2ECA651,"Robust Reinforcement Learning (Morimoto & Doya, 2001)",χρειάζεται διόρθωση,ελλιπές κείμενο,προς ανάλυση,κανένα,,
+SRC-71F2ECA651,"Robust Reinforcement Learning (Morimoto & Doya, 2001)",χρειάζεται διόρθωση,ελλιπές κείμενο,επαληθευμένη,επαληθευμένο,υπόβαθρο,ναι
 SRC-5C32787AA7,Robust Reinforcement Learning for Flight Control - TU Delft Repository,μεσαία,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-A3CBA6F68F,Robust Reinforcement Learning using Adversarial Populations - OpenReview,χρειάζεται διόρθωση,ελλιπές κείμενο,προς ανάλυση,κανένα,,
 SRC-2FBF55CD6B,Robust Reinforcement Learning- A Review of Foundations and Recent Advances,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
