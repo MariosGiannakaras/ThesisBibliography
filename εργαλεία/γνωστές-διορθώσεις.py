@@ -35,10 +35,11 @@ def combine_topics(*values: str) -> str:
 
 def combine_notes(*values: str) -> str:
     notes: list[str] = []
-    for value in values:
-        value = (value or "").strip()
-        if value and value not in notes:
-            notes.append(value)
+    for raw in values:
+        for value in (raw or "").split(" | "):
+            value = value.strip()
+            if value and value not in notes:
+                notes.append(value)
     return " | ".join(notes)
 
 
