@@ -83,7 +83,7 @@ SRC-B1B0E55CA6,Build resilient generative AI agents - AWS Architecture Blog,με
 SRC-F355021435,Building AI Agents In 44 Minutes,χρειάζεται διόρθωση,μόνο μεταδεδομένα,προς ανάλυση,κανένα,,
 SRC-F7E7C38BFD,"Building resilient applications with AI agents- Profiles, prescriptions and peace of mind - IBM",μεσαία,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-98B4CE528B,"Building safe artificial intelligence- specification, robustness, and assurance - Medium",μεσαία,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
-SRC-3F84F52F97,CARL: A Benchmark for Contextual and Adaptive Reinforcement Learning,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
+SRC-3F84F52F97,CARL: A Benchmark for Contextual and Adaptive Reinforcement Learning,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
 SRC-BBF78C19F5,CARLA Simulator,χαμηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-56EDEC52D6,CARLA: An Open Urban Driving Simulator,χαμηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-B79D67A2F3,Chi Jin @ Princeton - YouTube,χαμηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
@@ -289,7 +289,7 @@ SRC-C90D59EC8C,NeurIPS Poster State Entropy Regularization for Robust Reinforcem
 SRC-6C2389B5D2,Neuro-Symbolic AI in 2024: A Systematic Review,μεσαία,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-D5D57992D2,NIST AI RMF Playbook - NIST,μεσαία,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-81ACE350D5,NIST Issues New Artificial Intelligence Risk Management Framework,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,πρόχειρο,,
-SRC-0F8A6588DC,NovGrid: A Flexible Grid World for Evaluating Agent Response to Novelty,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
+SRC-0F8A6588DC,NovGrid: A Flexible Grid World for Evaluating Agent Response to Novelty,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
 SRC-1B6E17DDF1,Observational Robustness and Invariances in Reinforcement Learning via Lexicographic Objectives | OpenReview,μεσαία,ελλιπές κείμενο,προς ανάλυση,κανένα,,
 SRC-89BD209DAD,Offline Policy Evaluation and Optimization under Confounding - Ambuj Tewari,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-7313A97A30,On Practical Robust Reinforcement Learning: Practical Uncertainty Set and Double-Agent Algorithm,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
@@ -382,7 +382,7 @@ SRC-C0A186F672,Robust sequential decision-making in adversarial environments,μ�
 SRC-4B7D6242D0,Robustness Archives - AI Standards Hub,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-FFBA467166,Robustness Archives - AI Standards Hub,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,πρόχειρο,,
 SRC-BAC9953EAE,Safe and Robust Reinforcement Learning: Principles and Practice,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
-SRC-0406E13B97,Safe Continual Reinforcement Learning Methods for Nonstationary Environments. Towards a Survey of the State of the Art,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
+SRC-0406E13B97,Safe Continual Reinforcement Learning Methods for Nonstationary Environments. Towards a Survey of the State of the Art,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,υποστηρικτική,ναι
 SRC-6F4B8E8DCE,Safe Exploration in Reinforcement Learning: A Generalized Formulation and Algorithms,χαμηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-E918E4D675,Safe Learning in Robotics: From Learning-Based Control to Safe Reinforcement Learning,χαμηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
 SRC-8E77CE2389,Safe Model-based Reinforcement Learning with Stability Guarantees,υψηλή,διαθέσιμο πλήρες κείμενο,προς ανάλυση,κανένα,,
