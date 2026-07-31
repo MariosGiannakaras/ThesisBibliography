@@ -5,6 +5,9 @@ from __future__ import annotations
 import csv
 import hashlib
 import re
+import shutil
+import subprocess
+import tempfile
 from dataclasses import dataclass, field
 from difflib import SequenceMatcher
 from pathlib import Path
@@ -77,6 +80,7 @@ class PdfInfo:
     doi: list[str] = field(default_factory=list)
     arxiv: list[str] = field(default_factory=list)
     metadata_error: str = ""
+    ocr_status: str = "δεν-χρειάστηκε"
 
 
 @dataclass
@@ -208,6 +212,57 @@ def likely_title_from_text(text: str) -> str:
     return max(candidates, default=(0, ""))[1]
 
 
+def _extract_preview(reader: object) -> str:
+    page_texts = []
+    for page in reader.pages[:5]:  # type: ignore[attr-defined]
+        try:
+            page_texts.append(page.extract_text() or "")
+        except Exception:
+            page_texts.append("")
+    return "\n\n--- PAGE ---\n\n".join(page_texts)[:50000]
+
+
+def _ocr_preview(reader: object, language: str = "eng+ell") -> tuple[str, str]:
+    executable = shutil.which("ocrmypdf")
+    if not executable:
+        return "", "μη-διαθέσιμο"
+    try:
+        from pypdf import PdfReader, PdfWriter  # type: ignore
+    except ImportError:
+        return "", "μη-διαθέσιμο"
+
+    with tempfile.TemporaryDirectory(prefix="thesis-identify-ocr-") as directory:
+        temporary = Path(directory)
+        preview = temporary / "preview.pdf"
+        output = temporary / "ocr.pdf"
+        writer = PdfWriter()
+        for page in reader.pages[:5]:  # type: ignore[attr-defined]
+            writer.add_page(page)
+        with preview.open("wb") as handle:
+            writer.write(handle)
+        completed = subprocess.run(
+            [
+                executable,
+                "--skip-text",
+                "--rotate-pages",
+                "--deskew",
+                "--output-type", "pdf",
+                "--optimize", "0",
+                "--tesseract-timeout", "120",
+                "--language", language,
+                str(preview),
+                str(output),
+            ],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        if completed.returncode != 0 or not output.exists():
+            return "", f"απέτυχε-{completed.returncode}"
+        ocr_reader = PdfReader(str(output))
+        return _extract_preview(ocr_reader), "ολοκληρώθηκε"
+
+
 def inspect_pdf(path: Path) -> PdfInfo:
     info = PdfInfo()
     try:
@@ -224,8 +279,14 @@ def inspect_pdf(path: Path) -> PdfInfo:
         creation = clean_pdf_metadata(metadata.get("/CreationDate"))
         year_match = re.search(r"(?:19|20)\d{2}", creation)
         info.year = year_match.group(0) if year_match else ""
-        page_texts = [(page.extract_text() or "") for page in reader.pages[:5]]
-        info.text = "\n\n--- PAGE ---\n\n".join(page_texts)[:50000]
+        info.text = _extract_preview(reader)
+        if len(re.sub(r"\s+", "", info.text)) < 120:
+            ocr_text, ocr_status = _ocr_preview(reader)
+            info.ocr_status = ocr_status
+            if len(re.sub(r"\s+", "", ocr_text)) > len(re.sub(r"\s+", "", info.text)):
+                info.text = ocr_text
+        else:
+            info.ocr_status = "δεν-χρειάστηκε"
     except Exception as exc:
         info.metadata_error = type(exc).__name__
         return info
