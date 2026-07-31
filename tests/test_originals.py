@@ -109,6 +109,73 @@ class OriginalsTests(unittest.TestCase):
             identities("https://youtube.com/watch?v=abc123", "A lecture", ""),
         )
 
+    def test_unmatched_pdf_is_archived_instead_of_deleted(self):
+        from πρωτότυπα_αρχεία import archive_unmatched
+
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            originals = root / "πρωτότυπα"
+            unmatched = originals / "μη-ταυτοποιημένα"
+            incoming = root / "unknown document.pdf"
+            incoming.write_bytes(b"%PDF-1.4\n" + b"unique-content" * 200)
+
+            archived, reason = archive_unmatched(
+                incoming,
+                originals=originals,
+                unmatched=unmatched,
+            )
+
+            self.assertIsNotNone(archived)
+            assert archived is not None
+            self.assertTrue(archived.exists())
+            self.assertFalse(incoming.exists())
+            self.assertIn("αρχειοθετήθηκε", reason)
+
+    def test_only_exact_duplicate_unmatched_pdf_is_deleted(self):
+        from πρωτότυπα_αρχεία import archive_unmatched
+
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            originals = root / "πρωτότυπα"
+            unmatched = originals / "μη-ταυτοποιημένα"
+            first = root / "first.pdf"
+            second = root / "second.pdf"
+            payload = b"%PDF-1.4\n" + b"same-content" * 200
+            first.write_bytes(payload)
+            second.write_bytes(payload)
+
+            archived, _ = archive_unmatched(first, originals=originals, unmatched=unmatched)
+            duplicate, reason = archive_unmatched(second, originals=originals, unmatched=unmatched)
+
+            self.assertIsNotNone(archived)
+            self.assertIsNone(duplicate)
+            self.assertFalse(second.exists())
+            self.assertEqual(1, len(list(unmatched.glob("*.pdf"))))
+            self.assertIn("ακριβές διπλότυπο", reason)
+
+    def test_different_pdf_with_same_name_is_preserved(self):
+        from πρωτότυπα_αρχεία import archive_unmatched
+
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            originals = root / "πρωτότυπα"
+            unmatched = originals / "μη-ταυτοποιημένα"
+            first_dir = root / "a"
+            second_dir = root / "b"
+            first_dir.mkdir()
+            second_dir.mkdir()
+            first = first_dir / "paper.pdf"
+            second = second_dir / "paper.pdf"
+            first.write_bytes(b"%PDF-1.4\n" + b"first" * 300)
+            second.write_bytes(b"%PDF-1.4\n" + b"second" * 300)
+
+            first_archived, _ = archive_unmatched(first, originals=originals, unmatched=unmatched)
+            second_archived, _ = archive_unmatched(second, originals=originals, unmatched=unmatched)
+
+            self.assertIsNotNone(first_archived)
+            self.assertIsNotNone(second_archived)
+            self.assertEqual(2, len(list(unmatched.glob("*.pdf"))))
+
 
 if __name__ == "__main__":
     unittest.main()
