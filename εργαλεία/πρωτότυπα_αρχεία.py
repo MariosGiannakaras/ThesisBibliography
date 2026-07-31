@@ -19,11 +19,13 @@ from πρωτότυπα_κοινά import (
     REPORT_FIELDS,
     REPORT_MD,
     SOURCES,
+    UNMATCHED,
     DownloadResult,
     MatchResult,
     PdfInfo,
     can_create_source_from_pdf,
     inspect_pdf,
+    pdf_identity,
     sha256,
     strong_new_title,
     strong_pdf_identities,
@@ -181,14 +183,75 @@ def repair_row_from_pdf(row: dict[str, str], info: PdfInfo) -> bool:
     return changed
 
 
+def _safe_original_name(name: str) -> str:
+    cleaned = re.sub(r"[^0-9A-Za-zΑ-Ωα-ωΆ-ώ._()\- ]+", "_", name).strip(" ._")
+    if not cleaned:
+        cleaned = "πρωτότυπο.pdf"
+    if not cleaned.casefold().endswith(".pdf"):
+        cleaned += ".pdf"
+    stem = Path(cleaned).stem[:150].rstrip(" ._") or "πρωτότυπο"
+    return stem + ".pdf"
+
+
+def _find_exact_duplicate(path: Path, originals: Path) -> Path | None:
+    identity = pdf_identity(path)
+    for existing in sorted(originals.rglob("*.pdf")):
+        if existing == path:
+            continue
+        try:
+            if pdf_identity(existing) == identity:
+                return existing
+        except OSError:
+            continue
+    return None
+
+
+def archive_unmatched(
+    path: Path,
+    *,
+    originals: Path = ORIGINALS,
+    unmatched: Path = UNMATCHED,
+) -> tuple[Path | None, str]:
+    """Αρχειοθετεί μη ταυτοποιημένο PDF και αφαιρεί μόνο ακριβές αντίγραφο."""
+    originals.mkdir(parents=True, exist_ok=True)
+    unmatched.mkdir(parents=True, exist_ok=True)
+
+    duplicate = _find_exact_duplicate(path, originals)
+    if duplicate:
+        path.unlink()
+        return None, f"αφαιρέθηκε ακριβές διπλότυπο του {duplicate.relative_to(originals)}"
+
+    try:
+        already_archived = path.is_relative_to(unmatched)
+    except ValueError:
+        already_archived = False
+    if already_archived:
+        return path, "παραμένει μόνιμα αρχειοθετημένο ως μη ταυτοποιημένο"
+
+    identity = pdf_identity(path)
+    target = unmatched / f"{identity[:16].upper()}__{_safe_original_name(path.name)}"
+    if target.exists() and target != path:
+        if pdf_identity(target) == identity:
+            path.unlink()
+            return None, f"αφαιρέθηκε ακριβές διπλότυπο του {target.relative_to(originals)}"
+        target = unmatched / f"{identity[:32].upper()}__{_safe_original_name(path.name)}"
+    shutil.move(str(path), target)
+    return target, "αρχειοθετήθηκε μόνιμα ως μη ταυτοποιημένο"
+
+
 def _store_alternate(path: Path, source_id: str) -> tuple[Path | None, str]:
-    digest = sha256(path).upper()
-    alternate = ORIGINALS / f"{source_id}__εναλλακτικό-{digest[:10]}.pdf"
+    identity = pdf_identity(path)
+    for existing in sorted(ORIGINALS.glob(f"{source_id}*.pdf")):
+        if existing != path and pdf_identity(existing) == identity:
+            path.unlink()
+            return None, "αφαιρέθηκε ακριβές διπλότυπο υπάρχοντος πρωτοτύπου"
+
+    alternate = ORIGINALS / f"{source_id}__εναλλακτικό-{identity[:10].upper()}.pdf"
     if alternate.exists():
-        if sha256(alternate) == digest.casefold():
+        if pdf_identity(alternate) == identity:
             path.unlink()
             return None, "αφαιρέθηκε ακριβές διπλότυπο εναλλακτικής έκδοσης"
-        alternate = ORIGINALS / f"{source_id}__εναλλακτικό-{digest[:16]}.pdf"
+        alternate = ORIGINALS / f"{source_id}__εναλλακτικό-{identity[:16].upper()}.pdf"
     shutil.move(str(path), alternate)
     return alternate, "διαφορετική έκδοση της ίδιας πηγής"
 
@@ -199,6 +262,7 @@ def import_uploaded(
     create_missing: bool,
 ) -> tuple[list[str], list[tuple[Path, MatchResult]], bool]:
     ORIGINALS.mkdir(parents=True, exist_ok=True)
+    UNMATCHED.mkdir(parents=True, exist_ok=True)
     INCOMING.mkdir(parents=True, exist_ok=True)
     texts = {row["Κωδικός"]: source_text(SOURCES, row["Κωδικός"]) for row in rows}
     notes: list[str] = []
@@ -209,8 +273,11 @@ def import_uploaded(
         path for path in ORIGINALS.glob("*.pdf")
         if not LINKED_PDF_STEM_RE.fullmatch(path.stem)
     )
+    candidates.extend(UNMATCHED.rglob("*.pdf"))
 
     for path in sorted(set(candidates)):
+        if not path.exists():
+            continue
         result = match_uploaded(path, rows, texts)
         if not result.source_id:
             creation_reason = ""
@@ -224,16 +291,18 @@ def import_uploaded(
             reason = result.reason
             if creation_reason:
                 reason += f"· {creation_reason}"
-            pending_result = MatchResult(None, reason, result.info, result.candidates)
-            notes.append(f"{path.name}: {reason}")
-            pending.append((path, pending_result))
+            archived, archive_reason = archive_unmatched(path)
+            notes.append(f"{path.name}: {reason}· {archive_reason}")
+            if archived:
+                pending_result = MatchResult(None, reason, result.info, result.candidates)
+                pending.append((archived, pending_result))
             continue
 
         target = ORIGINALS / f"{result.source_id}.pdf"
         row = next(row for row in rows if row["Κωδικός"] == result.source_id)
         catalog_changed = repair_row_from_pdf(row, result.info) or catalog_changed
         if target.exists():
-            if sha256(path) == sha256(target):
+            if pdf_identity(path) == pdf_identity(target):
                 path.unlink()
                 notes.append(f"{path.name}: αφαιρέθηκε ακριβές διπλότυπο του {result.source_id}")
             else:
@@ -251,14 +320,19 @@ def import_uploaded(
 def write_pending_report(pending: list[tuple[Path, MatchResult]]) -> None:
     lines = [
         "# Εκκρεμή πρωτότυπα", "",
-        "Τα παρακάτω PDF δεν συνδέθηκαν αυθαίρετα. Εμφανίζονται τα στοιχεία που διαβάστηκαν και οι καλύτεροι υποψήφιοι.", "",
+        "Τα παρακάτω PDF διατηρούνται μόνιμα στο `πρωτότυπα/μη-ταυτοποιημένα/` μέχρι να υπάρξει ασφαλής αντιστοίχιση. Διαγράφεται μόνο ακριβές αντίγραφο με ίδιο SHA-256/LFS object ID.", "",
     ]
     if not pending:
-        lines.append("Δεν υπάρχουν εκκρεμή PDF.")
+        lines.append("Δεν υπάρχουν μη ταυτοποιημένα PDF.")
     for path, result in pending:
         info = result.info
+        try:
+            relative_path = path.relative_to(ORIGINALS)
+        except ValueError:
+            relative_path = path
         lines.extend([
             f"## {path.name}", "",
+            f"- **Αρχείο:** `{relative_path}`",
             f"- **Αποτέλεσμα:** {result.reason}",
             f"- **Τίτλος PDF:** {info.title or 'δεν αναγνωρίστηκε'}",
             f"- **Συγγραφείς:** {info.authors or 'δεν αναγνωρίστηκαν'}",
@@ -323,14 +397,16 @@ def write_report(
     counts: dict[str, int] = {}
     for item in output:
         counts[item["Κατάσταση"]] = counts.get(item["Κατάσταση"], 0) + 1
+    unmatched_count = sum(1 for path in UNMATCHED.rglob("*.pdf") if path.is_file())
     lines = [
         "# Πρωτότυπα πηγών", "",
         f"- PDF: **{counts.get('διαθέσιμο PDF', 0)}**",
+        f"- Μη ταυτοποιημένα PDF που διατηρούνται: **{unmatched_count}**",
         f"- Σύνδεσμοι (YouTube, ιστοσελίδες κ.λπ.): **{counts.get('μόνο σύνδεσμος', 0)}**",
         f"- Χειροκίνητη λήψη: **{counts.get('χρειάζεται χειροκίνητη λήψη', 0)}**",
         f"- Χωρίς σύνδεσμο: **{counts.get('χωρίς σύνδεσμο', 0)}**",
         f"- Εκκρεμούν: **{counts.get('εκκρεμεί', 0)}**", "",
-        "> Τα PDF είναι αρχειακά αντίγραφα. Η καθημερινή εργασία γίνεται στα Markdown.", "",
+        "> Τα PDF είναι αρχειακά αντίγραφα. Η καθημερινή εργασία γίνεται στα Markdown. Μη ταυτοποιημένα PDF δεν διαγράφονται· διαγράφονται μόνο ακριβή αντίγραφα.", "",
         "| Κωδικός | Τίτλος | Κατάσταση | Αρχείο ή σύνδεσμος |",
         "|---|---|---|---|",
     ]
@@ -348,6 +424,6 @@ def write_report(
         title = item["Τίτλος"].replace("|", "\\|")
         lines.append(f"| `{item['Κωδικός']}` | {title} | {item['Κατάσταση']} | {target} |")
     if import_notes:
-        lines.extend(["", "## Αρχεία που αντιστοιχίστηκαν ή δημιουργήθηκαν", ""])
+        lines.extend(["", "## Αρχεία που αντιστοιχίστηκαν, αρχειοθετήθηκαν ή απο-διπλοποιήθηκαν", ""])
         lines.extend(f"- {note}" for note in import_notes)
     REPORT_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")

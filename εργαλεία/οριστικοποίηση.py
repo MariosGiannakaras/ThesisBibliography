@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Κλείνει τις εκκρεμότητες χωρίς να διαγράφει χρήσιμο περιεχόμενο."""
+"""Κλείνει τις εκκρεμότητες χωρίς να διαγράφει χρήσιμο περιεχόμενο ή πρωτότυπα."""
 from __future__ import annotations
 
 import csv
@@ -8,6 +8,7 @@ import subprocess
 import sys
 from pathlib import Path
 
+from πρωτότυπα_αρχεία import archive_unmatched
 from πρωτότυπα_κοινά import (
     CATALOG,
     CATALOG_FIELDS,
@@ -16,6 +17,8 @@ from πρωτότυπα_κοινά import (
     REPORT_CSV,
     ROOT,
     SOURCES,
+    UNMATCHED,
+    pdf_identity,
     write_shortcut,
 )
 
@@ -78,23 +81,28 @@ def write_rows(rows: list[dict[str, str]]) -> None:
         writer.writerows(sorted(rows, key=lambda row: row.get("Τίτλος", "").casefold()))
 
 
-def delete_unmatched_uploads() -> int:
+def preserve_unmatched_uploads() -> tuple[int, int]:
+    """Μεταφέρει κάθε εισερχόμενο PDF στη μόνιμη αρχειοθήκη· διαγράφει μόνο ακριβή αντίγραφα."""
     if not INCOMING.exists():
-        return 0
-    removed = 0
+        return 0, 0
+    archived = 0
+    exact_duplicates = 0
+    for path in sorted(INCOMING.rglob("*.pdf")):
+        if not path.is_file():
+            continue
+        stored, _ = archive_unmatched(path, originals=ORIGINALS, unmatched=UNMATCHED)
+        if stored:
+            archived += 1
+        else:
+            exact_duplicates += 1
     for path in sorted(INCOMING.rglob("*"), reverse=True):
-        if path.is_file():
-            if path.parent == INCOMING and path.name in PRESERVED_INCOMING_FILES:
-                continue
-            path.unlink()
-            removed += 1
-        elif path.is_dir():
+        if path.is_dir():
             try:
                 path.rmdir()
             except OSError:
                 pass
     INCOMING.mkdir(parents=True, exist_ok=True)
-    return removed
+    return archived, exact_duplicates
 
 
 def write_final_report(rows: list[dict[str, str]]) -> None:
@@ -133,16 +141,18 @@ def write_final_report(rows: list[dict[str, str]]) -> None:
         writer.writeheader()
         writer.writerows(records)
 
+    unmatched = sorted(path for path in UNMATCHED.rglob("*.pdf") if path.is_file())
     pdf_count = sum(item["Κατάσταση"] == "διαθέσιμο PDF" for item in records)
     link_count = sum(item["Κατάσταση"] == "μόνο σύνδεσμος" for item in records)
     content_count = sum(item["Κατάσταση"] == "διαθέσιμο περιεχόμενο" for item in records)
     lines = [
         "# Πρωτότυπα πηγών", "",
         f"- PDF: **{pdf_count}**",
+        f"- Μη ταυτοποιημένα PDF που διατηρούνται: **{len(unmatched)}**",
         f"- Σύνδεσμοι: **{link_count}**",
         f"- Πηγές μόνο με χρήσιμο περιεχόμενο: **{content_count}**",
-        "- Εκκρεμούν: **0**", "",
-        "> Κάθε εγγραφή έχει PDF, σύνδεσμο ή ουσιαστικό Markdown/ανάλυση/απόσπασμα.", "",
+        f"- Εκκρεμούν για ταυτοποίηση: **{len(unmatched)}**", "",
+        "> Κάθε εγγραφή έχει PDF, σύνδεσμο ή ουσιαστικό Markdown/ανάλυση/απόσπασμα. Κάθε μη ταυτοποιημένο PDF διατηρείται μόνιμα· διαγράφεται μόνο ακριβές αντίγραφο.", "",
         "| Κωδικός | Τίτλος | Κατάσταση | Αρχείο ή σύνδεσμος |",
         "|---|---|---|---|",
     ]
@@ -154,7 +164,22 @@ def write_final_report(rows: list[dict[str, str]]) -> None:
             target = item["Αρχείο"]
         lines.append(f"| `{item['Κωδικός']}` | {title} | {item['Κατάσταση']} | {target} |")
     REPORT_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
-    PENDING_REPORT.write_text("# Εκκρεμή πρωτότυπα\n\nΔεν υπάρχουν εκκρεμή πρωτότυπα.\n", encoding="utf-8")
+
+    pending_lines = [
+        "# Εκκρεμή πρωτότυπα", "",
+        "Τα παρακάτω PDF διατηρούνται μόνιμα έως ότου αντιστοιχιστούν με ασφάλεια ή μετατραπούν σε πηγή Markdown.", "",
+    ]
+    if not unmatched:
+        pending_lines.append("Δεν υπάρχουν μη ταυτοποιημένα πρωτότυπα.")
+    else:
+        pending_lines.extend([
+            "| Αρχείο | SHA-256 / LFS object ID |",
+            "|---|---|",
+        ])
+        for path in unmatched:
+            relative = path.relative_to(ORIGINALS).as_posix().replace("|", "\\|")
+            pending_lines.append(f"| `{relative}` | `{pdf_identity(path)}` |")
+    PENDING_REPORT.write_text("\n".join(pending_lines) + "\n", encoding="utf-8")
 
 
 def main() -> int:
@@ -175,7 +200,7 @@ def main() -> int:
             deleted.append(source_id)
             remove_related(source_id)
 
-    removed_uploads = delete_unmatched_uploads()
+    archived_uploads, exact_duplicates = preserve_unmatched_uploads()
     write_rows(kept)
     subprocess.run(
         [sys.executable, str(ROOT / "εργαλεία" / "εισαγωγή.py"), "--catalog-only"],
@@ -183,9 +208,13 @@ def main() -> int:
         check=True,
     )
     write_final_report(kept)
-    print(f"Διαγράφηκαν {len(deleted)} πραγματικά κενές πηγές και {removed_uploads} μη αντιστοιχισμένα αρχεία.")
+    print(f"Διαγράφηκαν {len(deleted)} πραγματικά κενές πηγές.")
+    print(
+        f"Αρχειοθετήθηκαν {archived_uploads} μη ταυτοποιημένα PDF και "
+        f"αφαιρέθηκαν {exact_duplicates} ακριβή αντίγραφα."
+    )
     print(f"Διατηρήθηκαν {content_only} πηγές χωρίς PDF/URL επειδή έχουν χρήσιμο περιεχόμενο.")
-    print(f"Παρέμειναν {len(kept)} κλεισμένες εγγραφές και 0 εκκρεμότητες.")
+    print(f"Παρέμειναν {len(kept)} κλεισμένες εγγραφές και {len(list(UNMATCHED.rglob('*.pdf')))} εκκρεμή πρωτότυπα.")
     return 0
 
 

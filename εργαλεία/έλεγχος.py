@@ -5,11 +5,13 @@ from __future__ import annotations
 import csv
 import hashlib
 import re
+from collections import defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCES = ROOT / "πηγές"
 ORIGINALS = ROOT / "πρωτότυπα"
+UNMATCHED = ORIGINALS / "μη-ταυτοποιημένα"
 ANALYSES = ROOT / "αναλύσεις"
 EXCERPTS = ROOT / "αποσπάσματα"
 CATALOG = ROOT / "κατάλογος" / "πηγές.csv"
@@ -45,6 +47,7 @@ LINKED_ORIGINAL_RE = re.compile(
     r"(SRC-[A-F0-9]{10})(?:__(?:εναλλακτικό|σύγκρουση)-(?:SRC-[A-F0-9]{10}|[A-F0-9]{10,16}))?\.(?:pdf|url)",
     re.IGNORECASE,
 )
+LFS_OID_RE = re.compile(rb"oid sha256:([a-f0-9]{64})", re.IGNORECASE)
 OBSOLETE_PATHS = [
     "catalog", "curation", "imports", "notes", "queues", "sources", "incoming",
     "archive", "workspace", "AGENTS.md",
@@ -57,6 +60,15 @@ def sha256(path: Path) -> str:
         for chunk in iter(lambda: handle.read(1024 * 1024), b""):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+def pdf_identity(path: Path) -> str:
+    with path.open("rb") as handle:
+        prefix = handle.read(512)
+    lfs = LFS_OID_RE.search(prefix)
+    if lfs:
+        return lfs.group(1).decode("ascii").lower()
+    return sha256(path)
 
 
 def read_catalog(errors: list[str]) -> list[dict[str, str]]:
@@ -112,18 +124,43 @@ def validate_sources(rows: list[dict[str, str]], errors: list[str]) -> set[str]:
 
 
 def validate_originals(catalog_ids: set[str], errors: list[str]) -> None:
+    pdfs: list[Path] = []
     if ORIGINALS.exists():
-        for path in sorted(item for item in ORIGINALS.iterdir() if item.is_file()):
+        for path in sorted(item for item in ORIGINALS.rglob("*") if item.is_file()):
+            relative = path.relative_to(ORIGINALS)
             if path.name == "README.md":
                 continue
-            match = LINKED_ORIGINAL_RE.fullmatch(path.name)
-            if match:
-                if match.group(1).upper() not in catalog_ids:
-                    errors.append(f"Πρωτότυπο για ανύπαρκτη πηγή: {path.name}")
-                continue
             if path.suffix.casefold() == ".pdf":
+                pdfs.append(path)
+            if path.parent == ORIGINALS:
+                match = LINKED_ORIGINAL_RE.fullmatch(path.name)
+                if match:
+                    if match.group(1).upper() not in catalog_ids:
+                        errors.append(f"Πρωτότυπο για ανύπαρκτη πηγή: {path.name}")
+                    continue
+                if path.suffix.casefold() == ".pdf":
+                    errors.append(
+                        f"Μη συνδεδεμένο PDF στη ρίζα των πρωτοτύπων: {path.name}· "
+                        "πρέπει να αρχειοθετηθεί στο μη-ταυτοποιημένα/"
+                    )
+                    continue
+                errors.append(f"Μη αναγνωρισμένο αρχείο στον φάκελο πρωτοτύπων: {path.name}")
                 continue
-            errors.append(f"Μη αναγνωρισμένο αρχείο στον φάκελο πρωτοτύπων: {path.name}")
+            if UNMATCHED not in path.parents:
+                errors.append(f"Μη αναγνωρισμένη υποδιαδρομή πρωτοτύπων: {relative}")
+            elif path.suffix.casefold() != ".pdf":
+                errors.append(f"Μη υποστηριζόμενο αρχείο στα μη ταυτοποιημένα πρωτότυπα: {relative}")
+
+    by_identity: dict[str, list[Path]] = defaultdict(list)
+    for path in pdfs:
+        try:
+            by_identity[pdf_identity(path)].append(path)
+        except OSError as exc:
+            errors.append(f"Δεν διαβάστηκε το πρωτότυπο {path.relative_to(ROOT)}: {type(exc).__name__}")
+    exact_duplicates = [paths for paths in by_identity.values() if len(paths) > 1]
+    for paths in exact_duplicates[:10]:
+        names = ", ".join(path.relative_to(ROOT).as_posix() for path in paths)
+        errors.append(f"Υπάρχουν ακριβή διπλότυπα PDF: {names}")
 
     if ORIGINALS_REPORT.exists():
         with ORIGINALS_REPORT.open(encoding="utf-8", newline="") as handle:
@@ -190,6 +227,15 @@ def main() -> int:
             errors.append("Ο φάκελος νέες-πηγές περιέχει μη επεξεργασμένα αρχεία")
 
     if INCOMING_ORIGINALS.exists():
+        pending_pdfs = [
+            path for path in INCOMING_ORIGINALS.rglob("*.pdf")
+            if path.is_file()
+        ]
+        if pending_pdfs:
+            errors.append(
+                "Ο φάκελος νέα-πρωτότυπα περιέχει PDF που δεν αρχειοθετήθηκαν: "
+                + ", ".join(path.name for path in pending_pdfs[:10])
+            )
         unsupported = [
             path for path in INCOMING_ORIGINALS.rglob("*")
             if path.is_file() and path.name != "README.md" and path.suffix.casefold() != ".pdf"
@@ -215,6 +261,7 @@ def main() -> int:
         ROOT / "συγχρονισμός" / "prompt-για-κύριο-repo.md",
         ROOT / "νέες-πηγές" / "README.md",
         ROOT / "νέα-πρωτότυπα" / "README.md",
+        ROOT / "πρωτότυπα" / "μη-ταυτοποιημένα" / "README.md",
     ]
     for path in required:
         if not path.exists():
@@ -226,8 +273,12 @@ def main() -> int:
             print(f"- {error}")
         return 1
 
-    original_count = len(list(ORIGINALS.glob("*.pdf"))) if ORIGINALS.exists() else 0
-    print(f"Ο έλεγχος ολοκληρώθηκε για {len(rows)} πηγές και {original_count} PDF.")
+    original_count = len(list(ORIGINALS.rglob("*.pdf"))) if ORIGINALS.exists() else 0
+    unmatched_count = len(list(UNMATCHED.rglob("*.pdf"))) if UNMATCHED.exists() else 0
+    print(
+        f"Ο έλεγχος ολοκληρώθηκε για {len(rows)} πηγές, {original_count} PDF "
+        f"και {unmatched_count} μη ταυτοποιημένα πρωτότυπα."
+    )
     return 0
 
 

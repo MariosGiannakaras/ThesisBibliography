@@ -15,6 +15,7 @@ from κοινά_πηγών import ARXIV_RE, DOI_RE, OPENREVIEW_RE, normalized, n
 ROOT = Path(__file__).resolve().parents[1]
 SOURCES = ROOT / "πηγές"
 ORIGINALS = ROOT / "πρωτότυπα"
+UNMATCHED = ORIGINALS / "μη-ταυτοποιημένα"
 INCOMING = ROOT / "νέα-πρωτότυπα"
 CATALOG = ROOT / "κατάλογος" / "πηγές.csv"
 REPORT_CSV = ROOT / "κατάλογος" / "πρωτότυπα.csv"
@@ -44,6 +45,7 @@ LINKED_PDF_STEM_RE = re.compile(
     r"SRC-[A-F0-9]{10}(?:__(?:εναλλακτικό|σύγκρουση)-(?:SRC-[A-F0-9]{10}|[A-F0-9]{10,16}))?",
     re.IGNORECASE,
 )
+LFS_OID_RE = re.compile(rb"oid sha256:([a-f0-9]{64})", re.IGNORECASE)
 DOCUMENT_TYPES = {
     "ακαδημαϊκή εργασία",
     "διπλωματική ή διατριβή",
@@ -91,6 +93,16 @@ def sha256(path: Path) -> str:
         for chunk in iter(lambda: handle.read(1024 * 1024), b""):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+def pdf_identity(path: Path) -> str:
+    """Επιστρέφει SHA-256 περιεχομένου ή το ισοδύναμο Git LFS object ID."""
+    with path.open("rb") as handle:
+        prefix = handle.read(512)
+    lfs = LFS_OID_RE.search(prefix)
+    if lfs:
+        return lfs.group(1).decode("ascii").lower()
+    return sha256(path)
 
 
 def read_catalog() -> list[dict[str, str]]:
