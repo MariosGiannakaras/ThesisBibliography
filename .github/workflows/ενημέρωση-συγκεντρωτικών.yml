@@ -1,0 +1,55 @@
+name: Ενημέρωση συγκεντρωτικών αρχείων
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "κατάλογος/πηγές.csv"
+      - "πηγές/**"
+      - "αποσπάσματα/**"
+      - "εργαλεία/συγκεντρωτικά.py"
+      - ".github/workflows/ενημέρωση-συγκεντρωτικών.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ενημέρωση-συγκεντρωτικών
+  cancel-in-progress: true
+
+jobs:
+  generate:
+    if: ${{ github.event_name == 'workflow_dispatch' || !contains(github.event.head_commit.message, '[skip ci]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Λήψη αποθετηρίου
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: false
+
+      - name: Ρύθμιση Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Έλεγχος σύνταξης και δοκιμών
+        run: |
+          python -m py_compile εργαλεία/συγκεντρωτικά.py
+          python -m unittest discover -s tests -p "test_συγκεντρωτικά.py" -v
+
+      - name: Παραγωγή αρχείου πηγών και χρήσιμων αποσπασμάτων
+        run: python εργαλεία/συγκεντρωτικά.py
+
+      - name: Αποθήκευση παραγόμενων αρχείων
+        run: |
+          if [ -z "$(git status --porcelain -- ΑΡΧΕΙΟ_ΠΗΓΩΝ.md ΧΡΗΣΙΜΑ_ΑΠΟΣΠΑΣΜΑΤΑ.md)" ]; then
+            echo "Τα συγκεντρωτικά αρχεία είναι ήδη ενημερωμένα."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ΑΡΧΕΙΟ_ΠΗΓΩΝ.md ΧΡΗΣΙΜΑ_ΑΠΟΣΠΑΣΜΑΤΑ.md
+          git commit -m "chore: ενημέρωση συγκεντρωτικών αρχείων [skip ci]"
+          git push
