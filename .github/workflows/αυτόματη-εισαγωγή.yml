@@ -44,13 +44,13 @@ jobs:
       - name: Ρύθμιση Git LFS
         run: |
           git lfs install --local
-          git lfs pull --include="νέες-πηγές/**,νέα-πρωτότυπα/**" --exclude="" || true
+          git lfs pull --include="νέες-πηγές/**,νέα-πρωτότυπα/**,πρωτότυπα/μη-ταυτοποιημένα/**" --exclude="" || true
 
       - name: Κανονικοποίηση κατάληξης PDF
         run: |
           python - <<'PY'
           from pathlib import Path
-          for root in (Path("νέες-πηγές"), Path("νέα-πρωτότυπα")):
+          for root in (Path("νέες-πηγές"), Path("νέα-πρωτότυπα"), Path("πρωτότυπα/μη-ταυτοποιημένα")):
               if not root.exists():
                   continue
               for path in list(root.rglob("*")):
@@ -86,7 +86,7 @@ jobs:
       - name: Αντιστοίχιση και πρώτη λήψη πρωτοτύπων
         run: python εργαλεία/πρωτότυπα.py --download --limit 30
 
-      - name: Οριστικοποίηση χωρίς απώλεια χρήσιμου περιεχομένου
+      - name: Οριστικοποίηση χωρίς απώλεια πρωτοτύπων
         run: python εργαλεία/οριστικοποίηση.py
 
       - name: Έλεγχος αποθετηρίου
@@ -101,7 +101,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "chore: αυτόματη εισαγωγή και οριστικοποίηση πηγών [skip ci]"
+          git commit -m "chore: αυτόματη εισαγωγή χωρίς απώλεια πρωτοτύπων [skip ci]"
           git push
 
       - name: Αναφορά αποτυχίας εξωτερικών υπηρεσιών
