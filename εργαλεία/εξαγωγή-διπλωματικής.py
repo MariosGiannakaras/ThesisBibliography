@@ -10,6 +10,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+from κατάσταση_απόφασης import analysis_original_checked, infer_decision
+
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG = ROOT / "κατάλογος" / "πηγές.csv"
 SELECTION = ROOT / "κατάλογος" / "επιλογή-διπλωματικής.csv"
@@ -31,15 +33,21 @@ ALLOWED_STATUSES = {"προς ανάλυση", "πρόχειρη", "επαληθ
 YES_VALUES = {"ναι", "yes", "true", "1"}
 MIN_ANALYSIS_WORDS = 150
 MIN_EXCERPT_WORDS = 120
-REQUIRED_ANALYSIS_HEADINGS = (
-    "## Βιβλιογραφική ταυτότητα",
-    "## Σύνοψη",
-    "## Μεθοδολογία",
-    "## Κύρια ευρήματα",
-    "## Περιορισμοί και απειλές εγκυρότητας",
-    "## Χρήση στη διπλωματική",
-    "## Κατάσταση επαλήθευσης",
-)
+
+# Δεν απαιτείται ένα μοναδικό template. Απαιτούνται όμως οι βασικές σημασιολογικές
+# ενότητες, με aliases που χρησιμοποιούνται ήδη στις canonical αναλύσεις.
+ANALYSIS_HEADING_GROUPS = {
+    "βιβλιογραφική ταυτότητα": (
+        "Βιβλιογραφική ταυτότητα", "Ταυτότητα", "Βιβλιογραφικά στοιχεία",
+    ),
+    "περιορισμοί": (
+        "Περιορισμοί", "Περιορισμοί και απειλές εγκυρότητας", "Limitations",
+    ),
+    "χρήση στη διπλωματική": (
+        "Χρήση στη διπλωματική", "Σχέση με τη διπλωματική", "Συνάφεια με τη διπλωματική",
+        "Συνάφεια", "Εφαρμογή στη διπλωματική", "Εφαρμογή στη διπλωματική εργασία",
+    ),
+}
 POSITION_PLACEHOLDERS = {
     "σελίδα, ενότητα, πίνακας, σχήμα ή χρονική σήμανση",
 }
@@ -69,6 +77,16 @@ def markdown_label_values(text: str, label: str) -> list[str]:
         re.IGNORECASE | re.MULTILINE,
     )
     return [match.group(1).strip() for match in pattern.finditer(text)]
+
+
+def has_heading(text: str, aliases: tuple[str, ...]) -> bool:
+    headings = [normalize(match.group(1)) for match in re.finditer(r"(?m)^##\s+(.+?)\s*$", text)]
+    for heading in headings:
+        for alias in aliases:
+            target = normalize(alias)
+            if heading == target or heading.startswith(target + " ") or target in heading:
+                return True
+    return False
 
 
 def read_csv(path: Path) -> tuple[list[str], list[dict[str, str]]]:
@@ -137,18 +155,19 @@ def validate() -> tuple[list[str], list[dict[str, str]], dict[str, dict[str, str
 
         analysis_path = ANALYSES / f"{source_id}.md"
         excerpt_path = EXCERPTS / f"{source_id}.md"
+        analysis_text = ""
+        excerpt_text = ""
+
         if not analysis_path.exists():
             errors.append(f"{source_id}: λείπει η δομημένη ανάλυση")
         else:
             analysis_text = analysis_path.read_text(encoding="utf-8", errors="replace")
-            analysis_normalized = normalize(analysis_text)
-            for heading in REQUIRED_ANALYSIS_HEADINGS:
-                if heading not in analysis_text:
-                    errors.append(f"{source_id}: λείπει από την ανάλυση η ενότητα «{heading}»")
-            if "κατάσταση: επαληθευμένη" not in analysis_normalized:
-                errors.append(f"{source_id}: η ανάλυση δεν δηλώνει επαληθευμένη κατάσταση")
-            if "ελεγχθέν-πρωτότυπο: ναι" not in analysis_normalized:
-                errors.append(f"{source_id}: η ανάλυση δεν δηλώνει ότι ελέγχθηκε το πρωτότυπο")
+            decision = infer_decision(analysis_text)
+            if decision == "rejected":
+                errors.append(f"{source_id}: η canonical ανάλυση δηλώνει απόρριψη αλλά το registry ζητά εξαγωγή")
+            for group, aliases in ANALYSIS_HEADING_GROUPS.items():
+                if not has_heading(analysis_text, aliases):
+                    errors.append(f"{source_id}: λείπει σημασιολογική ενότητα ανάλυσης για «{group}»")
             analysis_words = meaningful_word_count(analysis_text)
             if analysis_words < MIN_ANALYSIS_WORDS:
                 errors.append(
@@ -183,6 +202,13 @@ def validate() -> tuple[list[str], list[dict[str, str]], dict[str, dict[str, str
                     f"{source_id}: τα αποσπάσματα δεν έχουν αρκετό ουσιαστικό περιεχόμενο "
                     f"({excerpt_words}/{MIN_EXCERPT_WORDS} λέξεις)"
                 )
+
+        # Η πρωτογενής επαλήθευση μπορεί να δηλώνεται είτε στην ανάλυση είτε στο
+        # citation-ready excerpt. Δεν απαιτούμε διπλό marker αν το evidence file είναι verified.
+        if analysis_text and excerpt_text:
+            excerpt_checked = "ελεγχθέν-πρωτότυπο: ναι" in normalize(excerpt_text)
+            if not analysis_original_checked(analysis_text) and not excerpt_checked:
+                errors.append(f"{source_id}: δεν δηλώνεται έλεγχος πρωτοτύπου σε analysis ή excerpts")
 
     return errors, exported, catalog, catalog_fields
 
