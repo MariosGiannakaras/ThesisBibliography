@@ -2,152 +2,79 @@
 κωδικός: SRC-F909CABDEB
 κατάσταση: επαληθευμένο
 ελεγχθέν-πρωτότυπο: ναι
-ημερομηνία-ελέγχου: "2026-07-30"
+ημερομηνία-ελέγχου: "2026-08-01"
 ---
 
-# Αποσπάσματα — A Survey of Continual Reinforcement Learning
+# Evidence — A Survey of Continual Reinforcement Learning
 
-## Τεκμήριο E1
+## Evidence E1 — Continual RL balances stability, plasticity, and scalability
+- **Type:** faithful paraphrase
+- **Location:** Introduction; Section III-B
+- **Claim:** Continual RL must preserve prior competence, acquire new behavior, and remain feasible as the task stream grows.
+- **Thesis use:** evaluation dimensions
+- **Topics:** stability; plasticity; scalability
+- **Status:** verified
 
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** Section III-B και Figure 3
-- **Ισχυρισμός:** Η continual adaptation πρέπει να αξιολογείται ως ισορροπία stability, plasticity και scalability, όχι μόνο ως τελική επίδοση στο νεότερο περιβάλλον.
-- **Κεφάλαιο:** Θεωρητικό υπόβαθρο και ερευνητικά κριτήρια
-- **Θέματα:** stability, plasticity, scalability, continual RL
-- **Κατάσταση:** επαληθευμένο
+### Faithful paraphrase
+The survey frames continual RL as a persistent-learning problem with three coupled demands: retaining previously acquired skills, adapting effectively to new tasks, and keeping memory and computation within reasonable bounds as more experience accumulates. Strong performance on only the most recent task is therefore insufficient evidence of a successful continual learner.
 
-### Κείμενο ή πιστή παράφραση
+## Evidence E2 — Average performance and forgetting measure different properties
+- **Type:** faithful paraphrase
+- **Location:** Section III-C, metric definitions
+- **Claim:** Aggregate performance over tasks and the loss of competence on earlier tasks are distinct continual-learning metrics.
+- **Thesis use:** retention metrics
+- **Topics:** average performance; forgetting; retention
+- **Status:** verified
 
-Η survey ορίζει stability ως διατήρηση προηγούμενων ικανοτήτων, plasticity ως αποτελεσματική μάθηση και μεταφορά σε νέες συνθήκες, και scalability ως δυνατότητα συνέχισης με περιορισμένη μνήμη και υπολογισμό. Μια μέθοδος που αποθηκεύει κάθε policy ή επανεκπαιδεύεται πλήρως μπορεί να έχει καλή απόδοση αλλά να μην αποτελεί κλιμακώσιμη continual λύση.
+### Faithful paraphrase
+An agent can obtain a strong average score while still losing substantial performance on an earlier task after learning later tasks. A recurring-regime experiment should therefore report retention or forgetting separately from aggregate reward.
 
-### Συμφραζόμενα
+### Limitation
+Forgetting can only be measured if earlier regimes are revisited or otherwise reevaluated under a declared protocol.
 
-Στη διπλωματική η έννοια μπορεί να χρησιμοποιηθεί για να καταγραφεί το κόστος adaptation και αν ο agent διατηρεί επίδοση όταν επιστρέφει παλαιότερη configuration.
+## Evidence E3 — Forward transfer needs a from-scratch reference
+- **Type:** faithful paraphrase
+- **Location:** Section III-C, transfer metrics
+- **Claim:** Forward transfer asks whether prior learning improves the learning trajectory on a new task relative to a comparable single-task or scratch baseline.
+- **Thesis use:** transfer/context-recall evaluation
+- **Topics:** forward transfer; negative transfer; learning curve
+- **Status:** verified
 
-### Περιορισμοί και κίνδυνος παρερμηνείας
+### Faithful paraphrase
+Prior experience is beneficial only if it improves learning on the new task relative to an appropriate reference that does not receive that transferred knowledge. If the transferred agent learns more slowly or reaches worse performance, the result is negative transfer rather than successful continual adaptation.
 
-Αν το experiment δεν επανεξετάζει παλαιότερες συνθήκες, δεν μπορεί να μετρήσει πλήρως stability/forgetting.
+## Evidence E4 — Task-boundary visibility is a major experimental assumption
+- **Type:** faithful paraphrase
+- **Location:** Section III-E; scenario taxonomy
+- **Claim:** Task-aware and task-agnostic continual-learning settings differ in whether the learner is given task identity or boundary information.
+- **Thesis use:** oracle/non-oracle protocol
+- **Topics:** task boundary; task identity; detector
+- **Status:** verified
 
-### Προτεινόμενη χρήση
+### Faithful paraphrase
+In task-agnostic continual RL, the agent may receive neither a task label nor an explicit signal that the environment changed. This is fundamentally more demanding than a task-aware condition in which the switch is supplied externally. Both can be useful experimentally, but the supplied-boundary version should be labeled as an oracle or diagnostic condition.
 
-Να καθορίσει προαιρετικό recurring-environment test και resource metrics.
+## Evidence E5 — Scalability requires explicit resource reporting
+- **Type:** faithful paraphrase
+- **Location:** Sections III-B–III-D
+- **Claim:** Continual-learning scalability is multidimensional and should be characterized through resource proxies rather than a single score.
+- **Thesis use:** resource-aware evaluation
+- **Topics:** memory; compute; sample efficiency; model growth
+- **Status:** verified
 
-### Παραπομπή
+### Faithful paraphrase
+Methods can preserve performance by storing ever-growing policy sets, replay data, or auxiliary models, but that strategy may become impractical over a long task sequence. Meaningful comparisons should therefore report factors such as environment interactions, memory footprint, model size or growth, training/inference cost, and wall-clock overhead under the same hardware and implementation conditions.
 
-Pan et al. (2025), Section III-B και Figure 3.
+## Evidence E6 — CRL encompasses more than simple source-to-target transfer
+- **Type:** faithful paraphrase
+- **Location:** Sections II–III-A
+- **Claim:** Continual RL emphasizes sequential, persistent learning across changing tasks, including knowledge retention and transfer over time.
+- **Thesis use:** terminology boundary
+- **Topics:** continual RL; transfer RL; multi-task RL
+- **Status:** verified
 
-## Τεκμήριο E2
+### Faithful paraphrase
+Transfer RL can focus on improving a designated target task using source-task knowledge, while continual RL additionally requires a persistent learner to operate over a sequence of changing tasks and manage what to retain, reuse, or update. These paradigms should not be treated as interchangeable.
 
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** Section III-C, Equations 7–8
-- **Ισχυρισμός:** Average performance και forgetting είναι διαφορετικές μετρικές και πρέπει να αναφέρονται χωριστά σε task sequences.
-- **Κεφάλαιο:** Μετρικές
-- **Θέματα:** average performance, forgetting, retention
-- **Κατάσταση:** επαληθευμένο
-
-### Κείμενο ή πιστή παράφραση
-
-Το average performance συνοψίζει την επίδοση στα tasks που έχουν εμφανιστεί, ενώ το forgetting συγκρίνει την επίδοση ενός task όταν μαθεύτηκε με την τελική επίδοση μετά την εκπαίδευση σε μεταγενέστερα tasks. Υψηλό average score μπορεί να συνυπάρχει με σοβαρή απώλεια παλαιών ικανοτήτων αν το νέο task κυριαρχεί στο aggregate.
-
-### Συμφραζόμενα
-
-Για recurring GridWorld configurations, task μπορεί να είναι κάθε distinct transition/reward regime. Η normalization πρέπει να είναι κοινή και ερμηνεύσιμη.
-
-### Περιορισμοί και κίνδυνος παρερμηνείας
-
-Υπάρχουν διαφορετικοί forgetting definitions, όπως last-vs-best ή signed difference. Πρέπει να επιλεγεί ένας πριν από τα experiments.
-
-### Προτεινόμενη χρήση
-
-Να προστεθεί retention test μόνο αν η μελέτη περιλαμβάνει επαναφορά σε προηγούμενο regime.
-
-### Παραπομπή
-
-Pan et al. (2025), Section III-C, Equations 7–8.
-
-## Τεκμήριο E3
-
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** Section III-C, Equations 9–10
-- **Ισχυρισμός:** Forward transfer πρέπει να αξιολογεί αν η προηγούμενη γνώση επιταχύνει τη μάθηση νέου task σε σχέση με single-task training from scratch.
-- **Κεφάλαιο:** Μετρικές προσαρμογής
-- **Θέματα:** forward transfer, backward transfer, learning AUC
-- **Κατάσταση:** επαληθευμένο
-
-### Κείμενο ή πιστή παράφραση
-
-Η AUC-based forward-transfer metric συγκρίνει τη learning curve στο νέο task με αντίστοιχο single-task baseline. Θετική τιμή σημαίνει ότι η συσσωρευμένη γνώση επιταχύνει τη μάθηση, ενώ αρνητική τιμή υποδηλώνει negative transfer. Backward transfer εξετάζει αν η μεταγενέστερη μάθηση βελτιώνει παλαιότερα tasks.
-
-### Συμφραζόμενα
-
-Αυτή η λογική είναι πιο κατάλληλη για adaptation speed από σύγκριση μόνο των τελικών returns.
-
-### Περιορισμοί και κίνδυνος παρερμηνείας
-
-Απαιτεί single-task baselines με ίδιο budget και normalization. Δεν είναι δωρεάν προσθήκη στο πειραματικό κόστος.
-
-### Προτεινόμενη χρήση
-
-Να εξεταστεί normalized post-change AUC against restart-from-scratch baseline ως resilience metric.
-
-### Παραπομπή
-
-Pan et al. (2025), Section III-C, Equations 9–10.
-
-## Τεκμήριο E4
-
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** Section III-E και Table III
-- **Ισχυρισμός:** Η ορατότητα των task boundaries είναι κρίσιμη assumption που διαχωρίζει task-aware από task-agnostic continual learning.
-- **Κεφάλαιο:** Πειραματικό πρωτόκολλο
-- **Θέματα:** task boundaries, task identity, non-stationarity
-- **Κατάσταση:** επαληθευμένο
-
-### Κείμενο ή πιστή παράφραση
-
-Στο task-agnostic setting ο agent δεν λαμβάνει task label και μπορεί να μη γνωρίζει πότε άλλαξε το περιβάλλον. Αντίθετα, σε task-incremental ή ορισμένα benchmark settings οι boundaries είναι διαθέσιμες. Η διαφορά αλλάζει ουσιαστικά τη δυσκολία και το αν απαιτείται detector.
-
-### Συμφραζόμενα
-
-Η επίσημη αίτηση αναφέρεται σε απρόβλεπτες αλλαγές, άρα τουλάχιστον ένα evaluation setting πρέπει να μην παρέχει απευθείας change notification στον agent.
-
-### Περιορισμοί και κίνδυνος παρερμηνείας
-
-Known-change experiments παραμένουν χρήσιμα ως oracle ablation για να διαχωριστεί detection από adaptation.
-
-### Προτεινόμενη χρήση
-
-Να συγκριθεί oracle-known change με hidden-change condition.
-
-### Παραπομπή
-
-Pan et al. (2025), Section III-E και Table III.
-
-## Τεκμήριο E5
-
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** Sections III-C–III-D
-- **Ισχυρισμός:** Resource metrics όπως memory footprint, model growth, environment interactions και wall-clock overhead είναι απαραίτητο context για scalability claims.
-- **Κεφάλαιο:** Μετρικές και περιορισμοί
-- **Θέματα:** compute, memory, sample efficiency, scalability
-- **Κατάσταση:** επαληθευμένο
-
-### Κείμενο ή πιστή παράφραση
-
-Η survey επισημαίνει ότι δεν υπάρχει ενιαίος scalability scalar. Αντί αυτού, τα benchmarks αναφέρουν proxies όπως model size μετά το task stream, replay-buffer ή auxiliary-model memory, training/inference cost, per-step overhead και interactions μέχρι target performance.
-
-### Συμφραζόμενα
-
-Για τη διπλωματική αυτά τα στοιχεία είναι ιδιαίτερα σημαντικά λόγω περιορισμένου hardware και επειδή ένας σύνθετος adaptive agent μπορεί να κερδίζει λίγο σε reward με πολύ μεγαλύτερο κόστος.
-
-### Περιορισμοί και κίνδυνος παρερμηνείας
-
-Τα proxies δεν είναι πλήρως συγκρίσιμα μεταξύ διαφορετικών implementations ή hardware. Πρέπει να αναφέρονται μαζί με το setup.
-
-### Προτεινόμενη χρήση
-
-Να καταγράφονται environment steps, wall-clock training time, peak memory και parameter count.
-
-### Παραπομπή
-
-Pan et al. (2025), Sections III-C–III-D.
+## Avoid overclaiming
+The survey is a taxonomy and methodology source. It does not empirically establish that one context-memory or continual-learning method is optimal for the thesis GridWorld.
