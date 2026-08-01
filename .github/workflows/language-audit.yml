@@ -48,7 +48,12 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add catalog/language-audit.md κατάλογος/language-audit.md 2>/dev/null || true
+          if [ -f catalog/language-audit.md ]; then
+            git add catalog/language-audit.md
+          fi
+          if [ -f κατάλογος/language-audit.md ]; then
+            git add κατάλογος/language-audit.md
+          fi
           if git diff --cached --quiet; then
             echo "Language audit report unchanged."
             exit 0
