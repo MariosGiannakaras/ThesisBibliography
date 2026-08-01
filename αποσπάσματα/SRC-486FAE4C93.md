@@ -2,123 +2,95 @@
 κωδικός: SRC-486FAE4C93
 κατάσταση: επαληθευμένο
 ελεγχθέν-πρωτότυπο: ναι
-ημερομηνία-ελέγχου: "2026-07-31"
+ημερομηνία-ελέγχου: "2026-08-01"
+source-language: en
 ---
 
-# Αποσπάσματα — NIST AI Risk Management Framework 1.0
+# Evidence — NIST AI Risk Management Framework 1.0
 
-## Τεκμήριο E1
+## E1 — AI risk can change with data and deployment context
+- **Type:** faithful paraphrase
+- **Location:** Executive Summary, pp. 1–3
+- **Claim:** AI systems may operate on data or in contexts that change over time, sometimes significantly and unexpectedly, affecting functionality and trustworthiness.
+- **Status:** verified
 
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** Executive Summary, pp. 1–3
-- **Ισχυρισμός:** AI system risks και trustworthiness μπορούν να μεταβληθούν όταν αλλάζουν data ή deployment context.
-- **Κεφάλαιο:** Εισαγωγή
-- **Θέματα:** dynamic risk; context; monitoring
-- **Κατάσταση:** επαληθευμένο
+### Faithful paraphrase
+NIST notes that AI systems can be trained on or exposed to data that change over time and that deployment contexts are often complex. Such changes can alter system behavior and trustworthiness in ways that are difficult to detect or respond to, motivating lifecycle-oriented risk management rather than a one-time pre-deployment assessment.
 
-### Κείμενο ή πιστή παράφραση
+### Context and limits
+The framework is broad institutional guidance. It does not define a reinforcement-learning changepoint detector, adaptation algorithm, or recovery metric.
 
-AI systems μπορεί να εκπαιδεύονται ή να λειτουργούν με data που αλλάζουν σημαντικά και απρόβλεπτα. Η μεταβολή μπορεί να επηρεάσει functionality και trustworthiness με τρόπους που είναι δύσκολο να εντοπιστούν ή να αντιμετωπιστούν.
+### Thesis use
+Use as institutional motivation for evaluating controlled post-deployment changes and for documenting monitoring assumptions.
 
-### Συμφραζόμενα
+### Citation
+NIST (2023), AI RMF 1.0, Executive Summary.
 
-Το framework χρησιμοποιεί αυτή τη διαπίστωση για να αιτιολογήσει lifecycle risk management.
+## E2 — Trustworthiness is multidimensional
+- **Type:** faithful paraphrase
+- **Location:** Section 3, pp. 12–17
+- **Claim:** Validity and reliability, safety, security and resilience, accountability, explainability, privacy, and fairness are distinct trustworthiness characteristics.
+- **Status:** verified
 
-### Περιορισμοί και κίνδυνος παρερμηνείας
+### Faithful paraphrase
+The AI RMF presents valid and reliable behavior as foundational but separately discusses safety, secure and resilient operation, accountability and transparency, explainability and interpretability, privacy enhancement, and fairness with harmful bias managed. A system can therefore perform well on one characteristic without satisfying the others.
 
-Δεν ορίζει RL change detector ή recovery algorithm.
+### Context and limits
+These categories are intentionally general and do not supply task-specific thresholds for a GridWorld experiment.
 
-### Προτεινόμενη χρήση
+### Thesis use
+Avoid treating average return as a complete proxy for reliability, safety, or resilience; retain separate metric families.
 
-Θεσμική αιτιολόγηση της μελέτης dynamic uncertainty και post-deployment monitoring.
+### Citation
+NIST (2023), Section 3.
 
-### Παραπομπή
+## E3 — Failure to measure a risk is not evidence that the risk is absent
+- **Type:** faithful paraphrase
+- **Location:** Section 1.2.1, Risk Measurement
+- **Claim:** Poorly defined or inadequately understood risks are difficult to measure, and the inability to measure them does not imply that the system is low-risk or high-risk.
+- **Status:** verified
 
-NIST (2023), AI RMF 1.0, Executive Summary, pp. 1–3.
+### Faithful paraphrase
+NIST emphasizes that risk measurement can fail because concepts are not well defined, reliable metrics are unavailable, methods do not transfer across contexts, or simplified metrics can be gamed or omit important nuance. Measurement limitations must therefore be documented rather than interpreted as evidence of safety.
 
-## Τεκμήριο E2
+### Context and limits
+This principle does not justify avoiding quantitative evaluation when suitable technical measurements are available.
 
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** Section 3, pp. 12–17
-- **Ισχυρισμός:** Validity/reliability, safety και secure/resilient behavior είναι διαφορετικές διαστάσεις trustworthiness.
-- **Κεφάλαιο:** Θεωρητικό υπόβαθρο
-- **Θέματα:** trustworthiness; reliability; safety; resilience
-- **Κατάσταση:** επαληθευμένο
+### Thesis use
+Report metric assumptions and limitations and do not rely on a single composite resilience score without its component degradation, recovery, and safety measures.
 
-### Κείμενο ή πιστή παράφραση
+### Citation
+NIST (2023), Section 1.2.1.
 
-Το AI RMF οργανώνει trustworthiness σε πολλαπλά χαρακτηριστικά. Valid and reliable αποτελεί βάση, αλλά safety, security/resilience, accountability, explainability, privacy και fairness χρειάζονται ξεχωριστή εξέταση.
+## E4 — GOVERN, MAP, MEASURE, and MANAGE form a lifecycle process
+- **Type:** faithful paraphrase
+- **Location:** Part 2, Section 5, pp. 20–33
+- **Claim:** The AI RMF organizes risk-management activities into interacting GOVERN, MAP, MEASURE, and MANAGE functions applied throughout the system lifecycle.
+- **Status:** verified
 
-### Συμφραζόμενα
+### Faithful paraphrase
+GOVERN establishes cross-cutting policies and responsibilities, MAP connects the system to its deployment context and potential risks, MEASURE evaluates system behavior and trustworthiness, and MANAGE prioritizes and responds to identified risks. These functions are designed to interact and recur rather than act as a single sequential checklist.
 
-Η πολυδιάστατη θεώρηση αποτρέπει την εξίσωση ενός υψηλού average return με συνολική αξιοπιστία.
+### Context and limits
+A thesis benchmark can borrow documentation and monitoring principles from this structure but should not claim organizational compliance with the AI RMF.
 
-### Περιορισμοί και κίνδυνος παρερμηνείας
+### Thesis use
+Structure the experimental record around explicit assumptions, mapped perturbation scenarios, measured effects, and documented response mechanisms.
 
-Οι κατηγορίες είναι γενικές και δεν δίνουν συγκεκριμένα thresholds.
+### Citation
+NIST (2023), Part 2, Section 5.
 
-### Προτεινόμενη χρήση
+## E5 — “Resilient” in the AI RMF should not be substituted for the thesis's operational recovery definition
+- **Type:** scope clarification grounded in the framework
+- **Location:** Section 3.3, Secure and Resilient
+- **Claim:** NIST uses resilience within a broad trustworthiness and security context; a reinforcement-learning experiment still needs a precise operational definition of post-disruption performance and recovery.
+- **Status:** verified
 
-Αιτιολόγηση πολλαπλών metric families και σαφούς περιορισμού του scope.
+### Faithful paraphrase
+The AI RMF groups secure and resilient characteristics with protection against adverse events and the ability to withstand or recover from them. This broad framing is useful context but does not define the exact temporal quantities needed to compare learning agents after controlled environmental shifts.
 
-### Παραπομπή
+### Thesis use
+Use NIST only as high-level motivation and retain the thesis-specific metrics for immediate degradation, recovery time, recovered level, repeated-change behavior, and safety cost.
 
-NIST (2023), Section 3, pp. 12–17.
-
-## Τεκμήριο E3
-
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** Section 1.2.1, pp. 5–7
-- **Ισχυρισμός:** Η αδυναμία πλήρους μέτρησης risk δεν αποδεικνύει απουσία risk και οι απλουστευμένες metrics μπορεί να είναι παραπλανητικές.
-- **Κεφάλαιο:** Threats to validity
-- **Θέματα:** risk measurement; metric limitations
-- **Κατάσταση:** επαληθευμένο
-
-### Κείμενο ή πιστή παράφραση
-
-Risk metrics μπορεί να μην έχουν consensus, να εξαρτώνται από context, να game-άρονται ή να αγνοούν διαφορετικές επιπτώσεις. Η έλλειψη κατάλληλης metric δεν συνεπάγεται ότι ο κίνδυνος είναι χαμηλός.
-
-### Συμφραζόμενα
-
-Το framework ζητά documentation assumptions και limitations.
-
-### Περιορισμοί και κίνδυνος παρερμηνείας
-
-Η αρχή δεν δικαιολογεί ασαφείς ή μη ποσοτικές αξιολογήσεις όταν υπάρχουν κατάλληλες τεχνικές metrics.
-
-### Προτεινόμενη χρήση
-
-Threats-to-validity section και αποφυγή ενός μοναδικού composite resilience score χωρίς components.
-
-### Παραπομπή
-
-NIST (2023), Section 1.2.1, pp. 5–7.
-
-## Τεκμήριο E4
-
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** Part 2, Sections 5.1–5.4, pp. 20–33
-- **Ισχυρισμός:** Risk management οργανώνεται σε GOVERN, MAP, MEASURE και MANAGE και πρέπει να επαναλαμβάνεται στον lifecycle.
-- **Κεφάλαιο:** Μεθοδολογία
-- **Θέματα:** lifecycle; measurement; management
-- **Κατάσταση:** επαληθευμένο
-
-### Κείμενο ή πιστή παράφραση
-
-Governance καθορίζει policies και responsibilities, mapping συνδέει system με context και risks, measurement αξιολογεί trustworthiness και management ιεραρχεί/αντιμετωπίζει risks. Οι λειτουργίες αλληλεπιδρούν και δεν αποτελούν one-time checklist.
-
-### Συμφραζόμενα
-
-Στην ερευνητική εφαρμογή αυτό μεταφράζεται σε documented specification, measured scenarios και explicit response σε failures.
-
-### Περιορισμοί και κίνδυνος παρερμηνείας
-
-Δεν ισχυριζόμαστε formal συμμόρφωση AI RMF από ένα ακαδημαϊκό GridWorld experiment.
-
-### Προτεινόμενη χρήση
-
-Οργάνωση documentation και monitoring principles.
-
-### Παραπομπή
-
-NIST (2023), Part 2, pp. 20–33.
+### Citation
+NIST (2023), Section 3.3.
