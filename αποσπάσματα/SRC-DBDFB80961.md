@@ -2,123 +2,95 @@
 κωδικός: SRC-DBDFB80961
 κατάσταση: επαληθευμένο
 ελεγχθέν-πρωτότυπο: ναι
-ημερομηνία-ελέγχου: "2026-07-31"
+ημερομηνία-ελέγχου: "2026-08-01"
+source-language: en
 ---
 
-# Αποσπάσματα — Bayesian Reinforcement Learning: A Survey
+# Evidence — Bayesian Reinforcement Learning: A Survey
 
-## Τεκμήριο E1
+## E1 — Bayesian RL represents the agent's current state of knowledge explicitly
+- **Type:** faithful paraphrase
+- **Location:** Abstract; Chapter 1, Introduction
+- **Claim:** Bayesian reinforcement learning combines prior information with data to maintain a posterior distribution that can influence sequential action selection.
+- **Status:** verified
 
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** Chapter 1, Introduction, περίπου σελ. 3–6
-- **Ισχυρισμός:** Η Bayesian RL χρησιμοποιεί posterior uncertainty ως κατάσταση γνώσης για exploration και decision making.
-- **Κεφάλαιο:** Θεωρητικό υπόβαθρο
-- **Θέματα:** Bayesian RL; posterior; exploration
-- **Κατάσταση:** επαληθευμένο
+### Faithful paraphrase
+Ghavamzadeh et al. describe Bayesian RL as an approach in which prior information about either the environment or the solution is represented probabilistically and updated as new interaction data arrive. The posterior summarizes the learner's current state of knowledge, subject to the chosen model, and can be used directly when balancing exploration against exploitation.
 
-### Κείμενο ή πιστή παράφραση
+### Context and limits
+A posterior is only as meaningful as its prior, likelihood, representation, and approximation. Bayesian notation does not by itself guarantee calibrated uncertainty under model misspecification.
 
-Η Bayesian προσέγγιση ενσωματώνει prior information και ενημερώνει posterior πάνω σε άγνωστες παραμέτρους. Η κατανομή αυτή περιγράφει την τρέχουσα γνώση του πράκτορα και μπορεί να επηρεάσει την επιλογή ενεργειών, ώστε exploration και exploitation να αντιμετωπίζονται στο ίδιο sequential decision problem.
+### Thesis use
+Treat posterior uncertainty as an information signal that can guide exploration or adaptation, while validating its behavior separately from task return.
 
-### Συμφραζόμενα
+### Citation
+Ghavamzadeh et al. (2015), Abstract and Chapter 1.
 
-Οι συγγραφείς παρουσιάζουν αυτή τη δυνατότητα ως βασικό κίνητρο της BRL.
+## E2 — Model-based and model-free Bayesian RL place priors over different objects
+- **Type:** faithful paraphrase
+- **Location:** Chapter 1; Chapters 4–5
+- **Claim:** Model-based BRL represents uncertainty over environment-model parameters, whereas model-free BRL can place Bayesian structure over value functions, policies, or related solution representations.
+- **Status:** verified
 
-### Περιορισμοί και κίνδυνος παρερμηνείας
+### Faithful paraphrase
+In the model-based family surveyed in Chapter 4, data update a posterior over unknown parameters of the Markov model and planning uses that distribution. In the model-free family surveyed in Chapter 5, Bayesian inference is applied to the solution space without requiring an explicit complete transition model, for example through distributions over value functions or policy parameters.
 
-Η posterior είναι αξιόπιστη μόνο στο μέτρο που prior, likelihood και approximation είναι κατάλληλα.
+### Context and limits
+Hybrid methods may combine both forms of representation, so the distinction is an organizing taxonomy rather than a strict law for every algorithm.
 
-### Προτεινόμενη χρήση
+### Thesis use
+State explicitly what an uncertainty-aware candidate is uncertain about: transition/reward dynamics, values, policy parameters, latent context, or another object.
 
-Θεμελίωση uncertainty-aware exploration και Bayesian candidate agents.
-
-### Παραπομπή
-
-Ghavamzadeh et al. (2015), Chapter 1, DOI 10.1561/2200000049.
-
-## Τεκμήριο E2
-
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** Chapters 4–5
-- **Ισχυρισμός:** Model-based και model-free Bayesian RL τοποθετούν την αβεβαιότητα σε διαφορετικά αντικείμενα.
-- **Κεφάλαιο:** Μοντέλα
-- **Θέματα:** model-based; model-free; uncertainty
-- **Κατάσταση:** επαληθευμένο
-
-### Κείμενο ή πιστή παράφραση
-
-Στη model-based BRL το posterior αφορά παραμέτρους transition ή reward model και χρησιμοποιείται για planning. Στη model-free BRL priors και posteriors ορίζονται πάνω σε value functions, policy parameters ή άλλες αναπαραστάσεις της λύσης χωρίς ρητή πλήρη εκμάθηση του MDP.
-
-### Συμφραζόμενα
-
-Η διάκριση οργανώνει το μεγαλύτερο μέρος της μονογραφίας.
-
-### Περιορισμοί και κίνδυνος παρερμηνείας
-
-Υβριδικές μέθοδοι μπορεί να μην ανήκουν καθαρά σε μία κατηγορία.
-
-### Προτεινόμενη χρήση
-
-Ορισμός των οικογενειών candidate agents και των information requirements τους.
-
-### Παραπομπή
-
+### Citation
 Ghavamzadeh et al. (2015), Chapters 4–5.
 
-## Τεκμήριο E3
+## E3 — Bayes-adaptive decision making is computationally harder than ordinary state-based control
+- **Type:** faithful paraphrase
+- **Location:** Chapter 1; Sections 4.3–4.6
+- **Claim:** Acting optimally with respect to the Bayesian information state generally increases computational complexity and motivates approximate planning methods.
+- **Status:** verified
 
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** Chapter 1 και Sections 4.3–4.6
-- **Ισχυρισμός:** Η πλήρως Bayesian planning λύση είναι συχνά υπολογιστικά δύσκολη και απαιτεί approximations.
-- **Κεφάλαιο:** Περιορισμοί
-- **Θέματα:** Bayes-adaptive MDP; computation; approximation
-- **Κατάσταση:** επαληθευμένο
+### Faithful paraphrase
+The survey notes that Bayesian decision making must account not only for the physical state but also for uncertainty about unknown quantities. Solving this enlarged information-state problem exactly is typically more demanding than solving the corresponding known-model MDP. Practical methods therefore rely on approximations such as value approximations, limited or near-myopic lookahead, tree search, sparse sampling, and exploration bonuses.
 
-### Κείμενο ή πιστή παράφραση
+### Context and limits
+A small tabular problem may make some Bayesian methods feasible, but feasibility must be established empirically under the thesis compute budget rather than assumed from state-space size alone.
 
-Η εισαγωγή belief ή sufficient statistics στην κατάσταση δημιουργεί Bayes-adaptive decision process με αυξημένη πολυπλοκότητα. Για πρακτική επίλυση χρησιμοποιούνται value approximations, limited lookahead, sparse sampling, tree search ή exploration bonuses.
+### Thesis use
+Use a feasibility gate and report per-step compute and memory before promoting a Bayesian candidate to the final baseline matrix.
 
-### Συμφραζόμενα
-
-Η computational difficulty εξηγεί γιατί πολλές BRL μέθοδοι είναι approximations της Bayes-optimal policy.
-
-### Περιορισμοί και κίνδυνος παρερμηνείας
-
-Μικρό tabular GridWorld μπορεί να είναι εφικτό, αλλά αυτό πρέπει να επιβεβαιωθεί με pilot και όχι να θεωρηθεί δεδομένο.
-
-### Προτεινόμενη χρήση
-
-Αιτιολόγηση feasibility gate πριν επιλεγεί Bayesian model.
-
-### Παραπομπή
-
+### Citation
 Ghavamzadeh et al. (2015), Chapter 1 and Sections 4.3–4.6.
 
-## Τεκμήριο E4
+## E4 — Bayesian risk criteria change the optimization objective
+- **Type:** faithful paraphrase
+- **Location:** Chapter 6, Risk-aware Bayesian Reinforcement Learning
+- **Claim:** Parameter uncertainty can be incorporated through risk-sensitive criteria rather than optimizing only posterior-mean performance.
+- **Status:** verified
 
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** Chapter 6, Risk-aware Bayesian Reinforcement Learning
-- **Ισχυρισμός:** Η uncertainty μπορεί να ενσωματωθεί σε risk-aware criteria αντί να βελτιστοποιείται μόνο posterior-mean return.
-- **Κεφάλαιο:** Σχετικές εργασίες
-- **Θέματα:** risk; percentile; min-max
-- **Κατάσταση:** επαληθευμένο
+### Faithful paraphrase
+The risk-aware chapter surveys objectives that account for uncertainty in model or solution parameters through criteria such as bias–variance trade-offs, percentile-based measures, and min–max formulations. Such criteria can deliberately prefer a more conservative policy than one chosen only for maximum expected return.
 
-### Κείμενο ή πιστή παράφραση
+### Context and limits
+Risk-aware optimization is not the same mechanism as online recovery after a changepoint. A conservative Bayesian policy may be robust without performing any post-shift learning.
 
-Η πηγή εξετάζει criteria όπως percentile, bias–variance και min–max επιλογές που λαμβάνουν υπόψη parameter uncertainty και μπορούν να προτιμήσουν πιο συντηρητική policy από εκείνη που μεγιστοποιεί μόνο την αναμενόμενη τιμή.
+### Thesis use
+If a Bayesian robust baseline is included, report nominal utility together with disturbed utility and do not label the risk criterion itself as resilience.
 
-### Συμφραζόμενα
-
-Η επιλογή risk criterion αλλάζει τον στόχο και δημιουργεί robustness–performance trade-off.
-
-### Περιορισμοί και κίνδυνος παρερμηνείας
-
-Risk-aware optimization δεν ταυτίζεται με online resilience ή recovery μετά από change point.
-
-### Προτεινόμενη χρήση
-
-Περιγραφή robust/Bayesian baseline και απαίτηση κοινής αναφοράς nominal και disturbed performance.
-
-### Παραπομπή
-
+### Citation
 Ghavamzadeh et al. (2015), Chapter 6.
+
+## E5 — Prior knowledge is useful but can also become a source of misspecification
+- **Type:** synthesis grounded in the survey
+- **Location:** Chapter 1 and model-based BRL discussion
+- **Claim:** Bayesian methods make prior assumptions explicit; those assumptions should be stress-tested when the deployment regime lies outside the modeled family.
+- **Status:** verified
+
+### Faithful paraphrase
+A principal motivation for Bayesian RL is the ability to incorporate prior structure and regularize learning when data are scarce. The same dependence means that inference and action selection remain conditional on the assumed prior and representation. If the true regime is poorly represented by those assumptions, posterior confidence should not be treated as proof that the inferred model is correct.
+
+### Thesis use
+Include misspecified-prior and true-regime-absent-from-library scenarios for any Bayesian/context model that is retained.
+
+### Citation
+Ghavamzadeh et al. (2015), Chapter 1 and Chapters 4–6.
