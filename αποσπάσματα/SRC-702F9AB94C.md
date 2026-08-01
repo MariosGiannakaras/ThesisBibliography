@@ -2,181 +2,138 @@
 κωδικός: SRC-702F9AB94C
 κατάσταση: επαληθευμένο
 ελεγχθέν-πρωτότυπο: ναι
-ημερομηνία-ελέγχου: "2026-07-31"
+ημερομηνία-ελέγχου: "2026-08-01"
+source-language: en
 ---
 
-# Αποσπάσματα — Block Contextual MDPs for Continual Learning
+# Evidence — Block Contextual MDPs for Continual Learning
 
-## Τεκμήριο E1
+## E1 — Structured non-stationarity can be represented by a changing latent context
 
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** Ενότητες 1 και 3, Definitions 1–3
-- **Ισχυρισμός:** Structured non-stationarity μπορεί να αναπαρασταθεί ως latent context που μεταβάλλει rewards, dynamics και observations σε κοινή task family.
-- **Κεφάλαιο:** Θεωρητικό υπόβαθρο
-- **Θέματα:** contextual MDP; hidden context; task family
-- **Κατάσταση:** επαληθευμένο
+- **Type:** faithful paraphrase
+- **Location:** Sections 1 and 3, Definitions 1–3
+- **Claim:** The BC-MDP framework maps a context to rewards, transition dynamics, and observations and uses changing context to represent related non-stationary tasks.
+- **Status:** verified
 
-### Κείμενο ή πιστή παράφραση
+### Faithful paraphrase
 
-Το BC-MDP ορίζει context που χαρτογραφείται σε reward function, transition kernel και observation space, ενώ η continual setting δεν παρέχει ρητά task boundaries όταν το context αλλάζει.
+Sodhani et al. combine contextual MDPs with rich-observation block MDPs. A context identifies the reward and transition functions and may also determine the observation space. In the continual setting, the context changes without explicit task boundaries, producing non-stationarity across a related family of tasks.
 
-### Συμφραζόμενα
+### Context and limits
 
-Η εργασία προσθέτει Lipschitz smoothness ώστε κοντινά contexts να αντιστοιχούν σε κοντινές task dynamics/rewards.
+The paper focuses on task families with exploitable shared structure and smoothness assumptions rather than arbitrary changes to the state/action interface.
 
-### Περιορισμοί και κίνδυνος παρερμηνείας
+### Thesis use
 
-Το πλαίσιο αφορά related tasks με κοινή δομή και όχι arbitrary αλλαγές state/action space.
+Use `latent_context` as a distinct non-stationarity model and state whether context changes are expected to be related or smooth.
 
-### Προτεινόμενη χρήση
+### Citation
 
-Ορισμός structured/latent-context non-stationarity.
+Sodhani et al. (2022), Sections 1 and 3, Definitions 1–3.
 
-### Παραπομπή
+## E2 — Generalization guarantees depend on context identifiability and task distance
 
-Sodhani et al., 2022, §§1, 3, Defs. 1–3.
+- **Type:** faithful paraphrase
+- **Location:** Section 4, Assumption 1 and Theorem 2
+- **Claim:** The theory assumes a new context can be inferred from a bounded interaction history and that performance error grows with context-estimation error and distance from known tasks.
+- **Status:** verified
 
-## Τεκμήριο E2
+### Faithful paraphrase
 
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** Ενότητα 4, Assumption 1 και Theorem 2
-- **Ισχυρισμός:** Η θεωρητική generalization απαιτεί νέο context που είναι αναγνωρίσιμο από περιορισμένο interaction history και κοντά σε known contexts.
-- **Κεφάλαιο:** Υποθέσεις· Threats to validity
-- **Θέματα:** identifiability; context distance; generalization bound
-- **Κατάσταση:** επαληθευμένο
+The framework assumes that a context encoder can estimate the active context from a fixed number of recent transition tuples. Its value-error bounds then depend on how closely that inferred context matches the true one and on a task metric constructed from reward and transition differences.
 
-### Κείμενο ή πιστή παράφραση
+### Context and limits
 
-Υποτίθεται ότι context encoder μπορεί, από `k` transition tuples, να παράγει εκτίμηση κοντά στο πραγματικό context· το policy-value error αυξάνεται με context approximation και task distance.
+A regime that is not identifiable from recent observations, or that lies far from learned contexts, falls outside the strongest guarantee.
 
-### Συμφραζόμενα
+### Thesis use
 
-Η απόσταση ορίζεται μέσω reward differences και transition-distribution distances.
+Make context identifiability and distance-to-library explicit assumptions for context-conditioned agents.
 
-### Περιορισμοί και κίνδυνος παρερμηνείας
+### Citation
 
-Μία αλλαγή που δεν επηρεάζει άμεσα τα παρατηρούμενα transitions ή δεν είναι identifiable δεν καλύπτεται από το guarantee.
+Sodhani et al. (2022), Section 4, Assumption 1 and Theorem 2.
 
-### Προτεινόμενη χρήση
+## E3 — ZeUS performs context inference without test-time parameter updates
 
-Ρητή καταγραφή assumptions για context-conditioned baselines.
+- **Type:** faithful paraphrase
+- **Location:** Section 5; Figure 1
+- **Claim:** At evaluation time, ZeUS conditions a pretrained policy on context inferred from recent interaction history and does not update model parameters on the new task.
+- **Status:** verified
 
-### Παραπομπή
+### Faithful paraphrase
 
-Sodhani et al., 2022, §4, Assumption 1, Theorem 2.
+The context encoder summarizes the recent trajectory into a task representation and the policy acts conditioned on that representation. Adaptation occurs through online inference of the active context rather than gradient-based relearning of the policy or encoder.
 
-## Τεκμήριο E3
+### Context and limits
 
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** Ενότητα 5 και Figure 1
-- **Ισχυρισμός:** Zero-shot adaptation του ZeUS είναι history-conditioned context inference χωρίς gradient update.
-- **Κεφάλαιο:** Agent taxonomy· Πειραματικό πρωτόκολλο
-- **Θέματα:** zero-shot adaptation; context inference; no parameter update
-- **Κατάσταση:** επαληθευμένο
+The representation and policy were learned in advance over a task family. This is context inference, not post-change parameter learning.
 
-### Κείμενο ή πιστή παράφραση
+### Thesis use
 
-Κατά την εκτέλεση, ο context encoder συνοψίζει τα τελευταία `k` interactions και η policy conditionάρεται στο inferred context, χωρίς ενημέρωση parameters στο νέο task.
+Keep frozen-policy generalization, history-conditioned context inference, and online updating as separate agent categories.
 
-### Συμφραζόμενα
+### Citation
 
-Η representation και η policy έχουν εκπαιδευτεί προηγουμένως σε task family.
+Sodhani et al. (2022), Section 5 and Figure 1.
 
-### Περιορισμοί και κίνδυνος παρερμηνείας
+## E4 — Interpolation and extrapolation require separate reporting
 
-Δεν πρέπει να παρουσιαστεί ως post-change learning ή ως απόδειξη ότι ο agent ανακτά μέσω νέας γνώσης.
+- **Type:** faithful paraphrase
+- **Location:** Sections 6.1–6.3; Figures 2–3
+- **Claim:** The experiments distinguish held-out contexts inside the training range from contexts outside that range.
+- **Status:** verified
 
-### Προτεινόμενη χρήση
+### Faithful paraphrase
 
-Διάκριση frozen policy, context inference και online updating.
+For non-stationary dynamics, the study evaluates contexts both within and beyond parameter ranges used for training. Reward-task experiments use a different context setup, so success there cannot be interpreted as evidence for reward extrapolation outside the training range.
 
-### Παραπομπή
+### Thesis use
 
-Sodhani et al., 2022, §5, Fig. 1.
+Label results as interpolation, extrapolation, or structurally novel change rather than reporting one undifferentiated context-generalization score.
 
-## Τεκμήριο E4
+### Citation
 
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** Ενότητες 6.1–6.3, Figures 2–3
-- **Ισχυρισμός:** Train/test context ranges και interpolation/extrapolation πρέπει να αναφέρονται χωριστά.
-- **Κεφάλαιο:** Πειραματικό πρωτόκολλο
-- **Θέματα:** interpolation; extrapolation; dynamics shift; reward shift
-- **Κατάσταση:** επαληθευμένο
+Sodhani et al. (2022), Sections 6.1–6.3, Figures 2–3.
 
-### Κείμενο ή πιστή παράφραση
+## E5 — Context representation should be evaluated with an ablation
 
-Για dynamics, η εργασία αξιολογεί held-out contexts μέσα και έξω από το training parameter range· για rewards, τα test parameters προέρχονται από το ίδιο range με την εκπαίδευση.
+- **Type:** faithful paraphrase
+- **Location:** Sections 6.3–6.4; Figures 2–4
+- **Claim:** The task-structured context-learning loss improves both held-out-task performance and alignment of learned context distances with task distances in the reported experiments.
+- **Status:** verified
 
-### Συμφραζόμενα
+### Faithful paraphrase
 
-Τα αποτελέσματα αναφέρονται σε 10 seeds με mean και standard error.
+ZeUS is compared with a version that removes the explicit context-structure loss. The full method performs better on held-out tasks and produces a context geometry more correlated with the underlying task metric in the studied task family.
 
-### Περιορισμοί και κίνδυνος παρερμηνείας
+### Context and limits
 
-Η επιτυχία στα reward experiments δεν αποτελεί evidence για reward extrapolation.
+The reported correlation is task-specific and does not prove that a learned representation is universally causal or semantically correct.
 
-### Προτεινόμενη χρήση
+### Thesis use
 
-Υποχρεωτική σήμανση `interpolation`, `extrapolation` και `novel structural change`.
+If a learned context representation is used, include a no-context-structure ablation or simpler explicit-context comparator.
 
-### Παραπομπή
+### Citation
 
-Sodhani et al., 2022, §§6.1–6.3, Figs. 2–3.
+Sodhani et al. (2022), Sections 6.3–6.4, Figures 2–4.
 
-## Τεκμήριο E5
+## E6 — Performance degrades as evaluation contexts move away from the training distribution
 
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** Ενότητες 6.3–6.4, Figures 2–4
-- **Ισχυρισμός:** Το context-learning objective βελτιώνει τόσο reported return όσο και τη γεωμετρική οργάνωση των learned contexts.
-- **Κεφάλαιο:** Σχετικές εργασίες
-- **Θέματα:** context loss; representation; ablation
-- **Κατάσταση:** επαληθευμένο
+- **Type:** faithful paraphrase
+- **Location:** Section 7; Figure 5
+- **Claim:** Even a structured context-inference method loses performance on increasingly distant OOD contexts.
+- **Status:** verified
 
-### Κείμενο ή πιστή παράφραση
+### Faithful paraphrase
 
-Το ZeUS υπερέχει του no-context-loss ablation στα held-out tasks, ενώ η correlation learned και true context distances είναι `0.60` με context loss έναντι `0.23` χωρίς αυτό.
+The paper reports decreasing ZeUS performance as target contexts move farther beyond the range represented during training and notes practical dependence on informative reward or transition signals for distinguishing tasks.
 
-### Συμφραζόμενα
+### Thesis use
 
-Η συσχέτιση αναφέρεται στο Cheetah torso-length task family.
+Evaluate performance as a function of context distance and include a regime that is absent from the context library or training range.
 
-### Περιορισμοί και κίνδυνος παρερμηνείας
+### Citation
 
-Η συγκεκριμένη correlation δεν αποδεικνύει causal representation ούτε γενικεύεται σε arbitrary environments.
-
-### Προτεινόμενη χρήση
-
-Evidence ότι context representations πρέπει να ελέγχονται με ablations και task geometry.
-
-### Παραπομπή
-
-Sodhani et al., 2022, §§6.3–6.4, Figs. 2–4.
-
-## Τεκμήριο E6
-
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** Ενότητα 7, Figure 5
-- **Ισχυρισμός:** Ακόμη και structured context methods υποβαθμίζονται όταν το evaluation context απομακρύνεται από την training distribution.
-- **Κεφάλαιο:** Threats to validity· Μετρικές
-- **Θέματα:** OOD distance; degradation; dense reward
-- **Κατάσταση:** επαληθευμένο
-
-### Κείμενο ή πιστή παράφραση
-
-Η επίδοση του ZeUS μειώνεται καθώς το target velocity κινείται μακρύτερα από το training range, και η μέθοδος βασίζεται εμπειρικά σε dense reward για να διακρίνει tasks.
-
-### Συμφραζόμενα
-
-Το paper αναγνωρίζει ρητά ότι οι guarantees αφορούν contexts κοντά σε seen contexts.
-
-### Περιορισμοί και κίνδυνος παρερμηνείας
-
-Δεν υποστηρίζει open-ended adaptation σε απεριόριστα ή structurally novel regimes.
-
-### Προτεινόμενη χρήση
-
-Αναφορά performance ως συνάρτηση context distance και reward observability.
-
-### Παραπομπή
-
-Sodhani et al., 2022, §7, Fig. 5.
+Sodhani et al. (2022), Section 7 and Figure 5.
