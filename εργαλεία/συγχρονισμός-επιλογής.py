@@ -43,6 +43,8 @@ def main() -> int:
 
     for source_id, source in catalog.items():
         previous = existing.get(source_id, {field: "" for field in FIELDS})
+        previous_role = (previous.get("Ρόλος", "") or "").strip().casefold()
+        previous_status = (previous.get("Κατάσταση", "") or "").strip().casefold()
         analysis_path = ANALYSES / f"{source_id}.md"
         if not analysis_path.exists():
             if previous.get("Κωδικός"):
@@ -56,6 +58,14 @@ def main() -> int:
         text = analysis_path.read_text(encoding="utf-8", errors="replace")
         decision = infer_decision(text)
         inferred_role = infer_role(text)
+
+        # Legacy canonical fallback: παλιές αναλύσεις μπορεί να μην έχουν ομοιόμορφο
+        # «Απόφαση» heading, αλλά το curated registry έχει ήδη ρητή τελική απόρριψη.
+        if decision == "draft" and previous_role == "απόρριψη" and previous_status in {"επαληθευμένη", "απορρίφθηκε"}:
+            decision = "rejected"
+        if decision == "draft" and previous_role in SELECTED_ROLES and previous_status == "επαληθευμένη":
+            decision = "selected"
+
         row = dict(previous)
         row["Κωδικός"] = source_id
 
@@ -92,8 +102,6 @@ def main() -> int:
             row["Σημείωση"] = "Συγχρονισμός από canonical analysis."
         final_rows[source_id] = row
 
-    # Διατηρούμε μόνο κωδικούς του τρέχοντος catalog. Η σειρά των ήδη curated
-    # rows παραμένει σταθερή και οι νέες αποφάσεις προστίθενται στη σειρά catalog.
     ordered: list[dict[str, str]] = []
     seen: set[str] = set()
     for old in existing_rows:
@@ -120,7 +128,6 @@ def main() -> int:
         print("Προειδοποιήσεις συγχρονισμού:")
         for error in errors:
             print(f"- {error}")
-        # Δεν αποτυγχάνει εδώ: ο exporter θα μπλοκάρει μόνο ό,τι δεν είναι citation-ready.
     return 0
 
 
