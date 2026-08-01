@@ -4,9 +4,9 @@ This report checks selected/exported citation-ready evidence for a clear Greek-v
 It does **not** translate content. Mixed/bilingual/short sources are sent to manual review.
 
 - Exported sources checked: **104**
-- Definite cross-language violations: **42**
+- Definite cross-language violations: **41**
 - Manual-review cases: **20**
-- Script-compatible cases: **42**
+- Script-compatible cases: **43**
 - Missing source/evidence files: **0**
 
 ## Definite violations
@@ -15,7 +15,6 @@ These files must be re-authored against the original source; automatic translati
 
 | Source | Source script | Source Greek ratio | Evidence script | Evidence Greek ratio |
 |---|---|---:|---|---:|
-| `SRC-0F8A6588DC` | latin | 0.000 | greek | 0.623 |
 | `SRC-3F84F52F97` | latin | 0.001 | greek | 0.510 |
 | `SRC-8E12FE2688` | latin | 0.034 | greek | 0.540 |
 | `SRC-71F2ECA651` | latin | 0.000 | greek | 0.509 |
