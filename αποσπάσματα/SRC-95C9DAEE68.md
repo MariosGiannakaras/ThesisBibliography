@@ -2,181 +2,88 @@
 κωδικός: SRC-95C9DAEE68
 κατάσταση: επαληθευμένο
 ελεγχθέν-πρωτότυπο: ναι
-ημερομηνία-ελέγχου: "2026-07-30"
+ημερομηνία-ελέγχου: "2026-08-01"
 ---
 
-# Αποσπάσματα — Deep Reinforcement Learning in Non-stationary Environments
-
-## Τεκμήριο E1
-
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** σελίδες 5–7, Ενότητα 1.2, Research Questions 1–2
-- **Ισχυρισμός:** Η αξιολόγηση resilience σε μη στάσιμο RL πρέπει να διαχωρίζει την ανίχνευση της μεταβολής από την προσαρμογή της πολιτικής μετά τη μεταβολή.
-- **Κεφάλαιο:** Ερευνητικά ερωτήματα και θεωρητικό υπόβαθρο
-- **Θέματα:** non-stationarity, change detection, adaptation, resilience
-- **Κατάσταση:** επαληθευμένο
-
-### Κείμενο ή πιστή παράφραση
-
-Η διατριβή οργανώνει το πρόβλημα σε δύο αλληλένδετες διαδικασίες. Πρώτα ο agent πρέπει να αναγνωρίσει άγνωστα change points με επαρκή ακρίβεια και μικρή καθυστέρηση, ώστε να περιοριστεί η απώλεια επίδοσης. Έπειτα πρέπει να προσαρμοστεί γρήγορα στη νέα συνθήκη, αξιοποιώντας πληροφορία για τη φύση και την έκταση της αλλαγής αντί να συνεχίζει μηχανικά την ίδια εκπαίδευση.
-
-### Συμφραζόμενα
-
-Η διάκριση αποτελεί το βασικό ερευνητικό πλαίσιο της διατριβής και δεν περιορίζεται σε έναν συγκεκριμένο αλγόριθμο. Είναι κατάλληλη για να δομήσει τα πειράματα πριν επιλεγούν τελικές μέθοδοι.
-
-### Περιορισμοί και κίνδυνος παρερμηνείας
-
-Δεν σημαίνει ότι κάθε resilient agent χρειάζεται ρητό, ανεξάρτητο change detector. Ορισμένοι αλγόριθμοι μπορεί να προσαρμόζονται συνεχώς χωρίς διακριτό detection event. Η διπλωματική πρέπει να συγκρίνει και αυτή την εναλλακτική.
-
-### Προτεινόμενη χρήση
-
-Να χρησιμοποιηθεί για τη διατύπωση χωριστών μετρικών detection delay, performance drop και recovery/adaptation time.
-
-### Παραπομπή
-
-Liu (2024), σελ. 5–7, Ενότητα 1.2.
-
-## Τεκμήριο E2
-
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** σελίδες 6–9, Ενότητα 1.2, Research Question 2 και Objectives 3–4
-- **Ισχυρισμός:** Η απόκριση του agent πρέπει να εξαρτάται από το μέγεθος της περιβαλλοντικής μεταβολής, ώστε να ισορροπεί διατήρηση γνώσης και πλαστικότητα.
-- **Κεφάλαιο:** Θεωρητικό υπόβαθρο και σχεδιασμός μοντέλων
-- **Θέματα:** change magnitude, stability–plasticity, exploration, knowledge reuse
-- **Κατάσταση:** επαληθευμένο
-
-### Κείμενο ή πιστή παράφραση
-
-Η διατριβή προτείνει ότι μεγάλη μεταβολή μπορεί να απαιτεί αυξημένη εξερεύνηση και ισχυρότερη αναπροσαρμογή της πολιτικής, ενώ μικρή μεταβολή μπορεί να αντιμετωπιστεί με περιορισμένες ενημερώσεις που διατηρούν περισσότερη προηγούμενη γνώση. Η self-adjusted regularization επιχειρεί να χρησιμοποιήσει την πληροφορία detection για να αποφύγει τόσο την ακαμψία όσο και την καταστροφική απώλεια χρήσιμης γνώσης.
-
-### Συμφραζόμενα
-
-Η αρχή αυτή συνδέεται με τη γνωστή ισορροπία stability–plasticity. Στην παρούσα εργασία μπορεί να μεταφραστεί σε διαφορετικά perturbation levels και παρατήρηση της απόκρισης κάθε agent χωρίς να υλοποιηθεί απαραίτητα η μέθοδος της διατριβής.
-
-### Περιορισμοί και κίνδυνος παρερμηνείας
-
-Η ταξινόμηση «μικρή/μεγάλη αλλαγή» χρειάζεται λειτουργικό ορισμό. Δεν πρέπει να οριστεί εκ των υστέρων βάσει του αποτελέσματος του agent, αλλά από τις παραμέτρους του περιβάλλοντος ή προεγγεγραμμένη απόσταση μεταξύ MDPs.
-
-### Προτεινόμενη χρήση
-
-Να αιτιολογήσει perturbation severity levels και σύγκριση robustness–adaptation trade-offs.
-
-### Παραπομπή
-
-Liu (2024), σελ. 6–9, Ενότητα 1.2.
-
-## Τεκμήριο E3
-
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** σελίδες 52–55, Ενότητα 3.4.1, Tables 3.1–3.2 και Figure 3.4
-- **Ισχυρισμός:** Μεταβολές σε δυναμικές, εμπόδια και παρατηρήσεις μπορούν να χρησιμοποιηθούν ως ελεγχόμενα, κρυφά perturbations για συγκριτική αξιολόγηση agents.
-- **Κεφάλαιο:** Πειραματικό περιβάλλον και σενάρια αβεβαιότητας
-- **Θέματα:** dynamic transitions, obstacles, observation shift, controlled changes
-- **Κατάσταση:** επαληθευμένο
-
-### Κείμενο ή πιστή παράφραση
-
-Τα πειράματα μεταβάλλουν gravity, pole mass και force magnitude στο CartPole, εισάγουν wind στο LunarLander, προσθέτουν ή μετακινούν εμπόδια στο MiniGrid και αλλάζουν φωτισμό και υφή στο ViZDoom. Για κάθε περιβάλλον προσομοιώνονται δύο change points και οι πραγματικές μεταβαλλόμενες παράμετροι δεν δίνονται στον agent.
-
-### Συμφραζόμενα
-
-Τα σενάρια καλύπτουν διαφορετικές κατηγορίες αλλαγής: transition dynamics, γεωμετρία/κανόνες και observation distribution. Αντιστοιχούν στο επίσημο εύρος της αίτησης, η οποία αναφέρει μεταβαλλόμενους κανόνες, θόρυβο και αποτυχίες ενεργειών.
-
-### Περιορισμοί και κίνδυνος παρερμηνείας
-
-Οι αλλαγές είναι προκαθορισμένες και κυρίως απότομες. Αυτό διευκολύνει το ground truth detection αλλά δεν καλύπτει gradual drift ή ταυτόχρονες αλληλεπιδράσεις πολλών perturbations.
-
-### Προτεινόμενη χρήση
-
-Να καθοδηγήσει ταξινομία πειραματικών αλλαγών και να αιτιολογήσει ότι ο agent δεν πρέπει να λαμβάνει απευθείας το change variable.
-
-### Παραπομπή
-
-Liu (2024), σελ. 52–55, Ενότητα 3.4.1.
-
-## Τεκμήριο E4
-
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** σελίδες 55–59, Ενότητα 3.4.2, Figure 3.5 και Tables 3.3–3.5
-- **Ισχυρισμός:** Η post-change αξιολόγηση πρέπει να περιλαμβάνει detection accuracy, detection delay, performance dip, convergence/recovery και διακύμανση μεταξύ runs.
-- **Κεφάλαιο:** Μετρικές και στατιστικό πρωτόκολλο
-- **Θέματα:** F1, detection delay, recovery curve, confidence intervals
-- **Κατάσταση:** επαληθευμένο
-
-### Κείμενο ή πιστή παράφραση
-
-Η διατριβή αξιολογεί τους detectors με F1 score και συγκρίνει τα εντοπισμένα με τα πραγματικά change points. Παράλληλα παρουσιάζει reward curves με uncertainty bands και εξετάζει πόσο γρήγορα οι μέθοδοι επανέρχονται μετά από κάθε performance dip. Οι παρατηρήσεις για σταθερότητα και tight confidence intervals δείχνουν ότι η μέση τελική ανταμοιβή δεν περιγράφει ολόκληρη την ποιότητα ανάκαμψης.
-
-### Συμφραζόμενα
-
-Οι μετρικές της διατριβής δεν συντίθενται σε έναν ενιαίο resilience score. Αυτό είναι πλεονέκτημα για την παρούσα εργασία: οι επιμέρους διαστάσεις μπορούν να αναφέρονται χωριστά ώστε να μη συγκαλύπτονται διαφορετικά failure modes.
-
-### Περιορισμοί και κίνδυνος παρερμηνείας
-
-Το F1 προϋποθέτει tolerance window για το τι θεωρείται σωστή ανίχνευση. Η επιλογή αυτού του παραθύρου πρέπει να δηλωθεί εκ των προτέρων. Η οπτική σύγκριση reward curves δεν υποκαθιστά σαφή αριθμητική recovery metric.
-
-### Προτεινόμενη χρήση
-
-Να στηρίξει το metric set: normalized degradation, time-to-recovery, post-change area under curve, detection precision/recall και between-seed variability.
-
-### Παραπομπή
-
-Liu (2024), σελ. 55–59, Ενότητα 3.4.2.
-
-## Τεκμήριο E5
-
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** σελίδες 57–58, Ενότητα 3.4.2, συζήτηση CRL-Unsup και DARL
-- **Ισχυρισμός:** Η παρακολούθηση reward μόνο δεν αποτελεί πάντα έγκαιρο ή αξιόπιστο change detector.
-- **Κεφάλαιο:** Μεθοδολογία και περιορισμοί μετρικών
-- **Θέματα:** reward-based detection, delayed feedback, state–action distribution
-- **Κατάσταση:** επαληθευμένο
-
-### Κείμενο ή πιστή παράφραση
-
-Η διατριβή επισημαίνει ότι reward-based detection μπορεί να καθυστερεί όταν η ανταμοιβή δεν παρατηρείται άμεσα, να εξαρτάται από χειροκίνητα thresholds ή να μην αναγνωρίζει αλλαγή όταν τα rewards δύο MDPs δεν είναι άμεσα συγκρίσιμα. Για αυτό προτείνεται παρακολούθηση συμπεριφορικών και distributional σημάτων, όπως η κοινή κατανομή states και actions.
-
-### Συμφραζόμενα
-
-Το επιχείρημα αφορά detection, όχι γενική απόρριψη του reward ως outcome metric. Η ανταμοιβή παραμένει χρήσιμη για την αξιολόγηση task performance.
-
-### Περιορισμοί και κίνδυνος παρερμηνείας
-
-Οι distributional detectors έχουν δικό τους computational cost και μπορούν να αντιδρούν σε policy learning dynamics που δεν αντιστοιχούν σε πραγματική περιβαλλοντική αλλαγή.
-
-### Προτεινόμενη χρήση
-
-Να αιτιολογήσει logging πολλών σημάτων: reward, success, action failures, state visitation και policy changes.
-
-### Παραπομπή
-
-Liu (2024), σελ. 57–58, Ενότητα 3.4.2.
-
-## Τεκμήριο E6
-
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** σελίδα 94, Table 4.2 και σελίδα 122, Table 5.3
-- **Ισχυρισμός:** Η αύξηση της συχνότητας των περιβαλλοντικών αλλαγών μειώνει την ακρίβεια change detection και πρέπει να αποτελεί ξεχωριστό επίπεδο πειραματικής δυσκολίας.
-- **Κεφάλαιο:** Πειραματικό πρωτόκολλο και συζήτηση
-- **Θέματα:** multiple changes, non-stationarity severity, F1 degradation
-- **Κατάσταση:** επαληθευμένο
-
-### Κείμενο ή πιστή παράφραση
-
-Σε πειράματα με δύο, τέσσερα και εννέα change points, οι F1 scores των detectors μειώνονται όσο αυξάνεται ο αριθμός αλλαγών. Ακόμη και οι προτεινόμενες μέθοδοι εμφανίζουν ουσιαστική πτώση, γεγονός που δείχνει ότι η συχνότητα αλλαγής είναι ανεξάρτητη διάσταση δυσκολίας και όχι απλώς επανάληψη του ίδιου σεναρίου.
-
-### Συμφραζόμενα
-
-Οι ακριβείς τιμές εξαρτώνται από το περιβάλλον και το detection tolerance. Η γενική τάση είναι το χρήσιμο τεκμήριο.
-
-### Περιορισμοί και κίνδυνος παρερμηνείας
-
-Περισσότερα change points συνήθως σημαίνουν λιγότερα δεδομένα ανά stationary segment, άρα μεταβάλλονται ταυτόχρονα περισσότερες από μία ιδιότητες του προβλήματος.
-
-### Προτεινόμενη χρήση
-
-Να αιτιολογήσει τουλάχιστον single-change και repeated-change evaluation settings.
-
-### Παραπομπή
-
-Liu (2024), σελ. 94 και 122, Tables 4.2 και 5.3.
+# Evidence — Deep Reinforcement Learning in Non-stationary Environments
+
+## Evidence E1 — Change detection and post-change adaptation are separate problems
+- **Type:** faithful paraphrase
+- **Location:** Chapter 1, Section 1.2, research questions and objectives; dissertation abstract
+- **Claim:** The dissertation treats unknown change-point detection and subsequent policy adaptation as linked but distinct parts of non-stationary reinforcement learning.
+- **Thesis use:** mechanism taxonomy; metrics
+- **Topics:** change detection; adaptation; non-stationarity
+- **Status:** verified
+
+### Faithful paraphrase
+In a non-stationary environment, an agent can first need to recognize that the environment has changed and then decide how to update its policy for the new condition. The dissertation develops methods in which information from change detection is used to guide adaptation, rather than treating continued training alone as sufficient evidence that a change was identified.
+
+### Limitation
+This decomposition does not imply that every adaptive agent must contain a separate explicit detector. A continually adapting baseline without a discrete detection event remains a valid comparator.
+
+## Evidence E2 — Adaptation strength can depend on estimated change magnitude
+- **Type:** faithful paraphrase
+- **Location:** Chapter 1, Section 1.2; methodology chapters on detection-informed adaptation
+- **Claim:** The proposed methods use information about the extent of environmental change to balance preservation of prior knowledge against stronger policy modification.
+- **Thesis use:** severity protocol; stability-plasticity analysis
+- **Topics:** change magnitude; knowledge preservation; plasticity
+- **Status:** verified
+
+### Faithful paraphrase
+The dissertation motivates stronger adaptation and exploration when the detected change is large, while smaller changes can justify retaining more of the previous policy or learned knowledge. This frames adaptation as a stability-plasticity trade-off rather than a binary choice between keeping and discarding the old solution.
+
+### Limitation
+Change magnitude must be defined independently of the eventual algorithm outcome. In the thesis benchmark it should be determined by predeclared environment parameters or a precomputed distance, not post hoc from recovery performance.
+
+## Evidence E3 — Controlled experiments can perturb dynamics, geometry, and observations separately
+- **Type:** faithful paraphrase
+- **Location:** Chapter 3, Section 3.4.1; Tables 3.1–3.2; Figure 3.4
+- **Claim:** The experiments introduce controlled changes to physical parameters, environmental obstacles, and observation conditions while withholding the changed parameter from the agent.
+- **Thesis use:** shift-family design
+- **Topics:** dynamics shift; structural shift; observation shift
+- **Status:** verified
+
+### Faithful paraphrase
+The evaluated non-stationary settings include changes to CartPole dynamics such as gravity, pole mass, and force magnitude; wind changes in LunarLander; obstacle changes in MiniGrid; and visual changes such as lighting and texture in ViZDoom. The agent is not directly given the hidden environment variable that changed.
+
+### Limitation
+Most changes are abrupt and preconfigured. This gives a clear ground-truth changepoint but does not by itself cover gradual drift or simultaneous interacting perturbations.
+
+## Evidence E4 — Detector quality and post-change control quality require different metrics
+- **Type:** faithful paraphrase
+- **Location:** Chapter 3, Section 3.4.2 and corresponding results tables/figures
+- **Claim:** The dissertation evaluates change detection with detection-oriented metrics and evaluates adaptation through performance trajectories after the change.
+- **Thesis use:** metric separation
+- **Topics:** F1; detection delay; performance dip; recovery
+- **Status:** verified
+
+### Faithful paraphrase
+The experiments compare detected and true change points using detector metrics such as F1 and delay, while also examining policy performance around and after the change. A detector can therefore be accurate yet still lead to slow or poor adaptation, and an adapting policy can recover despite an imperfect detector.
+
+### Thesis-safe implication
+Report false alarms/missed changes and detection delay separately from maximum performance degradation, recovery time, and final post-change return.
+
+## Evidence E5 — Unknown changepoints are a different assumption from oracle boundaries
+- **Type:** faithful paraphrase
+- **Location:** Abstract; Chapters 1, 3–6
+- **Claim:** The dissertation explicitly studies non-stationary environments in which change points are not supplied to the learning algorithm.
+- **Thesis use:** oracle/non-oracle labeling
+- **Topics:** unknown change point; detector; prior information
+- **Status:** verified
+
+### Faithful paraphrase
+The proposed frameworks are motivated by settings where the agent cannot rely on an external task-boundary signal. In an experimental comparison, a method that is told the true changepoint should therefore be labeled as an oracle-boundary condition and not compared as if it solved the same detection problem.
+
+## Evidence E6 — The contribution spans deep model-free and model-based methods, not a required tabular implementation
+- **Type:** faithful paraphrase
+- **Location:** Abstract; Chapters 3–6
+- **Claim:** The dissertation develops several deep-RL change-detection and adaptation methods, including model-free and latent/model-based approaches.
+- **Thesis use:** feasibility/background boundary
+- **Topics:** deep RL; model-free; model-based; latent dynamics
+- **Status:** verified
+
+### Faithful paraphrase
+The dissertation demonstrates that detection-informed adaptation can be implemented through multiple deep-RL mechanisms, including behavior, gradient, uncertainty, and latent-dynamics signals. These approaches establish a broad design space but are substantially more complex than the resource-aware tabular baseline family of the thesis.
+
+## Avoid overclaiming
+This source supports the detection/adaptation decomposition and controlled-shift evaluation. It does not establish that every resilient agent requires an explicit detector or that the dissertation's deep architectures are necessary for the thesis GridWorld implementation.
