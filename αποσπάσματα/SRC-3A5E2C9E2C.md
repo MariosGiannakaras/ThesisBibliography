@@ -2,152 +2,119 @@
 κωδικός: SRC-3A5E2C9E2C
 κατάσταση: επαληθευμένο
 ελεγχθέν-πρωτότυπο: ναι
-ημερομηνία-ελέγχου: "2026-07-31"
+ημερομηνία-ελέγχου: "2026-08-01"
+source-language: en
 ---
 
-# Αποσπάσματα — A Review of Safe Reinforcement Learning: Methods, Theories and Applications
+# Evidence — A Review of Safe Reinforcement Learning: Methods, Theories and Applications
 
-## Τεκμήριο E1
+## E1 — Safety must be operationalized before agents are compared
 
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** PDF σελ. 2–3, Introduction, safety definitions και “2H3W” questions
-- **Ισχυρισμός:** Η ασφάλεια στο reinforcement learning δεν είναι μία ενιαία ιδιότητα και πρέπει να οριστεί επιχειρησιακά πριν από τη σύγκριση πρακτόρων.
-- **Κεφάλαιο:** Θεωρητικό υπόβαθρο
-- **Θέματα:** safe RL; safety semantics; risk; constraints
-- **Κατάσταση:** επαληθευμένο
+- **Type:** faithful paraphrase
+- **Location:** Introduction, safety definitions and 2H3W framing
+- **Claim:** The safe-RL literature uses multiple safety semantics, so an experiment must state the observable criterion that counts as safe behavior.
+- **Status:** verified
 
-### Κείμενο ή πιστή παράφραση
+### Faithful paraphrase
 
-Η επισκόπηση συγκεντρώνει διαφορετικούς ορισμούς ασφαλούς agent: αποφυγή κινδύνου ή βλάβης, έλεγχος αναγνωρισμένων κινδύνων σε αποδεκτό επίπεδο, μη είσοδος σε unsafe states, συμμόρφωση με ανθρώπινες επιθυμίες και δυνατότητα επιστροφής από επισκεφθείσες καταστάσεις. Η ποικιλία αυτή σημαίνει ότι κάθε πείραμα πρέπει να δηλώνει ποιο observable criterion θεωρεί safety.
+Gu et al. survey several notions of safety, including protection from harm or risk, maintaining recognized dangers below an acceptable level, avoiding states designated unsafe, acting in accordance with human preferences, and retaining reversibility over visited states. The diversity of these definitions shows that “safe” is not a self-defining experimental label.
 
-### Συμφραζόμενα
+### Context and limits
 
-Το σημείο εισάγει το οργανωτικό πλαίσιο «2H3W» της survey και δεν προτείνει να συνενωθούν όλοι οι ορισμοί σε μία μετρική.
+The review does not establish one universally correct definition. A concrete study must choose and report its own operational safety variables.
 
-### Περιορισμοί και κίνδυνος παρερμηνείας
+### Thesis use
 
-Δεν τεκμηριώνει ότι ένας από τους ορισμούς είναι καθολικά σωστός. Για τη διπλωματική απαιτείται περιορισμένος operational definition, όπως hazard violations ή cumulative cost.
+Predefine unsafe events, hazards, and costs before running the final comparison, and keep safety distinct from robustness and resilience.
 
-### Προτεινόμενη χρήση
+### Citation
 
-Να χρησιμοποιηθεί για να διαχωριστούν safety, robustness και resilience και για να αιτιολογηθεί η προεγγραφή unsafe events.
+Gu et al., Introduction.
 
-### Παραπομπή
+## E2 — CMDPs separate task reward from safety cost
 
-Gu et al., “A Review of Safe Reinforcement Learning: Methods, Theories and Applications,” Introduction, PDF σελ. 2–3.
+- **Type:** faithful paraphrase
+- **Location:** Section 2.1, safe-RL problem formulation
+- **Claim:** A constrained MDP maximizes reward while requiring one or more safety-cost objectives to satisfy explicit bounds.
+- **Status:** verified
 
-## Τεκμήριο E2
+### Faithful paraphrase
 
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** PDF σελ. 6–8, Section 2.1, Problem Formulation of Safe Reinforcement Learning
-- **Ισχυρισμός:** Το CMDP διαχωρίζει το task reward από safety costs και διατυπώνει την πολιτική ως μεγιστοποίηση χρησιμότητας υπό constraints.
-- **Κεφάλαιο:** Θεωρητικό υπόβαθρο; Μεθοδολογία
-- **Θέματα:** CMDP; reward; cost; constraint bound
-- **Κατάσταση:** επαληθευμένο
+The review presents the CMDP as a common mathematical formulation for safe RL. The policy seeks high expected reward while cost objectives represent safety constraints that must remain below specified limits. This formulation keeps utility and safety signals conceptually separate instead of hiding all safety considerations inside a single reward scalar.
 
-### Κείμενο ή πιστή παράφραση
+### Context and limits
 
-Στο Constrained Markov Decision Process, η πολιτική επιλέγεται ώστε να μεγιστοποιεί το αναμενόμενο discounted reward, ενώ ένα ή περισσότερα discounted cost objectives πρέπει να παραμένουν κάτω από προκαθορισμένα όρια. Το safety signal επομένως δεν πρέπει να απορροφάται απαραίτητα μέσα στο reward.
+Expected cumulative constraints may still permit rare severe violations; hard, chance, or other constraint formulations may be more appropriate for catastrophic hazards.
 
-### Συμφραζόμενα
+### Thesis use
 
-Η survey χρησιμοποιεί το CMDP ως κεντρικό μαθηματικό πλαίσιο για μεγάλο μέρος του safe RL, χωρίς να ισχυρίζεται ότι καλύπτει όλες τις safety semantics.
+Log return, cumulative cost, violation count, and violation severity separately for every regime.
 
-### Περιορισμοί και κίνδυνος παρερμηνείας
+### Citation
 
-Expected cumulative constraints μπορεί να επιτρέπουν σπάνιες σοβαρές παραβιάσεις. Catastrophic hazards ενδέχεται να απαιτούν hard ή chance constraints.
+Gu et al., Section 2.1.
 
-### Προτεινόμενη χρήση
+## E3 — Safety bounds create a utility–safety trade-off
 
-Να αιτιολογήσει χωριστή καταγραφή return, cost και violation count ανά episode και ανά regime.
+- **Type:** faithful paraphrase
+- **Location:** Introduction, discussion of safety benchmarks
+- **Claim:** A constraint can be too weak to protect the agent or so conservative that task reward becomes unacceptably low.
+- **Status:** verified
 
-### Παραπομπή
+### Faithful paraphrase
 
-Gu et al., Section 2.1, PDF σελ. 6–8.
+The review notes that loose cost functions or bounds may fail to provide meaningful safety during learning, whereas overly conservative constraints can strongly reduce reward performance. Benchmark design therefore needs to expose both utility and safety rather than reporting only one side of the trade-off.
 
-## Τεκμήριο E3
+### Context and limits
 
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** PDF σελ. 4–5, Introduction, discussion of “Safety Benchmarks”
-- **Ισχυρισμός:** Η επιλογή safety cost και constraint bound δημιουργεί μετρήσιμο trade-off μεταξύ προστασίας και task performance.
-- **Κεφάλαιο:** Πειραματικό πρωτόκολλο; Μετρικές
-- **Θέματα:** utility–safety trade-off; benchmark design; constraint sensitivity
-- **Κατάσταση:** επαληθευμένο
+The source does not identify a universally optimal constraint value.
 
-### Κείμενο ή πιστή παράφραση
+### Thesis use
 
-Η survey επισημαίνει ότι ένα χαλαρό cost function ή bound μπορεί να αποτύχει να προστατεύσει τον agent κατά τη μάθηση, ενώ ένα υπερβολικά συντηρητικό bound μπορεί να προκαλέσει πολύ χαμηλό reward. Η δίκαιη αξιολόγηση safe RL απαιτεί συνεπώς κοινή παρουσίαση safety και utility.
+Use predefined constraint-severity settings and plot return against safety violations instead of ranking methods by a single opaque score.
 
-### Συμφραζόμενα
+### Citation
 
-Η παρατήρηση αφορά τον σχεδιασμό benchmarks και όχι απόδειξη συγκεκριμένης βέλτιστης τιμής constraint.
+Gu et al., Introduction, safety-benchmark discussion.
 
-### Περιορισμοί και κίνδυνος παρερμηνείας
+## E4 — Gridworlds are used as controlled safe-RL benchmarks
 
-Δεν επιτρέπεται η επιλογή bounds εκ των υστέρων μόνο επειδή ευνοούν έναν agent. Χρειάζεται sensitivity analysis ή προκαθορισμένα severity levels.
+- **Type:** faithful paraphrase
+- **Location:** Section 6.1.1, AI Safety Gridworlds
+- **Claim:** The review identifies two-dimensional gridworlds as established controlled environments for evaluating specific safety properties.
+- **Status:** verified
 
-### Προτεινόμενη χρήση
+### Faithful paraphrase
 
-Να οδηγήσει σε plots return έναντι violations και σε ξεχωριστό clean-performance baseline.
+In its benchmark survey, the paper describes AI Safety Gridworlds as two-dimensional discrete environments in which agents move between cells and encounter task-specific objects, obstacles, and hazards. Their simplicity supports targeted evaluation of individual safety problems.
 
-### Παραπομπή
+### Context and limits
 
-Gu et al., Introduction, PDF σελ. 4–5.
+This is secondary evidence. The primary AI Safety Gridworlds paper remains the stronger source for benchmark-design claims.
 
-## Τεκμήριο E4
+### Thesis use
 
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** PDF σελ. 42–43, Section 6.1.1, AI Safety Gridworlds
-- **Ισχυρισμός:** Δισδιάστατα GridWorlds χρησιμοποιούνται στη safe-RL βιβλιογραφία ως ελεγχόμενα benchmarks με διακριτές κινήσεις και hazards.
-- **Κεφάλαιο:** Πειραματικό περιβάλλον
-- **Θέματα:** GridWorld; safe RL benchmark; discrete actions; controlled testbed
-- **Κατάσταση:** επαληθευμένο
+Use the review only as supporting context for a minimal controlled GridWorld, not as evidence of real-world external validity.
 
-### Κείμενο ή πιστή παράφραση
+### Citation
 
-Η επισκόπηση καταγράφει το AI Safety Gridworlds ως benchmark από 2-D grids, όπου ο agent βρίσκεται σε κελί, υπάρχουν obstacles και το action space περιλαμβάνει δεξιά, αριστερά, πάνω και κάτω. Η απλότητα επιτρέπει στοχευμένη αξιολόγηση safety properties.
+Gu et al., Section 6.1.1.
 
-### Συμφραζόμενα
+## E5 — Simulation success does not settle deployment safety
 
-Το σημείο είναι περιγραφικό και βασίζεται στην πρωτογενή εργασία AI Safety Gridworlds, η οποία υπάρχει χωριστά στο repository.
+- **Type:** faithful paraphrase
+- **Location:** Sections 7–8
+- **Claim:** The review treats human compatibility, application standards, and real-world deployment as open safe-RL challenges beyond benchmark performance.
+- **Status:** verified
 
-### Περιορισμοί και κίνδυνος παρερμηνείας
+### Faithful paraphrase
 
-Η χρήση GridWorld δεν αποδεικνύει εξωτερική εγκυρότητα ή real-world safety. Αποτελεί minimal controlled testbed.
+The review highlights unresolved issues including human and environmental safety, deployment standards, ethical and preference-related questions, and the gap between simulated experiments and practical applications. High scores on a safe-RL benchmark therefore do not imply that deployment safety has been established.
 
-### Προτεινόμενη χρήση
+### Thesis use
 
-Να συμπληρώσει, όχι να αντικαταστήσει, την πρωτογενή τεκμηρίωση `SRC-FE2C0A3E00` για την επιλογή του περιβάλλοντος.
+State explicitly that the GridWorld study evaluates controlled comparative behavior and does not validate safety in real operational systems.
 
-### Παραπομπή
+### Citation
 
-Gu et al., Section 6.1.1, PDF σελ. 42–43.
-
-## Τεκμήριο E5
-
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** PDF σελ. 48–55, Section 7; PDF σελ. 55, Section 8
-- **Ισχυρισμός:** Η επιτυχία σε simulated safe-RL benchmarks δεν επιλύει τις προκλήσεις ανθρώπινων προτιμήσεων, deployment standards και πραγματικής εφαρμογής.
-- **Κεφάλαιο:** Περιορισμοί; Threats to validity
-- **Θέματα:** simulation-to-deployment gap; human compatibility; standards
-- **Κατάσταση:** επαληθευμένο
-
-### Κείμενο ή πιστή παράφραση
-
-Οι συγγραφείς παρουσιάζουν ως ανοιχτές προκλήσεις τη δήλωση και σύγκρουση ανθρώπινων προτιμήσεων, την ηθική λήψη αποφάσεων, τα βιομηχανικά πρότυπα deployment και την κλιμάκωση ασφαλών μεθόδων. Το συμπέρασμα χαρακτηρίζει τα benchmarks και τις εφαρμογές ως βήματα προόδου, όχι ως ολοκληρωμένη λύση.
-
-### Συμφραζόμενα
-
-Η ενότητα Outlook περιλαμβάνει ευρύτερα ζητήματα από το περιορισμένο scope της διπλωματικής.
-
-### Περιορισμοί και κίνδυνος παρερμηνείας
-
-Δεν πρέπει να διευρυνθεί η εργασία σε γενικό alignment ή ethics project. Το τεκμήριο χρησιμοποιείται μόνο για να δηλωθούν τα όρια εξωτερικής εγκυρότητας.
-
-### Προτεινόμενη χρήση
-
-Να ενταχθεί στις απειλές εγκυρότητας και στη συζήτηση για το τι δεν αποδεικνύει ένα controlled GridWorld experiment.
-
-### Παραπομπή
-
-Gu et al., Sections 7–8, PDF σελ. 48–55.
+Gu et al., Sections 7–8.
