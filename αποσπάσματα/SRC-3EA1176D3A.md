@@ -2,98 +2,100 @@
 κωδικός: SRC-3EA1176D3A
 κατάσταση: επαληθευμένο
 ελεγχθέν-πρωτότυπο: ναι
-ημερομηνία-ελέγχου: "2026-07-31"
+ημερομηνία-ελέγχου: "2026-08-01"
+source-language: en
 ---
 
-# Αποσπάσματα — Solving robust MDPs as a sequence of static RL problems
+# Evidence — Solving robust MDPs as a sequence of static RL problems
 
-## Τεκμήριο E1 — Robustness έναντι resilience
+## E1 — Robustness and resilience are different capabilities
 
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** Ενότητα 1, πρώτη παράγραφος
-- **Ισχυρισμός:** Στη διπλωματική, robustness πρέπει να σημαίνει διατήρηση απόδοσης χωρίς περαιτέρω εκπαίδευση, ενώ resilience πρέπει να περιλαμβάνει ανάκαμψη μέσω συνεχιζόμενης μάθησης.
-- **Κεφάλαιο:** Θεωρητικό υπόβαθρο · Ορισμοί · Ερευνητικά ερωτήματα
-- **Θέματα:** robustness; resilience; continued learning; recovery
-- **Κατάσταση:** επαληθευμένο
+- **Type:** faithful paraphrase
+- **Location:** Section 1, opening paragraph
+- **Claim:** The paper uses robustness for retaining guaranteed performance without further training and resilience for recovering from environmental change through continued learning.
+- **Status:** verified
 
-### Κείμενο ή πιστή παράφραση
+### Faithful paraphrase
 
-Οι συγγραφείς περιγράφουν ως robustness την ικανότητα μιας policy να κρατά εγγυημένο επίπεδο αποτελεσματικότητας σε διαφορετικό περιβάλλον χωρίς να εκπαιδευτεί ξανά. Αντίθετα, ονομάζουν resilience την ικανότητα ανάκαμψης από περιβαλλοντικές αλλαγές μέσω continued learning. Η διάκριση διαχωρίζει ένα εκ των προτέρων robust controller από έναν agent που ανιχνεύει ή βιώνει τη μεταβολή και μεταβάλλει την policy του μετά από αυτή.
+Zouitine, Geist, and Rachelson explicitly contrast robustness with resilience. In their terminology, robustness is the ability of a learned policy to retain an acceptable level of performance when the controlled system differs from the training system, without additional training. Resilience instead concerns recovery from environmental changes by continuing to learn.
 
-### Συμφραζόμενα
+### Context and limits
 
-Ο ορισμός εμφανίζεται στο πλαίσιο robust MDPs και worst-case transition uncertainty. Είναι ιδιαίτερα χρήσιμος για να οργανωθούν οι agents της διπλωματικής σε nominal, fixed robust και adaptive/resilient baselines. Οι δύο ιδιότητες μπορούν να συνυπάρχουν, αλλά δεν πρέπει να συγχωνευθούν σε ένα ασαφές score.
+This terminology is particularly useful for separating a fixed robust controller from an adaptive agent, but it is a definition used in this robust-RL paper rather than a universally mandated standard.
 
-### Περιορισμοί και κίνδυνος παρερμηνείας
+### Thesis use
 
-Πρόκειται για λειτουργική ορολογική διάκριση μέσα σε robust-RL paper, όχι για μοναδικό καθολικά αποδεκτό standard. Η τελική διατύπωση της διπλωματικής πρέπει να δηλώνεται ρητά και να συνδεθεί με measurable quantities: degradation για robustness και recovery trajectory για resilience.
+Keep two research questions separate: whether performance is preserved without updating, and whether performance recovers when online updating is allowed.
 
-### Προτεινόμενη χρήση
+### Citation
 
-Να αποτελέσει τη βασική πηγή για τον διαχωρισμό των research questions “αντέχει χωρίς update;” και “ανακάμπτει όταν επιτρέπεται update;”.
+Zouitine, Geist, and Rachelson (2024), Section 1.
 
-### Παραπομπή
+## E2 — Static and dynamic transition uncertainty encode different environment-change models
 
-Zouitine, Geist, and Rachelson (2024), Section 1, opening paragraph.
+- **Type:** faithful paraphrase
+- **Location:** Section 2, robust MDP formulation and static model
+- **Claim:** In the dynamic model, transition dynamics may vary at every step; in the static model, one transition function is selected and remains fixed throughout a trajectory.
+- **Status:** verified
 
----
+### Faithful paraphrase
 
-## Τεκμήριο E2 — Static και dynamic transition uncertainty
+The paper defines the dynamic robust-MDP formulation as a game in which an adversarial environment may choose transition dynamics over time. The static model instead selects one transition function from the uncertainty set and keeps that model fixed for the trajectory. Under stationary policies and rectangular uncertainty sets, the robust stationary-policy values admit a specific equivalence, but the general static optimization problem is not thereby made trivial.
 
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** Ενότητα 2, υποενότητες “Robust MDPs” και “The static model”
-- **Ισχυρισμός:** Το πειραματικό πρωτόκολλο πρέπει να δηλώνει αν οι κανόνες αλλάζουν ανά timestep, ανά episode ή παραμένουν σταθεροί μετά από change point.
-- **Κεφάλαιο:** Θεωρητικό υπόβαθρο · Πειραματικά scenarios
-- **Θέματα:** static uncertainty; dynamic uncertainty; transition model; non-stationarity
-- **Κατάσταση:** επαληθευμένο
+### Context and limits
 
-### Κείμενο ή πιστή παράφραση
+Per-step stochastic disturbances, episode-level persistent variants, and abrupt persistent regime changes should not be treated as the same experimental condition.
 
-Στο dynamic uncertainty model, ένας adversarial μηχανισμός μπορεί να επιλέγει διαφορετική transition function σε κάθε βήμα. Στο static model επιλέγεται μία transition function από το uncertainty set και αυτή παραμένει ίδια σε ολόκληρη την trajectory. Υπό stationary policies και rectangular uncertainty sets υπάρχει συγκεκριμένη equivalence για την robust value, αλλά το γενικό static optimisation δεν γίνεται αυτόματα εύκολο και μπορεί να είναι υπολογιστικά δυσχερές.
+### Thesis use
 
-### Συμφραζόμενα
+Label perturbations explicitly by temporal semantics: per-step disturbance, persistent episode model, or changepoint followed by a persistent new regime.
 
-Η διάκριση επηρεάζει άμεσα την έννοια “changing rules”. Άλλο πείραμα είναι ένα μόνιμο rule change στο επεισόδιο, άλλο μία τυχαία αστοχία transition σε κάθε βήμα και άλλο ένα μοναδικό άγνωστο change point μετά το οποίο ισχύει νέο καθεστώς. Αυτές οι περιπτώσεις δεν πρέπει να αναμειχθούν σε ένα κοινό label.
+### Citation
 
-### Περιορισμοί και κίνδυνος παρερμηνείας
+Zouitine, Geist, and Rachelson (2024), Section 2.
 
-Η static–dynamic equivalence που συζητά το paper προϋποθέτει stationary policies και rectangularity. Δεν δικαιολογεί την αντικατάσταση κάθε non-stationary experiment από static test. Στη διπλωματική θα χρησιμοποιηθεί ως taxonomy και baseline distinction, όχι ως απόδειξη ότι όλες οι αλλαγές είναι ισοδύναμες.
+## E3 — Simple gridworlds can isolate transition-model uncertainty
 
-### Προτεινόμενη χρήση
+- **Type:** faithful paraphrase
+- **Location:** Section 4, illustration; Algorithm 1; Figure 1
+- **Claim:** The paper uses a small gridworld to make transition uncertainty, worst-case model search, and robust-policy evaluation directly inspectable.
+- **Status:** verified
 
-Να αιτιολογήσει τρία ξεχωριστά scenario families: stochastic per-step failures, persistent episode-level variants και abrupt persistent regime changes.
+### Faithful paraphrase
 
-### Παραπομπή
+The Windy Walk example gives the agent alternative routes whose transition behavior depends on a controlled wind parameter. A discrete uncertainty set contains candidate values of this transition parameter. IWOCS repeatedly solves ordinary MDP problems for candidate models, maintains pessimistic value information over the models already discovered, and searches for an additional model that is adverse for the current policy.
 
-Zouitine, Geist, and Rachelson (2024), Section 2, “Robust MDPs” and “The static model”.
+### Context and limits
 
----
+The gridworld is an illustrative instrumented problem. It supports controlled robust-policy analysis but does not establish real-world external validity or measure change-detection delay and post-change learning recovery.
 
-## Τεκμήριο E3 — Minimal GridWorld για transition uncertainty
+### Thesis use
 
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** Ενότητα 4, “Illustration”, Algorithm 1 και Σχήμα 1
-- **Ισχυρισμός:** Ένα μικρό GridWorld μπορεί να χρησιμοποιηθεί επιστημονικά για να απομονώσει uncertainty στη transition function και να ελέγξει robust-policy μηχανισμούς.
-- **Κεφάλαιο:** Πειραματικό περιβάλλον · Baselines
-- **Θέματα:** GridWorld; worst-case search; transition uncertainty; robust value
-- **Κατάσταση:** επαληθευμένο
+Use a minimal gridworld when exact rule versions and oracle evaluations are needed to isolate model uncertainty without adding unrelated confounds.
 
-### Κείμενο ή πιστή παράφραση
+### Citation
 
-Στο Windy Walk GridWorld, ο agent επιλέγει ανάμεσα σε τρεις διαδρομές προς τον στόχο. Η πιθανότητα να παρασυρθεί προς τα πίσω μεταβάλλεται ανά corridor μέσω μιας ελεγχόμενης παραμέτρου. Το uncertainty set περιλαμβάνει διακριτές τιμές αυτής της παραμέτρου. Το IWOCS λύνει επανειλημμένα static MDPs, κατασκευάζει pessimistic Q-values πάνω στα ήδη εντοπισμένα models και αναζητεί νέο worst-case model για την τρέχουσα policy.
+Zouitine, Geist, and Rachelson (2024), Section 4, Algorithm 1, and Figure 1.
 
-### Συμφραζόμενα
+## E4 — Robust policies can be conservative
 
-Το παράδειγμα δείχνει πώς η απλότητα επιτρέπει γνωστό uncertainty set, brute-force worst-case evaluation και άμεση σύγκριση με robust value iteration. Αντίστοιχα, το δικό μας GridWorld μπορεί να διαθέτει ground-truth rule versions και ακριβή oracle evaluation, χωρίς να ισχυρίζεται ρεαλιστική προσομοίωση πραγματικού domain.
+- **Type:** faithful paraphrase
+- **Location:** Section 2, discussion of robust value iteration
+- **Claim:** Worst-case robust policies can become conservative, especially for large uncertainty sets under rectangularity assumptions.
+- **Status:** verified
 
-### Περιορισμοί και κίνδυνος παρερμηνείας
+### Faithful paraphrase
 
-Το Windy Walk είναι illustrative toy problem. Δεν τεκμηριώνει ότι το IWOCS θα είναι πρακτικό σε όλη τη δική μας experiment matrix ούτε ότι η μετάβαση σε deep agents είναι δωρεάν. Επίσης αξιολογεί worst-case robustness, όχι detection delay ή recovery speed.
+The paper notes that robust value iteration can produce highly conservative policies because it optimizes against adverse transition models in the uncertainty set. It discusses prior work that reduces this conservatism by learning tighter uncertainty sets, relaxing rectangularity, or otherwise incorporating more structure into the uncertainty model.
 
-### Προτεινόμενη χρήση
+### Context and limits
 
-Να στηρίξει την επιλογή GridWorld ως instrumented minimal testbed και πιθανό μικρό robust-oracle baseline σε περιορισμένο uncertainty set.
+Higher disturbed performance alone does not establish overall superiority if the policy sacrifices substantial nominal utility.
 
-### Παραπομπή
+### Thesis use
 
-Zouitine, Geist, and Rachelson (2024), Section 4, Algorithm 1 and Figure 1.
+Report clean-condition utility together with disturbed-condition performance for every robust baseline.
+
+### Citation
+
+Zouitine, Geist, and Rachelson (2024), Section 2.
