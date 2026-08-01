@@ -11,6 +11,8 @@
 ## Βιβλιογραφική ταυτότητα
 Viacheslav Moskalenko, Vyacheslav Kharchenko, Alona Moskalenko, Borys Kuzikov. *Algorithms* 16(3), 165, 2023. DOI: 10.3390/a16030165.
 
+- **Ρόλος στη διπλωματική:** υποστηρικτική
+
 ## Σκοπός
 Systematic review/taxonomy για resilience σε AI systems. Η εργασία προσπαθεί να ενοποιήσει κατακερματισμένες χρήσεις των όρων robustness, fault tolerance, graceful degradation, recovery, adaptation, concept drift και adversarial/fault disturbances.
 
