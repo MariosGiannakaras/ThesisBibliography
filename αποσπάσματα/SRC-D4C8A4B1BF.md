@@ -3,73 +3,97 @@
 κατάσταση: επαληθευμένο
 ελεγχθέν-πρωτότυπο: ναι
 ημερομηνία-ελέγχου: "2026-08-01"
+source-language: en
 ---
 
-# Τεκμήρια — Resilience and Resilient Systems of Artificial Intelligence
+# Evidence — Resilience and Resilient Systems of Artificial Intelligence: Taxonomy, Models and Methods
 
-## 1. Robustness δεν αρκεί για resilience
-- Τύπος: πιστή παράφραση
-- Θέση: Introduction / Research Gap
-- Ισχυρισμός: Η review διαχωρίζει resilience από μεμονωμένες ιδιότητες όπως robustness ή fault tolerance.
-- Κεφάλαιο: Θεωρητικό πλαίσιο
-- Θέματα: robustness; resilience; recovery; adaptation
-- Κατάσταση: επαληθευμένο
+## E1 — Resilience is broader than robustness or fault tolerance alone
+- **Type:** faithful paraphrase
+- **Location:** Abstract; Section 1.2, Research Gap
+- **Claim:** The review argues that resilience should not be reduced to one isolated property such as adversarial robustness or fault tolerance.
+- **Status:** verified
 
-### Κείμενο ή πιστή παράφραση
-Η εργασία υποστηρίζει ότι resilient AI system δεν χαρακτηρίζεται μόνο από ικανότητα να αντέχει disturbances. Χρειάζεται επίσης detection/handling, graceful degradation, recovery και adaptation σε μεταβαλλόμενες συνθήκες.
+### Faithful paraphrase
+Moskalenko et al. identify substantial inconsistency in how AI resilience is used across the literature. They argue that a resilient AI system should be able not only to withstand disturbance but also to detect or handle destructive influences, degrade in a controlled way when full performance cannot be maintained, restore lost functionality, and adapt to future changes.
 
-### Προτεινόμενη χρήση
-Για τον βασικό ορισμό ότι static/worst-case robustness δεν ταυτίζεται με online resilience.
+### Thesis use
+Use this review to support the conceptual boundary between static robustness and a broader temporal resilience process.
 
-## 2. Τέσσερις φάσεις system resilience
-- Τύπος: πιστή παράφραση
-- Θέση: Section 3.1
-- Ισχυρισμός: Η resilience process αναλύεται σε preparation, absorption, recovery και adaptation.
-- Κεφάλαιο: Evaluation framework
-- Θέματα: preparation; absorption; recovery; adaptation
-- Κατάσταση: επαληθευμένο
+### Citation
+Moskalenko et al. (2023), Abstract and Section 1.2.
 
-### Κείμενο ή πιστή παράφραση
-Η planning/preparation φάση αφορά risk assessment και detection readiness, η absorption φάση περιορίζει την άμεση επίδραση της διαταραχής, η recovery αποκαθιστά χαμένη λειτουργικότητα/performance και η adaptation αλλάζει το system ώστε να αντιμετωπίζει καλύτερα μελλοντικές disturbances.
+## E2 — System resilience can be decomposed into preparation, absorption, recovery, and adaptation
+- **Type:** faithful paraphrase
+- **Location:** Section 3.1; Figure 1
+- **Claim:** The review adopts a four-stage system-resilience process: planning/preparation, disturbance absorption, recovery, and adaptation.
+- **Status:** verified
 
-### Περιορισμοί και κίνδυνος παρερμηνείας
-Η πηγή είναι broad AI/system review· η αντιστοίχιση των phases σε detector, degradation curve και policy learning είναι εφαρμογή της διπλωματικής.
+### Faithful paraphrase
+Preparation includes activities such as risk assessment, disturbance-detection readiness, vulnerability reduction, and recovery planning. Absorption limits the immediate impact of a disturbance. Recovery restores lost functionality and performance. Adaptation changes the system so it can cope better with future threats or environmental changes.
 
-### Προτεινόμενη χρήση
-Για να οργανωθούν οι thesis metrics σε immediate degradation, recovery και post-recovery learning.
+### Context and limits
+This is a broad systems-engineering taxonomy. Mapping its phases onto a specific detector, performance curve, or learning update is an application made by the thesis rather than a direct prescription from the review.
 
-## 3. Graceful degradation
-- Τύπος: πιστή παράφραση
-- Θέση: Section 3.1
-- Ισχυρισμός: Όταν disturbance δεν μπορεί να απορροφηθεί πλήρως, resilient system μπορεί να υποβαθμίζει ελεγχόμενα μη κρίσιμες λειτουργίες διατηρώντας core functionality.
-- Κεφάλαιο: Safety / robustness metrics
-- Θέματα: graceful degradation; fallback; retained functionality
-- Κατάσταση: επαληθευμένο
+### Thesis use
+Organize measurements around pre-change readiness, immediate degradation, recovery, and post-recovery learning without claiming that one scalar captures all four phases.
 
-### Προτεινόμενη χρήση
-Για να διαχωριστεί ελεγχόμενη fallback performance από ανεξέλεγκτη collapse μετά από shift.
+### Citation
+Moskalenko et al. (2023), Section 3.1 and Figure 1.
 
-## 4. Affordable resilience
-- Τύπος: πιστή παράφραση
-- Θέση: Section 3.1, Affordable Resilience discussion
-- Ισχυρισμός: Η resilience πρέπει να σταθμίζεται με lifecycle/resource cost και nominal performance.
-- Κεφάλαιο: Resource-aware evaluation
-- Θέματα: resource cost; performance trade-off; affordable resilience
-- Κατάσταση: επαληθευμένο
+## E3 — Graceful degradation preserves core functionality when full performance cannot be maintained
+- **Type:** faithful paraphrase
+- **Location:** Section 3.1
+- **Claim:** A resilient system can deliberately move to a less functional but acceptable operating state when a disturbance cannot be fully absorbed.
+- **Status:** verified
 
-### Κείμενο ή πιστή παράφραση
-Η review περιγράφει affordable resilience ως ισορροπία μεταξύ τεχνικών resilience χαρακτηριστικών και κόστους, και συζητά optimization που ανταλλάσσει nominal performance με resilience indicator υπό περιορισμούς.
+### Faithful paraphrase
+The review describes graceful degradation as controlled reduction of non-essential functionality while preserving priority operations for as long as possible. Such fallback behavior is distinguished from uncontrolled collapse because the degraded mode represents an explicit trade-off among functionality, performance, and cost.
 
-### Προτεινόμενη χρήση
-Για να δικαιολογηθεί report memory, compute, prior-data και interaction overhead μαζί με recovery benefit.
+### Thesis use
+Distinguish controlled fallback performance from uncontrolled post-shift failure and report the utility cost of fallback.
 
-## 5. Ένα μόνο resilience metric είναι ανεπαρκές
-- Τύπος: πιστή παράφραση
-- Θέση: Research Gap / resilience-indicator discussion
-- Ισχυρισμός: Η review παρατηρεί ότι πολλές μελέτες μετρούν μόνο perturbation absorption ή μόνο recovery rate και έτσι καλύπτουν μόνο μέρος του resilience concept.
-- Κεφάλαιο: Threats to validity
-- Θέματα: multidimensional metrics; scalar score
-- Κατάσταση: επαληθευμένο
+### Citation
+Moskalenko et al. (2023), Section 3.1.
 
-### Προτεινόμενη χρήση
-Αν παρουσιαστεί aggregate resilience score, να συνοδεύεται από constituent metrics: degradation, recovery, adapted return, safety και resource cost.
+## E4 — Resilience should be evaluated together with resource and nominal-performance cost
+- **Type:** faithful paraphrase
+- **Location:** Section 3.1, Affordable Resilience discussion
+- **Claim:** Affordable resilience seeks a balance between lifecycle/resource cost and technical resilience characteristics rather than maximizing resilience without constraint.
+- **Status:** verified
+
+### Faithful paraphrase
+The review discusses affordable resilience as an engineering trade-off between the benefits of increased resilience and the lifecycle cost of achieving it. It also cites formulations that balance nominal performance against an aggregate resilience indicator subject to resource constraints.
+
+### Thesis use
+Report memory, compute, prior-data, interaction, and nominal-performance overhead alongside recovery benefit.
+
+### Citation
+Moskalenko et al. (2023), Section 3.1, Affordable Resilience discussion.
+
+## E5 — One resilience metric usually covers only part of the concept
+- **Type:** faithful paraphrase
+- **Location:** Section 1.2; resilience-indicator discussion
+- **Claim:** The review notes that many studies measure only disturbance absorption or only recovery rate, leaving other resilience properties unmeasured.
+- **Status:** verified
+
+### Faithful paraphrase
+The authors identify a recurring evaluation gap: papers often report one resilience-related property while ignoring the rest of the response process. They cite examples that measure perturbation absorption but omit recovery, and others that focus on recovery rate while ignoring other indicators.
+
+### Thesis use
+If an aggregate resilience score is reported, always accompany it with component measures for degradation, recovery, adapted return, safety, and resource cost.
+
+### Citation
+Moskalenko et al. (2023), Section 1.2 and resilience-indicator discussion.
+
+## E6 — Broad resilient-AI taxonomy should not be mistaken for an RL algorithm
+- **Type:** scope boundary grounded in the review
+- **Location:** Overall paper
+- **Claim:** The paper is a cross-domain review and taxonomy, not an empirical comparison of specific single-agent RL adaptation algorithms.
+- **Status:** verified
+
+### Thesis use
+Use it for definitions and evaluation dimensions, not as evidence that a particular thesis agent will outperform another.
+
+### Citation
+Moskalenko et al. (2023), overall scope.
