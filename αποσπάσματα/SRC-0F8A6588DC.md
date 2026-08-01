@@ -2,152 +2,113 @@
 κωδικός: SRC-0F8A6588DC
 κατάσταση: επαληθευμένο
 ελεγχθέν-πρωτότυπο: ναι
-ημερομηνία-ελέγχου: "2026-07-31"
+ημερομηνία-ελέγχου: "2026-08-01"
+source-language: en
 ---
 
-# Αποσπάσματα — NovGrid
+# Evidence — NovGrid: A Flexible Grid World for Evaluating Agent Response to Novelty
 
-## Τεκμήριο E1
+## E1 — Novelty is a sudden change to environment mechanics or properties
+- **Type:** faithful paraphrase
+- **Location:** Abstract; Introduction; Novelty Background and Related Work
+- **Claim:** NovGrid defines novelty as an unexpected change to the mechanics or properties of the environment rather than an isolated outlier under an otherwise fixed distribution.
+- **Status:** verified
 
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** Introduction και *An Ontology of Novelty for Sequential Decision Making*, Table 1
-- **Ισχυρισμός:** Η novelty στο NovGrid παραγοντοποιείται σε object/action αλλαγές, unary/non-unary σχέσεις και barrier/delta/shortcut επιδράσεις στη λύση.
-- **Κεφάλαιο:** Θεωρητικό υπόβαθρο· Πειραματικό περιβάλλον
-- **Θέματα:** novelty taxonomy; object changes; action changes; solution distribution
-- **Κατάσταση:** επαληθευμένο
+### Faithful paraphrase
+Balloch et al. study novelty as a temporal change that transforms the sequential decision problem after an agent has learned under a previous regime. They explicitly distinguish this setting from ordinary outlier detection, because the post-novelty observations belong to a changed environment rather than being aberrant samples that should simply be rejected.
 
-### Κείμενο ή πιστή παράφραση
+### Context and limits
+The paper focuses on abrupt injected changes. Slow continuous drift and independent observation noise require separate formulations.
 
-Η εργασία ταξινομεί τις αλλαγές ανάλογα με το αν επηρεάζουν objects ή action mechanics, αν αφορούν ιδιότητα ενός στοιχείου ή σχέση πολλών στοιχείων και αν η νέα βέλτιστη λύση γίνεται δυσκολότερη, ισοδύναμη σε μήκος ή ευκολότερη.
+### Thesis use
+Reserve `novelty` or `sudden_shift` for temporal environment changes and do not treat isolated prediction-error spikes as proof that the environment has changed.
 
-### Συμφραζόμενα
+### Citation
+Balloch et al., Abstract and Novelty Background and Related Work.
 
-Η ontology σχεδιάστηκε για sequential decision-making και υλοποιείται με ενδεικτικές MiniGrid novelties.
+## E2 — The ontology separates object/action changes and their effect on the solution set
+- **Type:** faithful paraphrase
+- **Location:** An Ontology of Novelty for Sequential Decision Making; Table 1
+- **Claim:** The proposed ontology distinguishes object versus action novelties, unary versus relational changes, and barrier, delta, or shortcut effects on optimal solutions.
+- **Status:** verified
 
-### Περιορισμοί και κίνδυνος παρερμηνείας
+### Faithful paraphrase
+The ontology classifies whether a novelty changes objects or action mechanics, whether the changed property is unary or relational, and whether the transformation makes optimal solutions longer, leaves their length broadly unchanged, or creates shorter solutions. The taxonomy is then instantiated with concrete MiniGrid examples such as key–door changes, transition determinism changes, and action-effect changes.
 
-Δεν αποτελεί εξαντλητική taxonomy κάθε μορφής uncertainty ή distribution shift.
+### Context and limits
+The ontology is designed for sequential decision making and is not an exhaustive taxonomy of every uncertainty or distribution-shift mechanism.
 
-### Προτεινόμενη χρήση
+### Thesis use
+Construct a factorized perturbation matrix so structural changes are not mixed arbitrarily with reward drift, observation corruption, or bounded stochastic model error.
 
-Σχεδιασμός μικρού, παραγοντοποιημένου matrix αλλαγών χωρίς αυθαίρετη ανάμειξη πολλών μηχανισμών.
+### Citation
+Balloch et al., An Ontology of Novelty for Sequential Decision Making, Table 1.
 
-### Παραπομπή
+## E3 — The interface can remain fixed while the underlying MDP changes
+- **Type:** faithful paraphrase
+- **Location:** Ontology assumptions; Novelty MiniGrid
+- **Claim:** NovGrid keeps the dimensions of the action and observation interfaces compatible across the change while allowing action effects, object properties, reachable states, and dynamics to differ.
+- **Status:** verified
 
-Balloch et al., *Introduction* και *An Ontology of Novelty for Sequential Decision Making*, Table 1.
+### Faithful paraphrase
+The framework assumes that the number of actions and the size and shape of observations remain consistent before and after novelty injection. Nevertheless, actions may acquire different effects and observations or states that never occurred before the change may become reachable afterward. The wrapper injects the novelty by switching the environment's reset and grid-generation behavior at a specified episode.
 
-## Τεκμήριο E2
+### Context and limits
+A fixed interface does not imply a stationary MDP or equal task difficulty across regimes.
 
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** *An Ontology of Novelty for Sequential Decision Making* και *Novelty MiniGrid*
-- **Ισχυρισμός:** Το NovGrid κρατά σταθερό το observation/action interface, αλλά επιτρέπει να αλλάξουν τα effects ενεργειών, οι ιδιότητες αντικειμένων και οι reachable states.
-- **Κεφάλαιο:** Μεθοδολογία
-- **Θέματα:** controlled change; interface invariants; transition dynamics
-- **Κατάσταση:** επαληθευμένο
+### Thesis use
+Define interface invariants separately from transition/reward invariants and add validation tests that confirm only the intended mechanism changes.
 
-### Κείμενο ή πιστή παράφραση
+### Citation
+Balloch et al., ontology assumptions and Novelty MiniGrid section.
 
-Πριν και μετά τη novelty το πλήθος και το σχήμα observations και actions παραμένουν συμβατά. Μπορούν όμως να εμφανιστούν νέες καταστάσεις ή μία ίδια action να αποκτήσει διαφορετικό αποτέλεσμα, επιτρέποντας ελεγχόμενη before/after αξιολόγηση.
+## E4 — Adaptation should be decomposed into immediate robustness, final performance, and adaptation efficiency
+- **Type:** faithful paraphrase
+- **Location:** Evaluation and Baseline; Figure 2
+- **Claim:** NovGrid proposes multiple metrics because different parts of the post-change learning curve capture different capabilities.
+- **Status:** verified
 
-### Συμφραζόμενα
+### Faithful paraphrase
+The framework includes metrics for the performance of the pre-novelty policy immediately after the change, the final post-novelty performance reached after additional learning, the amount of interaction required to converge, and one-shot performance after very little post-change experience. These quantities intentionally separate immediate resistance from later adaptation.
 
-Ο wrapper αλλάζει τις post-novelty reset και grid-generation λειτουργίες όταν φτάσει το episode εισαγωγής της αλλαγής.
+### Context and limits
+The paper's specific metric named “resilience” is one operational definition and should not be treated as a universal definition of resilience.
 
-### Περιορισμοί και κίνδυνος παρερμηνείας
+### Thesis use
+Report immediate degradation, adaptation success, recovery time or interactions, recovered performance, and one-shot response as separate metrics before considering any aggregate score.
 
-Η σταθερότητα του interface δεν σημαίνει stationarity του MDP ούτε ισοδύναμη δυσκολία πριν και μετά.
+### Citation
+Balloch et al., Evaluation and Baseline, Figure 2.
 
-### Προτεινόμενη χρήση
+## E5 — Continued learning is a necessary baseline but not a dedicated novelty-adaptation mechanism
+- **Type:** faithful paraphrase
+- **Location:** Evaluation and Baseline; Figure 3
+- **Claim:** A standard RL agent that simply continues training after novelty provides a useful reference for determining whether a specialized adaptation mechanism adds value.
+- **Status:** verified
 
-Ορισμός environment invariants και validation tests για μεταβαλλόμενους κανόνες.
+### Faithful paraphrase
+The baseline PPO agent in the NovGrid experiment has no novelty-specific adaptation component. After the injected change, it continues reinforcement learning from task reward. Its post-change learning curve therefore shows what can be achieved by ordinary continued learning under the same changed environment without an explicit novelty detector or specialized response mechanism.
 
-### Παραπομπή
+### Context and limits
+Calling this baseline a lower bound in the paper does not prove that it will be worse than every specialized method in every environment.
 
-Balloch et al., *An Ontology of Novelty for Sequential Decision Making* και *Novelty MiniGrid*.
+### Thesis use
+Retain a `continue_learning` baseline alongside frozen-policy, full-reset, and detector-triggered variants.
 
-## Τεκμήριο E3
+### Citation
+Balloch et al., Evaluation and Baseline, Figure 3.
 
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** *Evaluation and Baseline*, Figure 2
-- **Ισχυρισμός:** Η αξιολόγηση novelty adaptation απαιτεί χωριστή μέτρηση άμεσης ανθεκτικότητας, τελικής post-change επίδοσης, χρόνου/αλληλεπιδράσεων ανάκαμψης και one-shot επίδοσης.
-- **Κεφάλαιο:** Μετρικές
-- **Θέματα:** resilience; adaptive efficiency; asymptotic performance; one-shot adaptation
-- **Κατάσταση:** επαληθευμένο
+## E6 — Reward changes are outside the specific NovGrid ontology used in this paper
+- **Type:** faithful paraphrase
+- **Location:** ontology assumptions
+- **Claim:** The paper keeps the agent mission and extrinsic reward structure fixed across novelty and focuses on changes to environment properties and dynamics.
+- **Status:** verified
 
-### Κείμενο ή πιστή παράφραση
+### Faithful paraphrase
+The authors assume that the agent's mission remains the same before and after novelty injection and state that changes to the goal or extrinsic reward structure are left to future integration with continual- and multitask-learning settings.
 
-Το NovGrid ορίζει resilience ως την post-change επίδοση της pre-novelty policy σε σχέση με random baseline, asymptotic adaptive performance ως την τελική συγκλίνουσα επίδοση, adaptive efficiency ως τις αλληλεπιδράσεις μέχρι σύγκλιση και one-shot adaptive performance ως την επίδοση μετά από ένα post-change episode.
+### Thesis use
+Treat reward drift as a separate experimental axis rather than citing NovGrid as direct evidence for reward-change adaptation.
 
-### Συμφραζόμενα
-
-Οι μετρικές περιγράφουν διαφορετικά τμήματα της performance curve και δεν πρέπει να συμπτύσσονται άκριτα σε ένα score.
-
-### Περιορισμοί και κίνδυνος παρερμηνείας
-
-Ο ειδικός ορισμός resilience της εργασίας δεν είναι καθολικός και πρέπει να συγκριθεί με curve-based definitions άλλων πηγών.
-
-### Προτεινόμενη χρήση
-
-Αιτιολόγηση χωριστών primary και secondary recovery metrics στη διπλωματική.
-
-### Παραπομπή
-
-Balloch et al., *Evaluation and Baseline*, Figure 2.
-
-## Τεκμήριο E4
-
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** *Evaluation and Baseline*, Figure 3
-- **Ισχυρισμός:** Ένα agent που απλώς συνεχίζει να μαθαίνει μετά την αλλαγή είναι χρήσιμο baseline, αλλά δεν ισοδυναμεί με ειδικό novelty-adaptation mechanism.
-- **Κεφάλαιο:** Baselines· Πειραματικό πρωτόκολλο
-- **Θέματα:** continued learning; PPO; lower-bound baseline; recovery
-- **Κατάσταση:** επαληθευμένο
-
-### Κείμενο ή πιστή παράφραση
-
-Στο DoorKeyChange experiment ο PPO δεν διαθέτει εξειδικευμένο μηχανισμό novelty adaptation. Μετά την αλλαγή συνεχίζει την RL εκπαίδευση από extrinsic reward, ώστε η καμπύλη του να λειτουργεί ως απλό σημείο αναφοράς για πιο στοχευμένες μεθόδους.
-
-### Συμφραζόμενα
-
-Η αλλαγή εισάγεται στα 500k timesteps και η εκπαίδευση συνεχίζεται για άλλα 500k.
-
-### Περιορισμοί και κίνδυνος παρερμηνείας
-
-Η εργασία το χαρακτηρίζει lower-bound, αλλά αυτό δεν αποδεικνύει ότι θα είναι κάτω από κάθε πιθανό method σε κάθε περιβάλλον.
-
-### Προτεινόμενη χρήση
-
-Καθιέρωση `continue-learning` baseline δίπλα σε frozen-policy και reset/retrain baselines.
-
-### Παραπομπή
-
-Balloch et al., *Evaluation and Baseline*, Figure 3.
-
-## Τεκμήριο E5
-
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** *Evaluation and Baseline*, Figure 3
-- **Ισχυρισμός:** Η ενδεικτική PPO καμπύλη παρουσιάζει χαμηλή άμεση resilience και αργή, ατελή ανάκαμψη μετά το DoorKeyChange.
-- **Κεφάλαιο:** Σχετικές εργασίες· Μετρικές
-- **Θέματα:** performance drop; adaptation time; asymptotic gap
-- **Κατάσταση:** επαληθευμένο
-
-### Κείμενο ή πιστή παράφραση
-
-Στο συγκεκριμένο setup αναφέρονται resilience 0.0531 και one-shot performance 0.22. Η post-novelty καμπύλη συγκλίνει περίπου 300k timesteps μετά την αλλαγή και σε χαμηλότερη reward περίπου 0.8.
-
-### Συμφραζόμενα
-
-Οι τιμές αφορούν 6×6 DoorKeyChange με συγκεκριμένο PPO setup και reward scale.
-
-### Περιορισμοί και κίνδυνος παρερμηνείας
-
-Οι αριθμοί είναι illustrative και δεν αποτελούν target ή αναμενόμενο αποτέλεσμα της δικής μας υλοποίησης.
-
-### Προτεινόμενη χρήση
-
-Παράδειγμα του γιατί η τελική επίδοση από μόνη της αποκρύπτει το adaptation cost.
-
-### Παραπομπή
-
-Balloch et al., *Evaluation and Baseline*, Figure 3.
+### Citation
+Balloch et al., ontology assumptions.
