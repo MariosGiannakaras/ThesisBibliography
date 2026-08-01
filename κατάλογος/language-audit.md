@@ -5,24 +5,14 @@ It does **not** translate content. Mixed/bilingual/short sources are sent to man
 
 - Exported sources checked: **104**
 - Definite cross-language violations: **0**
-- Manual-review cases: **20**
-- Script-compatible cases: **84**
+- Manual-review cases: **10**
+- Script-compatible cases: **94**
 - Missing source/evidence files: **0**
 
 ## Manual review
 
 | Source | Source script | Source Greek ratio | Evidence script | Evidence Greek ratio |
 |---|---|---:|---|---:|
-| `SRC-F622BE6812` | latin | 0.001 | mixed | 0.446 |
-| `SRC-3C0F7CC819` | latin | 0.000 | mixed | 0.347 |
-| `SRC-A4DC00B75B` | latin | 0.000 | mixed | 0.387 |
-| `SRC-4D2B7DDC38` | latin | 0.017 | mixed | 0.428 |
-| `SRC-2C9FFED27E` | latin | 0.010 | mixed | 0.408 |
-| `SRC-7313A97A30` | latin | 0.000 | mixed | 0.442 |
-| `SRC-8F1C2D6CE4` | latin | 0.004 | mixed | 0.308 |
-| `SRC-E9D551F27C` | latin | 0.000 | mixed | 0.406 |
-| `SRC-7C18826BEE` | latin | 0.002 | mixed | 0.325 |
-| `SRC-52E62452B8` | latin | 0.000 | mixed | 0.430 |
 | `SRC-91D94DB95B` | latin | 0.013 | mixed | 0.418 |
 | `SRC-8E22CBA55A` | latin | 0.005 | mixed | 0.396 |
 | `SRC-BB5ECDA0CD` | latin | 0.000 | mixed | 0.356 |
