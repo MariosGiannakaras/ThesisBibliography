@@ -6,7 +6,7 @@ import csv
 from collections import Counter
 from pathlib import Path
 
-from κατάσταση_απόφασης import excerpt_is_verified, infer_decision, normalize
+from κατάσταση_απόφασης import SELECTED_ROLES, excerpt_is_verified, infer_decision, normalize
 
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG = ROOT / "κατάλογος" / "πηγές.csv"
@@ -35,15 +35,24 @@ def read_rows(path: Path) -> list[dict[str, str]]:
         return [dict(row) for row in csv.DictReader(handle)]
 
 
-def analysis_status(source_id: str) -> str:
+def analysis_status(source_id: str, chosen: dict[str, str]) -> str:
     path = ANALYSES / f"{source_id}.md"
     if not path.exists():
         return "προς ανάλυση"
     text = path.read_text(encoding="utf-8", errors="replace")
     decision = infer_decision(text)
+    role = normalize(chosen.get("Ρόλος"))
+    registry_status = normalize(chosen.get("Κατάσταση"))
+
     if decision == "rejected":
         return "απορρίφθηκε"
     if decision == "selected" and excerpt_is_verified(EXCERPTS / f"{source_id}.md"):
+        return "επαληθευμένη"
+
+    # Legacy fallback μετά τον conservative registry sync.
+    if role == "απόρριψη" and registry_status == "απορρίφθηκε":
+        return "απορρίφθηκε"
+    if role in SELECTED_ROLES and registry_status == "επαληθευμένη" and excerpt_is_verified(EXCERPTS / f"{source_id}.md"):
         return "επαληθευμένη"
     return "πρόχειρη"
 
@@ -71,7 +80,7 @@ def main() -> int:
                 "Τίτλος": source.get("Τίτλος", ""),
                 "Προτεραιότητα": source.get("Προτεραιότητα", ""),
                 "Κατάσταση πηγής": source.get("Κατάσταση", ""),
-                "Κατάσταση ανάλυσης": analysis_status(source_id),
+                "Κατάσταση ανάλυσης": analysis_status(source_id, chosen),
                 "Κατάσταση αποσπασμάτων": excerpt_status(source_id),
                 "Ρόλος": chosen.get("Ρόλος", ""),
                 "Εξαγωγή": chosen.get("Εξαγωγή", ""),
