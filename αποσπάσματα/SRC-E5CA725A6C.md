@@ -8,128 +8,151 @@ source-language: en
 
 # Evidence — Deep Reinforcement Learning in Non-stationary Environments
 
-## E1 — Unknown change points define a non-oracle non-stationary RL setting
+## E1 — Unknown changepoints define a non-oracle adaptation problem
+
 - **Type:** faithful paraphrase
 - **Location:** Abstract; Chapter 3, Sections 3.1–3.2
-- **Claim:** The thesis formalizes sequential interaction with changing MDPs when the true environmental change times are not supplied to the agent.
+- **Claim:** The thesis studies sequences of MDP regimes in which changes to reward or transition distributions occur at times that are not supplied to the agent.
 - **Status:** verified
 
 ### Faithful paraphrase
-Liu studies environments whose reward or transition structure can change abruptly and unpredictably over time. In the unknown-change-point setting, the agent does not receive the true change time as an oracle signal. It must infer when the environment has changed and then adapt its policy to the new regime.
+
+Liu formalizes deep reinforcement learning in non-stationary environments with abrupt, unknown change points. The state and action spaces remain compatible across regimes, while reward and transition distributions can change. The learner must infer change events from interaction rather than receive the true changepoints as an oracle signal.
 
 ### Context and limits
-The evaluator can still know the injected ground-truth change times for scoring detector precision, recall, and delay; “unknown” refers to information withheld from the agent.
+
+The evaluator can still know the true changepoints so detector latency and correctness can be measured. “Unknown to the agent” does not mean “unknown in the experimental ground truth.”
 
 ### Thesis use
-Use this as a direct formal precedent for non-oracle detector-triggered adaptation experiments.
+
+Use this as support for a non-oracle detection protocol with hidden changepoints and evaluator-side ground truth.
 
 ### Citation
-Liu (2024), Abstract and Chapter 3.
 
-## E2 — Change detection and policy adaptation are separate subsystems
+Liu (2024), Abstract and Chapter 3, Sections 3.1–3.2.
+
+## E2 — Detection and adaptation are separate subsystems
+
 - **Type:** faithful paraphrase
 - **Location:** Chapter 3, Sections 3.3.1–3.3.3
-- **Claim:** Detection-Adaptation RL separates environment-change detection from a policy-adaptation mechanism that uses the detected change to guide transfer of previous knowledge.
+- **Claim:** DARL separates environmental change detection from the policy-adaptation mechanism that is invoked after a detected change.
 - **Status:** verified
 
 ### Faithful paraphrase
-DARL first constructs evidence that the state–action behavior distribution has changed and produces detected change points. Policy adaptation is then handled by a separate gradient-constrained mechanism that decides how previous policies should influence learning in the new environment. The detector and adapter therefore solve different problems even though the full method couples them.
+
+The model-free framework first searches for evidence that the joint state–action behavior has changed and then uses a separate gradient-constrained mechanism to adapt the policy while selectively preserving prior knowledge. The detection stage determines whether a change has occurred; the adaptation stage determines how the policy is updated afterward.
+
+### Context and limits
+
+A detector can be accurate while the resulting adapter performs poorly, and a strong adapter can be triggered by a poor detector.
 
 ### Thesis use
-Maintain independent detector and adapter scorecards and include ablations that isolate each subsystem.
+
+Maintain independent detector and adapter scorecards and ablations.
 
 ### Citation
+
 Liu (2024), Chapter 3, Sections 3.3.1–3.3.3.
 
-## E3 — F1 score does not measure detection latency
+## E3 — F1 score does not capture detection latency
+
 - **Type:** faithful paraphrase
-- **Location:** Chapter 3, Tables 3.3 and 3.5 and surrounding discussion
-- **Claim:** Detectors with similar or perfect event-level F1 can still declare true changes at different times.
+- **Location:** Chapter 3, Tables 3.3 and 3.5
+- **Claim:** Detectors with similar or even perfect event-level F1 can still identify the same true changepoints at different delays.
 - **Status:** verified
 
 ### Faithful paraphrase
-The reported CartPole and LunarLander experiments show that event-detection correctness and alarm timing are not identical. In some settings, methods attain the same or similar precision/recall-based scores while one detector identifies the injected change several episodes later than another.
+
+In the reported CartPole experiments, DARL and CRL-Unsup can both attain an event-level F1 of 1.0 while their detected changepoints occur at different times after the true changes. The LunarLander results likewise show that classification-style detector quality and latency are not interchangeable measurements.
 
 ### Context and limits
-The numerical delays in the dissertation are benchmark-specific and should not be generalized as a universal algorithm ordering.
+
+The numerical delays are specific to the studied benchmarks and detector settings.
 
 ### Thesis use
-Report precision, recall, F1, and detection delay separately; never use F1 as a substitute for latency.
+
+Report precision, recall, F1, and detection delay separately.
 
 ### Citation
+
 Liu (2024), Chapter 3, Tables 3.3 and 3.5.
 
-## E4 — Combining change signals can improve detection fidelity in the reported ablation
+## E4 — Combining complementary change signals can reduce false detections in the studied setting
+
 - **Type:** faithful paraphrase
 - **Location:** Chapter 3, Section 3.4.3; Table 3.4; Figure 3.8
-- **Claim:** In the reported DARL ablation, joint use of policy/behavior change and episodic state-distribution evidence reduced detection errors relative to using either signal alone.
+- **Claim:** The joint use of policy/behavior change and state-distribution evidence detects the studied changes more faithfully than either component alone.
 - **Status:** verified
 
 ### Faithful paraphrase
-The thesis evaluates components of its change detector separately and reports that neither a policy-oriented signal nor a state-distribution signal reliably identifies all true changes by itself in the tested benchmark. Their combined decision filters more false indications and improves event-level detection performance.
+
+The ablation study shows that relying only on the policy-change signal or only on episodic/state-distribution evidence misses or misidentifies some changes. Requiring complementary evidence from both signals filters more spurious detections in the reported environments.
 
 ### Context and limits
-This is evidence for the specific calibrated signals and tasks in the dissertation, not a general theorem that combining any two detector statistics is superior.
+
+This does not imply that adding more detector signals is universally beneficial; thresholds and signals still require validation.
 
 ### Thesis use
-If a multi-signal detector is tested, calibrate it on validation shifts and compare every component plus the joint rule under matched thresholds/tuning budgets.
+
+If a multi-signal detector is implemented, compare it with each component separately and measure false alarms and delay.
 
 ### Citation
-Liu (2024), Section 3.4.3.
 
-## E5 — Previous policies can cause negative transfer after a regime change
+Liu (2024), Chapter 3, Section 3.4.3, Table 3.4, and Figure 3.8.
+
+## E5 — Preserving prior policies can cause negative transfer
+
 - **Type:** faithful paraphrase
-- **Location:** Chapter 3, adaptation ablations and Figures 3.6 and 3.10
-- **Claim:** Preserving or transferring knowledge from an irrelevant previous policy can restrict learning in the new environment and degrade adaptation.
+- **Location:** Chapter 3, adaptation analysis; Figures 3.6 and 3.10
+- **Claim:** Previous-policy knowledge can hinder adaptation when it is irrelevant or conflicting with the new regime.
 - **Status:** verified
 
 ### Faithful paraphrase
-Liu explicitly studies cases where an earlier policy is poorly matched to the current environment. Strong constraints that force the new policy to remain compatible with such prior behavior can hinder learning, and the problem becomes more severe as additional regimes accumulate. The proposed adaptation mechanism therefore weights or relaxes prior-policy influence according to relevance.
+
+The thesis includes experiments in which a deliberately poor prior policy is introduced and shows that strong constraints forcing preservation of previous policies can increasingly obstruct learning in later regimes. DARL attempts to reduce this problem by weighting prior knowledge according to its relevance to the current environment.
+
+### Context and limits
+
+The mechanism is developed for gradient-based deep policies and should not be imported directly into a tabular agent without separate validation.
 
 ### Thesis use
-Require a scratch/no-transfer comparator and report a negative-transfer gap for every policy/context-reuse mechanism.
+
+Require scratch/no-transfer comparators and report a negative-transfer gap for any policy-reuse or context-memory mechanism.
 
 ### Citation
-Liu (2024), Chapter 3 adaptation analysis.
 
-## E6 — False alarms and missed changes have different downstream costs
+Liu (2024), Chapter 3, Sections 3.4.3–3.4.4 and Figures 3.6 and 3.10.
+
+## E6 — False alarms and missed changes impose different adaptation costs
+
 - **Type:** faithful paraphrase
 - **Location:** Chapter 3, Section 3.4.4
-- **Claim:** A false detection can trigger unnecessary adaptation, whereas a missed change can leave the learner using an inappropriate policy and delay recovery.
+- **Claim:** A false positive can trigger unnecessary adaptation, while a missed change leaves the agent operating with an obsolete policy; these failure modes should not be collapsed into one detector error rate.
 - **Status:** verified
 
 ### Faithful paraphrase
-The dissertation analyzes detection failures in terms of their consequences for the coupled adaptation process. A false positive is not merely a detector bookkeeping error: it can cause needless policy modification and performance loss. A false negative can be more damaging in another way because adaptation is not triggered when the environment actually changes.
+
+The thesis analyzes detector failures through their downstream consequences. Spurious detections can cause needless policy updates and potential performance disruption, whereas missed changes delay adaptation and allow the old policy to remain active in an environment for which it is no longer appropriate.
 
 ### Thesis use
-Report both false-alarm rate and missed-change rate together with the utility cost induced by each error type.
+
+Log false-trigger adaptation cost and missed-change recovery cost separately.
 
 ### Citation
-Liu (2024), Section 3.4.4.
 
-## E7 — Bayesian uncertainty is one possible detection signal, not change evidence by definition
-- **Type:** faithful paraphrase and scope clarification
-- **Location:** Abstract; later methodology chapters
-- **Claim:** The thesis investigates changes in Bayesian uncertainty as one signal for non-stationarity, alongside behavior- and distribution-based methods.
-- **Status:** verified
+Liu (2024), Chapter 3, Section 3.4.4.
 
-### Faithful paraphrase
-One of the thesis approaches monitors how posterior uncertainty changes during learning and uses that behavior as evidence relevant to environment change. The broader dissertation also proposes other detectors, demonstrating that uncertainty change is a designed statistic within a detection procedure rather than a self-interpreting changepoint label.
+## E7 — The dissertation's deep methods are evidence for architecture principles, not mandatory thesis implementations
 
-### Thesis use
-Any uncertainty-based detector still requires threshold calibration, false-alarm evaluation, and delay measurement.
-
-### Citation
-Liu (2024), Abstract and change-detection methodology chapters.
-
-## E8 — Deep detector/adapter methods are evidence for protocol design, not mandatory tabular implementations
-- **Type:** thesis-scope synthesis
-- **Location:** Overall dissertation
-- **Claim:** The proposed methods use deep policies, distributional tests, gradients, Gaussian-process/posterior machinery, and latent models that are substantially heavier than the resource-aware core baseline matrix.
+- **Type:** scope inference grounded in the dissertation
+- **Location:** Chapters 3–6
+- **Claim:** The dissertation proposes several deep model-free and model-based detection/adaptation systems, including latent-space approaches for high-dimensional inputs; these are more complex than the resource-aware tabular benchmark requires.
 - **Status:** verified
 
 ### Thesis use
-Use the dissertation primarily to justify detector–adapter decomposition, non-oracle evaluation, failure metrics, and negative-transfer controls; only implement a lightweight analogue if feasibility tests support it.
+
+Use the source to justify detector/adapter separation, non-oracle evaluation, and negative-transfer controls. Implement the full deep frameworks only if the final experimental scope explicitly expands beyond the current resource-aware baseline set.
 
 ### Citation
-Liu (2024), overall dissertation.
+
+Liu (2024), Chapters 3–6.
