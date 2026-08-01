@@ -15,6 +15,10 @@ def normalize(value: str | None) -> str:
     return (value or "").strip().casefold()
 
 
+def plain_markdown(value: str | None) -> str:
+    return re.sub(r"[*_`]", "", normalize(value))
+
+
 def frontmatter_value(text: str, key: str) -> str:
     match = re.search(rf"(?im)^\s*{re.escape(key)}\s*:\s*[\"']?(.*?)[\"']?\s*$", text)
     return normalize(match.group(1)) if match else ""
@@ -33,9 +37,9 @@ def decision_section(text: str) -> str:
 
 
 def infer_role(text: str) -> str:
-    normalized = normalize(text)
+    normalized = plain_markdown(text)
     patterns = (
-        r"(?:ρόλος στη διπλωματική|προτεινόμενος ρόλος|ρόλος)\s*:\s*\**\s*(κύρια|υποστηρικτική|υπόβαθρο)",
+        r"(?:ρόλος στη διπλωματική|προτεινόμενος ρόλος|ρόλος)\s*:\s*(κύρια|υποστηρικτική|υπόβαθρο)",
         r"(?:επιλογή|επιλέγεται|επαληθευμένη[^\n]{0,80}εξαγωγή\s+ναι)[^\n]{0,120}?\b(κύρια|υποστηρικτική|υπόβαθρο)\b",
         r"\bως\s+(κύρια|υποστηρικτική|υπόβαθρο)\s+(?:πηγή|αναφορά|τεκμήριο)",
     )
@@ -52,14 +56,13 @@ def infer_decision(text: str) -> str:
     if state in REJECTED_STATES:
         return "rejected"
 
-    section = normalize(decision_section(text))
+    section = plain_markdown(decision_section(text))
     rejection_markers = (
-        "**απόρριψη",
-        "απόφαση:** απόρριψη",
         "απόφαση: απόρριψη",
         "απόρριψη λόγω",
         "απόρριψη ως",
         "δεν εξάγεται",
+        "εκτός εξαγωγής",
         "εξαγωγή όχι",
         "εξαγωγή: όχι",
         "ρόλος: απόρριψη",
@@ -67,16 +70,24 @@ def infer_decision(text: str) -> str:
     if any(marker in section for marker in rejection_markers):
         return "rejected"
 
+    full_plain = plain_markdown(text)
+    if re.search(r"(?im)^\s*-?\s*ρόλος\s*:\s*απόρριψη\s*$", full_plain):
+        return "rejected"
+    if "απορρίπτεται από το thesis export gate" in full_plain:
+        return "rejected"
+    if "απορρίπτεται από το τρέχον scope" in full_plain:
+        return "rejected"
+
     if state in VERIFIED_ANALYSIS_STATES:
         return "selected"
 
     role = infer_role(text)
     selection_markers = (
-        "**επιλογή",
+        "επιλογή",
         "επιλέγεται ως",
         "εξαγωγή ναι",
         "εξαγωγή: ναι",
-        "**επαληθευμένη",
+        "επαληθευμένη",
     )
     if role in SELECTED_ROLES and any(marker in section for marker in selection_markers):
         return "selected"
