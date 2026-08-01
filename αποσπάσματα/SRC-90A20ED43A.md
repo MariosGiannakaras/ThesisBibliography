@@ -5,150 +5,79 @@
 ημερομηνία-ελέγχου: "2026-08-01"
 ---
 
-# Αποσπάσματα — Survival of the Fittest: Evolutionary Adaptation of Policies for Environmental Shifts
+# Evidence — Survival of the Fittest: Evolutionary Adaptation of Policies for Environmental Shifts
 
-## Τεκμήριο E1
+## Evidence E1 — Severe environmental shifts motivate post-shift retraining
+- **Type:** faithful paraphrase
+- **Location:** Abstract; Section 1
+- **Claim:** The paper distinguishes substantial environmental distribution shifts from the bounded perturbations commonly targeted by domain randomization and robust RL, and treats retraining in the shifted environment as a separate response.
+- **Thesis use:** robustness/adaptation taxonomy
+- **Topics:** environmental shift; retraining; robust RL boundary
+- **Status:** verified
 
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** Abstract και Introduction
-- **Ισχυρισμός:** Η εργασία αντιμετωπίζει μεγάλη μετατόπιση του περιβάλλοντος μέσω post-shift policy adaptation και όχι μόνο μέσω προεκπαίδευσης για bounded robustness.
-- **Κεφάλαιο:** Σχετικές εργασίες· Agent taxonomy
-- **Θέματα:** environmental shift; adaptation; robust RL boundary
-- **Κατάσταση:** επαληθευμένο
+### Faithful paraphrase
+The authors argue that a policy that was optimal in the original environment can become suboptimal or fail after a drastic change in the environment's dynamics or layout. Their response is not a frozen worst-case policy: ERPO collects trajectories in the shifted environment and iteratively adapts a policy to that new environment.
 
-### Κείμενο ή πιστή παράφραση
+### Limitation
+This is post-shift adaptation and does not guarantee that the initial performance drop is avoided.
 
-Όταν η δυναμική του περιβάλλοντος αλλάζει δραστικά, η παλιά optimal policy μπορεί να γίνει υποβέλτιστη ή να αποτύχει. Ο ERPO χρησιμοποιεί νέα trajectories στο μετατοπισμένο περιβάλλον για να προσαρμόσει επαναληπτικά την policy.
+## Evidence E2 — ERPO trades off adherence to the old policy and exploration of a new policy
+- **Type:** faithful paraphrase
+- **Location:** Section 3.2
+- **Claim:** ERPO constructs its training behavior by combining the previous optimal policy with a new policy and progressively reducing adherence to the old policy.
+- **Thesis use:** optional policy-reuse feasibility baseline
+- **Topics:** warm start; policy reuse; exploration
+- **Status:** verified
 
-### Περιορισμοί και κίνδυνος παρερμηνείας
+### Faithful paraphrase
+The method begins adaptation with a policy that retains substantial influence from the old optimal policy while allowing a newly initialized policy to contribute. A temperature/adherence schedule shifts weight away from the old policy as new batches of trajectories are collected and the new policy is updated.
 
-Δεν πρόκειται για frozen robust policy και δεν αποτρέπει κατ’ ανάγκη την αρχική πτώση επίδοσης.
+### Limitation
+The adherence schedule is a consequential tuning choice and should not be selected on the final test shifts.
 
-### Προτεινόμενη χρήση
+## Evidence E3 — Policy updates prioritize high-fitness experience
+- **Type:** faithful paraphrase
+- **Location:** Sections 3–5
+- **Claim:** ERPO adapts its policy using a replicator-dynamics-inspired update that gives greater influence to state-action behavior associated with relatively high-return trajectories.
+- **Thesis use:** informative-experience adaptation rationale
+- **Topics:** replicator dynamics; trajectory weighting; adaptation
+- **Status:** verified
 
-Ορισμός της κατηγορίας `post_shift_retraining` χωριστά από `static_robustness`.
+### Faithful paraphrase
+Rather than treating every trajectory in an adaptation batch as equally informative, the evolutionary update increases the influence of choices associated with higher fitness or return relative to the current batch and decreases the influence of poorer choices.
 
-### Παραπομπή
+## Evidence E4 — The experiments include severe structural changes in discrete navigation tasks
+- **Type:** faithful paraphrase
+- **Location:** Section 4
+- **Claim:** The evaluation includes discrete navigation environments with substantial layout changes and compares adaptation against scratch and pretrained/warm-start baselines where applicable.
+- **Thesis use:** severe-shift comparator design
+- **Topics:** navigation; structural shift; scratch; warm start
+- **Status:** verified
 
-Paul & Deshmukh, 2024, Abstract και §1.
+### Faithful paraphrase
+The paper evaluates ERPO in environments such as FrozenLake, Taxi, CliffWalking and MiniGrid variants including DistributionShift and Walls&Lava. The comparison includes mainstream RL algorithms trained from scratch in the shifted environment, retrained from a model learned in the original environment, and, where relevant, domain-randomized variants.
 
-## Τεκμήριο E2
+## Evidence E5 — Reported ERPO gains are benchmark-specific, not a universal ranking
+- **Type:** faithful paraphrase
+- **Location:** Sections 5–6
+- **Claim:** The authors report faster adaptation, higher rewards, and lower adaptation cost for ERPO in many of their evaluated scenarios, but the claim is tied to the paper's discrete tasks and implementation choices.
+- **Thesis use:** feasibility evidence
+- **Topics:** adaptation efficiency; shift severity; algorithm comparison
+- **Status:** verified
 
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** Section 3.2, algorithm description
-- **Ισχυρισμός:** Η training policy μεταβαίνει σταδιακά από την παλιά policy προς μια νέα policy.
-- **Κεφάλαιο:** Μεθοδολογία· Agent architectures
-- **Θέματα:** warm start; old-policy adherence; exploration
-- **Κατάσταση:** επαληθευμένο
+### Faithful paraphrase
+Across the reported path-finding experiments, ERPO often reaches strong post-shift performance with fewer adaptation episodes or lower computational cost than the particular baseline configurations used in the paper. This supports testing policy reuse as a feasibility option, not assuming in advance that it will dominate a resource-matched GridWorld benchmark.
 
-### Κείμενο ή πιστή παράφραση
+## Evidence E6 — The current method is scoped to discrete single-agent settings
+- **Type:** faithful paraphrase
+- **Location:** Section 6, limitations/future work
+- **Claim:** The reported implementation is limited to discrete state/action spaces and single-agent models.
+- **Thesis use:** scope boundary
+- **Topics:** discrete RL; single agent; external validity
+- **Status:** verified
 
-Ο ERPO αρχικοποιεί την training policy ως weighted combination της παλιάς optimal policy και μιας νέας αρχικά τυχαίας policy. Σε κάθε iteration μειώνει το βάρος της παλιάς policy και ενημερώνει τη νέα policy από batches trajectories.
+### Faithful paraphrase
+The authors identify extensions to continuous and multi-agent settings as future work. The present evidence therefore transfers most directly to the thesis's discrete single-agent setting and should not be generalized beyond that scope.
 
-### Περιορισμοί και κίνδυνος παρερμηνείας
-
-Το adherence schedule είναι ουσιώδες hyperparameter και δεν υπάρχει λόγος να θεωρηθεί universal.
-
-### Προτεινόμενη χρήση
-
-Καταγραφή `old_policy_weight` και σύγκριση διαφορετικών decay schedules χωρίς test-set tuning.
-
-### Παραπομπή
-
-Paul & Deshmukh, 2024, §3.2.
-
-## Τεκμήριο E3
-
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** Sections 3–5
-- **Ισχυρισμός:** Η ενημέρωση δίνει έμφαση σε trajectories που είναι περισσότερο πληροφοριακές σε σχέση με το batch.
-- **Κεφάλαιο:** Μεθοδολογία
-- **Θέματα:** replicator dynamics; trajectory weighting; batch adaptation
-- **Κατάσταση:** επαληθευμένο
-
-### Κείμενο ή πιστή παράφραση
-
-Αντί να αντιμετωπίζονται όλα τα βήματα ενός batch ως ισοδύναμα, η replicator-style ενημέρωση ενισχύει state–action επιλογές που συνδέονται με trajectories με ουσιαστικά διαφορετική απόδοση από την υπόλοιπη παρτίδα.
-
-### Περιορισμοί και κίνδυνος παρερμηνείας
-
-Η περιγραφή αυτή δεν ισοδυναμεί με απόδειξη ότι το weighting είναι καλύτερο σε όλα τα reward structures.
-
-### Προτεινόμενη χρήση
-
-Αιτιολόγηση ενός προαιρετικού informative-trajectory adaptation pilot.
-
-### Παραπομπή
-
-Paul & Deshmukh, 2024, §§3–5.
-
-## Τεκμήριο E4
-
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** Section 4
-- **Ισχυρισμός:** Τα experiments περιλαμβάνουν discrete navigation environments με structural shifts και συγκρίσεις scratch/warm-start.
-- **Κεφάλαιο:** Πειραματικό περιβάλλον· Baselines
-- **Θέματα:** FrozenLake; Taxi; CliffWalking; MiniGrid; warm start
-- **Κατάσταση:** επαληθευμένο
-
-### Κείμενο ή πιστή παράφραση
-
-Η αξιολόγηση χρησιμοποιεί FrozenLake, Taxi, CliffWalking, MiniGrid DistributionShift και Walls&Lava και συγκρίνει ERPO με PPO, PPO-DR, DQN και A2C, με εκπαίδευση από την αρχή ή από προεκπαιδευμένο μοντέλο όπου εφαρμόζεται.
-
-### Περιορισμοί και κίνδυνος παρερμηνείας
-
-Η ποικιλία benchmarks δεν εξαλείφει τις διαφορές implementation και tuning μεταξύ algorithm families.
-
-### Προτεινόμενη χρήση
-
-Σχεδιασμός scratch, warm-start και no-transfer comparators για severe layout changes.
-
-### Παραπομπή
-
-Paul & Deshmukh, 2024, §4.
-
-## Τεκμήριο E5
-
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** Section 5 και Discussion
-- **Ισχυρισμός:** Ο ERPO αναφέρεται ότι διατηρεί καλύτερη απόδοση καθώς αυξάνεται η ένταση structural shift στα εξεταζόμενα settings.
-- **Κεφάλαιο:** Αποτελέσματα· Threats to validity
-- **Θέματα:** adaptation efficiency; shift severity; algorithm comparison
-- **Κατάσταση:** επαληθευμένο
-
-### Κείμενο ή πιστή παράφραση
-
-Στα Walls&Lava levels και στα υπόλοιπα εξεταζόμενα benchmarks, οι συγγραφείς αναφέρουν ταχύτερη προσαρμογή και καλύτερη απόδοση του ERPO από τις συγκεκριμένες baseline configurations.
-
-### Περιορισμοί και κίνδυνος παρερμηνείας
-
-Δεν αποτελεί universal ranking. Στο διαθέσιμο κείμενο δεν εντοπίστηκε ενιαίο πλήρες protocol seeds, confidence intervals και statistical tests για όλες τις συγκρίσεις.
-
-### Προτεινόμενη χρήση
-
-Evidence ότι controlled policy reuse αξίζει feasibility pilot, όχι προαποφασισμένη επιλογή τελικού agent.
-
-### Παραπομπή
-
-Paul & Deshmukh, 2024, §§5–6.
-
-## Τεκμήριο E6
-
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** Discussion — Limitations and Future Work
-- **Ισχυρισμός:** Η τρέχουσα μέθοδος περιορίζεται σε discrete, single-agent settings.
-- **Κεφάλαιο:** Threats to validity
-- **Θέματα:** discrete state-action; single agent; scope
-- **Κατάσταση:** επαληθευμένο
-
-### Κείμενο ή πιστή παράφραση
-
-Οι συγγραφείς δηλώνουν ότι η τρέχουσα υλοποίηση αφορά διακριτούς χώρους καταστάσεων και ενεργειών και single-agent models, ενώ continuous και multi-agent επεκτάσεις παραμένουν μελλοντική εργασία.
-
-### Προτεινόμενη χρήση
-
-Οριοθέτηση της μεταφοράς των αποτελεσμάτων στο τελικό GridWorld.
-
-### Παραπομπή
-
-Paul & Deshmukh, 2024, §6.
+## Avoid overclaiming
+ERPO is an adaptive retraining method after substantial shift. It is not evidence that static robustness and resilience are equivalent, that policy reuse removes the need for post-shift exploration, or that one adherence schedule is universally optimal.
