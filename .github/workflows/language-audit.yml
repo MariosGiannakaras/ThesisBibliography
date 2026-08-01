@@ -15,7 +15,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  audit-and-migrate:
+  audit:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -36,46 +36,19 @@ jobs:
             python εργαλεία/language_audit.py
           fi
 
-      - name: Run transactional English path migration
-        id: migrate
-        shell: bash
-        run: |
-          set +e
-          if [ -f tools/migrate_repository_paths.py ]; then
-            python tools/migrate_repository_paths.py > /tmp/path-migration.log 2>&1
-          else
-            python εργαλεία/migrate_repository_paths.py > /tmp/path-migration.log 2>&1
-          fi
-          code=$?
-          cat /tmp/path-migration.log
-          if [ "$code" -ne 0 ]; then
-            git reset --hard HEAD
-            {
-              echo "# Path migration failure"
-              echo
-              echo '```text'
-              cat /tmp/path-migration.log
-              echo '```'
-            } > PATH_MIGRATION_FAILURE.md
-            echo "failed=true" >> "$GITHUB_OUTPUT"
-          else
-            rm -f PATH_MIGRATION_FAILURE.md
-            echo "failed=false" >> "$GITHUB_OUTPUT"
-          fi
-          exit 0
-
-      - name: Commit migration or diagnostic
+      - name: Commit audit report
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
+          if [ -f catalog/language-audit.md ]; then
+            git add catalog/language-audit.md
+          fi
+          if [ -f κατάλογος/language-audit.md ]; then
+            git add κατάλογος/language-audit.md
+          fi
           if git diff --cached --quiet; then
-            echo "No audit or migration changes."
+            echo "Language audit report unchanged."
             exit 0
           fi
-          if [ "${{ steps.migrate.outputs.failed }}" = "true" ]; then
-            git commit -m "chore: record English path migration failure [skip ci]"
-          else
-            git commit -m "chore: audit source language and migrate repository paths to English [skip ci]"
-          fi
+          git commit -m "chore: update source-language audit [skip ci]"
           git push origin HEAD:main
