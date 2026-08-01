@@ -4,9 +4,9 @@ This report checks selected/exported citation-ready evidence for a clear Greek-v
 It does **not** translate content. Mixed/bilingual/short sources are sent to manual review.
 
 - Exported sources checked: **104**
-- Definite cross-language violations: **41**
+- Definite cross-language violations: **16**
 - Manual-review cases: **20**
-- Script-compatible cases: **43**
+- Script-compatible cases: **68**
 - Missing source/evidence files: **0**
 
 ## Definite violations
@@ -15,32 +15,7 @@ These files must be re-authored against the original source; automatic translati
 
 | Source | Source script | Source Greek ratio | Evidence script | Evidence Greek ratio |
 |---|---|---:|---|---:|
-| `SRC-3F84F52F97` | latin | 0.001 | greek | 0.510 |
-| `SRC-8E12FE2688` | latin | 0.034 | greek | 0.540 |
 | `SRC-71F2ECA651` | latin | 0.000 | greek | 0.509 |
-| `SRC-7456165CEA` | latin | 0.012 | greek | 0.536 |
-| `SRC-620F17076C` | latin | 0.015 | greek | 0.485 |
-| `SRC-660560956D` | latin | 0.001 | greek | 0.556 |
-| `SRC-702F9AB94C` | latin | 0.001 | greek | 0.465 |
-| `SRC-3C543330E4` | latin | 0.007 | greek | 0.576 |
-| `SRC-4B456A9363` | latin | 0.009 | greek | 0.516 |
-| `SRC-0A8E4489E8` | latin | 0.022 | greek | 0.599 |
-| `SRC-E05A14A571` | latin | 0.004 | greek | 0.506 |
-| `SRC-B72D65A330` | latin | 0.008 | greek | 0.496 |
-| `SRC-CD5F67F3E6` | latin | 0.008 | greek | 0.490 |
-| `SRC-AC79E9A264` | latin | 0.005 | greek | 0.560 |
-| `SRC-7702DAEF48` | latin | 0.006 | greek | 0.520 |
-| `SRC-23E79861CF` | latin | 0.000 | greek | 0.561 |
-| `SRC-73DA396BA9` | latin | 0.004 | greek | 0.532 |
-| `SRC-3BF9404CC3` | latin | 0.002 | greek | 0.484 |
-| `SRC-6126015212` | latin | 0.004 | greek | 0.486 |
-| `SRC-E8CAAF02BE` | latin | 0.002 | greek | 0.478 |
-| `SRC-9D663D35D0` | latin | 0.042 | greek | 0.487 |
-| `SRC-19C2E91926` | latin | 0.001 | greek | 0.495 |
-| `SRC-6609D86CD5` | latin | 0.000 | greek | 0.542 |
-| `SRC-73C145D523` | latin | 0.009 | greek | 0.550 |
-| `SRC-62996FD690` | latin | 0.000 | greek | 0.545 |
-| `SRC-6E7AFA8AC0` | latin | 0.018 | greek | 0.454 |
 | `SRC-D1B6BA711E` | latin | 0.026 | greek | 0.474 |
 | `SRC-9AF6281E67` | latin | 0.010 | greek | 0.470 |
 | `SRC-CC5B34C28C` | latin | 0.015 | greek | 0.450 |
