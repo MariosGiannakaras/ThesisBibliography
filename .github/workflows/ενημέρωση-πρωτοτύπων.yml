@@ -1,3 +1,4 @@
+# Reconciliation trigger: linked LFS originals are pulled selectively before OCR.
 name: Ενημέρωση πρωτοτύπων
 
 on:
