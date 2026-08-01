@@ -2,181 +2,130 @@
 κωδικός: SRC-21EBE15D15
 κατάσταση: επαληθευμένο
 ελεγχθέν-πρωτότυπο: ναι
-ημερομηνία-ελέγχου: "2026-07-31"
+ημερομηνία-ελέγχου: "2026-08-01"
+source-language: en
 ---
 
-# Αποσπάσματα — A Survey of Zero-shot Generalisation in Deep Reinforcement Learning
+# Evidence — A Survey of Zero-shot Generalisation in Deep Reinforcement Learning
 
-## Τεκμήριο E1
+## E1 — Strict zero-shot evaluation excludes test-environment learning
 
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** PDF σελ. 202–204, Introduction και Scope
-- **Ισχυρισμός:** Στο αυστηρό zero-shot regime δεν επιτρέπεται πρόσθετη εκπαίδευση ή χρήση δεδομένων από τα test environment instances.
-- **Κεφάλαιο:** Θεωρητικό υπόβαθρο; Πειραματικό πρωτόκολλο
-- **Θέματα:** zero-shot generalization; frozen policy; test-time learning
-- **Κατάσταση:** επαληθευμένο
+- **Type:** faithful paraphrase
+- **Location:** Introduction and Scope
+- **Claim:** In the survey's zero-shot setting, the policy is evaluated on unseen environment instances without additional training or data from those test instances.
+- **Status:** verified
 
-### Κείμενο ή πιστή παράφραση
+### Faithful paraphrase
 
-Η survey ορίζει το zero-shot setting ως αξιολόγηση μιας policy σε environment instances διαφορετικά από εκείνα της εκπαίδευσης, χωρίς πρόσθετη εκπαίδευση ή δεδομένα από τα test instances. Μέθοδοι που ενημερώνονται πάνω στο target environment, όπως domain adaptation και πολλές meta-RL προσεγγίσεις, ανήκουν σε διαφορετικό evaluation regime.
+Kirk et al. define zero-shot generalisation as evaluating a learned policy on environment instances different from those used for training while prohibiting additional training or use of data from the test instances. Methods that adapt using target-environment data therefore belong to a different evaluation regime.
 
-### Συμφραζόμενα
+### Context and limits
 
-Ο περιορισμός επιλέγεται ώστε να μετρηθεί η άμεση ικανότητα transfer/generalization πριν από οποιαδήποτε online learning response.
+Zero-shot evaluation is useful for measuring immediate transfer, but it does not replace evaluation of an agent that is explicitly designed to learn after deployment.
 
-### Περιορισμοί και κίνδυνος παρερμηνείας
+### Thesis use
 
-Το zero-shot δεν είναι πάντοτε το καταλληλότερο deployment model. Ένας resilient agent μπορεί να χρειάζεται online adaptation, η οποία όμως πρέπει να αναφέρεται χωριστά.
+Run a frozen-policy test before any online adaptation phase and never label post-update recovery as zero-shot generalisation.
 
-### Προτεινόμενη χρήση
+### Citation
 
-Να οριστεί frozen-policy test πριν από την adaptive phase και να αποτραπεί η παρουσίαση post-update recovery ως zero-shot generalization.
+Kirk et al. (2023), Introduction and Scope.
 
-### Παραπομπή
+## E2 — Zero-shot generalisation is a class of problems, not one scalar ability
 
-Kirk et al., Introduction and Scope, JAIR 76, PDF σελ. 202–204.
+- **Type:** faithful paraphrase
+- **Location:** Introduction; Section 3
+- **Claim:** Generalisation problems differ in factors of variation, context observability, train/test distributions, interpolation versus extrapolation, and other structural assumptions.
+- **Status:** verified
 
-## Τεκμήριο E2
+### Faithful paraphrase
 
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** PDF σελ. 202–205, Introduction και Section 3
-- **Ισχυρισμός:** Η zero-shot generalization είναι κλάση προβλημάτων και κάθε ισχυρισμός απαιτεί ρητή περιγραφή του context και του train/test distribution shift.
-- **Κεφάλαιο:** Θεωρητικό υπόβαθρο; Ερευνητικά ερωτήματα
-- **Θέματα:** contextual MDP; interpolation; extrapolation; assumptions
-- **Κατάσταση:** επαληθευμένο
+The survey formalizes zero-shot generalisation through contextual MDPs and emphasizes that “generalisation” is underspecified without describing the relevant context distribution and structural assumptions. A method may improve one form of generalisation while harming another, so results from a single shift type do not justify a universal generalisation claim.
 
-### Κείμενο ή πιστή παράφραση
+### Thesis use
 
-Οι συγγραφείς τονίζουν ότι δεν υπάρχει μία ενιαία, γενική ιδιότητα «generalization». Τα προβλήματα διαφέρουν ως προς τον παράγοντα μεταβολής, την παρατηρησιμότητα του context, τη σχέση training και testing distributions και το αν το test απαιτεί interpolation, extrapolation ή νέο συνδυασμό γνωστών παραγόντων.
+Label every static generalisation experiment as IID held-out, interpolation, extrapolation, or another explicitly defined context shift.
 
-### Συμφραζόμενα
+### Citation
 
-Η survey χρησιμοποιεί contextual MDP formalism για να ενοποιήσει διαφορετικές γραμμές βιβλιογραφίας.
+Kirk et al. (2023), Introduction and Section 3.
 
-### Περιορισμοί και κίνδυνος παρερμηνείας
+## E3 — A benchmark is the combination of an environment and an evaluation protocol
 
-Βελτίωση σε έναν τύπο shift μπορεί να βλάπτει άλλον. Δεν επιτρέπεται καθολικός ισχυρισμός generalization από ένα μόνο scenario.
+- **Type:** faithful paraphrase
+- **Location:** Section 4
+- **Claim:** The environment defines available context-MDPs, while the evaluation protocol defines training/test context sets, sampling restrictions, and interaction budgets.
+- **Status:** verified
 
-### Προτεινόμενη χρήση
+### Faithful paraphrase
 
-Κάθε πείραμα να επισημαίνεται ως IID held-out, interpolation, extrapolation ή combinatorial test.
+The survey separates the design of an environment from the protocol used to evaluate generalisation in it. The same simulator can support different benchmarks depending on how contexts are divided between training and testing, how many training contexts are available, how they are sampled, and what interaction or update rules are permitted.
 
-### Παραπομπή
+### Thesis use
 
-Kirk et al., Introduction και Section 3, PDF σελ. 202–205.
+Configuration files and reports must record train/validation/test context sets, seeds, perturbation factors, severity levels, and whether test-time updates are allowed.
 
-## Τεκμήριο E3
+### Citation
 
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** PDF σελ. 216–220, Sections 4.1–4.2
-- **Ισχυρισμός:** Ένα RL benchmark ορίζεται από τον συνδυασμό environment και evaluation protocol, όχι από τον simulator μόνο.
-- **Κεφάλαιο:** Πειραματικό περιβάλλον; Μεθοδολογία
-- **Θέματα:** benchmark design; context sets; train-test split; budget
-- **Κατάσταση:** επαληθευμένο
+Kirk et al. (2023), Section 4.
 
-### Κείμενο ή πιστή παράφραση
+## E4 — Pure procedural generation can obscure factor-specific conclusions
 
-Η πηγή διαχωρίζει το environment, το οποίο παρέχει ένα σύνολο context-MDPs, από το evaluation protocol, το οποίο καθορίζει training και testing context sets, sampling restrictions, αριθμό training contexts και διαθέσιμο interaction budget. Το ίδιο environment μπορεί συνεπώς να υποστηρίζει διαφορετικά benchmarks.
+- **Type:** faithful paraphrase
+- **Location:** Sections 4 and 7, benchmark recommendations
+- **Claim:** Purely procedural generation provides diversity but can make it difficult to isolate which environmental factor caused a generalisation success or failure.
+- **Status:** verified
 
-### Συμφραζόμενα
+### Faithful paraphrase
 
-Η taxonomy χρησιμοποιείται για να συγκριθούν υπάρχοντα ZSG environments και protocols.
+Kirk et al. argue that fully procedural environments often expose a seed while entangling many underlying sources of variation. They recommend combining procedural diversity with controllable factors so that experiments can target a particular type of generalisation and interpret the resulting failure modes more precisely.
 
-### Περιορισμοί και κίνδυνος παρερμηνείας
+### Context and limits
 
-Η αναφορά «χρησιμοποιήθηκε GridWorld» δεν αρκεί για αναπαραγωγιμότητα. Απαιτείται πλήρης περιγραφή των splits και των update rules.
+Controlled factors improve internal validity and interpretability; they do not make a toy environment inherently realistic.
 
-### Προτεινόμενη χρήση
+### Thesis use
 
-Να καταγραφούν σε config και αποτελέσματα οι train/test factors, seeds, severity levels και επιτρεπόμενα updates.
+Randomize layouts if useful, but control transition noise, reward changes, obstacle changes, and action failures independently.
 
-### Παραπομπή
+### Citation
 
-Kirk et al., Sections 4.1–4.2, PDF σελ. 216–220.
+Kirk et al. (2023), benchmark discussion and recommendations.
 
-## Τεκμήριο E4
+## E5 — Held-out random seeds alone are a weak test of targeted OOD generalisation
 
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** PDF σελ. 216–223, Sections 4.1–4.3
-- **Ισχυρισμός:** Purely black-box PCG προσφέρει ποικιλία αλλά δεν επιτρέπει εύκολη απομόνωση συγκεκριμένων παραγόντων· προτιμάται συνδυασμός PCG και controllable variation.
-- **Κεφάλαιο:** Πειραματικό περιβάλλον; Threats to validity
-- **Θέματα:** PCG; controllable factors; GridWorld; causal attribution
-- **Κατάσταση:** επαληθευμένο
+- **Type:** faithful paraphrase
+- **Location:** Section 4.2, procedural-generation evaluation protocols
+- **Claim:** Holding out random seeds is useful for detecting memorization, but without interpretable context factors it does not identify robustness to a specific dynamics or reward shift.
+- **Status:** verified
 
-### Κείμενο ή πιστή παράφραση
+### Faithful paraphrase
 
-Σε purely PCG environments, ο ερευνητής συνήθως ελέγχει μόνο το seed και οι επιμέρους παράγοντες του context παραμένουν μπλεγμένοι. Αυτό δυσκολεύει τη στοχευμένη μελέτη συγκεκριμένης μορφής generalization. Η survey προτείνει environments που διατηρούν procedural diversity αλλά εκθέτουν controllable factors για ακριβή επιστημονικά πειράματα.
+The survey treats protocols that train over most of a procedural seed space and test on unseen seeds as a relatively weak form of zero-shot generalisation. Such a split is better than testing on exactly the same instances, but it primarily indicates whether the policy has overfit to particular generated instances rather than whether it can extrapolate along a known environmental factor.
 
-### Συμφραζόμενα
+### Thesis use
 
-Η κριτική δεν απορρίπτει το PCG. Απορρίπτει τη χρήση του ως μοναδικού μηχανισμού όταν ζητούνται factor-specific claims.
+Use held-out layout seeds as a memorization diagnostic, not as the only evidence for robustness or resilience.
 
-### Περιορισμοί και κίνδυνος παρερμηνείας
+### Citation
 
-Controlled factors δεν εγγυώνται realism. Αυξάνουν κυρίως την εσωτερική εγκυρότητα και την ερμηνευσιμότητα.
+Kirk et al. (2023), Section 4.2.
 
-### Προτεινόμενη χρήση
+## E6 — Zero-shot generalisation and online adaptation should be reported as distinct phases
 
-Στο GridWorld να τυχαιοποιείται το layout, αλλά action failure, reward noise, obstacle changes και action costs να ελέγχονται ανεξάρτητα.
+- **Type:** synthesis grounded in the survey scope and future-work discussion
+- **Location:** Scope; future directions
+- **Claim:** The survey excludes test-time learning from ZSG while identifying fast online adaptation as an important neighboring research direction.
+- **Status:** verified
 
-### Παραπομπή
+### Faithful paraphrase
 
-Kirk et al., Sections 4.1–4.3, PDF σελ. 216–223.
+The survey's strict ZSG definition freezes the policy on test instances, yet its broader discussion recognizes fast online adaptation as important for realistic changing environments. This makes the two capabilities complementary but experimentally distinct.
 
-## Τεκμήριο E5
+### Thesis use
 
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** PDF σελ. 219–220, Section 4.2, PCG Evaluation Protocols
-- **Ισχυρισμός:** Held-out random seeds ελέγχουν κυρίως memorization και robust optimization και δεν τεκμηριώνουν από μόνα τους targeted OOD generalization.
-- **Κεφάλαιο:** Πειραματικό πρωτόκολλο; Μετρικές
-- **Θέματα:** held-out seeds; weak ZSG; context efficiency; OOD
-- **Κατάσταση:** επαληθευμένο
+Report `clean/train → frozen zero-shot test → online adaptation` as separate phases whenever both generalisation and resilience are studied.
 
-### Κείμενο ή πιστή παράφραση
+### Citation
 
-Η survey χαρακτηρίζει το protocol όπου σχεδόν όλο το seed space χρησιμοποιείται για training και λίγα seeds κρατούνται για testing ως ασθενή μορφή ZSG. Είναι καλύτερο από evaluation στο ίδιο ακριβώς environment, αλλά ελέγχει κυρίως εάν η policy αποφεύγει memorization και όχι εάν αντέχει σε συγκεκριμένη dynamics ή reward extrapolation.
-
-### Συμφραζόμενα
-
-Η παρατήρηση αφορά purely PCG context spaces όπου δεν υπάρχουν άξονες με ερμηνεύσιμη δομή.
-
-### Περιορισμοί και κίνδυνος παρερμηνείας
-
-Held-out seeds παραμένουν χρήσιμο secondary test. Απλώς δεν πρέπει να είναι το μοναδικό evidence για generalization.
-
-### Προτεινόμενη χρήση
-
-Να συνδυαστούν held-out layouts με explicit factor sweeps και unseen severity combinations.
-
-### Παραπομπή
-
-Kirk et al., Section 4.2, PDF σελ. 219–220.
-
-## Τεκμήριο E6
-
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** PDF σελ. 242–243, Sections 6.5–6.6 και Conclusion
-- **Ισχυρισμός:** Η fast online adaptation είναι σημαντική για ισχυρότερα shifts, αλλά αποτελεί χαλάρωση της zero-shot υπόθεσης και πρέπει να αξιολογείται χωριστά.
-- **Κεφάλαιο:** Σχετικές εργασίες; Agent design; Μετρικές
-- **Θέματα:** online adaptation; recovery; zero-shot baseline; regime separation
-- **Κατάσταση:** επαληθευμένο
-
-### Κείμενο ή πιστή παράφραση
-
-Οι συγγραφείς προτείνουν περισσότερη έρευνα σε policies που μαθαίνουν και προσαρμόζονται online, ιδιαίτερα για ισχυρές περιβαλλοντικές μεταβολές όπου η zero-shot transfer μπορεί να μην επαρκεί. Παράλληλα διατηρούν τη zero-shot αξιολόγηση ως χρήσιμη βασική ικανότητα πάνω στην οποία μπορούν να χτιστούν adaptive λύσεις.
-
-### Συμφραζόμενα
-
-Το σημείο βρίσκεται στις future directions και δεν αποδεικνύει συγκεκριμένο adaptation algorithm.
-
-### Περιορισμοί και κίνδυνος παρερμηνείας
-
-Δεν πρέπει να συγκρίνονται frozen και adaptive agents χωρίς κοινό pre-change training budget και σαφές post-change update budget.
-
-### Προτεινόμενη χρήση
-
-Να παρουσιαστούν δύο σειρές αποτελεσμάτων: immediate zero-shot drop και adaptation/recovery curve μετά την ενεργοποίηση updates.
-
-### Παραπομπή
-
-Kirk et al., Sections 6.5–6.6 και Conclusion, PDF σελ. 242–243.
+Kirk et al. (2023), Scope and future-directions discussion.
