@@ -2,98 +2,96 @@
 κωδικός: SRC-09DD20BA85
 κατάσταση: επαληθευμένο
 ελεγχθέν-πρωτότυπο: ναι
-ημερομηνία-ελέγχου: "2026-07-31"
+ημερομηνία-ελέγχου: "2026-08-01"
+source-language: en
 ---
 
-# Αποσπάσματα — Bounded Robustness in Reinforcement Learning via Lexicographic Objectives
+# Evidence — Bounded Robustness in Reinforcement Learning via Lexicographic Objectives
 
-## Τεκμήριο E1 — Observation corruption ως διαφορετική effective policy
+## E1 — Observation corruption induces a disturbed effective policy
 
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** Ενότητα 2, Definitions 2.1–2.2
-- **Ισχυρισμός:** Ο θόρυβος δεδομένων στο GridWorld πρέπει να μοντελοποιείται ως ρητός observation kernel και να μετριέται η διαφορά ανάμεσα στην nominal και τη disturbed εκτέλεση.
-- **Κεφάλαιο:** Θεωρητικό υπόβαθρο · Μοντέλο αβεβαιότητας
-- **Θέματα:** observational noise; DOMDP; robustness regret
-- **Κατάσταση:** επαληθευμένο
+- **Type:** faithful paraphrase
+- **Location:** Section 2, Definitions 1–2
+- **Claim:** Observational disturbance should be modeled explicitly through an observation-noise kernel, because the agent acts on a corrupted measurement rather than on the true state.
+- **Status:** verified
 
-### Κείμενο ή πιστή παράφραση
+### Faithful paraphrase
 
-Σε ένα observationally disturbed MDP, η πραγματική κατάσταση περνά από άγνωστο stochastic kernel πριν δοθεί στην policy. Επειδή η policy επιλέγει action με βάση την αλλοιωμένη observation, το αποτέλεσμα ισοδυναμεί με εφαρμογή μιας noise-altered effective policy στο πραγματικό MDP. Η εργασία ορίζει robustness με βάση τη utility difference ανάμεσα στην αρχική policy και την policy μετά την επίδραση του kernel.
+The paper models an observationally disturbed MDP with a stochastic kernel `T(y|x)` that maps the true state to a possibly corrupted measurement. Since the policy chooses actions from that measurement, the deployed behavior is equivalent to a disturbed effective policy obtained by averaging the original policy through the noise kernel. Robustness regret is then defined as the utility difference between the nominal policy and this disturbed policy.
 
-### Συμφραζόμενα
+### Context and limits
 
-Αυτό επιτρέπει στο πείραμα να ξεχωρίσει δύο ερωτήσεις: πόσο καλά λειτουργεί ο agent όταν βλέπει σωστά το state και πόσο χάνει όταν η ίδια υποκείμενη κατάσταση παρατηρείται λανθασμένα. Για reproducibility πρέπει να αποθηκεύονται true state, observed state και kernel parameters σε κάθε βήμα.
+This formulation specifically concerns state-observation corruption. Reward noise, delayed observations, or missing observations may require different operators or a different POMDP formulation.
 
-### Περιορισμοί και κίνδυνος παρερμηνείας
+### Thesis use
 
-Το μοντέλο αφορά state-observation corruption και όχι κάθε μορφή “data noise”. Reward noise, missing observations και delayed observations μπορεί να χρειάζονται διαφορετικό operator ή POMDP formulation. Η robustness regret της πηγής δεν αποτελεί από μόνη της recovery metric.
+For observation-noise experiments, store the true state, the observed state, and the disturbance parameters separately, and evaluate clean and disturbed execution explicitly.
 
-### Προτεινόμενη χρήση
+### Citation
 
-Να στηρίξει την ακριβή τυπική περιγραφή του observation-noise scenario και τη χωριστή clean/disturbed αξιολόγηση.
+Jarne Ornia et al. (2024), Section 2, Definitions 1–2.
 
-### Παραπομπή
+## E2 — Robustness should be constrained by a nominal-utility tolerance
 
-Jarne Ornia et al. (2024), Section 2, Definitions 2.1–2.2.
+- **Type:** faithful paraphrase
+- **Location:** Problem 1; lexicographic formulation; LRPG contribution
+- **Claim:** The method optimizes robustness only among policies whose nominal utility remains within a specified tolerance of the primary objective.
+- **Status:** verified
 
----
+### Faithful paraphrase
 
-## Τεκμήριο E2 — Bounded utility–robustness trade-off
+The paper formulates the design problem as finding the most robust policy inside an `epsilon`-optimal set for the nominal return. The higher-priority objective is therefore nominal utility, and robustness is optimized subject to an explicit bound on how far the resulting policy may move from the nominal optimum. LRPG implements this lexicographic ordering while retaining the formal convergence structure of the underlying policy-gradient method under the paper's assumptions.
 
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** Problem 2.3· Ενότητα 4 και Section 4.1, Theorem 4.1
-- **Ισχυρισμός:** Μια μέθοδος δεν πρέπει να χαρακτηρίζεται καλύτερη επειδή είναι robust, χωρίς να αναφέρεται πόση nominal επίδοση θυσιάζει.
-- **Κεφάλαιο:** Μετρικές · Σύγκριση μοντέλων
-- **Θέματα:** utility trade-off; lexicographic objectives; bounded sub-optimality
-- **Κατάσταση:** επαληθευμένο
+### Context and limits
 
-### Κείμενο ή πιστή παράφραση
+The tolerance is a design choice, not a value supplied automatically by the theory. The formal guarantees also depend on the policy and convergence assumptions made in the analysis.
 
-Η εργασία θέτει την nominal utility ως objective υψηλότερης προτεραιότητας και επιτρέπει απόκλιση μόνο έως συγκεκριμένη tolerance. Μέσα στο σύνολο policies που ικανοποιούν αυτή την απαίτηση, βελτιστοποιείται δεύτερο robustness objective. Το LRPG επομένως δεν αναζητεί robustness με οποιοδήποτε τίμημα, αλλά ελέγχει ρητά την υποβάθμιση της clean objective και συνδέει τη robustification με τις convergence assumptions του βασικού policy-gradient algorithm.
+### Thesis use
 
-### Συμφραζόμενα
+Report nominal return and disturbed return together; do not label a method superior merely because it is robust if that robustness is purchased by a large clean-condition loss.
 
-Στη διπλωματική πρέπει να παρουσιάζεται τουλάχιστον ζεύγος nominal return και performance-under-perturbation. Για κάθε robust ή adaptive agent χρειάζεται επίσης adaptation overhead ή training cost. Ένας agent που φαίνεται σταθερός επειδή έχει ήδη πολύ χαμηλή clean επίδοση δεν αποτελεί χρήσιμο robust αποτέλεσμα.
+### Citation
 
-### Περιορισμοί και κίνδυνος παρερμηνείας
+Jarne Ornia et al. (2024), Problem 1 and the LRPG formulation.
 
-Η tolerance δεν επιλέγεται αυτόματα από τη θεωρία. Είναι value judgment ή experimental design parameter. Η εγγύηση εξαρτάται από assumptions για policy representation, visitation και convergence του underlying algorithm. Δεν πρέπει να παρουσιαστεί ως model-free εγγύηση για κάθε neural implementation.
+## E3 — Robustness experiments should expose several disturbance regimes
 
-### Προτεινόμενη χρήση
+- **Type:** faithful paraphrase
+- **Location:** Experimental section; MiniGrid evaluation; discussion
+- **Claim:** The empirical study evaluates clean and multiple disturbed conditions rather than treating robustness as a single scalar property.
+- **Status:** verified
 
-Να αιτιολογήσει clean-performance guardrail, robustness–utility plots και αποφυγή ενός μονοδιάστατου ranking.
+### Faithful paraphrase
 
-### Παραπομπή
+The authors apply LRPG on top of PPO and A2C in MiniGrid tasks and evaluate policies under clean execution as well as several bounded stochastic and adversarial observation perturbations. The relative behavior of the methods varies across tasks, base algorithms, and robustness objectives, and the discussion notes that explicit model-based filtering may be preferable when a suitable disturbance model is available.
 
-Jarne Ornia et al. (2024), Problem 2.3; Sections 4–4.1, Theorem 4.1.
+### Context and limits
 
----
+The paper's representative-agent reporting does not fully characterize training uncertainty. Its quantitative algorithm ranking should not be transferred directly to a new GridWorld benchmark.
 
-## Τεκμήριο E3 — MiniGrid πειράματα και όρια γενίκευσης
+### Thesis use
 
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** Ενότητα 6, Table 1· Ενότητα 7
-- **Ισχυρισμός:** Τα observational-robust methods πρέπει να συγκρίνονται σε clean, stochastic-noise και adversarial-noise conditions, αλλά τα αποτελέσματα χρειάζονται πολλαπλά runs και προσεκτική αναφορά.
-- **Κεφάλαιο:** Πειραματικό πρωτόκολλο · Threats to validity
-- **Θέματα:** MiniGrid; PPO; A2C; noise evaluation; reporting
-- **Κατάσταση:** επαληθευμένο
+Use multiple observation-noise regimes, but report all evaluation seeds with uncertainty intervals and retain per-scenario results rather than only a representative score.
 
-### Κείμενο ή πιστή παράφραση
+### Citation
 
-Οι συγγραφείς εφαρμόζουν LRPG πάνω σε PPO και A2C στα LavaGap, LavaCrossing και DynamicObstacles. Αξιολογούν clean environment, bounded uniform noise, Gaussian noise και state-adversarial configurations. Τα LRPG variants συχνά διατηρούν υψηλότερη disturbed reward, αλλά η εικόνα αλλάζει ανά task, base algorithm και robustness proxy. Η συζήτηση αναγνωρίζει ότι model-based filtering ή disturbance rejection μπορεί να είναι καλύτερο όταν υπάρχει noise model.
+Jarne Ornia et al. (2024), experimental section and discussion.
 
-### Συμφραζόμενα
+## E4 — Robustness regret is not a recovery metric
 
-Η πειραματική δομή είναι χρήσιμη για τη δική μας observation-noise axis, αλλά η στατιστική διαδικασία πρέπει να ενισχυθεί: αντί για median agent, θα αναφέρονται όλα τα seeds με bootstrap intervals, IQM και performance profiles όπου είναι κατάλληλο. Θα διατηρείται κοινό perturbation schedule ανά paired seed.
+- **Type:** scope inference grounded in the formulation
+- **Location:** Sections 2–4
+- **Claim:** The paper's robustness objective measures degradation under observational disturbance; it does not measure post-change relearning or time to recovery.
+- **Status:** verified
 
-### Περιορισμοί και κίνδυνος παρερμηνείας
+### Faithful paraphrase
 
-Η αξιολόγηση βασίζεται σε 10 trained agents και scores του median agent σε 50 rollouts. Αυτό δεν αποτυπώνει πλήρως training uncertainty. Τα MiniGrid tasks είναι ευαίσθητα σε single-step catastrophic actions και μπορεί να ευνοούν συγκεκριμένες invariance strategies. Δεν πρέπει να μεταφερθεί η ποσοτική κατάταξη ως αναμενόμενο αποτέλεσμα της διπλωματικής.
+The method compares nominal policy utility with the utility of the noise-altered effective policy and searches for policies that limit this loss. It does not define a changepoint detector, online reset mechanism, context recall, or recovery trajectory after an environmental regime change.
 
-### Προτεινόμενη χρήση
+### Thesis use
 
-Να τεκμηριώσει τα noise conditions και να καταγράψει γιατί η δική μας στατιστική αναφορά πρέπει να είναι αυστηρότερη από representative-agent reporting.
+Keep observational robustness metrics separate from resilience metrics such as degradation depth, recovery time, and post-change adaptation success.
 
-### Παραπομπή
+### Citation
 
-Jarne Ornia et al. (2024), Section 6, Table 1; Section 7.
+Jarne Ornia et al. (2024), method scope, Sections 2–4.
