@@ -3,37 +3,79 @@
 κατάσταση: επαληθευμένο
 ελεγχθέν-πρωτότυπο: ναι
 ημερομηνία-ελέγχου: "2026-08-01"
+source-language: en
 ---
 
-# SRC-5E062C81BA — verified excerpts
+# Evidence — Robust Reinforcement Learning
 
-## Robust RL as min–max learning
+## E1 — Robust RL is formulated as an actor–disturber minimax problem
+- **Type:** faithful paraphrase
+- **Location:** Abstract; Sections 2–3
+- **Claim:** The paper adapts `H-infinity` control ideas to reinforcement learning by introducing a disturbing agent that seeks adverse inputs while the control agent seeks the best response.
+- **Status:** verified
 
-Η εργασία εισάγει control agent και worst-case disturber, μεταφέροντας H∞/differential-game ideas στο RL ώστε η policy να μειώνει την ευαισθησία σε disturbance/model error.
+### Faithful paraphrase
+Morimoto and Doya reinterpret modeling error as an adverse disturbance and formulate policy learning as a differential game. The actor optimizes control while a disturber selects the most damaging input allowed by the robustness criterion, producing a minimax value objective rather than ordinary expected-return maximization.
 
-**Χρήση:** historical primary source για robust-policy class.
+### Thesis use
+Use as a historical primary source for the static/worst-case robust-policy category.
 
-## Environmental parameter change
+### Citation
+Morimoto and Doya (2000), Abstract and Sections 2–3.
 
-Στο nonlinear pendulum experiment, η robust policy διατηρεί λειτουργικότητα όταν αλλάζουν mass και friction, ενώ ο nominal comparator αποτυγχάνει στο συγκεκριμένο setup.
+## E2 — The robustness criterion defines the disturbance class
+- **Type:** faithful paraphrase
+- **Location:** Sections 2–3
+- **Claim:** The `H-infinity`-inspired objective penalizes disturbance magnitude while requiring the controller to perform well against the corresponding worst disturbance.
+- **Status:** verified
 
-**Boundary:** πρόκειται για robustness σε parameter shift, όχι formal repeated-changepoint adaptation benchmark.
+### Faithful paraphrase
+The robust value function combines task/control performance with a term involving disturbance magnitude. The robustness parameter determines which disturbance-to-error gains the controller is designed to tolerate, so robustness is always relative to a specified disturbance model rather than an unrestricted notion of “any change.”
 
-## Zero-update robustness
+### Thesis use
+State the perturbation/threat model explicitly for every robust baseline.
 
-Η ανθεκτικότητα προκύπτει από το training objective με worst disturbance. Δεν απαιτείται explicit detector τη στιγμή της αλλαγής.
+### Citation
+Morimoto and Doya (2000), Sections 2–3.
 
-**Thesis-ready distinction:** άμεση disturbed performance με frozen parameters πρέπει να μετριέται πριν αποδοθεί οποιαδήποτε βελτίωση σε online adaptation.
+## E3 — The nonlinear pendulum case study shows zero-update robustness to parameter changes
+- **Type:** faithful paraphrase
+- **Location:** Section 4.2; Figure 4
+- **Claim:** A controller trained with the robust objective continued to swing up the pendulum after changing mass and friction, whereas the nominal comparator failed in that reported configuration.
+- **Status:** verified
 
-## Experimental decomposition
+### Faithful paraphrase
+Both controllers are trained under the nominal pendulum parameters. The paper then changes physical parameters including mass and friction and reports that the robust controller retains successful swing-up behavior while the standard model-based RL controller does not. The robustness is a property of the already learned controller; no separate change alarm or post-change retraining step is required for this comparison.
 
-Μετά από shift μετρώνται:
+### Context and limits
+This is a single continuous-control case study and should not be generalized to arbitrary structural changes or tabular environments.
 
-- immediate/frozen post-change return,
-- return μετά από continued updates,
-- clean nominal performance,
-- robustness conservativeness cost.
+### Thesis use
+Measure frozen-policy post-change performance before enabling online updates, so immediate robustness is not attributed to adaptation.
 
-## Scope boundary
+### Citation
+Morimoto and Doya (2000), Section 4.2 and Figure 4.
 
-Η H∞ disturbance class και continuous-control assumptions δεν μεταφέρονται αυτούσιες σε tabular GridWorld. Η εργασία δεν αποδεικνύει ότι robust training μειώνει detection delay ή relearning time.
+## E4 — Robustness can trade nominal peak performance for tolerance to mismatch
+- **Type:** faithful paraphrase
+- **Location:** Section 4.2
+- **Claim:** In the nominal pendulum condition, the standard controller can complete the task with fewer swings, while the robust controller is designed for stronger tolerance to model variation.
+- **Status:** verified
+
+### Thesis use
+Report clean/nominal return together with disturbed return and a conservativeness cost for robust agents.
+
+### Citation
+Morimoto and Doya (2000), Section 4.2.
+
+## E5 — Worst-case disturbance training is not changepoint adaptation
+- **Type:** scope synthesis grounded in the paper
+- **Location:** Overall formulation and experiments
+- **Claim:** The method has no explicit changepoint detector, recurring-context memory, or repeated-regime recovery metric.
+- **Status:** verified
+
+### Thesis use
+Keep `frozen_robustness` and `online_post_shift_adaptation` as separate evaluation phases and agent categories.
+
+### Citation
+Morimoto and Doya (2000), overall formulation.
