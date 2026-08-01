@@ -6,6 +6,8 @@
 ---
 # Επαληθευμένα τεκμήρια — SRC-BE53B7970E
 
+- **Evidence tier:** primary peer-reviewed conference paper (AAAI 2016)
+
 ## 1. Maximization bias στο Q-learning
 - **Τύπος:** πιστή παράφραση
 - **Θέση:** Abstract, Introduction, Theorem 1
