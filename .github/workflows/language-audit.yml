@@ -1,18 +1,6 @@
 name: Source-language audit
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - "πηγές/**"
-      - "sources/**"
-      - "αποσπάσματα/**"
-      - "evidence/**"
-      - "κατάλογος/επιλογή-διπλωματικής.csv"
-      - "catalog/thesis-selection.csv"
-      - "εργαλεία/language_audit.py"
-      - "tools/language_audit.py"
-      - ".github/workflows/language-audit.yml"
   workflow_dispatch:
 
 permissions:
@@ -83,7 +71,11 @@ jobs:
         shell: bash
         run: |
           set +e
-          python εργαλεία/migrate_repository_paths.py > /tmp/path-migration.log 2>&1
+          if [ -f tools/migrate_repository_paths.py ]; then
+            python tools/migrate_repository_paths.py > /tmp/path-migration.log 2>&1
+          else
+            python εργαλεία/migrate_repository_paths.py > /tmp/path-migration.log 2>&1
+          fi
           code=$?
           cat /tmp/path-migration.log
           if [ "$code" -ne 0 ]; then
