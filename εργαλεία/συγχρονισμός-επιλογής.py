@@ -59,9 +59,10 @@ def main() -> int:
         decision = infer_decision(text)
         inferred_role = infer_role(text)
 
-        # Legacy canonical fallback: παλιές αναλύσεις μπορεί να μην έχουν ομοιόμορφο
-        # «Απόφαση» heading, αλλά το curated registry έχει ήδη ρητή τελική απόρριψη.
-        if decision == "draft" and previous_role == "απόρριψη" and previous_status in {"επαληθευμένη", "απορρίφθηκε"}:
+        # Legacy canonical fallback: older analyses may not use a uniform Decision
+        # heading, while the curated registry already records an explicit final role.
+        # A parsed canonical decision always has priority over this fallback.
+        if decision == "draft" and previous_role == "απόρριψη":
             decision = "rejected"
         if decision == "draft" and previous_role in SELECTED_ROLES and previous_status == "επαληθευμένη":
             decision = "selected"
