@@ -2,152 +2,123 @@
 κωδικός: SRC-91D56A10CF
 κατάσταση: επαληθευμένο
 ελεγχθέν-πρωτότυπο: ναι
-ημερομηνία-ελέγχου: "2026-07-31"
+ημερομηνία-ελέγχου: "2026-08-01"
+source-language: en
 ---
 
-# Αποσπάσματα — Deep Reinforcement Learning amidst Continual Structured Non-Stationarity
+# Evidence — Deep Reinforcement Learning amidst Continual Structured Non-Stationarity
 
-## Τεκμήριο E1
+## E1 — Structured non-stationarity can be represented through latent, temporally related task parameters
 
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** σελίδες 1–3, Sections 1–2 και Figure 2
-- **Ισχυρισμός:** Η structured non-stationarity μπορεί να μοντελοποιηθεί ως ακολουθία MDPs που συνδέονται μέσω κρυφών χρονικά εξελισσόμενων παραμέτρων.
-- **Κεφάλαιο:** Θεωρητικό υπόβαθρο και μοντέλο περιβάλλοντος
-- **Θέματα:** DP-MDP, latent context, structured non-stationarity
-- **Κατάσταση:** επαληθευμένο
+- **Type:** faithful paraphrase
+- **Location:** Sections 1–2; Figure 2
+- **Claim:** The DP-MDP models a sequence of MDPs whose dynamics and rewards are controlled by hidden task parameters that evolve according to a temporal process rather than being sampled independently.
+- **Status:** verified
 
-### Κείμενο ή πιστή παράφραση
+### Faithful paraphrase
 
-Το Dynamic Parameter MDP θεωρεί ότι κάθε episode αντιστοιχεί σε διαφορετικό MDP, του οποίου dynamics και reward προσδιορίζονται από latent parameter z. Σε αντίθεση με task distributions που δειγματοληπτούν i.i.d., τα διαδοχικά z συνδέονται από transition model. Αν το z ήταν γνωστό, η κατάσταση θα μπορούσε να επεκταθεί σε `(s, z)` και να λυθεί με standard RL. Η πρόκληση είναι η online inference και prediction του μη παρατηρούμενου context.
+Xie et al. define a dynamic-parameter MDP in which each episode presents an MDP determined by an unobserved parameter `z`. Unlike an i.i.d. task distribution, successive task parameters are related through a transition model. If `z` were directly observed, augmenting the state with that parameter would recover a fully observable MDP; the practical challenge is therefore to infer the latent context and learn how it evolves.
 
-### Συμφραζόμενα
+### Context and limits
 
-Αυτό το μοντέλο ταιριάζει σε περιοδική, σταδιακή ή επαναλαμβανόμενη αλλαγή. Δεν περιγράφει αυτόματα μοναδικό, εντελώς απρόβλεπτο rule switch.
+This framework is particularly suited to structured, recurring, or smoothly evolving change. A single unpredictable regime switch with no exploitable temporal structure is a different problem.
 
-### Περιορισμοί και κίνδυνος παρερμηνείας
+### Thesis use
 
-Η λέξη «dynamic» δεν αρκεί για να θεωρηθεί ένα scenario structured. Πρέπει να δηλωθεί ποια temporal regularity μπορεί να μάθει ο agent.
+Separate predictable/structured drift from abrupt hidden changepoints in the scenario taxonomy.
 
-### Προτεινόμενη χρήση
+### Citation
 
-Να ορίσει χωριστή κατηγορία πειραμάτων predictable/structured drift, διακριτή από abrupt unknown changepoints.
+Xie et al. (2021), Sections 1–2 and Figure 2.
 
-### Παραπομπή
+## E2 — Off-policy replay is most useful when experience is conditioned on the relevant context
 
-Xie et al. (2021), σελ. 1–3, Sections 1–2 και Figure 2.
+- **Type:** faithful paraphrase
+- **Location:** Sections 4–5
+- **Claim:** LILAC combines latent-context inference with an off-policy actor-critic so that past experience can be reused while the policy and value function remain conditioned on the current task representation.
+- **Status:** verified
 
-## Τεκμήριο E2
+### Faithful paraphrase
 
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** σελίδες 4–6, Sections 3–6
-- **Ισχυρισμός:** Ένας off-policy agent μπορεί να αξιοποιεί replay σε non-stationary περιβάλλον μόνο όταν η πολιτική και ο critic condition σε κατάλληλο context για το τρέχον MDP.
-- **Κεφάλαιο:** Επιλογή και σχεδιασμός μοντέλων
-- **Θέματα:** LILAC, off-policy replay, task inference
-- **Κατάσταση:** επαληθευμένο
+LILAC jointly learns a latent representation of the current MDP, a temporal prior over those latent parameters, and a maximum-entropy actor-critic conditioned on the inferred context. This structure lets the agent reuse off-policy trajectories from past tasks without forcing one context-free policy to average incompatible behaviors across changing MDPs.
 
-### Κείμενο ή πιστή παράφραση
+### Context and limits
 
-Το LILAC συνδυάζει variational latent model, learned temporal prior για τα task parameters και maximum-entropy actor-critic conditioned στο inferred z. Η representation loss και η RL loss εκπαιδεύονται από off-policy trajectories. Η context-conditioned πολιτική επιτρέπει διαφορετική συμπεριφορά ανά περιβαλλοντική φάση, αντί το replay buffer να ωθεί μια μοναδική policy σε μέσο συμβιβασμό μεταξύ ασύμβατων tasks.
+The paper does not imply that a neural latent model is necessary in small discrete environments. An explicit context label, model belief, or oracle context can provide simpler comparison points.
 
-### Συμφραζόμενα
+### Thesis use
 
-Η πηγή δεν αποδεικνύει ότι κάθε replay algorithm χρειάζεται νευρωνικό latent model. Σε μικρό GridWorld μπορεί να εξεταστεί explicit context, task belief ή oracle label ως απλούστερη σύγκριση.
+Compare context-free replay with context-conditioned learning and include an oracle-context upper bound where feasible.
 
-### Περιορισμοί και κίνδυνος παρερμηνείας
+### Citation
 
-Η επιτυχία εξαρτάται από την ποιότητα inference του z και του learned temporal model. Λανθασμένο context μπορεί να προκαλέσει αρνητική μεταφορά.
+Xie et al. (2021), Sections 4–5.
 
-### Προτεινόμενη χρήση
+## E3 — Reward shifts, dynamics shifts, and combined shifts should be distinguishable
 
-Να αιτιολογήσει context-aware agent ή oracle-context upper bound έναντι context-free replay baseline.
+- **Type:** faithful paraphrase
+- **Location:** Experimental environments and results
+- **Claim:** The study evaluates non-stationarity produced by changing objectives, changing dynamics, and settings where both vary.
+- **Status:** verified
 
-### Παραπομπή
+### Faithful paraphrase
 
-Xie et al. (2021), σελ. 4–6, Sections 3–6.
+The experimental suite contains tasks in which target locations or objectives change, tasks in which physical dynamics such as wind or payload change, and tasks such as the HalfCheetah setting where both dynamics and target velocity vary. This shows that non-stationarity is not a single axis and that different components of the MDP can change independently or together.
 
-## Τεκμήριο E3
+### Context and limits
 
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** σελίδες 6–7, Section 6, Figures 4–5
-- **Ισχυρισμός:** Η αξιολόγηση adaptation πρέπει να περιλαμβάνει χωριστά reward shifts, dynamics shifts και ταυτόχρονες μεταβολές των δύο.
-- **Κεφάλαιο:** Πειραματικά σενάρια
-- **Θέματα:** reward shift, dynamics shift, continual adaptation
-- **Κατάσταση:** επαληθευμένο
+The continuous-control domains are implementation examples, not templates that must be reproduced in a tabular GridWorld.
 
-### Κείμενο ή πιστή παράφραση
+### Thesis use
 
-Η πειραματική σουίτα περιλαμβάνει Sawyer με μεταβαλλόμενο target, HalfCheetah με μεταβολές wind και target velocity, Minitaur με μεταβαλλόμενο payload και 2D Open World με non-stationary dynamics. Το HalfCheetah μεταβάλλει ταυτόχρονα dynamics και objective. Στο συγκεκριμένο protocol το LILAC παρουσιάζεται υψηλότερο και σταθερότερο από SAC, SLAC και PPO, ενώ τα baselines συχνά συγκλίνουν σε averaged behavior.
+Use a factorial shift matrix with reward-only, transition/dynamics-only, and combined conditions.
 
-### Συμφραζόμενα
+### Citation
 
-Η διάκριση των shift types είναι σημαντικότερη από την αντιγραφή των συγκεκριμένων continuous-control domains. Στο απλό περιβάλλον μπορούν να αντιστοιχιστούν σε changing transition rules, changing goal/reward και combined scenario.
+Xie et al. (2021), experimental section.
 
-### Περιορισμοί και κίνδυνος παρερμηνείας
+## E4 — Change rate and extrapolation are separate experimental factors
 
-Τα περισσότερα settings αξιολογούνται με τρία seeds. Οι reported 95% intervals δεν εξαλείφουν την uncertainty από μικρό run count ούτε καθιστούν τις κατατάξεις καθολικές.
+- **Type:** faithful paraphrase
+- **Location:** Experimental analysis of Sawyer and continuously varying settings
+- **Claim:** The paper varies how quickly latent parameters change and also tests continuation into previously unseen parameter values.
+- **Status:** verified
 
-### Προτεινόμενη χρήση
+### Faithful paraphrase
 
-Να ορίσει factorial scenario matrix: reward-only, dynamics-only και combined shift.
+The Sawyer experiments vary the step size of a moving target to create different rates of non-stationarity, and the paper also evaluates smoothly varying intra-episode conditions and trajectories that continue into unobserved parameter regions. Performance under a familiar temporal pattern and performance when that pattern extrapolates beyond training are therefore treated as distinct tests.
 
-### Παραπομπή
+### Context and limits
 
-Xie et al. (2021), σελ. 6–7, Section 6 και Figures 4–5.
+The reported extrapolation occurs within a learned structured latent process. It should not be interpreted as generic robustness to arbitrary out-of-distribution changes.
 
-## Τεκμήριο E4
+### Thesis use
 
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** σελίδες 7–8, Section 6 και Figure 6
-- **Ισχυρισμός:** Ο ρυθμός μεταβολής και η δυνατότητα extrapolation πρέπει να αξιολογούνται ως χωριστές ιδιότητες και όχι να συγχέονται με μία γενική έννοια robustness.
-- **Κεφάλαιο:** Μετρικές και experimental factors
-- **Θέματα:** change rate, intra-episode shift, extrapolation
-- **Κατάσταση:** επαληθευμένο
+Evaluate more than one change rate and state explicitly whether the temporal pattern itself appeared during training.
 
-### Κείμενο ή πιστή παράφραση
+### Citation
 
-Στο Sawyer οι authors μεταβάλλουν το angular step του στόχου για να ελέγξουν διαφορετικούς ρυθμούς non-stationarity. Εξετάζουν επίσης smoothly varying target μέσα στο episode και target που συνεχίζει σε νέες, μη προηγουμένως επισκεφθείσες θέσεις. Το LILAC διατηρεί υψηλή επίδοση στις συγκεκριμένες δομημένες τροχιές, σε αντίθεση με το SAC που υποβαθμίζεται στην extrapolating περίπτωση.
+Xie et al. (2021), experimental analysis of change rate and extrapolation.
 
-### Συμφραζόμενα
+## E5 — Sparse abrupt changes may require an explicit changepoint mechanism
 
-Τα πειράματα δείχνουν predictive tracking συγκεκριμένης latent dynamics. Δεν αποτελούν γενική απόδειξη OOD robustness σε άγνωστες μορφές αλλαγής.
+- **Type:** faithful paraphrase
+- **Location:** Conclusion and limitations
+- **Claim:** The paper identifies sparse, discrete, or otherwise poorly predicted changes as a case where an explicit changepoint-detection mechanism may be useful in addition to latent predictive adaptation.
+- **Status:** verified
 
-### Περιορισμοί και κίνδυνος παρερμηνείας
+### Faithful paraphrase
 
-Η intra-episode επέκταση είναι ευκολότερη όταν το timestep παρέχεται ή μπορεί να συναχθεί. Ένα abrupt hidden switch χωρίς temporal cue είναι διαφορετικό πρόβλημα.
+LILAC is designed around structured temporal evolution of hidden task parameters. The authors note that more abrupt or sparse changes can motivate mechanisms that explicitly identify a switch rather than relying only on a smoothly predictive latent transition model.
 
-### Προτεινόμενη χρήση
+### Context and limits
 
-Να συμπεριληφθούν τουλάχιστον δύο change rates και να αναφέρεται ρητά αν το pattern έχει εμφανιστεί στην εκπαίδευση.
+A latent context model and a changepoint detector solve related but non-identical inference problems.
 
-### Παραπομπή
+### Thesis use
 
-Xie et al. (2021), σελ. 7–8, Section 6 και Figure 6.
+Keep predictive structured-adaptation baselines distinct from detector-triggered reset or context-switching baselines.
 
-## Τεκμήριο E5
+### Citation
 
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** σελίδα 8, Section 7 Conclusion
-- **Ισχυρισμός:** Σπάνιες, μη παρατηρούμενες και διακριτές αλλαγές ενδέχεται να χρειάζονται explicit changepoint detection αντί για latent predictive adaptation μόνο.
-- **Κεφάλαιο:** Περιορισμοί και σχεδιασμός agents
-- **Θέματα:** changepoint detection, abrupt shifts, scope limitation
-- **Κατάσταση:** επαληθευμένο
-
-### Κείμενο ή πιστή παράφραση
-
-Οι συγγραφείς αναγνωρίζουν ότι η episode-level latent formulation περιορίζει τη γενικότητα του DP-MDP. Για highly infrequent shifts παραπέμπουν ρητά σε change-point detection methods και σε προηγούμενες εργασίες sequential decision-making με unobserved changes. Επομένως το LILAC δεν πρέπει να παρουσιάζεται ως πλήρης αντικατάσταση μηχανισμού detection.
-
-### Συμφραζόμενα
-
-Η διάκριση ταιριάζει με την αρχιτεκτονική detection–adaptation: predictive latent model για structured drift, detector/reset mechanism για abrupt unknown change.
-
-### Περιορισμοί και κίνδυνος παρερμηνείας
-
-Η παραπομπή σε changepoint methods είναι περιορισμός και ερευνητική κατεύθυνση, όχι πειραματική απόδειξη ότι ένας συγκεκριμένος hybrid agent θα λειτουργήσει.
-
-### Προτεινόμενη χρήση
-
-Να αιτιολογήσει χωριστά baselines ή scenarios για structured drift και abrupt changepoints.
-
-### Παραπομπή
-
-Xie et al. (2021), σελ. 8, Conclusion.
+Xie et al. (2021), conclusion and limitations.
