@@ -14,4 +14,4 @@ Full-course/tutorial υλικό reinforcement learning.
 Εκπαιδευτικό resource χωρίς ανεξάρτητη primary contribution. Οι foundational claims καλύπτονται από textbook/primary papers.
 
 ## Απόφαση
-**Απόρριψη ως tutorial/derivative material.**
+**Απόρριψη ως tutorial/derivative material.** Δεν χρησιμοποιείται ως independent citation evidence.
