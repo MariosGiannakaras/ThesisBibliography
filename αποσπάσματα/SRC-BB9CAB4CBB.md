@@ -5,52 +5,73 @@
 ημερομηνία-ελέγχου: "2026-08-01"
 ---
 
-# Επαληθευμένα τεκμήρια — SRC-BB9CAB4CBB
+# Evidence — Decision-making under uncertainty: beyond probabilities
 
-## 1. Aleatoric και epistemic uncertainty
+## Evidence E1 — Aleatoric and epistemic uncertainty are different uncertainty types
+- **Type:** faithful paraphrase
+- **Location:** Introduction; Section 2.3
+- **Claim:** Aleatoric uncertainty is intrinsic variability, whereas epistemic uncertainty arises from lack of knowledge and can in principle be reduced by acquiring more information.
+- **Thesis use:** uncertainty taxonomy
+- **Topics:** aleatoric uncertainty; epistemic uncertainty
+- **Status:** verified
 
-**Τεκμήριο:** Η εργασία διακρίνει την aleatoric uncertainty ως εγγενή τυχαιότητα του συστήματος από την epistemic uncertainty ως έλλειψη γνώσης που μπορεί να μειωθεί με συλλογή δεδομένων.
+### Faithful paraphrase
+Aleatoric uncertainty describes randomness inherent in the process, such as stochastic action outcomes or noisy measurements. Epistemic uncertainty describes uncertainty caused by incomplete knowledge of the system and can be reduced by collecting additional data or otherwise improving the model.
 
-**Παράφραση για χρήση:** Η στοχαστικότητα μιας μετάβασης και η άγνοια του agent για το μοντέλο αποτελούν διαφορετικές πηγές αβεβαιότητας και πρέπει να καταγράφονται χωριστά.
+## Evidence E2 — A probability kernel and uncertainty about that kernel are not the same thing
+- **Type:** faithful paraphrase
+- **Location:** Introduction; Sections 2.3 and 3
+- **Claim:** Classical MDPs/POMDPs use probability distributions to represent aleatoric uncertainty, while uncertain or robust model families can additionally represent epistemic uncertainty over the probabilities themselves.
+- **Thesis use:** transition-noise/model-uncertainty boundary
+- **Topics:** MDP; uncertain MDP; transition uncertainty
+- **Status:** verified
 
-**Χρήση:** Θεωρητικό υπόβαθρο· taxonomy perturbations.
+### Faithful paraphrase
+A stochastic transition kernel specifies the random outcomes expected under a given model. If the transition probabilities themselves are only approximately known, a single point estimate is insufficient; an uncertainty model can instead represent a set or family of plausible probability distributions.
 
-## 2. Probabilistic models και αβεβαιότητα μοντέλου
+## Evidence E3 — Exploration can reduce epistemic uncertainty but not intrinsic randomness
+- **Type:** faithful paraphrase
+- **Location:** Section 2.3 and RL discussion
+- **Claim:** Additional interaction or measurements can improve knowledge of an uncertain system, but cannot eliminate genuinely aleatoric variability.
+- **Thesis use:** interpretation of exploration
+- **Topics:** exploration; information gathering; reducible uncertainty
+- **Status:** verified
 
-**Τεκμήριο:** Τα κλασικά MDP/POMDP εκφράζουν aleatoric uncertainty μέσω probability distributions, ενώ robust ή uncertain MDPs προσθέτουν uncertainty sets πάνω στις ίδιες τις πιθανότητες.
+### Faithful paraphrase
+When uncertainty is epistemic, gathering more informative observations can narrow what the agent does not know. In contrast, repeated sampling does not remove irreducible stochasticity in the environment; it can only estimate its distribution more accurately.
 
-**Παράφραση για χρήση:** Ένα probability kernel περιγράφει stochastic outcomes, ενώ ένα σύνολο πιθανών kernels περιγράφει αβεβαιότητα για το ποιο μοντέλο ισχύει.
+## Evidence E4 — Robust uncertainty handling can introduce conservativeness
+- **Type:** faithful paraphrase
+- **Location:** planning/robustness discussion
+- **Claim:** Worst-case reasoning over uncertainty models can provide protection but may produce overly conservative decisions.
+- **Thesis use:** nominal-vs-disturbed performance reporting
+- **Topics:** robust optimization; conservativeness; utility
+- **Status:** verified
 
-**Χρήση:** Διάκριση action/transition noise από model uncertainty.
+### Faithful paraphrase
+Policies designed to perform acceptably across a broad set of plausible models can sacrifice performance in the nominal or most likely model. Robustness results should therefore be reported together with the utility cost of the conservatism that produces them.
 
-## 3. Reducible uncertainty και exploration
+## Evidence E5 — Rare observations and true distribution change are difficult to distinguish
+- **Type:** faithful paraphrase
+- **Location:** challenges/perspectives discussion on changing uncertainty
+- **Claim:** In changing distributions, an important challenge is deciding whether surprising observations are normal stochastic outcomes or evidence that the underlying model has changed.
+- **Thesis use:** change-detection protocol
+- **Topics:** prediction error; false alarm; distribution change
+- **Status:** verified
 
-**Τεκμήριο:** Στο online RL, η αλληλεπίδραση με το περιβάλλον μπορεί να μειώσει epistemic uncertainty, ενώ η aleatoric variability δεν εξαλείφεται απλώς με περισσότερα samples.
+### Faithful paraphrase
+An unusual observation under a stochastic model is not sufficient by itself to establish that the environment changed. A detector must accumulate or calibrate evidence so that ordinary low-probability outcomes are not systematically mistaken for regime changes.
 
-**Παράφραση για χρήση:** Η διερεύνηση μπορεί να βελτιώσει τη γνώση του agent για το περιβάλλον, αλλά δεν καταργεί την εγγενή τυχαιότητα των αποτελεσμάτων.
+### Thesis-safe implication
+A prediction-error spike can be a useful signal, but it is not a calibrated change detector until false alarms, missed changes, thresholds, and detection delay are evaluated explicitly.
 
-**Χρήση:** Ερμηνεία exploration mechanisms και uncertainty estimates.
+## Evidence E6 — The paper surveys model families and research challenges, not an empirical algorithm ranking
+- **Type:** faithful paraphrase
+- **Location:** Abstract; Sections 1 and 6
+- **Claim:** The contribution is a perspective and taxonomy spanning uncertainty models and solution approaches.
+- **Thesis use:** claim boundary
+- **Topics:** taxonomy; planning; RL; formal methods
+- **Status:** verified
 
-## 4. Robustness και conservativeness
-
-**Τεκμήριο:** Worst-case robust approaches μπορούν να εξασφαλίσουν απόδοση έναντι uncertainty sets, αλλά ενδέχεται να παράγουν υπερβολικά συντηρητικές πολιτικές.
-
-**Παράφραση για χρήση:** Η καλύτερη disturbed performance δεν αρκεί για να χαρακτηριστεί ένας agent ανώτερος, αν αγοράζεται με μεγάλη απώλεια nominal utility.
-
-**Χρήση:** Κοινή αναφορά clean και disturbed return.
-
-## 5. Αλλαγή dynamics έναντι απίθανου stochastic event
-
-**Τεκμήριο:** Για changing distributions, βασική πρόκληση είναι να αποφασιστεί πόσες απίθανες παρατηρήσεις απαιτούνται πριν συμπεράνουμε ότι άλλαξε το περιβάλλον και δεν πρόκειται απλώς για φυσιολογική τυχαιότητα.
-
-**Παράφραση για χρήση:** Ένα prediction-error spike αποτελεί ένδειξη αλλαγής, αλλά χρειάζεται thresholding και αξιολόγηση false alarms/delay πριν θεωρηθεί change detector.
-
-**Χρήση:** Detection protocol και threats to validity.
-
-## 6. Όριο μεταφοράς
-
-**Τεκμήριο:** Η εργασία παρουσιάζει challenges και model families, όχι μια ενιαία empirical ranking αλγορίθμων.
-
-**Παράφραση για χρήση:** Η πηγή τεκμηριώνει τη μοντελοποίηση και τις trade-offs, όχι την επιλογή συγκεκριμένου τελικού agent.
-
-**Χρήση:** Περιορισμός ισχυρισμών.
+## Avoid overclaiming
+This source supports distinctions between uncertainty types and modeling assumptions. It does not establish that one robust or uncertainty-aware algorithm is universally preferable for the thesis benchmark.
