@@ -1,3 +1,10 @@
+---
+κωδικός: SRC-E8CAAF02BE
+κατάσταση: επαληθευμένο
+ελεγχθέν-πρωτότυπο: ναι
+ημερομηνία-ελέγχου: "2026-08-01"
+---
+
 # SRC-E8CAAF02BE — verified excerpts
 
 ## Partial observability
