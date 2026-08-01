@@ -11,6 +11,8 @@
 ## Βιβλιογραφική ταυτότητα
 Simin Li et al. NeurIPS 2025. Large-scale empirical MARL study with 82,620 experiments across multiple environments, uncertainty types, algorithms and hyperparameters.
 
+- **Ρόλος στη διπλωματική:** υποστηρικτική
+
 ## Σκοπός
 Η εργασία εξετάζει empirical relationships μεταξύ cooperation, robustness και resilience υπό διαφορετικές uncertainty modalities και hyperparameter settings. Παρότι το domain είναι cooperative MARL, η experimental methodology προσθέτει χρήσιμες γενικές αρχές για trustworthy RL evaluation.
 
