@@ -3,60 +3,91 @@
 κατάσταση: επαληθευμένο
 ελεγχθέν-πρωτότυπο: ναι
 ημερομηνία-ελέγχου: "2026-08-01"
+source-language: en
 ---
-# Επαληθευμένα τεκμήρια — SRC-630F83DAD7
 
-## 1. Procedural diversity για generalization
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** Abstract, Introduction, Section 2
-- **Ισχυρισμός:** Το Procgen χρησιμοποιεί procedural generation ώστε οι agents να εκπαιδεύονται και να αξιολογούνται σε μεγάλες distributions διαφορετικών levels αντί να επαναλαμβάνουν σχεδόν τα ίδια states.
-- **Κεφάλαιο:** Benchmark design
-- **Θέματα:** procedural generation; environment diversity; overfitting
-- **Κατάσταση:** επαληθευμένο
+# Evidence — Leveraging Procedural Generation to Benchmark Reinforcement Learning
 
-### Κείμενο ή πιστή παράφραση
-Η ποικιλία του environment distribution είναι μέρος του benchmark και όχι απλώς augmentation του agent.
+## E1 — Procedural diversity is part of the benchmark distribution
+- **Type:** faithful paraphrase
+- **Location:** Abstract; Introduction; Section 2
+- **Claim:** Procgen uses procedurally generated level distributions so agents encounter substantial environment variation rather than repeatedly training on near-identical states.
+- **Status:** verified
 
-### Προτεινόμενη χρήση
-Versioned GridWorld map families και disjoint environment seeds.
+### Faithful paraphrase
+Cobbe et al. design Procgen so layout, entities, assets, and other task details vary across generated levels. The resulting diversity is an environment property used to train and evaluate generalization; it is not merely an augmentation applied inside the agent.
 
-## 2. Disjoint training και test levels
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** Introduction, Experimental Protocols
-- **Ισχυρισμός:** Το benchmark υποστηρίζει ξεχωριστά generated training και test sets ώστε να μετράται generalization αντί memorization.
-- **Κεφάλαιο:** Train-test protocol
-- **Θέματα:** held-out seeds; generalization gap; leakage control
-- **Κατάσταση:** επαληθευμένο
+### Thesis use
+Version GridWorld map families and environment-generation seeds as part of the benchmark definition.
 
-### Προτεινόμενη χρήση
-Train/test map distributions παραμένουν χωριστές από changepoint schedules και hyperparameter tuning.
+### Citation
+Cobbe et al. (2020), Abstract, Introduction, and Section 2.
 
-## 3. Μεγάλο finite training set δεν αποκλείει overfitting
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** Introduction and generalization experiments
-- **Ισχυρισμός:** Deep RL agents μπορούν να overfit ακόμη και σε σχετικά μεγάλες finite collections levels, άρα η fixed-sequence training performance δεν αρκεί ως evidence γενίκευσης.
-- **Κεφάλαιο:** Threats to validity
-- **Θέματα:** memorization; overfitting; evaluation
-- **Κατάσταση:** επαληθευμένο
+## E2 — Generalization uses held-out levels
+- **Type:** faithful paraphrase
+- **Location:** Section 2.2; Section 3.3
+- **Claim:** For generalization evaluation, agents train on a finite set of generated levels and are tested on held-out levels drawn from the environment distribution.
+- **Status:** verified
 
-## 4. Solvability δεν είναι αυτόματη
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** Section 2.1 Environment Desiderata
-- **Ισχυρισμός:** Η procedural generation στοχεύει solvable levels αλλά δεν εγγυάται απόλυτη solvability· οι authors εκτιμούν ποσοστό άνω του 99%.
-- **Κεφάλαιο:** Environment validation
-- **Θέματα:** solvability; procedural maps; reachability
-- **Κατάσταση:** επαληθευμένο
+### Faithful paraphrase
+The benchmark separates the levels used during training from those used for zero-shot testing. This makes test performance an estimate of generalization beyond memorized training trajectories rather than another measurement on the same finite set.
 
-### Προτεινόμενη χρήση
-Κάθε generated ή perturbed GridWorld περνά explicit reachability/solvability validation.
+### Thesis use
+Keep train, validation/tuning, and final test map seeds disjoint, and separate those splits from changepoint schedules.
 
-## 5. Generalization ≠ online recovery
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** Overall benchmark setup
-- **Ισχυρισμός:** Το Procgen μετρά performance σε held-out generated levels με fixed learned policy/training protocol και δεν αποτελεί sequential changepoint adaptation benchmark.
-- **Κεφάλαιο:** Theoretical boundaries
-- **Θέματα:** zero-shot generalization; online adaptation; benchmark semantics
-- **Κατάσταση:** επαληθευμένο
+### Citation
+Cobbe et al. (2020), Sections 2.2 and 3.3.
 
-### Παραπομπή
-Cobbe et al., *Leveraging Procedural Generation to Benchmark Reinforcement Learning*, ICML 2020, PMLR 119.
+## E3 — Large finite training sets can still be overfit
+- **Type:** faithful paraphrase
+- **Location:** Introduction; Section 3.1; Figure 2
+- **Claim:** Deep RL agents can exhibit substantial train–test gaps even after training on many distinct levels.
+- **Status:** verified
+
+### Faithful paraphrase
+The paper varies training-set size from hundreds to many thousands of levels and shows that generalization gaps can remain large. The result warns that strong training performance on a large finite collection is not sufficient evidence that an agent learned structure that transfers to unseen levels.
+
+### Thesis use
+Retain held-out map evaluation even if the training generator produces many layouts.
+
+### Citation
+Cobbe et al. (2020), Section 3.1 and Figure 2.
+
+## E4 — Procedural generation does not guarantee solvability
+- **Type:** faithful paraphrase
+- **Location:** Section 2.1, Level Solvability
+- **Claim:** Procgen aims to generate solvable levels but does not provide an absolute solvability guarantee.
+- **Status:** verified
+
+### Faithful paraphrase
+The authors state that their generators strive to make all levels solvable and estimate that more than 99% are solvable, while acknowledging that solvability is not strictly guaranteed.
+
+### Thesis use
+Run explicit reachability/solvability validation on every generated or structurally perturbed GridWorld used in an experiment.
+
+### Citation
+Cobbe et al. (2020), Section 2.1.
+
+## E5 — Fixed-sequence competence can create an illusion of progress
+- **Type:** faithful paraphrase
+- **Location:** Section 3.2; Figure 3
+- **Claim:** Agents trained on a deterministic level sequence can become competent on the early training levels while performing poorly when the sequence is randomized at test time.
+- **Status:** verified
+
+### Thesis use
+Use held-out randomized layouts and avoid interpreting repeated success on a fixed route or fixed layout sequence as generalization.
+
+### Citation
+Cobbe et al. (2020), Section 3.2 and Figure 3.
+
+## E6 — Zero-shot generalization is not online recovery
+- **Type:** scope synthesis grounded in the benchmark
+- **Location:** Overall generalization protocol
+- **Claim:** Procgen evaluates performance on unseen levels after training; it does not introduce a within-run unknown changepoint and then measure detection and relearning.
+- **Status:** verified
+
+### Thesis use
+Run frozen zero-shot testing separately from any later online adaptation phase.
+
+### Citation
+Cobbe et al. (2020), overall protocol.
