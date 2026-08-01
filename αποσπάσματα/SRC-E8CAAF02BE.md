@@ -3,36 +3,94 @@
 κατάσταση: επαληθευμένο
 ελεγχθέν-πρωτότυπο: ναι
 ημερομηνία-ελέγχου: "2026-08-01"
+source-language: en
 ---
 
-# SRC-E8CAAF02BE — verified excerpts
+# Evidence — Planning and Acting in Partially Observable Stochastic Domains
 
-## Partial observability
+## E1 — Partial observability requires reasoning about hidden state from history
+- **Type:** faithful paraphrase
+- **Location:** opening example; Introduction; POMDP formulation
+- **Claim:** In a POMDP, the agent cannot directly observe the true world state and must use its history of actions and observations together with a world model to maintain an estimate of that state.
+- **Status:** verified
 
-Σε POMDP ο agent δεν γνωρίζει απευθείας το πραγματικό state και πρέπει να χρησιμοποιεί ιστορικό observations/actions για να διατηρεί εκτίμηση της κατάστασης.
+### Faithful paraphrase
+Kaelbling, Littman, and Cassandra motivate POMDPs with agents whose actions and observations are both imperfect. Because the current state is uncertain, the agent must combine previous actions, observations, and knowledge of the system dynamics to maintain a state estimate rather than acting as if the latest observation were the true state.
 
-**Χρήση:** observation uncertainty δεν πρέπει να μοντελοποιείται σαν απλό transition noise όταν το hidden state έχει σημασία για την απόφαση.
+### Thesis use
+Model observation uncertainty as partial observability when the hidden state remains decision-relevant; do not silently replace it with transition noise.
 
-## Belief state
+### Citation
+Kaelbling, Littman, and Cassandra (1998), opening example and Introduction.
 
-Το observable history μπορεί να συνοψιστεί σε belief state, δηλαδή distribution πάνω στα δυνατά underlying states, και η policy μπορεί να οριστεί πάνω σε αυτό το belief.
+## E2 — The belief state is a sufficient information state for POMDP control
+- **Type:** faithful paraphrase
+- **Location:** POMDP theory sections
+- **Claim:** The history can be summarized by a belief distribution over underlying states, and a policy can act on this belief rather than on the raw observation history.
+- **Status:** verified
 
-**Protocol implication:** όταν χρησιμοποιείται context/belief agent, αποθηκεύονται posterior mass στο true context και belief entropy.
+### Faithful paraphrase
+The POMDP formulation converts uncertainty about the current state into a probability distribution over possible states. This belief is updated as the agent takes actions and receives observations and can be treated as the state of a corresponding belief-space decision problem.
 
-## Information-gathering actions
+### Context and limits
+The update presumes a transition and observation model. An agent with exact model access therefore receives more prior information than a model-free learner.
 
-Μια action μπορεί να έχει dual role: να αλλάζει το world state και να παρέχει πληροφορία. Η βέλτιστη action δεν είναι πάντα η action που είναι καλύτερη για το most-likely state.
+### Thesis use
+For belief/context agents, log belief entropy and posterior mass assigned to the true simulated state or regime when that quantity is available to the evaluator.
 
-**Μετρική:** information-gathering action count και reward/safety cost της active disambiguation.
+### Citation
+Kaelbling, Littman, and Cassandra (1998), POMDP formulation and belief-state discussion.
 
-## Three distinct uncertainties
+## E3 — Actions may simultaneously change the world and gather information
+- **Type:** faithful paraphrase
+- **Location:** Introduction
+- **Claim:** In a partially observable problem, an action can have both control value and information value, so acting for the most likely state is not always optimal.
+- **Status:** verified
 
-Η partial observability πρέπει να διακρίνεται από latent regime uncertainty και από πραγματική χρονική αλλαγή του environment model.
+### Faithful paraphrase
+The authors emphasize that POMDPs do not create a fundamental divide between actions that manipulate the environment and actions that gather information. The same action can do both. An agent may therefore choose a locally less rewarding action because the resulting observation reduces uncertainty and improves later decisions.
 
-**Thesis-ready claim:** belief-state reasoning δεν αποτελεί από μόνο του changepoint adaptation.
+### Thesis use
+If active disambiguation is implemented, report information-gathering action count and its reward, delay, and safety cost.
 
-## Fairness boundary
+### Citation
+Kaelbling, Littman, and Cassandra (1998), Introduction.
 
-Agent που διαθέτει ακριβές transition/observation model για Bayesian belief update έχει περισσότερο prior information από model-free Q-learning.
+## E4 — Most-likely-state control can discard decision-relevant uncertainty
+- **Type:** faithful paraphrase
+- **Location:** opening example; Introduction
+- **Claim:** Choosing the action appropriate for only the most probable state can be inferior to an action selected with the full uncertainty distribution in mind.
+- **Status:** verified
 
-**Protocol rule:** δηλώνεται ρητά ποιο model/prior/context library είναι διαθέσιμο σε κάθε agent.
+### Faithful paraphrase
+The navigation example notes that acting as though the most likely location were certain may be sufficient in some situations but not in others. When alternative state hypotheses imply different consequences or when information can be gathered, the complete uncertainty distribution can change the preferred action.
+
+### Thesis use
+Compare hard context selection with belief-weighted control rather than assuming the maximum-posterior context is always sufficient.
+
+### Citation
+Kaelbling, Littman, and Cassandra (1998), opening discussion.
+
+## E5 — Partial observability, latent model uncertainty, and temporal environmental change are distinct
+- **Type:** scope synthesis grounded in the paper
+- **Location:** Overall formulation
+- **Claim:** A POMDP models uncertainty about the current hidden state under a specified stochastic model; this is not the same problem as uncertainty about which environment model is active or a changepoint that alters that model over time.
+- **Status:** verified
+
+### Thesis use
+Keep `hidden_state_uncertainty`, `latent_regime_uncertainty`, and `environment_change` as separate experimental mechanisms.
+
+### Citation
+Kaelbling, Littman, and Cassandra (1998), overall POMDP formulation.
+
+## E6 — Exact model access changes the fairness of comparisons
+- **Type:** thesis-protocol implication
+- **Location:** Introduction and formal model
+- **Claim:** The planning problem assumes a complete and correct model of world dynamics and reward structure, whereas model-free agents must learn behavior from interaction.
+- **Status:** verified
+
+### Thesis use
+Record transition-model, observation-model, and prior access for every agent and do not compare a model-informed belief planner against model-free Q-learning as if their information budgets were identical.
+
+### Citation
+Kaelbling, Littman, and Cassandra (1998), Introduction.
