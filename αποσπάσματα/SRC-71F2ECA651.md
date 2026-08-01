@@ -2,152 +2,93 @@
 κωδικός: SRC-71F2ECA651
 κατάσταση: επαληθευμένο
 ελεγχθέν-πρωτότυπο: ναι
-ημερομηνία-ελέγχου: "2026-07-31"
+ημερομηνία-ελέγχου: "2026-08-01"
+source-language: en
+verification-source: "NeurIPS 2000 primary paper; local source record requires reprocessing"
 ---
 
-# Αποσπάσματα — Robust Reinforcement Learning
+# Evidence — Robust Reinforcement Learning
 
-## Τεκμήριο E1
+## E1 — Model mismatch and input disturbances motivate robust control objectives
+- **Type:** faithful paraphrase
+- **Location:** Abstract; introduction
+- **Claim:** A policy optimized for a nominal learned or simulated environment can behave poorly when the real system differs from that model or receives unmodeled disturbances.
+- **Status:** verified
 
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** Abstract και Ενότητα 1, PDF σελ. 1
-- **Ισχυρισμός:** Το model mismatch και οι input disturbances μπορούν να προκαλέσουν ανεπιθύμητη συμπεριφορά σε policy που βελτιστοποιήθηκε μόνο για nominal model.
-- **Κεφάλαιο:** Θεωρητικό υπόβαθρο
-- **Θέματα:** model mismatch; disturbance; robust RL
-- **Κατάσταση:** επαληθευμένο
+### Faithful paraphrase
+Morimoto and Doya motivate robust reinforcement learning by noting that environmental models are widely used for simulation-based learning and online planning, but discrepancies between the model and the real environment can produce unwanted behavior. Their formulation therefore incorporates both modeling error and external input disturbance into the control objective.
 
-### Κείμενο ή πιστή παράφραση
+### Thesis use
+Use as historical motivation for static/worst-case robustness under model mismatch, not as evidence of online recovery.
 
-Η διαφορά μεταξύ learned/simulated model και πραγματικού περιβάλλοντος μπορεί να καταστήσει την nominal RL policy απρόβλεπτη ή ανεπαρκή.
+### Citation
+Morimoto and Doya (2000), Abstract and introduction.
 
-### Συμφραζόμενα
+## E2 — The method is a minimax actor–disturber game
+- **Type:** faithful paraphrase
+- **Location:** problem formulation
+- **Claim:** The robust objective is formulated as a differential game in which an actor chooses control inputs while a disturber chooses adverse disturbances.
+- **Status:** verified
 
-Η εργασία χρησιμοποιεί αυτό το πρόβλημα ως κίνητρο για worst-case robust formulation.
+### Faithful paraphrase
+Drawing on `H-infinity` control, the paper introduces a disturbing agent that seeks the most damaging allowable disturbance and a control agent that seeks the best response. The value function balances output/control objectives against a penalty on disturbance magnitude, producing a minimax learning problem.
 
-### Περιορισμοί και κίνδυνος παρερμηνείας
+### Context and limits
+The disturbance norm and robustness trade-off are design choices. They define the threat/uncertainty model and are not neutral properties of the environment.
 
-Δεν αφορά κάθε μορφή data uncertainty ούτε αποδεικνύει ότι worst-case optimization είναι πάντα επιθυμητή.
+### Thesis use
+Use this source to explain the historical actor–adversary origin of robust objectives and keep the attacker/disturber model explicit.
 
-### Προτεινόμενη χρήση
+### Citation
+Morimoto and Doya (2000), formulation sections.
 
-Ιστορικό motivation για robustness.
+## E3 — The linear experiment validates the learning formulation against an analytic robust-control solution
+- **Type:** faithful paraphrase
+- **Location:** linear inverted-pendulum experiment
+- **Claim:** In the linear setting, the learned policy and value function agree with the corresponding analytical `H-infinity` solution.
+- **Status:** verified
 
-### Παραπομπή
+### Faithful paraphrase
+The authors use a linear inverted-pendulum problem as a correctness check for the online learning formulation. In this case, the policy and value function obtained by learning coincide with the analytic solution supplied by linear robust-control theory.
 
-Morimoto & Doya, 2000, Abstract και §1, PDF σελ. 1.
+### Context and limits
+Agreement in a linear benchmark validates that formulation under its assumptions; it does not establish general robustness for nonlinear, discrete, or modern deep-RL systems.
 
-## Τεκμήριο E2
+### Thesis use
+Use as an example of validation against known ground truth, not as a transferable performance claim.
 
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** Formulation sections, PDF σελ. 2–4
-- **Ισχυρισμός:** Η robust RL formulation μπορεί να ιδωθεί ως minimax παιχνίδι actor και disturber.
-- **Κεφάλαιο:** Θεωρητικό υπόβαθρο
-- **Θέματα:** minimax; actor-disturber; H-infinity
-- **Κατάσταση:** επαληθευμένο
+### Citation
+Morimoto and Doya (2000), linear experiment.
 
-### Κείμενο ή πιστή παράφραση
+## E4 — The nonlinear case study reports robustness to pendulum parameter changes
+- **Type:** faithful paraphrase
+- **Location:** nonlinear swing-up experiment; conclusion
+- **Claim:** In the reported nonlinear pendulum task, the robust learned controller tolerated changes in pendulum weight and friction that degraded the standard RL controller.
+- **Status:** verified
 
-Ο disturber επιδιώκει δυσμενές input disturbance, ενώ ο actor επιλέγει control που περιορίζει το worst-case output deviation υπό penalty για το μέγεθος disturbance.
+### Faithful paraphrase
+The paper tests its robust-learning paradigm on nonlinear swing-up and changes physical parameters after learning. Under those case-study perturbations, the robust controller preserves effective control while the nominal standard-RL controller does not handle the altered dynamics as successfully.
 
-### Συμφραζόμενα
+### Context and limits
+This is one continuous-control case study and should not be generalized to arbitrary GridWorld changes or algorithm families.
 
-Η διατύπωση αντλεί από `H∞` control και differential games.
+### Thesis use
+Historical empirical support that robustness to bounded model mismatch can reduce performance loss under parameter shifts.
 
-### Περιορισμοί και κίνδυνος παρερμηνείας
+### Citation
+Morimoto and Doya (2000), nonlinear experiment and conclusion.
 
-Η επιλογή disturbance norm και trade-off parameter είναι μέρος της προδιαγραφής και δεν είναι ουδέτερη.
+## E5 — Worst-case robustness is not online resilience
+- **Type:** scope synthesis grounded in the paper
+- **Location:** overall formulation and experiments
+- **Claim:** The method learns against a prescribed disturbance formulation; it does not introduce an unknown changepoint, a detector, context recall, or a post-change relearning metric.
+- **Status:** verified
 
-### Προτεινόμενη χρήση
+### Thesis use
+A robust policy may reduce the initial degradation caused by a shift, but that effect must remain distinct from detecting the shift and recovering through new learning.
 
-Εξήγηση της προέλευσης adversarial robust objectives.
+### Citation
+Morimoto and Doya (2000), overall formulation.
 
-### Παραπομπή
-
-Morimoto & Doya, 2000, formulation, PDF σελ. 2–4.
-
-## Τεκμήριο E3
-
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** Linear experiment, PDF σελ. 4–5
-- **Ισχυρισμός:** Η learned robust solution ελέγχθηκε έναντι αναλυτικής λύσης σε linear setting.
-- **Κεφάλαιο:** Μεθοδολογία· Validation
-- **Θέματα:** analytical validation; known solution
-- **Κατάσταση:** επαληθευμένο
-
-### Κείμενο ή πιστή παράφραση
-
-Στο linear inverted-pendulum problem, learned policy και value function συμφωνούν με την αντίστοιχη analytical `H∞` solution.
-
-### Συμφραζόμενα
-
-Η σύγκριση χρησιμοποιείται ως έλεγχος ορθότητας της online learning formulation.
-
-### Περιορισμοί και κίνδυνος παρερμηνείας
-
-Η συμφωνία σε linear problem δεν αποτελεί απόδειξη για arbitrary nonlinear ή discrete environments.
-
-### Προτεινόμενη χρήση
-
-Παράδειγμα validation against known ground truth.
-
-### Παραπομπή
-
-Morimoto & Doya, 2000, linear experiment, PDF σελ. 4–5.
-
-## Τεκμήριο E4
-
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** Nonlinear experiment και conclusion, PDF σελ. 5–7
-- **Ισχυρισμός:** Στο συγκεκριμένο nonlinear pendulum test, robust RL διατήρησε καλύτερο control υπό αλλαγές weight/friction από standard RL.
-- **Κεφάλαιο:** Σχετικές εργασίες
-- **Θέματα:** model parameter shift; empirical robustness
-- **Κατάσταση:** επαληθευμένο
-
-### Κείμενο ή πιστή παράφραση
-
-Η robust policy αντιμετώπισε μεταβολές στις φυσικές παραμέτρους που αποσταθεροποίησαν την nominal standard-RL policy.
-
-### Συμφραζόμενα
-
-Το experiment είναι continuous-control case study και όχι γενικό benchmark.
-
-### Περιορισμοί και κίνδυνος παρερμηνείας
-
-Δεν επιτρέπεται γενίκευση σε GridWorld ή σύγχρονες deep-RL methods χωρίς νέα πειράματα.
-
-### Προτεινόμενη χρήση
-
-Ιστορικό empirical evidence για robustness under model mismatch.
-
-### Παραπομπή
-
-Morimoto & Doya, 2000, nonlinear experiment/conclusion, PDF σελ. 5–7.
-
-## Τεκμήριο E5
-
-- **Τύπος:** κριτική σύνθεση από το ελεγμένο πρωτότυπο
-- **Θέση:** συνολική formulation και experiments, PDF σελ. 1–7
-- **Ισχυρισμός:** Worst-case robustness δεν ισοδυναμεί με online resilience και recovery.
-- **Κεφάλαιο:** Ορισμοί· Threats to validity
-- **Θέματα:** robustness; adaptation boundary
-- **Κατάσταση:** επαληθευμένο
-
-### Κείμενο ή πιστή παράφραση
-
-Η εργασία μαθαίνει policy απέναντι σε disturbance formulation, αλλά δεν εισάγει unknown changepoint, detection phase ή post-change recovery metric.
-
-### Συμφραζόμενα
-
-Η πηγή είναι θεμελιώδης για robustness, όχι για το πλήρες resilience lifecycle.
-
-### Περιορισμοί και κίνδυνος παρερμηνείας
-
-Robust policy μπορεί να μειώσει την αρχική πτώση και έτσι να συμβάλει στην resilience, αλλά δεν αποδεικνύει προσαρμογή.
-
-### Προτεινόμενη χρήση
-
-Ορολογικός διαχωρισμός robustness και resilience.
-
-### Παραπομπή
-
-Morimoto & Doya, 2000, συνολική formulation και experiments.
+## Provenance note
+The repository's current `πηγές/SRC-71F2ECA651.md` resolves to an archival laboratory page rather than the paper text. This evidence was re-verified against the primary NeurIPS 2000 paper and the local source record should be reprocessed before it is treated as a complete canonical source conversion.
