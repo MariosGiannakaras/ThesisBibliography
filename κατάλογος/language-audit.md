@@ -4,9 +4,9 @@ This report checks selected/exported citation-ready evidence for a clear Greek-v
 It does **not** translate content. Mixed/bilingual/short sources are sent to manual review.
 
 - Exported sources checked: **104**
-- Definite cross-language violations: **61**
+- Definite cross-language violations: **42**
 - Manual-review cases: **20**
-- Script-compatible cases: **23**
+- Script-compatible cases: **42**
 - Missing source/evidence files: **0**
 
 ## Definite violations
@@ -15,25 +15,6 @@ These files must be re-authored against the original source; automatic translati
 
 | Source | Source script | Source Greek ratio | Evidence script | Evidence Greek ratio |
 |---|---|---:|---|---:|
-| `SRC-3856071502` | latin | 0.005 | greek | 0.609 |
-| `SRC-0882A9B2B0` | latin | 0.001 | greek | 0.560 |
-| `SRC-3EA1176D3A` | latin | 0.008 | greek | 0.615 |
-| `SRC-09DD20BA85` | latin | 0.015 | greek | 0.562 |
-| `SRC-0A594EACC0` | latin | 0.000 | greek | 0.638 |
-| `SRC-D14764616F` | latin | 0.000 | greek | 0.573 |
-| `SRC-91D56A10CF` | latin | 0.002 | greek | 0.592 |
-| `SRC-153C917DE1` | latin | 0.004 | greek | 0.551 |
-| `SRC-3A5E2C9E2C` | latin | 0.000 | greek | 0.700 |
-| `SRC-7EFBF9DA62` | latin | 0.001 | greek | 0.572 |
-| `SRC-21EBE15D15` | latin | 0.000 | greek | 0.598 |
-| `SRC-4000D2B40A` | latin | 0.000 | greek | 0.598 |
-| `SRC-211B10ADBA` | latin | 0.002 | greek | 0.732 |
-| `SRC-A6616BE773` | latin | 0.000 | greek | 0.589 |
-| `SRC-DBDFB80961` | latin | 0.006 | greek | 0.557 |
-| `SRC-87C9BF9456` | latin | 0.002 | greek | 0.544 |
-| `SRC-BE5B937542` | latin | 0.006 | greek | 0.533 |
-| `SRC-D52DF7B9A4` | latin | 0.000 | greek | 0.554 |
-| `SRC-486FAE4C93` | latin | 0.000 | greek | 0.575 |
 | `SRC-0F8A6588DC` | latin | 0.000 | greek | 0.623 |
 | `SRC-3F84F52F97` | latin | 0.001 | greek | 0.510 |
 | `SRC-8E12FE2688` | latin | 0.034 | greek | 0.540 |
