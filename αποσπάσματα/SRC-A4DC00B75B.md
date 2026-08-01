@@ -3,32 +3,85 @@
 κατάσταση: επαληθευμένο
 ελεγχθέν-πρωτότυπο: ναι
 ημερομηνία-ελέγχου: "2026-08-01"
+source-language: en
 ---
 
-# SRC-A4DC00B75B — Επαληθευμένα τεκμήρια
+# Evidence — Minigrid & Miniworld: Modular & Customizable Reinforcement Learning Environments for Goal-Oriented Tasks
 
-## 1. Modular GridWorld substrate
+## E1 — MiniGrid provides a small, programmatically configurable 2D GridWorld substrate
+- **Type:** faithful paraphrase
+- **Location:** Abstract; Sections 1–2.2
+- **Claim:** MiniGrid is designed as a minimal, customizable 2D environment library whose tile layouts, objects, missions, observations, actions, and rewards can be configured for research-specific tasks.
+- **Status:** verified
 
-Το MiniGrid παρέχει 2D tile-based environments με προγραμματιστικά ελεγχόμενα layouts, discrete actions, sparse rewards και partial observations. Αυτό το καθιστά κατάλληλο για versioned, controlled perturbation scenarios.
+### Faithful paraphrase
+Chevalier-Boisvert et al. describe MiniGrid as a suite of two-dimensional tile-based goal-oriented environments built for rapid creation of new research tasks. Individual tiles can contain objects such as walls, keys, and goals; the agent uses a discrete action space; observations are partially observable by default; and the standard reward is sparse but can be replaced by a custom reward function.
 
-## 2. Environment και agent seeds
+### Thesis use
+Use MiniGrid as the implementation substrate for versioned controlled perturbation scenarios rather than as evidence that GridWorld results automatically generalize to real systems.
 
-Η Gymnasium-compatible χρήση επιτρέπει deterministic reset seeds. Για αναπαραγωγιμότητα πρέπει να αποθηκεύονται χωριστά map/configuration seed και agent/training seed.
+### Citation
+Chevalier-Boisvert et al. (2023), Abstract and Sections 1–2.2.
 
-## 3. Structural customization
+## E2 — The environment API supports explicit structural and observation changes
+- **Type:** faithful paraphrase
+- **Location:** Sections 2.2–2.4
+- **Claim:** Environment generation and wrappers can modify layouts, object placement, stochastic actions, observation spaces, and reward behavior without embedding those changes inside the learning agent.
+- **Status:** verified
 
-Walls, goals, objects, mission strings, reward function και observation space μπορούν να αλλάξουν μέσω environment generation και wrappers. Οι αλλαγές πρέπει να καταγράφονται ως environment configuration, όχι να κρύβονται στον agent.
+### Faithful paraphrase
+The library exposes environment-generation functions for constructing grid layouts and placing agents or objects, and its wrapper/API layer can alter environment behavior such as action stochasticity and observation representation. These mechanisms make experimental variation part of the environment configuration rather than an undocumented agent-side transformation.
 
-## 4. Solvability και contract checks
+### Thesis use
+Serialize and version every layout, wrapper, transition-noise setting, observation mode, and reward configuration used in an experiment.
 
-Η δυνατότητα εύκολης generation δεν εγγυάται ότι κάθε custom perturbation παραμένει επιλύσιμη. Κάθε structural scenario απαιτεί reachability/solvability check και κοινό action–observation contract για όλους τους agents.
+### Citation
+Chevalier-Boisvert et al. (2023), Sections 2.2–2.4.
 
-## 5. Transfer caveat
+## E3 — Reset seeds support reproducible environment initialization
+- **Type:** faithful paraphrase
+- **Location:** Section 2.1, Listing 1
+- **Claim:** The Gymnasium-compatible API accepts a reset seed, enabling reproducible environment initialization under a fixed configuration.
+- **Status:** verified
 
-Στα case studies, διαφορετικά transferred components έχουν διαφορετική επίδραση και η μεταφορά actor weights μπορεί να είναι επιβλαβής. Αυτό υποστηρίζει component-level reset/transfer ablations και explicit negative-transfer measurement.
+### Faithful paraphrase
+The paper's example interaction code initializes a MiniGrid environment through Gymnasium and calls `reset(seed=42)`, illustrating that environment randomness can be controlled through the standard seeded reset interface.
 
-## Προτεινόμενη χρήση
+### Context and limits
+A seeded environment reset does not automatically control every independent source of randomness in the learning stack.
 
-- Πειραματικό περιβάλλον και reproducibility section.
-- Τεκμηρίωση partial observability, sparse reward και custom wrappers.
-- Justification για serialized maps, environment versioning και solvability tests.
+### Thesis use
+Store environment/layout seeds separately from agent initialization, exploration, minibatch, and training seeds.
+
+### Citation
+Chevalier-Boisvert et al. (2023), Section 2.1, Listing 1.
+
+## E4 — Easy environment generation does not remove the need for solvability checks
+- **Type:** protocol inference grounded in the environment API
+- **Location:** Sections 2.2–2.4
+- **Claim:** The API makes custom layouts easy to construct, but the paper does not guarantee that every user-generated layout or perturbation remains solvable.
+- **Status:** verified
+
+### Thesis use
+Run an independent reachability/solvability check after every structural perturbation and keep the action–observation contract identical across agents being compared.
+
+### Citation
+Chevalier-Boisvert et al. (2023), environment construction sections.
+
+## E5 — Transfer effectiveness depends on which components are reused
+- **Type:** faithful paraphrase
+- **Location:** Section 3.1; Table 1
+- **Claim:** In the MiniGrid-to-MiniWorld case study, transferring different policy components produced different outcomes, and transferring actor weights could be detrimental in the reported setup.
+- **Status:** verified
+
+### Faithful paraphrase
+The transfer case study evaluates combinations of mission-embedding, actor, and critic weights. The reported results show that component choice matters: some critic/mission transfers improve learning, while configurations that also transfer the actor can reduce performance relative to learning without that transferred component.
+
+### Context and limits
+This is one PPO transfer case study between two observation spaces and is not a universal result about actor transfer.
+
+### Thesis use
+For policy/context reuse, use component-level reuse/reset ablations and an explicit no-transfer comparator to detect negative transfer.
+
+### Citation
+Chevalier-Boisvert et al. (2023), Section 3.1 and Table 1.
