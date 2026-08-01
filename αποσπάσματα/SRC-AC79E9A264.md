@@ -3,27 +3,100 @@
 κατάσταση: επαληθευμένο
 ελεγχθέν-πρωτότυπο: ναι
 ημερομηνία-ελέγχου: "2026-08-01"
+source-language: en
 ---
 
-## SRC-AC79E9A264 — Robust Policy Learning over Multiple Uncertainty Sets
+# Evidence — Robust Policy Learning over Multiple Uncertainty Sets
 
-- **Ρόλος:** υποστηρικτική
-- **Κατάσταση:** επαληθευμένη
+## E1 — System identification and robust RL address different parts of uncertainty
+- **Type:** faithful paraphrase
+- **Location:** Abstract; Section 1
+- **Claim:** System identification can reduce uncertainty from a short interaction history, while robust RL protects performance against uncertainty that remains unresolved.
+- **Status:** verified
 
-### Citation-ready τεκμήρια
+### Faithful paraphrase
+Xie et al. contrast two common responses to transfer uncertainty. System-identification methods infer latent environment context from recent interaction and condition behavior on that inference, but can fail when the context is not identifiable from a few observations. Robust RL avoids relying on exact identification by optimizing performance over an uncertainty set, but a single large set can make the policy unnecessarily conservative. Their multi-set formulation is designed to combine these advantages.
 
-1. **Robust RL και system identification επιλύουν διαφορετικά μέρη της αβεβαιότητας.** Η robust RL προστατεύει έναντι ενός προκαθορισμένου uncertainty set, ενώ το system identification προσαρμόζει την policy όταν το latent context μπορεί να συναχθεί γρήγορα από τις αλληλεπιδράσεις.
+### Thesis use
+Keep `context_inference` and `robust_fallback` as separate mechanisms and evaluate each in ablation.
 
-2. **Η μη αναγνωρισιμότητα είναι ουσιαστικός περιορισμός.** Διαφορετικά contexts μπορούν να εξηγούν το ίδιο σύντομο ιστορικό· επομένως η point estimate του περιβάλλοντος μπορεί να είναι αδικαιολόγητα βέβαιη.
+### Citation
+Xie et al. (2022), Abstract and Section 1.
 
-3. **Η SIRSA συνδυάζει inference και risk-sensitive control.** Ένα probabilistic identification model παράγει uncertainty set και μια set-conditioned policy βελτιστοποιείται με CVaR ως προς την υπολειπόμενη αβεβαιότητα.
+## E2 — Point identification can be unjustified when multiple contexts explain the same history
+- **Type:** faithful paraphrase
+- **Location:** Section 4, System Identification and its Challenges; Definition 4.1
+- **Claim:** Limited interaction can leave several environment contexts observationally consistent with the same history.
+- **Status:** verified
 
-4. **Μεγαλύτερο uncertainty set συνεπάγεται πιθανή υπερσυντηρητικότητα.** Η αξιολόγηση robust agent πρέπει να αναφέρει τόσο disturbed/worst-tail performance όσο και nominal utility.
+### Faithful paraphrase
+The paper formalizes context non-identifiability: given a short history, there may be multiple latent contexts under which that history remains plausible. In such a case, a single point estimate hides unresolved ambiguity, and the controller should account for a set or distribution of plausible contexts rather than act as if identification were certain.
 
-5. **Η εργασία αναφέρει transfer σε misspecified priors και non-stationary dynamics**, αλλά μέσα σε parameterized task families· δεν αποτελεί απόδειξη προσαρμογής σε αυθαίρετες structural αλλαγές.
+### Context and limits
+Identifiability depends on the interaction history, policy, context parameterization, and observation model. A longer or more informative trajectory may resolve ambiguity that is present initially.
 
-### Χρήση στη διπλωματική
+### Thesis use
+Measure inference confidence and include cases in which distinct regimes produce similar early observations.
 
-- Θεωρητικό υπόβαθρο για hybrid `context inference + robust fallback`.
-- Αιτιολόγηση metrics identifiability, confidence και conservativeness.
-- Feasibility reference για belief over regimes, όχι υποχρεωτική πλήρης SIRSA υλοποίηση.
+### Citation
+Xie et al. (2022), Section 4 and Definition 4.1.
+
+## E3 — SIRSA conditions control on an inferred uncertainty set and optimizes a risk-sensitive objective
+- **Type:** faithful paraphrase
+- **Location:** Sections 3–5
+- **Claim:** SIRSA combines probabilistic system identification with a set-conditioned policy optimized using CVaR over the remaining context uncertainty.
+- **Status:** verified
+
+### Faithful paraphrase
+The framework learns a probabilistic model that maps recent interaction history to uncertainty about the latent context. That uncertainty is converted to a context set supplied to a generalized policy. The policy is trained with a CVaR objective, so it emphasizes the lower tail of returns across contexts in the current uncertainty set rather than optimizing only average performance.
+
+### Context and limits
+CVaR changes the risk preference and introduces a tunable risk parameter. It does not eliminate the cost of conservative decisions.
+
+### Thesis use
+If a belief-aware fallback is piloted, state the uncertainty representation and risk criterion explicitly and report their hyperparameters.
+
+### Citation
+Xie et al. (2022), Sections 3–5.
+
+## E4 — Larger uncertainty sets can trade nominal utility for protection
+- **Type:** faithful paraphrase
+- **Location:** Section 1; robust contextual MDP formulation
+- **Claim:** An uncertainty set that is too broad can produce an overly conservative policy, while a set that is too narrow may fail to contain the target environment.
+- **Status:** verified
+
+### Faithful paraphrase
+The authors motivate multi-set robustness by noting that a broad prior uncertainty set may force one policy to hedge against many incompatible possibilities and thereby underperform across ordinary environments. Conversely, a narrow set provides little protection when the actual target lies outside it.
+
+### Thesis use
+Report clean or nominal utility together with disturbed or lower-tail utility for every robust fallback.
+
+### Citation
+Xie et al. (2022), Section 1.
+
+## E5 — Transfer under misspecified priors and non-stationary dynamics remains within a parameterized task family
+- **Type:** faithful paraphrase with scope boundary
+- **Location:** Abstract; experiments and discussion
+- **Claim:** The paper reports transfer to misspecified prior uncertainty sets and to non-stationary dynamics, but the experiments remain within parameterized families related to the training tasks.
+- **Status:** verified
+
+### Faithful paraphrase
+SIRSA is evaluated on continuous-control tasks in which environment variation is expressed through latent parameters, and the paper includes tests with prior misspecification and changing dynamics. These experiments support robustness to imperfect context beliefs within the modeled family; they do not establish adaptation to arbitrary structural changes outside the context parameterization.
+
+### Thesis use
+Include both misspecified-prior tests and a true-regime-absent-from-library test, and label the latter as a stronger extrapolation condition.
+
+### Citation
+Xie et al. (2022), Abstract and experimental sections.
+
+## E6 — Multi-set robustness is background/feasibility evidence, not a required thesis implementation
+- **Type:** thesis-scope synthesis
+- **Location:** Overall paper
+- **Claim:** The method demonstrates a principled hybrid of inference and robust fallback, but its continuous-control neural implementation is substantially heavier than the core tabular baseline matrix.
+- **Status:** verified
+
+### Thesis use
+Use SIRSA primarily to justify the architecture distinction `infer context when possible → hedge residual uncertainty when necessary`; only implement a lightweight analogue if feasibility tests support it.
+
+### Citation
+Xie et al. (2022), overall method and experiments.
