@@ -2,152 +2,82 @@
 κωδικός: SRC-0A4AFAC8E9
 κατάσταση: επαληθευμένο
 ελεγχθέν-πρωτότυπο: ναι
-ημερομηνία-ελέγχου: "2026-07-30"
+ημερομηνία-ελέγχου: "2026-08-01"
 ---
 
-# Αποσπάσματα — Deep Reinforcement Learning at the Edge of the Statistical Precipice
+# Evidence — Deep Reinforcement Learning at the Edge of the Statistical Precipice
 
-## Τεκμήριο E1
+## Evidence E1 — Few-run RL comparisons need uncertainty, not only point estimates
+- **Type:** faithful paraphrase
+- **Location:** Abstract; Section 1; Table 1
+- **Claim:** Mean or median point estimates from a small number of stochastic training runs can give unreliable impressions of algorithm performance.
+- **Thesis use:** statistical protocol
+- **Topics:** few-run evaluation; uncertainty; reproducibility
+- **Status:** verified
 
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** σελίδες 1–3, Abstract, Section 1 και Table 1
-- **Ισχυρισμός:** Η σύγκριση stochastic RL algorithms με λίγα runs δεν πρέπει να βασίζεται μόνο σε mean ή median point estimates.
-- **Κεφάλαιο:** Πειραματικό πρωτόκολλο και στατιστική ανάλυση
-- **Θέματα:** few-run evaluation, uncertainty, reproducibility
-- **Κατάσταση:** επαληθευμένο
+### Faithful paraphrase
+With only a handful of runs per task and substantial run-to-run variability, aggregate RL scores are themselves uncertain quantities. Reporting only a mean or median can materially overstate or understate expected performance and can change the apparent ranking of algorithms under new independent runs.
 
-### Κείμενο ή πιστή παράφραση
+### Thesis-safe implication
+No superiority claim in the thesis should rest on one seed or on a point estimate without an uncertainty estimate and the underlying run distribution.
 
-Οι aggregate επιδόσεις από πεπερασμένα independent runs είναι τυχαίες μεταβλητές. Στο deep RL, όπου 3–10 runs είναι συνηθισμένα και η διακύμανση συχνά μεγάλη, ένα point estimate μπορεί να υπερεκτιμά ή να υποεκτιμά ουσιαστικά την αναμενόμενη επίδοση. Οι συγγραφείς προτείνουν να συνοδεύονται οι συγκρίσεις από uncertainty intervals και distributions.
+## Evidence E2 — Stratified bootstrap intervals preserve benchmark structure
+- **Type:** faithful paraphrase
+- **Location:** Section 4.1 and Table 1
+- **Claim:** The paper recommends interval estimates based on stratified bootstrap resampling for aggregate performance in multi-task RL benchmarks.
+- **Thesis use:** confidence intervals
+- **Topics:** bootstrap; interval estimate; task/run structure
+- **Status:** verified
 
-### Συμφραζόμενα
+### Faithful paraphrase
+The proposed bootstrap procedure resamples in a way that respects the organization of scores by task and run. It produces an interval of plausible aggregate-performance values rather than treating the observed aggregate as exact. When comparing two agents, uncertainty in their difference should be estimated directly instead of reasoning mechanically from overlap between two separate intervals.
 
-Το πρόβλημα αφορά ιδιαίτερα ακριβά benchmarks, αλλά ισχύει και σε μικρότερο GridWorld όταν οι learning curves, exploration και perturbations είναι stochastic.
+### Limitation
+Bootstrap intervals do not repair biased experiment selection, unequal tuning budgets, or dependence created by an invalid sampling design.
 
-### Περιορισμοί και κίνδυνος παρερμηνείας
+## Evidence E3 — IQM is a useful robust aggregate but should not hide tail failures
+- **Type:** faithful paraphrase
+- **Location:** Table 1; Section 4.3
+- **Claim:** Interquartile mean is proposed as a robust and statistically efficient aggregate in the few-run regime.
+- **Thesis use:** secondary aggregate metric
+- **Topics:** IQM; outliers; aggregate performance
+- **Status:** verified
 
-Δεν συνεπάγεται ότι λίγα runs είναι άχρηστα. Σημαίνει ότι τα συμπεράσματα πρέπει να είναι ανάλογα με το πλάτος της αβεβαιότητας.
+### Faithful paraphrase
+IQM averages the middle half of the pooled normalized scores, making it less dominated by extreme tasks than the ordinary mean and often less statistically variable than the median. The authors recommend it as part of a broader reporting set rather than as a complete description of performance.
 
-### Προτεινόμενη χρήση
+### Thesis-safe implication
+Because resilience research cares about rare catastrophic failures, IQM should be paired with failure rates, tail/worst-case summaries, and per-scenario results.
 
-Να απαγορεύσει claims υπεροχής από ένα seed ή από μόνο μία μέση τιμή.
+## Evidence E4 — Evaluation protocol differences can exceed algorithm differences
+- **Type:** faithful paraphrase
+- **Location:** Section 3 and benchmark case study
+- **Claim:** Non-standard choices such as checkpoint/evaluation rules can materially alter reported performance and apparent rankings.
+- **Thesis use:** benchmark fairness
+- **Topics:** checkpoint selection; evaluation protocol; bias
+- **Status:** verified
 
-### Παραπομπή
+### Faithful paraphrase
+Comparisons become unreliable when one method is scored using a different evaluation rule from another, such as selecting a maximum training score instead of using a common final-evaluation protocol. All agents should use the same evaluation budget, checkpoint-selection rule, normalization, and aggregation procedure, with any model selection performed only on validation data.
 
-Agarwal et al. (2021), σελ. 1–3, Abstract, Section 1 και Table 1.
+## Evidence E5 — A fixed seed is not equivalent to statistical reliability
+- **Type:** faithful paraphrase
+- **Location:** Section 2 and later reproducibility discussion
+- **Claim:** Independent runs can differ because of task stochasticity, exploration, initialization, and software or hardware nondeterminism; fixing a seed does not answer whether conclusions generalize to new random conditions.
+- **Thesis use:** seed protocol
+- **Topics:** independent runs; random conditions; reproducibility
+- **Status:** verified
 
-## Τεκμήριο E2
+### Faithful paraphrase
+Recording seeds is important for reproducibility, but a result obtained under one fixed random condition does not establish expected performance over future random conditions. Evaluation should therefore use multiple independent runs and report their uncertainty.
 
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** σελίδες 5–7, Section 4.1 και Table 1
-- **Ισχυρισμός:** Τα aggregate scores πρέπει να συνοδεύονται από stratified bootstrap confidence intervals που resample tasks και runs με τρόπο συμβατό με τη δομή του benchmark.
-- **Κεφάλαιο:** Στατιστική μεθοδολογία
-- **Θέματα:** bootstrap confidence intervals, effect uncertainty
-- **Κατάσταση:** επαληθευμένο
+## Evidence E6 — Effect size and uncertainty are preferable to dichotomous significance claims
+- **Type:** faithful paraphrase
+- **Location:** Section 2, confidence-interval discussion
+- **Claim:** The authors emphasize interval estimates and effect sizes and caution against binary interpretations based only on statistical-significance thresholds.
+- **Thesis use:** result interpretation
+- **Topics:** effect size; confidence interval; practical significance
+- **Status:** verified
 
-### Κείμενο ή πιστή παράφραση
-
-Η προτεινόμενη διαδικασία χρησιμοποιεί stratified bootstrap ώστε η resampling distribution να διατηρεί τη διάκριση μεταξύ tasks και runs. Το interval εκφράζει plausible values του aggregate performance και επιτρέπει πιο προσεκτική σύγκριση από μια μοναδική τιμή. Για διαφορές agents πρέπει να υπολογίζεται uncertainty της διαφοράς και όχι να ερμηνεύεται μηχανικά η επικάλυψη δύο ανεξάρτητων intervals.
-
-### Συμφραζόμενα
-
-Στη διπλωματική τα strata μπορούν να είναι perturbation scenarios ή severity levels, εφόσον οριστούν πριν από την ανάλυση.
-
-### Περιορισμοί και κίνδυνος παρερμηνείας
-
-Το bootstrap προϋποθέτει κατάλληλη ανεξαρτησία και αντιπροσωπευτικότητα των runs. Δεν διορθώνει cherry-picking ή unequal tuning budgets.
-
-### Προτεινόμενη χρήση
-
-Να εφαρμοστεί σε primary outcome metrics και pairwise agent differences.
-
-### Παραπομπή
-
-Agarwal et al. (2021), σελ. 5–7, Section 4.1.
-
-## Τεκμήριο E3
-
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** σελίδες 2–3 και 6–8, Table 1 και Section 4.3
-- **Ισχυρισμός:** Το interquartile mean είναι χρήσιμο robust aggregate επειδή περιορίζει την επίδραση outliers και είναι συχνά πιο στατιστικά αποδοτικό από τη median.
-- **Κεφάλαιο:** Μετρικές και reporting
-- **Θέματα:** IQM, aggregate metrics, outliers
-- **Κατάσταση:** επαληθευμένο
-
-### Κείμενο ή πιστή παράφραση
-
-Το IQM υπολογίζει τον μέσο όρο του μεσαίου 50% των pooled normalized scores. Σε benchmark comparisons είναι λιγότερο ευάλωτο σε λίγα εξαιρετικά tasks από τον mean και παρουσιάζει στενότερη sampling uncertainty από τη median στο few-run regime. Οι συγγραφείς το προτείνουν μαζί με άλλα summaries, όχι ως μοναδική περιγραφή.
-
-### Συμφραζόμενα
-
-Σε ένα configurable environment, IQM έχει νόημα μόνο αν τα scenario scores κανονικοποιηθούν συγκρίσιμα. Per-scenario medians και distributions παραμένουν απαραίτητα.
-
-### Περιορισμοί και κίνδυνος παρερμηνείας
-
-Η απόρριψη tails μπορεί να κρύψει σπάνιες καταστροφικές αποτυχίες, οι οποίες είναι σημαντικές για resilience. Αυτές πρέπει να αναφέρονται χωριστά.
-
-### Προτεινόμενη χρήση
-
-Να χρησιμοποιηθεί ως secondary aggregate, μαζί με worst-case/tail και failure-rate metrics.
-
-### Παραπομπή
-
-Agarwal et al. (2021), Table 1 και Section 4.3.
-
-## Τεκμήριο E4
-
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** σελίδα 5, Section 3, συζήτηση evaluation protocols
-- **Ισχυρισμός:** Αποτελέσματα από διαφορετικούς evaluation rules, όπως final performance και maximum performance during training, δεν είναι άμεσα συγκρίσιμα.
-- **Κεφάλαιο:** Αναπαραγωγιμότητα και πρωτόκολλο
-- **Θέματα:** protocol consistency, checkpoint selection, bias
-- **Κατάσταση:** επαληθευμένο
-
-### Κείμενο ή πιστή παράφραση
-
-Η εργασία δείχνει ότι η χρήση maximum score κατά την εκπαίδευση μπορεί να παράγει αισιόδοξες τιμές σε σχέση με την average final performance. Διαφορές protocol μεγαλύτερες από τις διαφορές algorithms μπορούν να ανατρέψουν ranking. Συνεπώς όλοι οι agents πρέπει να αξιολογούνται στα ίδια checkpoints, με ίδια episode budgets και ίδιο aggregation rule.
-
-### Συμφραζόμενα
-
-Η επιλογή «καλύτερου checkpoint» μπορεί να επιτρέπεται μόνο με κοινό validation procedure που δεν κοιτάζει το test result.
-
-### Περιορισμοί και κίνδυνος παρερμηνείας
-
-Δεν υπάρχει ένας καθολικός σωστός checkpoint rule· απαιτείται συνέπεια και προεγγραφή.
-
-### Προτεινόμενη χρήση
-
-Να κλειδώσει το stopping/evaluation protocol πριν από τα τελικά runs.
-
-### Παραπομπή
-
-Agarwal et al. (2021), σελ. 5, Section 3.
-
-## Τεκμήριο E5
-
-- **Τύπος:** πιστή παράφραση
-- **Θέση:** σελίδες 9–10, Sections 5–6
-- **Ισχυρισμός:** Το fixing συγκεκριμένων seeds δεν αποδεικνύει ότι ένας agent θα αποδώσει καλά σε νέες τυχαίες συνθήκες.
-- **Κεφάλαιο:** Αναπαραγωγιμότητα και limitations
-- **Θέματα:** seeds, independent runs, generalizability of results
-- **Κατάσταση:** επαληθευμένο
-
-### Κείμενο ή πιστή παράφραση
-
-Οι συγγραφείς τονίζουν ότι fixed seeds μπορεί να ωφελούν άνισα διαφορετικούς algorithms και δεν απαντούν στο ερώτημα αν το αποτέλεσμα θα επαναληφθεί με νέες random conditions. Επιπλέον, ένα run μπορεί να περιλαμβάνει randomness που δεν ελέγχεται πλήρως από ένα seed, όπως framework ή hardware nondeterminism.
-
-### Συμφραζόμενα
-
-Για reproducibility πρέπει να αποθηκεύονται seeds και configurations, αλλά για statistical reliability χρειάζονται πολλαπλές ανεξάρτητες εκτελέσεις.
-
-### Περιορισμοί και κίνδυνος παρερμηνείας
-
-Δεν πρέπει να εγκαταλειφθεί το seed logging. Είναι απαραίτητο για debugging και exact replay, αλλά όχι επαρκές για επιστημονική γενίκευση.
-
-### Προτεινόμενη χρήση
-
-Να τεκμηριώσει χωριστά deterministic replay και statistical replication.
-
-### Παραπομπή
-
-Agarwal et al. (2021), σελ. 9–10, Sections 5–6.
+## Avoid overclaiming
+This source provides statistical evaluation methodology, not a resilience algorithm. Its benchmark-level aggregate recommendations should complement, not replace, per-shift recovery, safety, and failure analysis.
