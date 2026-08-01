@@ -1,3 +1,10 @@
+---
+κωδικός: SRC-7702DAEF48
+κατάσταση: επαληθευμένο
+ελεγχθέν-πρωτότυπο: ναι
+ημερομηνία-ελέγχου: "2026-08-01"
+---
+
 ## SRC-7702DAEF48 — Recovery RL: Safe Reinforcement Learning with Learned Recovery Zones
 
 - **Ρόλος:** υποστηρικτική
