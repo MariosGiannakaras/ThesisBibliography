@@ -27,7 +27,7 @@ def frontmatter_value(text: str, key: str) -> str:
 def decision_section(text: str) -> str:
     matches = list(
         re.finditer(
-            r"(?im)^##\s+(?:Απόφαση|Κατάσταση επαλήθευσης|Τελική απόφαση)\s*$",
+            r"(?im)^##\s+(?:Απόφαση|Κατάσταση επαλήθευσης|Τελική απόφαση|Decision|Final decision)\s*$",
             text,
         )
     )
@@ -39,14 +39,20 @@ def decision_section(text: str) -> str:
 def infer_role(text: str) -> str:
     normalized = plain_markdown(text)
     patterns = (
-        r"(?:ρόλος στη διπλωματική|προτεινόμενος ρόλος|ρόλος)\s*:\s*(κύρια|υποστηρικτική|υπόβαθρο)",
+        r"(?:ρόλος στη διπλωματική|προτεινόμενος ρόλος|ρόλος|thesis role|role)\s*:\s*(κύρια|υποστηρικτική|υπόβαθρο|main|supporting|background)",
         r"(?:επιλογή|επιλέγεται|επαληθευμένη[^\n]{0,80}εξαγωγή\s+ναι)[^\n]{0,120}?\b(κύρια|υποστηρικτική|υπόβαθρο)\b",
         r"\bως\s+(κύρια|υποστηρικτική|υπόβαθρο)\s+(?:πηγή|αναφορά|τεκμήριο)",
     )
+    role_aliases = {
+        "main": "κύρια",
+        "supporting": "υποστηρικτική",
+        "background": "υπόβαθρο",
+    }
     for pattern in patterns:
         match = re.search(pattern, normalized, re.IGNORECASE)
         if match:
-            return match.group(1)
+            role = match.group(1)
+            return role_aliases.get(role, role)
     return ""
 
 
@@ -66,8 +72,18 @@ def infer_decision(text: str) -> str:
         "εξαγωγή όχι",
         "εξαγωγή: όχι",
         "ρόλος: απόρριψη",
+        "rejected from the curated",
+        "rejected as",
+        "decision: reject",
+        "decision: rejected",
     )
     if any(marker in section for marker in rejection_markers):
+        return "rejected"
+
+    # Legacy analyses often use a dedicated Decision section whose first substantive
+    # line is simply “Απόρριψη.”. Matching this only inside the decision section is
+    # conservative and avoids treating ordinary discussion of rejection as a decision.
+    if re.search(r"(?im)^\s*(?:απόρριψη|απορρίπτεται|reject|rejected)\b", section):
         return "rejected"
 
     full_plain = plain_markdown(text)
@@ -88,10 +104,12 @@ def infer_decision(text: str) -> str:
         "εξαγωγή ναι",
         "εξαγωγή: ναι",
         "επαληθευμένη",
+        "selected as",
+        "selected for",
     )
     if role in SELECTED_ROLES and any(marker in section for marker in selection_markers):
         return "selected"
-    if role in SELECTED_ROLES and "## απόφαση" in section:
+    if role in SELECTED_ROLES and ("## απόφαση" in section or "## decision" in section or "## final decision" in section):
         return "selected"
     return "draft"
 
@@ -100,8 +118,11 @@ def excerpt_is_verified(path: Path) -> bool:
     if not path.exists():
         return False
     text = normalize(path.read_text(encoding="utf-8", errors="replace"))
-    return "κατάσταση: επαληθευμένο" in text and "ελεγχθέν-πρωτότυπο: ναι" in text
+    greek_verified = "κατάσταση: επαληθευμένο" in text and "ελεγχθέν-πρωτότυπο: ναι" in text
+    english_verified = "status: verified" in text and "original-checked: yes" in text
+    return greek_verified or english_verified
 
 
 def analysis_original_checked(text: str) -> bool:
-    return "ελεγχθέν-πρωτότυπο: ναι" in normalize(text)
+    normalized = normalize(text)
+    return "ελεγχθέν-πρωτότυπο: ναι" in normalized or "original-checked: yes" in normalized
