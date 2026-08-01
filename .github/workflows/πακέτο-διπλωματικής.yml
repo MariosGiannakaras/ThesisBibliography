@@ -8,6 +8,8 @@ on:
       - "αναλύσεις/**"
       - "αποσπάσματα/**"
       - "κατάλογος/επιλογή-διπλωματικής.csv"
+      - "εργαλεία/κατάσταση_απόφασης.py"
+      - "εργαλεία/συγχρονισμός-επιλογής.py"
       - "εργαλεία/κατάσταση-αναλύσεων.py"
       - "εργαλεία/εξαγωγή-διπλωματικής.py"
       - ".github/workflows/πακέτο-διπλωματικής.yml"
@@ -16,8 +18,6 @@ on:
 permissions:
   contents: write
 
-# Μοιράζεται την ίδια ουρά με τα υπόλοιπα generated αρχεία. Έτσι δύο
-# workflows δεν κάνουν push ταυτόχρονα πάνω στο main.
 concurrency:
   group: παραγόμενα-αρχεία-main
   cancel-in-progress: false
@@ -39,22 +39,39 @@ jobs:
           python-version: "3.12"
 
       - name: Έλεγχος σύνταξης
-        run: python -m py_compile εργαλεία/κατάσταση-αναλύσεων.py εργαλεία/εξαγωγή-διπλωματικής.py
+        run: >-
+          python -m py_compile
+          εργαλεία/κατάσταση_απόφασης.py
+          εργαλεία/συγχρονισμός-επιλογής.py
+          εργαλεία/κατάσταση-αναλύσεων.py
+          εργαλεία/εξαγωγή-διπλωματικής.py
 
-      - name: Ενημέρωση ουράς αναλύσεων
-        run: python εργαλεία/κατάσταση-αναλύσεων.py
+      - name: Συγχρονισμός canonical registry
+        run: |
+          python εργαλεία/συγχρονισμός-επιλογής.py
+          python εργαλεία/κατάσταση-αναλύσεων.py
+
+      - name: Αποθήκευση registry και authoritative status
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "4189826+github-actions[bot]@users.noreply.github.com"
+          git add κατάλογος/επιλογή-διπλωματικής.csv κατάλογος/κατάσταση-αναλύσεων.csv κατάλογος/κατάσταση-αναλύσεων.md
+          if git diff --cached --quiet; then
+            echo "Registry και status είναι ήδη ενημερωμένα."
+          else
+            git commit -m "chore: συγχρονισμός canonical registry και status [skip ci]"
+            git push origin HEAD:main
+          fi
 
       - name: Δημιουργία επαληθευμένου πακέτου
         run: python εργαλεία/εξαγωγή-διπλωματικής.py
 
-      - name: Αποθήκευση παραγόμενων αρχείων
+      - name: Αποθήκευση πακέτου
         run: |
-          if [ -z "$(git status --porcelain)" ]; then
+          if [ -z "$(git status --porcelain πακέτο-διπλωματικής)" ]; then
             echo "Το πακέτο είναι ήδη ενημερωμένο."
             exit 0
           fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add κατάλογος/κατάσταση-αναλύσεων.csv κατάλογος/κατάσταση-αναλύσεων.md πακέτο-διπλωματικής
+          git add πακέτο-διπλωματικής
           git commit -m "chore: ενημέρωση επαληθευμένου πακέτου διπλωματικής [skip ci]"
           git push origin HEAD:main
