@@ -28,16 +28,38 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Move tracked infrastructure paths and update references
-        run: python εργαλεία/migrate_repository_paths.py
+      - name: Run transactional path migration
+        id: migrate
+        shell: bash
+        run: |
+          set +e
+          python εργαλεία/migrate_repository_paths.py > /tmp/path-migration.log 2>&1
+          code=$?
+          cat /tmp/path-migration.log
+          if [ "$code" -ne 0 ]; then
+            git reset --hard HEAD
+            {
+              echo "# Path migration failure"
+              echo
+              echo '```text'
+              cat /tmp/path-migration.log
+              echo '```'
+            } > PATH_MIGRATION_FAILURE.md
+            echo "failed=true" >> "$GITHUB_OUTPUT"
+          else
+            rm -f PATH_MIGRATION_FAILURE.md
+            echo "failed=false" >> "$GITHUB_OUTPUT"
+          fi
+          exit 0
 
       - name: Best-effort syntax and unit checks after migration
+        if: steps.migrate.outputs.failed == 'false'
         continue-on-error: true
         run: |
           python -m compileall -q tools || true
           python -m unittest discover -s tests -v || true
 
-      - name: Commit migration
+      - name: Commit migration or diagnostic
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -46,5 +68,9 @@ jobs:
             echo "No path migration changes."
             exit 0
           fi
-          git commit -m "chore: migrate repository paths to English [skip ci]"
+          if [ "${{ steps.migrate.outputs.failed }}" = "true" ]; then
+            git commit -m "chore: record English path migration failure [skip ci]"
+          else
+            git commit -m "chore: migrate repository paths to English [skip ci]"
+          fi
           git push origin HEAD:main
