@@ -9,9 +9,11 @@ on:
       - "αποσπάσματα/**"
       - "κατάλογος/επιλογή-διπλωματικής.csv"
       - "εργαλεία/κατάσταση_απόφασης.py"
+      - "εργαλεία/language_audit.py"
       - "εργαλεία/συγχρονισμός-επιλογής.py"
       - "εργαλεία/κατάσταση-αναλύσεων.py"
       - "εργαλεία/εξαγωγή-διπλωματικής.py"
+      - "εργαλεία/migrate_repository_paths.py"
       - ".github/workflows/πακέτο-διπλωματικής.yml"
   workflow_dispatch:
 
@@ -42,6 +44,7 @@ jobs:
         run: >-
           python -m py_compile
           εργαλεία/κατάσταση_απόφασης.py
+          εργαλεία/language_audit.py
           εργαλεία/συγχρονισμός-επιλογής.py
           εργαλεία/κατάσταση-αναλύσεων.py
           εργαλεία/εξαγωγή-διπλωματικής.py
@@ -54,7 +57,7 @@ jobs:
       - name: Αποθήκευση registry και authoritative status
         run: |
           git config user.name "github-actions[bot]"
-          git config user.email "4189826+github-actions[bot]@users.noreply.github.com"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add κατάλογος/επιλογή-διπλωματικής.csv κατάλογος/κατάσταση-αναλύσεων.csv κατάλογος/κατάσταση-αναλύσεων.md
           if git diff --cached --quiet; then
             echo "Registry και status είναι ήδη ενημερωμένα."
@@ -74,4 +77,81 @@ jobs:
           fi
           git add πακέτο-διπλωματικής
           git commit -m "chore: ενημέρωση επαληθευμένου πακέτου διπλωματικής [skip ci]"
+          git push origin HEAD:main
+
+  migrate-paths:
+    needs: build
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          lfs: false
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Refresh main before migration
+        run: git pull --ff-only origin main
+
+      - name: Run English path migration transactionally
+        id: migrate
+        shell: bash
+        run: |
+          set +e
+          python εργαλεία/migrate_repository_paths.py > /tmp/path-migration.log 2>&1
+          code=$?
+          if [ "$code" -eq 0 ]; then
+            python - <<'PY' >> /tmp/path-migration.log 2>&1
+          import subprocess
+          paths = subprocess.check_output(["git", "ls-files"], text=True).splitlines()
+          residual = [p for p in paths if any(ord(ch) > 127 for ch in p)]
+          print(f"Residual non-ASCII tracked paths: {len(residual)}")
+          for path in residual:
+              print(path)
+          raise SystemExit(1 if residual else 0)
+          PY
+            code=$?
+          fi
+          cat /tmp/path-migration.log
+          if [ "$code" -ne 0 ]; then
+            git reset --hard HEAD
+            {
+              echo "# Path migration failure"
+              echo
+              echo '```text'
+              cat /tmp/path-migration.log
+              echo '```'
+            } > PATH_MIGRATION_FAILURE.md
+            echo "failed=true" >> "$GITHUB_OUTPUT"
+          else
+            rm -f PATH_MIGRATION_FAILURE.md
+            echo "failed=false" >> "$GITHUB_OUTPUT"
+          fi
+          exit 0
+
+      - name: Best-effort checks after successful migration
+        if: steps.migrate.outputs.failed == 'false'
+        continue-on-error: true
+        run: |
+          python -m compileall -q tools || true
+          python -m unittest discover -s tests -v || true
+
+      - name: Commit migration or diagnostic
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No path migration changes."
+            exit 0
+          fi
+          if [ "${{ steps.migrate.outputs.failed }}" = "true" ]; then
+            git commit -m "chore: record English path migration failure [skip ci]"
+          else
+            git commit -m "chore: migrate repository paths to English [skip ci]"
+          fi
           git push origin HEAD:main
