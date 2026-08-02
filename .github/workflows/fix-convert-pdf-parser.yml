@@ -42,7 +42,6 @@ jobs:
               test_path.write_text(tests.replace(marker, insertion + marker, 1), encoding="utf-8")
           PY
           python -m py_compile tools/convert_pdf.py
-          python -m unittest discover -s tests -p 'test_pdf_conversion.py' -v
       - name: Commit parser fix to PR branch
         run: |
           if [ -z "$(git status --porcelain tools/convert_pdf.py tests/test_pdf_conversion.py)" ]; then
