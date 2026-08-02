@@ -60,9 +60,10 @@ jobs:
       - name: Build verified thesis package
         run: python tools/export_thesis.py
 
-      - name: Open generated thesis package pull request
+      - name: Publish generated thesis package review branch
         env:
           GH_TOKEN: ${{ github.token }}
+        shell: bash
         run: |
           if [ -z "$(git status --porcelain -- catalog/thesis-selection.csv catalog/analysis-status.csv catalog/analysis-status.md catalog/conversion-status.csv catalog/conversion-status.md thesis-package)" ]; then
             echo "Registry, status reports, and thesis package are already current."
@@ -73,6 +74,11 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git switch -c "$branch"
           git add catalog/thesis-selection.csv catalog/analysis-status.csv catalog/analysis-status.md catalog/conversion-status.csv catalog/conversion-status.md thesis-package
-          git commit -m "chore: update verified thesis package and status reports [skip ci]"
+          git commit -m "chore: update verified thesis package and status reports"
           git push origin "HEAD:$branch"
-          gh pr create --base main --head "$branch" --title "chore: update verified thesis package and status reports" --body "Regenerates the canonical thesis-selection registry, authoritative analysis/conversion status, and verified thesis package. Scientific source and evidence content remains in the checked source language."
+          if gh pr create --base main --head "$branch" --title "chore: update verified thesis package and status reports" --body "Regenerates the canonical thesis-selection registry, authoritative analysis/conversion status, and verified thesis package. Scientific source and evidence content remains in the checked source language."; then
+            echo "Generated thesis-package PR created automatically."
+          else
+            echo "::warning::GitHub Actions is not permitted to create Pull Requests in this repository. The validated branch remains available for review."
+            echo "Generated review branch: \`$branch\`" >> "$GITHUB_STEP_SUMMARY"
+          fi
