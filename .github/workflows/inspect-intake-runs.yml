@@ -20,7 +20,7 @@ jobs:
           --repo "$GITHUB_REPOSITORY"
           --workflow automatic-import.yml
           --branch main
-          --limit 15
+          --limit 20
           --json databaseId,headSha,status,conclusion,createdAt,updatedAt,displayTitle,event,url
 
       - uses: actions/checkout@v4
