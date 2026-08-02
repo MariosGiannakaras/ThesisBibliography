@@ -440,13 +440,17 @@ def pending_entry(row: dict[str, str], pdf: Path, status: str, identity: str = "
     }
 
 
-def main() -> int:
+def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--όριο", "--limit", type=int, default=0)
-    parser.add_argument("--μόνο-αναφορά", "--report-only", action="store_true")
-    parser.add_argument("--εξαναγκασμός", "--force", action="store_true")
-    parser.add_argument("--γλώσσες-ocr", "--ocr-language", default="eng+ell")
-    args = parser.parse_args()
+    parser.add_argument("--όριο", "--limit", dest="limit", type=int, default=0)
+    parser.add_argument("--μόνο-αναφορά", "--report-only", dest="report_only", action="store_true")
+    parser.add_argument("--εξαναγκασμός", "--force", dest="force", action="store_true")
+    parser.add_argument("--γλώσσες-ocr", "--ocr-language", dest="ocr_language", default="eng+ell")
+    return parser
+
+
+def main() -> int:
+    args = build_parser().parse_args()
 
     rows = read_catalog()
     entries: list[dict[str, str]] = []
