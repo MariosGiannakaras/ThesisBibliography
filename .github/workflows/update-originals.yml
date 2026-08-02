@@ -118,9 +118,10 @@ jobs:
       - name: Validate repository
         run: python tools/validate.py
 
-      - name: Open originals reconciliation pull request
+      - name: Publish originals reconciliation review branch
         env:
           GH_TOKEN: ${{ github.token }}
+        shell: bash
         run: |
           if [ -z "$(git status --porcelain)" ]; then
             echo "No originals changes."
@@ -131,6 +132,11 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git switch -c "$branch"
           git add -A
-          git commit -m "chore: reconcile originals and OCR conversions [skip ci]"
+          git commit -m "chore: reconcile originals and OCR conversions"
           git push origin "HEAD:$branch"
-          gh pr create --base main --head "$branch" --title "chore: reconcile originals and OCR conversions" --body "Manual originals reconciliation, selective LFS retrieval, OCR conversion, and validation without deleting non-duplicate originals."
+          if gh pr create --base main --head "$branch" --title "chore: reconcile originals and OCR conversions" --body "Manual originals reconciliation, selective LFS retrieval, OCR conversion, and validation without deleting non-duplicate originals."; then
+            echo "Generated originals PR created automatically."
+          else
+            echo "::warning::GitHub Actions is not permitted to create Pull Requests in this repository. The validated branch remains available for review."
+            echo "Generated review branch: \`$branch\`" >> "$GITHUB_STEP_SUMMARY"
+          fi
