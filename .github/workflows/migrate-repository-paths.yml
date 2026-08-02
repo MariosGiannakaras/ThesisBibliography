@@ -97,7 +97,7 @@ jobs:
           fi
           exit 0
 
-      - name: Commit migration or diagnostic
+      - name: Commit migration or diagnostic to review branch
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -111,5 +111,9 @@ jobs:
           else
             git commit -m "chore: migrate repository paths to English"
           fi
-          git pull --rebase origin main
-          git push origin HEAD:main
+          branch="automation/english-path-migration-${GITHUB_RUN_ID}"
+          git push origin "HEAD:refs/heads/${branch}"
+          {
+            echo "Migration output branch: \`${branch}\`"
+            echo "Migration failed: \`${{ steps.migrate.outputs.failed }}\`"
+          } >> "$GITHUB_STEP_SUMMARY"
