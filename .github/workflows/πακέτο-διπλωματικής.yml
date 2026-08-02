@@ -145,7 +145,7 @@ jobs:
           if [ "${{ steps.migrate.outputs.failed }}" = "true" ]; then
             git commit -m "chore: record English path migration failure [skip ci]"
           else
-            git commit -m "chore: migrate repository paths to English [skip ci]"
+            git commit -m "chore: migrate repository paths to English"
           fi
           git pull --rebase origin main
           git push origin HEAD:main
