@@ -13,7 +13,7 @@ permissions:
 # Share the same write lock as generated bibliography/package jobs so that a bulk
 # rename cannot race with a generated-file commit.
 concurrency:
-  group: παραγόμενα-αρχεία-main
+  group: bibliography-generated-main
   cancel-in-progress: true
 
 jobs:
