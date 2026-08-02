@@ -46,12 +46,16 @@ def analysis_status(source_id: str, chosen: dict[str, str]) -> str:
 
     if decision == "rejected":
         return "απορρίφθηκε"
+    if decision == "theory-only":
+        return "θεωρητικό υλικό"
     if decision == "selected" and excerpt_is_verified(EXCERPTS / f"{source_id}.md"):
         return "επαληθευμένη"
 
     # Legacy fallback μετά τον conservative registry sync.
     if role == "απόρριψη" and registry_status == "απορρίφθηκε":
         return "απορρίφθηκε"
+    if role == "θεωρητικό υλικό" and registry_status == "ελεγμένο-μη-παραπομπή":
+        return "θεωρητικό υλικό"
     if role in SELECTED_ROLES and registry_status == "επαληθευμένη" and excerpt_is_verified(EXCERPTS / f"{source_id}.md"):
         return "επαληθευμένη"
     return "πρόχειρη"
@@ -95,7 +99,11 @@ def main() -> int:
     analysis_counts = Counter(row["Κατάσταση ανάλυσης"] for row in records)
     excerpt_counts = Counter(row["Κατάσταση αποσπασμάτων"] for row in records)
     export_count = sum(normalize(row["Εξαγωγή"]) in {"ναι", "yes", "true", "1"} for row in records)
-    decided_count = analysis_counts["επαληθευμένη"] + analysis_counts["απορρίφθηκε"]
+    decided_count = (
+        analysis_counts["επαληθευμένη"]
+        + analysis_counts["απορρίφθηκε"]
+        + analysis_counts["θεωρητικό υλικό"]
+    )
     unfinished_count = analysis_counts["προς ανάλυση"] + analysis_counts["πρόχειρη"]
 
     lines = [
@@ -105,6 +113,7 @@ def main() -> int:
         f"- Οριστικές αποφάσεις: **{decided_count}**",
         f"  - Επιλεγμένες/επαληθευμένες: **{analysis_counts['επαληθευμένη']}**",
         f"  - Απορριφθείσες: **{analysis_counts['απορρίφθηκε']}**",
+        f"  - Ελεγμένες ως θεωρητικό υλικό χωρίς citation export: **{analysis_counts['θεωρητικό υλικό']}**",
         f"- Εκκρεμείς συνολικά: **{unfinished_count}**",
         f"  - Χωρίς ανάλυση: **{analysis_counts['προς ανάλυση']}**",
         f"  - Πρόχειρες/μη citation-ready: **{analysis_counts['πρόχειρη']}**",
