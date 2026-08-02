@@ -5,9 +5,12 @@ import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SPEC = importlib.util.spec_from_file_location(
-    "thesis_export_tool", ROOT / "εργαλεία" / "εξαγωγή-διπλωματικής.py"
+EXPORTER = (
+    ROOT / "tools" / "export_thesis.py"
+    if (ROOT / "tools" / "export_thesis.py").exists()
+    else ROOT / "εργαλεία" / "εξαγωγή-διπλωματικής.py"
 )
+SPEC = importlib.util.spec_from_file_location("thesis_export_tool", EXPORTER)
 MODULE = importlib.util.module_from_spec(SPEC)
 assert SPEC.loader
 SPEC.loader.exec_module(MODULE)
@@ -19,22 +22,28 @@ class ThesisExportTests(unittest.TestCase):
         root = Path(self.temp.name)
         self.originals = {
             "ROOT": MODULE.ROOT,
+            "CATALOG_DIR": MODULE.CATALOG_DIR,
             "CATALOG": MODULE.CATALOG,
             "SELECTION": MODULE.SELECTION,
+            "SOURCES": MODULE.SOURCES,
             "ANALYSES": MODULE.ANALYSES,
             "EXCERPTS": MODULE.EXCERPTS,
             "DEFAULT_OUTPUT": MODULE.DEFAULT_OUTPUT,
         }
         MODULE.ROOT = root
-        MODULE.CATALOG = root / "κατάλογος" / "πηγές.csv"
-        MODULE.SELECTION = root / "κατάλογος" / "επιλογή-διπλωματικής.csv"
-        MODULE.ANALYSES = root / "αναλύσεις"
-        MODULE.EXCERPTS = root / "αποσπάσματα"
-        MODULE.DEFAULT_OUTPUT = root / "πακέτο-διπλωματικής"
-        MODULE.CATALOG.parent.mkdir(parents=True)
+        MODULE.CATALOG_DIR = root / "catalog"
+        MODULE.CATALOG = root / "catalog" / "sources.csv"
+        MODULE.SELECTION = root / "catalog" / "thesis-selection.csv"
+        MODULE.SOURCES = root / "sources"
+        MODULE.ANALYSES = root / "analyses"
+        MODULE.EXCERPTS = root / "evidence"
+        MODULE.DEFAULT_OUTPUT = root / "thesis-package"
+        MODULE.CATALOG_DIR.mkdir(parents=True)
+        MODULE.SOURCES.mkdir()
         MODULE.ANALYSES.mkdir()
         MODULE.EXCERPTS.mkdir()
         self.write_catalog()
+        self.write_source_english()
 
     def tearDown(self):
         for name, value in self.originals.items():
@@ -57,6 +66,14 @@ class ThesisExportTests(unittest.TestCase):
                 }
             )
 
+    def write_source_english(self):
+        payload = (
+            "This original source discusses reinforcement learning under environmental uncertainty, "
+            "evaluation methodology, adaptation after distribution shift, robust decision making, "
+            "limitations, experimental controls, and reproducible evidence from the reported study. " * 6
+        )
+        (MODULE.SOURCES / "SRC-TEST000001.md").write_text(payload, encoding="utf-8")
+
     def write_selection(self, status="επαληθευμένη", export="ναι"):
         with MODULE.SELECTION.open("w", encoding="utf-8", newline="") as handle:
             writer = csv.DictWriter(
@@ -77,23 +94,28 @@ class ThesisExportTests(unittest.TestCase):
                 }
             )
 
-    def write_verified_files(self, checked="ναι"):
-        headings = "\n\n".join(MODULE.REQUIRED_ANALYSIS_HEADINGS)
+    def write_analysis(self, checked="ναι"):
         analysis_payload = (
-            "The study defines the research question, assumptions, experimental environment, algorithms, "
+            "The study defines its research question, assumptions, experimental environment, algorithms, "
             "baselines, evaluation metrics, quantitative findings, limitations, validity threats, and the exact "
-            "way each result may support a claim about robust agents under uncertainty. " * 12
+            "way each result may support a narrowly scoped claim about robust agents under uncertainty. " * 12
         )
         (MODULE.ANALYSES / "SRC-TEST000001.md").write_text(
             "---\n"
             "κατάσταση: επαληθευμένη\n"
             f"ελεγχθέν-πρωτότυπο: {checked}\n"
             "---\n\n"
-            + headings
-            + "\n\n"
+            "## Bibliographic identity\n\n"
+            "Test Author (2026). Verified test source.\n\n"
+            "## Limitations\n\n"
+            "The result is limited to the stated environment and protocol.\n\n"
+            "## Thesis use\n\n"
+            "Use only for the explicitly supported methodological claim.\n\n"
             + analysis_payload,
             encoding="utf-8",
         )
+
+    def write_evidence_english(self, checked="ναι"):
         excerpt_payload = (
             "The verified evidence is interpreted in its original context and linked to a narrowly stated claim. "
             "The surrounding assumptions, scope conditions, measurement procedure, and limitations are recorded "
@@ -103,25 +125,39 @@ class ThesisExportTests(unittest.TestCase):
             "---\n"
             "κατάσταση: επαληθευμένο\n"
             f"ελεγχθέν-πρωτότυπο: {checked}\n"
+            "source-language: en\n"
+            "---\n\n"
+            "# Evidence — Verified test source\n\n"
+            "## E1 — Controlled result\n\n"
+            "- **Type:** faithful paraphrase\n"
+            "- **Location:** page 4, Section 2.1, Table 1\n"
+            "- **Claim:** The result supports only the stated experimental claim.\n"
+            "- **Status:** verified\n\n"
+            "### Faithful paraphrase\n\n"
+            + excerpt_payload,
+            encoding="utf-8",
+        )
+
+    def write_evidence_greek_mismatch(self):
+        excerpt_payload = (
+            "Το επαληθευμένο τεκμήριο ερμηνεύεται μέσα στα αρχικά συμφραζόμενα και συνδέεται μόνο με έναν "
+            "στενά διατυπωμένο ισχυρισμό. Οι παραδοχές, οι συνθήκες εφαρμογής, η διαδικασία μέτρησης και οι "
+            "περιορισμοί καταγράφονται ώστε η διπλωματική να μην υπεργενικεύει το αναφερόμενο αποτέλεσμα. " * 10
+        )
+        (MODULE.EXCERPTS / "SRC-TEST000001.md").write_text(
+            "---\n"
+            "κατάσταση: επαληθευμένο\n"
+            "ελεγχθέν-πρωτότυπο: ναι\n"
             "---\n\n"
             "## Τεκμήριο E1\n\n"
             "- **Θέση:** σελίδα 4, ενότητα 2.1, πίνακας 1\n"
-            "- **Ισχυρισμός:** Το εύρημα υποστηρίζει μόνο τον συγκεκριμένο δοκιμαστικό ισχυρισμό.\n\n"
+            "- **Ισχυρισμός:** Το αποτέλεσμα υποστηρίζει μόνο τον συγκεκριμένο πειραματικό ισχυρισμό.\n\n"
             + excerpt_payload,
             encoding="utf-8",
         )
 
     def write_template_only_files(self):
-        headings = "\n\n".join(MODULE.REQUIRED_ANALYSIS_HEADINGS)
-        (MODULE.ANALYSES / "SRC-TEST000001.md").write_text(
-            "---\n"
-            "κατάσταση: επαληθευμένη\n"
-            "ελεγχθέν-πρωτότυπο: ναι\n"
-            "---\n\n"
-            + headings
-            + "\n",
-            encoding="utf-8",
-        )
+        self.write_analysis()
         (MODULE.EXCERPTS / "SRC-TEST000001.md").write_text(
             "---\n"
             "κατάσταση: επαληθευμένο\n"
@@ -156,20 +192,38 @@ class ThesisExportTests(unittest.TestCase):
 
     def test_unchecked_original_cannot_be_exported(self):
         self.write_selection()
-        self.write_verified_files(checked="όχι")
+        self.write_analysis(checked="όχι")
+        self.write_evidence_english(checked="όχι")
         errors, _, _, _ = MODULE.validate()
         self.assertTrue(any("ελέγχθηκε το πρωτότυπο" in error for error in errors))
 
-    def test_verified_source_builds_package(self):
+    def test_english_structured_source_language_evidence_is_accepted(self):
         self.write_selection()
-        self.write_verified_files()
+        self.write_analysis()
+        self.write_evidence_english()
+        errors, exported, _, _ = MODULE.validate()
+        self.assertEqual(errors, [])
+        self.assertEqual(len(exported), 1)
+
+    def test_cross_language_evidence_is_rejected(self):
+        self.write_selection()
+        self.write_analysis()
+        self.write_evidence_greek_mismatch()
+        errors, _, _, _ = MODULE.validate()
+        self.assertTrue(any("δεν διατηρεί τη γλώσσα της πηγής" in error for error in errors))
+
+    def test_verified_source_builds_english_path_package(self):
+        self.write_selection()
+        self.write_analysis()
+        self.write_evidence_english()
         errors, exported, catalog, fields = MODULE.validate()
         self.assertEqual(errors, [])
         output = MODULE.ROOT / "output"
         MODULE.write_package(output, exported, catalog, fields)
         self.assertTrue((output / "manifest.csv").exists())
-        self.assertTrue((output / "αναλύσεις" / "SRC-TEST000001.md").exists())
-        self.assertTrue((output / "αποσπάσματα" / "SRC-TEST000001.md").exists())
+        self.assertTrue((output / "analyses" / "SRC-TEST000001.md").exists())
+        self.assertTrue((output / "evidence" / "SRC-TEST000001.md").exists())
+        self.assertTrue((output / "catalog" / "sources.csv").exists())
 
 
 if __name__ == "__main__":
