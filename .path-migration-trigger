@@ -1,1 +1,1 @@
-2026-08-02 — run strict transactional English path migration after covering static and dynamic non-ASCII filename patterns; canonical bibliography finalized at 486/486 decisions.
+2026-08-02 — execute final transactional English path migration with complete static/dynamic mappings, shared write lock, and automatic package-sync continuation; canonical bibliography finalized at 486/486 decisions.
