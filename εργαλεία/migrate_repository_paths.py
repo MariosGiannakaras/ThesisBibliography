@@ -45,6 +45,8 @@ FILE_MAP = {
     "κατάσταση-μετατροπών.md": "conversion-status.md",
     "εκκρεμή-πρωτότυπα.md": "pending-originals.md",
     "προβληματικές-πηγές.md": "problematic-sources.md",
+    "έλεγχος-συνδέσεων.md": "link-audit.md",
+    "prompt-για-κύριο-repo.md": "main-repo-prompt.md",
     "ανάλυση-πηγής.md": "source-analysis.md",
     "απόσπασμα-πηγής.md": "source-evidence.md",
     "ενημέρωση-μεταδεδομένων.yml": "update-metadata.yml",
@@ -92,15 +94,21 @@ def tracked_files() -> list[str]:
     return [item for item in result.stdout.split("\0") if item]
 
 
+def map_file_name(name: str) -> str:
+    if name in FILE_MAP:
+        return FILE_MAP[name]
+    match = re.fullmatch(r"παρτίδα-(\d+)\.md", name)
+    if match:
+        return f"batch-{match.group(1)}.md"
+    if "__σύγκρουση-" in name:
+        return name.replace("__σύγκρουση-", "__conflict-")
+    return name
+
+
 def map_component(component: str) -> str:
     if component in DIR_MAP:
         return DIR_MAP[component]
-    if component in FILE_MAP:
-        return FILE_MAP[component]
-    match = re.fullmatch(r"παρτίδα-(\d+)\.md", component)
-    if match:
-        return f"batch-{match.group(1)}.md"
-    return component
+    return map_file_name(component)
 
 
 def target_path(path: str) -> str:
@@ -147,12 +155,8 @@ def move_paths() -> dict[str, str]:
 
     _, files = working_tree_entries()
     for path in files:
-        new_name = FILE_MAP.get(path.name)
-        if not new_name:
-            match = re.fullmatch(r"παρτίδα-(\d+)\.md", path.name)
-            if match:
-                new_name = f"batch-{match.group(1)}.md"
-        if not new_name or not path.exists():
+        new_name = map_file_name(path.name)
+        if new_name == path.name or not path.exists():
             continue
         target = path.with_name(new_name)
         if target.exists():
@@ -171,6 +175,7 @@ def technical_replacements() -> list[tuple[str, str]]:
         pairs.add((f"'{old}'", f"'{new}'"))
         pairs.add((f"`{old}`", f"`{new}`"))
     pairs.update(FILE_MAP.items())
+    pairs.add(("__σύγκρουση-", "__conflict-"))
     return sorted(pairs, key=lambda item: len(item[0]), reverse=True)
 
 
