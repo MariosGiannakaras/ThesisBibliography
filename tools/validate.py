@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Ελέγχει ότι η ελληνική δομή και οι συνδέσεις πηγών παραμένουν συνεπείς."""
+"""Validate repository structure and source links after the English path migration."""
 from __future__ import annotations
 
 import csv
@@ -44,12 +44,12 @@ ALLOWED_VERIFICATION = {
 ALLOWED_PRIORITY = {"υψηλή", "μεσαία", "χαμηλή", "χρειάζεται διόρθωση"}
 SOURCE_ID_RE = re.compile(r"SRC-[A-F0-9]{10}")
 LINKED_ORIGINAL_RE = re.compile(
-    r"(SRC-[A-F0-9]{10})(?:__(?:εναλλακτικό|σύγκρουση)-(?:SRC-[A-F0-9]{10}|[A-F0-9]{10,16}))?\.(?:pdf|url)",
+    r"(SRC-[A-F0-9]{10})(?:__(?:alternative|conflict)-(?:SRC-[A-F0-9]{10}|[A-F0-9]{10,16}))?\.(?:pdf|url)",
     re.IGNORECASE,
 )
 LFS_OID_RE = re.compile(rb"oid sha256:([a-f0-9]{64})", re.IGNORECASE)
 OBSOLETE_PATHS = [
-    "catalog", "curation", "imports", "notes", "queues", "sources", "incoming",
+    "curation", "imports", "notes", "queues", "incoming",
     "archive", "workspace", "AGENTS.md",
 ]
 
@@ -224,7 +224,7 @@ def main() -> int:
     if INCOMING.exists():
         leftovers = [path for path in INCOMING.rglob("*") if path.is_file() and path.name != "README.md"]
         if leftovers:
-            errors.append("Ο φάκελος νέες-πηγές περιέχει μη επεξεργασμένα αρχεία")
+            errors.append("Ο φάκελος new-sources περιέχει μη επεξεργασμένα αρχεία")
 
     if INCOMING_ORIGINALS.exists():
         pending_pdfs = [
@@ -233,7 +233,7 @@ def main() -> int:
         ]
         if pending_pdfs:
             errors.append(
-                "Ο φάκελος νέα-πρωτότυπα περιέχει PDF που δεν αρχειοθετήθηκαν: "
+                "Ο φάκελος new-originals περιέχει PDF που δεν αρχειοθετήθηκαν: "
                 + ", ".join(path.name for path in pending_pdfs[:10])
             )
         unsupported = [
@@ -242,7 +242,7 @@ def main() -> int:
         ]
         if unsupported:
             errors.append(
-                "Ο φάκελος νέα-πρωτότυπα περιέχει μη υποστηριζόμενα αρχεία: "
+                "Ο φάκελος new-originals περιέχει μη υποστηριζόμενα αρχεία: "
                 + ", ".join(path.name for path in unsupported[:10])
             )
 
@@ -254,7 +254,7 @@ def main() -> int:
         ROOT / "templates" / "source-evidence.md",
         ROOT / "catalog" / "sources.md",
         ROOT / "catalog" / "problematic-sources.md",
-        ROOT / "catalog" / "προς-προσθήκη.md",
+        ROOT / "catalog" / "next-sources.md",
         ROOT / "catalog" / "thesis-selection.csv",
         ROOT / "catalog" / "thesis-selection.md",
         ROOT / "sync" / "README.md",
