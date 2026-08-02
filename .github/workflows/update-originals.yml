@@ -1,0 +1,154 @@
+# Reconciliation trigger: linked LFS originals are pulled selectively before OCR.
+name: Update originals
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "new-originals/**"
+      - "originals/**"
+      - "catalog/sources.csv"
+      - "sources/**"
+      - "tools/originals*.py"
+      - "tools/pdfs_to_convert.py"
+      - "tools/convert_pdf.py"
+      - "tools/finalize.py"
+      - "tools/clean_links.py"
+      - "tools/fix_titles.py"
+      - "tools/known_fixes.py"
+      - "tools/exact_duplicates.py"
+      - "tools/sources_common.py"
+      - ".gitattributes"
+      - ".github/workflows/update-originals.yml"
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Optional new PDF download attempts before finalization"
+        required: false
+        default: "0"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: update-originals
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    if: ${{ github.event_name != 'push' || !contains(github.event.head_commit.message, '[skip ci]') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          lfs: false
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Preflight repair tools
+        run: >-
+          python -m py_compile
+          tools/known_fixes.py tools/exact_duplicates.py
+          tools/clean_links.py tools/originals_common.py
+          tools/finalize.py tools/pdfs_to_convert.py
+          tools/convert_pdf.py
+
+      - name: Apply documented fixes
+        run: python tools/known_fixes.py
+
+      - name: Merge exact duplicate PDFs
+        run: python tools/exact_duplicates.py
+
+      - name: Pull only required LFS PDFs
+        run: |
+          git lfs install --local
+          git lfs pull --include="new-originals/**,originals/unidentified/**" --exclude="" || true
+
+          python tools/pdfs_to_convert.py > /tmp/pdf-needed.txt
+          if [ -s /tmp/pdf-needed.txt ]; then
+            NEEDED="$(paste -sd, /tmp/pdf-needed.txt)"
+            echo "Linked PDFs requiring conversion: $(wc -l < /tmp/pdf-needed.txt)"
+            git lfs pull --include="$NEEDED" --exclude=""
+          else
+            echo "No linked PDFs require technical conversion."
+          fi
+
+          python - <<'PY'
+          from pathlib import Path
+          import subprocess
+          import sys
+          sys.path.insert(0, "tools")
+          from originals_common import LINKED_PDF_STEM_RE
+          paths = [path.as_posix() for path in Path("originals").glob("*.pdf") if path.is_file() and not LINKED_PDF_STEM_RE.fullmatch(path.stem)]
+          if paths:
+              subprocess.run(["git", "lfs", "pull", "--include=" + ",".join(paths), "--exclude="], check=False)
+          PY
+
+      - name: Normalize PDF suffixes
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          for root in (Path("originals"), Path("new-originals")):
+              if not root.exists():
+                  continue
+              for path in list(root.rglob("*")):
+                  if path.is_file() and path.suffix == ".PDF":
+                      target = path.with_suffix(".pdf")
+                      if not target.exists():
+                          path.rename(target)
+          PY
+
+      - name: Install PDF and OCR tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends ocrmypdf tesseract-ocr-eng tesseract-ocr-ell
+          python -m pip install --disable-pip-version-check pypdf
+
+      - name: Validate tools and tests
+        run: |
+          python -m py_compile tools/sources_common.py tools/originals.py tools/originals_common.py tools/originals_downloads.py tools/originals_files.py tools/pdfs_to_convert.py tools/convert_pdf.py tools/clean_links.py tools/fix_titles.py tools/known_fixes.py tools/exact_duplicates.py tools/finalize.py tools/validate.py
+          python -m unittest discover -s tests -v
+
+      - name: Fix titles and years
+        continue-on-error: true
+        run: python tools/fix_titles.py
+
+      - name: Validate links and certain duplicates
+        run: python tools/clean_links.py
+
+      - name: Optionally retry original downloads
+        env:
+          LIMIT: ${{ inputs.limit || '0' }}
+        run: python tools/originals.py --download --limit "$LIMIT" --retry
+
+      - name: Convert PDFs with OCR
+        run: python tools/convert_pdf.py
+
+      - name: Finalize without losing originals
+        run: python tools/finalize.py
+
+      - name: Validate repository
+        run: python tools/validate.py
+
+      - name: Open originals reconciliation pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No originals changes."
+            exit 0
+          fi
+          branch="automation/update-originals-${GITHUB_RUN_ID}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          git add -A
+          git commit -m "chore: reconcile originals and OCR conversions [skip ci]"
+          git push origin "HEAD:$branch"
+          gh pr create --base main --head "$branch" --title "chore: reconcile originals and OCR conversions" --body "Automated originals reconciliation, selective LFS retrieval, OCR conversion, and validation without deleting non-duplicate originals."
