@@ -37,7 +37,7 @@ jobs:
         run: >-
           python -m py_compile
           tools/known_fixes.py tools/exact_duplicates.py
-          tools/clean_links.py tools/originals_common.py
+          tools/clean_links.py tools/content_first_clean_links.py tools/originals_common.py
           tools/finalize.py tools/pdfs_to_convert.py
           tools/convert_pdf.py
 
@@ -94,15 +94,15 @@ jobs:
 
       - name: Validate tools and tests
         run: |
-          python -m py_compile tools/sources_common.py tools/originals.py tools/originals_common.py tools/originals_downloads.py tools/originals_files.py tools/pdfs_to_convert.py tools/convert_pdf.py tools/clean_links.py tools/fix_titles.py tools/known_fixes.py tools/exact_duplicates.py tools/finalize.py tools/validate.py
+          python -m py_compile tools/sources_common.py tools/originals.py tools/originals_common.py tools/originals_downloads.py tools/originals_files.py tools/pdfs_to_convert.py tools/convert_pdf.py tools/clean_links.py tools/content_first_clean_links.py tools/fix_titles.py tools/known_fixes.py tools/exact_duplicates.py tools/finalize.py tools/validate.py
           python -m unittest discover -s tests -v
 
       - name: Fix titles and years
         continue-on-error: true
         run: python tools/fix_titles.py
 
-      - name: Validate links and certain duplicates
-        run: python tools/clean_links.py
+      - name: Validate links and content-first duplicates
+        run: python tools/content_first_clean_links.py
 
       - name: Optionally retry original downloads
         env:
@@ -134,7 +134,7 @@ jobs:
           git add -A
           git commit -m "chore: reconcile originals and OCR conversions"
           git push origin "HEAD:$branch"
-          if gh pr create --base main --head "$branch" --title "chore: reconcile originals and OCR conversions" --body "Manual originals reconciliation, selective LFS retrieval, OCR conversion, and validation without deleting non-duplicate originals."; then
+          if gh pr create --base main --head "$branch" --title "chore: reconcile originals and OCR conversions" --body "Manual originals reconciliation, selective LFS retrieval, OCR conversion, and content-first validation without deleting non-duplicate originals."; then
             echo "Generated originals PR created automatically."
           else
             echo "::warning::GitHub Actions is not permitted to create Pull Requests in this repository. The validated branch remains available for review."

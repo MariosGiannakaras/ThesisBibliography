@@ -60,6 +60,31 @@ class IntakePreflightTests(unittest.TestCase):
             self.assertTrue(source.exists())
             self.assertEqual([], list(unresolved.glob("UNRESOLVED-*")))
 
+    def test_later_run_preserves_previous_unresolved_provenance(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            incoming = root / "new-sources"
+            unresolved = root / "unresolved-intake"
+            report = root / "catalog" / "unresolved-intake.csv"
+            incoming.mkdir(parents=True)
+
+            first = incoming / "first-original-name.md"
+            first.write_text("", encoding="utf-8")
+            MODULE.process_blank_markdown(incoming, unresolved, report)
+
+            second = incoming / "second-original-name.md"
+            second.write_text("", encoding="utf-8")
+            MODULE.process_blank_markdown(incoming, unresolved, report)
+
+            with report.open(encoding="utf-8", newline="") as handle:
+                report_rows = list(csv.DictReader(handle))
+            self.assertEqual(2, len(report_rows))
+            self.assertEqual(
+                {"first-original-name.md", "second-original-name.md"},
+                {row["Original path"] for row in report_rows},
+            )
+            self.assertEqual(2, len(list(unresolved.glob("UNRESOLVED-*.md"))))
+
 
 if __name__ == "__main__":
     unittest.main()
