@@ -39,7 +39,7 @@ def main() -> int:
 
     errors: list[str] = []
     final_rows: dict[str, dict[str, str]] = {}
-    selected = rejected = drafts = 0
+    selected = rejected = theory_only = drafts = 0
 
     for source_id, source in catalog.items():
         previous = existing.get(source_id, {field: "" for field in FIELDS})
@@ -74,6 +74,11 @@ def main() -> int:
             rejected += 1
             row["Ρόλος"] = "απόρριψη"
             row["Κατάσταση"] = "απορρίφθηκε"
+            row["Εξαγωγή"] = "όχι"
+        elif decision == "theory-only":
+            theory_only += 1
+            row["Ρόλος"] = "θεωρητικό υλικό"
+            row["Κατάσταση"] = "ελεγμένο-μη-παραπομπή"
             row["Εξαγωγή"] = "όχι"
         elif decision == "selected":
             selected += 1
@@ -123,7 +128,7 @@ def main() -> int:
 
     print(
         f"Συγχρονισμός επιλογής: {len(ordered)} rows, "
-        f"selected={selected}, rejected={rejected}, drafts={drafts}."
+        f"selected={selected}, rejected={rejected}, theory_only={theory_only}, drafts={drafts}."
     )
     if errors:
         print("Προειδοποιήσεις συγχρονισμού:")
