@@ -6,6 +6,7 @@ import re
 from pathlib import Path
 
 SELECTED_ROLES = {"κύρια", "υποστηρικτική", "υπόβαθρο"}
+THEORY_ONLY_ROLES = {"θεωρητικό υλικό", "supporting-theory", "theory-only"}
 REJECTED_STATES = {"απόρριψη", "απορρίφθηκε", "rejected", "reject"}
 VERIFIED_ANALYSIS_STATES = {"επαληθευμένη", "verified"}
 YES_VALUES = {"ναι", "yes", "true", "1"}
@@ -27,7 +28,7 @@ def frontmatter_value(text: str, key: str) -> str:
 def decision_section(text: str) -> str:
     """Return the authoritative decision section without letting later status notes hide it.
 
-    Explicit Decision/Απόφαση headings take precedence.  Legacy analyses that do not
+    Explicit Decision/Απόφαση headings take precedence. Legacy analyses that do not
     have an explicit decision heading may still use a verification-status section as a
     conservative fallback.
     """
@@ -54,7 +55,7 @@ def decision_section(text: str) -> str:
 def infer_role(text: str) -> str:
     normalized = plain_markdown(text)
     patterns = (
-        r"(?:ρόλος στη διπλωματική|προτεινόμενος ρόλος|ρόλος|thesis role|role)\s*:\s*(κύρια|υποστηρικτική|υπόβαθρο|main|supporting|background)",
+        r"(?:ρόλος στη διπλωματική|προτεινόμενος ρόλος|ρόλος|thesis role|role|thesis-content role)\s*:\s*(κύρια|υποστηρικτική|υπόβαθρο|θεωρητικό υλικό|main|supporting|background|supporting-theory|theory-only)",
         r"(?:επιλογή|επιλέγεται|επαληθευμένη[^\n]{0,80}εξαγωγή\s+ναι)[^\n]{0,120}?\b(κύρια|υποστηρικτική|υπόβαθρο)\b",
         r"\bως\s+(κύρια|υποστηρικτική|υπόβαθρο)\s+(?:πηγή|αναφορά|τεκμήριο)",
     )
@@ -62,6 +63,8 @@ def infer_role(text: str) -> str:
         "main": "κύρια",
         "supporting": "υποστηρικτική",
         "background": "υπόβαθρο",
+        "supporting-theory": "θεωρητικό υλικό",
+        "theory-only": "θεωρητικό υλικό",
     }
     for pattern in patterns:
         match = re.search(pattern, normalized, re.IGNORECASE)
@@ -72,7 +75,7 @@ def infer_role(text: str) -> str:
 
 
 def infer_decision(text: str) -> str:
-    """Επιστρέφει selected, rejected ή draft χωρίς να μαντεύει από γενικές αναφορές."""
+    """Επιστρέφει selected, rejected, theory-only ή draft χωρίς γενικές εικασίες."""
     state = frontmatter_value(text, "κατάσταση")
     if state in REJECTED_STATES:
         return "rejected"
@@ -95,9 +98,6 @@ def infer_decision(text: str) -> str:
     if any(marker in section for marker in rejection_markers):
         return "rejected"
 
-    # Legacy analyses often use a dedicated Decision section whose first substantive
-    # line is simply “Απόρριψη.”. Matching this only inside the decision section is
-    # conservative and avoids treating ordinary discussion of rejection as a decision.
     if re.search(r"(?im)^\s*(?:απόρριψη|απορρίπτεται|reject|rejected)\b", section):
         return "rejected"
 
@@ -108,6 +108,20 @@ def infer_decision(text: str) -> str:
         return "rejected"
     if "απορρίπτεται από το τρέχον scope" in full_plain:
         return "rejected"
+
+    # Final non-citation material is neither selected citation evidence nor rejected.
+    # This category preserves useful theory/discovery material while keeping the export gate closed.
+    theory_markers = (
+        "thesis-content role: supporting-theory",
+        "thesis-content role: theory-only",
+        "role: supporting-theory",
+        "role: theory-only",
+        "keep for thesis theory synthesis",
+        "formal citation evidence: optional; primary papers preferred",
+        "citation grade: unstable-transcript",
+    )
+    if any(marker in full_plain for marker in theory_markers):
+        return "theory-only"
 
     if state in VERIFIED_ANALYSIS_STATES:
         return "selected"
