@@ -1,0 +1,73 @@
+name: Export validation report
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".export-validation-trigger"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: export-validation-report
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          lfs: false
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run exporter validation and tests
+        shell: bash
+        run: |
+          set +e
+          if [ -f tools/export_thesis.py ]; then
+            exporter=tools/export_thesis.py
+          else
+            exporter=εργαλεία/εξαγωγή-διπλωματικής.py
+          fi
+          python "$exporter" --validate-only > /tmp/export-validation.txt 2>&1
+          export_code=$?
+          python -m unittest tests.test_thesis_export -v > /tmp/export-tests.txt 2>&1
+          test_code=$?
+          {
+            echo "# Export validation report"
+            echo
+            echo "- Export validation exit code: **$export_code**"
+            echo "- Export unit-test exit code: **$test_code**"
+            echo
+            echo "## Export validation"
+            echo
+            echo '```text'
+            cat /tmp/export-validation.txt
+            echo '```'
+            echo
+            echo "## Export unit tests"
+            echo
+            echo '```text'
+            cat /tmp/export-tests.txt
+            echo '```'
+          } > EXPORT_VALIDATION.md
+          exit 0
+
+      - name: Commit report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add EXPORT_VALIDATION.md
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m "chore: update export validation report [skip ci]"
+          git push origin HEAD:main
