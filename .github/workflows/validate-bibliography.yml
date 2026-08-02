@@ -4,8 +4,8 @@ on:
   push:
     branches: [main]
     paths-ignore:
-      - "νέες-πηγές/**"
-      - "νέα-πρωτότυπα/**"
+      - "new-sources/**"
+      - "new-originals/**"
   pull_request:
     branches: [main]
 
@@ -32,43 +32,43 @@ jobs:
       - name: Έλεγχος σύνταξης
         run: >-
           python -m py_compile
-          εργαλεία/εισαγωγή.py εργαλεία/μεταδεδομένα.py εργαλεία/επόμενες-πηγές.py
-          εργαλεία/διόρθωση-τίτλων.py εργαλεία/έλεγχος.py εργαλεία/κοινά_πηγών.py
-          εργαλεία/καθαρισμός-συνδέσεων.py εργαλεία/γνωστές-διορθώσεις.py
-          εργαλεία/ακριβή-διπλότυπα.py εργαλεία/οριστικοποίηση.py εργαλεία/πρωτότυπα.py
-          εργαλεία/πρωτότυπα_κοινά.py εργαλεία/πρωτότυπα_λήψεις.py εργαλεία/πρωτότυπα_αρχεία.py
-          εργαλεία/μετατροπή-pdf.py εργαλεία/κατάσταση_απόφασης.py
-          εργαλεία/συγχρονισμός-επιλογής.py εργαλεία/κατάσταση-αναλύσεων.py
-          εργαλεία/εξαγωγή-διπλωματικής.py εργαλεία/συγκεντρωτικά.py
+          tools/import_sources.py tools/metadata.py tools/next_sources.py
+          tools/fix_titles.py tools/validate.py tools/sources_common.py
+          tools/clean_links.py tools/known_fixes.py
+          tools/exact_duplicates.py tools/finalize.py tools/originals.py
+          tools/originals_common.py tools/originals_downloads.py tools/originals_files.py
+          tools/convert_pdf.py tools/decision_status.py
+          tools/sync_selection.py tools/analysis_status.py
+          tools/export_thesis.py tools/aggregates.py
 
       - name: Αυτόματες δοκιμές
         run: python -m unittest discover -s tests -v
 
       - name: Προσομοίωση γνωστών διορθώσεων
-        run: python εργαλεία/γνωστές-διορθώσεις.py
+        run: python tools/known_fixes.py
 
       - name: Προσομοίωση συγχώνευσης ακριβών PDF
-        run: python εργαλεία/ακριβή-διπλότυπα.py
+        run: python tools/exact_duplicates.py
 
       - name: Προσομοίωση οριστικοποίησης με διατήρηση χρήσιμου περιεχομένου
-        run: python εργαλεία/οριστικοποίηση.py
+        run: python tools/finalize.py
 
       - name: Συγχρονισμός μητρώου επιλογής
-        run: python εργαλεία/συγχρονισμός-επιλογής.py
+        run: python tools/sync_selection.py
 
       - name: Δημιουργία authoritative ουράς αναλύσεων
-        run: python εργαλεία/κατάσταση-αναλύσεων.py
+        run: python tools/analysis_status.py
 
       - name: Δημιουργία συγκεντρωτικών προβολών
         run: |
-          python εργαλεία/συγκεντρωτικά.py
-          test -s ΑΡΧΕΙΟ_ΠΗΓΩΝ.md
-          test -s ΧΡΗΣΙΜΑ_ΑΠΟΣΠΑΣΜΑΤΑ.md
+          python tools/aggregates.py
+          test -s SOURCE_ARCHIVE.md
+          test -s USEFUL_EVIDENCE.md
 
       - name: Έλεγχος μητρώου εξαγωγής
         run: |
-          python εργαλεία/εξαγωγή-διπλωματικής.py --validate-only
-          python εργαλεία/εξαγωγή-διπλωματικής.py --output /tmp/πακέτο-διπλωματικής
+          python tools/export_thesis.py --validate-only
+          python tools/export_thesis.py --output /tmp/thesis-package
 
       - name: Έλεγχος δομής και καταλόγου μετά τις διορθώσεις
-        run: python εργαλεία/έλεγχος.py
+        run: python tools/validate.py
