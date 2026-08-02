@@ -32,9 +32,10 @@ jobs:
       - name: Run non-destructive source-language audit
         run: python tools/language_audit.py
 
-      - name: Open language-audit pull request
+      - name: Publish language-audit review branch
         env:
           GH_TOKEN: ${{ github.token }}
+        shell: bash
         run: |
           git add catalog/language-audit.md
           if git diff --cached --quiet; then
@@ -45,6 +46,11 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git switch -c "$branch"
-          git commit -m "chore: update source-language audit [skip ci]"
+          git commit -m "chore: update source-language audit"
           git push origin "HEAD:$branch"
-          gh pr create --base main --head "$branch" --title "chore: update source-language audit" --body "Non-destructive audit report refresh. Scientific source and evidence text remains in the checked source language."
+          if gh pr create --base main --head "$branch" --title "chore: update source-language audit" --body "Non-destructive audit report refresh. Scientific source and evidence text remains in the checked source language."; then
+            echo "Generated language-audit PR created automatically."
+          else
+            echo "::warning::GitHub Actions is not permitted to create Pull Requests in this repository. The validated branch remains available for review."
+            echo "Generated review branch: \`$branch\`" >> "$GITHUB_STEP_SUMMARY"
+          fi
