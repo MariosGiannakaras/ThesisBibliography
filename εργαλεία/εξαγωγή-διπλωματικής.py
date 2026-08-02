@@ -78,20 +78,25 @@ ANALYSIS_HEADING_GROUPS = {
     "limitations": (
         "Περιορισμοί",
         "Περιορισμοί και απειλές εγκυρότητας",
+        "Κρίσιμα όρια",
         "Limitations",
         "Limitations and threats to validity",
         "Threats to validity",
+        "Critical distinctions for the experiment",
     ),
     "thesis use": (
         "Χρήση στη διπλωματική",
         "Σχέση με τη διπλωματική",
+        "Σχέση με reinforcement learning",
         "Συνάφεια με τη διπλωματική",
         "Συνάφεια",
         "Εφαρμογή στη διπλωματική",
         "Εφαρμογή στη διπλωματική εργασία",
         "Thesis use",
         "Use in thesis",
+        "Use in the thesis",
         "Relevance to thesis",
+        "Relevance to the thesis",
         "Thesis relevance",
     ),
 }
@@ -121,10 +126,11 @@ def meaningful_word_count(text: str) -> int:
 
 
 def markdown_label_values(text: str, *labels: str) -> list[str]:
+    """Read either `- **Location:** value` or legacy `- Location: value` labels."""
     values: list[str] = []
     for label in labels:
         pattern = re.compile(
-            rf"^\s*-\s*\*\*{re.escape(label)}:\*\*\s*(.*?)\s*$",
+            rf"^\s*-\s*(?:\*\*)?{re.escape(label)}:(?:\*\*)?\s*(.*?)\s*$",
             re.IGNORECASE | re.MULTILINE,
         )
         values.extend(match.group(1).strip() for match in pattern.finditer(text))
@@ -144,7 +150,7 @@ def has_heading(text: str, aliases: tuple[str, ...]) -> bool:
 def has_evidence_block(text: str) -> bool:
     return bool(
         re.search(
-            r"(?im)^##\s+(?:Τεκμήριο(?:\s+E?\d+)?\b|Evidence(?:\s+E?\d+)?\b|E\d+\b)",
+            r"(?im)^##\s+(?:Τεκμήριο(?:\s+E?\d+)?\b|Evidence(?:\s+E?\d+)?\b|E\d+\b|\d+\.)",
             text,
         )
     )
@@ -286,13 +292,15 @@ def validate() -> tuple[list[str], list[dict[str, str]], dict[str, dict[str, str
             if not evidence_original_checked(excerpt_text):
                 errors.append(f"{source_id}: το evidence δεν δηλώνει ότι ελέγχθηκε το πρωτότυπο")
             if not has_evidence_block(excerpt_text):
-                errors.append(f"{source_id}: λείπει δομημένη ενότητα evidence (Τεκμήριο/Evidence/E#)")
+                errors.append(f"{source_id}: λείπει δομημένη ενότητα evidence (Τεκμήριο/Evidence/E#/numbered)")
+            normalized_position_placeholders = {normalize(item) for item in POSITION_PLACEHOLDERS}
+            normalized_claim_placeholders = {normalize(item) for item in CLAIM_PLACEHOLDERS}
             if not positions or any(
-                not value or normalize(value) in POSITION_PLACEHOLDERS for value in positions
+                not value or normalize(value) in normalized_position_placeholders for value in positions
             ):
                 errors.append(f"{source_id}: λείπει πραγματική ακριβής θέση στο evidence")
             if not claims or any(
-                not value or normalize(value) in CLAIM_PLACEHOLDERS for value in claims
+                not value or normalize(value) in normalized_claim_placeholders for value in claims
             ):
                 errors.append(f"{source_id}: λείπει πραγματικός ισχυρισμός που υποστηρίζεται")
             excerpt_words = meaningful_word_count(excerpt_text)
