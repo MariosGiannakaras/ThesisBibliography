@@ -1,9 +1,5 @@
 #!/usr/bin/env python3
-"""One-off migration of repository infrastructure paths to English names.
-
-Only paths and technical references are changed. Scientific source text, analyses,
-and citation-ready evidence are never translated or rewritten as part of this move.
-"""
+"""Migrate repository infrastructure paths to English without touching scientific prose."""
 from __future__ import annotations
 
 import os
@@ -14,7 +10,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 NON_ASCII_RE = re.compile(r"[^\x00-\x7F]")
 TEXT_SUFFIXES = {".md", ".py", ".yml", ".yaml", ".csv", ".json", ".txt", ".toml", ".ini", ".cfg", ".sh"}
-TEXT_BASENAMES = {"README", "LICENSE", ".gitignore", ".gitattributes"}
+ROOT_TEXT_NAMES = {"README.md", "LANGUAGE_POLICY.md", "SOURCE_ARCHIVE.md", "USEFUL_EVIDENCE.md", ".gitignore", ".gitattributes"}
+REWRITE_TOP_LEVEL = {".github", "tools", "tests", "catalog", "templates", "sync", "thesis-package"}
 
 DIR_MAP = {
     "πηγές": "sources",
@@ -85,8 +82,6 @@ MODULE_MAP = {
     if old.endswith(".py") and new.endswith(".py")
 }
 
-SKIP_REWRITE_TOP_LEVEL = {"sources", "analyses", "evidence", "originals"}
-
 
 def run(*args: str, check: bool = True) -> subprocess.CompletedProcess[str]:
     return subprocess.run(args, cwd=ROOT, text=True, check=check, capture_output=True)
@@ -128,7 +123,6 @@ def planned_mapping() -> dict[str, str]:
 
 
 def working_tree_entries() -> tuple[list[Path], list[Path]]:
-    """Collect working-tree dirs/files while pruning .git before descent."""
     directories: list[Path] = []
     files: list[Path] = []
     for root, dirnames, filenames in os.walk(ROOT, topdown=True):
@@ -139,7 +133,8 @@ def working_tree_entries() -> tuple[list[Path], list[Path]]:
     return directories, files
 
 
-def move_directories() -> None:
+def move_paths() -> dict[str, str]:
+    mapping = planned_mapping()
     directories, _ = working_tree_entries()
     for path in sorted(directories, key=lambda p: len(p.relative_to(ROOT).parts), reverse=True):
         new_name = DIR_MAP.get(path.name)
@@ -150,8 +145,6 @@ def move_directories() -> None:
             raise RuntimeError(f"Directory collision: {path.relative_to(ROOT)} -> {target.relative_to(ROOT)}")
         path.rename(target)
 
-
-def move_named_files() -> None:
     _, files = working_tree_entries()
     for path in files:
         new_name = FILE_MAP.get(path.name)
@@ -166,11 +159,6 @@ def move_named_files() -> None:
             raise RuntimeError(f"File collision: {path.relative_to(ROOT)} -> {target.relative_to(ROOT)}")
         path.rename(target)
 
-
-def move_paths() -> dict[str, str]:
-    mapping = planned_mapping()
-    move_directories()
-    move_named_files()
     run("git", "add", "-A")
     return mapping
 
@@ -182,18 +170,21 @@ def technical_replacements() -> list[tuple[str, str]]:
         pairs.add((f'"{old}"', f'"{new}"'))
         pairs.add((f"'{old}'", f"'{new}'"))
         pairs.add((f"`{old}`", f"`{new}`"))
-    for old, new in FILE_MAP.items():
-        pairs.add((old, new))
+    pairs.update(FILE_MAP.items())
     return sorted(pairs, key=lambda item: len(item[0]), reverse=True)
 
 
 def is_text_candidate(rel: str, path: Path) -> bool:
     parts = Path(rel).parts
-    if parts and parts[0] in SKIP_REWRITE_TOP_LEVEL:
+    if not parts:
+        return False
+    if len(parts) == 1:
+        return path.name in ROOT_TEXT_NAMES
+    if parts[0] not in REWRITE_TOP_LEVEL:
         return False
     if len(parts) >= 2 and parts[0] == "thesis-package" and parts[1] in {"analyses", "evidence"}:
         return False
-    return path.suffix.casefold() in TEXT_SUFFIXES or path.name in TEXT_BASENAMES
+    return path.suffix.casefold() in TEXT_SUFFIXES
 
 
 def update_text_references() -> int:
@@ -235,14 +226,14 @@ def write_report(mapping: dict[str, str], changed_text_files: int) -> None:
         "# English path migration report",
         "",
         f"- Tracked paths moved in this pass: **{len(mapping)}**",
-        f"- Infrastructure/text files with updated technical references: **{changed_text_files}**",
+        f"- Infrastructure files with updated technical references: **{changed_text_files}**",
         f"- Remaining tracked paths containing non-ASCII characters: **{len(residual)}**",
         "",
     ]
     if residual:
-        lines += ["## Remaining non-ASCII paths", ""] + [f"- `{path}`" for path in residual] + [""]
+        lines.extend(["## Remaining non-ASCII paths", "", *[f"- `{path}`" for path in residual], ""])
     else:
-        lines += ["No tracked path contains non-ASCII characters.", ""]
+        lines.extend(["No tracked path contains non-ASCII characters.", ""])
     report.write_text("\n".join(lines), encoding="utf-8")
     run("git", "add", "-A")
 
@@ -253,7 +244,7 @@ def main() -> int:
     write_report(mapping, changed)
     residual = residual_non_ascii_paths()
     print(
-        f"Moved {len(mapping)} tracked paths; updated {changed} infrastructure/text files; "
+        f"Moved {len(mapping)} tracked paths; updated {changed} infrastructure files; "
         f"residual non-ASCII paths={len(residual)}"
     )
     return 0
