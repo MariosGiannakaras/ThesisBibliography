@@ -3,8 +3,8 @@
 
 The migration changes paths and technical identifiers only. It does not translate
 scientific prose or source/evidence content. Tracked files are moved with `git mv`
-so Git history remains traceable. Any Greek path that is not covered by the mapping
-is left unchanged and reported for a follow-up mapping pass.
+so Git history remains traceable. Any non-ASCII path that is not covered by the
+mapping is left unchanged and reported for a follow-up mapping pass.
 """
 from __future__ import annotations
 
@@ -13,7 +13,7 @@ import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-GREEK_RE = re.compile(r"[Α-Ωα-ωΆΈΉΊΌΎΏάέήίόύώϊΐϋΰ]")
+NON_ASCII_RE = re.compile(r"[^\x00-\x7F]")
 
 DIR_MAP = {
     "πηγές": "sources",
@@ -33,8 +33,9 @@ DIR_MAP = {
 }
 
 FILE_MAP = {
-    # Root / documentation files.
+    # Root / generated documentation files. Content language is intentionally unchanged.
     "ΑΡΧΕΙΟ_ΠΗΓΩΝ.md": "SOURCE_ARCHIVE.md",
+    "ΧΡΗΣΙΜΑ_ΑΠΟΣΠΑΣΜΑΤΑ.md": "USEFUL_EVIDENCE.md",
 
     # Catalog files.
     "πηγές.csv": "sources.csv",
@@ -83,6 +84,9 @@ FILE_MAP = {
     "καθαρισμός-συνδέσεων.py": "clean_links.py",
     "συγχρονισμός-επιλογής.py": "sync_selection.py",
     "εξαγωγή-διπλωματικής.py": "export_thesis.py",
+
+    # Tests.
+    "test_συγκεντρωτικά.py": "test_aggregates.py",
 }
 
 # Bare Python module references need updates in addition to path replacements.
@@ -185,32 +189,32 @@ def update_text_references(mapping: dict[str, str]) -> int:
     return changed
 
 
-def residual_greek_paths() -> list[str]:
-    return sorted(path for path in tracked_files() if GREEK_RE.search(path))
+def residual_non_ascii_paths() -> list[str]:
+    return sorted(path for path in tracked_files() if NON_ASCII_RE.search(path))
 
 
 def write_report(mapping: dict[str, str], changed_text_files: int) -> None:
     report = ROOT / "catalog" / "path-migration-report.md"
     report.parent.mkdir(parents=True, exist_ok=True)
-    residual = residual_greek_paths()
+    residual = residual_non_ascii_paths()
     lines = [
         "# English path migration report",
         "",
         f"- Tracked paths moved in this pass: **{len(mapping)}**",
         f"- UTF-8 files with updated technical references: **{changed_text_files}**",
-        f"- Remaining tracked paths containing Greek characters: **{len(residual)}**",
+        f"- Remaining tracked paths containing non-ASCII characters: **{len(residual)}**",
         "",
     ]
     if residual:
         lines += [
-            "## Remaining Greek paths",
+            "## Remaining non-ASCII paths",
             "",
-            "These paths were deliberately left unchanged because no semantic English mapping was defined yet.",
+            "These paths were deliberately left unchanged because no safe semantic English mapping was defined yet.",
             "They must be mapped in a follow-up pass; transliteration is not treated as an English-name fix.",
             "",
         ] + [f"- `{path}`" for path in residual] + [""]
     else:
-        lines += ["No tracked path contains Greek characters.", ""]
+        lines += ["No tracked path contains non-ASCII characters.", ""]
     report.write_text("\n".join(lines), encoding="utf-8")
 
 
@@ -218,8 +222,8 @@ def main() -> int:
     mapping = move_files()
     changed = update_text_references(mapping)
     write_report(mapping, changed)
-    residual = residual_greek_paths()
-    print(f"Moved {len(mapping)} tracked paths; updated {changed} text files; residual Greek paths={len(residual)}")
+    residual = residual_non_ascii_paths()
+    print(f"Moved {len(mapping)} tracked paths; updated {changed} text files; residual non-ASCII paths={len(residual)}")
     return 0
 
 
