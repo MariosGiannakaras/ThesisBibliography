@@ -135,6 +135,31 @@ class PdfConversionTests(unittest.TestCase):
             finally:
                 MODULE.ROOT = original_root
 
+    def test_cli_parser_exposes_stable_english_destinations_by_default(self):
+        args = MODULE.build_parser().parse_args([])
+        self.assertEqual(0, args.limit)
+        self.assertFalse(args.report_only)
+        self.assertFalse(args.force)
+        self.assertEqual("eng+ell", args.ocr_language)
+
+    def test_cli_parser_accepts_english_aliases(self):
+        args = MODULE.build_parser().parse_args([
+            "--limit", "2", "--report-only", "--force", "--ocr-language", "eng"
+        ])
+        self.assertEqual(2, args.limit)
+        self.assertTrue(args.report_only)
+        self.assertTrue(args.force)
+        self.assertEqual("eng", args.ocr_language)
+
+    def test_cli_parser_accepts_greek_aliases_with_same_destinations(self):
+        args = MODULE.build_parser().parse_args([
+            "--όριο", "3", "--μόνο-αναφορά", "--εξαναγκασμός", "--γλώσσες-ocr", "ell"
+        ])
+        self.assertEqual(3, args.limit)
+        self.assertTrue(args.report_only)
+        self.assertTrue(args.force)
+        self.assertEqual("ell", args.ocr_language)
+
 
 if __name__ == "__main__":
     unittest.main()
