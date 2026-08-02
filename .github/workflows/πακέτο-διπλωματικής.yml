@@ -73,29 +73,11 @@ jobs:
         run: |
           if [ -z "$(git status --porcelain πακέτο-διπλωματικής)" ]; then
             echo "Το πακέτο είναι ήδη ενημερωμένο."
-            exit 0
+          else
+            git add πακέτο-διπλωματικής
+            git commit -m "chore: ενημέρωση επαληθευμένου πακέτου διπλωματικής [skip ci]"
+            git push origin HEAD:main
           fi
-          git add πακέτο-διπλωματικής
-          git commit -m "chore: ενημέρωση επαληθευμένου πακέτου διπλωματικής [skip ci]"
-          git push origin HEAD:main
-
-  migrate-paths:
-    needs: build
-    if: ${{ always() }}
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: main
-          fetch-depth: 0
-          lfs: false
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
-      - name: Refresh main before migration
-        run: git pull --ff-only origin main
 
       - name: Run English path migration transactionally
         id: migrate
