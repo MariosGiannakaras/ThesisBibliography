@@ -54,7 +54,7 @@ jobs:
         if: steps.intake.outputs.has_input == 'true'
         run: python tools/known_fixes.py
 
-      - name: Merge exact duplicate PDFs
+      - name: Prune pre-existing exact duplicate PDF files
         if: steps.intake.outputs.has_input == 'true'
         run: python tools/exact_duplicates.py
 
@@ -118,6 +118,10 @@ jobs:
       - name: Match and download originals
         if: steps.intake.outputs.has_input == 'true'
         run: python tools/originals.py --download --limit 30
+
+      - name: Prune exact PDF copies created during matching or download
+        if: steps.intake.outputs.has_input == 'true'
+        run: python tools/exact_duplicates.py
 
       - name: Convert PDFs with OCR
         if: steps.intake.outputs.has_input == 'true'
