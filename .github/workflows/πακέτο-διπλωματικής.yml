@@ -104,6 +104,7 @@ jobs:
           set +e
           python εργαλεία/migrate_repository_paths.py > /tmp/path-migration.log 2>&1
           code=$?
+
           if [ "$code" -eq 0 ]; then
             python - <<'PY' >> /tmp/path-migration.log 2>&1
           import subprocess
@@ -116,6 +117,17 @@ jobs:
           PY
             code=$?
           fi
+
+          if [ "$code" -eq 0 ]; then
+            python -m compileall -q tools >> /tmp/path-migration.log 2>&1
+            code=$?
+          fi
+
+          if [ "$code" -eq 0 ]; then
+            python -m unittest discover -s tests -v >> /tmp/path-migration.log 2>&1
+            code=$?
+          fi
+
           cat /tmp/path-migration.log
           if [ "$code" -ne 0 ]; then
             git reset --hard HEAD
@@ -133,13 +145,6 @@ jobs:
           fi
           exit 0
 
-      - name: Best-effort checks after successful migration
-        if: steps.migrate.outputs.failed == 'false'
-        continue-on-error: true
-        run: |
-          python -m compileall -q tools || true
-          python -m unittest discover -s tests -v || true
-
       - name: Commit migration or diagnostic
         run: |
           git config user.name "github-actions[bot]"
@@ -154,4 +159,5 @@ jobs:
           else
             git commit -m "chore: migrate repository paths to English [skip ci]"
           fi
+          git pull --rebase origin main
           git push origin HEAD:main
