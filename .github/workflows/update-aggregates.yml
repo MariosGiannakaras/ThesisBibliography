@@ -16,8 +16,8 @@ permissions:
   pull-requests: write
 
 concurrency:
-  group: bibliography-generated-main
-  cancel-in-progress: false
+  group: bibliography-aggregates
+  cancel-in-progress: true
 
 jobs:
   generate:

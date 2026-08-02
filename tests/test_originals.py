@@ -131,6 +131,28 @@ class OriginalsTests(unittest.TestCase):
             self.assertFalse(incoming.exists())
             self.assertIn("αρχειοθετήθηκε", reason)
 
+    def test_unidentified_archive_filename_is_ascii_safe(self):
+        from originals_files import archive_unmatched
+
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            originals = root / "originals"
+            unmatched = originals / "unidentified"
+            incoming = root / "μελέτη ανθεκτικότητας.pdf"
+            incoming.write_bytes(b"%PDF-1.4\n" + b"unique-greek-name" * 200)
+
+            archived, reason = archive_unmatched(
+                incoming,
+                originals=originals,
+                unmatched=unmatched,
+            )
+
+            self.assertIsNotNone(archived)
+            assert archived is not None
+            self.assertTrue(archived.name.isascii())
+            self.assertTrue(archived.name.endswith("__original.pdf"))
+            self.assertIn("μελέτη ανθεκτικότητας.pdf", reason)
+
     def test_only_exact_duplicate_unmatched_pdf_is_deleted(self):
         from originals_files import archive_unmatched
 

@@ -12,6 +12,7 @@ on:
       - "tools/language_audit.py"
       - "tools/sync_selection.py"
       - "tools/analysis_status.py"
+      - "tools/convert_pdf.py"
       - "tools/export_thesis.py"
       - ".github/workflows/thesis-package.yml"
   workflow_dispatch:
@@ -21,7 +22,7 @@ permissions:
   pull-requests: write
 
 concurrency:
-  group: bibliography-generated-main
+  group: bibliography-thesis-package
   cancel-in-progress: true
 
 jobs:
@@ -45,12 +46,16 @@ jobs:
           tools/language_audit.py
           tools/sync_selection.py
           tools/analysis_status.py
+          tools/convert_pdf.py
           tools/export_thesis.py
 
       - name: Sync canonical registry and analysis status
         run: |
           python tools/sync_selection.py
           python tools/analysis_status.py
+
+      - name: Refresh conversion status without modifying source Markdown
+        run: python tools/convert_pdf.py --report-only
 
       - name: Build verified thesis package
         run: python tools/export_thesis.py
@@ -59,15 +64,15 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          if [ -z "$(git status --porcelain -- catalog/thesis-selection.csv catalog/analysis-status.csv catalog/analysis-status.md thesis-package)" ]; then
-            echo "Registry, status, and thesis package are already current."
+          if [ -z "$(git status --porcelain -- catalog/thesis-selection.csv catalog/analysis-status.csv catalog/analysis-status.md catalog/conversion-status.csv catalog/conversion-status.md thesis-package)" ]; then
+            echo "Registry, status reports, and thesis package are already current."
             exit 0
           fi
           branch="automation/thesis-package-${GITHUB_RUN_ID}"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git switch -c "$branch"
-          git add catalog/thesis-selection.csv catalog/analysis-status.csv catalog/analysis-status.md thesis-package
-          git commit -m "chore: update verified thesis package [skip ci]"
+          git add catalog/thesis-selection.csv catalog/analysis-status.csv catalog/analysis-status.md catalog/conversion-status.csv catalog/conversion-status.md thesis-package
+          git commit -m "chore: update verified thesis package and status reports [skip ci]"
           git push origin "HEAD:$branch"
-          gh pr create --base main --head "$branch" --title "chore: update verified thesis package" --body "Regenerates the canonical thesis-selection registry, authoritative analysis status, and verified thesis package from English repository paths. Scientific source and evidence content remains in the checked source language."
+          gh pr create --base main --head "$branch" --title "chore: update verified thesis package and status reports" --body "Regenerates the canonical thesis-selection registry, authoritative analysis/conversion status, and verified thesis package. Scientific source and evidence content remains in the checked source language."

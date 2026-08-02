@@ -49,6 +49,41 @@ class PdfConversionTests(unittest.TestCase):
                 MODULE.source_is_replaceable(path, {"Κατάσταση": "διαθέσιμο πλήρες κείμενο"})
             )
 
+    def test_rejected_analysis_marks_conversion_not_required(self):
+        with tempfile.TemporaryDirectory() as directory:
+            analyses = Path(directory) / "analyses"
+            analyses.mkdir()
+            source_id = "SRC-ABCDEF1234"
+            (analyses / f"{source_id}.md").write_text(
+                "---\nκωδικός: SRC-ABCDEF1234\nκατάσταση: απόρριψη\n---\n\n## Απόφαση\nΑπόρριψη.\n",
+                encoding="utf-8",
+            )
+            original_analyses = MODULE.ANALYSES
+            try:
+                MODULE.ANALYSES = analyses
+                self.assertEqual("rejected", MODULE.canonical_decision(source_id))
+            finally:
+                MODULE.ANALYSES = original_analyses
+
+    def test_not_required_entry_is_not_pending(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            pdf = root / "originals" / "SRC-ABCDEF1234.pdf"
+            pdf.parent.mkdir(parents=True)
+            pdf.write_bytes(b"%PDF-1.4\n")
+            original_root = MODULE.ROOT
+            try:
+                MODULE.ROOT = root
+                entry = MODULE.not_required_entry(
+                    {"Κωδικός": "SRC-ABCDEF1234", "Τίτλος": "Rejected study"},
+                    pdf,
+                    "a" * 64,
+                )
+                self.assertEqual("δεν-απαιτείται-λόγω-απόρριψης", entry["Κατάσταση μετατροπής"])
+                self.assertEqual("όχι", entry["Χρειάζεται περαιτέρω μετατροπή"])
+            finally:
+                MODULE.ROOT = original_root
+
     def test_ocr_missing_is_reported_without_modifying_pdf(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "input.pdf"
