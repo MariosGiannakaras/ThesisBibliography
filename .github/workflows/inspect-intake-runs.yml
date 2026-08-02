@@ -20,5 +20,5 @@ jobs:
           --repo "$GITHUB_REPOSITORY"
           --workflow automatic-import.yml
           --branch main
-          --limit 12
+          --limit 15
           --json databaseId,headSha,status,conclusion,createdAt,updatedAt,displayTitle,event,url
