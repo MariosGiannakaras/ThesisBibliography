@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 """One-off migration of repository infrastructure paths to English names.
 
-The migration changes paths and technical identifiers only. It does not translate
-scientific prose or source/evidence content. Tracked files are moved with `git mv`
-so Git history remains traceable. Any non-ASCII path that is not covered by the
-mapping is left unchanged and reported for a follow-up mapping pass.
+The migration changes paths and technical identifiers only. It never translates
+scientific prose, source text, analyses, or citation-ready evidence. Files are moved
+in the working tree and staged once, avoiding one Git subprocess per tracked file.
 """
 from __future__ import annotations
 
@@ -14,6 +13,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 NON_ASCII_RE = re.compile(r"[^\x00-\x7F]")
+TEXT_SUFFIXES = {".md", ".py", ".yml", ".yaml", ".csv", ".json", ".txt", ".toml", ".ini", ".cfg", ".sh"}
+TEXT_BASENAMES = {"README", "LICENSE", ".gitignore", ".gitattributes"}
 
 DIR_MAP = {
     "πηγές": "sources",
@@ -33,11 +34,8 @@ DIR_MAP = {
 }
 
 FILE_MAP = {
-    # Root / generated documentation files. Content language is intentionally unchanged.
     "ΑΡΧΕΙΟ_ΠΗΓΩΝ.md": "SOURCE_ARCHIVE.md",
     "ΧΡΗΣΙΜΑ_ΑΠΟΣΠΑΣΜΑΤΑ.md": "USEFUL_EVIDENCE.md",
-
-    # Catalog files.
     "πηγές.csv": "sources.csv",
     "πηγές.md": "sources.md",
     "πρωτότυπα.csv": "originals.csv",
@@ -50,19 +48,13 @@ FILE_MAP = {
     "κατάσταση-μετατροπών.md": "conversion-status.md",
     "εκκρεμή-πρωτότυπα.md": "pending-originals.md",
     "προβληματικές-πηγές.md": "problematic-sources.md",
-
-    # Templates.
     "ανάλυση-πηγής.md": "source-analysis.md",
     "απόσπασμα-πηγής.md": "source-evidence.md",
-
-    # Permanent workflows.
     "ενημέρωση-μεταδεδομένων.yml": "update-metadata.yml",
     "ενημέρωση-συγκεντρωτικών.yml": "update-aggregates.yml",
     "πακέτο-διπλωματικής.yml": "thesis-package.yml",
     "αυτόματη-εισαγωγή.yml": "automatic-import.yml",
     "ενημέρωση-πρωτοτύπων.yml": "update-originals.yml",
-
-    # Tools.
     "έλεγχος.py": "validate.py",
     "εισαγωγή.py": "import_sources.py",
     "πρωτότυπα.py": "originals.py",
@@ -84,12 +76,9 @@ FILE_MAP = {
     "καθαρισμός-συνδέσεων.py": "clean_links.py",
     "συγχρονισμός-επιλογής.py": "sync_selection.py",
     "εξαγωγή-διπλωματικής.py": "export_thesis.py",
-
-    # Tests.
     "test_συγκεντρωτικά.py": "test_aggregates.py",
 }
 
-# Bare Python module references need updates in addition to path replacements.
 MODULE_MAP = {
     Path(old).stem: Path(new).stem
     for old, new in FILE_MAP.items()
@@ -121,12 +110,9 @@ def target_path(path: str) -> str:
     return "/".join(map_component(part) for part in path.split("/"))
 
 
-def ensure_parent(path: str) -> None:
-    (ROOT / path).parent.mkdir(parents=True, exist_ok=True)
-
-
 def move_files() -> dict[str, str]:
     original = tracked_files()
+    original_set = set(original)
     mapping = {old: target_path(old) for old in original}
     mapping = {old: new for old, new in mapping.items() if old != new}
 
@@ -134,43 +120,46 @@ def move_files() -> dict[str, str]:
     for old, new in mapping.items():
         if new in targets and targets[new] != old:
             raise RuntimeError(f"Path collision: {targets[new]} and {old} -> {new}")
+        if new in original_set and new not in mapping:
+            raise RuntimeError(f"Path collision with existing tracked file: {old} -> {new}")
         targets[new] = old
 
-    # Moving files individually avoids ordering problems when both a directory and
-    # basenames change in the same migration.
     for old in sorted(mapping, key=lambda value: (value.count("/"), len(value)), reverse=True):
         new = mapping[old]
-        if not (ROOT / old).exists():
+        old_path = ROOT / old
+        if not old_path.exists():
             continue
-        ensure_parent(new)
-        run("git", "mv", old, new)
+        new_path = ROOT / new
+        new_path.parent.mkdir(parents=True, exist_ok=True)
+        old_path.rename(new_path)
+
+    # Stage once so subsequent git ls-files calls reflect destination paths.
+    run("git", "add", "-A")
     return mapping
 
 
-def technical_replacements(mapping: dict[str, str]) -> list[tuple[str, str]]:
-    pairs: set[tuple[str, str]] = set(mapping.items())
-
-    # Directory prefixes and quoted directory tokens catch generated paths and Path(...)
-    # constants without translating ordinary prose words.
+def technical_replacements() -> list[tuple[str, str]]:
+    pairs: set[tuple[str, str]] = set()
     for old, new in DIR_MAP.items():
         pairs.add((old + "/", new + "/"))
         pairs.add((f'"{old}"', f'"{new}"'))
         pairs.add((f"'{old}'", f"'{new}'"))
         pairs.add((f"`{old}`", f"`{new}`"))
-
     for old, new in FILE_MAP.items():
         pairs.add((old, new))
-
-    # Longer paths first prevents a directory-prefix replacement from hiding an exact path.
     return sorted(pairs, key=lambda item: len(item[0]), reverse=True)
 
 
-def update_text_references(mapping: dict[str, str]) -> int:
-    replacements = technical_replacements(mapping)
+def is_text_candidate(path: Path) -> bool:
+    return path.suffix.casefold() in TEXT_SUFFIXES or path.name in TEXT_BASENAMES
+
+
+def update_text_references() -> int:
+    replacements = technical_replacements()
     changed = 0
     for rel in tracked_files():
         path = ROOT / rel
-        if not path.is_file():
+        if not path.is_file() or not is_text_candidate(path):
             continue
         try:
             text = path.read_text(encoding="utf-8")
@@ -178,7 +167,9 @@ def update_text_references(mapping: dict[str, str]) -> int:
             continue
         original = text
         for old, new in replacements:
-            text = text.replace(old, new)
+            if old in text:
+                text = text.replace(old, new)
+        text = re.sub(r"παρτίδα-(\d+)\.md", r"batch-\1.md", text)
         if path.suffix == ".py":
             for old, new in MODULE_MAP.items():
                 text = re.sub(rf"(?m)(\bfrom\s+){re.escape(old)}(\s+import\b)", rf"\1{new}\2", text)
@@ -186,6 +177,7 @@ def update_text_references(mapping: dict[str, str]) -> int:
         if text != original:
             path.write_text(text, encoding="utf-8")
             changed += 1
+    run("git", "add", "-A")
     return changed
 
 
@@ -209,21 +201,25 @@ def write_report(mapping: dict[str, str], changed_text_files: int) -> None:
         lines += [
             "## Remaining non-ASCII paths",
             "",
-            "These paths were deliberately left unchanged because no safe semantic English mapping was defined yet.",
-            "They must be mapped in a follow-up pass; transliteration is not treated as an English-name fix.",
+            "These paths were left unchanged because no safe semantic English mapping was defined.",
+            "They must be mapped explicitly; transliteration is not treated as an English-name fix.",
             "",
         ] + [f"- `{path}`" for path in residual] + [""]
     else:
         lines += ["No tracked path contains non-ASCII characters.", ""]
     report.write_text("\n".join(lines), encoding="utf-8")
+    run("git", "add", "-A")
 
 
 def main() -> int:
     mapping = move_files()
-    changed = update_text_references(mapping)
+    changed = update_text_references()
     write_report(mapping, changed)
     residual = residual_non_ascii_paths()
-    print(f"Moved {len(mapping)} tracked paths; updated {changed} text files; residual non-ASCII paths={len(residual)}")
+    print(
+        f"Moved {len(mapping)} tracked paths; updated {changed} text files; "
+        f"residual non-ASCII paths={len(residual)}"
+    )
     return 0
 
 
