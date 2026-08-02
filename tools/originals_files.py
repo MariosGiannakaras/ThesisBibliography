@@ -5,6 +5,7 @@ from __future__ import annotations
 import csv
 import re
 import shutil
+import unicodedata
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -184,12 +185,11 @@ def repair_row_from_pdf(row: dict[str, str], info: PdfInfo) -> bool:
 
 
 def _safe_original_name(name: str) -> str:
-    cleaned = re.sub(r"[^0-9A-Za-zΑ-Ωα-ωΆ-ώ._()\- ]+", "_", name).strip(" ._")
-    if not cleaned:
-        cleaned = "πρωτότυπο.pdf"
-    if not cleaned.casefold().endswith(".pdf"):
-        cleaned += ".pdf"
-    stem = Path(cleaned).stem[:150].rstrip(" ._") or "πρωτότυπο"
+    """Return an ASCII-safe archival basename without changing the PDF bytes."""
+    stem = unicodedata.normalize("NFKD", Path(name).stem)
+    stem = stem.encode("ascii", "ignore").decode("ascii")
+    stem = re.sub(r"[^0-9A-Za-z._()\- ]+", "_", stem).strip(" ._")
+    stem = stem[:150].rstrip(" ._") or "original"
     return stem + ".pdf"
 
 
@@ -229,14 +229,15 @@ def archive_unmatched(
         return path, "παραμένει μόνιμα αρχειοθετημένο ως μη ταυτοποιημένο"
 
     identity = pdf_identity(path)
-    target = unmatched / f"{identity[:16].upper()}__{_safe_original_name(path.name)}"
+    original_name = path.name
+    target = unmatched / f"{identity[:16].upper()}__{_safe_original_name(original_name)}"
     if target.exists() and target != path:
         if pdf_identity(target) == identity:
             path.unlink()
             return None, f"αφαιρέθηκε ακριβές διπλότυπο του {target.relative_to(originals)}"
-        target = unmatched / f"{identity[:32].upper()}__{_safe_original_name(path.name)}"
+        target = unmatched / f"{identity[:32].upper()}__{_safe_original_name(original_name)}"
     shutil.move(str(path), target)
-    return target, "αρχειοθετήθηκε μόνιμα ως μη ταυτοποιημένο"
+    return target, f"αρχειοθετήθηκε μόνιμα ως μη ταυτοποιημένο (αρχικό όνομα: {original_name})"
 
 
 def _store_alternate(path: Path, source_id: str) -> tuple[Path | None, str]:
