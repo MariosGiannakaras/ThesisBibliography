@@ -1,19 +1,22 @@
-name: Automatic source import
+name: Process bibliography intake
 
 on:
   push:
     branches: [main]
     paths:
       - "new-sources/**"
+      - "new-originals/**"
   workflow_dispatch:
 
 permissions:
   contents: write
   pull-requests: write
 
+# New Markdown and new PDFs are processed by one canonical pipeline. Manual
+# originals reconciliation shares this lock so the two workflows cannot race.
 concurrency:
-  group: automatic-import
-  cancel-in-progress: true
+  group: bibliography-intake
+  cancel-in-progress: false
 
 jobs:
   process:
@@ -98,23 +101,23 @@ jobs:
       - name: Validate repository
         run: python tools/validate.py
 
-      - name: Open automatic import pull request
+      - name: Open intake pull request
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           if [ -z "$(git status --porcelain)" ]; then
-            echo "No import changes."
+            echo "No intake changes."
             exit 0
           fi
-          branch="automation/automatic-import-${GITHUB_RUN_ID}"
+          branch="automation/bibliography-intake-${GITHUB_RUN_ID}"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git switch -c "$branch"
           git add -A
-          git commit -m "chore: automatic source import and OCR conversion [skip ci]"
+          git commit -m "chore: process bibliography intake and OCR conversion [skip ci]"
           git push origin "HEAD:$branch"
-          gh pr create --base main --head "$branch" --title "chore: automatic source import and OCR conversion" --body "Automated source import, original preservation, PDF/OCR conversion, metadata refresh, and repository validation."
+          gh pr create --base main --head "$branch" --title "chore: process bibliography intake" --body "Automated intake for new Markdown and/or PDFs, original preservation, PDF/OCR conversion, metadata refresh, exact-deduplication, and repository validation."
 
       - name: Report external metadata failure
         if: steps.metadata.outcome == 'failure'
-        run: echo "Import completed, but external metadata verification should be retried."
+        run: echo "Intake completed, but external metadata verification should be retried."
