@@ -6,7 +6,7 @@ import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-TOOLS = ROOT / "εργαλεία"
+TOOLS = ROOT / "tools"
 sys.path.insert(0, str(TOOLS))
 
 
@@ -19,13 +19,13 @@ def load_script(module_name: str, filename: str):
     return module
 
 
-DUPLICATES = load_script("exact_pdf_duplicates_test", "ακριβή-διπλότυπα.py")
-CORRECTIONS = load_script("known_source_corrections_test", "γνωστές-διορθώσεις.py")
+DUPLICATES = load_script("exact_pdf_duplicates_test", "exact_duplicates.py")
+CORRECTIONS = load_script("known_source_corrections_test", "known_fixes.py")
 
 
 class SourceCorrectionTests(unittest.TestCase):
     def test_internal_session_and_degree_project_titles_are_generic(self):
-        from πρωτότυπα_κοινά import GENERIC_TITLE
+        from originals_common import GENERIC_TITLE
 
         self.assertIsNotNone(GENERIC_TITLE.search("Degree Project, 30 Credits, Spring 2024"))
         self.assertIsNotNone(
@@ -36,7 +36,7 @@ class SourceCorrectionTests(unittest.TestCase):
         self.assertIsNone(GENERIC_TITLE.search("Deep reinforcement learning in non-stationary environments"))
 
     def test_generic_title_cannot_create_source(self):
-        from πρωτότυπα_κοινά import PdfInfo, can_create_source_from_pdf
+        from originals_common import PdfInfo, can_create_source_from_pdf
 
         info = PdfInfo(
             title="Degree Project, 30 Credits, Spring 2024",

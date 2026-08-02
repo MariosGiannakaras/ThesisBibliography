@@ -6,7 +6,7 @@ from pathlib import Path
 from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1]
-TOOL = ROOT / "εργαλεία" / "μετατροπή-pdf.py"
+TOOL = ROOT / "tools" / "convert_pdf.py"
 SPEC = importlib.util.spec_from_file_location("pdf_conversion_tool", TOOL)
 MODULE = importlib.util.module_from_spec(SPEC)
 assert SPEC.loader
@@ -75,7 +75,7 @@ class PdfConversionTests(unittest.TestCase):
             original_root = MODULE.ROOT
             try:
                 MODULE.ROOT = root
-                pdf = root / "πρωτότυπα" / "SRC-ABCDEF1234.pdf"
+                pdf = root / "originals" / "SRC-ABCDEF1234.pdf"
                 pdf.parent.mkdir(parents=True)
                 pdf.write_bytes(b"%PDF-1.4\n")
                 pages = [

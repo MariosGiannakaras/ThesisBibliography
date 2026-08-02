@@ -5,11 +5,11 @@ import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-TOOLS = ROOT / "εργαλεία"
+TOOLS = ROOT / "tools"
 if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
 
-from κατάσταση_απόφασης import infer_decision  # noqa: E402
+from decision_status import infer_decision  # noqa: E402
 
 
 class DecisionStatusTests(unittest.TestCase):

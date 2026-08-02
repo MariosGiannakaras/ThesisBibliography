@@ -7,8 +7,8 @@ from pathlib import Path
 from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1]
-METADATA_PATH = ROOT / "εργαλεία" / "μεταδεδομένα.py"
-NEXT_SOURCES_PATH = ROOT / "εργαλεία" / "επόμενες-πηγές.py"
+METADATA_PATH = ROOT / "tools" / "metadata.py"
+NEXT_SOURCES_PATH = ROOT / "tools" / "next_sources.py"
 
 
 def load_module(path: Path, name: str):
