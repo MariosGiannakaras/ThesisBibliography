@@ -31,6 +31,8 @@ on:
 permissions:
   contents: write
 
+# Shared with the path-migration workflow so generated-file writes and bulk renames
+# cannot race each other on main.
 concurrency:
   group: bibliography-generated-main
   cancel-in-progress: true
