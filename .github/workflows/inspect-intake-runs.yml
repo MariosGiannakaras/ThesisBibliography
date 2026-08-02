@@ -1,0 +1,24 @@
+name: Inspect intake runs
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show recent canonical intake runs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >-
+          gh run list
+          --repo "$GITHUB_REPOSITORY"
+          --workflow automatic-import.yml
+          --branch main
+          --limit 12
+          --json databaseId,headSha,status,conclusion,createdAt,updatedAt,displayTitle,event,url
