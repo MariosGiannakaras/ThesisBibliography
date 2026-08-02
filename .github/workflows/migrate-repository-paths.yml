@@ -47,12 +47,24 @@ jobs:
           fi
           code=$?
 
+          # GitHub's workflow token cannot create/update workflow files because it
+          # does not carry the GitHub App `workflows` permission. Keep those files
+          # unchanged in the generated bulk commit; they are migrated separately
+          # on the same review branch through the authenticated GitHub connector.
+          if [ "$code" -eq 0 ]; then
+            git restore --source=origin/main --staged --worktree -- .github/workflows
+          fi
+
           if [ "$code" -eq 0 ]; then
             python - <<'PY' >> /tmp/path-migration.log 2>&1
           import subprocess
           paths = subprocess.check_output(["git", "ls-files"], text=True).splitlines()
-          residual = [p for p in paths if any(ord(ch) > 127 for ch in p)]
-          print(f"Residual non-ASCII tracked paths: {len(residual)}")
+          residual = [
+              p for p in paths
+              if not p.startswith(".github/workflows/")
+              and any(ord(ch) > 127 for ch in p)
+          ]
+          print(f"Residual non-ASCII tracked paths outside .github/workflows: {len(residual)}")
           for path in residual:
               print(path)
           raise SystemExit(1 if residual else 0)
