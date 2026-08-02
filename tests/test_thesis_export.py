@@ -1,5 +1,6 @@
 import csv
 import importlib.util
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -10,6 +11,8 @@ EXPORTER = (
     if (ROOT / "tools" / "export_thesis.py").exists()
     else ROOT / "εργαλεία" / "εξαγωγή-διπλωματικής.py"
 )
+if str(EXPORTER.parent) not in sys.path:
+    sys.path.insert(0, str(EXPORTER.parent))
 SPEC = importlib.util.spec_from_file_location("thesis_export_tool", EXPORTER)
 MODULE = importlib.util.module_from_spec(SPEC)
 assert SPEC.loader
