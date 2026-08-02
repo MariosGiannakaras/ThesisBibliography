@@ -1,20 +1,20 @@
 name: Apply convert PDF parser fix
 
 on:
-  push:
-    branches:
-      - fix/pdf-conversion-cli-parser
+  pull_request:
+    branches: [main]
 
 permissions:
   contents: write
 
 jobs:
   patch:
+    if: ${{ github.head_ref == 'fix/pdf-conversion-cli-parser' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: fix/pdf-conversion-cli-parser
+          ref: ${{ github.head_ref }}
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -27,11 +27,10 @@ jobs:
           text = source_path.read_text(encoding="utf-8")
           old = '''def main() -> int:\n    parser = argparse.ArgumentParser()\n    parser.add_argument("--όριο", "--limit", type=int, default=0)\n    parser.add_argument("--μόνο-αναφορά", "--report-only", action="store_true")\n    parser.add_argument("--εξαναγκασμός", "--force", action="store_true")\n    parser.add_argument("--γλώσσες-ocr", "--ocr-language", default="eng+ell")\n    args = parser.parse_args()\n'''
           new = '''def build_parser() -> argparse.ArgumentParser:\n    parser = argparse.ArgumentParser()\n    parser.add_argument("--όριο", "--limit", dest="limit", type=int, default=0)\n    parser.add_argument("--μόνο-αναφορά", "--report-only", dest="report_only", action="store_true")\n    parser.add_argument("--εξαναγκασμός", "--force", dest="force", action="store_true")\n    parser.add_argument("--γλώσσες-ocr", "--ocr-language", dest="ocr_language", default="eng+ell")\n    return parser\n\n\ndef main() -> int:\n    args = build_parser().parse_args()\n'''
-          if old not in text:
-              if new not in text:
-                  raise SystemExit("expected convert_pdf parser block not found")
-          else:
+          if old in text:
               source_path.write_text(text.replace(old, new, 1), encoding="utf-8")
+          elif new not in text:
+              raise SystemExit("expected convert_pdf parser block not found")
 
           test_path = Path("tests/test_pdf_conversion.py")
           tests = test_path.read_text(encoding="utf-8")
@@ -44,7 +43,7 @@ jobs:
           PY
           python -m py_compile tools/convert_pdf.py
           python -m unittest tests.test_pdf_conversion -v
-      - name: Commit parser fix
+      - name: Commit parser fix to PR branch
         run: |
           if [ -z "$(git status --porcelain tools/convert_pdf.py tests/test_pdf_conversion.py)" ]; then
             echo "Parser fix already applied."
@@ -54,4 +53,4 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add tools/convert_pdf.py tests/test_pdf_conversion.py
           git commit -m "fix: stabilize PDF conversion CLI parser aliases"
-          git push origin HEAD:fix/pdf-conversion-cli-parser
+          git push origin HEAD:${GITHUB_HEAD_REF}
