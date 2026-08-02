@@ -48,7 +48,7 @@ jobs:
       - name: Preflight repair tools
         if: steps.intake.outputs.has_input == 'true'
         run: |
-          python -m py_compile tools/known_fixes.py tools/exact_duplicates.py tools/clean_links.py tools/originals_common.py tools/finalize.py tools/convert_pdf.py
+          python -m py_compile tools/intake_preflight.py tools/known_fixes.py tools/exact_duplicates.py tools/clean_links.py tools/originals_common.py tools/finalize.py tools/convert_pdf.py
 
       - name: Apply documented fixes
         if: steps.intake.outputs.has_input == 'true'
@@ -89,8 +89,12 @@ jobs:
       - name: Validate tools and tests
         if: steps.intake.outputs.has_input == 'true'
         run: |
-          python -m py_compile tools/import_sources.py tools/metadata.py tools/fix_titles.py tools/validate.py tools/sources_common.py tools/clean_links.py tools/known_fixes.py tools/exact_duplicates.py tools/finalize.py tools/originals.py tools/originals_common.py tools/originals_downloads.py tools/originals_files.py tools/convert_pdf.py
+          python -m py_compile tools/intake_preflight.py tools/import_sources.py tools/metadata.py tools/fix_titles.py tools/validate.py tools/sources_common.py tools/clean_links.py tools/known_fixes.py tools/exact_duplicates.py tools/finalize.py tools/originals.py tools/originals_common.py tools/originals_downloads.py tools/originals_files.py tools/convert_pdf.py
           python -m unittest discover -s tests -v
+
+      - name: Preserve unresolved blank Markdown
+        if: steps.intake.outputs.has_input == 'true'
+        run: python tools/intake_preflight.py
 
       - name: Import new sources
         if: steps.intake.outputs.has_input == 'true'
