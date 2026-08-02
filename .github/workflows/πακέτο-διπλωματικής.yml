@@ -152,3 +152,5 @@ jobs:
           fi
           git pull --rebase origin main
           git push origin HEAD:main
+
+# Triggered after completing the 104/104 manual source-language verification pass.
