@@ -33,21 +33,11 @@ CATALOG_DIR = first_existing("catalog", "κατάλογος")
 SOURCES = first_existing("sources", "πηγές")
 ANALYSES = first_existing("analyses", "αναλύσεις")
 EXCERPTS = first_existing("evidence", "αποσπάσματα")
-CATALOG = (
-    CATALOG_DIR / "sources.csv"
-    if (CATALOG_DIR / "sources.csv").exists()
-    else CATALOG_DIR / "πηγές.csv"
+CATALOG = CATALOG_DIR / ("sources.csv" if (CATALOG_DIR / "sources.csv").exists() else "πηγές.csv")
+SELECTION = CATALOG_DIR / (
+    "thesis-selection.csv" if (CATALOG_DIR / "thesis-selection.csv").exists() else "επιλογή-διπλωματικής.csv"
 )
-SELECTION = (
-    CATALOG_DIR / "thesis-selection.csv"
-    if (CATALOG_DIR / "thesis-selection.csv").exists()
-    else CATALOG_DIR / "επιλογή-διπλωματικής.csv"
-)
-DEFAULT_OUTPUT = (
-    ROOT / "thesis-package"
-    if (ROOT / "thesis-package").exists()
-    else ROOT / "πακέτο-διπλωματικής"
-)
+DEFAULT_OUTPUT = ROOT / ("thesis-package" if (ROOT / "thesis-package").exists() else "πακέτο-διπλωματικής")
 
 SELECTION_FIELDS = [
     "Κωδικός",
@@ -58,14 +48,20 @@ SELECTION_FIELDS = [
     "Εξαγωγή",
     "Σημείωση",
 ]
-ALLOWED_ROLES = {"κύρια", "υποστηρικτική", "υπόβαθρο", "απόρριψη"}
-ALLOWED_STATUSES = {"προς ανάλυση", "πρόχειρη", "επαληθευμένη", "απορρίφθηκε"}
+EXPORTABLE_ROLES = {"κύρια", "υποστηρικτική", "υπόβαθρο"}
+NON_EXPORT_ROLES = {"απόρριψη", "θεωρητικό υλικό"}
+ALLOWED_ROLES = EXPORTABLE_ROLES | NON_EXPORT_ROLES
+ALLOWED_STATUSES = {
+    "προς ανάλυση",
+    "πρόχειρη",
+    "επαληθευμένη",
+    "απορρίφθηκε",
+    "ελεγμένο-μη-παραπομπή",
+}
 YES_VALUES = {"ναι", "yes", "true", "1"}
 MIN_ANALYSIS_WORDS = 150
 MIN_EXCERPT_WORDS = 120
 
-# A single template is not required. Semantic sections can use legacy Greek or
-# source-language-friendly English headings.
 ANALYSIS_HEADING_GROUPS = {
     "bibliographic identity": (
         "Βιβλιογραφική ταυτότητα",
@@ -119,14 +115,21 @@ def meaningful_word_count(text: str) -> int:
     text = re.sub(r"[`#>*_\-|:\[\]()]+", " ", text)
     words = re.findall(r"[A-Za-zΑ-Ωα-ωΆ-ώ0-9]{2,}", text)
     boilerplate = {
-        "source", "πηγή", "τίτλος", "συγγραφείς", "έτος", "σύνδεσμος",
-        "πρωτότυπο", "χρειάζεται", "έλεγχο", "μεταδεδομένα",
+        "source",
+        "πηγή",
+        "τίτλος",
+        "συγγραφείς",
+        "έτος",
+        "σύνδεσμος",
+        "πρωτότυπο",
+        "χρειάζεται",
+        "έλεγχο",
+        "μεταδεδομένα",
     }
     return sum(word.casefold() not in boilerplate for word in words)
 
 
 def markdown_label_values(text: str, *labels: str) -> list[str]:
-    """Read either `- **Location:** value` or legacy `- Location: value` labels."""
     values: list[str] = []
     for label in labels:
         pattern = re.compile(
@@ -158,24 +161,17 @@ def has_evidence_block(text: str) -> bool:
 
 def evidence_verified(text: str) -> bool:
     normalized = normalize(text)
-    return (
-        "κατάσταση: επαληθευμένο" in normalized
-        or "status: verified" in normalized
-    )
+    return "κατάσταση: επαληθευμένο" in normalized or "status: verified" in normalized
 
 
 def evidence_original_checked(text: str) -> bool:
     normalized = normalize(text)
-    return (
-        "ελεγχθέν-πρωτότυπο: ναι" in normalized
-        or "original-checked: yes" in normalized
-    )
+    return "ελεγχθέν-πρωτότυπο: ναι" in normalized or "original-checked: yes" in normalized
 
 
 def source_language_error(source_text: str, evidence_text: str) -> str | None:
     source_lang, _, _ = classify(source_text)
     evidence_lang, _, _ = classify(evidence_text)
-
     if source_lang in {"unknown", "mixed"}:
         return f"η γλώσσα της πηγής απαιτεί manual provenance review ({source_lang})"
     if evidence_lang in {"unknown", "mixed"}:
@@ -242,13 +238,17 @@ def validate() -> tuple[list[str], list[dict[str, str]], dict[str, dict[str, str
         if status and status not in ALLOWED_STATUSES:
             errors.append(f"{source_id}: μη αποδεκτή κατάσταση «{row.get('Κατάσταση', '')}»")
 
+        if role == "θεωρητικό υλικό" and status != "ελεγμένο-μη-παραπομπή":
+            errors.append(f"{source_id}: theory-only υλικό απαιτεί κατάσταση «ελεγμένο-μη-παραπομπή»")
+        if status == "ελεγμένο-μη-παραπομπή" and role != "θεωρητικό υλικό":
+            errors.append(f"{source_id}: η κατάσταση «ελεγμένο-μη-παραπομπή» απαιτεί ρόλο «θεωρητικό υλικό»")
+
         if not is_exported(row):
             continue
+
         exported.append(row)
-        if role not in ALLOWED_ROLES:
-            errors.append(f"{source_id}: απαιτείται έγκυρος ρόλος πριν από την εξαγωγή")
-        elif role == "απόρριψη":
-            errors.append(f"{source_id}: πηγή με ρόλο απόρριψης δεν μπορεί να εξαχθεί")
+        if role not in EXPORTABLE_ROLES:
+            errors.append(f"{source_id}: μόνο citation roles μπορούν να εξαχθούν")
         if status != "επαληθευμένη":
             errors.append(f"{source_id}: εξαγωγή επιτρέπεται μόνο με κατάσταση «επαληθευμένη»")
 
@@ -269,8 +269,11 @@ def validate() -> tuple[list[str], list[dict[str, str]], dict[str, dict[str, str
         else:
             analysis_text = analysis_path.read_text(encoding="utf-8", errors="replace")
             decision = infer_decision(analysis_text)
-            if decision == "rejected":
-                errors.append(f"{source_id}: η canonical ανάλυση δηλώνει απόρριψη αλλά το registry ζητά εξαγωγή")
+            if decision != "selected":
+                errors.append(
+                    f"{source_id}: η canonical ανάλυση δεν δηλώνει citation-selected απόφαση "
+                    f"(decision={decision})"
+                )
             for group, aliases in ANALYSIS_HEADING_GROUPS.items():
                 if not has_heading(analysis_text, aliases):
                     errors.append(f"{source_id}: λείπει σημασιολογική ενότητα ανάλυσης για «{group}»")
@@ -315,8 +318,6 @@ def validate() -> tuple[list[str], list[dict[str, str]], dict[str, dict[str, str
             if language_error:
                 errors.append(f"{source_id}: {language_error}")
 
-        # Primary-source verification may be declared in either the analysis or the
-        # citation-ready evidence. A duplicate marker is not required.
         if analysis_text and excerpt_text:
             if not analysis_original_checked(analysis_text) and not evidence_original_checked(excerpt_text):
                 errors.append(f"{source_id}: δεν δηλώνεται έλεγχος πρωτοτύπου σε analysis ή evidence")
