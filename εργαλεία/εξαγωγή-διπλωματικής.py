@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Ελέγχει και δημιουργεί το ελεγχόμενο πακέτο προς το κύριο repository."""
+"""Validate and build the controlled bibliography package for the thesis repository.
+
+Scientific content is never translated here. Structural metadata may use the legacy
+Greek labels or the newer English labels, but citation-ready evidence must preserve
+the language of the checked source.
+"""
 from __future__ import annotations
 
 import argparse
@@ -11,13 +16,38 @@ import sys
 from pathlib import Path
 
 from κατάσταση_απόφασης import analysis_original_checked, infer_decision
+from language_audit import classify
 
 ROOT = Path(__file__).resolve().parents[1]
-CATALOG = ROOT / "κατάλογος" / "πηγές.csv"
-SELECTION = ROOT / "κατάλογος" / "επιλογή-διπλωματικής.csv"
-ANALYSES = ROOT / "αναλύσεις"
-EXCERPTS = ROOT / "αποσπάσματα"
-DEFAULT_OUTPUT = ROOT / "πακέτο-διπλωματικής"
+
+
+def first_existing(*candidates: str) -> Path:
+    for candidate in candidates:
+        path = ROOT / candidate
+        if path.exists():
+            return path
+    return ROOT / candidates[0]
+
+
+CATALOG_DIR = first_existing("catalog", "κατάλογος")
+SOURCES = first_existing("sources", "πηγές")
+ANALYSES = first_existing("analyses", "αναλύσεις")
+EXCERPTS = first_existing("evidence", "αποσπάσματα")
+CATALOG = (
+    CATALOG_DIR / "sources.csv"
+    if (CATALOG_DIR / "sources.csv").exists()
+    else CATALOG_DIR / "πηγές.csv"
+)
+SELECTION = (
+    CATALOG_DIR / "thesis-selection.csv"
+    if (CATALOG_DIR / "thesis-selection.csv").exists()
+    else CATALOG_DIR / "επιλογή-διπλωματικής.csv"
+)
+DEFAULT_OUTPUT = (
+    ROOT / "thesis-package"
+    if (ROOT / "thesis-package").exists()
+    else ROOT / "πακέτο-διπλωματικής"
+)
 
 SELECTION_FIELDS = [
     "Κωδικός",
@@ -34,25 +64,44 @@ YES_VALUES = {"ναι", "yes", "true", "1"}
 MIN_ANALYSIS_WORDS = 150
 MIN_EXCERPT_WORDS = 120
 
-# Δεν απαιτείται ένα μοναδικό template. Απαιτούνται όμως οι βασικές σημασιολογικές
-# ενότητες, με aliases που χρησιμοποιούνται ήδη στις canonical αναλύσεις.
+# A single template is not required. Semantic sections can use legacy Greek or
+# source-language-friendly English headings.
 ANALYSIS_HEADING_GROUPS = {
-    "βιβλιογραφική ταυτότητα": (
-        "Βιβλιογραφική ταυτότητα", "Ταυτότητα", "Βιβλιογραφικά στοιχεία",
+    "bibliographic identity": (
+        "Βιβλιογραφική ταυτότητα",
+        "Ταυτότητα",
+        "Βιβλιογραφικά στοιχεία",
+        "Bibliographic identity",
+        "Bibliographic details",
+        "Source identity",
     ),
-    "περιορισμοί": (
-        "Περιορισμοί", "Περιορισμοί και απειλές εγκυρότητας", "Limitations",
+    "limitations": (
+        "Περιορισμοί",
+        "Περιορισμοί και απειλές εγκυρότητας",
+        "Limitations",
+        "Limitations and threats to validity",
+        "Threats to validity",
     ),
-    "χρήση στη διπλωματική": (
-        "Χρήση στη διπλωματική", "Σχέση με τη διπλωματική", "Συνάφεια με τη διπλωματική",
-        "Συνάφεια", "Εφαρμογή στη διπλωματική", "Εφαρμογή στη διπλωματική εργασία",
+    "thesis use": (
+        "Χρήση στη διπλωματική",
+        "Σχέση με τη διπλωματική",
+        "Συνάφεια με τη διπλωματική",
+        "Συνάφεια",
+        "Εφαρμογή στη διπλωματική",
+        "Εφαρμογή στη διπλωματική εργασία",
+        "Thesis use",
+        "Use in thesis",
+        "Relevance to thesis",
+        "Thesis relevance",
     ),
 }
 POSITION_PLACEHOLDERS = {
     "σελίδα, ενότητα, πίνακας, σχήμα ή χρονική σήμανση",
+    "page, section, table, figure, or timestamp",
 }
 CLAIM_PLACEHOLDERS = {
     "ποια ακριβώς πρόταση της διπλωματικής υποστηρίζει",
+    "the exact thesis claim supported by this evidence",
 }
 
 
@@ -71,12 +120,15 @@ def meaningful_word_count(text: str) -> int:
     return sum(word.casefold() not in boilerplate for word in words)
 
 
-def markdown_label_values(text: str, label: str) -> list[str]:
-    pattern = re.compile(
-        rf"^\s*-\s*\*\*{re.escape(label)}:\*\*\s*(.*?)\s*$",
-        re.IGNORECASE | re.MULTILINE,
-    )
-    return [match.group(1).strip() for match in pattern.finditer(text)]
+def markdown_label_values(text: str, *labels: str) -> list[str]:
+    values: list[str] = []
+    for label in labels:
+        pattern = re.compile(
+            rf"^\s*-\s*\*\*{re.escape(label)}:\*\*\s*(.*?)\s*$",
+            re.IGNORECASE | re.MULTILINE,
+        )
+        values.extend(match.group(1).strip() for match in pattern.finditer(text))
+    return values
 
 
 def has_heading(text: str, aliases: tuple[str, ...]) -> bool:
@@ -87,6 +139,47 @@ def has_heading(text: str, aliases: tuple[str, ...]) -> bool:
             if heading == target or heading.startswith(target + " ") or target in heading:
                 return True
     return False
+
+
+def has_evidence_block(text: str) -> bool:
+    return bool(
+        re.search(
+            r"(?im)^##\s+(?:Τεκμήριο(?:\s+E?\d+)?\b|Evidence(?:\s+E?\d+)?\b|E\d+\b)",
+            text,
+        )
+    )
+
+
+def evidence_verified(text: str) -> bool:
+    normalized = normalize(text)
+    return (
+        "κατάσταση: επαληθευμένο" in normalized
+        or "status: verified" in normalized
+    )
+
+
+def evidence_original_checked(text: str) -> bool:
+    normalized = normalize(text)
+    return (
+        "ελεγχθέν-πρωτότυπο: ναι" in normalized
+        or "original-checked: yes" in normalized
+    )
+
+
+def source_language_error(source_text: str, evidence_text: str) -> str | None:
+    source_lang, _, _ = classify(source_text)
+    evidence_lang, _, _ = classify(evidence_text)
+
+    if source_lang in {"unknown", "mixed"}:
+        return f"η γλώσσα της πηγής απαιτεί manual provenance review ({source_lang})"
+    if evidence_lang in {"unknown", "mixed"}:
+        return f"η γλώσσα του citation-ready evidence απαιτεί manual review ({evidence_lang})"
+    if source_lang != evidence_lang:
+        return (
+            "το citation-ready evidence δεν διατηρεί τη γλώσσα της πηγής "
+            f"(source={source_lang}, evidence={evidence_lang})"
+        )
+    return None
 
 
 def read_csv(path: Path) -> tuple[list[str], list[dict[str, str]]]:
@@ -101,7 +194,7 @@ def repository_commit() -> str:
             ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True, stderr=subprocess.DEVNULL
         ).strip()
     except (OSError, subprocess.CalledProcessError):
-        return "άγνωστο"
+        return "unknown"
 
 
 def is_exported(row: dict[str, str]) -> bool:
@@ -153,10 +246,17 @@ def validate() -> tuple[list[str], list[dict[str, str]], dict[str, dict[str, str
         if status != "επαληθευμένη":
             errors.append(f"{source_id}: εξαγωγή επιτρέπεται μόνο με κατάσταση «επαληθευμένη»")
 
+        source_path = SOURCES / f"{source_id}.md"
         analysis_path = ANALYSES / f"{source_id}.md"
         excerpt_path = EXCERPTS / f"{source_id}.md"
+        source_text = ""
         analysis_text = ""
         excerpt_text = ""
+
+        if not source_path.exists():
+            errors.append(f"{source_id}: λείπει το canonical source Markdown για language verification")
+        else:
+            source_text = source_path.read_text(encoding="utf-8", errors="replace")
 
         if not analysis_path.exists():
             errors.append(f"{source_id}: λείπει η δομημένη ανάλυση")
@@ -176,39 +276,42 @@ def validate() -> tuple[list[str], list[dict[str, str]], dict[str, dict[str, str
                 )
 
         if not excerpt_path.exists():
-            errors.append(f"{source_id}: λείπει το αρχείο επαληθευμένων αποσπασμάτων")
+            errors.append(f"{source_id}: λείπει το αρχείο επαληθευμένων evidence")
         else:
             excerpt_text = excerpt_path.read_text(encoding="utf-8", errors="replace")
-            excerpt_normalized = normalize(excerpt_text)
-            positions = markdown_label_values(excerpt_text, "Θέση")
-            claims = markdown_label_values(excerpt_text, "Ισχυρισμός")
-            if "κατάσταση: επαληθευμένο" not in excerpt_normalized:
-                errors.append(f"{source_id}: τα αποσπάσματα δεν δηλώνουν επαληθευμένη κατάσταση")
-            if "ελεγχθέν-πρωτότυπο: ναι" not in excerpt_normalized:
-                errors.append(f"{source_id}: τα αποσπάσματα δεν δηλώνουν ότι ελέγχθηκε το πρωτότυπο")
-            if "## Τεκμήριο" not in excerpt_text:
-                errors.append(f"{source_id}: λείπει δομημένη ενότητα τεκμηρίου")
+            positions = markdown_label_values(excerpt_text, "Θέση", "Location")
+            claims = markdown_label_values(excerpt_text, "Ισχυρισμός", "Claim")
+            if not evidence_verified(excerpt_text):
+                errors.append(f"{source_id}: το evidence δεν δηλώνει verified status")
+            if not evidence_original_checked(excerpt_text):
+                errors.append(f"{source_id}: το evidence δεν δηλώνει ότι ελέγχθηκε το πρωτότυπο")
+            if not has_evidence_block(excerpt_text):
+                errors.append(f"{source_id}: λείπει δομημένη ενότητα evidence (Τεκμήριο/Evidence/E#)")
             if not positions or any(
-                not value or value.lower() in POSITION_PLACEHOLDERS for value in positions
+                not value or normalize(value) in POSITION_PLACEHOLDERS for value in positions
             ):
-                errors.append(f"{source_id}: λείπει πραγματική ακριβής θέση στα αποσπάσματα")
+                errors.append(f"{source_id}: λείπει πραγματική ακριβής θέση στο evidence")
             if not claims or any(
-                not value or value.lower() in CLAIM_PLACEHOLDERS for value in claims
+                not value or normalize(value) in CLAIM_PLACEHOLDERS for value in claims
             ):
                 errors.append(f"{source_id}: λείπει πραγματικός ισχυρισμός που υποστηρίζεται")
             excerpt_words = meaningful_word_count(excerpt_text)
             if excerpt_words < MIN_EXCERPT_WORDS:
                 errors.append(
-                    f"{source_id}: τα αποσπάσματα δεν έχουν αρκετό ουσιαστικό περιεχόμενο "
+                    f"{source_id}: το evidence δεν έχει αρκετό ουσιαστικό περιεχόμενο "
                     f"({excerpt_words}/{MIN_EXCERPT_WORDS} λέξεις)"
                 )
 
-        # Η πρωτογενής επαλήθευση μπορεί να δηλώνεται είτε στην ανάλυση είτε στο
-        # citation-ready excerpt. Δεν απαιτούμε διπλό marker αν το evidence file είναι verified.
+        if source_text and excerpt_text:
+            language_error = source_language_error(source_text, excerpt_text)
+            if language_error:
+                errors.append(f"{source_id}: {language_error}")
+
+        # Primary-source verification may be declared in either the analysis or the
+        # citation-ready evidence. A duplicate marker is not required.
         if analysis_text and excerpt_text:
-            excerpt_checked = "ελεγχθέν-πρωτότυπο: ναι" in normalize(excerpt_text)
-            if not analysis_original_checked(analysis_text) and not excerpt_checked:
-                errors.append(f"{source_id}: δεν δηλώνεται έλεγχος πρωτοτύπου σε analysis ή excerpts")
+            if not analysis_original_checked(analysis_text) and not evidence_original_checked(excerpt_text):
+                errors.append(f"{source_id}: δεν δηλώνεται έλεγχος πρωτοτύπου σε analysis ή evidence")
 
     return errors, exported, catalog, catalog_fields
 
@@ -221,9 +324,9 @@ def write_package(
 ) -> None:
     if output.exists():
         shutil.rmtree(output)
-    (output / "αναλύσεις").mkdir(parents=True)
-    (output / "αποσπάσματα").mkdir(parents=True)
-    (output / "κατάλογος").mkdir(parents=True)
+    (output / "analyses").mkdir(parents=True)
+    (output / "evidence").mkdir(parents=True)
+    (output / "catalog").mkdir(parents=True)
 
     commit = repository_commit()
     manifest_fields = SELECTION_FIELDS + ["Τίτλος", "Σύνδεσμος", "Commit βιβλιογραφίας"]
@@ -233,8 +336,8 @@ def write_package(
     for row in sorted(exported, key=lambda item: item["Κωδικός"]):
         source_id = row["Κωδικός"].strip()
         source = catalog[source_id]
-        shutil.copy2(ANALYSES / f"{source_id}.md", output / "αναλύσεις" / f"{source_id}.md")
-        shutil.copy2(EXCERPTS / f"{source_id}.md", output / "αποσπάσματα" / f"{source_id}.md")
+        shutil.copy2(ANALYSES / f"{source_id}.md", output / "analyses" / f"{source_id}.md")
+        shutil.copy2(EXCERPTS / f"{source_id}.md", output / "evidence" / f"{source_id}.md")
         selected_catalog_rows.append(source)
         manifest_rows.append(
             {
@@ -250,7 +353,7 @@ def write_package(
         writer.writeheader()
         writer.writerows(manifest_rows)
 
-    with (output / "κατάλογος" / "πηγές.csv").open("w", encoding="utf-8", newline="") as handle:
+    with (output / "catalog" / "sources.csv").open("w", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=catalog_fields, lineterminator="\n")
         writer.writeheader()
         writer.writerows(selected_catalog_rows)
@@ -260,10 +363,10 @@ def write_package(
         "# Επαληθευμένο πακέτο διπλωματικής\n\n"
         f"- Επιλεγμένες πηγές: **{len(exported)}**\n"
         f"- Commit `ThesisBibliography`: `{commit}`\n\n"
-        "Το πακέτο δημιουργείται αποκλειστικά από το μητρώο "
-        "`κατάλογος/επιλογή-διπλωματικής.csv`. Περιλαμβάνει μόνο επαληθευμένες "
-        "αναλύσεις και αποσπάσματα. Δεν περιλαμβάνει PDF, ακατέργαστες μεταγραφές "
-        "ή μη ελεγμένες σημειώσεις.\n",
+        "Το πακέτο δημιουργείται αποκλειστικά από το canonical thesis-selection registry. "
+        "Περιλαμβάνει μόνο επαληθευμένες αναλύσεις και citation-ready evidence στη γλώσσα "
+        "της αντίστοιχης πηγής. Δεν περιλαμβάνει PDF, ακατέργαστες μεταγραφές, αυτόματες "
+        "μεταφράσεις ή μη ελεγμένες σημειώσεις.\n",
         encoding="utf-8",
     )
 
