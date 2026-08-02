@@ -11,7 +11,18 @@ ROOT = Path(__file__).resolve().parents[1]
 NON_ASCII_RE = re.compile(r"[^\x00-\x7F]")
 TEXT_SUFFIXES = {".md", ".py", ".yml", ".yaml", ".csv", ".json", ".txt", ".toml", ".ini", ".cfg", ".sh"}
 ROOT_TEXT_NAMES = {"README.md", "LANGUAGE_POLICY.md", "SOURCE_ARCHIVE.md", "USEFUL_EVIDENCE.md", ".gitignore", ".gitattributes"}
-REWRITE_TOP_LEVEL = {".github", "tools", "tests", "catalog", "templates", "sync", "thesis-package"}
+REWRITE_TOP_LEVEL = {
+    ".github",
+    "tools",
+    "tests",
+    "catalog",
+    "templates",
+    "sync",
+    "thesis-package",
+    "originals",
+    "new-originals",
+    "conversion",
+}
 
 DIR_MAP = {
     "πηγές": "sources",
