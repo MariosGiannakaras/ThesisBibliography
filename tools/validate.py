@@ -5,6 +5,7 @@ from __future__ import annotations
 import csv
 import hashlib
 import re
+import subprocess
 from collections import defaultdict
 from pathlib import Path
 
@@ -69,6 +70,33 @@ def pdf_identity(path: Path) -> str:
     if lfs:
         return lfs.group(1).decode("ascii").lower()
     return sha256(path)
+
+
+def validate_repository_paths(errors: list[str]) -> None:
+    """Keep canonical tracked/worktree paths ASCII-safe after each intake run."""
+    try:
+        tracked = subprocess.check_output(
+            ["git", "ls-files"], cwd=ROOT, text=True, stderr=subprocess.DEVNULL
+        ).splitlines()
+    except (OSError, subprocess.CalledProcessError):
+        tracked = [
+            path.relative_to(ROOT).as_posix()
+            for path in ROOT.rglob("*")
+            if path.is_file() and ".git" not in path.parts
+        ]
+
+    # During an intake run, an uploaded non-ASCII file can already be deleted from
+    # the worktree but still be present in the Git index until the generated PR is
+    # staged. Ignore those deleted intake paths; validate the resulting worktree.
+    residual = sorted(
+        relative for relative in tracked
+        if (ROOT / relative).exists() and any(ord(char) > 127 for char in relative)
+    )
+    if residual:
+        errors.append(
+            "Υπάρχουν μη ASCII tracked paths μετά την επεξεργασία intake: "
+            + ", ".join(residual[:10])
+        )
 
 
 def read_catalog(errors: list[str]) -> list[dict[str, str]]:
@@ -212,6 +240,7 @@ def validate_analysis_assets(catalog_ids: set[str], errors: list[str]) -> None:
 
 def main() -> int:
     errors: list[str] = []
+    validate_repository_paths(errors)
     rows = read_catalog(errors)
     catalog_ids = validate_sources(rows, errors)
     validate_originals(catalog_ids, errors)
