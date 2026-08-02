@@ -6,7 +6,15 @@
 
 Το `ThesisBibliography` είναι η μοναδική πηγή αλήθειας για τη βιβλιογραφία. Εδώ διατηρούνται τα πρωτότυπα, τα μεταδεδομένα, οι πλήρεις πηγές Markdown, οι κριτικές αναλύσεις και τα επαληθευμένα αποσπάσματα.
 
-Το `resilient-ai-agents-thesis` δεν αντιγράφει ολόκληρη τη συλλογή. Λαμβάνει μόνο το ελεγχόμενο `thesis-package/` με επιλεγμένες και επαληθευμένες πηγές.
+Το `resilient-ai-agents-thesis` δεν αντιγράφει ολόκληρη τη συλλογή. Όταν γίνει η μεταγενέστερη integration από την πλευρά του κύριου repository, θα καταναλώσει μόνο το ελεγχόμενο `thesis-package/` με επιλεγμένες και επαληθευμένες πηγές. Η ολοκλήρωση και η συντήρηση του παρόντος repository δεν εξαρτάται από το αν έχει ήδη γίνει αυτή η consumer-side integration.
+
+---
+
+## Ολοκληρωμένο baseline
+
+Η υπάρχουσα συλλογή έχει ολοκληρωθεί επιστημονικά: όλες οι τρέχουσες ενεργές πηγές έχουν οριστική απόφαση και δεν υπάρχει εκκρεμής επιστημονική ανάλυση. Η canonical κατάσταση παράγεται στα `catalog/analysis-status.md` και `catalog/analysis-status.csv`.
+
+Το repository παραμένει **ανοιχτό σε νέα intake**. Η προσθήκη νέας πηγής ή νέου πρωτοτύπου μπορεί φυσιολογικά να δημιουργήσει νέα προς-ανάλυση εγγραφή χωρίς να αναιρεί την ολοκλήρωση του σημερινού baseline.
 
 ---
 
@@ -25,7 +33,7 @@
 
 ---
 
-## 1. Προσθήκη νέων πηγών
+## 1. Canonical intake νέων πηγών
 
 Αντέγραψε Markdown, exports του NotebookLM ή συνοδευτικά αρχεία στο:
 
@@ -33,7 +41,15 @@
 new-sources/
 ```
 
-και κάνε commit/push. Ο αυτοματισμός:
+και/ή PDF οποιασδήποτε ονομασίας στο:
+
+```text
+new-originals/
+```
+
+και κάνε commit/push. Και οι δύο φάκελοι τροφοδοτούν **μία κοινή intake διαδικασία**, ώστε ένα commit με Markdown και PDF να μην ξεκινά δύο ανταγωνιστικά write workflows.
+
+Η intake διαδικασία:
 
 1. εισάγει τις πραγματικές πηγές,
 2. αγνοεί προσωρινά audits και reports,
@@ -42,17 +58,14 @@ new-sources/
 5. συγχωνεύει μόνο βέβαια διπλότυπα,
 6. ενημερώνει τους καταλόγους,
 7. συνδέει ή αναζητά νόμιμα διαθέσιμα πρωτότυπα,
-8. εφαρμόζει την τελική πολιτική διατήρησης περιεχομένου.
+8. εκτελεί OCR/μετατροπή όπου απαιτείται,
+9. εφαρμόζει την τελική πολιτική διατήρησης περιεχομένου,
+10. εκτελεί το πλήρες test/validation suite,
+11. ανοίγει generated Pull Request αντί να γράφει απευθείας στο `main`.
 
 ---
 
-## 2. Προσθήκη PDF
-
-Βάλε PDF οποιασδήποτε ονομασίας προσωρινά στο:
-
-```text
-new-originals/
-```
+## 2. Προσθήκη και διατήρηση PDF
 
 Ο αυτοματισμός δοκιμάζει:
 
@@ -67,11 +80,13 @@ new-originals/
 originals/SRC-XXXXXXXXXX.pdf
 ```
 
-Αν δεν υπάρχει ακόμη ασφαλής αντιστοίχιση, το PDF διατηρείται ως:
+Αν δεν υπάρχει ακόμη ασφαλής αντιστοίχιση, το PDF διατηρείται byte-for-byte σε ASCII-safe canonical path:
 
 ```text
-originals/unidentified/<SHA256>__<αρχικό-όνομα>.pdf
+originals/unidentified/<SHA-prefix>__<ascii-safe-name>.pdf
 ```
+
+Η αρχική ονομασία του upload καταγράφεται στην αναφορά αρχειοθέτησης. Έτσι μπορεί να εισαχθεί αρχείο με οποιοδήποτε Unicode όνομα χωρίς να επανεισάγει μη-ASCII paths στη μόνιμη δομή.
 
 Όταν αργότερα προστεθεί κατάλληλο Markdown ή ισχυρότερα μεταδεδομένα, τα μη ταυτοποιημένα PDF επανεξετάζονται και συνδέονται αυτόματα όπου είναι ασφαλές. Τα PDF παρακολουθούνται από Git LFS. YouTube, ιστοσελίδες και repositories αποθηκεύονται ως μικρά αρχεία `.url`. Paywalls, CAPTCHA και login δεν παρακάμπτονται.
 
@@ -81,7 +96,7 @@ originals/unidentified/<SHA256>__<αρχικό-όνομα>.pdf
 
 Η ύπαρξη PDF ή πλήρους Markdown δεν σημαίνει ότι η πηγή έχει αναλυθεί.
 
-Για κάθε πηγή δημιουργείται σταδιακά:
+Για κάθε πηγή δημιουργείται:
 
 ```text
 analyses/SRC-XXXXXXXXXX.md
@@ -111,7 +126,7 @@ catalog/analysis-status.csv
 
 ## 4. Επαληθευμένα αποσπάσματα
 
-Για κάθε αναλυμένη πηγή δημιουργείται:
+Για κάθε citation-ready πηγή δημιουργείται:
 
 ```text
 evidence/SRC-XXXXXXXXXX.md
@@ -126,7 +141,7 @@ evidence/SRC-XXXXXXXXXX.md
 - προτεινόμενο κεφάλαιο,
 - κατάσταση επαλήθευσης.
 
-Οι παλαιότερες αυτόματες επιλογές είναι πρόχειρο υλικό και δεν εξάγονται μέχρι να ελεγχθούν στο πλήρες κείμενο. Χρησιμοποίησε το `templates/source-evidence.md`.
+Το citation-ready evidence διατηρεί τη γλώσσα της ελεγμένης πηγής. Χρησιμοποίησε το `templates/source-evidence.md`.
 
 ---
 
@@ -169,7 +184,7 @@ thesis-package/
 
 Δεν περιλαμβάνει PDF, Git LFS objects, ακατέργαστες μεταγραφές, πρόχειρες αναλύσεις ή μη επιλεγμένες πηγές.
 
-Η σύνδεση των repositories περιγράφεται στο `sync/README.md`. Ο συγχρονισμός γίνεται pull-based, καρφιτσωμένος σε συγκεκριμένο commit και μέσω Pull Request στο κύριο repository.
+Η σύνδεση των repositories περιγράφεται στο `sync/README.md`. Η μελλοντική integration είναι pull-based, καρφιτσωμένη σε συγκεκριμένο source commit και ολοκληρώνεται μέσω Pull Request στο κύριο repository. Δεν υπάρχει push από το `ThesisBibliography` προς το thesis repo.
 
 ---
 
@@ -177,26 +192,28 @@ thesis-package/
 
 ```text
 .
-├── sources/                         # πλήρες Markdown ανά ενεργή πηγή
-├── originals/                     # PDF μέσω Git LFS ή .url
-│   └── unidentified/          # μόνιμη αρχειοθήκη PDF χωρίς ασφαλή αντιστοίχιση
-├── analyses/                     # κριτική δομημένη ανάλυση
-├── evidence/                   # τεκμήρια και παραφράσεις
-├── templates/                       # πρότυπα ανάλυσης και αποσπασμάτων
+├── sources/                    # πλήρες Markdown ανά ενεργή πηγή
+├── originals/                  # PDF μέσω Git LFS ή .url
+│   └── unidentified/           # μόνιμη ASCII-safe αρχειοθήκη μη ταυτοποιημένων PDF
+├── analyses/                   # κριτική δομημένη ανάλυση
+├── evidence/                   # citation-ready τεκμήρια
+├── templates/                  # πρότυπα ανάλυσης και evidence
 ├── catalog/
 │   ├── sources.csv
 │   ├── sources.md
 │   ├── originals.csv
 │   ├── originals.md
+│   ├── conversion-status.csv
+│   ├── conversion-status.md
 │   ├── analysis-status.csv
 │   ├── analysis-status.md
 │   ├── thesis-selection.csv
 │   └── thesis-selection.md
-├── thesis-package/           # generated, μόνο επαληθευμένο υλικό
-├── sync/                  # συμβόλαιο και prompt κύριου repo
-├── new-sources/                    # προσωρινά εισερχόμενα Markdown
-├── new-originals/                 # προσωρινά εισερχόμενα PDF
-└── tools/                      # αυτοματισμοί και validations
+├── thesis-package/             # generated, μόνο επαληθευμένο υλικό
+├── sync/                       # consumer integration contract
+├── new-sources/                # προσωρινά εισερχόμενα Markdown
+├── new-originals/              # προσωρινά εισερχόμενα PDF
+└── tools/                       # αυτοματισμοί και validations
 ```
 
 ---
@@ -205,11 +222,14 @@ thesis-package/
 
 | Αυτοματισμός | Ρόλος |
 |---|---|
-| **Αυτόματη εισαγωγή πηγών** | εισαγωγή, μεταδεδομένα, καθαρισμός και πρώτη σύνδεση πρωτοτύπων |
-| **Ενημέρωση πρωτοτύπων** | αντιστοίχιση εισερχόμενων PDF, μόνιμη αρχειοθέτηση μη ταυτοποιημένων και απο-διπλοποίηση ακριβών αντιγράφων |
-| **Πακέτο διπλωματικής** | ενημέρωση ουράς αναλύσεων και παραγωγή ελεγχόμενου πακέτου |
-| **Ενημέρωση μεταδεδομένων** | επανέλεγχος βιβλιογραφικών στοιχείων |
-| **Έλεγχος αποθετηρίου** | syntax, tests, δομή, migrations και ασφάλεια εξαγωγής |
+| **Process bibliography intake** | μοναδική αυτόματη είσοδος για νέα Markdown και/ή PDF, metadata, originals, OCR, deduplication και validation |
+| **Reconcile originals** | χειροκίνητο maintenance/retry της υπάρχουσας συλλογής πρωτοτύπων· δεν ανταγωνίζεται το intake |
+| **Thesis package** | παραγωγή/ανανέωση του ελεγχόμενου export package μέσω PR |
+| **Update metadata** | επανέλεγχος βιβλιογραφικών στοιχείων μέσω PR |
+| **Update aggregates** | ανανέωση generated συγκεντρωτικών views μέσω PR |
+| **Validate bibliography repository** | syntax, tests, δομή, exact-duplicate policy, selection και export safety |
+
+Οι one-time path-migration και legacy enrichment workflows έχουν αποσυρθεί μετά την ολοκλήρωση της migration. Το `catalog/path-migration-report.md` παραμένει μόνο ως ιστορικό audit record.
 
 ---
 
@@ -223,6 +243,7 @@ python tools/import_sources.py
 python tools/metadata.py
 python tools/clean_links.py
 python tools/originals.py --download --limit 30
+python tools/convert_pdf.py
 python tools/analysis_status.py
 python tools/export_thesis.py --validate-only
 python tools/export_thesis.py
