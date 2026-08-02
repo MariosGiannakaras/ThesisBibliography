@@ -29,23 +29,13 @@ jobs:
           python-version: "3.12"
 
       - name: Run non-destructive source-language audit
-        run: |
-          if [ -f tools/language_audit.py ]; then
-            python tools/language_audit.py
-          else
-            python εργαλεία/language_audit.py
-          fi
+        run: python tools/language_audit.py
 
       - name: Commit audit report
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if [ -f catalog/language-audit.md ]; then
-            git add catalog/language-audit.md
-          fi
-          if [ -f κατάλογος/language-audit.md ]; then
-            git add κατάλογος/language-audit.md
-          fi
+          git add catalog/language-audit.md
           if git diff --cached --quiet; then
             echo "Language audit report unchanged."
             exit 0
