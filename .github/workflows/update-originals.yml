@@ -44,7 +44,7 @@ jobs:
       - name: Apply documented fixes
         run: python tools/known_fixes.py
 
-      - name: Merge exact duplicate PDFs
+      - name: Prune pre-existing exact duplicate PDF files
         run: python tools/exact_duplicates.py
 
       - name: Pull only required LFS PDFs
@@ -108,6 +108,9 @@ jobs:
         env:
           LIMIT: ${{ inputs.limit || '0' }}
         run: python tools/originals.py --download --limit "$LIMIT" --retry
+
+      - name: Prune exact PDF copies created during matching or download
+        run: python tools/exact_duplicates.py
 
       - name: Convert PDFs with OCR
         run: python tools/convert_pdf.py
