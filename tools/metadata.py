@@ -20,7 +20,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG_CSV = ROOT / "catalog" / "sources.csv"
 SOURCES = ROOT / "sources"
-NEXT = ROOT / "catalog" / "προς-προσθήκη.md"
+NEXT = ROOT / "catalog" / "next-sources.md"
 
 FIELDS = [
     "Κωδικός", "Τίτλος", "Συγγραφείς", "Έτος", "Σύνδεσμος",
