@@ -1,46 +1,35 @@
 #!/usr/bin/env python3
-"""Συγχωνεύει πηγές μόνο όταν το πρωτεύον PDF είναι ακριβώς το ίδιο.
+"""Remove only redundant exact PDF copies while preserving source records.
 
-Λειτουργεί τόσο σε κανονικά PDF όσο και σε Git LFS pointer files. Δεν
-χρησιμοποιεί τίτλο ή ομοιότητα ως απόδειξη ταυτότητας.
+A PDF filename, title, DOI, URL, or publication identity is never sufficient for
+source-record deletion. This tool groups PDF files only by their actual SHA-256
+(or Git LFS object ID), keeps one deterministic best archival copy, removes the
+remaining byte-identical files, and records the removal provenance.
+
+Different Markdown/source records are intentionally preserved even when they
+happen to point to the same exact PDF artifact.
 """
 from __future__ import annotations
 
 import csv
 import hashlib
-import importlib.util
 import re
-import subprocess
-import sys
 from collections import defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-TOOLS = ROOT / "tools"
-CATALOG = ROOT / "catalog" / "sources.csv"
 SOURCES = ROOT / "sources"
+ANALYSES = ROOT / "analyses"
+EVIDENCE = ROOT / "evidence"
 ORIGINALS = ROOT / "originals"
-FIELDS = [
-    "Κωδικός", "Τίτλος", "Συγγραφείς", "Έτος", "Σύνδεσμος",
-    "Τύπος", "Θέματα", "Κατάσταση", "Επιβεβαίωση", "Προτεραιότητα", "Σημειώσεις",
-]
-SOURCE_PDF_RE = re.compile(r"SRC-[A-F0-9]{10}\.pdf", re.IGNORECASE)
+REPORT = ROOT / "catalog" / "exact-pdf-duplicates.csv"
+SOURCE_ID_RE = re.compile(r"^(SRC-[A-F0-9]{10})", re.IGNORECASE)
 LFS_OID_RE = re.compile(rb"oid sha256:([a-f0-9]{64})", re.IGNORECASE)
-
-
-def load_cleanup_module():
-    path = TOOLS / "clean_links.py"
-    spec = importlib.util.spec_from_file_location("cleanup_links_for_pdf_duplicates", path)
-    if spec is None or spec.loader is None:
-        raise RuntimeError("δεν φορτώθηκε το εργαλείο καθαρισμού συνδέσεων")
-    module = importlib.util.module_from_spec(spec)
-    sys.modules[spec.name] = module
-    spec.loader.exec_module(module)
-    return module
+REPORT_FIELDS = ["PDF identity", "Kept path", "Removed path", "Reason"]
 
 
 def pdf_object_identity(path: Path) -> str:
-    """Επιστρέφει το LFS object ID ή SHA-256 πραγματικού αρχείου."""
+    """Return the Git LFS object ID or SHA-256 of the actual file bytes."""
     with path.open("rb") as handle:
         prefix = handle.read(512)
     lfs = LFS_OID_RE.search(prefix)
@@ -53,71 +42,147 @@ def pdf_object_identity(path: Path) -> str:
     return digest.hexdigest()
 
 
-def load_rows() -> list[dict[str, str]]:
-    with CATALOG.open(encoding="utf-8", newline="") as handle:
-        return [dict(row) for row in csv.DictReader(handle)]
+def source_id_for(path: Path, originals: Path) -> str | None:
+    if path.parent != originals:
+        return None
+    match = SOURCE_ID_RE.match(path.stem.upper())
+    return match.group(1).upper() if match else None
 
 
-def save_rows(rows: list[dict[str, str]]) -> None:
-    with CATALOG.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=FIELDS, lineterminator="\n")
+def keeper_rank(
+    path: Path,
+    *,
+    originals: Path,
+    sources: Path,
+    analyses: Path,
+    evidence: Path,
+) -> tuple[int, int, int, int, str]:
+    """Prefer the most established canonical linked copy deterministically."""
+    source_id = source_id_for(path, originals)
+    linked = int(source_id is not None)
+    primary = int(source_id is not None and path.name.upper() == f"{source_id}.PDF")
+    has_source = int(source_id is not None and (sources / f"{source_id}.md").exists())
+    reviewed = 0
+    if source_id is not None:
+        reviewed += 2 * int((evidence / f"{source_id}.md").exists())
+        reviewed += int((analyses / f"{source_id}.md").exists())
+    # Higher tuple wins; final path term is inverted by sorting explicitly below.
+    return linked, reviewed, primary, has_source, path.as_posix()
+
+
+def load_report(report: Path) -> list[dict[str, str]]:
+    if not report.exists():
+        return []
+    with report.open(encoding="utf-8", newline="") as handle:
+        reader = csv.DictReader(handle)
+        if list(reader.fieldnames or []) != REPORT_FIELDS:
+            raise RuntimeError("Unexpected exact-PDF duplicate report schema")
+        return [dict(row) for row in reader]
+
+
+def write_report(report: Path, rows: list[dict[str, str]]) -> None:
+    report.parent.mkdir(parents=True, exist_ok=True)
+    unique: dict[tuple[str, str, str], dict[str, str]] = {}
+    for row in rows:
+        key = (row["PDF identity"], row["Kept path"], row["Removed path"])
+        unique[key] = row
+    with report.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=REPORT_FIELDS, lineterminator="\n")
         writer.writeheader()
-        writer.writerows(sorted(rows, key=lambda row: row.get("Τίτλος", "").casefold()))
+        writer.writerows(
+            unique[key]
+            for key in sorted(unique, key=lambda item: (item[0], item[1], item[2]))
+        )
+
+
+def prune_exact_duplicates(
+    *,
+    originals: Path = ORIGINALS,
+    sources: Path = SOURCES,
+    analyses: Path = ANALYSES,
+    evidence: Path = EVIDENCE,
+    report: Path = REPORT,
+) -> list[tuple[Path, Path, str]]:
+    """Delete only exact redundant PDF files; never merge/delete source records."""
+    if not originals.exists():
+        return []
+
+    groups: dict[str, list[Path]] = defaultdict(list)
+    for path in sorted(originals.rglob("*.pdf")):
+        if path.is_file():
+            groups[pdf_object_identity(path)].append(path)
+
+    removed: list[tuple[Path, Path, str]] = []
+    report_rows = load_report(report)
+    for identity, paths in sorted(groups.items()):
+        if len(paths) < 2:
+            continue
+        ranked = sorted(
+            paths,
+            key=lambda path: (
+                -keeper_rank(
+                    path,
+                    originals=originals,
+                    sources=sources,
+                    analyses=analyses,
+                    evidence=evidence,
+                )[0],
+                -keeper_rank(
+                    path,
+                    originals=originals,
+                    sources=sources,
+                    analyses=analyses,
+                    evidence=evidence,
+                )[1],
+                -keeper_rank(
+                    path,
+                    originals=originals,
+                    sources=sources,
+                    analyses=analyses,
+                    evidence=evidence,
+                )[2],
+                -keeper_rank(
+                    path,
+                    originals=originals,
+                    sources=sources,
+                    analyses=analyses,
+                    evidence=evidence,
+                )[3],
+                path.as_posix(),
+            ),
+        )
+        keeper = ranked[0]
+        for duplicate in ranked[1:]:
+            # Re-check immediately before deletion: only identical PDF content is removable.
+            if pdf_object_identity(duplicate) != identity or pdf_object_identity(keeper) != identity:
+                raise RuntimeError(f"PDF identity changed during duplicate pruning: {duplicate}")
+            duplicate.unlink()
+            removed.append((duplicate, keeper, identity))
+            report_rows.append({
+                "PDF identity": identity,
+                "Kept path": keeper.relative_to(ROOT).as_posix() if ROOT in keeper.parents else keeper.as_posix(),
+                "Removed path": duplicate.relative_to(ROOT).as_posix() if ROOT in duplicate.parents else duplicate.as_posix(),
+                "Reason": "exact SHA-256 / Git LFS object duplicate; source record preserved",
+            })
+
+    if removed or report.exists():
+        write_report(report, report_rows)
+    return removed
 
 
 def main() -> int:
-    cleanup = load_cleanup_module()
-    rows = load_rows()
-    by_id = {row["Κωδικός"]: row for row in rows}
-    texts = {
-        source_id: cleanup.source_text(SOURCES, source_id)
-        for source_id in by_id
-    }
-
-    groups: dict[str, list[Path]] = defaultdict(list)
-    for path in sorted(ORIGINALS.glob("SRC-*.pdf")):
-        if SOURCE_PDF_RE.fullmatch(path.name):
-            groups[pdf_object_identity(path)].append(path)
-
-    merged: list[tuple[str, str, str]] = []
-    changes: list[str] = []
-    for object_id, paths in groups.items():
-        source_ids = [path.stem.upper() for path in paths if path.stem.upper() in by_id]
-        current = [by_id[source_id] for source_id in source_ids if source_id in by_id]
-        if len(current) < 2:
-            continue
-        ordered = sorted(
-            current,
-            key=lambda row: cleanup.source_score(row, texts.get(row["Κωδικός"], "")),
-            reverse=True,
-        )
-        primary = ordered[0]
-        for duplicate in ordered[1:]:
-            if duplicate["Κωδικός"] not in {row["Κωδικός"] for row in rows}:
-                continue
-            rows = cleanup.merge_one(
-                rows,
-                texts,
-                primary,
-                duplicate,
-                f"pdf-sha256:{object_id}",
-                changes,
-                merged,
-            )
-            by_id.pop(duplicate["Κωδικός"], None)
-
-    if merged:
-        save_rows(rows)
-        subprocess.run(
-            [sys.executable, str(TOOLS / "import_sources.py"), "--catalog-only"],
-            cwd=ROOT,
-            check=True,
-        )
-        cleanup.append_report(merged, [], changes)
-
-    for old, new, key in merged:
-        print(f"{old} → {new} ({key})")
-    print(f"Συγχωνεύθηκαν {len(merged)} ομάδες ακριβώς ίδιων PDF.")
+    removed = prune_exact_duplicates()
+    for duplicate, keeper, identity in removed:
+        try:
+            old = duplicate.relative_to(ROOT)
+        except ValueError:
+            old = duplicate
+        try:
+            kept = keeper.relative_to(ROOT)
+        except ValueError:
+            kept = keeper
+        print(f"{old} → removed exact duplicate of {kept} ({identity})")
+    print(f"Αφαιρέθηκαν {len(removed)} ακριβή διπλότυπα PDF χωρίς συγχώνευση source records.")
     return 0
 
 
