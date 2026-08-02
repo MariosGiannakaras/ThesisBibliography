@@ -10,9 +10,11 @@ on:
 permissions:
   contents: write
 
+# Share the same write lock as generated bibliography/package jobs so that a bulk
+# rename cannot race with a generated-file commit.
 concurrency:
-  group: migrate-repository-paths
-  cancel-in-progress: false
+  group: παραγόμενα-αρχεία-main
+  cancel-in-progress: true
 
 jobs:
   migrate:
@@ -39,6 +41,40 @@ jobs:
             python εργαλεία/migrate_repository_paths.py > /tmp/path-migration.log 2>&1
           fi
           code=$?
+
+          if [ "$code" -eq 0 ]; then
+            python - <<'PY' >> /tmp/path-migration.log 2>&1
+          import subprocess
+          paths = subprocess.check_output(["git", "ls-files"], text=True).splitlines()
+          residual = [p for p in paths if any(ord(ch) > 127 for ch in p)]
+          print(f"Residual non-ASCII tracked paths: {len(residual)}")
+          for path in residual:
+              print(path)
+          raise SystemExit(1 if residual else 0)
+          PY
+            code=$?
+          fi
+
+          if [ "$code" -eq 0 ]; then
+            python -m py_compile \
+              tools/decision_status.py \
+              tools/language_audit.py \
+              tools/sync_selection.py \
+              tools/analysis_status.py \
+              tools/export_thesis.py >> /tmp/path-migration.log 2>&1
+            code=$?
+          fi
+
+          if [ "$code" -eq 0 ]; then
+            python -m unittest \
+              tests.test_decision_status \
+              tests.test_thesis_export \
+              tests.test_theory_only_export \
+              tests.test_aggregates \
+              -v >> /tmp/path-migration.log 2>&1
+            code=$?
+          fi
+
           cat /tmp/path-migration.log
           if [ "$code" -ne 0 ]; then
             git reset --hard HEAD
@@ -56,13 +92,6 @@ jobs:
           fi
           exit 0
 
-      - name: Best-effort syntax and unit checks after migration
-        if: steps.migrate.outputs.failed == 'false'
-        continue-on-error: true
-        run: |
-          python -m compileall -q tools || true
-          python -m unittest discover -s tests -v || true
-
       - name: Commit migration or diagnostic
         run: |
           git config user.name "github-actions[bot]"
@@ -77,4 +106,5 @@ jobs:
           else
             git commit -m "chore: migrate repository paths to English [skip ci]"
           fi
+          git pull --rebase origin main
           git push origin HEAD:main
