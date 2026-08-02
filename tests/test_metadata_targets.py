@@ -29,7 +29,7 @@ class NextSourcesTests(unittest.TestCase):
         ]
 
         with tempfile.TemporaryDirectory() as directory:
-            output = Path(directory) / "προς-προσθήκη.md"
+            output = Path(directory) / "next-sources.md"
             with (
                 mock.patch.object(metadata, "NEXT", output),
                 mock.patch.object(metadata, "mine_references", return_value=[]),
