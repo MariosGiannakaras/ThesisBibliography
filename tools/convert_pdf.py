@@ -19,6 +19,8 @@ import unicodedata
 from dataclasses import dataclass, field
 from pathlib import Path
 
+from decision_status import infer_decision
+
 try:
     from pypdf import PdfReader  # type: ignore
 except ImportError:  # pragma: no cover - ελέγχεται στο runtime
@@ -28,6 +30,7 @@ ROOT = Path(__file__).resolve().parents[1]
 TOOLS = ROOT / "tools"
 ORIGINALS = ROOT / "originals"
 SOURCES = ROOT / "sources"
+ANALYSES = ROOT / "analyses"
 CATALOG = ROOT / "catalog" / "sources.csv"
 REPORT_CSV = ROOT / "catalog" / "conversion-status.csv"
 REPORT_MD = ROOT / "catalog" / "conversion-status.md"
@@ -210,6 +213,13 @@ def source_is_replaceable(path: Path, row: dict[str, str]) -> bool:
     )
 
 
+def canonical_decision(source_id: str) -> str:
+    analysis = ANALYSES / f"{source_id}.md"
+    if not analysis.exists():
+        return "pending"
+    return infer_decision(analysis.read_text(encoding="utf-8", errors="replace"))
+
+
 def parse_front_matter(text: str) -> dict[str, str]:
     if not text.startswith("---\n"):
         return {}
@@ -361,6 +371,22 @@ def report_entry_from_generated(row: dict[str, str], pdf: Path, identity: str) -
     }
 
 
+def not_required_entry(row: dict[str, str], pdf: Path, identity: str) -> dict[str, str]:
+    return {
+        "Κωδικός": row["Κωδικός"],
+        "Τίτλος": row.get("Τίτλος", ""),
+        "Πρωτότυπο": pdf.relative_to(ROOT).as_posix(),
+        "Κατάσταση μετατροπής": "δεν-απαιτείται-λόγω-απόρριψης",
+        "OCR": "δεν εκτελέστηκε",
+        "Σελίδες": "",
+        "Σελίδες χωρίς αναγνώσιμο κείμενο": "",
+        "Χαρακτήρες": "",
+        "Χρειάζεται περαιτέρω μετατροπή": "όχι",
+        "Αιτίες": "Η canonical analysis έχει οριστική απόφαση απόρριψης· το PDF διατηρείται αρχειακά.",
+        "Ταυτότητα PDF": identity,
+    }
+
+
 def write_reports(entries: list[dict[str, str]]) -> None:
     REPORT_CSV.parent.mkdir(parents=True, exist_ok=True)
     with REPORT_CSV.open("w", encoding="utf-8", newline="") as handle:
@@ -374,14 +400,17 @@ def write_reports(entries: list[dict[str, str]]) -> None:
     further = sum(item["Χρειάζεται περαιτέρω μετατροπή"] == "ναι" for item in entries)
     pending = sum(item["Κατάσταση μετατροπής"].startswith("εκκρεμεί") for item in entries)
     existing = sum(item["Κατάσταση μετατροπής"] == "υπάρχον-markdown-δεν-αντικαταστάθηκε" for item in entries)
+    not_required = sum(item["Κατάσταση μετατροπής"] == "δεν-απαιτείται-λόγω-απόρριψης" for item in entries)
     lines = [
         "# Κατάσταση μετατροπών PDF", "",
         f"- Αυτόματες μετατροπές: **{converted}**",
         f"- Χρειάζονται περαιτέρω μετατροπή: **{further}**",
-        f"- Εκκρεμούν λόγω μη διαθέσιμου PDF/LFS: **{pending}**",
+        f"- Πραγματικά εκκρεμείς μετατροπές: **{pending}**",
+        f"- Δεν απαιτούν μετατροπή λόγω οριστικής απόρριψης: **{not_required}**",
         f"- Υπάρχον Markdown που δεν αντικαταστάθηκε: **{existing}**", "",
         "> Το OCR εκτελείται με λειτουργία skip-text: οι σελίδες με text layer διατηρούνται και οι σαρωμένες σελίδες OCR-άρονται.",
-        "> Κάθε αυτόματη μετατροπή απαιτεί ανθρώπινο έλεγχο πριν χρησιμοποιηθεί ως παραπομπή.", "",
+        "> Κάθε αυτόματη μετατροπή απαιτεί ανθρώπινο έλεγχο πριν χρησιμοποιηθεί ως παραπομπή.",
+        "> Οι οριστικά απορριφθείσες πηγές διατηρούν τα πρωτότυπά τους, αλλά δεν δημιουργούν ψευδή conversion backlog.", "",
         "| Κωδικός | Τίτλος | Κατάσταση | OCR | Περαιτέρω μετατροπή | Αιτίες |",
         "|---|---|---|---|---|---|",
     ]
@@ -436,6 +465,13 @@ def main() -> int:
             identity = pdf_identity(pdf)
         except OSError as exc:
             entries.append(pending_entry(row, pdf, f"εκκρεμεί-σφάλμα-{type(exc).__name__}"))
+            continue
+
+        # A final rejection means conversion is no longer required for thesis use.
+        # Keep the original PDF, but do not report an unavailable LFS object as an
+        # active conversion backlog item.
+        if replaceable and canonical_decision(source_id) == "rejected":
+            entries.append(not_required_entry(row, pdf, identity))
             continue
 
         if not replaceable:
