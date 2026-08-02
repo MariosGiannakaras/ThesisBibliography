@@ -25,14 +25,29 @@ def frontmatter_value(text: str, key: str) -> str:
 
 
 def decision_section(text: str) -> str:
-    matches = list(
+    """Return the authoritative decision section without letting later status notes hide it.
+
+    Explicit Decision/Απόφαση headings take precedence.  Legacy analyses that do not
+    have an explicit decision heading may still use a verification-status section as a
+    conservative fallback.
+    """
+    explicit = list(
         re.finditer(
-            r"(?im)^##\s+(?:Απόφαση|Κατάσταση επαλήθευσης|Τελική απόφαση|Decision|Final decision)\s*$",
+            r"(?im)^##\s+(?:Απόφαση|Τελική απόφαση|Decision|Final decision)\s*$",
             text,
         )
     )
-    if matches:
-        return text[matches[-1].start():]
+    if explicit:
+        return text[explicit[-1].start():]
+
+    verification = list(
+        re.finditer(
+            r"(?im)^##\s+Κατάσταση επαλήθευσης\s*$",
+            text,
+        )
+    )
+    if verification:
+        return text[verification[-1].start():]
     return text[-3000:]
 
 
