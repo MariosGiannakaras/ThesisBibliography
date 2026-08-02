@@ -21,7 +21,7 @@ permissions:
   pull-requests: write
 
 concurrency:
-  group: bibliography-generated-main
+  group: bibliography-thesis-package
   cancel-in-progress: true
 
 jobs:
