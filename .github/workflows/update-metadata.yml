@@ -47,9 +47,10 @@ jobs:
       - name: Validate repository
         run: python tools/validate.py
 
-      - name: Open generated metadata pull request
+      - name: Publish generated metadata review branch
         env:
           GH_TOKEN: ${{ github.token }}
+        shell: bash
         run: |
           if [ -z "$(git status --porcelain -- catalog)" ]; then
             echo "No metadata changes."
@@ -60,6 +61,11 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git switch -c "$branch"
           git add catalog
-          git commit -m "chore: update bibliography metadata [skip ci]"
+          git commit -m "chore: update bibliography metadata"
           git push origin "HEAD:$branch"
-          gh pr create --base main --head "$branch" --title "chore: update bibliography metadata" --body "Automated bibliography metadata refresh. Repository validation completed before this PR was opened."
+          if gh pr create --base main --head "$branch" --title "chore: update bibliography metadata" --body "Automated bibliography metadata refresh. Repository validation completed before this PR was opened."; then
+            echo "Generated metadata PR created automatically."
+          else
+            echo "::warning::GitHub Actions is not permitted to create Pull Requests in this repository. The validated branch remains available for review."
+            echo "Generated review branch: \`$branch\`" >> "$GITHUB_STEP_SUMMARY"
+          fi

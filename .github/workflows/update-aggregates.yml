@@ -21,7 +21,6 @@ concurrency:
 
 jobs:
   generate:
-    if: ${{ github.event_name == 'workflow_dispatch' || !contains(github.event.head_commit.message, '[skip ci]') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -42,9 +41,10 @@ jobs:
       - name: Generate aggregate views
         run: python tools/aggregates.py
 
-      - name: Open generated aggregate pull request
+      - name: Publish generated aggregate review branch
         env:
           GH_TOKEN: ${{ github.token }}
+        shell: bash
         run: |
           if [ -z "$(git status --porcelain -- SOURCE_ARCHIVE.md USEFUL_EVIDENCE.md)" ]; then
             echo "Aggregate files are already current."
@@ -55,6 +55,11 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git switch -c "$branch"
           git add SOURCE_ARCHIVE.md USEFUL_EVIDENCE.md
-          git commit -m "chore: update aggregate bibliography files [skip ci]"
+          git commit -m "chore: update aggregate bibliography files"
           git push origin "HEAD:$branch"
-          gh pr create --base main --head "$branch" --title "chore: update aggregate bibliography files" --body "Automated regeneration of SOURCE_ARCHIVE.md and USEFUL_EVIDENCE.md after validation."
+          if gh pr create --base main --head "$branch" --title "chore: update aggregate bibliography files" --body "Automated regeneration of SOURCE_ARCHIVE.md and USEFUL_EVIDENCE.md after validation."; then
+            echo "Generated aggregate PR created automatically."
+          else
+            echo "::warning::GitHub Actions is not permitted to create Pull Requests in this repository. The validated branch remains available for review."
+            echo "Generated review branch: \`$branch\`" >> "$GITHUB_STEP_SUMMARY"
+          fi
