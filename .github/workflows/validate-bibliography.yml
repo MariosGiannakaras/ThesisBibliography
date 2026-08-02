@@ -30,7 +30,7 @@ jobs:
       - name: Compile repository tools
         run: >-
           python -m py_compile
-          tools/import_sources.py tools/metadata.py tools/next_sources.py
+          tools/intake_preflight.py tools/import_sources.py tools/metadata.py tools/next_sources.py
           tools/fix_titles.py tools/validate.py tools/sources_common.py
           tools/clean_links.py tools/known_fixes.py
           tools/exact_duplicates.py tools/finalize.py tools/originals.py
