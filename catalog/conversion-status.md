@@ -2,11 +2,13 @@
 
 - Αυτόματες μετατροπές: **0**
 - Χρειάζονται περαιτέρω μετατροπή: **0**
-- Εκκρεμούν λόγω μη διαθέσιμου PDF/LFS: **2**
+- Πραγματικά εκκρεμείς μετατροπές: **0**
+- Δεν απαιτούν μετατροπή λόγω οριστικής απόρριψης: **2**
 - Υπάρχον Markdown που δεν αντικαταστάθηκε: **225**
 
 > Το OCR εκτελείται με λειτουργία skip-text: οι σελίδες με text layer διατηρούνται και οι σαρωμένες σελίδες OCR-άρονται.
 > Κάθε αυτόματη μετατροπή απαιτεί ανθρώπινο έλεγχο πριν χρησιμοποιηθεί ως παραπομπή.
+> Οι οριστικά απορριφθείσες πηγές διατηρούν τα πρωτότυπά τους, αλλά δεν δημιουργούν ψευδή conversion backlog.
 
 | Κωδικός | Τίτλος | Κατάσταση | OCR | Περαιτέρω μετατροπή | Αιτίες |
 |---|---|---|---|---|---|
@@ -35,7 +37,7 @@
 | `SRC-C7E22C59DE` | AI Agents 101: An Introduction to Agents and Examples of How to Build Them | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-13CFB90F59` | AI Agents in Action | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-83030D4158` | AI Agents Under Threat: A Survey of Key Security Challenges and Future Pathways | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
-| `SRC-70A0C89F93` | AI Agents vs. Agentic AI: A Conceptual taxonomy, applications and challenges | εκκρεμεί-λήψη-lfs | δεν εκτελέστηκε | εκκρεμεί | — |
+| `SRC-70A0C89F93` | AI Agents vs. Agentic AI: A Conceptual taxonomy, applications and challenges | δεν-απαιτείται-λόγω-απόρριψης | δεν εκτελέστηκε | όχι | Η canonical analysis έχει οριστική απόφαση απόρριψης· το PDF διατηρείται αρχειακά. |
 | `SRC-50C47991CC` | AI Agents: Evolution, Architecture, and Real-World Applications | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-FE2C0A3E00` | AI Safety Gridworlds | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-97A931D29F` | ai-agents-by-google-pr 5002be8bb73fc77bf260555a6cad0942 | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
@@ -227,7 +229,7 @@
 | `SRC-90A20ED43A` | Survival of the Fittest: Evolutionary Adaptation of Policies for Environmental Shifts | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-BFD3447AEF` | The-Rise-of-Agents | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-3174B1019C` | the-rise-of-ai-agents-unleashing-productivity-and-innovation-emea | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
-| `SRC-E33EBFE4F4` | Toward theoretical understandings of robust Markov decision processes- Sample complexity and asympto | εκκρεμεί-λήψη-lfs | δεν εκτελέστηκε | εκκρεμεί | — |
+| `SRC-E33EBFE4F4` | Toward theoretical understandings of robust Markov decision processes- Sample complexity and asympto | δεν-απαιτείται-λόγω-απόρριψης | δεν εκτελέστηκε | όχι | Η canonical analysis έχει οριστική απόφαση απόρριψης· το PDF διατηρείται αρχειακά. |
 | `SRC-732D12A2CC` | Towards a Science of AI Agent Reliability | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-DA324C815B` | Towards Optimal Offline Reinforcement Learning | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-E7E736ACE8` | Towards Out-Of-Distribution Generalization: A Survey | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
