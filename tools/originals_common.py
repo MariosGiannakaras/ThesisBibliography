@@ -45,7 +45,7 @@ SUSPICIOUS_DISTRIBUTION = re.compile(
     re.IGNORECASE,
 )
 LINKED_PDF_STEM_RE = re.compile(
-    r"SRC-[A-F0-9]{10}(?:__(?:εναλλακτικό|σύγκρουση)-(?:SRC-[A-F0-9]{10}|[A-F0-9]{10,16}))?",
+    r"SRC-[A-F0-9]{10}(?:__(?:alternative|conflict)-(?:SRC-[A-F0-9]{10}|[A-F0-9]{10,16}))?",
     re.IGNORECASE,
 )
 LFS_OID_RE = re.compile(rb"oid sha256:([a-f0-9]{64})", re.IGNORECASE)
