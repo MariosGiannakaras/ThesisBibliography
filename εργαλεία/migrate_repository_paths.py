@@ -100,8 +100,8 @@ def map_file_name(name: str) -> str:
     match = re.fullmatch(r"παρτίδα-(\d+)\.md", name)
     if match:
         return f"batch-{match.group(1)}.md"
-    if "__σύγκρουση-" in name:
-        return name.replace("__σύγκρουση-", "__conflict-")
+    name = name.replace("__σύγκρουση-", "__conflict-")
+    name = name.replace("__εναλλακτικό-", "__alternative-")
     return name
 
 
@@ -176,6 +176,7 @@ def technical_replacements() -> list[tuple[str, str]]:
         pairs.add((f"`{old}`", f"`{new}`"))
     pairs.update(FILE_MAP.items())
     pairs.add(("__σύγκρουση-", "__conflict-"))
+    pairs.add(("__εναλλακτικό-", "__alternative-"))
     return sorted(pairs, key=lambda item: len(item[0]), reverse=True)
 
 
