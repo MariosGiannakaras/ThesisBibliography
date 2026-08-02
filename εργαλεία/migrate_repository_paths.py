@@ -6,6 +6,7 @@ and citation-ready evidence are never translated or rewritten as part of this mo
 """
 from __future__ import annotations
 
+import os
 import re
 import subprocess
 from pathlib import Path
@@ -126,11 +127,20 @@ def planned_mapping() -> dict[str, str]:
     return mapping
 
 
+def working_tree_entries() -> tuple[list[Path], list[Path]]:
+    """Collect working-tree dirs/files while pruning .git before descent."""
+    directories: list[Path] = []
+    files: list[Path] = []
+    for root, dirnames, filenames in os.walk(ROOT, topdown=True):
+        dirnames[:] = [name for name in dirnames if name != ".git"]
+        root_path = Path(root)
+        directories.extend(root_path / name for name in dirnames)
+        files.extend(root_path / name for name in filenames)
+    return directories, files
+
+
 def move_directories() -> None:
-    directories = [
-        path for path in ROOT.rglob("*")
-        if path.is_dir() and ".git" not in path.relative_to(ROOT).parts
-    ]
+    directories, _ = working_tree_entries()
     for path in sorted(directories, key=lambda p: len(p.relative_to(ROOT).parts), reverse=True):
         new_name = DIR_MAP.get(path.name)
         if not new_name or not path.exists():
@@ -142,10 +152,7 @@ def move_directories() -> None:
 
 
 def move_named_files() -> None:
-    files = [
-        path for path in ROOT.rglob("*")
-        if path.is_file() and ".git" not in path.relative_to(ROOT).parts
-    ]
+    _, files = working_tree_entries()
     for path in files:
         new_name = FILE_MAP.get(path.name)
         if not new_name:
