@@ -20,7 +20,6 @@ concurrency:
 
 jobs:
   process:
-    if: ${{ github.event_name == 'workflow_dispatch' || !contains(github.event.head_commit.message, '[skip ci]') }}
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
@@ -30,26 +29,43 @@ jobs:
           fetch-depth: 0
           lfs: false
 
+      - name: Detect pending intake
+        id: intake
+        shell: bash
+        run: |
+          if find new-sources new-originals -type f ! -name README.md -print -quit 2>/dev/null | grep -q .; then
+            echo "has_input=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_input=false" >> "$GITHUB_OUTPUT"
+            echo "No pending intake files; this is a generated cleanup/delete event."
+          fi
+
       - uses: actions/setup-python@v5
+        if: steps.intake.outputs.has_input == 'true'
         with:
           python-version: "3.12"
 
       - name: Preflight repair tools
+        if: steps.intake.outputs.has_input == 'true'
         run: |
           python -m py_compile tools/known_fixes.py tools/exact_duplicates.py tools/clean_links.py tools/originals_common.py tools/finalize.py tools/convert_pdf.py
 
       - name: Apply documented fixes
+        if: steps.intake.outputs.has_input == 'true'
         run: python tools/known_fixes.py
 
       - name: Merge exact duplicate PDFs
+        if: steps.intake.outputs.has_input == 'true'
         run: python tools/exact_duplicates.py
 
       - name: Configure Git LFS
+        if: steps.intake.outputs.has_input == 'true'
         run: |
           git lfs install --local
           git lfs pull --include="new-sources/**,new-originals/**,originals/unidentified/**" --exclude="" || true
 
       - name: Normalize PDF suffixes
+        if: steps.intake.outputs.has_input == 'true'
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -64,46 +80,58 @@ jobs:
           PY
 
       - name: Install PDF and OCR tools
+        if: steps.intake.outputs.has_input == 'true'
         run: |
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends ocrmypdf tesseract-ocr-eng tesseract-ocr-ell
           python -m pip install --disable-pip-version-check pypdf
 
       - name: Validate tools and tests
+        if: steps.intake.outputs.has_input == 'true'
         run: |
           python -m py_compile tools/import_sources.py tools/metadata.py tools/fix_titles.py tools/validate.py tools/sources_common.py tools/clean_links.py tools/known_fixes.py tools/exact_duplicates.py tools/finalize.py tools/originals.py tools/originals_common.py tools/originals_downloads.py tools/originals_files.py tools/convert_pdf.py
           python -m unittest discover -s tests -v
 
       - name: Import new sources
+        if: steps.intake.outputs.has_input == 'true'
         run: python tools/import_sources.py
 
       - name: Update metadata
         id: metadata
+        if: steps.intake.outputs.has_input == 'true'
         continue-on-error: true
         run: python tools/metadata.py
 
       - name: Fix titles and years
+        if: steps.intake.outputs.has_input == 'true'
         continue-on-error: true
         run: python tools/fix_titles.py
 
       - name: Validate links and certain duplicates
+        if: steps.intake.outputs.has_input == 'true'
         run: python tools/clean_links.py
 
       - name: Match and download originals
+        if: steps.intake.outputs.has_input == 'true'
         run: python tools/originals.py --download --limit 30
 
       - name: Convert PDFs with OCR
+        if: steps.intake.outputs.has_input == 'true'
         run: python tools/convert_pdf.py
 
       - name: Finalize without losing originals
+        if: steps.intake.outputs.has_input == 'true'
         run: python tools/finalize.py
 
       - name: Validate repository
+        if: steps.intake.outputs.has_input == 'true'
         run: python tools/validate.py
 
-      - name: Open intake pull request
+      - name: Publish intake review branch
+        if: steps.intake.outputs.has_input == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
+        shell: bash
         run: |
           if [ -z "$(git status --porcelain)" ]; then
             echo "No intake changes."
@@ -114,10 +142,15 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git switch -c "$branch"
           git add -A
-          git commit -m "chore: process bibliography intake and OCR conversion [skip ci]"
+          git commit -m "chore: process bibliography intake and OCR conversion"
           git push origin "HEAD:$branch"
-          gh pr create --base main --head "$branch" --title "chore: process bibliography intake" --body "Automated intake for new Markdown and/or PDFs, original preservation, PDF/OCR conversion, metadata refresh, exact-deduplication, and repository validation."
+          if gh pr create --base main --head "$branch" --title "chore: process bibliography intake" --body "Automated intake for new Markdown and/or PDFs, original preservation, PDF/OCR conversion, metadata refresh, exact-deduplication, and repository validation."; then
+            echo "Generated intake PR created automatically."
+          else
+            echo "::warning::GitHub Actions is not permitted to create Pull Requests in this repository. The validated branch remains available for review."
+            echo "Generated review branch: \`$branch\`" >> "$GITHUB_STEP_SUMMARY"
+          fi
 
       - name: Report external metadata failure
-        if: steps.metadata.outcome == 'failure'
+        if: steps.intake.outputs.has_input == 'true' && steps.metadata.outcome == 'failure'
         run: echo "Intake completed, but external metadata verification should be retried."
