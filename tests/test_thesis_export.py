@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 EXPORTER = (
     ROOT / "tools" / "export_thesis.py"
     if (ROOT / "tools" / "export_thesis.py").exists()
-    else ROOT / "εργαλεία" / "εξαγωγή-διπλωματικής.py"
+    else ROOT / "tools" / "export_thesis.py"
 )
 if str(EXPORTER.parent) not in sys.path:
     sys.path.insert(0, str(EXPORTER.parent))

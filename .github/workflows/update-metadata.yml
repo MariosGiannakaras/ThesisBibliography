@@ -1,0 +1,65 @@
+name: Update bibliography metadata
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "sources/**"
+      - "originals/**"
+      - "tools/metadata.py"
+      - "tools/next_sources.py"
+      - ".github/workflows/update-metadata.yml"
+  schedule:
+    - cron: "0 4 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: bibliography-generated-main
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          lfs: false
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Refresh next-source list
+        if: ${{ github.event_name == 'push' }}
+        run: python tools/next_sources.py
+
+      - name: Run full bibliography enrichment
+        if: ${{ github.event_name != 'push' }}
+        run: python tools/metadata.py
+
+      - name: Validate repository
+        run: python tools/validate.py
+
+      - name: Open generated metadata pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ -z "$(git status --porcelain -- catalog)" ]; then
+            echo "No metadata changes."
+            exit 0
+          fi
+          branch="automation/metadata-${GITHUB_RUN_ID}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          git add catalog
+          git commit -m "chore: update bibliography metadata [skip ci]"
+          git push origin "HEAD:$branch"
+          gh pr create --base main --head "$branch" --title "chore: update bibliography metadata" --body "Automated bibliography metadata refresh. Repository validation completed before this PR was opened."

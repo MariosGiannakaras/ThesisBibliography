@@ -5,9 +5,9 @@ import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-TOOLS = ROOT / "εργαλεία"
+TOOLS = ROOT / "tools"
 sys.path.insert(0, str(TOOLS))
-SPEC = importlib.util.spec_from_file_location("originals_tool", TOOLS / "πρωτότυπα.py")
+SPEC = importlib.util.spec_from_file_location("originals_tool", TOOLS / "originals.py")
 MODULE = importlib.util.module_from_spec(SPEC)
 assert SPEC.loader
 sys.modules["originals_tool"] = MODULE
@@ -55,13 +55,13 @@ class OriginalsTests(unittest.TestCase):
             self.assertIn("κωδικός", result.reason)
 
     def test_multiple_pdf_identifiers_are_not_treated_as_primary_identity(self):
-        from πρωτότυπα_κοινά import PdfInfo, strong_pdf_identities
+        from originals_common import PdfInfo, strong_pdf_identities
 
         info = PdfInfo(doi=["10.1000/primary", "10.1000/citation"])
         self.assertEqual(set(), strong_pdf_identities(info))
 
     def test_suspicious_distribution_is_kept_pending(self):
-        from πρωτότυπα_κοινά import PdfInfo, can_create_source_from_pdf
+        from originals_common import PdfInfo, can_create_source_from_pdf
 
         info = PdfInfo(
             title="A Complete Book About Autonomous Agents",
@@ -75,7 +75,7 @@ class OriginalsTests(unittest.TestCase):
         self.assertIn("προέλευσης", reason)
 
     def test_incomplete_unidentified_pdf_does_not_create_source(self):
-        from πρωτότυπα_κοινά import PdfInfo, can_create_source_from_pdf
+        from originals_common import PdfInfo, can_create_source_from_pdf
 
         info = PdfInfo(
             title="A Plausible but Unverified Technical Document",
@@ -86,21 +86,21 @@ class OriginalsTests(unittest.TestCase):
         self.assertFalse(allowed)
 
     def test_linked_alternate_stem_is_recognized(self):
-        from πρωτότυπα_κοινά import LINKED_PDF_STEM_RE
+        from originals_common import LINKED_PDF_STEM_RE
 
         self.assertIsNotNone(LINKED_PDF_STEM_RE.fullmatch("SRC-ABCDEF1234"))
         self.assertIsNotNone(
-            LINKED_PDF_STEM_RE.fullmatch("SRC-ABCDEF1234__εναλλακτικό-1234567890")
+            LINKED_PDF_STEM_RE.fullmatch("SRC-ABCDEF1234__alternative-1234567890")
         )
 
     def test_body_citation_is_not_source_identity(self):
-        from κοινά_πηγών import identities
+        from sources_common import identities
 
         text = "# Different paper\n\nBody citation https://arxiv.org/abs/2203.12117"
         self.assertNotIn("arxiv:2203.12117", identities("", "Different paper", text))
 
     def test_homepage_and_channel_are_not_duplicate_identity(self):
-        from κοινά_πηγών import identities
+        from sources_common import identities
 
         self.assertEqual(set(), identities("https://openreview.net/", "Unknown", ""))
         self.assertEqual(set(), identities("https://youtube.com/@example", "A lecture", ""))
@@ -110,12 +110,12 @@ class OriginalsTests(unittest.TestCase):
         )
 
     def test_unmatched_pdf_is_archived_instead_of_deleted(self):
-        from πρωτότυπα_αρχεία import archive_unmatched
+        from originals_files import archive_unmatched
 
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
-            originals = root / "πρωτότυπα"
-            unmatched = originals / "μη-ταυτοποιημένα"
+            originals = root / "originals"
+            unmatched = originals / "unidentified"
             incoming = root / "unknown document.pdf"
             incoming.write_bytes(b"%PDF-1.4\n" + b"unique-content" * 200)
 
@@ -132,12 +132,12 @@ class OriginalsTests(unittest.TestCase):
             self.assertIn("αρχειοθετήθηκε", reason)
 
     def test_only_exact_duplicate_unmatched_pdf_is_deleted(self):
-        from πρωτότυπα_αρχεία import archive_unmatched
+        from originals_files import archive_unmatched
 
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
-            originals = root / "πρωτότυπα"
-            unmatched = originals / "μη-ταυτοποιημένα"
+            originals = root / "originals"
+            unmatched = originals / "unidentified"
             first = root / "first.pdf"
             second = root / "second.pdf"
             payload = b"%PDF-1.4\n" + b"same-content" * 200
@@ -154,12 +154,12 @@ class OriginalsTests(unittest.TestCase):
             self.assertIn("ακριβές διπλότυπο", reason)
 
     def test_different_pdf_with_same_name_is_preserved(self):
-        from πρωτότυπα_αρχεία import archive_unmatched
+        from originals_files import archive_unmatched
 
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
-            originals = root / "πρωτότυπα"
-            unmatched = originals / "μη-ταυτοποιημένα"
+            originals = root / "originals"
+            unmatched = originals / "unidentified"
             first_dir = root / "a"
             second_dir = root / "b"
             first_dir.mkdir()

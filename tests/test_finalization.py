@@ -5,9 +5,9 @@ import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-TOOLS = ROOT / "εργαλεία"
+TOOLS = ROOT / "tools"
 sys.path.insert(0, str(TOOLS))
-SPEC = importlib.util.spec_from_file_location("finalization_tool", TOOLS / "οριστικοποίηση.py")
+SPEC = importlib.util.spec_from_file_location("finalization_tool", TOOLS / "finalize.py")
 MODULE = importlib.util.module_from_spec(SPEC)
 assert SPEC.loader
 SPEC.loader.exec_module(MODULE)
@@ -44,9 +44,9 @@ class FinalizationTests(unittest.TestCase):
             root = Path(directory)
             original = (MODULE.SOURCES, MODULE.ANALYSES, MODULE.EXCERPTS)
             try:
-                MODULE.SOURCES = root / "πηγές"
-                MODULE.ANALYSES = root / "αναλύσεις"
-                MODULE.EXCERPTS = root / "αποσπάσματα"
+                MODULE.SOURCES = root / "sources"
+                MODULE.ANALYSES = root / "analyses"
+                MODULE.EXCERPTS = root / "evidence"
                 for folder in (MODULE.SOURCES, MODULE.ANALYSES, MODULE.EXCERPTS):
                     folder.mkdir()
                 (MODULE.SOURCES / "SRC-TEST000001.md").write_text(
@@ -68,16 +68,16 @@ class FinalizationTests(unittest.TestCase):
             root = Path(directory)
             original = (MODULE.SOURCES, MODULE.ANALYSES, MODULE.EXCERPTS)
             try:
-                MODULE.SOURCES = root / "πηγές"
-                MODULE.ANALYSES = root / "αναλύσεις"
-                MODULE.EXCERPTS = root / "αποσπάσματα"
+                MODULE.SOURCES = root / "sources"
+                MODULE.ANALYSES = root / "analyses"
+                MODULE.EXCERPTS = root / "evidence"
                 for folder in (MODULE.SOURCES, MODULE.ANALYSES, MODULE.EXCERPTS):
                     folder.mkdir()
                 (MODULE.SOURCES / "SRC-TEST000001.md").write_text(
                     "# Metadata only\n\n- Έτος: άγνωστο\n",
                     encoding="utf-8",
                 )
-                template = (ROOT / "πρότυπα" / "ανάλυση-πηγής.md").read_text(encoding="utf-8")
+                template = (ROOT / "templates" / "source-analysis.md").read_text(encoding="utf-8")
                 (MODULE.ANALYSES / "SRC-TEST000001.md").write_text(template, encoding="utf-8")
                 self.assertFalse(MODULE.has_useful_content("SRC-TEST000001"))
             finally:
@@ -88,9 +88,9 @@ class FinalizationTests(unittest.TestCase):
             root = Path(directory)
             original = (MODULE.INCOMING, MODULE.ORIGINALS, MODULE.UNMATCHED)
             try:
-                MODULE.INCOMING = root / "νέα-πρωτότυπα"
-                MODULE.ORIGINALS = root / "πρωτότυπα"
-                MODULE.UNMATCHED = MODULE.ORIGINALS / "μη-ταυτοποιημένα"
+                MODULE.INCOMING = root / "new-originals"
+                MODULE.ORIGINALS = root / "originals"
+                MODULE.UNMATCHED = MODULE.ORIGINALS / "unidentified"
                 MODULE.INCOMING.mkdir(parents=True)
                 first = MODULE.INCOMING / "first.pdf"
                 duplicate = MODULE.INCOMING / "duplicate.pdf"

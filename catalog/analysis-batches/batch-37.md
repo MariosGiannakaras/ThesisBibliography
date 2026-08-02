@@ -1,0 +1,46 @@
+# Παρτίδα 37 — RL application και uncertainty triage
+
+Ημερομηνία: 2026-08-01
+
+## Reconciliation πριν την παρτίδα
+Το παλιό generated status αποδείχθηκε μη αξιόπιστο για ορισμένα IDs. Ελέγχθηκαν απευθείας τα canonical paths. Τα `SRC-62996FD690`, `SRC-576D988D14`, `SRC-1602A6C071` και `SRC-1DBBBC39D2` ήταν ήδη αναλυμένα και **δεν** προσμετρήθηκαν ξανά.
+
+## Νέες αποφάσεις — 20 exclusions
+1. `SRC-F0A9C5D77B` — model-based RL MSc: NN vs GP dynamics models· όχι changepoint/recovery evidence.
+2. `SRC-1D1B786C50` — directed policy-space search PhD· sample-efficient optimization, όχι non-stationary adaptation.
+3. `SRC-9DE3D01591` — interpretable Q-learning MSc· explainability, όχι resilience mechanism.
+4. `SRC-A0F574D181` — DDPG/CARLA MSc· application-specific test variation, όχι matched online shift protocol.
+5. `SRC-454A61C38B` — generic Q-learning thesis; introductory/redundant.
+6. `SRC-1559E2861C` — diffusion-assisted QMIX/SMAC; MARL scope.
+7. `SRC-CA13F68FCF` — Ambient Intelligence/IoT RL adaptation; lower evidence tier και χωρίς recovery protocol.
+8. `SRC-BB3F0FE477` — consensus/control thesis; multi-agent/non-RL problem.
+9. `SRC-9AA47AA3EA` — CFD surrogate uncertainty quantification; εκτός RL scope.
+10. `SRC-A5B2810B39` — uncertainty-aware LLM-guided PPO; sparse-reward/adviser uncertainty, όχι environmental change detection.
+11. `SRC-A881937D50` — RUN-DSAC flight-control MSc metadata/abstract μόνο· πλήρες thesis μη διαθέσιμο ως converted evidence.
+12. `SRC-A70670C0C6` — duplicate του `SRC-A881937D50`.
+13. `SRC-C0818241AF` — duplicate του `SRC-A881937D50`.
+14. `SRC-FC9E2DFAB9` — Hauskrecht POMDP approximation paper· ποιοτικό αλλά redundant με canonical POMDP foundation και εκτός current core.
+15. `SRC-88F6344234` — Kendall & Gal Bayesian DL uncertainty· foundational CV source, αλλά direct RL uncertainty evidence υπάρχει ήδη.
+16. `SRC-F51B354D98` — Fraunhofer/fortiss Safe AI whitepaper· engineering synthesis, όχι matched RL evidence.
+17. `SRC-A2D5B3B08E` — deprecated Unity ML-Agents documentation· implementation artifact.
+18. `SRC-08CC209245` — duplicate/low-content repository wrapper της directed-policy-search διατριβής.
+19. `SRC-FA3A1BBA43` — JMLR OmniSafe infrastructure paper· αξιόπιστο software paper, αλλά implementation-layer και όχι resilience-method evidence.
+20. `SRC-ACFA271318` — GeeksforGeeks value-vs-policy iteration tutorial.
+
+## Επιστημονικές αποφάσεις που κλειδώνουν
+- **OOD detector ≠ sequential change detector ≠ recovery mechanism.** Ένα uncertainty/OOD score χρειάζεται ξεχωριστή sequential validation πριν θεωρηθεί detector.
+- **Epistemic ≠ aleatoric uncertainty.** Epistemic αφορά έλλειψη γνώσης/δεδομένων και μπορεί να μειωθεί με data· aleatoric αφορά μη αναγώγιμη stochasticity/noise.
+- **Application variability ≠ changepoint protocol.** Διαφορετικός καιρός, demand ή test scenario δεν αρκούν χωρίς σαφή χρονική αλλαγή regime και recovery evaluation.
+- **Adviser uncertainty ≠ environment uncertainty.** Confidence σε LLM/expert guidance δεν είναι proxy για αλλαγή του transition/reward model.
+- **Scientific paper about software ≠ algorithmic evidence.** Το OmniSafe JMLR paper είναι αξιόπιστη infrastructure citation, αλλά δεν τεκμηριώνει υπεροχή συγκεκριμένου resilience algorithm.
+- **Metadata/abstract-only records δεν παράγουν citation-ready claims** όταν οι κρίσιμες λεπτομέρειες μεθοδολογίας δεν μπορούν να επαληθευτούν.
+
+## Totals μετά την παρτίδα
+- Νέες αποφάσεις: 20
+- Νέες selections: 0
+- Νέες exclusions: 20
+- Canonical σύνολο: **329 αποφασισμένες = 96 selected + 233 exclusions**
+- Υπόλοιπη ουρά: **157 / 486 ενεργές πηγές**
+
+## Infrastructure note
+Η canonical αλήθεια βρίσκεται στα `analyses/` και στο παρόν batch record. Το generated status/curated export δεν χρησιμοποιείται για arithmetic μέχρι να επανασυγχρονιστεί με ασφάλεια.

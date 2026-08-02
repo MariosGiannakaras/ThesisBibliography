@@ -1,0 +1,60 @@
+name: Update aggregate bibliography files
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "catalog/sources.csv"
+      - "sources/**"
+      - "evidence/**"
+      - "tools/aggregates.py"
+      - ".github/workflows/update-aggregates.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: bibliography-generated-main
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    if: ${{ github.event_name == 'workflow_dispatch' || !contains(github.event.head_commit.message, '[skip ci]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          lfs: false
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate aggregate generator
+        run: |
+          python -m py_compile tools/aggregates.py
+          python -m unittest discover -s tests -p "test_aggregates.py" -v
+
+      - name: Generate aggregate views
+        run: python tools/aggregates.py
+
+      - name: Open generated aggregate pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ -z "$(git status --porcelain -- SOURCE_ARCHIVE.md USEFUL_EVIDENCE.md)" ]; then
+            echo "Aggregate files are already current."
+            exit 0
+          fi
+          branch="automation/aggregates-${GITHUB_RUN_ID}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          git add SOURCE_ARCHIVE.md USEFUL_EVIDENCE.md
+          git commit -m "chore: update aggregate bibliography files [skip ci]"
+          git push origin "HEAD:$branch"
+          gh pr create --base main --head "$branch" --title "chore: update aggregate bibliography files" --body "Automated regeneration of SOURCE_ARCHIVE.md and USEFUL_EVIDENCE.md after validation."
