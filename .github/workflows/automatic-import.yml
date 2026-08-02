@@ -1,0 +1,120 @@
+name: Automatic source import
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "new-sources/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: automatic-import
+  cancel-in-progress: true
+
+jobs:
+  process:
+    if: ${{ github.event_name == 'workflow_dispatch' || !contains(github.event.head_commit.message, '[skip ci]') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          lfs: false
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Preflight repair tools
+        run: |
+          python -m py_compile tools/known_fixes.py tools/exact_duplicates.py tools/clean_links.py tools/originals_common.py tools/finalize.py tools/convert_pdf.py
+
+      - name: Apply documented fixes
+        run: python tools/known_fixes.py
+
+      - name: Merge exact duplicate PDFs
+        run: python tools/exact_duplicates.py
+
+      - name: Configure Git LFS
+        run: |
+          git lfs install --local
+          git lfs pull --include="new-sources/**,new-originals/**,originals/unidentified/**" --exclude="" || true
+
+      - name: Normalize PDF suffixes
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          for root in (Path("new-sources"), Path("new-originals"), Path("originals/unidentified")):
+              if not root.exists():
+                  continue
+              for path in list(root.rglob("*")):
+                  if path.is_file() and path.suffix == ".PDF":
+                      target = path.with_suffix(".pdf")
+                      if not target.exists():
+                          path.rename(target)
+          PY
+
+      - name: Install PDF and OCR tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends ocrmypdf tesseract-ocr-eng tesseract-ocr-ell
+          python -m pip install --disable-pip-version-check pypdf
+
+      - name: Validate tools and tests
+        run: |
+          python -m py_compile tools/import_sources.py tools/metadata.py tools/fix_titles.py tools/validate.py tools/sources_common.py tools/clean_links.py tools/known_fixes.py tools/exact_duplicates.py tools/finalize.py tools/originals.py tools/originals_common.py tools/originals_downloads.py tools/originals_files.py tools/convert_pdf.py
+          python -m unittest discover -s tests -v
+
+      - name: Import new sources
+        run: python tools/import_sources.py
+
+      - name: Update metadata
+        id: metadata
+        continue-on-error: true
+        run: python tools/metadata.py
+
+      - name: Fix titles and years
+        continue-on-error: true
+        run: python tools/fix_titles.py
+
+      - name: Validate links and certain duplicates
+        run: python tools/clean_links.py
+
+      - name: Match and download originals
+        run: python tools/originals.py --download --limit 30
+
+      - name: Convert PDFs with OCR
+        run: python tools/convert_pdf.py
+
+      - name: Finalize without losing originals
+        run: python tools/finalize.py
+
+      - name: Validate repository
+        run: python tools/validate.py
+
+      - name: Open automatic import pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No import changes."
+            exit 0
+          fi
+          branch="automation/automatic-import-${GITHUB_RUN_ID}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          git add -A
+          git commit -m "chore: automatic source import and OCR conversion [skip ci]"
+          git push origin "HEAD:$branch"
+          gh pr create --base main --head "$branch" --title "chore: automatic source import and OCR conversion" --body "Automated source import, original preservation, PDF/OCR conversion, metadata refresh, and repository validation."
+
+      - name: Report external metadata failure
+        if: steps.metadata.outcome == 'failure'
+        run: echo "Import completed, but external metadata verification should be retried."
