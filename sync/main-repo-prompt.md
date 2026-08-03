@@ -1,104 +1,89 @@
 # Ready-to-paste prompt for `resilient-ai-agents-thesis`
 
-Use the following prompt in the chat/Codex session that manages `MariosGiannakaras/resilient-ai-agents-thesis`.
+Integrate the complete bibliography writing corpus produced by private repository `MariosGiannakaras/ThesisBibliography` into `MariosGiannakaras/resilient-ai-agents-thesis`.
 
----
+## Inspect first
 
-Integrate the verified bibliography produced by the private repository `MariosGiannakaras/ThesisBibliography` into `MariosGiannakaras/resilient-ai-agents-thesis`.
+Inspect the thesis repository, Git state, applicable `AGENTS.md`, documentation, existing bibliography/citation code, workflows, tests, status files, open PRs/issues, and direct dependencies. Preserve unrelated changes and avoid destructive Git operations.
 
-## Current architecture
+## Architecture
 
-`ThesisBibliography` is the sole source of truth for bibliography intake, originals, metadata, deduplication, full source Markdown, scientific analysis, verified evidence, selection, and export. The thesis repository must not reimplement source ingestion, OCR, deduplication, scientific source review, or evidence extraction.
+`ThesisBibliography` is the sole source of truth for intake, originals, OCR/conversion, deduplication, canonical source text, analyses, evidence, research materials, author notes, identification review, and export. The thesis repository must not reimplement those processes.
 
-The active bibliography baseline is scientifically complete. Lossless archival originals that cannot yet be identified safely may remain under `originals/unidentified/`; they are not citation-ready, are never exported, and do not block integration.
-
-The thesis repository consumes only the generated and validated `thesis-package/`.
-
-## First inspect the thesis repository
-
-Before changing anything, inspect the repository, current Git state, applicable `AGENTS.md` files, project documentation, existing bibliography/citation implementation, tests, TODO/status tracking, relevant branches, issues, pull requests, and direct dependencies. Do not guess repository facts. Limit inspection to paths relevant to bibliography integration and their direct dependencies.
-
-Preserve unrelated user changes. Do not use destructive Git operations. Reuse and update existing artifacts instead of duplicating them.
-
-## Bibliography package contract
-
-The imported generated directory should contain exactly the bibliography package content:
+The consumer imports the generated `research-corpus/`, not only the strict citation package.
 
 ```text
 research/bibliography/
 ├── README.md
 ├── SOURCE_COMMIT
-├── manifest.csv
-├── catalog/
-│   ├── sources.csv
-│   ├── package-metadata.json
-│   └── SHA256SUMS
+├── citation-ready/
+├── sources/
 ├── analyses/
-└── evidence/
+├── evidence/
+├── materials/
+├── notes/
+├── aggregates/
+└── catalog/
+    ├── sources.csv
+    ├── thesis-selection.csv
+    ├── research-materials.csv
+    ├── research-material-review.csv
+    ├── originals-index.csv
+    ├── package-metadata.json
+    └── SHA256SUMS
 ```
 
-The package contains only selected, verified bibliography material. It must not contain `originals/`, PDFs, Git LFS objects, raw `sources/`, pending intake, draft analyses, or unverified evidence.
+Trust semantics:
 
-`catalog/package-metadata.json` is the machine-readable package contract. Schema version `1` uses SHA-256 and `catalog/SHA256SUMS`. `SOURCE_COMMIT` identifies the canonical bibliography source state used to build the package. The commit that contains the already-generated package may be a later descendant; do not incorrectly require the checkout commit itself to equal `SOURCE_COMMIT`.
+- `citation-ready/` is the strict verified package. A thesis citation using `SRC-*` must resolve in `citation-ready/manifest.csv` and use verified evidence.
+- `sources/`, `analyses/`, `evidence/`, `materials/`, `notes/`, and `aggregates/` are the complete writing and discovery corpus.
+- `MAT-*`, rejected sources, theory-only items, partial records, and user-authored notes remain searchable and usable for drafting/synthesis, but are not automatically verified citations.
+- Missing title, author, URL, or formal citation metadata must never make useful content inaccessible.
+- Do not copy PDF binaries or Git LFS objects; use extracted Markdown and `catalog/originals-index.csv` for immutable original URLs and hashes.
 
-## Implement the integration directly
+## Implement directly
 
-1. Remove or adapt obsolete thesis-repository workflows that treat the thesis repo as the place where raw bibliography sources are ingested, OCRed, deduplicated, analyzed, or converted into evidence. Do not remove unrelated thesis functionality.
-2. Use `research/bibliography/` as the single generated bibliography import directory. Do not hand-edit files inside it.
-3. Implement a pull-based sync tool in the thesis repository. It must accept an explicit full commit SHA or tag for `ThesisBibliography`, authenticate read-only, and checkout with full Git history (`fetch-depth: 0`).
-4. In the checked-out bibliography repository, before copying anything, run:
+1. Use `research/bibliography/` as a generated, read-only import directory.
+2. Implement a pull-based sync accepting an explicit full SHA or immutable tag from `ThesisBibliography`, with `fetch-depth: 0` and read-only secret `BIBLIOGRAPHY_SYNC_TOKEN`.
+3. Before copying, run in the checked-out bibliography repo:
 
 ```bash
-python tools/export_thesis.py --validate-only
 python tools/package_integrity.py validate thesis-package
 python tools/validate_thesis_package.py
+python tools/research_materials.py validate
+python tools/validate_research_material_review.py
+python tools/export_research_corpus.py validate
 ```
 
-If any command fails, abort without modifying `research/bibliography/`.
+Abort before modifying the existing import if any validator fails.
 
-5. Copy the validated `thesis-package/` byte-for-byte into `research/bibliography/`, replacing only that generated directory.
-6. From inside `research/bibliography/`, verify the imported bytes with:
+4. Copy committed `research-corpus/` byte-for-byte into `research/bibliography/`.
+5. Verify after copying:
 
 ```bash
 sha256sum -c catalog/SHA256SUMS
+sha256sum -c citation-ready/catalog/SHA256SUMS
 ```
 
-7. Validate that:
-   - `catalog/package-metadata.json` has supported `schema_version` (`1` initially),
-   - its `source_commit` equals the imported `SOURCE_COMMIT`,
-   - its selected-source count matches `manifest.csv`,
-   - all checksum entries pass,
-   - no prohibited artifacts exist,
-   - every imported analysis/evidence source ID exists in the manifest.
-8. Add CI validation so every `SRC-*` identifier used by thesis text or citation tooling exists in the imported manifest and so any manual modification of the generated bibliography directory is detected by the checksum validation.
-9. Add a `workflow_dispatch` sync workflow that accepts the bibliography ref/commit, performs all validation, updates only `research/bibliography/`, and opens a pull request in the thesis repository. Do not push from `ThesisBibliography` into the thesis repository and do not auto-merge the sync.
-10. Use a fine-grained read-only `BIBLIOGRAPHY_SYNC_TOKEN` scoped only to `ThesisBibliography`, or an equivalently restricted GitHub App installation token. Do not grant write access when read access is sufficient.
-11. Update thesis-side writing/citation instructions so scientific claims cite `SRC-*` records and their verified evidence. Preserve source/evidence language; translation for final thesis prose is a separate authoring step and must not mutate imported evidence.
-12. Add or update tests for the sync tool, integrity/schema validation, prohibited-artifact rejection, source-ID validation, and failure-before-replacement behavior.
-
-If the workflow deliberately regenerates the package instead of copying the committed package, use this exact sequence in the checked-out bibliography repository:
-
-```bash
-python tools/export_thesis.py
-python tools/package_integrity.py write thesis-package
-python tools/package_integrity.py validate thesis-package
-python tools/validate_thesis_package.py
-```
+6. Validate schema version, `SOURCE_COMMIT`, package counts, exact checksum path sets, material/review ID coverage, and absence of PDFs/LFS objects.
+7. Add citation validation:
+   - formal `SRC-*` citations must exist in `citation-ready/manifest.csv`;
+   - `MAT-*` references may be used in drafting notes or provenance links but must not be treated as verified bibliography citations unless explicitly promoted through `ThesisBibliography`;
+   - notes require no bibliographic identity.
+8. Add search/index support across the entire imported corpus so thesis writing can retrieve useful text from selected, rejected, theory-only, unidentified-origin, chapter-level, and author-note material.
+9. Remove or adapt obsolete thesis-side bibliography ingestion/OCR/review workflows without touching unrelated thesis functionality.
+10. Add a `workflow_dispatch` sync workflow that opens a PR, never auto-merges, and never pushes from the bibliography repo into the thesis repo.
+11. Add tests for failure-before-replacement, SHA tampering, schema/count mismatch, prohibited binaries, exact `SRC-*` citation validation, `MAT-*` trust handling, note accessibility, and complete corpus searchability.
+12. Preserve original source language. Translation into final thesis prose is an authoring step and must not mutate imported evidence or extracted material.
 
 ## Acceptance criteria
 
-- The thesis repository no longer treats itself as the source-ingestion/scientific-review system.
-- `research/bibliography/` contains only the validated package contract above.
-- SHA-256 integrity validation succeeds after import and fails after any package-file tampering.
-- Package metadata, `SOURCE_COMMIT`, manifest, analyses, and evidence are internally consistent.
-- No raw PDFs, originals, LFS objects, raw source Markdown, pending items, or non-selected evidence are imported.
-- Thesis references to `SRC-*` are validated against the imported manifest.
-- Sync is reproducible from an explicit bibliography ref and uses read-only credentials.
-- Sync changes arrive through a thesis-repository pull request and pass CI before merge.
-- Existing unrelated thesis code and user changes are preserved.
+- The complete `research-corpus/` is imported and integrity-verified.
+- All writing material is accessible even when not citation-ready.
+- The strict verified citation layer remains enforceable and separate.
+- No PDF or LFS binary is imported.
+- Sync is reproducible from an explicit ref, uses read-only credentials, and arrives through a PR.
+- Imported files are never edited manually.
+- Existing unrelated code and user changes are preserved.
 
-Implement the integration, tests, CI, and documentation directly. Use the narrowest relevant tests first and broader validation only where repository rules or the affected surface require it. For work large enough to risk session exhaustion, create coherent verified checkpoints with clear commits. Stop when the acceptance criteria pass.
-
-Final report: outcome, changed files, validation performed, blockers if any, and commit/push/PR status only.
-
----
+Implement the integration, tests, CI, and documentation directly. Final report only: outcome, changed files, validation, blockers, commit/push/PR status.
