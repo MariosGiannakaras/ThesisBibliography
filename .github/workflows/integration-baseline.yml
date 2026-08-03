@@ -32,6 +32,18 @@ jobs:
           python tools/package_integrity.py validate thesis-package
           python tools/validate_thesis_package.py
           python tools/fix_verified_catalog_flags.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          metadata = json.loads(
+              Path("thesis-package/catalog/package-metadata.json").read_text(encoding="utf-8")
+          )
+          if metadata.get("schema_version") != 1:
+              raise SystemExit("Unsupported integration package schema")
+          if metadata.get("selected_sources") != 112:
+              raise SystemExit("Integration baseline must contain exactly 112 selected sources")
+          PY
 
       - name: Publish immutable integration tag
         shell: bash
