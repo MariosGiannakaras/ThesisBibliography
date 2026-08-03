@@ -14,51 +14,24 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: main
           fetch-depth: 0
           lfs: false
 
-      - name: Compare net-new sources with baseline identities
+      - name: List post-merge net-new source inventory
         run: |
           python - <<'PY'
-          import csv, re, subprocess, unicodedata
-          from collections import defaultdict
+          import csv, subprocess
           from io import StringIO
-
           baseline = 'd74a19613565b0a61cb9488b609c889289af8a6c'
-          generated = 'b84450f7d7bc3f6a9a028db11bdc53af488230d5'
-
-          def catalog_at(ref):
+          def rows(ref):
               text = subprocess.check_output(['git','show',f'{ref}:catalog/sources.csv'], text=True)
               return {r['Κωδικός']: r for r in csv.DictReader(StringIO(text))}
-          def norm(s):
-              s = unicodedata.normalize('NFKC', s or '').casefold()
-              return re.sub(r'[^a-z0-9α-ω]+',' ',s).strip()
-          def identifiers(row):
-              text = ' '.join([row.get('Τίτλος',''), row.get('Σύνδεσμος',''), row.get('Σημειώσεις','')])
-              out=set()
-              for m in re.finditer(r'10\.\d{4,9}/[-._;()/:a-z0-9]+', text, re.I): out.add('doi:'+m.group(0).rstrip('.,;)').casefold())
-              for m in re.finditer(r'(?:arxiv(?:\.org/(?:abs|pdf)/)?[: ]*)(\d{4}\.\d{4,5}(?:v\d+)?)', text, re.I): out.add('arxiv:'+re.sub(r'v\d+$','',m.group(1),flags=re.I))
-              return out
-
-          before = catalog_at(baseline); after = catalog_at(generated)
-          new_ids = sorted(set(after)-set(before))
-          title_index=defaultdict(list); url_index=defaultdict(list); id_index=defaultdict(list)
-          for sid,row in before.items():
-              if norm(row.get('Τίτλος')): title_index[norm(row.get('Τίτλος'))].append(sid)
-              if norm(row.get('Σύνδεσμος')): url_index[norm(row.get('Σύνδεσμος'))].append(sid)
-              for ident in identifiers(row): id_index[ident].append(sid)
-
-          collisions=0
-          for sid in new_ids:
-              row=after[sid]; hits=[]
-              t=norm(row.get('Τίτλος')); u=norm(row.get('Σύνδεσμος'))
-              if t in title_index: hits.append('title='+','.join(title_index[t]))
-              if u and u in url_index: hits.append('url='+','.join(url_index[u]))
-              for ident in sorted(identifiers(row)):
-                  if ident in id_index: hits.append(ident+'='+','.join(id_index[ident]))
-              if hits:
-                  collisions += 1
-                  print(sid+'\t'+row.get('Τίτλος','')+'\t'+'; '.join(hits))
-          print(f'COLLISION_COUNT={collisions}')
-          print(f'NET_NEW_COUNT={len(new_ids)}')
+          before = rows(baseline)
+          after = rows('HEAD')
+          ids = sorted(set(after)-set(before), key=lambda x:(after[x].get('Τίτλος','').casefold(),x))
+          print(f'POST_MERGE_NET_NEW={len(ids)}')
+          for sid in ids:
+              r=after[sid]
+              print('\t'.join([sid,r.get('Τίτλος','').replace('\t',' '),r.get('Τύπος','').replace('\t',' '),r.get('Σύνδεσμος','').replace('\t',' ')]))
           PY
