@@ -18,6 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          fetch-depth: 0
           lfs: false
 
       - name: Isolate pending intake from structural PR validation
@@ -58,7 +59,7 @@ jobs:
           tools/originals_common.py tools/originals_downloads.py tools/originals_files.py
           tools/convert_pdf.py tools/decision_status.py
           tools/sync_selection.py tools/analysis_status.py
-          tools/export_thesis.py tools/aggregates.py
+          tools/export_thesis.py tools/validate_thesis_package.py tools/aggregates.py
 
       - name: Run automated tests
         run: python -m unittest discover -s tests -v
@@ -88,6 +89,10 @@ jobs:
         run: |
           python tools/export_thesis.py --validate-only
           python tools/export_thesis.py --output /tmp/thesis-package
+
+      - name: Validate committed thesis package convergence
+        if: ${{ github.event_name == 'push' }}
+        run: python tools/validate_thesis_package.py
 
       - name: Validate repository structure and catalog
         run: python tools/validate.py
