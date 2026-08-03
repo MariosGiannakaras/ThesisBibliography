@@ -1,10 +1,10 @@
 # Κατάσταση μετατροπών PDF
 
-- Αυτόματες μετατροπές: **0**
-- Χρειάζονται περαιτέρω μετατροπή: **0**
+- Αυτόματες μετατροπές: **15**
+- Χρειάζονται περαιτέρω μετατροπή: **1**
 - Πραγματικά εκκρεμείς μετατροπές: **0**
 - Δεν απαιτούν μετατροπή λόγω οριστικής απόρριψης: **2**
-- Υπάρχον Markdown που δεν αντικαταστάθηκε: **225**
+- Υπάρχον Markdown που δεν αντικαταστάθηκε: **244**
 
 > Το OCR εκτελείται με λειτουργία skip-text: οι σελίδες με text layer διατηρούνται και οι σαρωμένες σελίδες OCR-άρονται.
 > Κάθε αυτόματη μετατροπή απαιτεί ανθρώπινο έλεγχο πριν χρησιμοποιηθεί ως παραπομπή.
@@ -12,6 +12,9 @@
 
 | Κωδικός | Τίτλος | Κατάσταση | OCR | Περαιτέρω μετατροπή | Αιτίες |
 |---|---|---|---|---|---|
+| `SRC-A6957B5475` | 150-XIDIAS-Motion-Planning-Methods(1).pdf | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
+| `SRC-5AD59E3C40` | 2-MASTOROCOSTAS-Fuzzy-neurofuzzy-systems.pdf | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
+| `SRC-93E24C1FC7` | 463 Symeonidis Intelligent Recommender Systems.pdf | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-D52DF7B9A4` | 6.5 Q-learning- Off-policy TD Control - Data Analytics | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-A6616BE773` | A Baseline for Detecting Misclassified and Out-of-Distribution Examples in Neural Networks | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-0AEF7EF16A` | A Bayesian Approach to Robust Reinforcement Learning - Association for Uncertainty in Artificial Int | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
@@ -96,6 +99,7 @@
 | `SRC-CD31230403` | Enhancing Security in Deep Reinforcement Learning: A Comprehensive Survey on Adversarial Attacks and Defenses | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-55EB060C37` | ETHICAL & SOCIETAL IMPLICATIONS OF AI – IEEE CAI 2025 | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-3B01300AF5` | Evaluating the Efficiency of Reinforcement Learning Algorithms in Dynamic Environment Simulations - | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
+| `SRC-4980879DA9` | Evolving Reinforcement Learning Algorithms | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-F622BE6812` | Exploration by Random Network Distillation | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-3EF7E5F425` | Feasible Adversarial Robust Reinforcement Learning for Underspecified Environments | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-A784C81711` | Feasible Adversarial Robust Reinforcement Learning for Underspecified Environments - Intelligent Dyn | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
@@ -118,6 +122,7 @@
 | `SRC-6C628ADA43` | https---dione.lib.unipi.gr-xmlui-bitstream-handle-unipi-18088-Tsilifonis mtn2323.pdf | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-BA4E5742AE` | https---discovery.ucl.ac.uk-id-eprint-10208658-7-Mikayel Samvelyan Robust Agents in Open-Ended World | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-F6E2AD5FA8` | https---dspace.lib.ntua.gr-xmlui-bitstream-handle-123456789-61114-ThesisFinal Bakis Dionysios.pdf-is | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
+| `SRC-32A0866AF8` | https---eclass.uoa.gr-modules-document-file.php-DI437-1312.5602.pdf | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-73E38AF463` | https---edoc.ub.uni-muenchen.de-31981-1-Phan Thomy.pdf | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-CDB067267C` | https---konverge.ai-pdf-Ebook-Agentic-AI.pdf | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-9EED60003F` | https---ntrs.nasa.gov-api-citations-20240006865-downloads-sws-tc4-2024milestone.pdf | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
@@ -140,6 +145,7 @@
 | `SRC-91D94DB95B` | https---proceedings.mlr.press-v70-achiam17a-achiam17a.pdf | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-70AEC665B2` | https---proceedings.mlr.press-v70-guo17a-guo17a.pdf | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-D6335D382B` | https---proceedings.mlr.press-v97-kaplanis19a-kaplanis19a.pdf | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
+| `SRC-47D94CB6FD` | https---proceedings.mlr.press-v97-tessler19a-tessler19a.pdf | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-EA5D0E318E` | https---proceedings.neurips.cc-paper files-paper-2017-file-9ef2ed4b7fd2c810847ffa5fa85bce38-Paper.pd | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-CE71F210EE` | https---proceedings.neurips.cc-paper-2020-file-543e83748234f7cbab21aa0ade66565f-Paper.pdf | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-5E062C81BA` | https---proceedings.nips.cc-paper files-paper-2000-file-e8dfff4676a47048d6f0c4ef899593dd-Paper.pdf | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
@@ -148,7 +154,10 @@
 | `SRC-A9C099EA23` | https---repository.tudelft.nl-file-File 4d844f40-2766-450e-b117-66fad735de6f | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-E2356C5721` | https---repository.tudelft.nl-file-File 53fbcb38-546e-45f6-80b1-0bfbc2608091 | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-AEEA49C0DF` | https---repository.tudelft.nl-file-File cd37d44c-d0d0-4d46-821b-b9aa22f2785f | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
+| `SRC-6AD93D9DB4` | https---web.mit.edu-dimitrib-www-AbstractDP ED3 TEXT 2021.pdf | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
+| `SRC-DE316B77C0` | https---web.mit.edu-dimitrib-www-Bertsekas 1976 dynamic-programming.pdf | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-A908F12075` | https---www.capgemini.com-wp-content-uploads-2025-07-Final-Web-Version-Report-AI-Agents.pdf | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
+| `SRC-CD5B555DED` | https---www.cs.unh.edu-~mpetrik-pub-tutorials-robustrl-dlrl-extended.pdf | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-6E7AFA8AC0` | https---zhangliangyu32.github.io-files-papers-RobustMDP2022.pdf | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-BA15D8CA60` | Human-in-the-Loop Synthesis for Partially Observable Markov Decision Processes | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-2E9F8BFC39` | Humans as Safety Constraints: A Survey of Human-in-the-Loop Reinforcement Learning for Critical Systems | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
@@ -173,6 +182,7 @@
 | `SRC-6C2389B5D2` | Neuro-Symbolic AI in 2024: A Systematic Review | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-81ACE350D5` | NIST Issues New Artificial Intelligence Risk Management Framework | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-0F8A6588DC` | NovGrid: A Flexible Grid World for Evaluating Agent Response to Novelty | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
+| `SRC-8D62EF3077` | Nευρωνικά ∆ίκτυα και Eφαρμογές (βιβλίο) Π Αργυράκης.pdf | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-89BD209DAD` | Offline Policy Evaluation and Optimization under Confounding - Ambuj Tewari | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-7313A97A30` | On Practical Robust Reinforcement Learning: Practical Uncertainty Set and Double-Agent Algorithm | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-A5DF23299C` | On the Definition of Robustness and Resilience of AI Agents for Real-time Congestion Management | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
@@ -198,11 +208,13 @@
 | `SRC-85D1CCAE1E` | Rectified Robust Policy Optimization for Model-Uncertain Constrained Reinforcement Learning without Strong Duality | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-F1CF3A9BFA` | Reinforcement Learning - Indico | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-AB4BE17ED0` | Reinforcement Learning for Multi-Agent Systems - Bart De Schutter | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
+| `SRC-E6A5B7584B` | Reinforcement Learning in Non-Stationary Environments | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-55005EF367` | Reinforcement Learning- An Introduction (Sutton & Barto, 2018) | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-47085E14BA` | Resilient Multi-Agent Reinforcement Learning with Adversarial Value Decomposition | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-3EEF180BD3` | Reward Hacking in Language Model Agents: Revisiting AI Safety Gridworlds | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-D6A6F6F96E` | Reward shaping — Mastering Reinforcement Learning | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-AA093F6111` | Reward-Preserving Attacks For Robust Reinforcement Learning | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
+| `SRC-B055C5683C` | Risk Averse Robust Adversarial Reinforcement Learning | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-3EF475E25A` | Robust Average-Reward Markov Decision Processes | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-620F17076C` | Robust Deep Reinforcement Learning against Adversarial Perturbations on State Observations | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-A3D907D882` | Robust Gymnasium: A Unified Modular Benchmark for Robust Reinforcement Learning | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
@@ -215,14 +227,19 @@
 | `SRC-3D73F42552` | ROBUST OPTIMIZATION FOR MITIGATING REWARD HACKING WITH CORRELATED PROXIES - Computer Science | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-AC79E9A264` | Robust Policy Learning over Multiple Uncertainty Sets | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-71F2ECA651` | Robust Reinforcement Learning (Morimoto & Doya, 2001) | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
+| `SRC-01BBBA7EAB` | Robust Reinforcement Learning in POMDPs with Incomplete and Noisy Observations | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
+| `SRC-BDBDE8E5C6` | Robust Reinforcement Learning: A Review of Foundations and Recent Advances | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-02655A05A2` | Robust Reinforcement Learning: A Review of Foundations and Recent Advances | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-BAC9953EAE` | Safe and Robust Reinforcement Learning: Principles and Practice | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-0406E13B97` | Safe Continual Reinforcement Learning Methods for Nonstationary Environments. Towards a Survey of the State of the Art | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-8E77CE2389` | Safe Model-based Reinforcement Learning with Stability Guarantees | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-B1E5732635` | Safe Reinforcement Learning via Recovery-based Shielding with Gaussian Process Dynamics Models | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
+| `SRC-EF4972C036` | SafeLife 1.0: Exploring Side Effects in Complex Environments | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-1791ECC7FA` | Sample Complexity of Robust Reinforcement Learning with a Generative Model | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
+| `SRC-FC42D9798A` | Scaling Up Robust MDPs by Reinforcement Learning | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-05EDAEDFA0` | seizing-the-agentic-ai-advantage | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-DDD62BEA2D` | Self-Initiated Open World Learning for Autonomous AI Agents | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
+| `SRC-46FEEF96C2` | Signal and Systems 22 11 2015-KOY.pdf | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-2583FFAA52` | SoK: Adversarial Machine Learning Attacks and Defences in Multi-Agent Reinforcement Learning | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-3EA1176D3A` | Solving robust MDPs as a sequence of static RL problems | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-E467A29609` | State Entropy Regularization for Robust Reinforcement Learning - NIPS | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
@@ -236,6 +253,23 @@
 | `SRC-1BB6DA9CB7` | Towards Theoretical Understandings of Robust Markov Decision Processes: Sample Complexity and Asymptotics | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-67AB8572A9` | Transfer Learning in Deep Reinforcement Learning: A Survey | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-A5B2810B39` | Uncertainty-Aware LLM-Guided Policy Shaping for Sparse-Reward Reinforcement Learning | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
+| `SRC-BE47EAE6FA` | Uncertainty-Aware Unsupervised and Robust Reinforcement Learning.pdf | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-62996FD690` | Uncertainty-Based Out-of-Distribution Detection in Deep Reinforcement Learning | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
+| `SRC-08C2BE6E1E` | Universal Reinforcement Learning Algorithms: Survey and Experiments | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-F494F45A40` | Using Gen AI Agents With GAE and VAE to Enhance Resilience of US Markets | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-F51B354D98` | Whitepaper- Safe AI. How is this possible- - Fraunhofer-Institut für Kognitive Systeme IKS | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
+| `SRC-64D64239FE` | Βασικές Αρχές Υπολογιστικής Νοημοσύνης [http://dx.doi.org/10.57713/kallipos-988] | πλήρης-αυτόματη-προς-έλεγχο | ολοκληρώθηκε | όχι | καμία |
+| `SRC-E5B868A3D9` | Γραμμικά και Μη Γραμμικά Συστήματα Αυτόματης Ρύθμισης Διεργασιών και Συστημάτων [http://dx.doi.org/10.57713/kallipos-909] | πλήρης-αυτόματη-προς-έλεγχο | ολοκληρώθηκε | όχι | καμία |
+| `SRC-E9CAE0A212` | Διαχείριση Γνώσης [http://dx.doi.org/10.57713/kallipos-27] | χρειάζεται-περαιτέρω-μετατροπή | ολοκληρώθηκε | ναι | υπάρχουν πολλοί μη αναγνωρίσιμοι χαρακτήρες |
+| `SRC-4AEA7D1404` | Δυναμικός Προγραμματισμός και Μαρκοβιανές Διαδικασίες Αποφάσεων σε πεπερασμένο ορίζοντα | πλήρης-αυτόματη-προς-έλεγχο | ολοκληρώθηκε | όχι | καμία |
+| `SRC-CF2D4C53CF` | Εργαστηριακές Ασκήσεις Τεχνητής Νοημοσύνης με τη Γλώσσα Prolog Artificial [http://dx.doi.org/10.57713/kallipos-378] | πλήρης-αυτόματη-προς-έλεγχο | ολοκληρώθηκε | όχι | καμία |
+| `SRC-87A78E96FF` | Θέματα στην Όραση Υπολογιστών και Μηχανική Μάθηση [http://doi.org/10.57713/kallipos-1097] | πλήρης-αυτόματη-προς-έλεγχο | ολοκληρώθηκε | όχι | καμία |
+| `SRC-FE626E4E2A` | Λεξικό Επιστήμης της Πληροφόρησης [http://dx.doi.org/10.57713/kallipos-424] | πλήρης-αυτόματη-προς-έλεγχο | ολοκληρώθηκε | όχι | καμία |
+| `SRC-002CBFFE7E` | Στοχαστικά Μοντέλα στην Επιχειρησιακή Έρευνα [http://dx.doi.org/10.57713/kallipos-497] | πλήρης-αυτόματη-προς-έλεγχο | ολοκληρώθηκε | όχι | καμία |
+| `SRC-3F474DFDF9` | Στοχαστικές Διαδικασίες [http://dx.doi.org/10.57713/kallipos-457] | πλήρης-αυτόματη-προς-έλεγχο | ολοκληρώθηκε | όχι | καμία |
+| `SRC-EF288B6690` | Σύγχρονη Θεωρία Ελέγχου [http://dx.doi.org/10.57713/kallipos-883] | πλήρης-αυτόματη-προς-έλεγχο | ολοκληρώθηκε | όχι | καμία |
+| `SRC-3D30523C80` | Ταυτόχρονα μοντέλα υπολογισμού [http://hdl.handle.net/11419/9231] | πλήρης-αυτόματη-προς-έλεγχο | ολοκληρώθηκε | όχι | καμία |
+| `SRC-3F2FFDCDA4` | Τεχνητή νοημοσύνη | πλήρης-αυτόματη-προς-έλεγχο | ολοκληρώθηκε | όχι | καμία |
+| `SRC-A22C08E0AD` | Τεχνητή νοημοσύνη [http://dx.doi.org/10.57713/kallipos-666] | πλήρης-αυτόματη-προς-έλεγχο | ολοκληρώθηκε | όχι | καμία |
+| `SRC-74E32A649B` | Υπολογιστική γλωσσολογία [http://dx.doi.org/10.57713/kallipos-127] | πλήρης-αυτόματη-προς-έλεγχο | ολοκληρώθηκε | όχι | καμία |
+| `SRC-2CADA4DAAF` | Υπολογιστική νοημοσύνη και βαθιά μάθηση [http://dx.doi.org/10.57713/kallipos-168] | πλήρης-αυτόματη-προς-έλεγχο | ολοκληρώθηκε | όχι | καμία |
