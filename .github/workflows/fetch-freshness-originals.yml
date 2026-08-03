@@ -1,0 +1,137 @@
+name: Fetch August 2026 freshness originals
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  fetch-and-convert:
+    if: github.event.pull_request.head.repo.full_name == github.repository && github.event.pull_request.head.ref == 'fix/freshness-originals-2026-08'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout review branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+          lfs: false
+
+      - name: Stop when originals were already converted
+        id: guard
+        shell: bash
+        run: |
+          if grep -q 'AUTO_PDF_CONVERSION' sources/SRC-70772C0629.md \
+            && grep -q 'AUTO_PDF_CONVERSION' sources/SRC-9464421E55.md \
+            && grep -q 'AUTO_PDF_CONVERSION' sources/SRC-76B2247457.md \
+            && [ ! -e new-sources/intake-trigger.json ]; then
+            echo 'done=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'done=false' >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Install conversion dependency
+        if: steps.guard.outputs.done != 'true'
+        run: python -m pip install --disable-pip-version-check pypdf
+
+      - name: Download and validate exact public originals
+        if: steps.guard.outputs.done != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p originals
+
+          fetch_pdf() {
+            id="$1"
+            primary="$2"
+            fallback="${3:-}"
+            target="originals/${id}.pdf"
+            tmp="${target}.download"
+            rm -f "$tmp"
+            if ! curl --fail --location --retry 3 --retry-all-errors \
+              --connect-timeout 20 --max-time 180 \
+              -A 'Mozilla/5.0 ThesisBibliography/1.0' \
+              "$primary" -o "$tmp"; then
+              if [ -z "$fallback" ]; then
+                exit 1
+              fi
+              curl --fail --location --retry 3 --retry-all-errors \
+                --connect-timeout 20 --max-time 180 \
+                -A 'Mozilla/5.0 ThesisBibliography/1.0' \
+                "$fallback" -o "$tmp"
+            fi
+            python - "$tmp" "$id" <<'PY'
+          import hashlib
+          import sys
+          from pathlib import Path
+          from pypdf import PdfReader
+
+          path = Path(sys.argv[1])
+          source_id = sys.argv[2]
+          data = path.read_bytes()
+          if not data.startswith(b"%PDF-"):
+              raise SystemExit(f"{source_id}: downloaded payload is not a PDF")
+          if len(data) < 20_000:
+              raise SystemExit(f"{source_id}: PDF is unexpectedly small ({len(data)} bytes)")
+          reader = PdfReader(str(path))
+          if len(reader.pages) < 2:
+              raise SystemExit(f"{source_id}: PDF has too few pages ({len(reader.pages)})")
+          print(f"{source_id}: sha256={hashlib.sha256(data).hexdigest()} bytes={len(data)} pages={len(reader.pages)}")
+          PY
+            mv "$tmp" "$target"
+          }
+
+          fetch_pdf SRC-70772C0629 \
+            'https://arxiv.org/pdf/2503.18607' \
+            'https://export.arxiv.org/pdf/2503.18607'
+          fetch_pdf SRC-9464421E55 \
+            'https://raw.githubusercontent.com/mlresearch/v258/main/assets/gerogiannis25a/gerogiannis25a.pdf'
+          fetch_pdf SRC-76B2247457 \
+            'https://raw.githubusercontent.com/mlresearch/v267/main/assets/mesbahi25a/mesbahi25a.pdf'
+
+          rm -f \
+            originals/SRC-70772C0629.url \
+            originals/SRC-9464421E55.url \
+            originals/SRC-76B2247457.url \
+            new-sources/intake-trigger.json
+
+      - name: Convert the three text PDFs to faithful Markdown
+        if: steps.guard.outputs.done != 'true'
+        run: python tools/convert_pdf.py --limit 3 --ocr-language eng
+
+      - name: Validate repository after original completion
+        if: steps.guard.outputs.done != 'true'
+        run: |
+          python tools/sync_selection.py
+          python tools/analysis_status.py
+          python tools/export_thesis.py --validate-only
+          python tools/validate.py
+
+      - name: Commit completed originals and conversions
+        if: steps.guard.outputs.done != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git lfs install --local
+          git add \
+            originals/SRC-70772C0629.pdf \
+            originals/SRC-9464421E55.pdf \
+            originals/SRC-76B2247457.pdf \
+            originals/SRC-70772C0629.url \
+            originals/SRC-9464421E55.url \
+            originals/SRC-76B2247457.url \
+            new-sources/intake-trigger.json \
+            sources/SRC-70772C0629.md \
+            sources/SRC-9464421E55.md \
+            sources/SRC-76B2247457.md \
+            catalog
+          if git diff --cached --quiet; then
+            echo 'No generated changes to commit.'
+            exit 0
+          fi
+          git commit -m 'fix: complete freshness source originals and conversion'
+          git push origin "HEAD:${{ github.event.pull_request.head.ref }}"
