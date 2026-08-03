@@ -60,9 +60,17 @@ jobs:
           tools/convert_pdf.py tools/decision_status.py
           tools/sync_selection.py tools/analysis_status.py
           tools/export_thesis.py tools/package_integrity.py tools/validate_thesis_package.py tools/aggregates.py
+          tools/research_materials.py tools/export_research_corpus.py
 
       - name: Run automated tests
         run: python -m unittest discover -s tests -v
+
+      - name: Validate complete research corpus when present
+        run: |
+          if [ -f catalog/research-materials.csv ]; then
+            python tools/research_materials.py validate
+            python tools/export_research_corpus.py validate
+          fi
 
       - name: Validate completed manual-review catalog flags
         run: python tools/fix_verified_catalog_flags.py
