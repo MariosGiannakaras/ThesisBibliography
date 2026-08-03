@@ -14,6 +14,7 @@ on:
       - "tools/analysis_status.py"
       - "tools/convert_pdf.py"
       - "tools/export_thesis.py"
+      - "tools/package_integrity.py"
       - ".github/workflows/thesis-package.yml"
   workflow_dispatch:
 
@@ -48,6 +49,7 @@ jobs:
           tools/analysis_status.py
           tools/convert_pdf.py
           tools/export_thesis.py
+          tools/package_integrity.py
 
       - name: Sync canonical registry and analysis status
         run: |
@@ -59,6 +61,11 @@ jobs:
 
       - name: Build verified thesis package
         run: python tools/export_thesis.py
+
+      - name: Write and verify package integrity metadata
+        run: |
+          python tools/package_integrity.py write thesis-package
+          python tools/package_integrity.py validate thesis-package
 
       - name: Publish generated thesis package review branch
         env:
@@ -76,7 +83,7 @@ jobs:
           git add catalog/thesis-selection.csv catalog/analysis-status.csv catalog/analysis-status.md catalog/conversion-status.csv catalog/conversion-status.md thesis-package
           git commit -m "chore: update verified thesis package and status reports"
           git push origin "HEAD:$branch"
-          if gh pr create --base main --head "$branch" --title "chore: update verified thesis package and status reports" --body "Regenerates the canonical thesis-selection registry, authoritative analysis/conversion status, and verified thesis package. Scientific source and evidence content remains in the checked source language."; then
+          if gh pr create --base main --head "$branch" --title "chore: update verified thesis package and status reports" --body "Regenerates the canonical thesis-selection registry, authoritative analysis/conversion status, verified thesis package, and deterministic SHA-256 integrity metadata. Scientific source and evidence content remains in the checked source language."; then
             echo "Generated thesis-package PR created automatically."
           else
             echo "::warning::GitHub Actions is not permitted to create Pull Requests in this repository. The validated branch remains available for review."
