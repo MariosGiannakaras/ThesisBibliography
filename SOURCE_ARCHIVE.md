@@ -4,7 +4,7 @@
 > Η δομημένη πηγή αλήθειας είναι το `catalog/sources.csv` και όλα τα πλήρη
 > Markdown βρίσκονται στον ενιαίο φάκελο `sources/`.
 
-- **Συνολικές ενεργές πηγές:** 580
+- **Συνολικές ενεργές πηγές:** 583
 - **Πλήρη Markdown που λείπουν:** 0
 - **Χρήση:** απογραφή, φίλτρα, έλεγχος μεταδεδομένων και επιλογή πηγών για τη διπλωματική.
 
@@ -14,8 +14,8 @@
 
 | Τύπος πηγής | Πλήθος |
 |---|---:|
-| ακαδημαϊκή εργασία | 274 |
-| ιστοσελίδα | 153 |
+| ακαδημαϊκή εργασία | 275 |
+| ιστοσελίδα | 155 |
 | βίντεο ή διάλεξη | 50 |
 | αποθετήριο κώδικα | 32 |
 | άγνωστος τύπος | 25 |
@@ -30,18 +30,18 @@
 |---|---:|
 | πράκτορες τεχνητής νοημοσύνης | 160 |
 | βαθιά ενισχυτική μάθηση | 142 |
-| πινακοποιημένη ενισχυτική μάθηση | 117 |
+| πινακοποιημένη ενισχυτική μάθηση | 118 |
 | χωρίς κατηγορία | 107 |
 | περιβάλλοντα και benchmarks | 90 |
-| GridWorld | 81 |
+| GridWorld | 83 |
 | εύρωστη ενισχυτική μάθηση | 80 |
+| μη στασιμότητα | 72 |
 | μερική παρατηρησιμότητα | 69 |
-| μη στασιμότητα | 69 |
 | ασφαλής ενισχυτική μάθηση | 64 |
-| στατιστική αξιολόγηση | 63 |
+| στατιστική αξιολόγηση | 64 |
 | ανθεκτικότητα και ανάκαμψη | 53 |
 | διακυβέρνηση και ηθική | 46 |
-| συνεχής προσαρμογή | 24 |
+| συνεχής προσαρμογή | 25 |
 | αβεβαιότητα μεταβάσεων | 16 |
 | ενισχυτική μάθηση με μοντέλο | 15 |
 | αβεβαιότητα ανταμοιβής | 10 |
@@ -54,7 +54,7 @@
 |---|---:|
 | διαθέσιμο πλήρες κείμενο | 521 |
 | μόνο μεταδεδομένα | 34 |
-| ελλιπές κείμενο | 24 |
+| ελλιπές κείμενο | 27 |
 | αποτυχημένη εισαγωγή | 1 |
 
 ## Πλήρης πίνακας πηγών
@@ -358,6 +358,7 @@
 | `SRC-503A8B421C` | Interpretable Operations Research for High-Sta... - Πέργαμος | — | 2020 | ιστοσελίδα | μη στασιμότητα | διαθέσιμο πλήρες κείμενο | μόνο καταγεγραμμένος σύνδεσμος | μεσαία | [πηγή](sources/SRC-503A8B421C.md) | [άνοιγμα](https://pergamos.lib.uoa.gr/uoa/dl/object/3344931) | — |
 | `SRC-58C53E9086` | IntEx 2021 Proceedings of the Fifth Workshop on Integrated Planning, Acting and Execution | — | 2021 | ιστοσελίδα | περιβάλλοντα και benchmarks; πράκτορες τεχνητής νοημοσύνης | διαθέσιμο πλήρες κείμενο | μόνο καταγεγραμμένος σύνδεσμος | χαμηλή | [πηγή](sources/SRC-58C53E9086.md) | [άνοιγμα](https://icaps21.icaps-conference.org/workshops/IntEx/IntEx2021proceedings_final.pdf) | — |
 | `SRC-00CCFC7AC0` | IROS 2022 Keynote- Safe Learning in Robotics by Prof. Angela Schoellig | Prof. Angela Schoellig (Learning Systems and Robotics Lab) | 2022 | βίντεο ή διάλεξη | χωρίς κατηγορία | μόνο μεταδεδομένα | μόνο καταγεγραμμένος σύνδεσμος | χρειάζεται διόρθωση | [πηγή](sources/SRC-00CCFC7AC0.md) | [άνοιγμα](https://www.youtube.com/watch?v=g6eHhvHMSy8) | — |
+| `SRC-9464421E55` | Is Prior-Free Black-Box Non-Stationary Reinforcement Learning Feasible? | Argyrios Gerogiannis; Yu-Han Huang; Venugopal Veeravalli | 2025 | ιστοσελίδα | μη στασιμότητα; GridWorld | ελλιπές κείμενο | μόνο καταγεγραμμένος σύνδεσμος | χρειάζεται διόρθωση | [πηγή](sources/SRC-9464421E55.md) | [άνοιγμα](https://raw.githubusercontent.com/mlresearch/v258/main/assets/gerogiannis25a/gerogiannis25a.pdf) | — |
 | `SRC-9144C46DA7` | Just an Agent Away - An AI Thesis - Eximius Ventures | Preeti Nellore Sampat, Shubham Titare | 2025 | ιστοσελίδα | πράκτορες τεχνητής νοημοσύνης | διαθέσιμο πλήρες κείμενο | μόνο καταγεγραμμένος σύνδεσμος | μεσαία | [πηγή](sources/SRC-9144C46DA7.md) | [άνοιγμα](https://eximiusvc.com/wp-content/uploads/2025/01/Just-an-Agent-Away-An-AI-Thesis-.pdf) | — |
 | `SRC-F99517DABE` | Key Characteristics of Intelligent Agents- Autonomy, Adaptability, and Decision-Making | — | — | ιστοσελίδα | πράκτορες τεχνητής νοημοσύνης | διαθέσιμο πλήρες κείμενο | μόνο καταγεγραμμένος σύνδεσμος | μεσαία | [πηγή](sources/SRC-F99517DABE.md) | [άνοιγμα](https://smythos.com/developers/agent-development/intelligent-agent-characteristics) | — |
 | `SRC-7238AA0BDC` | Know what it does not know - TU Delft Repository | — | 2021 | ιστοσελίδα | πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση; περιβάλλοντα και benchmarks | διαθέσιμο πλήρες κείμενο | μόνο καταγεγραμμένος σύνδεσμος | χαμηλή | [πηγή](sources/SRC-7238AA0BDC.md) | [άνοιγμα](https://repository.tudelft.nl/record/uuid%3Ab1fcafbe-172a-40f7-8c2a-39b75986d992) | — |
@@ -445,6 +446,7 @@
 | `SRC-9AF6281E67` | Policy-Conditioned Uncertainty Sets for Robust Markov Decision Processes - NIPS | Andrea Tirinzoni, Xiangli Chen, Marek Petrik, Brian D. Ziebart | 2018 | ακαδημαϊκή εργασία | εύρωστη ενισχυτική μάθηση | διαθέσιμο πλήρες κείμενο | μόνο καταγεγραμμένος σύνδεσμος | υψηλή | [πηγή](sources/SRC-9AF6281E67.md) | [άνοιγμα](https://papers.nips.cc/paper_files/paper/2018/file/7ec0dbeee45813422897e04ad8424a5e-Paper.pdf) | — |
 | `SRC-01F23B6B1F` | POMDP Example Domains | — | 1971 | ιστοσελίδα | μερική παρατηρησιμότητα | διαθέσιμο πλήρες κείμενο | μόνο καταγεγραμμένος σύνδεσμος | χαμηλή | [πηγή](sources/SRC-01F23B6B1F.md) | [άνοιγμα](https://pomdp.org/examples/index.html) | — |
 | `SRC-8D94DEEB3D` | POMDP inference and robust solution via deep reinforcement learning: An application to railway optimal maintenance | Giacomo Arcieri; Cyprien Hoelzl; Oliver Schwery; Daniel Straub; Konstantinos G. Papakonstantinou; Eleni Chatzi | 2023 | ακαδημαϊκή εργασία | μερική παρατηρησιμότητα; βαθιά ενισχυτική μάθηση | διαθέσιμο πλήρες κείμενο | επιβεβαιωμένη μέσω arXiv | χαμηλή | [πηγή](sources/SRC-8D94DEEB3D.md) | [άνοιγμα](https://arxiv.org/abs/2307.08082) | Αυτόματη διόρθωση παλιού τίτλου: https---arxiv.org-pdf-2307.08082 \| Αυτόματη διόρθωση παλιού έτους: 1998 |
+| `SRC-76B2247457` | Position: Lifetime tuning is incompatible with continual reinforcement learning | Golnaz Mesbahi; Parham Mohammad Panahi; Olya Mastikhina; Steven Tang; Martha White; Adam White | 2025 | ιστοσελίδα | μη στασιμότητα; GridWorld; συνεχής προσαρμογή; στατιστική αξιολόγηση | ελλιπές κείμενο | μόνο καταγεγραμμένος σύνδεσμος | χρειάζεται διόρθωση | [πηγή](sources/SRC-76B2247457.md) | [άνοιγμα](https://raw.githubusercontent.com/mlresearch/v267/main/assets/mesbahi25a/mesbahi25a.pdf) | — |
 | `SRC-D546F0AACB` | Practices for governing agentic AI systems- OpenAI's seven safety principles - VerifyWise | OpenAI Interdisciplinary Research Team | — | ιστοσελίδα | πράκτορες τεχνητής νοημοσύνης; διακυβέρνηση και ηθική | διαθέσιμο πλήρες κείμενο | μόνο καταγεγραμμένος σύνδεσμος | μεσαία | [πηγή](sources/SRC-D546F0AACB.md) | [άνοιγμα](https://verifywise.ai/ai-governance-library/governance-frameworks/openai-practices-governing-agentic-ai-systems) | — |
 | `SRC-2CF79C378A` | Princeton University Lectures - Foundations of Reinforcement Learning - YouTube | — | 2024 | βίντεο ή διάλεξη | μερική παρατηρησιμότητα; πινακοποιημένη ενισχυτική μάθηση | διαθέσιμο πλήρες κείμενο | μόνο καταγεγραμμένος σύνδεσμος | μεσαία | [πηγή](sources/SRC-2CF79C378A.md) | [άνοιγμα](https://www.youtube.com/playlist?list=PLYXvCE1En13epbogBmgafC_Yyyk9oQogl) | — |
 | `SRC-3A71103B05` | Princeton University Lectures - Foundations of Reinforcement Learning - YouTube | — | 2024 | βίντεο ή διάλεξη | μερική παρατηρησιμότητα | διαθέσιμο πλήρες κείμενο | εκκρεμεί | μεσαία | [πηγή](sources/SRC-3A71103B05.md) | — | — |
@@ -470,6 +472,7 @@
 | `SRC-82B9A220FE` | Reinforcement Learning from Scratch! | MATLAB Ambassador - Italy | — | βίντεο ή διάλεξη | GridWorld; πινακοποιημένη ενισχυτική μάθηση | διαθέσιμο πλήρες κείμενο | μόνο καταγεγραμμένος σύνδεσμος | μεσαία | [πηγή](sources/SRC-82B9A220FE.md) | [άνοιγμα](https://www.youtube.com/watch?v=80favn_f_VQ) | — |
 | `SRC-E6A5B7584B` | Reinforcement Learning in Non-Stationary Environments | Sindhu Padakandla; Prabuchandran K. J; Shalabh Bhatnagar | 2019 | ακαδημαϊκή εργασία | μη στασιμότητα; πινακοποιημένη ενισχυτική μάθηση; συνεχής προσαρμογή | διαθέσιμο πλήρες κείμενο | επιβεβαιωμένη μέσω arXiv | υψηλή | [πηγή](sources/SRC-E6A5B7584B.md) | [άνοιγμα](https://arxiv.org/abs/1905.03970) | Αυτόματη διόρθωση παλιού τίτλου: https---arxiv.org-pdf-1905.03970 \| Αυτόματη διόρθωση παλιού έτους: 1905 |
 | `SRC-6609D86CD5` | Reinforcement learning in nonstationary environments | Ping-Man Choi | None | ακαδημαϊκή εργασία | μη στασιμότητα; μερική παρατηρησιμότητα | διαθέσιμο πλήρες κείμενο | επιβεβαιωμένη μέσω Crossref | μεσαία | [πηγή](sources/SRC-6609D86CD5.md) | [άνοιγμα](https://doi.org/10.14711/thesis-b655883) | Αυτόματη διόρθωση παλιού τίτλου: Reinforcement learning in nonstationary environments - The Hong Kong University of Science and Techn \| Αυτόματη διόρθωση παλιού έτους: 2000 |
+| `SRC-70772C0629` | Reinforcement Learning in Switching Non-Stationary Markov Decision Processes: Algorithms and Convergence Analysis | Mohsen Amiri; Sindri Magnússon | 2025 | ακαδημαϊκή εργασία | μη στασιμότητα; πινακοποιημένη ενισχυτική μάθηση | ελλιπές κείμενο | επιβεβαιωμένη μέσω arXiv | χρειάζεται διόρθωση | [πηγή](sources/SRC-70772C0629.md) | [άνοιγμα](https://arxiv.org/abs/2503.18607) | — |
 | `SRC-3BD2FDEADB` | Reinforcement Learning with Numpy ONLY- Solving an Arbitrary 2D Grid World! | Kamila Zdybał | — | βίντεο ή διάλεξη | GridWorld | μόνο μεταδεδομένα | μόνο καταγεγραμμένος σύνδεσμος | χρειάζεται διόρθωση | [πηγή](sources/SRC-3BD2FDEADB.md) | [άνοιγμα](https://www.youtube.com/watch?v=Up6XSRWlcb4) | — |
 | `SRC-EE33F366D6` | Reinforcement Learning with Numpy ONLY: Solving an Arbitrary 2D Grid World! | Kamila Zdybał | — | βίντεο ή διάλεξη | GridWorld | μόνο μεταδεδομένα | μόνο καταγεγραμμένος σύνδεσμος | χρειάζεται διόρθωση | [πηγή](sources/SRC-EE33F366D6.md) | [άνοιγμα](https://www.youtube.com/watch?v=KamilaZdybal+%28link) | — |
 | `SRC-55005EF367` | Reinforcement Learning- An Introduction (Sutton & Barto, 2018) | — | 2018 | βιβλίο ή κεφάλαιο | μη στασιμότητα; πινακοποιημένη ενισχυτική μάθηση | διαθέσιμο πλήρες κείμενο | μόνο καταγεγραμμένος σύνδεσμος | μεσαία | [πηγή](sources/SRC-55005EF367.md) | [άνοιγμα](https://web.stanford.edu/class/psych209/Readings/SuttonBartoIPRLBook2ndEd.pdf) | — |
