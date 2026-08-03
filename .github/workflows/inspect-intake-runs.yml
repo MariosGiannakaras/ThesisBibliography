@@ -6,17 +6,23 @@ on:
 
 permissions:
   contents: read
-  actions: read
 
 jobs:
   inspect:
     runs-on: ubuntu-latest
     steps:
-      - name: Show post-review generated workflow runs
-        env:
-          GH_TOKEN: ${{ github.token }}
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          lfs: false
+
+      - name: Show selected new source metadata
         run: |
-          echo 'THESIS_PACKAGE'
-          gh run list --repo "$GITHUB_REPOSITORY" --workflow thesis-package.yml --branch main --limit 8 --json databaseId,headSha,status,conclusion,createdAt,updatedAt,url
-          echo 'AGGREGATES'
-          gh run list --repo "$GITHUB_REPOSITORY" --workflow aggregates.yml --branch main --limit 8 --json databaseId,headSha,status,conclusion,createdAt,updatedAt,url || true
+          python - <<'PY'
+          import csv
+          wanted={'SRC-E6A5B7584B','SRC-1FE2A54527','SRC-01BBBA7EAB','SRC-EF4972C036','SRC-FC42D9798A'}
+          with open('catalog/sources.csv',encoding='utf-8',newline='') as f:
+              for row in csv.DictReader(f):
+                  if row.get('Κωδικός') in wanted:
+                      print(row)
+          PY
