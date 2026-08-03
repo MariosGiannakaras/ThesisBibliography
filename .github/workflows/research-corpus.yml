@@ -16,6 +16,7 @@ on:
       - "catalog/research-material-review.csv"
       - "thesis-package/**"
       - "tools/research_materials.py"
+      - "tools/validate_research_material_review.py"
       - "tools/export_research_corpus.py"
       - ".github/workflows/research-corpus.yml"
   workflow_dispatch:
@@ -52,12 +53,14 @@ jobs:
         run: >-
           python -m py_compile
           tools/research_materials.py
+          tools/validate_research_material_review.py
           tools/export_research_corpus.py
 
       - name: Extract otherwise-uncovered research materials
         run: |
           python tools/research_materials.py build
           python tools/research_materials.py validate
+          python tools/validate_research_material_review.py
 
       - name: Build and validate complete research corpus
         shell: bash
