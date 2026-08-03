@@ -1,0 +1,49 @@
+name: Align RARL selection topics
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    if: github.head_ref == 'fix/pinto-selection-topics'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/pinto-selection-topics
+          fetch-depth: 0
+          lfs: false
+
+      - name: Align selected-source topics
+        run: |
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+          path = Path('catalog/thesis-selection.csv')
+          with path.open(encoding='utf-8', newline='') as handle:
+              reader = csv.DictReader(handle)
+              fields = list(reader.fieldnames or [])
+              rows = [dict(row) for row in reader]
+          wanted = 'εύρωστη ενισχυτική μάθηση; αβεβαιότητα μεταβάσεων; βαθιά ενισχυτική μάθηση; περιβάλλοντα και benchmarks'
+          found = False
+          for row in rows:
+              if row.get('Κωδικός') == 'SRC-1FE2A54527':
+                  found = True
+                  row['Θέματα'] = wanted
+          if not found:
+              raise SystemExit('SRC-1FE2A54527 not found in thesis selection')
+          with path.open('w', encoding='utf-8', newline='') as handle:
+              writer = csv.DictWriter(handle, fieldnames=fields, lineterminator='\n')
+              writer.writeheader()
+              writer.writerows(rows)
+          PY
+          rm -f .github/workflows/fix-pinto-selection-topics.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "fix: align RARL selection topics with canonical metadata"
+          git push origin HEAD:fix/pinto-selection-topics
