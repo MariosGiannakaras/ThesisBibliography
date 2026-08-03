@@ -97,9 +97,46 @@ jobs:
             originals/SRC-76B2247457.url \
             new-sources/intake-trigger.json
 
-      - name: Convert the three text PDFs to faithful Markdown
+      - name: Convert only the three explicitly incomplete source records
         if: steps.guard.outputs.done != 'true'
-        run: python tools/convert_pdf.py --limit 3 --ocr-language eng
+        shell: bash
+        run: |
+          python - <<'PY'
+          import importlib.util
+          import sys
+          from pathlib import Path
+
+          root = Path.cwd()
+          tools = root / 'tools'
+          sys.path.insert(0, str(tools))
+          spec = importlib.util.spec_from_file_location('scoped_pdf_conversion', tools / 'convert_pdf.py')
+          module = importlib.util.module_from_spec(spec)
+          assert spec.loader
+          sys.modules[spec.name] = module
+          spec.loader.exec_module(module)
+
+          allowed = {'SRC-70772C0629', 'SRC-9464421E55', 'SRC-76B2247457'}
+          original_replaceable = module.source_is_replaceable
+
+          def scoped_replaceable(path, row):
+              source_id = row.get('Κωδικός', '')
+              if source_id in allowed:
+                  if row.get('Κατάσταση', '') != 'ελλιπές κείμενο':
+                      raise RuntimeError(
+                          f'{source_id}: scoped replacement requires catalog status ελλιπές κείμενο'
+                      )
+                  return True
+              return original_replaceable(path, row)
+
+          module.source_is_replaceable = scoped_replaceable
+          sys.argv = ['convert_pdf.py', '--limit', '3', '--ocr-language', 'eng']
+          raise SystemExit(module.main())
+          PY
+
+          for id in SRC-70772C0629 SRC-9464421E55 SRC-76B2247457; do
+            grep -q 'AUTO_PDF_CONVERSION' "sources/${id}.md"
+            grep -q "source_id: \"${id}\"" "sources/${id}.md"
+          done
 
       - name: Validate repository after original completion
         if: steps.guard.outputs.done != 'true'
@@ -133,5 +170,5 @@ jobs:
             echo 'No generated changes to commit.'
             exit 0
           fi
-          git commit -m 'fix: complete freshness source originals and conversion'
+          git commit -m 'fix: convert explicit freshness source originals'
           git push origin "HEAD:${{ github.event.pull_request.head.ref }}"
