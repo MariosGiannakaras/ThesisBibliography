@@ -154,18 +154,7 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git lfs install --local
-          git add \
-            originals/SRC-70772C0629.pdf \
-            originals/SRC-9464421E55.pdf \
-            originals/SRC-76B2247457.pdf \
-            originals/SRC-70772C0629.url \
-            originals/SRC-9464421E55.url \
-            originals/SRC-76B2247457.url \
-            new-sources/intake-trigger.json \
-            sources/SRC-70772C0629.md \
-            sources/SRC-9464421E55.md \
-            sources/SRC-76B2247457.md \
-            catalog
+          git add -A -- originals sources catalog new-sources
           if git diff --cached --quiet; then
             echo 'No generated changes to commit.'
             exit 0
