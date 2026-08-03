@@ -10,6 +10,7 @@ on:
       - "catalog/thesis-selection.csv"
       - "tools/decision_status.py"
       - "tools/language_audit.py"
+      - "tools/fix_verified_catalog_flags.py"
       - "tools/sync_selection.py"
       - "tools/analysis_status.py"
       - "tools/convert_pdf.py"
@@ -45,11 +46,15 @@ jobs:
           python -m py_compile
           tools/decision_status.py
           tools/language_audit.py
+          tools/fix_verified_catalog_flags.py
           tools/sync_selection.py
           tools/analysis_status.py
           tools/convert_pdf.py
           tools/export_thesis.py
           tools/package_integrity.py
+
+      - name: Normalize verified catalog flags
+        run: python tools/fix_verified_catalog_flags.py --apply
 
       - name: Sync canonical registry and analysis status
         run: |
@@ -72,18 +77,18 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         shell: bash
         run: |
-          if [ -z "$(git status --porcelain -- catalog/thesis-selection.csv catalog/analysis-status.csv catalog/analysis-status.md catalog/conversion-status.csv catalog/conversion-status.md thesis-package)" ]; then
-            echo "Registry, status reports, and thesis package are already current."
+          if [ -z "$(git status --porcelain -- catalog/sources.csv catalog/thesis-selection.csv catalog/analysis-status.csv catalog/analysis-status.md catalog/conversion-status.csv catalog/conversion-status.md thesis-package)" ]; then
+            echo "Catalog, registry, status reports, and thesis package are already current."
             exit 0
           fi
           branch="automation/thesis-package-${GITHUB_RUN_ID}"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git switch -c "$branch"
-          git add catalog/thesis-selection.csv catalog/analysis-status.csv catalog/analysis-status.md catalog/conversion-status.csv catalog/conversion-status.md thesis-package
+          git add catalog/sources.csv catalog/thesis-selection.csv catalog/analysis-status.csv catalog/analysis-status.md catalog/conversion-status.csv catalog/conversion-status.md thesis-package
           git commit -m "chore: update verified thesis package and status reports"
           git push origin "HEAD:$branch"
-          if gh pr create --base main --head "$branch" --title "chore: update verified thesis package and status reports" --body "Regenerates the canonical thesis-selection registry, authoritative analysis/conversion status, verified thesis package, and deterministic SHA-256 integrity metadata. Scientific source and evidence content remains in the checked source language."; then
+          if gh pr create --base main --head "$branch" --title "chore: update verified thesis package and status reports" --body "Normalizes completed manual-review catalog flags, regenerates the canonical thesis-selection registry, authoritative analysis/conversion status, verified thesis package, and deterministic SHA-256 integrity metadata. Scientific source and evidence content remains in the checked source language."; then
             echo "Generated thesis-package PR created automatically."
           else
             echo "::warning::GitHub Actions is not permitted to create Pull Requests in this repository. The validated branch remains available for review."
