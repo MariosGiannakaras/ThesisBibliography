@@ -311,22 +311,60 @@ def strong_pdf_identities(info: PdfInfo) -> set[str]:
     return result
 
 
-def title_score(row_title: str, path: Path, info: PdfInfo) -> float:
-    title_key = normalized(row_title)
-    if len(title_key) < 12 or GENERIC_TITLE.search(row_title.strip()):
+_TITLE_MATCH_STOPWORDS = {
+    "a", "an", "and", "for", "in", "of", "on", "the", "to", "using", "with",
+    "και", "για", "η", "με", "σε", "στη", "στην", "στο", "των", "του", "της", "το", "τα",
+}
+
+
+def _distinctive_title(value: str) -> bool:
+    """Title-only matching is allowed only when the title carries enough identity.
+
+    Short generic topics such as ``Reinforcement Learning`` or ``Τεχνητή νοημοσύνη``
+    occur inside many unrelated documents and therefore cannot identify a PDF.
+    """
+    words = normalized_words(value).split()
+    informative = [word for word in words if word not in _TITLE_MATCH_STOPWORDS and len(word) >= 3]
+    return len(words) >= 4 and len(informative) >= 3
+
+
+def _token_overlap(left: str, right: str) -> float:
+    left_words = set(normalized_words(left).split())
+    right_words = set(normalized_words(right).split())
+    if not left_words or not right_words:
         return 0.0
-    filename_key = normalized(re.sub(r"^\d+[-_ ]+", "", path.stem))
+    return len(left_words & right_words) / max(len(left_words), len(right_words))
+
+
+def title_score(row_title: str, path: Path, info: PdfInfo) -> float:
+    """Return a conservative title-identity score.
+
+    Body text is deliberately excluded: a source title appearing in a chapter, citation,
+    heading, or discussion is evidence of topical overlap, not document identity.
+    """
+    title_key = normalized(row_title)
+    if (
+        len(title_key) < 12
+        or GENERIC_TITLE.search(row_title.strip())
+        or not _distinctive_title(row_title)
+    ):
+        return 0.0
+
+    filename = re.sub(r"^\d+[-_ ]+", "", path.stem)
+    filename_key = normalized(filename)
     metadata_key = normalized(info.title)
-    text_key = normalized(info.text[:9000])
     score = SequenceMatcher(None, filename_key, title_key).ratio()
-    if title_key and (title_key in filename_key or (filename_key in title_key and len(filename_key) >= 15)):
+
+    filename_overlap = _token_overlap(filename, row_title)
+    if filename_overlap >= 0.85 and _distinctive_title(filename):
         score = max(score, 0.97)
-    if metadata_key:
+
+    if metadata_key and _distinctive_title(info.title):
         score = max(score, SequenceMatcher(None, metadata_key, title_key).ratio())
-        if title_key in metadata_key or (metadata_key in title_key and len(metadata_key) >= 15):
+        metadata_overlap = _token_overlap(info.title, row_title)
+        if metadata_overlap >= 0.85:
             score = max(score, 0.99)
-    if title_key in text_key:
-        score = max(score, 0.98)
+
     return score
 
 
