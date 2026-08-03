@@ -4,13 +4,14 @@
 > Περιλαμβάνονται μόνο αρχεία με `κατάσταση: επαληθευμένο` και
 > `ελεγχθέν-πρωτότυπο: ναι`. Πρόχειρες επιλογές NotebookLM δεν είναι citation-ready evidence.
 
-- **Πηγές με επαληθευμένα αποσπάσματα:** 104
+- **Πηγές με επαληθευμένα αποσπάσματα:** 109
 - **Ιχνηλασιμότητα:** κωδικός `SRC-*`, ακριβής θέση, ισχυρισμός, συμφραζόμενα και περιορισμοί.
 
 ## Ευρετήριο
 
 | Κωδικός | Πηγή | Συγγραφείς | Έτος | Θέματα | Αποσπάσματα | Πλήρες Markdown | Link |
 |---|---|---|---:|---|---|---|---|
+| `SRC-01BBBA7EAB` | Robust Reinforcement Learning in POMDPs with Incomplete and Noisy Observations | Yuhui Wang; Hao He; Xiaoyang Tan | 2019 | εύρωστη ενισχυτική μάθηση; μερική παρατηρησιμότητα; πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση; περιβάλλοντα και benchmarks | [αρχείο](evidence/SRC-01BBBA7EAB.md) | [πηγή](sources/SRC-01BBBA7EAB.md) | [άνοιγμα](https://arxiv.org/abs/1902.05795) |
 | `SRC-0406E13B97` | Safe Continual Reinforcement Learning Methods for Nonstationary Environments. Towards a Survey of the State of the Art | Timofey Tomashevskiy | 2026 | μη στασιμότητα; ασφαλής ενισχυτική μάθηση; μερική παρατηρησιμότητα; συνεχής προσαρμογή; πράκτορες τεχνητής νοημοσύνης | [αρχείο](evidence/SRC-0406E13B97.md) | [πηγή](sources/SRC-0406E13B97.md) | [άνοιγμα](https://arxiv.org/abs/2601.05152) |
 | `SRC-0882A9B2B0` | Assessing Generalization in Deep Reinforcement Learning | Charles Packer; Katelyn Gao; Jernej Kos; Philipp Krähenbühl; Vladlen Koltun; Dawn Song | 2018 | μη στασιμότητα; GridWorld; πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση; περιβάλλοντα και benchmarks | [αρχείο](evidence/SRC-0882A9B2B0.md) | [πηγή](sources/SRC-0882A9B2B0.md) | [άνοιγμα](https://arxiv.org/abs/1810.12282) |
 | `SRC-09DD20BA85` | Bounded Robustness in Reinforcement Learning via Lexicographic Objectives | Daniel Jarne Ornia; Licio Romao; Lewis Hammond; Manuel Mazo; Alessandro Abate | 2022 | εύρωστη ενισχυτική μάθηση; αβεβαιότητα παρατηρήσεων; μερική παρατηρησιμότητα; πινακοποιημένη ενισχυτική μάθηση; αβεβαιότητα μεταβάσεων | [αρχείο](evidence/SRC-09DD20BA85.md) | [πηγή](sources/SRC-09DD20BA85.md) | [άνοιγμα](https://arxiv.org/abs/2209.15320) |
@@ -24,6 +25,7 @@
 | `SRC-19858252B7` | Reinforcement Learning by Guided Safe Exploration | Qisong Yang; Thiago D. Simão; Nils Jansen; Simon H. Tindemans; Matthijs T. J. Spaan | 2023 | ασφαλής ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση | [αρχείο](evidence/SRC-19858252B7.md) | [πηγή](sources/SRC-19858252B7.md) | [άνοιγμα](https://arxiv.org/abs/2307.14316) |
 | `SRC-19C2E91926` | Benchmark for Out-of-Distribution Detection in Deep Reinforcement Learning | Aaqib Parvez Mohammed; Matias Valdenegro-Toro | 2021 | βαθιά ενισχυτική μάθηση; στατιστική αξιολόγηση; περιβάλλοντα και benchmarks | [αρχείο](evidence/SRC-19C2E91926.md) | [πηγή](sources/SRC-19C2E91926.md) | [άνοιγμα](https://arxiv.org/abs/2112.02694) |
 | `SRC-1B40F8B37A` | Parallel Knowledge Transfer in Multi-Agent Reinforcement Learning | Yongyuan Liang; Bangwei Li | 2020 | ανθεκτικότητα και ανάκαμψη; μη στασιμότητα; μερική παρατηρησιμότητα; βαθιά ενισχυτική μάθηση; συνεχής προσαρμογή | [αρχείο](evidence/SRC-1B40F8B37A.md) | [πηγή](sources/SRC-1B40F8B37A.md) | [άνοιγμα](https://arxiv.org/abs/2003.13085) |
+| `SRC-1FE2A54527` | https---proceedings.mlr.press-v70-pinto17a-pinto17a.pdf | — | 2015 | χωρίς κατηγορία | [αρχείο](evidence/SRC-1FE2A54527.md) | [πηγή](sources/SRC-1FE2A54527.md) | [άνοιγμα](https://proceedings.mlr.press/v70/pinto17a/pinto17a.pdf) |
 | `SRC-211B10ADBA` | A Survey Analyzing Generalization in Deep Reinforcement Learning | Ezgi Korkmaz | 2024 | μη στασιμότητα; πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση; συνεχής προσαρμογή | [αρχείο](evidence/SRC-211B10ADBA.md) | [πηγή](sources/SRC-211B10ADBA.md) | [άνοιγμα](https://arxiv.org/abs/2401.02349) |
 | `SRC-21EBE15D15` | A Survey of Zero-shot Generalisation in Deep Reinforcement Learning | Robert Kirk; Amy Zhang; Edward Grefenstette; Tim Rocktäschel | 2021 | μερική παρατηρησιμότητα; βαθιά ενισχυτική μάθηση; συνεχής προσαρμογή; περιβάλλοντα και benchmarks; πράκτορες τεχνητής νοημοσύνης | [αρχείο](evidence/SRC-21EBE15D15.md) | [πηγή](sources/SRC-21EBE15D15.md) | [άνοιγμα](https://arxiv.org/abs/2111.09794) |
 | `SRC-23A2C07D09` | A Formal Verification Framework for Runtime Assurance - NASA Technical Reports Server (NTRS) | — | 2023 | χωρίς κατηγορία | [αρχείο](evidence/SRC-23A2C07D09.md) | [πηγή](sources/SRC-23A2C07D09.md) | [άνοιγμα](https://ntrs.nasa.gov/citations/20230017350) |
@@ -108,13 +110,60 @@
 | `SRC-E05A14A571` | Emergent Complexity and Zero-shot Transfer via Unsupervised Environment Design (PAIRED) | — | 2020 | εύρωστη ενισχυτική μάθηση; μερική παρατηρησιμότητα; βαθιά ενισχυτική μάθηση; στατιστική αξιολόγηση; πράκτορες τεχνητής νοημοσύνης | [αρχείο](evidence/SRC-E05A14A571.md) | [πηγή](sources/SRC-E05A14A571.md) | [άνοιγμα](http://aima.eecs.berkeley.edu/~russell/papers/neurips20-paired.pdf) |
 | `SRC-E467A29609` | State Entropy Regularization for Robust Reinforcement Learning - NIPS | — | 2025 | εύρωστη ενισχυτική μάθηση; αβεβαιότητα μεταβάσεων; αβεβαιότητα ανταμοιβής | [αρχείο](evidence/SRC-E467A29609.md) | [πηγή](sources/SRC-E467A29609.md) | [άνοιγμα](https://proceedings.neurips.cc/paper_files/paper/2025/file/1e1ec890b48b96abffa63c0396058f4e-Paper-Conference.pdf) |
 | `SRC-E5CA725A6C` | thesis.pdf | — | 2024 | μη στασιμότητα; βαθιά ενισχυτική μάθηση | [αρχείο](evidence/SRC-E5CA725A6C.md) | [πηγή](sources/SRC-E5CA725A6C.md) | — |
+| `SRC-E6A5B7584B` | Reinforcement Learning in Non-Stationary Environments | Sindhu Padakandla; Prabuchandran K. J; Shalabh Bhatnagar | 2019 | μη στασιμότητα; πινακοποιημένη ενισχυτική μάθηση; συνεχής προσαρμογή | [αρχείο](evidence/SRC-E6A5B7584B.md) | [πηγή](sources/SRC-E6A5B7584B.md) | [άνοιγμα](https://arxiv.org/abs/1905.03970) |
 | `SRC-E8CAAF02BE` | https---people.csail.mit.edu-lpk-papers-aij98-pomdp.pdf | — | 1998 | μη στασιμότητα; μερική παρατηρησιμότητα; πινακοποιημένη ενισχυτική μάθηση | [αρχείο](evidence/SRC-E8CAAF02BE.md) | [πηγή](sources/SRC-E8CAAF02BE.md) | [άνοιγμα](https://people.csail.mit.edu/lpk/papers/aij98-pomdp.pdf) |
 | `SRC-E9D551F27C` | Distributionally Robust Self Paced Curriculum Reinforcement Learning | Anirudh Satheesh; Keenan Powell; Vaneet Aggarwal | 2025 | εύρωστη ενισχυτική μάθηση | [αρχείο](evidence/SRC-E9D551F27C.md) | [πηγή](sources/SRC-E9D551F27C.md) | [άνοιγμα](https://arxiv.org/abs/2511.05694) |
 | `SRC-EA5D0E318E` | https---proceedings.neurips.cc-paper files-paper-2017-file-9ef2ed4b7fd2c810847ffa5fa85bce38-Paper.pd | — | 2017 | περιβάλλοντα και benchmarks | [αρχείο](evidence/SRC-EA5D0E318E.md) | [πηγή](sources/SRC-EA5D0E318E.md) | [άνοιγμα](https://proceedings.neurips.cc/paper_files/paper/2017/file/9ef2ed4b7fd2c810847ffa5fa85bce38-Paper.pdf) |
 | `SRC-EBB14FC4CB` | https---proceedings.mlr.press-v119-cheung20a-cheung20a.pdf | — | 2020 | μη στασιμότητα; περιβάλλοντα και benchmarks | [αρχείο](evidence/SRC-EBB14FC4CB.md) | [πηγή](sources/SRC-EBB14FC4CB.md) | [άνοιγμα](https://proceedings.mlr.press/v119/cheung20a/cheung20a.pdf) |
+| `SRC-EF4972C036` | SafeLife 1.0: Exploring Side Effects in Complex Environments | Carroll L. Wainwright; Peter Eckersley | 2019 | GridWorld; στατιστική αξιολόγηση; περιβάλλοντα και benchmarks; πράκτορες τεχνητής νοημοσύνης | [αρχείο](evidence/SRC-EF4972C036.md) | [πηγή](sources/SRC-EF4972C036.md) | [άνοιγμα](https://arxiv.org/abs/1912.01217) |
 | `SRC-F622BE6812` | Exploration by Random Network Distillation | Yuri Burda; Harrison Edwards; Amos Storkey; Oleg Klimov | 2018 | μη στασιμότητα; βαθιά ενισχυτική μάθηση; περιβάλλοντα και benchmarks | [αρχείο](evidence/SRC-F622BE6812.md) | [πηγή](sources/SRC-F622BE6812.md) | [άνοιγμα](https://arxiv.org/abs/1810.12894) |
 | `SRC-F909CABDEB` | A Survey of Continual Reinforcement Learning | Chaofan Pan; Xin Yang; Yanhua Li; Wei Wei; Tianrui Li; Bo An; Jiye Liang | 2025 | μη στασιμότητα; βαθιά ενισχυτική μάθηση; συνεχής προσαρμογή; περιβάλλοντα και benchmarks | [αρχείο](evidence/SRC-F909CABDEB.md) | [πηγή](sources/SRC-F909CABDEB.md) | [άνοιγμα](https://arxiv.org/abs/2506.21872) |
+| `SRC-FC42D9798A` | Scaling Up Robust MDPs by Reinforcement Learning | Aviv Tamar; Huan Xu; Shie Mannor | 2013 | εύρωστη ενισχυτική μάθηση; πινακοποιημένη ενισχυτική μάθηση; στατιστική αξιολόγηση | [αρχείο](evidence/SRC-FC42D9798A.md) | [πηγή](sources/SRC-FC42D9798A.md) | [άνοιγμα](https://arxiv.org/abs/1306.6189) |
 | `SRC-FE2C0A3E00` | AI Safety Gridworlds | Jan Leike; Miljan Martic; Victoria Krakovna; Pedro A. Ortega; Tom Everitt; Andrew Lefrancq; Laurent Orseau; Shane Legg | 2017 | GridWorld; ασφαλής ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση; πράκτορες τεχνητής νοημοσύνης | [αρχείο](evidence/SRC-FE2C0A3E00.md) | [πηγή](sources/SRC-FE2C0A3E00.md) | [άνοιγμα](https://arxiv.org/abs/1711.09883) |
+
+---
+
+## `SRC-01BBBA7EAB` — Robust Reinforcement Learning in POMDPs with Incomplete and Noisy Observations
+
+- **Συγγραφείς:** Yuhui Wang; Hao He; Xiaoyang Tan
+- **Έτος:** 2019
+- **Τύπος:** ακαδημαϊκή εργασία
+- **Θέματα / tags:** εύρωστη ενισχυτική μάθηση; μερική παρατηρησιμότητα; πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση; περιβάλλοντα και benchmarks
+- **Ημερομηνία ελέγχου:** 2026-08-03
+- **Αρχεία:** [πλήρες Markdown](sources/SRC-01BBBA7EAB.md) · [αποσπάσματα](evidence/SRC-01BBBA7EAB.md)
+- **Εξωτερική πηγή:** [άνοιγμα](https://arxiv.org/abs/1902.05795)
+
+## E1 — The target failure mode is dynamic missingness plus observation noise
+- **Location:** Abstract; Section 1
+- **Claim:** The paper studies RL when observation components can be missing at changing time steps and available sensor values are noisy.
+- **Status:** verified
+
+### Faithful paraphrase
+The authors argue that real systems may lose sensor components because of malfunction, preprocessing delays, or asynchronous sampling while the remaining measurements are noisy. This setting violates the complete-observation assumptions used by many continuous-control RL methods. The missing dimensions and their timing are not assumed to be known in advance, so the problem is represented through partial observability rather than a fixed masked input.
+
+## E2 — Decisions are made from a propagated belief state
+- **Location:** Sections 3.2 and 4.1, belief-state propagation
+- **Claim:** BI-PPO maintains a posterior belief over latent state using the history of incomplete/noisy observations and actions, and the policy acts from that belief representation.
+- **Status:** verified
+
+### Faithful paraphrase
+The method propagates an intermediate belief through a learned transition model and then updates it with the available observation components. Missing values are handled within the belief update instead of being treated as ordinary zeros or copied blindly from the previous time step. This is a principled example of resilience to degraded sensing through state estimation, not through modifying the environment transition model itself.
+
+## E3 — The derivation has explicit missingness and distributional assumptions
+- **Location:** Section 3.2; Section 4.1
+- **Claim:** The method assumes MCAR or MAR missingness and uses Gaussian approximations for tractable belief inference.
+- **Status:** verified
+
+### Faithful paraphrase
+The observation indicator is assumed independent of the latent state in the sense required by MCAR/MAR formulations. Noise is modeled with a Gaussian distribution, and the transition/belief calculations use Gaussian or local approximations. These assumptions matter when interpreting robustness results: performance under arbitrary adversarial corruption is not established by this experiment.
+
+## E4 — Observation robustness and environment adaptation are distinct
+- **Location:** Abstract; experiments; overall formulation
+- **Claim:** The reported robustness concerns corrupted or missing observations, not explicit detection and recovery from a changed MDP.
+- **Status:** verified
+
+### Faithful paraphrase
+The experiments vary incompleteness and noise while the agent uses belief imputation to continue executing the task. The paper does not introduce a changepoint detector, context-switching policy memory, or recovery-time metric for structural environment changes. It therefore supports an observation-robustness axis in the thesis and should not be cited as evidence for online non-stationary adaptation.
 
 ---
 
@@ -1601,6 +1650,50 @@ Use this source for perturbation-distance and resilience-normalization design, n
 ### Citation
 
 Shraga et al. (2025), overall scope.
+
+---
+
+## `SRC-1FE2A54527` — https---proceedings.mlr.press-v70-pinto17a-pinto17a.pdf
+
+- **Συγγραφείς:** —
+- **Έτος:** 2015
+- **Τύπος:** ακαδημαϊκή εργασία
+- **Θέματα / tags:** χωρίς κατηγορία
+- **Ημερομηνία ελέγχου:** 2026-08-03
+- **Αρχεία:** [πλήρες Markdown](sources/SRC-1FE2A54527.md) · [αποσπάσματα](evidence/SRC-1FE2A54527.md)
+- **Εξωτερική πηγή:** [άνοιγμα](https://proceedings.mlr.press/v70/pinto17a/pinto17a.pdf)
+
+## E1 — Modeling error is represented as a learned disturbance process
+- **Location:** Abstract; Section 1; Section 3.1
+- **Claim:** RARL models training/test mismatch and model uncertainty through disturbances generated by an adversarial agent.
+- **Status:** verified
+
+### Faithful paraphrase
+Pinto et al. motivate the method from the observation that differences such as friction or mass mismatch can be viewed as additional forces acting on the system. Instead of enumerating every possible physical parameter variation, they train an adversary whose objective is to generate destabilizing disturbances while the protagonist learns to complete the task despite them. The resulting training process deliberately exposes the protagonist to hard trajectories.
+
+## E2 — The optimization is a two-player zero-sum minimax problem
+- **Location:** Sections 2.2, 3.2, and 3.3; Algorithm 1
+- **Claim:** The protagonist and adversary have opposing rewards and are optimized alternately toward a robust game solution.
+- **Status:** verified
+
+### Faithful paraphrase
+The protagonist maximizes task reward and the adversary receives the negative reward. RARL alternates policy optimization: one player is held fixed while the other is updated, and the procedure repeats. The paper connects this construction to robust control and minimax reasoning while avoiding an explicit equilibrium computation at every learning update.
+
+## E3 — Robustness is evaluated under mass and friction shifts
+- **Location:** Section 4.4; Figures 5, 6, and 7
+- **Claim:** RARL policies are tested with physical parameters that differ from training values and generally retain reward better than the TRPO baseline.
+- **Status:** verified
+
+### Faithful paraphrase
+The test protocol varies torso or pendulum mass and friction coefficients after training. Across the reported control tasks, the baseline loses substantial performance when the test parameters move away from the training setting, whereas RARL retains higher reward over broader regions. Joint mass/friction heatmaps provide an explicit example of robustness being evaluated as performance under environment mismatch rather than merely training return.
+
+## E4 — Robust policy training is not an online recovery mechanism
+- **Location:** Overall formulation; Section 6 conclusion
+- **Claim:** RARL produces a policy trained to tolerate disturbances; it does not detect a changepoint or switch/relearn a policy after an unforeseen change.
+- **Status:** verified
+
+### Faithful paraphrase
+The method strengthens a protagonist before deployment by training it against an adversary. During evaluation, robustness is observed because the learned policy continues to perform under altered dynamics. There is no explicit post-change detector, context memory, recovery-time objective, or online policy reset mechanism. It should therefore be compared with adaptive agents as a static robust baseline, not labeled as a complete resilience method.
 
 ---
 
@@ -10117,6 +10210,50 @@ Liu (2024), Chapters 3–6.
 
 ---
 
+## `SRC-E6A5B7584B` — Reinforcement Learning in Non-Stationary Environments
+
+- **Συγγραφείς:** Sindhu Padakandla; Prabuchandran K. J; Shalabh Bhatnagar
+- **Έτος:** 2019
+- **Τύπος:** ακαδημαϊκή εργασία
+- **Θέματα / tags:** μη στασιμότητα; πινακοποιημένη ενισχυτική μάθηση; συνεχής προσαρμογή
+- **Ημερομηνία ελέγχου:** 2026-08-03
+- **Αρχεία:** [πλήρες Markdown](sources/SRC-E6A5B7584B.md) · [αποσπάσματα](evidence/SRC-E6A5B7584B.md)
+- **Εξωτερική πηγή:** [άνοιγμα](https://arxiv.org/abs/1905.03970)
+
+## E1 — Stationarity is the assumption being relaxed
+- **Location:** Abstract; Introduction; Section 3 assumptions
+- **Claim:** Classical RL methods are built around stationary transition/reward dynamics, whereas the paper studies settings in which the active environment model changes over time.
+- **Status:** verified
+
+### Faithful paraphrase
+The paper frames non-stationarity as a direct violation of the stationary transition and reward assumptions underlying standard MDP/RL optimization. When the active model changes, an agent that keeps updating one undifferentiated value function can make sub-optimal decisions because samples collected under different models are mixed together. This supports treating an abrupt environment change as a distinct experimental event rather than as ordinary stochastic transition noise.
+
+## E2 — Context Q-learning combines change detection with policy retention
+- **Location:** Section 1.1, “Our Contributions”; Section 5, Context Q-learning
+- **Claim:** The proposed method detects model changes from online samples, learns policies for distinct contexts, and can reuse a policy when a previously experienced context returns.
+- **Status:** verified
+
+### Faithful paraphrase
+Context Q-learning uses observed state/reward samples to detect changes without requiring the transition and reward functions to be supplied to the learner. A detected context is associated with its learned policy; when evidence supports a known context, the method improves or reuses the stored policy instead of discarding all earlier information. The authors explicitly motivate this as a way to avoid catastrophic forgetting across recurring environment models.
+
+## E3 — Detection quality and task reward are measured separately
+- **Location:** Section 1.1; Section 6 experiments
+- **Claim:** The evaluation reports change-detection metrics in addition to accumulated reward.
+- **Status:** verified
+
+### Faithful paraphrase
+The experiments assess the detector through quantities such as mean detection delay, precision, and recall, while the RL component is assessed through reward collected in dynamic environments. This separation is methodologically important: a detector can identify a change quickly yet still yield poor recovery, or the agent can retain reward despite imperfect detection. A thesis experiment should therefore report both detection and post-change performance rather than collapsing them into one return value.
+
+## E4 — The method has structured assumptions and is not universal resilience
+- **Location:** Section 1.1; problem formulation; related-work discussion
+- **Claim:** Context Q-learning is model-free with respect to environment functions but still assumes structured change patterns and a detector/context mechanism.
+- **Status:** verified
+
+### Faithful paraphrase
+The paper does not claim adaptation to arbitrary open-ended distribution shift. Its approach is designed around changes that can be detected and represented as environment contexts, with stored knowledge available for previously experienced settings. For thesis use, it is therefore a strong adaptive baseline for piecewise-stationary changes, not evidence that context recall solves every form of structural novelty.
+
+---
+
 ## `SRC-E8CAAF02BE` — https---people.csail.mit.edu-lpk-papers-aij98-pomdp.pdf
 
 - **Συγγραφείς:** —
@@ -10469,6 +10606,50 @@ The paper is primarily theoretical. It should not be cited as empirical evidence
 
 ---
 
+## `SRC-EF4972C036` — SafeLife 1.0: Exploring Side Effects in Complex Environments
+
+- **Συγγραφείς:** Carroll L. Wainwright; Peter Eckersley
+- **Έτος:** 2019
+- **Τύπος:** ακαδημαϊκή εργασία
+- **Θέματα / tags:** GridWorld; στατιστική αξιολόγηση; περιβάλλοντα και benchmarks; πράκτορες τεχνητής νοημοσύνης
+- **Ημερομηνία ελέγχου:** 2026-08-03
+- **Αρχεία:** [πλήρες Markdown](sources/SRC-EF4972C036.md) · [αποσπάσματα](evidence/SRC-EF4972C036.md)
+- **Εξωτερική πηγή:** [άνοιγμα](https://arxiv.org/abs/1912.01217)
+
+## E1 — SafeLife is a dynamic, procedural grid-based safety benchmark
+- **Location:** Abstract; Section 1; Section 2
+- **Claim:** SafeLife provides complex, dynamic, tunable, procedurally generated grid environments intended to expose unsafe RL behavior.
+- **Status:** verified
+
+### Faithful paraphrase
+SafeLife places an agent in a grid containing cellular-automaton “life,” obstacles, goals, and optional stochastic elements. The environment can produce propagating and emergent dynamics rather than a fixed static maze. Levels are procedurally generated with tunable characteristics so that safety behavior can be tested across many configurations instead of being optimized for one handcrafted layout.
+
+## E2 — Task reward and side-effect safety are separate evaluation dimensions
+- **Location:** Abstract; Sections 2 and 3
+- **Claim:** Agents are scored both for completing explicit goals and for avoiding unnecessary side effects, with the latter measured against an inaction-style baseline.
+- **Status:** verified
+
+### Faithful paraphrase
+The benchmark does not place every undesirable environmental consequence directly inside the reward function. Instead, task performance is computed from explicit goals while side effects are assessed using a separate deviation measure between distributions of states with and without agent intervention. This design illustrates why a thesis evaluation should avoid treating cumulative reward as the only indicator of safe or resilient behavior.
+
+## E3 — A performant PPO baseline can still be unsafe
+- **Location:** Abstract; Section 5 baseline experiments
+- **Claim:** Baseline agents can achieve the task while producing substantial side effects.
+- **Status:** verified
+
+### Faithful paraphrase
+The authors train PPO-based agents that learn to complete SafeLife tasks, yet the resulting policies often modify neutral parts of the environment unnecessarily. A simple impact penalty improves behavior only in limited scenarios. The key experimental lesson is that task competence and safety can diverge even within the same episode and should therefore be reported separately.
+
+## E4 — Side-effect metrics have design limitations
+- **Location:** Section 3, baseline states and deviation measure
+- **Claim:** The choice of baseline and deviation metric changes what counts as a side effect and introduces trade-offs.
+- **Status:** verified
+
+### Faithful paraphrase
+SafeLife discusses starting-state, inaction, and step-wise baselines and notes that each can create undesirable incentives or computational costs. The benchmark’s chosen earth-mover-style deviation is a practical heuristic rather than a universal definition of safety. For thesis use, SafeLife supports the principle of independent impact metrics, while the exact metric should be adapted to the GridWorld experiment rather than copied uncritically.
+
+---
+
 ## `SRC-F622BE6812` — Exploration by Random Network Distillation
 
 - **Συγγραφείς:** Yuri Burda; Harrison Edwards; Amos Storkey; Oleg Klimov
@@ -10637,6 +10818,50 @@ Transfer RL can focus on improving a designated target task using source-task kn
 
 ## Avoid overclaiming
 The survey is a taxonomy and methodology source. It does not empirically establish that one context-memory or continual-learning method is optimal for the thesis GridWorld.
+
+---
+
+## `SRC-FC42D9798A` — Scaling Up Robust MDPs by Reinforcement Learning
+
+- **Συγγραφείς:** Aviv Tamar; Huan Xu; Shie Mannor
+- **Έτος:** 2013
+- **Τύπος:** ακαδημαϊκή εργασία
+- **Θέματα / tags:** εύρωστη ενισχυτική μάθηση; πινακοποιημένη ενισχυτική μάθηση; στατιστική αξιολόγηση
+- **Ημερομηνία ελέγχου:** 2026-08-03
+- **Αρχεία:** [πλήρες Markdown](sources/SRC-FC42D9798A.md) · [αποσπάσματα](evidence/SRC-FC42D9798A.md)
+- **Εξωτερική πηγή:** [άνοιγμα](https://arxiv.org/abs/1306.6189)
+
+## E1 — Robust MDPs optimize against transition-parameter uncertainty sets
+- **Location:** Abstract; Section 1; Section 2.1
+- **Claim:** The paper assumes uncertain transition parameters lie in known sets and evaluates policies by their worst-case value over those admissible models.
+- **Status:** verified
+
+### Faithful paraphrase
+Tamar, Xu, and Mannor start from the robust-MDP formulation in which transition probabilities are not treated as one exact estimated model. Instead, each state-action pair has an admissible uncertainty set, and the robust value uses the least favorable transition realization. This formulation is explicitly intended to reduce sensitivity to parameter-estimation error or model mismatch.
+
+## E2 — The contribution is scalable approximate robust policy evaluation
+- **Location:** Abstract; Sections 2.2 and 3
+- **Claim:** The work replaces exact large-state robust dynamic programming with projected fixed-point and sampling-based approximation methods.
+- **Status:** verified
+
+### Faithful paraphrase
+For large state spaces, exact robust Bellman iterations are impractical. The paper represents the value function with lower-dimensional features and studies a projected robust Bellman equation. Under stated technical conditions the projected operator has suitable contraction behavior, and the required quantities can be estimated from sampled trajectories. The result is a reinforcement-learning-style route to approximate robust policy evaluation and improvement.
+
+## E3 — Structured uncertainty is a tractability assumption
+- **Location:** Section 2.1, Robust Markov Decision Processes
+- **Claim:** The formulation implicitly relies on rectangular uncertainty across state-action transition sets.
+- **Status:** verified
+
+### Faithful paraphrase
+The uncertainty set is defined locally for each state-action pair, which corresponds to the rectangularity assumptions used in classical robust MDP work. This structure is what permits robust Bellman-style optimization. Correlated or completely unconstrained model changes are outside the direct guarantee of this formulation and should not be conflated with arbitrary structural non-stationarity.
+
+## E4 — Scaling robust planning is different from online recovery
+- **Location:** Overall formulation and contribution list
+- **Claim:** The paper improves how a robust policy is computed for large MDPs; it does not introduce changepoint detection or post-change policy recovery.
+- **Status:** verified
+
+### Faithful paraphrase
+The environment model, uncertainty sets, and robust objective are specified before the policy is computed. Sampling is used because the state space is large, not because the algorithm is identifying a previously unknown regime switch during deployment. In the thesis this source therefore supports a scalable static-robustness category, while adaptive recovery must be evaluated with separate mechanisms and metrics.
 
 ---
 
