@@ -27,6 +27,15 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git switch -c "$branch"
-          git revert --no-edit da92667914660d0d8a85ae4185ff6a45e785b9cc
+          if ! git revert --no-edit da92667914660d0d8a85ae4185ff6a45e785b9cc; then
+            conflicted="$(git diff --name-only --diff-filter=U)"
+            if [ "$conflicted" != "new-sources/intake-trigger.json" ]; then
+              echo "Unexpected revert conflicts: $conflicted" >&2
+              exit 1
+            fi
+            git checkout --ours new-sources/intake-trigger.json
+            git add new-sources/intake-trigger.json
+            GIT_EDITOR=true git revert --continue
+          fi
           git push --force-with-lease origin "HEAD:$branch"
-          echo "Created $branch from current main with only da926679 reverted."
+          echo "Created $branch from current main with only da926679 reverted; newest trigger retained."
