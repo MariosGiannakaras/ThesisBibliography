@@ -36,7 +36,6 @@
 | `SRC-405E00D8AB` | ilide.info-ai-agents-and-automation-trends-2025-ebook-pr 1457e778f93e4de20f71dbd2371b0937 | σύνδεσμος, τύπος πηγής |
 | `SRC-255529AC11` | ilide.info-mastering-multi-agent-systems-pr 03b6784b619ed204bafad6a04a2f6b46 | σύνδεσμος, τύπος πηγής |
 | `SRC-00CCFC7AC0` | IROS 2022 Keynote- Safe Learning in Robotics by Prof. Angela Schoellig | μόνο μεταδεδομένα |
-| `SRC-9464421E55` | Is Prior-Free Black-Box Non-Stationary Reinforcement Learning Feasible? | ελλιπές κείμενο |
 | `SRC-CDCA1BACF3` | Konstantakopoulos MTN2013 | σύνδεσμος, τύπος πηγής |
 | `SRC-2554BB8102` | Large Language Model Agent A Survey onMethodology, -- Junyu Luo, Weizhi Zhang, Ye Yuan, Yusheng Zha | σύνδεσμος, επιβεβαίωση μεταδεδομένων |
 | `SRC-4CA982BE87` | Learn to Human-level Control in Dynamic Environment Using Incremental Batch Interrupting Temporal Abstraction - Semantic Scholar | σύνδεσμος, επιβεβαίωση μεταδεδομένων |
@@ -55,12 +54,10 @@
 | `SRC-F0BE1654F1` | pdf-principles-of-building-ai-agents-2nd-edition compress | σύνδεσμος, τύπος πηγής |
 | `SRC-D8433D488F` | Pessimistic Iterative Planning for Robust POMDPs - OpenReview | ελλιπές κείμενο |
 | `SRC-76A4CB0AB7` | PhD-Thesis-ThomyPhan | σύνδεσμος, τύπος πηγής |
-| `SRC-76B2247457` | Position: Lifetime tuning is incompatible with continual reinforcement learning | ελλιπές κείμενο |
 | `SRC-3A71103B05` | Princeton University Lectures - Foundations of Reinforcement Learning - YouTube | σύνδεσμος |
 | `SRC-2825596443` | Reinforcement Learning basics- Policy Iteration - 4X4 grid world from Sutton & Barto | μόνο μεταδεδομένα |
 | `SRC-6C4F1FF9F1` | Reinforcement Learning basics- Policy Iteration : 4X4 grid world from Sutton & Barto | μόνο μεταδεδομένα |
 | `SRC-740CFDDDF1` | Reinforcement Learning Course - Full Machine Learning Tutorial | μόνο μεταδεδομένα |
-| `SRC-70772C0629` | Reinforcement Learning in Switching Non-Stationary Markov Decision Processes: Algorithms and Convergence Analysis | ελλιπές κείμενο |
 | `SRC-3BD2FDEADB` | Reinforcement Learning with Numpy ONLY- Solving an Arbitrary 2D Grid World! | μόνο μεταδεδομένα |
 | `SRC-EE33F366D6` | Reinforcement Learning with Numpy ONLY: Solving an Arbitrary 2D Grid World! | μόνο μεταδεδομένα |
 | `SRC-D0A02E4877` | Resilient Machine Learning in Space Systems: Pose Estimation as a Case Study \| IEEE Conference Publication \| IEEE Xplore IEEE Account | ελλιπές κείμενο |

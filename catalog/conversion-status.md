@@ -1,6 +1,6 @@
 # Κατάσταση μετατροπών PDF
 
-- Αυτόματες μετατροπές: **0**
+- Αυτόματες μετατροπές: **3**
 - Χρειάζονται περαιτέρω μετατροπή: **0**
 - Πραγματικά εκκρεμείς μετατροπές: **0**
 - Δεν απαιτούν μετατροπή λόγω οριστικής απόρριψης: **17**
@@ -166,6 +166,7 @@
 | `SRC-405E00D8AB` | ilide.info-ai-agents-and-automation-trends-2025-ebook-pr 1457e778f93e4de20f71dbd2371b0937 | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-255529AC11` | ilide.info-mastering-multi-agent-systems-pr 03b6784b619ed204bafad6a04a2f6b46 | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-5DFB680F53` | Interaction-Breaking Adversarial Learning Framework for Robust Multi-Agent Reinforcement Learning | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
+| `SRC-9464421E55` | Is Prior-Free Black-Box Non-Stationary Reinforcement Learning Feasible? | πλήρης-αυτόματη-προς-έλεγχο | μη-διαθέσιμο | όχι | καμία |
 | `SRC-9144C46DA7` | Just an Agent Away - An AI Thesis - Eximius Ventures | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-2554BB8102` | Large Language Model Agent A Survey onMethodology, -- Junyu Luo, Weizhi Zhang, Ye Yuan, Yusheng Zha | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-92397254FB` | Learn to human-level control in dynamic environment using incremental batch interrupting temporal abstraction | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
@@ -203,12 +204,14 @@
 | `SRC-AD85505AC2` | Policy Consolidation for Continual Reinforcement Learning | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-F985D31ADB` | Policy Gradient Algorithms for Robust MDPs with Non-Rectangular Uncertainty Sets | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-9AF6281E67` | Policy-Conditioned Uncertainty Sets for Robust Markov Decision Processes - NIPS | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
+| `SRC-76B2247457` | Position: Lifetime tuning is incompatible with continual reinforcement learning | πλήρης-αυτόματη-προς-έλεγχο | μη-διαθέσιμο | όχι | καμία |
 | `SRC-A203ABEEFE` | Prioritized Experience Replay | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-64AA1D82C6` | QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-85D1CCAE1E` | Rectified Robust Policy Optimization for Model-Uncertain Constrained Reinforcement Learning without Strong Duality | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-F1CF3A9BFA` | Reinforcement Learning - Indico | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-AB4BE17ED0` | Reinforcement Learning for Multi-Agent Systems - Bart De Schutter | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-E6A5B7584B` | Reinforcement Learning in Non-Stationary Environments | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
+| `SRC-70772C0629` | Reinforcement Learning in Switching Non-Stationary Markov Decision Processes: Algorithms and Convergence Analysis | πλήρης-αυτόματη-προς-έλεγχο | μη-διαθέσιμο | όχι | καμία |
 | `SRC-55005EF367` | Reinforcement Learning- An Introduction (Sutton & Barto, 2018) | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-47085E14BA` | Resilient Multi-Agent Reinforcement Learning with Adversarial Value Decomposition | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-3EEF180BD3` | Reward Hacking in Language Model Agents: Revisiting AI Safety Gridworlds | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
