@@ -23,7 +23,7 @@
 - το υποσύνολο του καταλόγου,
 - τις επαληθευμένες αναλύσεις,
 - τα επαληθευμένα αποσπάσματα,
-- τον ακριβή commit κωδικό προέλευσης,
+- τον ακριβή commit κωδικό της canonical βιβλιογραφικής κατάστασης που παρήγαγε το package,
 - machine-readable metadata του package,
 - SHA-256 checksums για κάθε συγχρονιζόμενο αρχείο.
 
@@ -46,13 +46,15 @@ thesis-package/
 
 Το `catalog/package-metadata.json` δηλώνει το schema version, το source commit, το πλήθος επιλεγμένων πηγών και το checksum contract. Το `catalog/SHA256SUMS` περιέχει SHA-256 για κάθε αρχείο του package που ανήκει στο integrity scope.
 
+Το `SOURCE_COMMIT` είναι το commit της canonical export κατάστασης που χρησιμοποιήθηκε για τη δημιουργία του package. Το Git commit που περιέχει το ήδη generated `thesis-package/` μπορεί φυσιολογικά να είναι μεταγενέστερος descendant του `SOURCE_COMMIT`. Η σχέση αυτή ελέγχεται από το `tools/validate_thesis_package.py`· δεν απαιτούμε λανθασμένα τα δύο commits να είναι ίσα.
+
 Το consumer repository δεν επιτρέπεται να διορθώνει χειροκίνητα κανένα αρχείο μέσα στο imported bibliography directory. Οποιαδήποτε αλλαγή πρέπει να γίνεται εδώ και να εισάγεται ξανά μέσω νέου sync.
 
 ## Μοντέλο συγχρονισμού
 
 Ο συγχρονισμός είναι **pull-based** από το κύριο repository:
 
-1. Επιλέγεται συγκεκριμένο πλήρες commit SHA ή tag του `ThesisBibliography`.
+1. Επιλέγεται συγκεκριμένο πλήρες commit SHA ή tag του `ThesisBibliography` που περιέχει validated `thesis-package/`.
 2. Το κύριο repository κάνει checkout εκείνης της έκδοσης με read-only token και πλήρες Git history (`fetch-depth: 0`).
 3. Πριν από οποιαδήποτε αντιγραφή εκτελεί:
 
@@ -70,7 +72,7 @@ python tools/validate_thesis_package.py
 sha256sum -c catalog/SHA256SUMS
 ```
 
-7. Επιβεβαιώνεται ότι το `SOURCE_COMMIT` και το `source_commit` του `catalog/package-metadata.json` αντιστοιχούν στο bibliography commit που ζητήθηκε.
+7. Επιβεβαιώνεται ότι το `SOURCE_COMMIT` και το `source_commit` του `catalog/package-metadata.json` είναι ίδια. Ο pre-copy `validate_thesis_package.py` επιβεβαιώνει επιπλέον ότι αυτό το source commit είναι έγκυρος ancestor του checked-out bibliography ref και ότι κανένα canonical export input δεν άλλαξε μετά από αυτό χωρίς αναγέννηση package.
 8. Αντικαθίσταται μόνο ο generated bibliography φάκελος και δημιουργείται Pull Request στο κύριο repository.
 9. Το PR ελέγχεται και περνά CI πριν συγχωνευτεί.
 
@@ -87,7 +89,7 @@ python tools/validate_thesis_package.py
 
 - δεν παρακάμπτεται ο έλεγχος αλλαγών,
 - κάθε συγχρονισμός είναι αναπαραγώγιμος,
-- γνωρίζουμε ακριβώς από ποιο commit προήλθε κάθε απόσπασμα,
+- γνωρίζουμε ακριβώς από ποια canonical βιβλιογραφική κατάσταση προήλθε κάθε απόσπασμα,
 - ανιχνεύεται οποιαδήποτε χειροκίνητη ή τυχαία αλλοίωση του imported package,
 - αλλαγές στη βιβλιογραφία δεν επηρεάζουν αιφνιδιαστικά το κείμενο της διπλωματικής.
 
@@ -125,7 +127,7 @@ research/
 - αποτυγχάνει `sha256sum -c catalog/SHA256SUMS`,
 - το package schema version δεν υποστηρίζεται,
 - `SOURCE_COMMIT` και `catalog/package-metadata.json` διαφωνούν,
-- ο ζητημένος bibliography ref δεν αντιστοιχεί στο imported `SOURCE_COMMIT`,
+- το pre-copy `validate_thesis_package.py` απορρίπτει τη σχέση package/source commit με το checked-out bibliography ref,
 - κωδικός `SRC-*` που χρησιμοποιείται στη διπλωματική λείπει από `manifest.csv`,
 - εισαχθεί PDF, Git LFS object, raw `sources/` directory ή μη προβλεπόμενο artifact,
 - αλλάξει χειροκίνητα οποιοδήποτε generated bibliography file.
