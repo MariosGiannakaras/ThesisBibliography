@@ -32,6 +32,7 @@ jobs:
           set -euo pipefail
           git fetch origin '+refs/heads/*:refs/remotes/origin/*' --prune
           deleted=0
+          deleted_names=""
           while IFS= read -r remote_ref; do
             [ -n "$remote_ref" ] || continue
             branch="${remote_ref#origin/}"
@@ -54,5 +55,16 @@ jobs:
 
             git push origin --delete "$branch"
             deleted=$((deleted + 1))
+            deleted_names="${deleted_names}${branch}\n"
           done < <(git for-each-ref --format='%(refname:short)' refs/remotes/origin/automation/ | sort)
+
           echo "Deleted $deleted safely merged automation branches."
+          {
+            echo "## Automation branch cleanup"
+            echo
+            echo "Deleted safely merged branches: $deleted"
+            if [ "$deleted" -ne 0 ]; then
+              echo
+              printf '%b' "$deleted_names" | sed 's/^/- `/' | sed 's/$/`/'
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
