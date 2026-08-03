@@ -54,7 +54,7 @@ jobs:
           tools/intake_preflight.py tools/deterministic_import_sources.py tools/content_first_clean_links.py
           tools/import_sources.py tools/metadata.py tools/next_sources.py
           tools/fix_titles.py tools/validate.py tools/sources_common.py
-          tools/clean_links.py tools/known_fixes.py
+          tools/clean_links.py tools/known_fixes.py tools/fix_verified_catalog_flags.py
           tools/exact_duplicates.py tools/finalize.py tools/originals.py
           tools/originals_common.py tools/originals_downloads.py tools/originals_files.py
           tools/convert_pdf.py tools/decision_status.py
@@ -63,6 +63,9 @@ jobs:
 
       - name: Run automated tests
         run: python -m unittest discover -s tests -v
+
+      - name: Validate completed manual-review catalog flags
+        run: python tools/fix_verified_catalog_flags.py
 
       - name: Dry-run documented fixes
         run: python tools/known_fixes.py
