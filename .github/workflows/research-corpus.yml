@@ -1,0 +1,88 @@
+name: Complete research corpus
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "originals/**"
+      - "sources/**"
+      - "analyses/**"
+      - "evidence/**"
+      - "materials/**"
+      - "notes/**"
+      - "catalog/sources.csv"
+      - "catalog/thesis-selection.csv"
+      - "catalog/research-materials.csv"
+      - "catalog/research-material-review.csv"
+      - "thesis-package/**"
+      - "tools/research_materials.py"
+      - "tools/export_research_corpus.py"
+      - ".github/workflows/research-corpus.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: bibliography-complete-research-corpus
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          lfs: true
+
+      - name: Fetch original PDF objects
+        run: git lfs pull --include="originals/**/*.pdf"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install extraction dependencies
+        run: python -m pip install --disable-pip-version-check pypdf
+
+      - name: Compile research corpus tools
+        run: >-
+          python -m py_compile
+          tools/research_materials.py
+          tools/export_research_corpus.py
+
+      - name: Extract otherwise-uncovered research materials
+        run: |
+          python tools/research_materials.py build
+          python tools/research_materials.py validate
+
+      - name: Build and validate complete research corpus
+        run: |
+          python tools/export_research_corpus.py build
+          python tools/export_research_corpus.py validate
+
+      - name: Publish generated corpus review branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -z "$(git status --porcelain -- catalog/research-materials.csv catalog/research-material-review.csv materials research-corpus)" ]; then
+            echo "Complete research corpus is already current."
+            exit 0
+          fi
+          branch="automation/research-corpus-${GITHUB_RUN_ID}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          git add catalog/research-materials.csv catalog/research-material-review.csv materials research-corpus
+          git commit -m "chore: update complete research corpus"
+          git push origin "HEAD:$branch"
+          if gh pr create --base main --head "$branch" --title "chore: update complete research corpus" --body "Preserves every available source text, analysis, evidence file, author note, and otherwise-uncovered PDF as a searchable writing corpus. Citation-ready status remains a separate trust layer; incomplete metadata never makes useful content inaccessible."; then
+            echo "Generated complete-research-corpus PR created automatically."
+          else
+            echo "::warning::The validated branch remains available for manual PR creation: $branch"
+          fi
