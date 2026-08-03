@@ -1,6 +1,6 @@
 # Επαληθευμένο πακέτο διπλωματικής
 
 - Επιλεγμένες πηγές: **109**
-- Commit `ThesisBibliography`: `aa825c4a74e8ed8d5c6fec649f39fc921bd8eed9`
+- Commit `ThesisBibliography`: `c86d13d4e4c18b60cdd704d6cf79f2da94e18db5`
 
 Το πακέτο δημιουργείται αποκλειστικά από το canonical thesis-selection registry. Περιλαμβάνει μόνο επαληθευμένες αναλύσεις και citation-ready evidence στη γλώσσα της αντίστοιχης πηγής. Δεν περιλαμβάνει PDF, ακατέργαστες μεταγραφές, αυτόματες μεταφράσεις ή μη ελεγμένες σημειώσεις.
