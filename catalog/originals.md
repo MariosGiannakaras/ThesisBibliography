@@ -1,10 +1,10 @@
 # Πρωτότυπα πηγών
 
-- PDF: **261**
-- Μη ταυτοποιημένα PDF που διατηρούνται: **8**
-- Σύνδεσμοι: **298**
+- PDF: **262**
+- Μη ταυτοποιημένα PDF που διατηρούνται: **7**
+- Σύνδεσμοι: **297**
 - Πηγές μόνο με χρήσιμο περιεχόμενο: **21**
-- Εκκρεμούν για ταυτοποίηση: **8**
+- Εκκρεμούν για ταυτοποίηση: **7**
 
 > Κάθε εγγραφή έχει PDF, σύνδεσμο ή ουσιαστικό Markdown/ανάλυση/απόσπασμα. Κάθε μη ταυτοποιημένο PDF διατηρείται μόνιμα· διαγράφεται μόνο ακριβές αντίγραφο.
 
@@ -529,7 +529,7 @@
 | `SRC-A881937D50` | Uncertainty-Aware Reinforcement Learning for Flight Control - TU Delft Repository | μόνο σύνδεσμος | [άνοιγμα](https://repository.tudelft.nl/record/uuid%3A1553d8c9-79df-44dd-8c9f-d2eb9f7017b8) |
 | `SRC-A70670C0C6` | Uncertainty-Aware Reinforcement Learning for Flight Control - TU Delft Repository | μόνο σύνδεσμος | [άνοιγμα](https://repository.tudelft.nl/record/uuid:1553d8c9-79df-44dd-8c9f-d2eb9f7017b8) |
 | `SRC-C0818241AF` | Uncertainty-Aware Reinforcement Learning for Flight Control \| TU Delft Repository | διαθέσιμο περιεχόμενο | SRC-C0818241AF.md |
-| `SRC-BE47EAE6FA` | Uncertainty-Aware Unsupervised and Robust Reinforcement Learning.pdf | μόνο σύνδεσμος | [άνοιγμα](https://escholarship.org/uc/item/79g536hk) |
+| `SRC-BE47EAE6FA` | Uncertainty-Aware Unsupervised and Robust Reinforcement Learning.pdf | διαθέσιμο PDF | SRC-BE47EAE6FA.pdf |
 | `SRC-62996FD690` | Uncertainty-Based Out-of-Distribution Detection in Deep Reinforcement Learning | διαθέσιμο PDF | SRC-62996FD690.pdf |
 | `SRC-8DDCC8572D` | Understanding AI Agents, LLMs, and Experts- A Modern AI Architecture - by Matt White | μόνο σύνδεσμος | [άνοιγμα](https://matthewdwhite.medium.com/understanding-ai-agents-llms-and-experts-a-modern-ai-architecture-7c84bb574208) |
 | `SRC-A2D5B3B08E` | Unity ML-Agents Toolkit | μόνο σύνδεσμος | [άνοιγμα](https://unity-technologies.github.io/ml-agents/) |

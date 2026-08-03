@@ -4,7 +4,7 @@
 - Χρειάζονται περαιτέρω μετατροπή: **1**
 - Πραγματικά εκκρεμείς μετατροπές: **0**
 - Δεν απαιτούν μετατροπή λόγω οριστικής απόρριψης: **2**
-- Υπάρχον Markdown που δεν αντικαταστάθηκε: **244**
+- Υπάρχον Markdown που δεν αντικαταστάθηκε: **245**
 
 > Το OCR εκτελείται με λειτουργία skip-text: οι σελίδες με text layer διατηρούνται και οι σαρωμένες σελίδες OCR-άρονται.
 > Κάθε αυτόματη μετατροπή απαιτεί ανθρώπινο έλεγχο πριν χρησιμοποιηθεί ως παραπομπή.
@@ -254,6 +254,7 @@
 | `SRC-1BB6DA9CB7` | Towards Theoretical Understandings of Robust Markov Decision Processes: Sample Complexity and Asymptotics | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-67AB8572A9` | Transfer Learning in Deep Reinforcement Learning: A Survey | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-A5B2810B39` | Uncertainty-Aware LLM-Guided Policy Shaping for Sparse-Reward Reinforcement Learning | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
+| `SRC-BE47EAE6FA` | Uncertainty-Aware Unsupervised and Robust Reinforcement Learning.pdf | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-62996FD690` | Uncertainty-Based Out-of-Distribution Detection in Deep Reinforcement Learning | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-08C2BE6E1E` | Universal Reinforcement Learning Algorithms: Survey and Experiments | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-F494F45A40` | Using Gen AI Agents With GAE and VAE to Enhance Resilience of US Markets | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
