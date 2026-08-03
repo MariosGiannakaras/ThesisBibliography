@@ -4,7 +4,7 @@
 - Χρειάζονται περαιτέρω μετατροπή: **0**
 - Πραγματικά εκκρεμείς μετατροπές: **0**
 - Δεν απαιτούν μετατροπή λόγω οριστικής απόρριψης: **17**
-- Υπάρχον Markdown που δεν αντικαταστάθηκε: **244**
+- Υπάρχον Markdown που δεν αντικαταστάθηκε: **245**
 
 > Το OCR εκτελείται με λειτουργία skip-text: οι σελίδες με text layer διατηρούνται και οι σαρωμένες σελίδες OCR-άρονται.
 > Κάθε αυτόματη μετατροπή απαιτεί ανθρώπινο έλεγχο πριν χρησιμοποιηθεί ως παραπομπή.
@@ -215,6 +215,7 @@
 | `SRC-D6A6F6F96E` | Reward shaping — Mastering Reinforcement Learning | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-AA093F6111` | Reward-Preserving Attacks For Robust Reinforcement Learning | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-B055C5683C` | Risk Averse Robust Adversarial Reinforcement Learning | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
+| `SRC-1FE2A54527` | Robust Adversarial Reinforcement Learning | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-3EF475E25A` | Robust Average-Reward Markov Decision Processes | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-620F17076C` | Robust Deep Reinforcement Learning against Adversarial Perturbations on State Observations | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-A3D907D882` | Robust Gymnasium: A Unified Modular Benchmark for Robust Reinforcement Learning | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |

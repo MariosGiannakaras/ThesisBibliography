@@ -1,8 +1,8 @@
 # Πρωτότυπα πηγών
 
-- PDF: **261**
+- PDF: **262**
 - Μη ταυτοποιημένα PDF που διατηρούνται: **12**
-- Σύνδεσμοι: **298**
+- Σύνδεσμοι: **300**
 - Πηγές μόνο με χρήσιμο περιεχόμενο: **21**
 - Εκκρεμούν για ταυτοποίηση: **12**
 
@@ -266,7 +266,6 @@
 | `SRC-3C543330E4` | https---proceedings.mlr.press-v237-peng24a-peng24a.pdf | διαθέσιμο PDF | SRC-3C543330E4.pdf |
 | `SRC-91D94DB95B` | https---proceedings.mlr.press-v70-achiam17a-achiam17a.pdf | διαθέσιμο PDF | SRC-91D94DB95B.pdf |
 | `SRC-70AEC665B2` | https---proceedings.mlr.press-v70-guo17a-guo17a.pdf | διαθέσιμο PDF | SRC-70AEC665B2.pdf |
-| `SRC-1FE2A54527` | https---proceedings.mlr.press-v70-pinto17a-pinto17a.pdf | μόνο σύνδεσμος | [άνοιγμα](https://proceedings.mlr.press/v70/pinto17a/pinto17a.pdf) |
 | `SRC-D6335D382B` | https---proceedings.mlr.press-v97-kaplanis19a-kaplanis19a.pdf | διαθέσιμο PDF | SRC-D6335D382B.pdf |
 | `SRC-47D94CB6FD` | https---proceedings.mlr.press-v97-tessler19a-tessler19a.pdf | διαθέσιμο PDF | SRC-47D94CB6FD.pdf |
 | `SRC-EA5D0E318E` | https---proceedings.neurips.cc-paper files-paper-2017-file-9ef2ed4b7fd2c810847ffa5fa85bce38-Paper.pd | διαθέσιμο PDF | SRC-EA5D0E318E.pdf |
@@ -308,6 +307,7 @@
 | `SRC-503A8B421C` | Interpretable Operations Research for High-Sta... - Πέργαμος | μόνο σύνδεσμος | [άνοιγμα](https://pergamos.lib.uoa.gr/uoa/dl/object/3344931) |
 | `SRC-58C53E9086` | IntEx 2021 Proceedings of the Fifth Workshop on Integrated Planning, Acting and Execution | μόνο σύνδεσμος | [άνοιγμα](https://icaps21.icaps-conference.org/workshops/IntEx/IntEx2021proceedings_final.pdf) |
 | `SRC-00CCFC7AC0` | IROS 2022 Keynote- Safe Learning in Robotics by Prof. Angela Schoellig | μόνο σύνδεσμος | [άνοιγμα](https://www.youtube.com/watch?v=g6eHhvHMSy8) |
+| `SRC-9464421E55` | Is Prior-Free Black-Box Non-Stationary Reinforcement Learning Feasible? | μόνο σύνδεσμος | [άνοιγμα](https://raw.githubusercontent.com/mlresearch/v258/main/assets/gerogiannis25a/gerogiannis25a.pdf) |
 | `SRC-9144C46DA7` | Just an Agent Away - An AI Thesis - Eximius Ventures | διαθέσιμο PDF | SRC-9144C46DA7.pdf |
 | `SRC-F99517DABE` | Key Characteristics of Intelligent Agents- Autonomy, Adaptability, and Decision-Making | μόνο σύνδεσμος | [άνοιγμα](https://smythos.com/developers/agent-development/intelligent-agent-characteristics) |
 | `SRC-7238AA0BDC` | Know what it does not know - TU Delft Repository | μόνο σύνδεσμος | [άνοιγμα](https://repository.tudelft.nl/record/uuid%3Ab1fcafbe-172a-40f7-8c2a-39b75986d992) |
@@ -395,6 +395,7 @@
 | `SRC-9AF6281E67` | Policy-Conditioned Uncertainty Sets for Robust Markov Decision Processes - NIPS | διαθέσιμο PDF | SRC-9AF6281E67.pdf |
 | `SRC-01F23B6B1F` | POMDP Example Domains | μόνο σύνδεσμος | [άνοιγμα](https://pomdp.org/examples/index.html) |
 | `SRC-8D94DEEB3D` | POMDP inference and robust solution via deep reinforcement learning: An application to railway optimal maintenance | μόνο σύνδεσμος | [άνοιγμα](https://arxiv.org/abs/2307.08082) |
+| `SRC-76B2247457` | Position: Lifetime tuning is incompatible with continual reinforcement learning | μόνο σύνδεσμος | [άνοιγμα](https://raw.githubusercontent.com/mlresearch/v267/main/assets/mesbahi25a/mesbahi25a.pdf) |
 | `SRC-D546F0AACB` | Practices for governing agentic AI systems- OpenAI's seven safety principles - VerifyWise | μόνο σύνδεσμος | [άνοιγμα](https://verifywise.ai/ai-governance-library/governance-frameworks/openai-practices-governing-agentic-ai-systems) |
 | `SRC-2CF79C378A` | Princeton University Lectures - Foundations of Reinforcement Learning - YouTube | μόνο σύνδεσμος | [άνοιγμα](https://www.youtube.com/playlist?list=PLYXvCE1En13epbogBmgafC_Yyyk9oQogl) |
 | `SRC-3A71103B05` | Princeton University Lectures - Foundations of Reinforcement Learning - YouTube | διαθέσιμο περιεχόμενο | SRC-3A71103B05.md |
@@ -420,6 +421,7 @@
 | `SRC-82B9A220FE` | Reinforcement Learning from Scratch! | μόνο σύνδεσμος | [άνοιγμα](https://www.youtube.com/watch?v=80favn_f_VQ) |
 | `SRC-E6A5B7584B` | Reinforcement Learning in Non-Stationary Environments | διαθέσιμο PDF | SRC-E6A5B7584B.pdf |
 | `SRC-6609D86CD5` | Reinforcement learning in nonstationary environments | μόνο σύνδεσμος | [άνοιγμα](https://doi.org/10.14711/thesis-b655883) |
+| `SRC-70772C0629` | Reinforcement Learning in Switching Non-Stationary Markov Decision Processes: Algorithms and Convergence Analysis | μόνο σύνδεσμος | [άνοιγμα](https://arxiv.org/abs/2503.18607) |
 | `SRC-3BD2FDEADB` | Reinforcement Learning with Numpy ONLY- Solving an Arbitrary 2D Grid World! | μόνο σύνδεσμος | [άνοιγμα](https://www.youtube.com/watch?v=Up6XSRWlcb4) |
 | `SRC-EE33F366D6` | Reinforcement Learning with Numpy ONLY: Solving an Arbitrary 2D Grid World! | μόνο σύνδεσμος | [άνοιγμα](https://www.youtube.com/watch?v=KamilaZdybal+%28link) |
 | `SRC-55005EF367` | Reinforcement Learning- An Introduction (Sutton & Barto, 2018) | διαθέσιμο PDF | SRC-55005EF367.pdf |
@@ -435,6 +437,7 @@
 | `SRC-EC8E7E4711` | Rise of agentic AI - Capgemini | μόνο σύνδεσμος | [άνοιγμα](https://capgemini.com/insights/research-library/ai-agents/) |
 | `SRC-B055C5683C` | Risk Averse Robust Adversarial Reinforcement Learning | διαθέσιμο PDF | SRC-B055C5683C.pdf |
 | `SRC-6415F06CD9` | RL- Lecture Schedule - Open Course Materials | μόνο σύνδεσμος | [άνοιγμα](https://opencourse.inf.ed.ac.uk/rl/schedule) |
+| `SRC-1FE2A54527` | Robust Adversarial Reinforcement Learning | διαθέσιμο PDF | SRC-1FE2A54527.pdf |
 | `SRC-3EF475E25A` | Robust Average-Reward Markov Decision Processes | διαθέσιμο PDF | SRC-3EF475E25A.pdf |
 | `SRC-620F17076C` | Robust Deep Reinforcement Learning against Adversarial Perturbations on State Observations | διαθέσιμο PDF | SRC-620F17076C.pdf |
 | `SRC-A3D907D882` | Robust Gymnasium: A Unified Modular Benchmark for Robust Reinforcement Learning | διαθέσιμο PDF | SRC-A3D907D882.pdf |
