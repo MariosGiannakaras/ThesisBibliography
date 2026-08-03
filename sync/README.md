@@ -1,143 +1,100 @@
 # Σύνδεση με το κύριο repository της διπλωματικής
 
-## Ρόλοι των δύο repositories
+## Αρχή λειτουργίας
 
-### `ThesisBibliography`
+Το `ThesisBibliography` είναι η μοναδική πηγή αλήθειας για πηγές, πρωτότυπα, μετατροπές, αναλύσεις, evidence, προσωπικές σημειώσεις και υλικό αβέβαιης βιβλιογραφικής ταυτότητας.
 
-Είναι η μοναδική πηγή αλήθειας για:
+Το `resilient-ai-agents-thesis` δεν εκτελεί intake, OCR, deduplication ή επιστημονική αξιολόγηση. Καταναλώνει το generated `research-corpus/` μέσω pull-based sync από συγκεκριμένο full commit SHA ή immutable tag.
 
-- συλλογή και καθαρισμό πηγών,
-- πρωτότυπα PDF και σταθερούς συνδέσμους,
-- μεταδεδομένα και συγχωνεύσεις,
-- πλήρη δομημένη ανάλυση κάθε πηγής,
-- επαληθευμένα αποσπάσματα,
-- επιστημονική αξιολόγηση και τελική επιλογή.
+## Δύο επίπεδα εμπιστοσύνης
 
-### `resilient-ai-agents-thesis`
+### `research-corpus/citation-ready/`
 
-Περιέχει το κείμενο, τον κώδικα και τα πειράματα της διπλωματικής. Δεν πρέπει να αντιγράφει ολόκληρη τη βιβλιογραφική αποθήκη, τα PDF ή τις ακατέργαστες μεταγραφές.
+Ακριβές αντίγραφο του αυστηρού `thesis-package/`:
 
-Λαμβάνει μόνο το παραγόμενο `thesis-package/`, δηλαδή:
+- 112 επιλεγμένες και επαληθευμένες πηγές,
+- verified analyses και evidence,
+- manifest,
+- package metadata και SHA-256 checksums.
 
-- το manifest των επιλεγμένων πηγών,
-- το υποσύνολο του καταλόγου,
-- τις επαληθευμένες αναλύσεις,
-- τα επαληθευμένα αποσπάσματα,
-- τον ακριβή commit κωδικό της canonical βιβλιογραφικής κατάστασης που παρήγαγε το package,
-- machine-readable metadata του package,
-- SHA-256 checksums για κάθε συγχρονιζόμενο αρχείο.
+Μόνο αυτό το επίπεδο θεωρείται αυτομάτως κατάλληλο για βιβλιογραφικές παραπομπές.
 
-## Contract του `thesis-package/`
+### Υπόλοιπο `research-corpus/`
 
-Το package είναι generated και immutable από την πλευρά του consumer. Η canonical δομή είναι:
+Πλήρες writing-oriented corpus:
 
 ```text
-thesis-package/
+research-corpus/
 ├── README.md
 ├── SOURCE_COMMIT
-├── manifest.csv
-├── catalog/
-│   ├── sources.csv
-│   ├── package-metadata.json
-│   └── SHA256SUMS
+├── citation-ready/
+├── sources/
 ├── analyses/
-└── evidence/
+├── evidence/
+├── materials/
+├── notes/
+├── aggregates/
+└── catalog/
+    ├── sources.csv
+    ├── thesis-selection.csv
+    ├── research-materials.csv
+    ├── research-material-review.csv
+    ├── originals-index.csv
+    ├── package-metadata.json
+    └── SHA256SUMS
 ```
 
-Το `catalog/package-metadata.json` δηλώνει το schema version, το source commit, το πλήθος επιλεγμένων πηγών και το checksum contract. Το `catalog/SHA256SUMS` περιέχει SHA-256 για κάθε αρχείο του package που ανήκει στο integrity scope.
+Περιλαμβάνει κάθε διαθέσιμο πληροφοριακό υλικό, ανεξάρτητα από το αν είναι citation-ready:
 
-Το `SOURCE_COMMIT` είναι το commit της canonical export κατάστασης που χρησιμοποιήθηκε για τη δημιουργία του package. Το Git commit που περιέχει το ήδη generated `thesis-package/` μπορεί φυσιολογικά να είναι μεταγενέστερος descendant του `SOURCE_COMMIT`. Η σχέση αυτή ελέγχεται από το `tools/validate_thesis_package.py`· δεν απαιτούμε λανθασμένα τα δύο commits να είναι ίσα.
+- όλα τα canonical source Markdown,
+- όλες τις analyses και evidence εγγραφές,
+- rejected και theory-only υλικό,
+- πλήρες κείμενο από otherwise-uncovered PDF με `MAT-*` IDs,
+- προσωπικές σημειώσεις και αποσπάσματα χωρίς απαίτηση τίτλου, συγγραφέα ή URL,
+- immutable paths, hashes και URLs των πρωτοτύπων.
 
-Το consumer repository δεν επιτρέπεται να διορθώνει χειροκίνητα κανένα αρχείο μέσα στο imported bibliography directory. Οποιαδήποτε αλλαγή πρέπει να γίνεται εδώ και να εισάγεται ξανά μέσω νέου sync.
+Η ένδειξη `not-citation-ready` δεν σημαίνει άχρηστο ή μη προσβάσιμο. Σημαίνει μόνο ότι δεν πρέπει να παρουσιαστεί ως επαληθευμένη βιβλιογραφική παραπομπή πριν ολοκληρωθεί ο αντίστοιχος έλεγχος.
 
-## Μοντέλο συγχρονισμού
+## Συγχρονισμός
 
-Ο συγχρονισμός είναι **pull-based** από το κύριο repository:
+Το κύριο repo πρέπει:
 
-1. Επιλέγεται συγκεκριμένο πλήρες commit SHA ή tag του `ThesisBibliography` που περιέχει validated `thesis-package/`.
-2. Το κύριο repository κάνει checkout εκείνης της έκδοσης με read-only token και πλήρες Git history (`fetch-depth: 0`).
-3. Πριν από οποιαδήποτε αντιγραφή εκτελεί:
+1. Να κάνει checkout συγκεκριμένου validated ref του `ThesisBibliography` με `fetch-depth: 0` και read-only secret `BIBLIOGRAPHY_SYNC_TOKEN`.
+2. Να εκτελεί πριν την αντιγραφή:
 
 ```bash
-python tools/export_thesis.py --validate-only
 python tools/package_integrity.py validate thesis-package
 python tools/validate_thesis_package.py
+python tools/research_materials.py validate
+python tools/validate_research_material_review.py
+python tools/export_research_corpus.py validate
 ```
 
-4. Αν οποιοσδήποτε validator αποτύχει, ο συγχρονισμός σταματά χωρίς να αλλάξει το κύριο repository.
-5. Αντιγράφεται αυτούσιο μόνο το ήδη ελεγμένο `thesis-package/` στον ειδικό generated φάκελο του κύριου repository.
-6. Από τη ρίζα του imported bibliography directory εκτελείται ξανά:
+3. Να αντιγράφει byte-for-byte το committed `research-corpus/` σε generated directory, προτεινόμενα:
+
+```text
+research/bibliography/
+```
+
+4. Να εκτελεί από τον imported φάκελο:
 
 ```bash
 sha256sum -c catalog/SHA256SUMS
+sha256sum -c citation-ready/catalog/SHA256SUMS
 ```
 
-7. Επιβεβαιώνεται ότι το `SOURCE_COMMIT` και το `source_commit` του `catalog/package-metadata.json` είναι ίδια. Ο pre-copy `validate_thesis_package.py` επιβεβαιώνει επιπλέον ότι αυτό το source commit είναι έγκυρος ancestor του checked-out bibliography ref και ότι κανένα canonical export input δεν άλλαξε μετά από αυτό χωρίς αναγέννηση package.
-8. Αντικαθίσταται μόνο ο generated bibliography φάκελος και δημιουργείται Pull Request στο κύριο repository.
-9. Το PR ελέγχεται και περνά CI πριν συγχωνευτεί.
+5. Να ανοίγει PR και να μην κάνει direct merge.
 
-Αν για ειδικό λόγο το package αναγεννηθεί αντί να αντιγραφεί από το committed `thesis-package/`, η ακολουθία είναι:
+## Consumer-side κανόνες
 
-```bash
-python tools/export_thesis.py
-python tools/package_integrity.py write thesis-package
-python tools/package_integrity.py validate thesis-package
-python tools/validate_thesis_package.py
-```
+Το CI του thesis repo πρέπει να διακρίνει:
 
-Δεν γίνεται αυτόματο push από το bibliography repo στο κύριο repo. Έτσι:
+- `SRC-*` citations: πρέπει να υπάρχουν στο `citation-ready/manifest.csv`.
+- `MAT-*` ή μη επιλεγμένο `SRC-*` υλικό: επιτρέπεται για discovery, drafting και synthesis, αλλά όχι ως αυτόματα verified citation.
+- `notes/`: author-provided working material, χωρίς απαίτηση βιβλιογραφικής ταυτότητας.
 
-- δεν παρακάμπτεται ο έλεγχος αλλαγών,
-- κάθε συγχρονισμός είναι αναπαραγώγιμος,
-- γνωρίζουμε ακριβώς από ποια canonical βιβλιογραφική κατάσταση προήλθε κάθε απόσπασμα,
-- ανιχνεύεται οποιαδήποτε χειροκίνητη ή τυχαία αλλοίωση του imported package,
-- αλλαγές στη βιβλιογραφία δεν επηρεάζουν αιφνιδιαστικά το κείμενο της διπλωματικής.
+Κανένα imported αρχείο δεν διορθώνεται χειροκίνητα. Οι αλλαγές γίνονται στο `ThesisBibliography` και εισάγονται ξανά με νέο sync.
 
-## Πρόσβαση στο ιδιωτικό repository
+## Τι δεν αντιγράφεται
 
-Επειδή το `ThesisBibliography` είναι ιδιωτικό, το `resilient-ai-agents-thesis` χρειάζεται ένα από τα παρακάτω:
-
-1. fine-grained Personal Access Token με **read-only Contents** αποκλειστικά για το `ThesisBibliography`, αποθηκευμένο ως secret `BIBLIOGRAPHY_SYNC_TOKEN`, ή
-2. GitHub App installation token με την ίδια περιορισμένη άδεια.
-
-Δεν πρέπει να χρησιμοποιηθεί token με write πρόσβαση όταν αρκεί η ανάγνωση.
-
-## Προτεινόμενος προορισμός στο κύριο repository
-
-```text
-research/
-└── bibliography/
-    ├── README.md
-    ├── SOURCE_COMMIT
-    ├── manifest.csv
-    ├── catalog/
-    │   ├── sources.csv
-    │   ├── package-metadata.json
-    │   └── SHA256SUMS
-    ├── analyses/
-    └── evidence/
-```
-
-Ο φάκελος αυτός είναι generated. Δεν γίνονται χειροκίνητες διορθώσεις μέσα του. Οι διορθώσεις γίνονται στο `ThesisBibliography` και εισάγονται ξανά μέσω συγχρονισμού.
-
-## Ελάχιστοι consumer-side έλεγχοι
-
-Το CI του κύριου repository πρέπει τουλάχιστον να αποτυγχάνει όταν:
-
-- αποτυγχάνει `sha256sum -c catalog/SHA256SUMS`,
-- το package schema version δεν υποστηρίζεται,
-- `SOURCE_COMMIT` και `catalog/package-metadata.json` διαφωνούν,
-- το pre-copy `validate_thesis_package.py` απορρίπτει τη σχέση package/source commit με το checked-out bibliography ref,
-- κωδικός `SRC-*` που χρησιμοποιείται στη διπλωματική λείπει από `manifest.csv`,
-- εισαχθεί PDF, Git LFS object, raw `sources/` directory ή μη προβλεπόμενο artifact,
-- αλλάξει χειροκίνητα οποιοδήποτε generated bibliography file.
-
-## Τι δεν συγχρονίζεται
-
-- `originals/` και Git LFS αντικείμενα,
-- `new-sources/` και `new-originals/`,
-- canonical `sources/` Markdown,
-- μη επιλεγμένες πηγές,
-- πρόχειρες ή μη επαληθευμένες αναλύσεις,
-- αυτόματα αποσπάσματα που δεν έχουν ελεγχθεί,
-- εσωτερικές αναφορές καθαρισμού και διαγνωστικά.
+Δεν αντιγράφονται τα ίδια τα PDF ή Git LFS objects. Το corpus περιέχει πλήρες extracted Markdown όπου απαιτείται, hashes και immutable URLs προς τα αρχειακά πρωτότυπα στο `ThesisBibliography`. Έτσι όλη η πληροφορία είναι προσβάσιμη χωρίς διπλή αποθήκευση binaries στο thesis repo.
