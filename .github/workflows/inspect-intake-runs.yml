@@ -12,13 +12,35 @@ jobs:
   inspect:
     runs-on: ubuntu-latest
     steps:
-      - name: Show recent canonical intake runs
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: >-
-          gh run list
-          --repo "$GITHUB_REPOSITORY"
-          --workflow automatic-import.yml
-          --branch main
-          --limit 15
-          --json databaseId,headSha,status,conclusion,createdAt,updatedAt,displayTitle,event,url
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: false
+
+      - name: List net-new deterministic sources from prior validated intake
+        run: |
+          python - <<'PY'
+          import csv
+          import subprocess
+          from io import StringIO
+
+          baseline = 'd74a19613565b0a61cb9488b609c889289af8a6c'
+          generated = 'b84450f7d7bc3f6a9a028db11bdc53af488230d5'
+
+          def catalog_at(ref):
+              text = subprocess.check_output(['git', 'show', f'{ref}:catalog/sources.csv'], text=True)
+              return {row['Κωδικός']: row for row in csv.DictReader(StringIO(text))}
+
+          before = catalog_at(baseline)
+          after = catalog_at(generated)
+          new_ids = sorted(set(after) - set(before), key=lambda sid: (after[sid].get('Τίτλος','').casefold(), sid))
+          print(f'NET_NEW_COUNT={len(new_ids)}')
+          for sid in new_ids:
+              row = after[sid]
+              print('\t'.join([
+                  sid,
+                  row.get('Τίτλος','').replace('\t',' '),
+                  row.get('Τύπος','').replace('\t',' '),
+                  row.get('Σύνδεσμος','').replace('\t',' '),
+              ]))
+          PY
