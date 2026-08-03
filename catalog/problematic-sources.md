@@ -2,6 +2,9 @@
 
 | Κωδικός | Τίτλος | Τι λείπει |
 |---|---|---|
+| `SRC-532ABCB3E4` | 00 master document(1).pdf | σύνδεσμος, τύπος πηγής |
+| `SRC-4CB6CCD3B7` | 02 chapter 04.pdf | σύνδεσμος |
+| `SRC-0CD2FD9F9B` | 02 chapter 2.pdf | σύνδεσμος |
 | `SRC-1BF9FE1A37` | 5 simple AI Agents you must have - beginners guide | μόνο μεταδεδομένα |
 | `SRC-3ADFA80991` | [AAAI-25 Tutorial] Robotic Foundation Models & Remaining Challenges | μόνο μεταδεδομένα |
 | `SRC-A1D7E951DB` | [AAAI-25 Tutorial] Robotic Foundation Models & Remaining Challenges | μόνο μεταδεδομένα |
@@ -23,6 +26,7 @@
 | `SRC-24038FBE78` | Build Everything with AI Agents- Here's How | μόνο μεταδεδομένα |
 | `SRC-F355021435` | Building AI Agents In 44 Minutes | μόνο μεταδεδομένα |
 | `SRC-DC63A2D5E7` | Context-Switching and Adaptation: Brain-Inspired Mechanisms for Handling Environmental Changes - University of Lethbridge | σύνδεσμος, επιβεβαίωση μεταδεδομένων |
+| `SRC-61045DD262` | Distributional Reinforcement Learning | ελλιπές κείμενο |
 | `SRC-BD5C7CB6BA` | From Zero to Your First AI Agent in 25 Minutes (No Coding) | μόνο μεταδεδομένα |
 | `SRC-9E42BE7AFE` | Gridworld Example (Lectures on Reinforcement Learning) | μόνο μεταδεδομένα |
 | `SRC-E59631E883` | Hierarchical Reinforcement Learning for Playing a Dynamic Dungeon Crawler Game - Bernoulli Institute for Mathematics, Computer Science and Artificial Intelligence | σύνδεσμος, επιβεβαίωση μεταδεδομένων |
@@ -35,12 +39,16 @@
 | `SRC-CDCA1BACF3` | Konstantakopoulos MTN2013 | σύνδεσμος, τύπος πηγής |
 | `SRC-2554BB8102` | Large Language Model Agent A Survey onMethodology, -- Junyu Luo, Weizhi Zhang, Ye Yuan, Yusheng Zha | σύνδεσμος, επιβεβαίωση μεταδεδομένων |
 | `SRC-4CA982BE87` | Learn to Human-level Control in Dynamic Environment Using Incremental Batch Interrupting Temporal Abstraction - Semantic Scholar | σύνδεσμος, επιβεβαίωση μεταδεδομένων |
+| `SRC-35132FB9D8` | Lecture19FinalPart1.pdf - Techniques in Artificial Intelligence (SMA 5504) - Electrical Engineering | ελλιπές κείμενο |
 | `SRC-E842F87F3F` | mastering-ai-agents-galileo | σύνδεσμος, τύπος πηγής |
 | `SRC-A5DDBF1534` | Meta-Learning and Meta-Reinforcement Learning - Tracing the Path ... | ελλιπές κείμενο |
 | `SRC-18D64222C0` | multiagent-systems-pr 2740350560a3678fa4cc670ce86db9d0 | σύνδεσμος, τύπος πηγής |
+| `SRC-8D62EF3077` | Nευρωνικά ∆ίκτυα και Eφαρμογές (βιβλίο) Π Αργυράκης.pdf | σύνδεσμος, τύπος πηγής |
 | `SRC-1B6E17DDF1` | Observational Robustness and Invariances in Reinforcement Learning via Lexicographic Objectives \| OpenReview | ελλιπές κείμενο, σύνδεσμος, τύπος πηγής |
 | `SRC-2573249C69` | Online Policy Optimization for Robust Markov Decision Process | ελλιπές κείμενο |
 | `SRC-9F53B39DE0` | Online Policy Optimization for Robust MDP - OpenReview | ελλιπές κείμενο |
+| `SRC-B20C577793` | Open Courses | ελλιπές κείμενο |
+| `SRC-F0311AB542` | Open eClass του Οικονομικού Πανεπιστημίου Αθηνών - Ενισχυτική Μάθηση | ελλιπές κείμενο |
 | `SRC-1D07EB467A` | OpenAI Operator AI Agent Mastery 2025 From Beginner to -- Belner, Jens | σύνδεσμος, τύπος πηγής |
 | `SRC-C8A63DDB33` | pdf-ai-agents-unleashed-playbook-for-2025-success compress | σύνδεσμος, τύπος πηγής |
 | `SRC-F0BE1654F1` | pdf-principles-of-building-ai-agents-2nd-edition compress | σύνδεσμος, τύπος πηγής |
@@ -53,6 +61,7 @@
 | `SRC-3BD2FDEADB` | Reinforcement Learning with Numpy ONLY- Solving an Arbitrary 2D Grid World! | μόνο μεταδεδομένα |
 | `SRC-EE33F366D6` | Reinforcement Learning with Numpy ONLY: Solving an Arbitrary 2D Grid World! | μόνο μεταδεδομένα |
 | `SRC-D0A02E4877` | Resilient Machine Learning in Space Systems: Pose Estimation as a Case Study \| IEEE Conference Publication \| IEEE Xplore IEEE Account | ελλιπές κείμενο |
+| `SRC-6415F06CD9` | RL- Lecture Schedule - Open Course Materials | ελλιπές κείμενο |
 | `SRC-71F2ECA651` | Robust Reinforcement Learning (Morimoto & Doya, 2001) | ελλιπές κείμενο |
 | `SRC-A3CBA6F68F` | Robust Reinforcement Learning using Adversarial Populations - OpenReview | ελλιπές κείμενο |
 | `SRC-49A9ACCA53` | Safe Reinforcement Learning in the Presence of Non-stationarity- Theory and Algorithms | μόνο μεταδεδομένα |
@@ -80,6 +89,11 @@
 | `SRC-498A6D6324` | Vertex AI Agent Builder \| Google Cloud | σύνδεσμος, τύπος πηγής |
 | `SRC-4A5F7C9FC5` | W3 L1- Bellman equations | μόνο μεταδεδομένα |
 | `SRC-DDD4D05B4E` | Where do AI agents fail in practice? Please share concrete failure modes (and what fixed them) : r/AI_Agents | σύνδεσμος, τύπος πηγής |
+| `SRC-E9CAE0A212` | Διαχείριση Γνώσης [http://dx.doi.org/10.57713/kallipos-27] | ελλιπές κείμενο |
+| `SRC-AAB7857C67` | ΕΚΠΑ eClass - Ενισχυτική μηχανική μάθηση και σ... - Έγγραφα | ελλιπές κείμενο |
 | `SRC-08CC209245` | Κατευθυνόμενη αναζήτηση του χώρου πολιτικών στην ενισχυτική μάθηση | ελλιπές κείμενο |
+| `SRC-4FD8A4CA66` | Μελέτη ασύγχρονων μεθόδων βαθιάς ενισχυτικής μάθησης | ελλιπές κείμενο |
 | `SRC-BB3F0FE477` | Πρωτόκολλα Consensus για πράκτορες με άγνωστες κατευθύνσεις ελέγχου- η περίπτωση της διατήρησης συνο | ελλιπές κείμενο |
+| `SRC-3F2FFDCDA4` | Τεχνητή νοημοσύνη | σύνδεσμος |
+| `SRC-9E2ED5989E` | Τεχνητή Νοημοσύνη και Ενισχυτική Μάθηση σε Στοχαστικά Περιβάλλοντα | αποτυχημένη εισαγωγή |
 | `SRC-9AA47AA3EA` | Υποκατάστατα μοντέλα βασισμένα στη μηχανική μάθηση για ποσοτικοποίηση αβεβαιοτήτων στην υπολογιστική | ελλιπές κείμενο |
