@@ -59,7 +59,7 @@ jobs:
           tools/originals_common.py tools/originals_downloads.py tools/originals_files.py
           tools/convert_pdf.py tools/decision_status.py
           tools/sync_selection.py tools/analysis_status.py
-          tools/export_thesis.py tools/validate_thesis_package.py tools/aggregates.py
+          tools/export_thesis.py tools/package_integrity.py tools/validate_thesis_package.py tools/aggregates.py
 
       - name: Run automated tests
         run: python -m unittest discover -s tests -v
@@ -85,10 +85,15 @@ jobs:
           test -s SOURCE_ARCHIVE.md
           test -s USEFUL_EVIDENCE.md
 
-      - name: Validate thesis export registry
+      - name: Validate thesis export registry and fresh package generation
         run: |
           python tools/export_thesis.py --validate-only
           python tools/export_thesis.py --output /tmp/thesis-package
+          python tools/package_integrity.py write /tmp/thesis-package
+          python tools/package_integrity.py validate /tmp/thesis-package
+
+      - name: Validate committed thesis package integrity
+        run: python tools/package_integrity.py validate thesis-package
 
       - name: Validate committed thesis package convergence
         if: ${{ github.event_name == 'push' }}
