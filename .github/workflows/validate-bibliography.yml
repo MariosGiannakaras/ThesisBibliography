@@ -66,10 +66,20 @@ jobs:
         run: python -m unittest discover -s tests -v
 
       - name: Validate complete research corpus when present
+        shell: bash
         run: |
+          set -euo pipefail
           if [ -f catalog/research-materials.csv ]; then
             python tools/research_materials.py validate
-            python tools/export_research_corpus.py validate
+            rm -rf notes /tmp/research-corpus
+            cp -a research-notes notes
+            trap 'rm -rf notes /tmp/research-corpus' EXIT
+            python tools/export_research_corpus.py build --output /tmp/research-corpus
+            python tools/export_research_corpus.py validate --output /tmp/research-corpus
+
+            if [ "${{ github.event_name }}" = "push" ] && ! git diff --quiet HEAD^ HEAD -- research-corpus; then
+              python tools/export_research_corpus.py validate
+            fi
           fi
 
       - name: Validate completed manual-review catalog flags
