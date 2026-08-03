@@ -5,75 +5,28 @@ on:
     branches: [main]
 
 permissions:
-  contents: read
+  contents: write
   actions: read
 
 jobs:
   inspect:
     runs-on: ubuntu-latest
     steps:
-      - name: Show recent canonical intake runs
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: >-
-          gh run list
-          --repo "$GITHUB_REPOSITORY"
-          --workflow automatic-import.yml
-          --branch main
-          --limit 20
-          --json databaseId,headSha,status,conclusion,createdAt,updatedAt,displayTitle,event,url
-
       - uses: actions/checkout@v4
         with:
           ref: main
+          fetch-depth: 0
           lfs: false
 
-      - name: Map incoming Markdown to exact duplicates or deterministic IDs
+      - name: Create repair branch by reverting only the generated intake commit
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          python - <<'PY'
-          from pathlib import Path
-          import hashlib
-          import re
-
-          root = Path('.')
-          sources = root / 'sources'
-          incoming = root / 'new-sources'
-          source_hashes = {}
-          existing_ids = set()
-          for path in sorted(sources.glob('SRC-*.md')):
-              digest = hashlib.sha256(path.read_bytes()).hexdigest()
-              source_hashes.setdefault(digest, []).append(path.stem)
-              existing_ids.add(path.stem)
-
-          def deterministic_id(digest: str) -> str:
-              upper = digest.upper()
-              for offset in range(0, len(upper) - 9):
-                  candidate = 'SRC-' + upper[offset:offset+10]
-                  if candidate not in existing_ids:
-                      existing_ids.add(candidate)
-                      return candidate
-              raise RuntimeError('no deterministic ID available')
-
-          for path in sorted(incoming.glob('*.md')):
-              if path.name == 'README.md':
-                  continue
-              raw = path.read_bytes()
-              if not raw.strip():
-                  print(f'UNRESOLVED\t{path.name}')
-                  continue
-              digest = hashlib.sha256(raw).hexdigest()
-              duplicate = source_hashes.get(digest)
-              if duplicate:
-                  print(f'EXACT\t{path.name}\t{digest}\t{",".join(duplicate)}')
-              else:
-                  candidate = deterministic_id(digest)
-                  title = ''
-                  text = raw.decode('utf-8', errors='replace')
-                  for line in text.splitlines()[:120]:
-                      if line.startswith('# '):
-                          title = line[2:].strip()
-                          break
-                  if not title:
-                      title = re.sub(r'^\d+[-_ ]+', '', path.stem).replace('_', ' ')
-                  print(f'NEW\t{path.name}\t{digest}\t{candidate}\t{title[:160]}')
-          PY
+          set -euo pipefail
+          branch="repair/revert-generated-intake"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          git revert --no-edit da92667914660d0d8a85ae4185ff6a45e785b9cc
+          git push --force-with-lease origin "HEAD:$branch"
+          echo "Created $branch from current main with only da926679 reverted."
