@@ -1,0 +1,18 @@
+{
+  "checksum_file": "catalog/SHA256SUMS",
+  "content_roots": [
+    "README.md",
+    "SOURCE_COMMIT",
+    "manifest.csv",
+    "catalog/sources.csv",
+    "analyses/",
+    "evidence/"
+  ],
+  "file_count": 228,
+  "hash_algorithm": "sha256",
+  "integrity_scope": "all package files except catalog/package-metadata.json and catalog/SHA256SUMS",
+  "package_type": "ThesisBibliography verified thesis package",
+  "schema_version": 1,
+  "selected_sources": 112,
+  "source_commit": "ef44fe3c30e6648f591ad9d3546ffc336fce4287"
+}

@@ -1,0 +1,155 @@
+# Leveraging the Beliefs-Desires-Intentions Agent Architecture | Microsoft Learn
+
+- Skip to main content  Skip to Ask Learn chat experience This browser is no longer supported.
+
+- Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support.
+
+ Download Microsoft Edge  More info about Internet Explorer and Microsoft Edge Read in English  Share via
+
+- Facebook  x.com  LinkedIn  Email  Note
+
+- Access to this page requires authorization. You can try [signing in](https://learn.microsoft.com#) or changing directories.
+
+- Access to this page requires authorization. You can try changing directories.
+
+- January 2019
+
+- Volume 34 Number 1
+
+### [Machine Learning]
+
+# Leveraging the Beliefs-Desires-Intentions Agent Architecture
+
+- By [Arnaldo Perez](https://learn.microsoft.com/%5Carchive%5Cmsdn-magazine%5Cauthors%5CArnaldo_Perez) | January 2019
+
+- In this article, I describe a Travel Assistant Agent (TAA) that uses a Beliefs-Desires-Intentions (BDI) agent architecture for its decision-making process.
+
+- The BDI agent architecture is based on Michael Bratman’s philosophical theory (Bratman 1987) that explains reasoning through the following attitudes: beliefs, desires and intentions. Consequently, a BDI agent is an autonomous agent that makes use of these three concepts for its functioning. Let’s examine these concepts one by one:
+
+- Beliefs are the agent’s model of the environment, basically what it believes to be true. It’s not knowledge as some of its beliefs might be false. This component of the BDI architecture is usually represented as a dataset of facts like breeze(1, 2), danger(2, 3), safe(0, 0), safe(0, 1) and so on.
+
+- Desires represent the ideal state of the environment for the agent. Like in the human mind, these represent things we would like to see accomplished in the future. A desire might be realistic or not, as it occurs with human thinking, and may or may not be achievable. Desires can be mutually inclusive or exclusive.
+
+- Intentions represent a subset of desires that the agent has taken as goals to be accomplished soon. These intentions cannot go against its beliefs—for instance, the agent cannot have an intention that makes it go through a dead zone or otherwise prevents it from reaching the goal that the intention represents. Such an intention would be discarded.
+
+- Beliefs consist of a fact dataset that’s updated during the agent’s lifetime. Regarding desires and intentions, a pair of questions arises: How do you select desires to become intentions, and how do you select later intentions to become agent actions? To answer this, I must present the two components of practical reasoning in the BDI model of the agent:
+
+- Deliberation: This component deals with strategic thinking and decides what desires are to be accomplished now. The result is a set of intentions.
+
+- Means-Ends Reasoning: This component deals with tactical planning and decides what actions should be performed to fulfill the set of committed intentions. The result is a set of plans and actions.
+
+- The diagram in **Figure 1** illustrates the workings of a BDI architecture. Inputs or percepts received through sensors from the environment are submitted to the Belief-Revision-Function (BRF). This function supervises updates to the current beliefs database, making sure that the recently received set of percepts doesn’t contradict any beliefs in the belief dataset. The function accepts as arguments the set of inputs and the set of beliefs: Brf(inputs, beliefs).
+
+- **Figure 1 The BDI Agent Architecture**
+
+- Afterward, a set of options is generated that eventually becomes desires and enters the desire dataset. In order to generate these options, the function looks at the belief dataset and the intention dataset. As a result, its takes as parameters the belief dataset, the desire dataset and the intention dataset: generateOptions (beliefs, desires, intentions). Why do you need intentions to generate options? Because you don’t want to generate options that contradict or go against the current set of intentions.
+
+- Using a filter function, the previously obtained desires are filtered and become intentions. To filter you usually exclude desires that aren’t realistic or are very hard to fulfill at the moment. The filter function would have the signature: filter (beliefs, desires, intentions). Finally, from the set of intentions and a means-ends reasoning approach an action is taken using the agent’s effectors (such as mechanical arms and screens).
+
+- To summarize, BDI is a paradigm and set of general principles, which can be used to design the architecture of a software system for decision making. You may be familiar with other design paradigms, such as three-tier architecture or Model-View-Controller for Web systems. Like these other paradigms, BDI is a general design aide rather than a well-defined prescriptive blueprint.
+
+- It’s time to move beyond the theory of the BDI model and look at how to apply it to a Robotic Process Automation (RPA) application—specifically, a Travel Assistant Agent.
+
+## Travel Assistant Agent (TAA)
+
+- The goal is to create a TAA where tourists can input their holiday desires and obtain a holiday travel plan. For this example, the desires will be:
+
+- Travel to Cuba
+
+- Specifically, to the cities of Havana and Varadero
+
+- On a maximum budget of $1,200 USD
+
+- For a week
+
+- Depart in December 2018
+
+- Using its beliefs database, the TAA transforms these desires into intentions and presents a realistic holiday plan, which might look something like this: Book the Cuba Beaches Holiday tour package with [cubamaniatour.com](https://cubamaniatour.com/) on Dec. 15 for 8 days at a price of $800.
+
+- This plan can be obtained using a belief database that resembles the following:
+
+- Tour Package, Essential Cuba Tour, 7 days, Available always, $800.
+
+- Tour Package, Cuba Beaches Holidays Tour, 8 days, Available always, $800.
+
+- Tour Package, Havana Explorer Cuba Tour, 3 days, Available 12-10-2018, $500.
+
+- Tour Package, Havana Varadero Tour, 10 days, Available 17-10-2018, $800.
+
+- Note that any plan provided by TAA must take into consideration all the desires submitted by the customer, including the maximum budget desire ($1,200) that must be considered by the agent when providing the plan. This specific desire might not be realistic, preventing the agent using its BDI model to turn the desire into an intention. No plan that doesn’t fit within the parameters of the price and other desires can be accomplished.
+
+## TAA Implementation in C#
+
+- Now that you have an idea of how the TAA works and how it will interact with tourists, let’s explore how to code such an agent in C#. I’ll start by creating a generic Attitude<TA, T> class that, being as general as possible, will comprehend all characteristics of any attitude (belief, desire, intention) in a BDI agent architecture. This class is presented here:
+
+- public class Attitude<TA, T> { public T AttitudeRepresentation; public TA Label; public Attitude(TA label, T attitudeRepr) { Label = label; AttitudeRepresentation = attitudeRepr; } }
+
+- In this class I have two generic fields: TA that’s used to identify the type of attitude in the BDI architecture and T that represents the data associated with it. The T generic parameter is substituted by one of the enum types listed in **Figure 2**.
+
+- Figure 2 Enum Types Used as T Parameter in BDI Class
+
+- public enum DesireType { Visit, Budget, Date } public enum BeliefType { TourPackages } public enum IntentionType { BookTourPackage }
+
+- These enums can be seen as the set of desires, beliefs and intentions of the agent at any given moment. Finally, the abstract Bdi<T> class is shown in **Figure 3**.
+
+- Figure 3 Bdi<T> Class
+
+- public abstract class Bdi<T> { public IEnumerable<Attitude<BeliefType, T>> Beliefs { get; set; } public IEnumerable<Attitude<DesireType, T>> Desires { get; set; } public IEnumerable<Attitude<DesireType, T>> Intentions { get; set; } protected Bdi(IEnumerable<Attitude<BeliefType, T>> beliefs) { Beliefs = new List<Attitude<BeliefType, T>>(beliefs); Desires = new List<Attitude<DesireType, T>>(); Intentions = new List<Attitude<DesireType, T>>(); } protected abstract IEnumerable<Attitude<IntentionType, T>> Deliberate( IEnumerable<Attitude<DesireType, T>> desires); protected abstract T MeansEndsReasoning(IEnumerable<Attitude<IntentionType, T>> intentions); }
+
+- The Bdi<T> class relates to the BDI architecture and its philosophy but has no direct relation with TAA. Note that in the Bdi<T> class, I simply provide a map (abstract versions of Deliberate and MeansEndsReasoning methods) for creating BDI models. Therefore, the Bdi<T> class is used as a blueprint to implement the BDI agent architecture on any device, program and the like. Note that one method that was omitted in this class is UpdateBeliefs. This procedure would update the Beliefs dataset after a certain condition is met (such as deliberation or mean-ends reasoning) and matches the Brf function detailed earlier. It has been left to the reader and its specific conditions to create such an update method.
+
+- The Taa<T> class that represents the Travel Assistant Agent inherits from Bdi<T> and its constructor, and the inherited methods implementation is illustrated in **Figure 4**.
+
+- Figure 4 Taa<T> Class Constructor and Inherited Methods
+
+- public class Taa<T> : Bdi<T> where T: Dictionary<string, string> { public Taa(IEnumerable<Attitude<BeliefType, T>> beliefs) : base(beliefs) { } public T GetPlan(IEnumerable<Attitude<DesireType, T>> desires) { return MeansEndsReasoning(Deliberate(desires)); } protected override IEnumerable<Attitude<IntentionType, T>> Deliberate(IEnumerable<Attitude<DesireType, T>> desires) { return LookForTours(desires.ToList()); } protected override T MeansEndsReasoning(IEnumerable<Attitude<IntentionType, T>> intentions) { return intentions.FirstOrDefault() == null ? null : intentions.First().AttitudeRepresentation; } }
+
+- In the Taa class, deliberation occurs in the Deliberate method, which ultimately calls the LookForTours method, as shown in **Figure 5**. It’s in this method that desires inputted by tourists seek possible satisfaction by being put against beliefs in the Beliefs dataset. Recall that in the sample model, each belief represents a tour package. If such a package is found, then it’s added to a result list of intentions, all of which consist of booking a certain tour package. Then, in the MeansEndsReasoning method, to have a simple logic I returned the first feasible tour package as the holiday intention for the tourist.
+
+- Figure 5 LookForTours Method
+
+- private IEnumerable<Attitude<IntentionType, T>> LookForTours<T>(List<Attitude<DesireType, T>> desires) where T : Dictionary<string, string> { var visitDesire = desires.First(d => d.Label == DesireType.Visit); var dateDesire = desires.First(d => d.Label == DesireType.Date); var maxBudgetDesire = desires.First(d => d.Label == DesireType.Budget); var citiesToVisit = visitDesire.AttitudeRepresentation["visiting"] .Split(','); var dateFrom = dateDesire.AttitudeRepresentation["from"]; var days = int.Parse(dateDesire.AttitudeRepresentation["days"]); var maxBudget = double.Parse(maxBudgetDesire.AttitudeRepresentation["max"]); var tourPackages = Beliefs.Where(b => b.Label == BeliefType.TourPackages); var result = new List<Attitude<IntentionType, T>>(); foreach (var tourPackage in tourPackages) { var data = tourPackage.AttitudeRepresentation as Dictionary<string, string>; var starts = data["starts"]; var daysTour = int.Parse(data["days"]); var cities = data["cities"].Split(','); var price = double.Parse(data["price"]); if (daysTour <= days && cities.Intersect(citiesToVisit).Count() == cities.Length && starts == dateFrom && price < maxBudget) { result.Add(new Attitude<IntentionType, T>(IntentionType.BookTourPackage, tourPackage.AttitudeRepresentation as T)); } } return result; }
+
+- Using different strategies, you could return the tour package or intention with the lowest price or longest duration. In this case, to keep it simple, I outputted the first intention. The GetPlan method is supposed to return the action or set of actions to carry out tourist desires. In this case, the action (booking a tour package) coincides with the set of intentions and the result of the MeansEndsReasoning method.
+
+- To conclude, I tested my TAA in a Console Application as illustrated in **Figure 6**. There I created some dummy data as the set of beliefs, created a list of tourist desires, and then got a plan for these desires.
+
+- Figure 6 Program Class
+
+- class Program { static void Main(string[] args) { var beliefs = new List<Attitude<BeliefType, Dictionary<string, string>>> { new Attitude<BeliefType, Dictionary<string, string>>( BeliefType.TourPackages, new Dictionary<string, string> { { "tour", "Essential-Cuba" }, { "starts" , "Anytime" }, { "days" , "7"}, { "cities", "HAV, VAR, TRI" }, { "price" , "800"}, { "operator" , "www.cubamaniatour.com" }}), new Attitude<BeliefType, Dictionary<string, string>>( BeliefType.TourPackages, new Dictionary<string, string> { { "tour", "Cuba Beaches Holiday" }, { "starts", "10-12-2018" }, { "days" , "8"}, { "cities", "HAV, VAR" }, { "price" , "800"}, { "operator" , "www.cubamaniatour.com" }}), new Attitude<BeliefType, Dictionary<string, string>>( BeliefType.TourPackages, new Dictionary<string, string> { { "tour", "Havana & Varadero Tour" }, { "starts", "12-15-2018" }, { "days" , "15"}, { "cities", "HAV, VAR, TRI" }, { "price" , "800"}, { "operator" , "www.cubamaniatour.com" }}), new Attitude<BeliefType, Dictionary<string, string>>( BeliefType.TourPackages, new Dictionary<string, string> { { "tour", "Discover Cuba" }, { "starts", "12-15-2018" }, { "days", "15"}, { "cities", "HAV, VAR, TRI" }, { "price" , "800"}, { "operator" , "www.cubamaniatour.com" }}), new Attitude<BeliefType, Dictionary<string, string>>( BeliefType.TourPackages, new Dictionary<string, string> { { "tour", "Classic Car Tour" }, { "starts", "12-15-2018" }, { "days", "10"}, { "cities", "HAV, VAR, TRI" }, { "price" , "800"}, { "operator" , "www.cubamaniatour.com" }}), new Attitude<BeliefType, Dictionary<string, string>>( BeliefType.TourPackages, new Dictionary<string, string> { { "tour", "Havana Explorer" }, { "starts", "12-15-2018" }, { "days", "3"}, { "cities", "HAV, VAR, TRI" }, { "price" , "800"}, { "operator" , "www.cubamaniatour.com" }}), new Attitude<BeliefType, Dictionary<string, string>>( BeliefType.TourPackages, new Dictionary<string, string> { { "tour", "Trinidad Time" }, { "starts", "12-15-2018" }, { "days", "7"}, { "cities", "HAV, VAR, TRI" }, { "price" , "800"}, { "operator" , "www.cubamaniatour.com" }}), }; var taa = new Taa<Dictionary<string, string>>(beliefs); var desires = new List<Attitude<DesireType, Dictionary<string, string>>> { new Attitude<DesireType, Dictionary<string, string>>(DesireType.Visit, new Dictionary<string, string> { {"visiting", "HAV, VAR" } }), new Attitude<DesireType, Dictionary<string, string>>(DesireType.Budget, new Dictionary<string, string> { {"max", "1000" } }), new Attitude<DesireType, Dictionary<string, string>>(DesireType.Date, new Dictionary<string, string> { {"from", "10-12-2018" }, {"days" , "9" }}) }; var tourPackage = taa.GetPlan(desires); Console.WriteLine(tourPackage == null ? "Sorry, no plan goes according to your details" : PrintPlan(tourPackage)); Console.ReadLine(); }
+
+- The PrintPlan method is included at the bottom of the Program. It prints the dictionary containing data belonging to the tour operator whose tour package has been selected by TAA as a booking option. The PrintPlan method looks like this:
+
+- private static string PrintPlan(Dictionary<string, string> toPrint) { var result = ""; foreach (var keyValue in toPrint) { result += keyValue.Key + ", " + keyValue.Value + '\n'; } return result; } }
+
+- The result obtained after executing the previous experiment code is shown in **Figure 7**.
+
+- **Figure 7 Output of TAA for Tourist Desires**
+
+- In this article I introduced the Beliefs-Desires-Intentions (BDI) architecture. I described this agent architecture from a theoretical perspective, explained the idea behind the TAA and the way it would work, and presented an implementation in C# where the TAA was implemented using the BDI architecture. Finally, the TAA code was tested and I showed, through a simple Console Application, how it allows tourists to obtain options to book tour packages as holiday plans that matched their inputted desires (max budget, cities to visit, date, time and more). It’s now up to you to extend the simple BDI model introduced here and adapt it to your own needs.
+
+- **Arnaldo Pérez Castaño**is a computer scientist based in Belgrade, Serbia, where he works for P3 Digital Services, a subsidiary of P3 Group, a German multinational company with headquarters in Aachen. He’s the author of “Practical Artificial Intelligence-Machine Learning, Bots and Agent Solutions Using C#” (Apress, 2018), “PrestaShop Recipes” (Apress 2017) and also a series of programming books—"JavaScript Fácil", "HTML y CSS Fácil" and "Python Fácil" (Marcombo S.A.)—and he writes for [VisualStudioMagazine.com](https://visualstudiomagazine.com/) and Smashing Magazine. He’s one of the co-founders of Cuba Mania Tour ([cubamaniatour.com](https://cubamaniatour.com/)) and his expertise includes Visual Basic, C#, .NET Framework and Artificial Intelligence. Cinema and music are some of his passions. Contact him at [arnaldo.skywalker@gmail.com](mailto:arnaldo.skywalker@gmail.com)*.*
+
+- Thanks to the following Microsoft technical expert for reviewing this article: James McCaffrey
+
+- [Discuss this article in the MSDN Magazine forum](mailto:arnaldo.skywalker@gmail.com)
+
+## Additional resources
+
+- Last updated on   2019-01-02
+
+- [AI Disclaimer](mailto:arnaldo.skywalker@gmail.com)
+
+- [Previous Versions](mailto:arnaldo.skywalker@gmail.com)
+
+- [Blog](mailto:arnaldo.skywalker@gmail.com)
+
+- [Contribute](mailto:arnaldo.skywalker@gmail.com)
+
+- [Privacy](mailto:arnaldo.skywalker@gmail.com)
+
+- [Terms of Use](mailto:arnaldo.skywalker@gmail.com)
+
+- [Trademarks](mailto:arnaldo.skywalker@gmail.com)
+
+- © Microsoft 2025
