@@ -5,37 +5,20 @@ on:
     branches: [main]
 
 permissions:
-  contents: write
+  contents: read
   actions: read
 
 jobs:
   inspect:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: main
-          fetch-depth: 0
-          lfs: false
-
-      - name: Create repair branch by reverting only the generated intake commit
+      - name: Show recent canonical intake runs
         env:
           GH_TOKEN: ${{ github.token }}
-        run: |
-          set -euo pipefail
-          branch="repair/revert-generated-intake"
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git switch -c "$branch"
-          if ! git revert --no-edit da92667914660d0d8a85ae4185ff6a45e785b9cc; then
-            conflicted="$(git diff --name-only --diff-filter=U)"
-            if [ "$conflicted" != "new-sources/intake-trigger.json" ]; then
-              echo "Unexpected revert conflicts: $conflicted" >&2
-              exit 1
-            fi
-            git checkout --ours new-sources/intake-trigger.json
-            git add new-sources/intake-trigger.json
-            GIT_EDITOR=true git revert --continue
-          fi
-          git push --force-with-lease origin "HEAD:$branch"
-          echo "Created $branch from current main with only da926679 reverted; newest trigger retained."
+        run: >-
+          gh run list
+          --repo "$GITHUB_REPOSITORY"
+          --workflow automatic-import.yml
+          --branch main
+          --limit 15
+          --json databaseId,headSha,status,conclusion,createdAt,updatedAt,displayTitle,event,url
