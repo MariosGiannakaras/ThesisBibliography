@@ -4,7 +4,7 @@
 > Περιλαμβάνονται μόνο αρχεία με `κατάσταση: επαληθευμένο` και
 > `ελεγχθέν-πρωτότυπο: ναι`. Πρόχειρες επιλογές NotebookLM δεν είναι citation-ready evidence.
 
-- **Πηγές με επαληθευμένα αποσπάσματα:** 109
+- **Πηγές με επαληθευμένα αποσπάσματα:** 112
 - **Ιχνηλασιμότητα:** κωδικός `SRC-*`, ακριβής θέση, ισχυρισμός, συμφραζόμενα και περιορισμοί.
 
 ## Ευρετήριο
@@ -58,12 +58,14 @@
 | `SRC-6F4B8E8DCE` | Safe Exploration in Reinforcement Learning: A Generalized Formulation and Algorithms | Akifumi Wachi; Wataru Hashimoto; Xun Shen; Kazumune Hashimoto | 2023 | ασφαλής ενισχυτική μάθηση; περιβάλλοντα και benchmarks | [αρχείο](evidence/SRC-6F4B8E8DCE.md) | [πηγή](sources/SRC-6F4B8E8DCE.md) | [άνοιγμα](https://arxiv.org/abs/2310.03225) |
 | `SRC-701E163AC8` | http---incompleteideas.net-book-RLbook2020.pdf | — | 2018 | μη στασιμότητα; πινακοποιημένη ενισχυτική μάθηση | [αρχείο](evidence/SRC-701E163AC8.md) | [πηγή](sources/SRC-701E163AC8.md) | [άνοιγμα](http://incompleteideas.net/book/RLbook2020.pdf) |
 | `SRC-702F9AB94C` | https---proceedings.mlr.press-v168-sodhani22a-sodhani22a.pdf | — | 2022 | μη στασιμότητα; μερική παρατηρησιμότητα; συνεχής προσαρμογή | [αρχείο](evidence/SRC-702F9AB94C.md) | [πηγή](sources/SRC-702F9AB94C.md) | [άνοιγμα](https://proceedings.mlr.press/v168/sodhani22a/sodhani22a.pdf) |
+| `SRC-70772C0629` | Reinforcement Learning in Switching Non-Stationary Markov Decision Processes: Algorithms and Convergence Analysis | Mohsen Amiri; Sindri Magnússon | 2025 | μη στασιμότητα; πινακοποιημένη ενισχυτική μάθηση | [αρχείο](evidence/SRC-70772C0629.md) | [πηγή](sources/SRC-70772C0629.md) | [άνοιγμα](https://arxiv.org/abs/2503.18607) |
 | `SRC-70AEC665B2` | https---proceedings.mlr.press-v70-guo17a-guo17a.pdf | — | 2015 | χωρίς κατηγορία | [αρχείο](evidence/SRC-70AEC665B2.md) | [πηγή](sources/SRC-70AEC665B2.md) | [άνοιγμα](https://proceedings.mlr.press/v70/guo17a/guo17a.pdf) |
 | `SRC-71F2ECA651` | Robust Reinforcement Learning (Morimoto & Doya, 2001) | — | 2001 | εύρωστη ενισχυτική μάθηση | [αρχείο](evidence/SRC-71F2ECA651.md) | [πηγή](sources/SRC-71F2ECA651.md) | [άνοιγμα](https://homes.cs.washington.edu/~todorov/courses/amath579/MorimotoDoya.pdf) |
 | `SRC-7313A97A30` | On Practical Robust Reinforcement Learning: Practical Uncertainty Set and Double-Agent Algorithm | Ukjo Hwang; Songnam Hong | 2023 | εύρωστη ενισχυτική μάθηση; πινακοποιημένη ενισχυτική μάθηση | [αρχείο](evidence/SRC-7313A97A30.md) | [πηγή](sources/SRC-7313A97A30.md) | [άνοιγμα](https://arxiv.org/abs/2305.06657) |
 | `SRC-73C145D523` | Safe Reinforcement Learning with Dead-Ends Avoidance and Recovery | Xiao Zhang; Hai Zhang; Hongtu Zhou; Chang Huang; Di Zhang; Chen Ye; Junqiao Zhao | 2023 | ασφαλής ενισχυτική μάθηση | [αρχείο](evidence/SRC-73C145D523.md) | [πηγή](sources/SRC-73C145D523.md) | [άνοιγμα](https://arxiv.org/abs/2306.13944) |
 | `SRC-73DA396BA9` | Online MDP with Transition Prototypes: A Robust Adaptive Approach | Shuo Sun; Meng Qi; Zuo-Jun Max Shen | 2024 | χωρίς κατηγορία | [αρχείο](evidence/SRC-73DA396BA9.md) | [πηγή](sources/SRC-73DA396BA9.md) | [άνοιγμα](https://arxiv.org/abs/2412.14075) |
 | `SRC-7456165CEA` | https---proceedings.mlr.press-v232-alami23a-alami23a.pdf | — | 2020 | μη στασιμότητα; στατιστική αξιολόγηση | [αρχείο](evidence/SRC-7456165CEA.md) | [πηγή](sources/SRC-7456165CEA.md) | [άνοιγμα](https://proceedings.mlr.press/v232/alami23a/alami23a.pdf) |
+| `SRC-76B2247457` | Position: Lifetime tuning is incompatible with continual reinforcement learning | Golnaz Mesbahi; Parham Mohammad Panahi; Olya Mastikhina; Steven Tang; Martha White; Adam White | 2025 | μη στασιμότητα; GridWorld; συνεχής προσαρμογή; στατιστική αξιολόγηση | [αρχείο](evidence/SRC-76B2247457.md) | [πηγή](sources/SRC-76B2247457.md) | [άνοιγμα](https://raw.githubusercontent.com/mlresearch/v267/main/assets/mesbahi25a/mesbahi25a.pdf) |
 | `SRC-7702DAEF48` | Recovery RL: Safe Reinforcement Learning with Learned Recovery Zones | Brijen Thananjeyan; Ashwin Balakrishna; Suraj Nair; Michael Luo; Krishnan Srinivasan; Minho Hwang; Joseph E. Gonzalez; Julian Ibarz; Chelsea Finn; Ken Goldberg | 2020 | ασφαλής ενισχυτική μάθηση | [αρχείο](evidence/SRC-7702DAEF48.md) | [πηγή](sources/SRC-7702DAEF48.md) | [άνοιγμα](https://arxiv.org/abs/2010.15920) |
 | `SRC-7C18826BEE` | Dropout as a Bayesian Approximation: Representing Model Uncertainty in Deep Learning | Yarin Gal; Zoubin Ghahramani | 2015 | βαθιά ενισχυτική μάθηση | [αρχείο](evidence/SRC-7C18826BEE.md) | [πηγή](sources/SRC-7C18826BEE.md) | [άνοιγμα](https://arxiv.org/abs/1506.02142) |
 | `SRC-7EFBF9DA62` | A Review of Uncertainty Quantification in Deep Learning: Techniques, Applications and Challenges | Moloud Abdar; Farhad Pourpanah; Sadiq Hussain; Dana Rezazadegan; Li Liu; Mohammad Ghavamzadeh; Paul Fieguth; Xiaochun Cao; Abbas Khosravi; U Rajendra Acharya; Vladimir Makarenkov; Saeid Nahavandi | 2020 | στατιστική αξιολόγηση | [αρχείο](evidence/SRC-7EFBF9DA62.md) | [πηγή](sources/SRC-7EFBF9DA62.md) | [άνοιγμα](https://arxiv.org/abs/2011.06225) |
@@ -79,6 +81,7 @@
 | `SRC-91D56A10CF` | https---proceedings.mlr.press-v139-xie21c-xie21c.pdf | — | 1998 | μη στασιμότητα; μερική παρατηρησιμότητα; βαθιά ενισχυτική μάθηση | [αρχείο](evidence/SRC-91D56A10CF.md) | [πηγή](sources/SRC-91D56A10CF.md) | [άνοιγμα](https://proceedings.mlr.press/v139/xie21c/xie21c.pdf) |
 | `SRC-91D94DB95B` | https---proceedings.mlr.press-v70-achiam17a-achiam17a.pdf | — | 2016 | ανθεκτικότητα και ανάκαμψη; ασφαλής ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση | [αρχείο](evidence/SRC-91D94DB95B.md) | [πηγή](sources/SRC-91D94DB95B.md) | [άνοιγμα](https://proceedings.mlr.press/v70/achiam17a/achiam17a.pdf) |
 | `SRC-92397254FB` | Learn to human-level control in dynamic environment using incremental batch interrupting temporal abstraction | Yuchen Fu; Zhipeng Xu; Fei Zhu; Quan Liu; Xiaoke Zhou | 2016 | GridWorld; πινακοποιημένη ενισχυτική μάθηση | [αρχείο](evidence/SRC-92397254FB.md) | [πηγή](sources/SRC-92397254FB.md) | [άνοιγμα](https://doi.org/10.2298/csis160210015f) |
+| `SRC-9464421E55` | Is Prior-Free Black-Box Non-Stationary Reinforcement Learning Feasible? | Argyrios Gerogiannis; Yu-Han Huang; Venugopal Veeravalli | 2025 | μη στασιμότητα; GridWorld | [αρχείο](evidence/SRC-9464421E55.md) | [πηγή](sources/SRC-9464421E55.md) | [άνοιγμα](https://raw.githubusercontent.com/mlresearch/v258/main/assets/gerogiannis25a/gerogiannis25a.pdf) |
 | `SRC-95C9DAEE68` | Deep reinforcement learning in non-stationary environments | Zihe Liu | 2024 | ανθεκτικότητα και ανάκαμψη; μη στασιμότητα; βαθιά ενισχυτική μάθηση; συνεχής προσαρμογή | [αρχείο](evidence/SRC-95C9DAEE68.md) | [πηγή](sources/SRC-95C9DAEE68.md) | [άνοιγμα](https://opus.lib.uts.edu.au/handle/10453/186408) |
 | `SRC-9AF6281E67` | Policy-Conditioned Uncertainty Sets for Robust Markov Decision Processes - NIPS | Andrea Tirinzoni, Xiangli Chen, Marek Petrik, Brian D. Ziebart | 2018 | εύρωστη ενισχυτική μάθηση | [αρχείο](evidence/SRC-9AF6281E67.md) | [πηγή](sources/SRC-9AF6281E67.md) | [άνοιγμα](https://papers.nips.cc/paper_files/paper/2018/file/7ec0dbeee45813422897e04ad8424a5e-Paper.pdf) |
 | `SRC-9CC11ECF41` | Approximate Bilevel Difference Convex Programming for Bayesian Risk Markov Decision Processes | — | 2010 | εύρωστη ενισχυτική μάθηση; μερική παρατηρησιμότητα; πινακοποιημένη ενισχυτική μάθηση | [αρχείο](evidence/SRC-9CC11ECF41.md) | [πηγή](sources/SRC-9CC11ECF41.md) | [άνοιγμα](https://ojs.aaai.org/index.php/AAAI/article/view/34862/37017) |
@@ -5043,6 +5046,50 @@ Sodhani et al. (2022), Section 7 and Figure 5.
 
 ---
 
+## `SRC-70772C0629` — Reinforcement Learning in Switching Non-Stationary Markov Decision Processes: Algorithms and Convergence Analysis
+
+- **Συγγραφείς:** Mohsen Amiri; Sindri Magnússon
+- **Έτος:** 2025
+- **Τύπος:** ακαδημαϊκή εργασία
+- **Θέματα / tags:** μη στασιμότητα; πινακοποιημένη ενισχυτική μάθηση
+- **Ημερομηνία ελέγχου:** 2026-08-03
+- **Αρχεία:** [πλήρες Markdown](sources/SRC-70772C0629.md) · [αποσπάσματα](evidence/SRC-70772C0629.md)
+- **Εξωτερική πηγή:** [άνοιγμα](https://arxiv.org/abs/2503.18607)
+
+## E1 — The paper assumes structured latent Markov switching
+- **Location:** Abstract; Introduction, pp. 1–3
+- **Claim:** The environment switches among a finite collection of MDPs according to a latent Markov chain, while the agent observes the external state but not the active environmental mode.
+- **Status:** verified
+
+### Faithful paraphrase
+The SNS-MDP framework does not permit arbitrary unconstrained change. It assumes a finite family of environments and a hidden environmental state whose evolution is governed by a Markov chain. The agent cannot directly observe which environment is active. The authors motivate this structure as the property that makes learning and analysis possible despite persistent changes. They explicitly contrast it with arbitrary non-stationarity, for which past experience can become irrelevant and an optimal value or policy may not be learnable.
+
+## E2 — Long-run switching is represented through an equivalent stationary target
+- **Location:** Abstract; Contributions in Introduction; value-function development
+- **Claim:** Under the SNS assumptions, the long-run effect of the switching process can be characterized by stationary dynamics parameterized by the stationary distribution of the hidden Markov chain.
+- **Status:** verified
+
+### Faithful paraphrase
+The paper derives an SNS value formulation that is invariant to the instantaneous hidden environmental state and depends on the statistical properties of the environmental Markov chain. This gives TD learning and policy-improvement procedures a stable long-run target even though the realized environment continues to switch. This result is conceptually different from measuring the time needed to recover after a single persistent change: convergence to an averaged structured process does not imply rapid recovery at a particular changepoint.
+
+## E3 — Tabular Q-learning convergence has explicit conditions
+- **Location:** Introduction contribution 5; Theorem 5, Q-learning convergence section; Conclusion
+- **Claim:** Tabular Q-learning converges almost surely to the SNS optimal Q-function under the stated step-size, visitation, and behavioral-policy conditions.
+- **Status:** verified
+
+### Faithful paraphrase
+Theorem 5 requires the stochastic-approximation step-size condition referenced by the paper and requires every state–action–environment-state combination to be visited infinitely often. The manuscript also describes the Q-learning result under a properly fixed behavioral policy. Therefore the paper supports a bounded statement: ordinary tabular Q-learning can converge in this particular structured switching model under sufficient exploration and the formal assumptions. It does not justify claiming that Q-learning will rapidly adapt under every finite-budget non-stationary experiment.
+
+## E4 — The evidence is not a recovery-speed benchmark
+- **Location:** Experiments and Conclusion
+- **Claim:** The empirical validation demonstrates convergence/decision quality in a communication-network example with Markovian channel noise, rather than degradation and recovery after an abrupt hidden rule change.
+- **Status:** verified
+
+### Faithful paraphrase
+The application illustrates the SNS framework in a rapidly varying communication setting and validates the convergence-oriented theoretical analysis. The study does not define a resilience failure interval, recovery threshold, recovery time, or post-changepoint area-under-recovery metric. For thesis use, it should constrain how the naive Q-learning baseline is interpreted and help define the class of non-stationarity, but recovery-speed claims must come from sources and experiments that explicitly study post-change adaptation.
+
+---
+
 ## `SRC-70AEC665B2` — https---proceedings.mlr.press-v70-guo17a-guo17a.pdf
 
 - **Συγγραφείς:** —
@@ -5670,6 +5717,50 @@ Run a feasibility pilot and include missed-change analysis before adopting R-BOC
 ### Citation
 
 Alami et al. (2023), limitations and future work.
+
+---
+
+## `SRC-76B2247457` — Position: Lifetime tuning is incompatible with continual reinforcement learning
+
+- **Συγγραφείς:** Golnaz Mesbahi; Parham Mohammad Panahi; Olya Mastikhina; Steven Tang; Martha White; Adam White
+- **Έτος:** 2025
+- **Τύπος:** ιστοσελίδα
+- **Θέματα / tags:** μη στασιμότητα; GridWorld; συνεχής προσαρμογή; στατιστική αξιολόγηση
+- **Ημερομηνία ελέγχου:** 2026-08-03
+- **Αρχεία:** [πλήρες Markdown](sources/SRC-76B2247457.md) · [αποσπάσματα](evidence/SRC-76B2247457.md)
+- **Εξωτερική πηγή:** [άνοιγμα](https://raw.githubusercontent.com/mlresearch/v267/main/assets/mesbahi25a/mesbahi25a.pdf)
+
+## E1 — Full-lifetime tuning can leak information about the deployment setting
+- **Location:** Abstract; Sections 1–3
+- **Claim:** The paper argues that repeatedly tuning on the complete known lifetime can undermine continual-RL evaluation by exposing information about the horizon and hidden non-stationary dynamics to the experimenter.
+- **Status:** verified
+
+### Faithful paraphrase
+The authors treat continual learning as a setting in which the learner should continue operating without relying on knowledge of a fixed final deployment time. They argue that repeatedly running candidate hyperparameters over the entire evaluation lifetime lets the researcher adapt the algorithm to that lifetime and, in non-stationary benchmarks, indirectly learn about hidden dynamics or schedules. This can make the benchmark less representative of unexpected change. For thesis design, final change schedules and full evaluation trajectories should therefore not be reused iteratively as the main hyperparameter-selection surface.
+
+## E2 — The paper proposes a limited k-percent tuning phase
+- **Location:** Section 1; Section 5, “One alternative: k-percent tuning”
+- **Claim:** Hyperparameters are tuned using only an initial fraction of the interaction budget and then fixed for evaluation over the full lifetime.
+- **Status:** verified
+
+### Faithful paraphrase
+The proposed methodology allows the experimenter to select hyperparameters using only `k` percent of the total experimental lifetime. After this limited tuning window, the chosen hyperparameters are fixed and the agent is evaluated across the full lifetime using multiple runs. The authors explicitly describe this as a practical evaluation constraint rather than a literal model of real deployment. The principle relevant to the thesis is the separation of tuning data from the complete final non-stationary trajectory, not the mechanical adoption of a particular percentage.
+
+## E3 — The useful tuning fraction is not universal
+- **Location:** Section 1 methodology summary; experimental sections
+- **Claim:** The interaction budget represented by `k` can depend on the agent and environment.
+- **Status:** verified
+
+### Faithful paraphrase
+The experiments do not identify one fraction that is optimal across all settings. The paper reports that the tuning fraction producing good lifetime performance can be agent–environment dependent. Consequently, the thesis should not copy a value such as one percent or twenty percent solely because it appears in these experiments. A tuning allowance must be fixed from the pilot protocol, compute constraints, and fairness policy before the final evaluation data are inspected.
+
+## E4 — Lifetime tuning can hide differences between continual and non-continual methods
+- **Location:** Abstract; Sections 7–8; Jelly Bean World comparison
+- **Claim:** In the reported experiments, continual-learning mitigations can appear less distinct under lifetime tuning and show clearer benefits under restricted tuning.
+- **Status:** verified
+
+### Faithful paraphrase
+The paper evaluates DQN and SAC variants across continuing and non-stationary tasks. Its experiments show cases where full-lifetime tuning makes algorithms look similarly successful or reduces the apparent advantage of continual-learning mitigations, whereas restricted tuning reveals differences. The result is empirical and testbed-specific, but it supports a methodological caution: an adaptive method should not be judged only after every comparator has been extensively tuned against the same full final lifetime that is meant to test autonomous adaptation.
 
 ---
 
@@ -7097,6 +7188,50 @@ Classify I-QOption as a hierarchical dynamic-control mechanism rather than a det
 ### Citation
 
 Fu et al. (2016), overall method and experimental scope.
+
+---
+
+## `SRC-9464421E55` — Is Prior-Free Black-Box Non-Stationary Reinforcement Learning Feasible?
+
+- **Συγγραφείς:** Argyrios Gerogiannis; Yu-Han Huang; Venugopal Veeravalli
+- **Έτος:** 2025
+- **Τύπος:** ιστοσελίδα
+- **Θέματα / tags:** μη στασιμότητα; GridWorld
+- **Ημερομηνία ελέγχου:** 2026-08-03
+- **Αρχεία:** [πλήρες Markdown](sources/SRC-9464421E55.md) · [αποσπάσματα](evidence/SRC-9464421E55.md)
+- **Εξωτερική πηγή:** [άνοιγμα](https://raw.githubusercontent.com/mlresearch/v258/main/assets/gerogiannis25a/gerogiannis25a.pdf)
+
+## E1 — Practical detector behavior can differ from an order-optimal theoretical guarantee
+- **Location:** Abstract; Introduction contributions; MASTER analysis
+- **Claim:** The paper proves that MASTER's non-stationarity detection tests need not trigger at practical horizons, even though the framework has order-optimal regret guarantees under its theoretical setting.
+- **Status:** verified
+
+### Faithful paraphrase
+The authors separate asymptotic regret theory from the operational behavior of the detection mechanism. Their analysis shows that the MASTER detector can fail to fire for practically relevant horizon choices, so the algorithm can behave similarly to a random-restart procedure rather than as an effective data-driven change detector. They also show that the stated order-optimal regret bound can remain above a worst-case linear-regret reference until extremely large horizons. For experimental design, this supports validating whether a detector actually reacts within the available interaction budget instead of inferring practical usefulness from the order of a regret bound alone.
+
+## E2 — The empirical study is specifically Piecewise-Stationary Multi-Armed Bandits
+- **Location:** Introduction contribution summary; experimental sections
+- **Claim:** The paper's simulations validate the practical observations in the special NS-RL case of piecewise-stationary multi-armed bandits.
+- **Status:** verified
+
+### Faithful paraphrase
+Although the paper discusses a broad black-box NS-RL framework, its main empirical validation is not a finite-state GridWorld MDP. The experiments use piecewise-stationary multi-armed bandits. Therefore performance comparisons from those simulations must remain scoped to that setting. They can motivate detector diagnostics and restart baselines in the thesis, but they are not direct evidence that the same detector ranking will hold when actions alter state transitions over multiple steps.
+
+## E3 — QCD restart methods outperform the tested alternatives in the PS-MAB simulations
+- **Location:** Introduction contributions; PS-MAB simulation results
+- **Claim:** In the paper's PS-MAB experiments, methods using quickest change detection are more robust and consistently outperform MASTER and the tested random-restart approaches.
+- **Status:** verified
+
+### Faithful paraphrase
+The experimental comparison includes restart methods driven by QCD as well as random-restarting alternatives. Within the piecewise-stationary bandit testbed, the QCD-driven methods detect changes more effectively and deliver stronger, more consistent performance than MASTER and the random-restart baselines considered by the authors. This supports treating explicit detection quality as an empirical object of study, while the bandit setting prevents a universal claim that QCD is the best detector for the thesis GridWorld.
+
+## E4 — Restarting and retained-context recovery should be kept conceptually separate
+- **Location:** Introduction discussion of adaptive versus restarting approaches; problem framing
+- **Claim:** The paper distinguishes continuously adaptive methods from methods that restart learning in response to non-stationarity.
+- **Status:** verified
+
+### Faithful paraphrase
+The authors organize non-stationary approaches partly by whether learning continues adaptively or is restarted when a change is detected. A restart strategy can discard accumulated learner state, whereas a context-memory method can retain and reuse prior policies. For thesis use, detector-triggered reset is therefore a possible mechanism-decomposition baseline rather than a substitute for context-aware recovery. Results should identify which knowledge is preserved after a detected change.
 
 ---
 

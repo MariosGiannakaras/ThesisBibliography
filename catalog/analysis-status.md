@@ -1,15 +1,15 @@
 # Κατάσταση αναλύσεων
 
 - Σύνολο ενεργών πηγών: **583**
-- Οριστικές αποφάσεις: **580**
-  - Επιλεγμένες/επαληθευμένες: **109**
+- Οριστικές αποφάσεις: **583**
+  - Επιλεγμένες/επαληθευμένες: **112**
   - Απορριφθείσες: **470**
   - Ελεγμένες ως θεωρητικό υλικό χωρίς citation export: **1**
-- Εκκρεμείς συνολικά: **3**
-  - Χωρίς ανάλυση: **3**
+- Εκκρεμείς συνολικά: **0**
+  - Χωρίς ανάλυση: **0**
   - Πρόχειρες/μη citation-ready: **0**
-- Επαληθευμένα αρχεία αποσπασμάτων: **109**
-- Επιλεγμένες για εξαγωγή: **109**
+- Επαληθευμένα αρχεία αποσπασμάτων: **112**
+- Επιλεγμένες για εξαγωγή: **112**
 
 > Η αναφορά παράγεται από το τρέχον `catalog/sources.csv`, τα canonical `analyses/` και τα verified `evidence/`. Παλιές generated rows δεν χρησιμοποιούνται ως πηγή αλήθειας.
 
@@ -312,7 +312,7 @@
 | `SRC-503A8B421C` | Interpretable Operations Research for High-Sta... - Πέργαμος | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-58C53E9086` | IntEx 2021 Proceedings of the Fifth Workshop on Integrated Planning, Acting and Execution | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-00CCFC7AC0` | IROS 2022 Keynote- Safe Learning in Robotics by Prof. Angela Schoellig | απορρίφθηκε | κανένα | απόρριψη | όχι |
-| `SRC-9464421E55` | Is Prior-Free Black-Box Non-Stationary Reinforcement Learning Feasible? | προς ανάλυση | κανένα |  |  |
+| `SRC-9464421E55` | Is Prior-Free Black-Box Non-Stationary Reinforcement Learning Feasible? | επαληθευμένη | επαληθευμένο | υποστηρικτική | ναι |
 | `SRC-9144C46DA7` | Just an Agent Away - An AI Thesis - Eximius Ventures | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-F99517DABE` | Key Characteristics of Intelligent Agents- Autonomy, Adaptability, and Decision-Making | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-7238AA0BDC` | Know what it does not know - TU Delft Repository | απορρίφθηκε | κανένα | απόρριψη | όχι |
@@ -400,7 +400,7 @@
 | `SRC-9AF6281E67` | Policy-Conditioned Uncertainty Sets for Robust Markov Decision Processes - NIPS | επαληθευμένη | επαληθευμένο | υποστηρικτική | ναι |
 | `SRC-01F23B6B1F` | POMDP Example Domains | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-8D94DEEB3D` | POMDP inference and robust solution via deep reinforcement learning: An application to railway optimal maintenance | απορρίφθηκε | κανένα | απόρριψη | όχι |
-| `SRC-76B2247457` | Position: Lifetime tuning is incompatible with continual reinforcement learning | προς ανάλυση | κανένα |  |  |
+| `SRC-76B2247457` | Position: Lifetime tuning is incompatible with continual reinforcement learning | επαληθευμένη | επαληθευμένο | υποστηρικτική | ναι |
 | `SRC-D546F0AACB` | Practices for governing agentic AI systems- OpenAI's seven safety principles - VerifyWise | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-2CF79C378A` | Princeton University Lectures - Foundations of Reinforcement Learning - YouTube | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-3A71103B05` | Princeton University Lectures - Foundations of Reinforcement Learning - YouTube | απορρίφθηκε | κανένα | απόρριψη | όχι |
@@ -426,7 +426,7 @@
 | `SRC-82B9A220FE` | Reinforcement Learning from Scratch! | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-E6A5B7584B` | Reinforcement Learning in Non-Stationary Environments | επαληθευμένη | επαληθευμένο | κύρια | ναι |
 | `SRC-6609D86CD5` | Reinforcement learning in nonstationary environments | επαληθευμένη | επαληθευμένο | υποστηρικτική | ναι |
-| `SRC-70772C0629` | Reinforcement Learning in Switching Non-Stationary Markov Decision Processes: Algorithms and Convergence Analysis | προς ανάλυση | κανένα |  |  |
+| `SRC-70772C0629` | Reinforcement Learning in Switching Non-Stationary Markov Decision Processes: Algorithms and Convergence Analysis | επαληθευμένη | επαληθευμένο | υποστηρικτική | ναι |
 | `SRC-3BD2FDEADB` | Reinforcement Learning with Numpy ONLY- Solving an Arbitrary 2D Grid World! | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-EE33F366D6` | Reinforcement Learning with Numpy ONLY: Solving an Arbitrary 2D Grid World! | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-55005EF367` | Reinforcement Learning- An Introduction (Sutton & Barto, 2018) | απορρίφθηκε | κανένα | απόρριψη | όχι |
