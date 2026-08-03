@@ -9,7 +9,7 @@ on:
       - "analyses/**"
       - "evidence/**"
       - "materials/**"
-      - "notes/**"
+      - "research-notes/**"
       - "catalog/sources.csv"
       - "catalog/thesis-selection.csv"
       - "catalog/research-materials.csv"
@@ -60,7 +60,12 @@ jobs:
           python tools/research_materials.py validate
 
       - name: Build and validate complete research corpus
+        shell: bash
         run: |
+          set -euo pipefail
+          rm -rf notes
+          cp -a research-notes notes
+          trap 'rm -rf notes' EXIT
           python tools/export_research_corpus.py build
           python tools/export_research_corpus.py validate
 
