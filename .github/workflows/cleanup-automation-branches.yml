@@ -1,0 +1,58 @@
+name: Clean merged automation branches
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/cleanup-automation-branches.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: read
+
+concurrency:
+  group: bibliography-automation-branch-cleanup
+  cancel-in-progress: false
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: false
+
+      - name: Delete only automation branches with a merged pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin '+refs/heads/*:refs/remotes/origin/*' --prune
+          deleted=0
+          while IFS= read -r remote_ref; do
+            [ -n "$remote_ref" ] || continue
+            branch="${remote_ref#origin/}"
+            case "$branch" in
+              automation/thesis-package-*|automation/bibliography-intake-*) ;;
+              *) continue ;;
+            esac
+
+            open_count="$(gh pr list --head "$branch" --state open --json number --jq 'length')"
+            if [ "$open_count" -ne 0 ]; then
+              echo "Keeping $branch: open PR exists."
+              continue
+            fi
+
+            merged_count="$(gh pr list --head "$branch" --state merged --json number --jq 'length')"
+            if [ "$merged_count" -eq 0 ]; then
+              echo "Keeping $branch: no merged PR proves it is safe to delete."
+              continue
+            fi
+
+            git push origin --delete "$branch"
+            deleted=$((deleted + 1))
+          done < <(git for-each-ref --format='%(refname:short)' refs/remotes/origin/automation/ | sort)
+          echo "Deleted $deleted safely merged automation branches."
