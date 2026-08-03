@@ -12,26 +12,11 @@ jobs:
   inspect:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: main
-          fetch-depth: 0
-          lfs: false
-
-      - name: List post-merge net-new source inventory
+      - name: Show post-review generated workflow runs
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          python - <<'PY'
-          import csv, subprocess
-          from io import StringIO
-          baseline = 'd74a19613565b0a61cb9488b609c889289af8a6c'
-          def rows(ref):
-              text = subprocess.check_output(['git','show',f'{ref}:catalog/sources.csv'], text=True)
-              return {r['Κωδικός']: r for r in csv.DictReader(StringIO(text))}
-          before = rows(baseline)
-          after = rows('HEAD')
-          ids = sorted(set(after)-set(before), key=lambda x:(after[x].get('Τίτλος','').casefold(),x))
-          print(f'POST_MERGE_NET_NEW={len(ids)}')
-          for sid in ids:
-              r=after[sid]
-              print('\t'.join([sid,r.get('Τίτλος','').replace('\t',' '),r.get('Τύπος','').replace('\t',' '),r.get('Σύνδεσμος','').replace('\t',' ')]))
-          PY
+          echo 'THESIS_PACKAGE'
+          gh run list --repo "$GITHUB_REPOSITORY" --workflow thesis-package.yml --branch main --limit 8 --json databaseId,headSha,status,conclusion,createdAt,updatedAt,url
+          echo 'AGGREGATES'
+          gh run list --repo "$GITHUB_REPOSITORY" --workflow aggregates.yml --branch main --limit 8 --json databaseId,headSha,status,conclusion,createdAt,updatedAt,url || true
