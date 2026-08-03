@@ -1,20 +1,20 @@
 material_id,canonical_title,authors,year,url,identification_status,confidence,thesis_relevance,notes
-MAT-13CFB90F59,,,,,pending,,unreviewed,
-MAT-3885929C65,,,,,pending,,unreviewed,
-MAT-57F4845C32,,,,,pending,,unreviewed,
-MAT-589A4A178F,,,,,pending,,unreviewed,
-MAT-5F18075EE6,,,,,pending,,unreviewed,
-MAT-6799C781D0,,,,,pending,,unreviewed,
-MAT-6E43CBD6C9,,,,,pending,,unreviewed,
-MAT-70A0C89F93,,,,,pending,,unreviewed,
-MAT-71A2ACCC0D,,,,,pending,,unreviewed,
-MAT-7AEBFE937B,,,,,pending,,unreviewed,
-MAT-7FE66E620F,,,,,pending,,unreviewed,
-MAT-857A946D82,,,,,pending,,unreviewed,
-MAT-87DC591A94,,,,,pending,,unreviewed,
-MAT-88EF296CE8,,,,,pending,,unreviewed,
-MAT-BB6A0F7667,,,,,pending,,unreviewed,
-MAT-BC851295BC,,,,,pending,,unreviewed,
-MAT-C7E22C59DE,,,,,pending,,unreviewed,
-MAT-D9381B36C1,,,,,pending,,unreviewed,
-MAT-F573D5B6C7,,,,,pending,,unreviewed,
+MAT-13CFB90F59,AI Agents in Action,Micheal Lanham,2025,https://www.manning.com/books/ai-agents-in-action,identified,high,high,Full Manning book; useful for agent architecture and implementation terminology.
+MAT-3885929C65,Τεχνικές λογικού προγραμματισμού – Η γλώσσα Prolog,Ηλίας Σακελλαρίου; Νικόλαος Βασιλειάδης; Πέτρος Κεφαλάς; Δημοσθένης Σταμάτης,2015,https://doi.org/10.57713/kallipos-930,identified,high,medium,Full Kallipos textbook identified from content and official bibliographic record.
+MAT-57F4845C32,Toward theoretical understandings of robust Markov decision processes: Sample complexity and asymptotics,Wenhao Yang; Liangyu Zhang; Zhihua Zhang,2022,https://doi.org/10.1214/22-AOS2225,identified,high,high,Published Annals of Statistics paper; directly relevant to robust MDPs.
+MAT-589A4A178F,Προγραμματισμός σε Λογική,Εμμανουήλ Πίντο,2015,https://doi.org/10.57713/kallipos-767,identified,high,medium,Full Kallipos textbook; ISBN 978-960-603-231-6 recorded inside the PDF.
+MAT-5F18075EE6,Συναρτήσεις και αναδρομή – Κεφάλαιο 4 του «Λογικός και Συναρτησιακός Προγραμματισμός»,Παναγιώτης Σταματόπουλος,2015,https://doi.org/10.57713/kallipos-648,identified,high,low,Chapter-level material retained independently for direct drafting access.
+MAT-6799C781D0,Logic for Computer Scientists,Uwe Schöning,2008,,identified,high,low,Full instructional text identified from title page and PDF metadata.
+MAT-6E43CBD6C9,Συναρτησιακός προγραμματισμός σε Python – Κεφάλαιο 6 του «Λογικός και Συναρτησιακός Προγραμματισμός»,Παναγιώτης Σταματόπουλος,2015,https://doi.org/10.57713/kallipos-648,identified,high,low,Chapter-level material retained independently for direct drafting access.
+MAT-70A0C89F93,Μέθοδοι Σχεδιασμού Κίνησης,Ηλίας Ξυδιάς,2015,,identified,high,medium,Chapter/textbook material identified from its title page and linked canonical source.
+MAT-71A2ACCC0D,Τεχνητή Νοημοσύνη,Νικόλαος Βαρβαρήγος; Αντώνιος Καραγιαννίδης; Βασίλειος Μπίτζιος; Αθανάσιος Λιώνης,2015,https://github.com/MariosGiannakaras/ThesisBibliography/blob/7fa743367cfd4d60b40d4a0a0a19134e26e3e4b4/originals/unidentified/71A2ACCC0DACBAAD__original.pdf,identified-from-file,high,high,Full 475-page Kallipos textbook; ISBN 978-960-603-138-8 recorded inside the PDF.
+MAT-7AEBFE937B,Εξελικτικοί Αλγόριθμοι,Αντώνιος Πουλιέζος; Γεώργιος Σταυρακάκης,2014,,identified,high,medium,Instructional chapter identified from embedded title and authorship.
+MAT-7FE66E620F,Reinforcement Learning and Stochastic Games,Shakeel Virk,2013,https://github.com/MariosGiannakaras/ThesisBibliography/blob/7fa743367cfd4d60b40d4a0a0a19134e26e3e4b4/originals/unidentified/7FE66E620F8C6A63__Reinforcement%20Learning%20and%20stochastic%20games.pdf,identified-from-file,high,high,M.Eng. thesis submitted to McGill University Department of Mechanical Engineering in March 2013.
+MAT-857A946D82,Λογικός και Συναρτησιακός Προγραμματισμός,Παναγιώτης Σταματόπουλος,2015,https://doi.org/10.57713/kallipos-648,identified,high,medium,Full Kallipos textbook; ISBN 978-960-603-335-3.
+MAT-87DC591A94,Λογικός Προγραμματισμός και Prolog,Ιωάννης Δ. Αλεξανδρίδης; Ανδρέας Σ. Μπελεχάκης,2016,https://github.com/MariosGiannakaras/ThesisBibliography/blob/7fa743367cfd4d60b40d4a0a0a19134e26e3e4b4/originals/unidentified/87DC591A949CE032__original.pdf,identified-from-file,high,medium,Full Kallipos textbook; ISBN 978-960-603-428-0 recorded inside the PDF.
+MAT-88EF296CE8,Μαρκοβιανές Αλυσίδες – Κεφάλαιο 2 του «Στοχαστικές Διαδικασίες»,Μιχαήλ Λουλάκης,2016,https://repository.kallipos.gr/handle/11419/6005,identified,high,high,Official Kallipos chapter record; directly useful for Markov-chain foundations.
+MAT-BB6A0F7667,Εισαγωγή – Ιστορικά στοιχεία – Σχέση Λογικού Προγραμματισμού με την Τεχνητή Νοημοσύνη,Ηλίας Σακελλαρίου; Νικόλαος Βασιλειάδης; Πέτρος Κεφαλάς; Δημοσθένης Σταμάτης,2015,https://doi.org/10.57713/kallipos-930,identified,high,medium,Chapter 1 of «Τεχνικές λογικού προγραμματισμού – Η γλώσσα Prolog».
+MAT-BC851295BC,Στοιχεία Πιθανοτήτων – Με εφαρμογές στη Στατιστική και την Πληροφορική,Ιωάννης Κοντογιάννης; Σταύρος Τουμπής,2015,https://www.dpmms.cam.ac.uk/~ik355/pubs.html,identified,high,high,Full Kallipos textbook; ISBN 978-960-603-182-3 and public author bibliography confirm identity.
+MAT-C7E22C59DE,Zero Trust Security with Cisco AI Defense,Akhil Suresh,2025,,identified,high,medium,Cisco Live session BRKSEC-2663; retained as vendor technical material rather than neutral scientific evidence.
+MAT-D9381B36C1,A Survey on Deep Reinforcement Learning-based Approaches for Adaptation and Generalization,Pamul Yadav; Ashutosh Mishra; Junyong Lee; Shiho Kim,2022,https://arxiv.org/abs/2202.08444,identified,high,high,ArXiv 2202.08444; directly relevant to adaptation and generalization.
+MAT-F573D5B6C7,Τεχνητή Νοημοσύνη – Κεφάλαιο 15 του «Θεμελίωση Επιστήμης Υπολογιστών»,Ευστάθιος Ζάχος; Αριστείδης Παγουρτζής; Θεοδώρα Σούλιου,2015,https://doi.org/10.57713/kallipos-491,identified,high,high,Official Kallipos book and chapter identity; strong background material for AI definitions and search methods.
