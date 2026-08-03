@@ -1,0 +1,32 @@
+{
+  "checksum_file": "catalog/SHA256SUMS",
+  "content_roots": [
+    "README.md",
+    "SOURCE_COMMIT",
+    "citation-ready/",
+    "sources/",
+    "analyses/",
+    "evidence/",
+    "materials/",
+    "notes/",
+    "aggregates/",
+    "catalog/"
+  ],
+  "copied_file_counts": {
+    "analyses": 584,
+    "evidence": 133,
+    "materials": 19,
+    "notes": 1,
+    "sources": 583
+  },
+  "file_count": 1561,
+  "hash_algorithm": "sha256",
+  "integrity_scope": "all corpus files except catalog/package-metadata.json and catalog/SHA256SUMS",
+  "original_pdf_count": 280,
+  "package_type": "ThesisBibliography complete research corpus",
+  "research_material_count": 19,
+  "schema_version": 1,
+  "selected_source_count": 112,
+  "source_commit": "7fa743367cfd4d60b40d4a0a0a19134e26e3e4b4",
+  "source_count": 583
+}

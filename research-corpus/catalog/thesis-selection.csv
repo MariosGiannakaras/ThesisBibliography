@@ -1,0 +1,584 @@
+Κωδικός,Ρόλος,Κατάσταση,Κεφάλαια,Θέματα,Εξαγωγή,Σημείωση
+SRC-FE2C0A3E00,κύρια,επαληθευμένη,Θεωρητικό υπόβαθρο; Σχετικές εργασίες; Πειραματικό περιβάλλον; Μετρικές; Threats to validity,gridworld; distribution shift; performance function; benchmark design,ναι,Αιτιολογεί minimal testbed και ανεξάρτητη αξιολόγηση πέρα από το return.
+SRC-95C9DAEE68,κύρια,επαληθευμένη,Θεωρητικό υπόβαθρο; Σχετικές εργασίες; Ερευνητικά ερωτήματα; Μεθοδολογία; Μετρικές,non-stationarity; change detection; adaptation; recovery; multiple changes,ναι,Κεντρική πηγή για detection–adaptation decomposition και post-change evaluation.
+SRC-81A15E6905,κύρια,επαληθευμένη,Θεωρητικό υπόβαθρο; Σχετικές εργασίες; Μοντέλο αβεβαιότητας; Πειραματικά σενάρια,action failure; action noise; robust MDP; perturbation severity,ναι,Άμεση τεκμηρίωση για αποτυχίες εκτέλεσης ενεργειών και robustness trade-offs.
+SRC-3856071502,υποστηρικτική,επαληθευμένη,Θεωρητικό υπόβαθρο; Σχετικές εργασίες; Μεθοδολογία,online changepoint detection; Bayesian uncertainty; run length; hazard function,ναι,Υποστηρικτική μέθοδος detection· δεν αποτελεί adaptation ή resilience algorithm.
+SRC-0A4AFAC8E9,κύρια,επαληθευμένη,Πειραματικό πρωτόκολλο; Στατιστική ανάλυση; Αναπαραγωγιμότητα; Threats to validity,few-run evaluation; bootstrap confidence intervals; IQM; performance profiles,ναι,Κεντρική πηγή για αξιόπιστη σύγκριση stochastic RL algorithms.
+SRC-0882A9B2B0,κύρια,επαληθευμένη,Σχετικές εργασίες; Πειραματικό περιβάλλον; Train-test protocol; Baselines,generalization; interpolation; extrapolation; environment randomization,ναι,Θεμελιώνει controlled in-distribution και out-of-distribution evaluation.
+SRC-F909CABDEB,υποστηρικτική,επαληθευμένη,Θεωρητικό υπόβαθρο; Σχετικές εργασίες; Μετρικές; Περιορισμοί,continual RL; stability; plasticity; forgetting; transfer; scalability,ναι,"Χρήσιμη survey για scope, metrics και resource-aware continual evaluation."
+SRC-A3D907D882,κύρια,επαληθευμένη,Θεωρητικό υπόβαθρο; Σχετικές εργασίες; Πειραματικό περιβάλλον; Perturbation taxonomy; Πρωτόκολλο,observation noise; reward noise; action failure; environment shift; severity; frequency,ναι,Αντιστοιχίζει τις επίσημες διαταραχές σε modular disruptors και ανεξάρτητους πειραματικούς άξονες.
+SRC-3EA1176D3A,κύρια,επαληθευμένη,Θεωρητικό υπόβαθρο; Ορισμοί; Robust baselines; Πειραματικά scenarios,robustness; resilience; static uncertainty; dynamic uncertainty; robust MDP; GridWorld,ναι,Κεντρική πηγή για τη διάκριση robustness χωρίς update από resilience μέσω continued learning.
+SRC-09DD20BA85,κύρια,επαληθευμένη,Θεωρητικό υπόβαθρο; Observation noise; Μοντέλα; Μετρικές; Trade-offs,observational robustness; stochastic kernel; lexicographic objectives; nominal utility,ναι,Θεμελιώνει bounded robustness και την υποχρεωτική κοινή αναφορά clean utility και disturbed performance.
+SRC-0A594EACC0,κύρια,επαληθευμένη,Θεωρητικό υπόβαθρο; Ερευνητικά ερωτήματα; Μετρικές; Στατιστική ανάλυση; Threats to validity,resilience definition; reference curve; failure profile; recovery profile; repeated disruptions,ναι,Κύρια πηγή για process-based resilience και curve-based recovery metrics· η multi-agent μεθοδολογία θα προσαρμοστεί ρητά σε single-agent χρήση.
+SRC-0AEF7EF16A,κύρια,επαληθευμένη,Σχετικές εργασίες; Επιλογή μοντέλων; Μεθοδολογία; Πειραματικά σενάρια; Μετρικές,Bayesian robust RL; URBE; changing dynamics; GridWorld; recovery; conservativeness,ναι,Ισχυρός υποψήφιος adaptive-robust model/baseline και άμεσο evidence για recovery μετά από dynamic change· απαιτεί feasibility pilot.
+SRC-D14764616F,κύρια,επαληθευμένη,Σχετικές εργασίες; Πειραματικό περιβάλλον; Agent architectures; Μετρικές,context switching; model reuse; GridWorld; changing rules; repeated contexts,ναι,"Άμεση τεκμηρίωση για changing GridWorld, recall, adaptation και novel-versus-recurring regimes."
+SRC-91D56A10CF,κύρια,επαληθευμένη,Σχετικές εργασίες; Ερευνητικά ερωτήματα; Μοντέλα; Non-stationarity scenarios; Περιορισμοί,structured non-stationarity; latent context; reward shift; dynamics shift; extrapolation,ναι,Κεντρική πηγή για predictive latent-context adaptation· δεν καλύπτει arbitrary changepoints.
+SRC-153C917DE1,υποστηρικτική,επαληθευμένη,Σχετικές εργασίες; Πειραματικό περιβάλλον; Μοντέλα; Μετρικές; Threats to validity,contextual meta-gradients; adaptive exploration; gridworld; change rate; context signals,ναι,Τεκμηριώνει adaptive exploration και controlled GridWorld shifts· πλήρης meta-gradient υλοποίηση απαιτεί feasibility check.
+SRC-3A5E2C9E2C,υποστηρικτική,επαληθευμένη,Θεωρητικό υπόβαθρο; Σχετικές εργασίες; Πειραματικό πρωτόκολλο; Μετρικές; Threats to validity,safe reinforcement learning; CMDP; safety cost; constraint violations; GridWorld,ναι,"Διαχωρίζει safety από robustness/resilience και επιβάλλει κοινή αναφορά utility, cost, violations και recovery."
+SRC-7EFBF9DA62,υποστηρικτική,επαληθευμένη,Θεωρητικό υπόβαθρο; Μοντέλο αβεβαιότητας; Σχετικές εργασίες; Threats to validity,aleatoric uncertainty; epistemic uncertainty; calibration; OOD; Bayesian approximation,ναι,Θεμελιώνει την ταξινομία αβεβαιότητας· δεν επιλέγει από μόνη της uncertainty estimator ή agent.
+SRC-21EBE15D15,κύρια,επαληθευμένη,Θεωρητικό υπόβαθρο; Πειραματικό περιβάλλον; Train-test protocol; Μετρικές; Threats to validity,zero-shot generalization; contextual MDP; controllable factors; PCG; interpolation; extrapolation,ναι,Διαχωρίζει frozen-policy zero-shot testing από online adaptation/recovery και ορίζει environment-plus-protocol benchmark design.
+SRC-2455B5D0A7,υποστηρικτική,επαληθευμένη,Σχετικές εργασίες; Πειραματικό πρωτόκολλο; Online adaptation; Threats to validity,test-time adaptation; online adaptation; streaming data; error accumulation; catastrophic forgetting,ναι,Χρήσιμη για adaptation regimes και leakage controls· η supervised taxonomy δεν μεταφέρεται αυτούσια σε RL.
+SRC-23A2C07D09,υποστηρικτική,επαληθευμένη,Σχετικές εργασίες; Agent architectures; Safety mechanisms; Πειραματικό πρωτόκολλο; Threats to validity,runtime assurance; simplex; monitor; trusted fallback; intervention delay; formal verification,ναι,Τεκμηριώνει shield/fallback architecture· δεν αποτελεί learning ή resilience mechanism και απαιτεί χωριστή αναφορά interventions.
+SRC-4000D2B40A,κύρια,επαληθευμένη,Πειραματικός σχεδιασμός; Benchmark architecture; Μετρικές; Αναπαραγωγιμότητα; Threats to validity,behavioural unit tests; diagnostic experiments; severity scaling; interaction budget; reproducibility,ναι,Θεμελιώνει decomposition σε targeted diagnostics και environment–interaction–analysis protocols αντί ενός aggregate leaderboard.
+SRC-211B10ADBA,υποστηρικτική,επαληθευμένη,Θεωρητικό υπόβαθρο; Σχετικές εργασίες; Generalization taxonomy,generalization; overfitting; exploration; MDP components,ναι,Formal taxonomy της γενίκευσης· survey και όχι πρωτογενής εμπειρική απόδειξη.
+SRC-A6616BE773,υποστηρικτική,επαληθευμένη,Σχετικές εργασίες; Detection baselines; Μετρικές,OOD detection; maximum softmax probability; AUROC; AUPR,ναι,Απλό supervised OOD baseline· δεν είναι RL change detector ούτε calibrated confidence.
+SRC-DBDFB80961,κύρια,επαληθευμένη,Θεωρητικό υπόβαθρο; Bayesian agents; Exploration; Risk,Bayesian RL; posterior uncertainty; Bayes-adaptive MDP; exploration-exploitation,ναι,Κεντρικό υπόβαθρο για Bayesian/adaptive candidates και uncertainty-aware exploration.
+SRC-87C9BF9456,υπόβαθρο,επαληθευμένη,Θεωρητικό υπόβαθρο; MDP; GridWorld; Model uncertainty,decision making under uncertainty; MDP; POMDP; Q-learning; GridWorld,ναι,Ακαδημαϊκό εγχειρίδιο για ορισμούς και controlled environment· όχι empirical superiority evidence.
+SRC-BE5B937542,υποστηρικτική,επαληθευμένη,Safe RL; CMDP; Costs; Shields; Threats,CMDP; constraints; safety cost; Lagrangian; shields,ναι,Πρόσφατη τεχνική survey· χρησιμοποιείται μαζί με παλαιότερες πρωτογενείς και established πηγές.
+SRC-D52DF7B9A4,κύρια,επαληθευμένη,Baselines; Tabular RL; GridWorld; Online behavior,Q-learning; off-policy TD; Sarsa; Cliff Walking; maximization bias,ναι,Θεμελιώδης baseline και διάκριση clean-optimal target από exploratory online risk.
+SRC-486FAE4C93,υπόβαθρο,επαληθευμένη,Trustworthiness; Risk framing; Evaluation governance,AI RMF; valid and reliable; safe; secure and resilient; measure,ναι,Θεσμικό background· δεν ορίζει RL resilience metrics ή algorithm.
+SRC-98623817E7,απόρριψη,απορρίφθηκε,,adversarial machine learning; security taxonomy,όχι,Υψηλής ποιότητας NIST πηγή αλλά εκτός του τρέχοντος non-adversarial uncertainty/dynamic-environment scope.
+SRC-0F8A6588DC,κύρια,επαληθευμένη,Σχετικές εργασίες; Πειραματικό περιβάλλον; Taxonomy αλλαγών; Μετρικές; Threats to validity,NovGrid; novelty adaptation; object change; action change; recovery; adaptive efficiency,ναι,"Κεντρική benchmark πηγή για sudden-change injection και χωριστές μετρικές πτώσης, ανάκαμψης και τελικής επίδοσης."
+SRC-3F84F52F97,κύρια,επαληθευμένη,Θεωρητικό υπόβαθρο; Σχετικές εργασίες; Generalization protocol; GridWorld specification; Threats to validity,contextual MDP; explicit context; hidden context; ID; OOD; context distributions,ναι,"Θεμελιώνει resolved context variables, reproducible train/test distributions και τη διάκριση static generalization από online recovery."
+SRC-0406E13B97,υποστηρικτική,επαληθευμένη,Θεωρητικό υπόβαθρο; Σχετικές εργασίες; Safety metrics; Non-stationarity taxonomy; Threats to validity,safe continual RL; changing constraints; adaptation time; CMDP; soft guarantees,ναι,Πρόσφατος χάρτης πεδίου για performance και safety κατά την προσαρμογή· οι κεντρικοί αλγοριθμικοί ισχυρισμοί απαιτούν primary-source verification.
+SRC-B88D51FA3F,κύρια,επαληθευμένη,Ερευνητικό ερώτημα; Σχετικές εργασίες; Πειραματικό περιβάλλον; Μετρικές; Πειραματικό πρωτόκολλο; Threats to validity,online adaptation; sudden novelty; NovGrid; adaptive efficiency; transfer AUC; exploration; knowledge preservation,ναι,"Κεντρική συγκρίσιμη διατριβή για sudden change, recovery metrics και GridWorld/NovGrid· οι σύνθετες μέθοδοι δεν υιοθετούνται αυτόματα."
+SRC-8E12FE2688,υποστηρικτική,επαληθευμένη,Θεωρητικό υπόβαθρο; Αβεβαιότητα ενεργειών; Πειραματικά scenarios; Robust baselines; Μετρικές,policy execution uncertainty; action failure; probabilistic perturbation; robust Bellman; sample complexity,ναι,Τεκμηριώνει το σενάριο εκτέλεσης λανθασμένης ενέργειας με severity ρ· αφορά robustness και όχι recovery.
+SRC-71F2ECA651,υπόβαθρο,επαληθευμένη,Θεωρητικό υπόβαθρο; Ιστορική εξέλιξη robust RL; Σχετικές εργασίες; Περιορισμοί,robust RL; minimax; H-infinity; model mismatch; disturbance,ναι,Ιστορική θεμελίωση worst-case robustness· δεν αποτελεί άμεσο μοντέλο προσαρμογής ή καταλληλότερο GridWorld baseline.
+SRC-7456165CEA,κύρια,επαληθευμένη,Θεωρητικό υπόβαθρο; Σχετικές εργασίες; Change detection; Adaptive baselines; Πειραματικό πρωτόκολλο; Μετρικές; Threats to validity,piecewise-stationary MDP; Bayesian change detection; false alarms; detection delay; detector-triggered restart; regret,ναι,"Κεντρική πηγή για unknown abrupt changes, χωριστές detector metrics και απλό detection-plus-reset adaptation baseline· απαιτεί feasibility pilot."
+SRC-620F17076C,υποστηρικτική,επαληθευμένη,Θεωρητικό υπόβαθρο; Observation uncertainty; Robust baselines; Πειραματικά scenarios; Μετρικές; Threats to validity,true state; observed state; SA-MDP; adversarial observation; policy smoothness; action consistency,ναι,Τεκμηριώνει worst-case observation robustness και τη διάκριση observation corruption από dynamics/action perturbation· δεν ισοδυναμεί με ordinary stochastic noise ή recovery.
+SRC-A62DDB9298,απόρριψη,απορρίφθηκε,,Safety Gridworld; EWC; DQN; catastrophic forgetting; course project,όχι,Θεματικά σχετικό αλλά μη peer-reviewed course report με αδύναμο protocol και αποτυχημένη κύρια EWC αξιολόγηση· διατηρείται μόνο ως implementation warning.
+SRC-D30B6E2BD6,απόρριψη,απορρίφθηκε,,duplicate; Safety Gridworld; EWC; DQN,όχι,Ακριβές διπλότυπο του SRC-A62DDB9298· δεν αποτελεί ανεξάρτητη πηγή και δεν εξάγεται.
+SRC-660560956D,κύρια,επαληθευμένη,Σχετικές εργασίες; Taxonomy αλλαγών; Πειραματικό περιβάλλον; Adaptive baselines; Μετρικές; Threats to validity,repeated reward shifts; abrupt change; gradual drift; reactive exploration; replay contamination; context recall,ναι,"Κεντρική εμπειρική πηγή για repeated reward/observation/dynamics shifts, exploration reset και replay failure modes· deep ICM παραμένει feasibility candidate."
+SRC-702F9AB94C,υποστηρικτική,επαληθευμένη,Θεωρητικό υπόβαθρο; Contextual non-stationarity; Σχετικές εργασίες; Agent taxonomy; Train-test protocol; Threats to validity,block contextual MDP; hidden context; zero-shot inference; interpolation; extrapolation; identifiability,ναι,Διακρίνει history-conditioned zero-shot context inference από online learning και τεκμηριώνει τα όρια smooth/identifiable task families.
+SRC-3B01300AF5,απόρριψη,απορρίφθηκε,,dynamic GridWorld; PPO; DQN; Q-learning; reproducibility failure,όχι,"Θεματικά σχετική αλλά μη επαρκώς αναπαραγώγιμη σύγκριση με ασαφή environments, metrics, statistics και code artifacts· δεν υποστηρίζει algorithm rankings."
+SRC-3C543330E4,υπόβαθρο,επαληθευμένη,Θεωρητικό υπόβαθρο; Non-stationarity; Computational trade-offs; Adaptive baselines; Threats to validity,local MDP change; computational lower bound; SETH; restart; exploration; Lazy-QVI,ναι,Θεωρητικό rationale ότι μικρές αλλαγές μπορεί να έχουν global update cost· υποστηρίζει comparison continual-update versus restart χωρίς να αποδεικνύει empirical superiority.
+SRC-4B456A9363,υποστηρικτική,επαληθευμένη,Θεωρητικό υπόβαθρο; Adaptive baselines; Μετρικές; Hyperparameter protocol; Threats to validity,sliding window; stale data; recency; dynamic regret; variation budget; function approximation,ναι,Θεμελιώνει recent-memory mechanisms και το window bias–variance trade-off· ο πλήρης SW-OPEA δεν αποτελεί προεπιλεγμένη υλοποίηση.
+SRC-0A8E4489E8,υποστηρικτική,επαληθευμένη,Θεωρητικό υπόβαθρο; Change detection; Adaptive baselines; Πειραματικό πρωτόκολλο; Threats to validity,MASTER; multi-scale detection; stationarity tests; adaptive restart; prior knowledge; dynamic regret,ναι,Τεκμηριώνει non-oracle multi-scale restart και την ανάγκη επισήμανσης oracle reset/window tuning· το πλήρες black-box algorithm είναι εκτός βασικού implementation scope.
+SRC-BB9CAB4CBB,υποστηρικτική,επαληθευμένη,Θεωρητικό υπόβαθρο; Μοντέλο αβεβαιότητας; Robust baselines; Change detection; Threats to validity,aleatoric uncertainty; epistemic uncertainty; uncertain MDP; model uncertainty; changing distributions; conservativeness,ναι,Διακρίνει stochasticity από reducible model uncertainty και prediction-error evidence από calibrated detection· δεν επιλέγει συγκεκριμένο GridWorld agent.
+SRC-8396F66954,υπόβαθρο,επαληθευμένη,Θεωρητικό υπόβαθρο; Safety boundaries; Distribution shift; Μετρικές; Threats to validity,distribution shift; safe exploration; reward hacking; side effects; safety cost,ναι,"Οριοθετεί distribution-shift failure, exploration safety και specification failures ώστε recovery και safety να μην συγχέονται."
+SRC-67AB8572A9,υποστηρικτική,επαληθευμένη,Θεωρητικό υπόβαθρο; Agent taxonomy; Transfer metrics; Context recall; Threats to validity,transfer learning; continual learning; generalization; context recall; negative transfer; mastery,ναι,"Διακρίνει transfer, continual adaptation, zero-shot generalization και recall και απαιτεί no-transfer comparator για negative transfer."
+SRC-5775601BD7,κύρια,επαληθευμένη,Σχετικές εργασίες; Continual learning; Repeated changes; Baselines; Μετρικές; Threats to validity,loss of plasticity; catastrophic interference; repeated visits; reset baseline; activation collapse; relearning,ναι,Κεντρική πηγή για τη διάκριση forgetting από loss of plasticity και για recovery diagnostics ανά repeated regime occurrence.
+SRC-D6335D382B,υποστηρικτική,επαληθευμένη,Σχετικές εργασίες; Continual learning; Agent architectures; Μετρικές; Threats to validity,policy consolidation; task boundaries; policy KL; stability-plasticity; behavioral retention,ναι,Task-agnostic multi-timescale policy retention· deep PPO method με over-consolidation και computational-cost περιορισμούς.
+SRC-AD85505AC2,απόρριψη,απορρίφθηκε,,duplicate edition; policy consolidation; continual RL,όχι,ArXiv edition της ίδιας εργασίας με το canonical PMLR SRC-D6335D382B· διατηρείται αλλά δεν μετρά ως ανεξάρτητο evidence.
+SRC-B2A9EDBBDA,απόρριψη,απορρίφθηκε,,selective forgetting; post-deployment RL; conceptual framework; no experiments,όχι,"Speculative non-peer-reviewed framework χωρίς υλοποιημένο algorithm, benchmark ή empirical validation."
+SRC-90A20ED43A,κύρια,επαληθευμένη,Σχετικές εργασίες; Agent architectures; Post-change adaptation; Πειραματικά scenarios; Μετρικές; Threats to validity,ERPO; evolutionary adaptation; policy reuse; structural shift; warm start; negative transfer,ναι,Post-shift policy adaptation για μεγάλες discrete navigation μετατοπίσεις· απαιτεί scratch/warm-start comparators και feasibility pilot.
+SRC-4E5300CD15,υποστηρικτική,επαληθευμένη,Θεωρητικό υπόβαθρο; Robust MDPs; Model uncertainty; Online planning; Μετρικές; Trade-offs; Threats to validity,robust sparse sampling; generative model; Total Variation; model misspecification; conservativeness; failure rate,ναι,Robust online-planning evidence με bounded model error· δεν είναι change detector ή continued-learning adaptation mechanism.
+SRC-1741644D7F,απόρριψη,απορρίφθηκε,,duplicate edition; robust sparse sampling; arXiv; AAAI-26,όχι,ArXiv έκδοση της ίδιας εργασίας με το canonical AAAI-26 SRC-4E5300CD15· διατηρείται χωρίς διπλή καταμέτρηση.
+SRC-DC63A2D5E7,απόρριψη,απορρίφθηκε,,duplicate; context switching; hierarchical state abstraction; GridWorld,όχι,Δεύτερο scrape της ίδιας εργασίας με το canonical SRC-D14764616F· δεν αποτελεί ανεξάρτητο evidence.
+SRC-797302A5EE,απόρριψη,απορρίφθηκε,,robust PPO; non-stationary RL; thesis metadata; full text unavailable,όχι,Διαθέσιμα μόνο institutional metadata και abstract· επανεξετάζεται εάν προστεθεί πλήρες thesis PDF.
+SRC-49A9ACCA53,θεωρητικό υλικό,ελεγμένο-μη-παραπομπή,,seminar transcript; safe RL; non-stationary CMDP; transcription errors,όχι,YouTube transcript χρήσιμο μόνο για discovery primary papers· δεν παρέχει σταθερή citation-ready τεκμηρίωση.
+SRC-2717517D61,απόρριψη,απορρίφθηκε,,OmniSafe; software framework; SafeRL implementations; repository,όχι,Διατηρείται ως implementation resource· το README και η λίστα algorithms δεν αποτελούν ανεξάρτητο scientific evidence.
+SRC-3996B2EE96,απόρριψη,απορρίφθηκε,,SafeRL baselines; GitHub index; bibliography discovery; software links,όχι,Community-maintained index χωρίς systematic-review ή κοινό benchmark protocol· χρησιμοποιείται μόνο για discovery.
+SRC-B4BE53C707,απόρριψη,απορρίφθηκε,,SafeAI workshop; event page; accepted-paper index; no proceedings,όχι,Future workshop landing page χωρίς proceedings ή σταθερά camera-ready papers· οι επιμέρους εργασίες θα αξιολογούνται ξεχωριστά.
+SRC-AB4BE17ED0,απόρριψη,απορρίφθηκε,,multi-agent reinforcement learning; stochastic games; opponent non-stationarity; scope,όχι,Υψηλής ποιότητας MARL survey αλλά εκτός του τρέχοντος single-agent environmental-change scope.
+SRC-EBB14FC4CB,κύρια,επαληθευμένη,Θεωρητικό υπόβαθρο; Non-stationarity; Adaptive baselines; Exploration under drift; Μετρικές; Threats to validity,variation budget; sliding window; confidence widening; BORL; dynamic regret; drifting MDP,ναι,"Κεντρική θεωρητική πηγή για drifting rewards/transitions, stale-data forgetting και budget-free adaptive tuning· πλήρεις algorithms εκτός βασικού implementation scope."
+SRC-E05A14A571,υποστηρικτική,επαληθευμένη,Benchmark design; Generalization; Environment distributions; Stress testing; Threats to validity,UED; PAIRED; minimax regret; difficult-but-solvable; curriculum; zero-shot transfer,ναι,Τεκμηριώνει solvable adaptive environment generation και διαχωρίζει zero-shot transfer από online adaptation· πλήρης multi-agent training δεν απαιτείται.
+SRC-B72D65A330,υποστηρικτική,επαληθευμένη,Safe RL; Constraint modeling; Μετρικές; Experimental protocol; Threats to validity,CMDP; chance constraint; unsafe states; instantaneous safety; almost-sure guarantee; conservative approximation,ναι,"Ορίζει διαφορετικά safety feasible sets και απαιτεί δήλωση guarantee type· survey, όχι adaptation evidence."
+SRC-CD5F67F3E6,υπόβαθρο,επαληθευμένη,Baselines; Deep RL; Policy optimization; Implementation details; Threats to validity,PPO; clipped surrogate; KL penalty; on-policy; minibatch epochs,ναι,Θεμελιώδης PPO πηγή για ακριβή baseline περιγραφή· clipping δεν ισοδυναμεί με environmental robustness.
+SRC-9DCA1F02C1,κύρια,επαληθευμένη,Benchmark design; Generalization; Train-test protocol; Μετρικές; Αναπαραγωγιμότητα,Procgen; procedural levels; held-out seeds; overfitting; sample efficiency; generalization gap,ναι,Κεντρικό evidence για disjoint level distributions και fixed-sequence memorization controls· δεν είναι online-change benchmark.
+SRC-B9111B3600,απόρριψη,απορρίφθηκε,,genetic algorithm; dynamic GridWorld; MiniGrid; Q-learning; unmatched comparison,όχι,"GA/FSM και Q-learning συγκρίνονται με διαφορετικά starts, rewards και environment setups· δεν στηρίζει algorithm ranking."
+SRC-77CEB5795F,απόρριψη,απορρίφθηκε,,duplicate transcript; safe non-stationary RL; seminar,όχι,Ίδια αυτόματη απομαγνητοφώνηση με SRC-49A9ACCA53· διατηρείται χωρίς διπλή καταμέτρηση.
+SRC-081F931CFA,απόρριψη,απορρίφθηκε,,adversarial RL; mixed state-action attack; ASA-PPO; threat model,όχι,Τεχνικά σχετική αλλά αφορά adaptive malicious attacker και όχι το βασικό non-adversarial uncertainty scope.
+SRC-B58805342F,απόρριψη,απορρίφθηκε,,continuous shield; LTLt; realizability; formal safety; robotics,όχι,Υψηλής ποιότητας αλλά redundant continuous-control shielding πηγή· το discrete runtime-assurance protocol καλύπτεται ήδη.
+SRC-41B78C510C,απόρριψη,απορρίφθηκε,,autonomous driving; CARLA; DQN; lane keeping; collision avoidance,όχι,"Application paper χωρίς controlled environmental shifts, resilience metrics ή matched adaptation baselines."
+SRC-AC79E9A264,υποστηρικτική,επαληθευμένη,Σχετικές εργασίες; Context inference; Robust adaptation; Μετρικές; Threats to validity,multi-set robustness; SIRSA; system identification; CVaR; identifiability; non-stationary dynamics,ναι,"Συνδυάζει probabilistic context inference με risk-sensitive fallback όταν παραμένει uncertainty· feasibility reference, όχι υποχρεωτική υλοποίηση."
+SRC-7702DAEF48,υποστηρικτική,επαληθευμένη,Safe RL; Agent architectures; Recovery mechanisms; Μετρικές; Threats to validity,Recovery RL; safety critic; recovery policy; intervention; offline unsafe data; local reset,ναι,"Τεκμηριώνει learned task-policy/recovery-policy architecture και χωριστή αναφορά interventions, violations και utility."
+SRC-23E79861CF,υποστηρικτική,επαληθευμένη,Θεωρητικό υπόβαθρο; Model ambiguity; Context library; Online belief update; Trade-offs,MPOMDP; model belief; candidate models; partial observability; weighted value; misspecification,ναι,Formal υπόβαθρο για model/context library με belief weighting και σύγκριση hard selection έναντι worst-case fallback.
+SRC-F622BE6812,υποστηρικτική,επαληθευμένη,Exploration; Novelty diagnostics; Adaptive baselines; Μετρικές; Threats to validity,RND; intrinsic reward; prediction error; state novelty; noisy TV; non-stationary bonus,ναι,Directed-exploration reference και caveat ότι prediction error δεν αποτελεί calibrated change detector· προτιμάται tabular approximation.
+SRC-E918E4D675,απόρριψη,απορρίφθηκε,,safe learning; robotics; control theory; broad review; redundancy,όχι,"Υψηλής ποιότητας broad review, αλλά οι σχετικές safety/uncertainty ανάγκες καλύπτονται ήδη από πιο άμεσες πηγές."
+SRC-89BD209DAD,απόρριψη,απορρίφθηκε,,offline RL; policy evaluation; unobserved confounding; causal identifiability,όχι,Υψηλής ποιότητας εργασία αλλά εκτός online environmental-change scope και απαιτεί ξεχωριστό causal/offline protocol.
+SRC-A9C099EA23,απόρριψη,απορρίφθηκε,,Lyapunov stability; model-free RL; MSc thesis; equilibrium recovery,όχι,Μη canonical μεταπτυχιακή διατριβή· equilibrium recovery υπό control perturbation δεν ισοδυναμεί με post-change relearning.
+SRC-DDCD35F7EE,απόρριψη,απορρίφθηκε,,deep RL overview; incomplete version; outdated; redundancy,όχι,Πρώιμη incomplete overview που έχει αντικατασταθεί από μεταγενέστερη έκδοση και δεν προσθέτει non-stationary evidence.
+SRC-2FBF55CD6B,απόρριψη,απορρίφθηκε,,robust RL review; conversion failure; publisher boilerplate; redundancy,όχι,Το αποθηκευμένο record δεν είναι citation-ready και η θεματική καλύπτεται ήδη από ισχυρότερες primary/survey πηγές.
+SRC-FFE02BA5EF,απόρριψη,απορρίφθηκε,,MADDPG; multi-agent; policy-induced non-stationarity; Markov games,όχι,Θεμελιώδης MARL πηγή αλλά διαφορετικό causal mechanism από single-agent environmental shifts.
+SRC-73DA396BA9,κύρια,επαληθευμένη,Σχετικές εργασίες; Model libraries; Online identification; Robust adaptation; Μετρικές; Threats to validity,transition prototypes; active candidate set; prototype elimination; robust policy; early stopping; out-of-library,ναι,Κεντρική πηγή για active transition-model library και robust-to-specialized switching· απαιτεί out-of-library stress test.
+SRC-3C0F7CC819,υποστηρικτική,επαληθευμένη,Θεωρητικό υπόβαθρο; Robust baselines; Tabular RL; Trade-offs; Threats to validity,robust Q-learning; online uncertainty-set estimation; model uncertainty; incremental update; conservativeness,ναι,Incremental tabular robust-Q feasibility source· δεν είναι change detector ή repeated-change adaptation method.
+SRC-A4DC00B75B,κύρια,επαληθευμένη,Πειραματικό περιβάλλον; GridWorld implementation; Reproducibility; Transfer diagnostics; Threats to validity,MiniGrid; MiniWorld; Gymnasium; custom environments; partial observability; seed; solvability,ναι,"Canonical environment source για modular GridWorld, versioned perturbations και reproducible map/configuration artifacts."
+SRC-4D2B7DDC38,υποστηρικτική,επαληθευμένη,Θεωρητικό υπόβαθρο; Coverage; Generalization; Robust RL; Threats to validity,distributionally robust RL; interactive data; support shift; coverage; TV uncertainty set; sample complexity,ναι,Κεντρικό limitation evidence ότι fixed-environment interaction δεν καλύπτει out-of-support structural shifts.
+SRC-3BF9404CC3,υποστηρικτική,επαληθευμένη,Safe RL; Recovery controllers; Agent architecture; Intervention diagnostics; Threats to validity,safety critic; recovery policy; action disagreement; oscillation; auxiliary reward; controller delay,ναι,Τεκμηριώνει controller-conflict και oscillation diagnostics· safe-state recovery δεν ισοδυναμεί με post-change policy recovery.
+SRC-1602A6C071,απόρριψη,απορρίφθηκε,,inventory replenishment; PPO; A2C; application thesis; fluctuating demand,όχι,"Application-specific thesis χωρίς controlled changepoints, matched adaptation baselines ή resilience metrics."
+SRC-1DBBBC39D2,απόρριψη,απορρίφθηκε,,CARLA; deep RL comparison; MSc metadata; autonomous driving,όχι,Metadata/abstract-only application record χωρίς controlled environmental-shift και recovery protocol.
+SRC-576D988D14,απόρριψη,απορρίφθηκε,,introductory reinforcement learning; MDP; bandits; R implementations; redundancy,όχι,Εισαγωγική μεταπτυχιακή εργασία που δεν προσθέτει non-stationary evidence πέρα από canonical textbooks.
+SRC-04D061C2E0,απόρριψη,απορρίφθηκε,,AI Safety Gridworlds; safety unit tests; MSc thesis; distribution shift; redundancy,όχι,Χρήσιμη αλλά redundant MSc μεθοδολογία χαμηλότερου evidence tier· οι αρχές diagnostic testing καλύπτονται ήδη.
+SRC-3275F3E7B0,απόρριψη,απορρίφθηκε,,FrozenLake; Gymnasium documentation; slippery actions; custom maps; implementation,όχι,Διατηρείται ως implementation reference· documentation page χωρίς scientific resilience evaluation.
+SRC-2C9FFED27E,υποστηρικτική,επαληθευμένη,Safe RL; Robust constraints; Policy optimization; Computational trade-offs; Threats to validity,RCMDP; RNPG; robust feasibility; constraint violation; model mismatch; iteration complexity,ναι,Canonical NeurIPS πηγή για robust feasibility και χωριστή worst-case αξιολόγηση task/constraints· δεν είναι adaptation mechanism.
+SRC-7313A97A30,υποστηρικτική,επαληθευμένη,Robust baselines; Uncertainty-set design; Tabular RL; Agent architectures; Trade-offs,practical uncertainty set; ARQ-Learning; pessimistic agent; robust Q-learning; conservativeness,ναι,Τεκμηριώνει sensitivity στο uncertainty-set specification και nominal–pessimistic ablation· abstract-level evidence.
+SRC-C90D59EC8C,απόρριψη,απορρίφθηκε,Exploration; Coverage; Structured perturbations; Robust baselines; Μετρικές; Threats to validity,state entropy; policy entropy; visitation counts; spatial perturbation; rollout sensitivity,όχι,Υποστηρίζει tabular state-coverage ablation για structured changes· δεν είναι detector ή safe-exploration guarantee.
+SRC-54E00B5A43,απόρριψη,απορρίφθηκε,,duplicate edition; RCMDP; RNPG; arXiv; NeurIPS 2025,όχι,ArXiv/HTML έκδοση της ίδιας εργασίας με το canonical SRC-2C9FFED27E.
+SRC-3EF7E5F425,απόρριψη,απορρίφθηκε,,FARR; adversarial environment design; PSRO; feasible tasks; GridWorld,όχι,"Υψηλής ποιότητας αλλά βαριά adversarial curriculum μέθοδος, redundant με επιλεγμένες UED/solvability πηγές και εκτός βασικού online-adaptation scope."
+SRC-A784C81711,απόρριψη,απορρίφθηκε,,duplicate; FARR; hosted copy,όχι,Ίδιο FARR paper με το SRC-3EF7E5F425· δεν μετρά ως ανεξάρτητη πηγή.
+SRC-0A4446E662,απόρριψη,απορρίφθηκε,,generalized OOD detection; supervised classification; anomaly detection; survey,όχι,Broad supervised survey χωρίς trajectory-level RL detection/adaptation evidence· οι αναγκαίες έννοιες καλύπτονται ήδη.
+SRC-A566FE1E98,απόρριψη,απορρίφθηκε,,rliable; software repository; bootstrap; IQM; performance profiles,όχι,Implementation dependency· τα scientific claims καλύπτονται από το canonical NeurIPS paper SRC-0A4AFAC8E9.
+SRC-1D5EA31EEF,απόρριψη,απορρίφθηκε,,AI Safety Gridworlds; GitHub; archived repository; implementation,όχι,Archive/implementation resource· οι scientific safety-gridworld claims καλύπτονται από canonical papers.
+SRC-642F9F639D,απόρριψη,απορρίφθηκε,,MiniGrid; GitHub repository; Gymnasium; implementation dependency,όχι,Implementation source with version pinning· η επιστημονική environment τεκμηρίωση καλύπτεται από SRC-A4DC00B75B.
+SRC-8F1C2D6CE4,υποστηρικτική,επαληθευμένη,Neural agents; Robust policy learning; Capacity; Computational trade-offs; Threats to validity,AdaRL; adaptive rank; low-rank policy; epistemic dynamics uncertainty; bias variance; Wasserstein,ναι,"Optional neural background για capacity–uncertainty trade-offs· arXiv/MuJoCo evidence, όχι tabular recovery mechanism."
+SRC-E9D551F27C,υποστηρικτική,επαληθευμένη,Robust training; Curriculum; Hyperparameter protocol; Generalization; Threats to validity,DR-SPCRL; robustness budget; self-paced curriculum; perturbation severity; conservativeness,ναι,Development-only adaptive robustness-budget schedule· δεν είναι deployment adaptation και απαιτεί held-out severity tests.
+SRC-7C18826BEE,υπόβαθρο,επαληθευμένη,Uncertainty quantification; Neural agents; Exploration; Detection diagnostics; Threats to validity,MC dropout; approximate Bayesian inference; predictive variance; epistemic uncertainty; stochastic passes,ναι,"Foundational neural UQ source· optional μόνο εάν προστεθεί neural function approximation, όχι tabular default."
+SRC-A3CF75E7FD,απόρριψη,απορρίφθηκε,,safe online RL; offline data; seminar transcript; Lyapunov density model,όχι,YouTube transcript με transcription errors· χρησιμοποιείται μόνο για discovery των primary papers.
+SRC-781B58434A,απόρριψη,απορρίφθηκε,,doctoral thesis; uncertainty quantification; ensembles; RND; metadata,όχι,Υψηλής αξίας umbrella dissertation αλλά διαθέσιμο μόνο metadata/abstract record· προτιμώνται οι επιμέρους primary papers.
+SRC-93384F0217,απόρριψη,απορρίφθηκε,,DIAYN; unsupervised skill discovery; mutual information; hierarchical RL,όχι,Θεμελιώδης skill-discovery εργασία αλλά εκτός controlled online-change και resource-aware baseline scope.
+SRC-2CEF0D3E68,απόρριψη,απορρίφθηκε,,Enhanced POET; open-ended learning; population; environment generation; goal switching,όχι,Open-ended population-based framework με δυσανάλογο scope· diversity/solvability καλύπτονται από canonical benchmark sources.
+SRC-49CA580DE9,απόρριψη,απορρίφθηκε,,multi-agent emergence; specification misalignment; Markov games; GridWorld,όχι,Αφορά emergent failures από interactions πολλών agents και όχι single-agent exogenous environmental shifts.
+SRC-CD31230403,απόρριψη,απορρίφθηκε,,adversarial DRL; attacks; defenses; security survey,όχι,Malicious attacker threat model εκτός του βασικού non-adversarial uncertainty scope.
+SRC-55EB060C37,απόρριψη,απορρίφθηκε,,IEEE CAI; ethics vertical; trustworthy AI; event page,όχι,"Conference scope page χωρίς peer-reviewed RL definitions, experiments ή metrics."
+SRC-52E62452B8,κύρια,επαληθευμένη,Θεωρητικό υπόβαθρο; Robust MDPs; Baselines; Trade-offs; Threats to validity,robust MDP; uncertain transition matrices; rectangular uncertainty; robust dynamic programming; conservativeness,ναι,Θεμελιώδης πηγή robust-MDP semantics και robust Bellman baseline· διαχωρίζει worst-case model uncertainty από online resilience.
+SRC-91D94DB95B,υποστηρικτική,επαληθευμένη,Safe RL; CMDP; Policy optimization; Μετρικές; Threats to validity,CPO; CMDP; auxiliary cost; constraint violation; policy divergence,ναι,Primary CMDP πηγή για χωριστή αναφορά task return και safety cost κατά τη recovery περίοδο· όχι change detector.
+SRC-8E22CBA55A,υποστηρικτική,επαληθευμένη,Safe RL; Stability; Model uncertainty; Certification; Threats to validity,Lyapunov stability; region of attraction; Gaussian process; safe exploration; certificate revalidation,ναι,Διακρίνει control-theoretic recovery από policy adaptation και απαιτεί revalidation safety certificates μετά από dynamics change.
+SRC-6126015212,υποστηρικτική,επαληθευμένη,Safe RL; Reachability; Returnability; Exploration; Μετρικές; Threats to validity,SNO-MDP; safe set; reachability; returnability; GP safety; early stopping,ναι,Τεκμηριώνει ότι local safety δεν αρκεί χωρίς safe return path· structural changes απαιτούν επανέλεγχο returnability.
+SRC-BB5ECDA0CD,υποστηρικτική,επαληθευμένη,Robust planning; MCTS; Model uncertainty; Computational fairness; Threats to validity,robust MCTS; ambiguity set; transition uncertainty; reward uncertainty; simulator queries; FrozenLake,ναι,Planning-based robust comparator· απαιτεί χωριστή αναφορά simulator-query/rollout budget και δεν αποτελεί changepoint adaptation.
+SRC-80D1CDD66B,απόρριψη,απορρίφθηκε,,LLM guidance; MC dropout; policy shaping; MiniGrid,όχι,Αφορά calibration εξωτερικού LLM trainer και όχι environmental non-stationarity· θα διεύρυνε αδικαιολόγητα το scope.
+SRC-60EF27E7AD,απόρριψη,απορρίφθηκε,,cyber resilience; autonomous cyber agents; attacks; recovery metrics,όχι,Cross-domain resilience discussion με malicious cyber threat model· οι γενικές recovery metrics καλύπτονται ήδη από direct selected sources.
+SRC-0B1E2F30F6,απόρριψη,απορρίφθηκε,,hierarchical reinforcement learning; dynamic game; Q-learning; dungeon crawler,όχι,Dynamic game events και hierarchical replanning δεν αποτελούν explicit environmental-changepoint protocol.
+SRC-E59631E883,απόρριψη,απορρίφθηκε,,duplicate; hierarchical reinforcement learning; dungeon crawler,όχι,Hosted/conversion duplicate του SRC-0B1E2F30F6· διατηρείται χωρίς διπλή καταμέτρηση.
+SRC-30334BD5A0,απόρριψη,απορρίφθηκε,,HighwayEnv; documentation; autonomous driving; implementation,όχι,Implementation documentation χωρίς controlled resilience protocol· διατηρείται μόνο ως πιθανό external-validity environment resource.
+SRC-E8CAAF02BE,κύρια,επαληθευμένη,Θεωρητικό υπόβαθρο; POMDP; Context inference; Observation uncertainty; Threats to validity,POMDP; belief state; partial observability; information gathering; latent state; prior model,ναι,Θεμελιώνει belief-state reasoning και τη διάκριση observation uncertainty/context inference από πραγματικό environmental changepoint.
+SRC-A203ABEEFE,υποστηρικτική,επαληθευμένη,Replay memory; Adaptive baselines; Diagnostics; Computational trade-offs; Threats to validity,prioritized replay; TD error; stale data; importance sampling; buffer flush; replay ratio,ναι,Τεκμηριώνει replay sampling/bias· στη non-stationarity απαιτεί age/regime diagnostics και oracle/detector-triggered buffer-flush ablations.
+SRC-5E062C81BA,υποστηρικτική,επαληθευμένη,Θεωρητικό υπόβαθρο; Robust RL; Zero-update evaluation; Trade-offs; Threats to validity,H-infinity; actor-disturber-critic; worst disturbance; model mismatch; parameter shift; frozen robustness,ναι,Historical primary evidence για pre-trained worst-case robustness· απαιτεί διάκριση immediate frozen performance από post-change adaptation.
+SRC-70AEC665B2,υποστηρικτική,επαληθευμένη,Neural detection; Calibration; Μετρικές; Hyperparameter protocol; Threats to validity,calibration; ECE; MCE; reliability diagram; temperature scaling; confidence,ναι,Μόνο για neural context/detector arm· confidence δεν ερμηνεύεται ως probability χωρίς held-out calibration.
+SRC-CE71F210EE,απόρριψη,απορρίφθηκε,,SNGP; distance awareness; supervised OOD; neural uncertainty,όχι,Υψηλής ποιότητας supervised-UQ method αλλά redundant και εκτός tabular/sequential core.
+SRC-8EE2492823,απόρριψη,απορρίφθηκε,,shielding; safe RL; runtime enforcement; survey; redundancy,όχι,Χρήσιμη survey αλλά runtime-assurance/shield semantics καλύπτονται ήδη από selected canonical sources.
+SRC-1BF9FE1A37,απόρριψη,απορρίφθηκε,,AI agents; no-code; LLM workflows; tutorial; commercial video,όχι,Commercial/tutorial LLM-agent content χωρίς RL resilience relevance ή scientific evidence tier.
+SRC-93F2331D50,απόρριψη,απορρίφθηκε,,AI agent taxonomy; reflex agent; goal agent; learning agent; video,όχι,Εισαγωγικό video taxonomy· οι ορισμοί agent/learning καλύπτονται από canonical academic sources.
+SRC-B790DF867B,απόρριψη,απορρίφθηκε,,Monte Carlo; constant step size; GridWorld; lecture transcript,όχι,Χρήσιμο διδακτικό intuition για recency αλλά όχι citation-ready primary evidence.
+SRC-AE8219876F,απόρριψη,απορρίφθηκε,,duplicate; Monte Carlo; GridWorld; lecture transcript,όχι,Alternate conversion του SRC-B790DF867B· διατηρείται χωρίς διπλή καταμέτρηση.
+SRC-9D663D35D0,υποστηρικτική,επαληθευμένη,Θεωρητικό υπόβαθρο; Robust baselines; Tabular RL; Resource accounting; Threats to validity,model-free robust MDP; penalized DRO; robust Q-learning; Markovian data; memory footprint,ναι,Model-free robust-Q feasibility με O(|S||A|) storage· δεν αποτελεί changepoint detector ή repeated-regime adaptation.
+SRC-19C2E91926,υποστηρικτική,επαληθευμένη,Detection baselines; OOD benchmark; Perturbation taxonomy; Μετρικές; Threats to validity,RL OOD detection; dynamics shift; observation corruption; severity; ensembles; detection metrics,ναι,"RL-specific OOD benchmark· static OOD scores συμπληρώνονται με false alarms, detection delay και missed-change rate στο sequential protocol."
+SRC-6609D86CD5,υποστηρικτική,επαληθευμένη,Θεωρητικό υπόβαθρο; Recurring regimes; Context memory; Baselines; Threats to validity,nonstationary RL; hidden modes; repeated dynamics; recency; context recall; POMDP,ναι,Ιστορικό rationale για recency-only relearning έναντι explicit memory όταν επανέρχονται προηγούμενα regimes· abstract-level evidence.
+SRC-73C145D523,υποστηρικτική,επαληθευμένη,Safe RL; Recovery controllers; Dead-end diagnostics; Μετρικές; Threats to validity,dead ends; recovery policy; safety critic; behavior correction; conservativeness; interventions,ναι,Διαχωρίζει safety recovery από task recovery και εισάγει recoverable/dead-end diagnostics· offline pretraining δηλώνεται ως prior-data advantage.
+SRC-F36BDC75F4,απόρριψη,απορρίφθηκε,,robust MDP; survey; formal methods; redundancy,όχι,Υψηλής ποιότητας gentle survey αλλά δεν προσθέτει νέο thesis-specific protocol πέρα από ήδη selected robust-MDP primary/survey sources.
+SRC-DD7CA18422,απόρριψη,απορρίφθηκε,,duplicate edition; robust MDP survey; arXiv,όχι,ArXiv έκδοση της ίδιας εργασίας με SRC-F36BDC75F4· δεν μετρά ως ανεξάρτητο evidence.
+SRC-8E77CE2389,απόρριψη,απορρίφθηκε,,duplicate edition; safe model-based RL; Lyapunov stability,όχι,ArXiv έκδοση της canonical εργασίας SRC-8E22CBA55A· διατηρείται χωρίς διπλή καταμέτρηση.
+SRC-F24D141550,απόρριψη,απορρίφθηκε,,spotlight transcript; safe model-based RL; derivative,όχι,Derivative NIPS spotlight transcript της canonical εργασίας SRC-8E22CBA55A.
+SRC-4F944A9FEB,απόρριψη,απορρίφθηκε,,safe RL; real robots; domain randomization; sim-to-real; MSc,όχι,Application-specific MSc με κύριο evidence sim-to-real/domain randomization και όχι controlled post-change resilience.
+SRC-D2A07C1635,απόρριψη,απορρίφθηκε,,duplicate; safe RL; real robots; MSc metadata,όχι,Δεύτερο record της ίδιας Aalto MSc thesis με SRC-4F944A9FEB· δεν μετρά ως ανεξάρτητη πηγή.
+SRC-62996FD690,υποστηρικτική,επαληθευμένη,Detection baselines; OOD diagnostics; Neural uncertainty; Μετρικές; Threats to validity,epistemic uncertainty; OOD; bootstrap; MC dropout; GridWorld; calibration,ναι,RL-specific neural OOD evidence· static uncertainty separation δεν θεωρείται sequential changepoint detection χωρίς false-alarm/delay validation.
+SRC-6E7AFA8AC0,υποστηρικτική,επαληθευμένη,Θεωρητικό υπόβαθρο; Robust baselines; Sample complexity; Trade-offs; Threats to validity,robust MDP; sample complexity; rectangularity; L1; chi-square; KL; uncertainty radius,ναι,Τεκμηριώνει dependence των robust guarantees από ambiguity-set family/radius/rectangularity· αφορά model mismatch και όχι recovery.
+SRC-D1B6BA711E,υποστηρικτική,επαληθευμένη,Robust baselines; Online learning; Exploration; Computational trade-offs; Threats to validity,online robust MDP; policy optimization; exploration; robust regret; ambiguity set,ναι,Online robust learning χωρίς generative oracle· statistical exploration uncertainty και assumed robust ambiguity καταγράφονται χωριστά.
+SRC-9AF6281E67,υποστηρικτική,επαληθευμένη,Robust baselines; Uncertainty-set design; Limited-data robustness; Trade-offs; Threats to validity,policy-conditioned uncertainty set; non-rectangular; trajectory features; off-policy data; conservativeness,ναι,Trajectory-level feature constraints μπορούν να μειώσουν rectangular conservativeness αλλά εισάγουν explicit prior/reference-policy choices· όχι online adaptation.
+SRC-CC5B34C28C,υποστηρικτική,επαληθευμένη,Robust baselines; Policy selection; Conservativeness; Μετρικές; Threats to validity,ORBE; best-effort policy; robust MDP; dominance; nominal performance; worst-case return,ναι,"AAAI-26 tie-breaker μεταξύ worst-case-optimal robust policies· χρήσιμο για clean-vs-worst-case reporting, όχι changepoint recovery."
+SRC-27B5CE6877,απόρριψη,απορρίφθηκε,,multi-agent; Dec-POMDP; communication uncertainty; robotics,όχι,Υψηλής ποιότητας multi-agent planning source αλλά διαφορετικό uncertainty mechanism από single-agent exogenous environmental shifts.
+SRC-EC7D639B07,απόρριψη,απορρίφθηκε,,commercial security; GenAI; self-healing; cyber resilience; marketing,όχι,Commercial security-resilience article χωρίς peer-reviewed RL protocol ή controlled scientific evidence.
+SRC-FFDA13CA36,απόρριψη,απορρίφθηκε,,Wikipedia; MARL; stochastic games; policy-induced nonstationarity,όχι,"Encyclopedic MARL page και διαφορετικό causal mechanism· discovery-only, όχι scientific evidence."
+SRC-0490CF519D,απόρριψη,απορρίφθηκε,,autonomous driving; deep RL survey; application; sim-to-real,όχι,Broad application survey χωρίς νέο controlled changepoint/recovery protocol πέρα από ήδη selected general sources.
+SRC-D0EDFCACAC,απόρριψη,απορρίφθηκε,,Wikipedia; MDP; generic background,όχι,Generic encyclopedic background πλήρως redundant με canonical textbooks και primary MDP/RL sources.
+SRC-6F4B8E8DCE,υποστηρικτική,επαληθευμένη,Safe RL; Safe exploration; Constraint modeling; Μετρικές; Threats to validity,GSE; MASE; instantaneous safety; emergency stop; uncertainty quantifier; GridWorld,ναι,Ενοποιεί αυστηρές safe-exploration formulations και κάνει explicit το emergency-stop/prior capability· safety guarantee δεν ισοδυναμεί με changepoint adaptation.
+SRC-B9911A6CFB,υποστηρικτική,επαληθευμένη,Safe RL; Partial observability; Shields; Prior knowledge; Threats to validity,POMDP; belief support; reach-avoid; shield; partial model; phase-out,ναι,Shielding με partial observability και prior transition-support knowledge· interventions και model-support advantage καταγράφονται χωριστά.
+SRC-19858252B7,υποστηρικτική,επαληθευμένη,Safe transfer; Exploration; Μετρικές; Agent architectures; Threats to validity,safe guide; reward-free RL; policy distillation; safety jump-start; time to safety; time to optimum,ναι,Ισχυρή πηγή για safe-transfer metrics και gradual guide removal· απαιτεί source/target safety-dynamics compatibility και mismatch ablation.
+SRC-8718299821,υποστηρικτική,επαληθευμένη,Safe RL; Runtime assurance; Shields; Formal safety; Agent architecture,preemptive shield; post-posed shield; temporal logic; minimum interference; convergence,ναι,Foundational shield architecture· διαχωρίζει learning objective από runtime correctness και απαιτεί intervention/minimum-interference reporting.
+SRC-B1E5732635,υποστηρικτική,επαληθευμένη,Safe RL; Recovery shielding; Model uncertainty; Interventions; Threats to validity,Gaussian process dynamics; backup policy; recoverable state; high-probability safety; observation noise,ναι,Πρόσφατο preprint για online learned dynamics + backup shielding· optional continuous-control reference με revalidation μετά από dynamics shift.
+SRC-715B37A148,απόρριψη,απορρίφθηκε,,commercial security; adversarial machine learning; enterprise threats,όχι,Commercial adversarial-ML guidance με malicious threat model και χωρίς controlled RL evidence.
+SRC-F491B6986C,απόρριψη,απορρίφθηκε,,NIST; adversarial machine learning; attack taxonomy; security,όχι,Υψηλής ποιότητας institutional taxonomy αλλά εκτός του βασικού non-adversarial environmental-change scope και redundant με προηγούμενο NIST exclusion.
+SRC-0BC87F6189,απόρριψη,απορρίφθηκε,,Wikipedia; agentic AI; LLM agents; software automation,όχι,Generic encyclopedia για modern agentic/LLM systems· δεν αποτελεί RL resilience evidence.
+SRC-E242123630,απόρριψη,απορρίφθηκε,,LLM uncertainty; hallucination; calibration; survey,όχι,Ισχυρή ACM survey αλλά LLM/token/semantic UQ είναι διαφορετικό experimental object από sequential RL uncertainty.
+SRC-556A26CC39,απόρριψη,απορρίφθηκε,,active learning; curiosity; exploration; interaction; broad survey,όχι,Broad active-learning survey χωρίς direct changepoint/recovery protocol· οι χρήσιμες exploration concepts καλύπτονται από πιο άμεσες RL πηγές.
+SRC-3ADFA80991,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-A1D7E951DB,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-897C38AAF8,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-44678B246F,απόρριψη,απορρίφθηκε,,ανθεκτικότητα και ανάκαμψη; πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-847A095FA3,απόρριψη,απορρίφθηκε,,ασφαλής ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-F82F4BD836,απόρριψη,απορρίφθηκε,,ασφαλής ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-AABAFA12BF,απόρριψη,απορρίφθηκε,,διακυβέρνηση και ηθική,όχι,Συγχρονισμός από canonical analysis.
+SRC-DFFF269D33,απόρριψη,απορρίφθηκε,,μη στασιμότητα; μερική παρατηρησιμότητα; πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση; πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-60ECE049E6,απόρριψη,απορρίφθηκε,,πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση; εύρωστη ενισχυτική μάθηση; GridWorld; ασφαλής ενισχυτική μάθηση; αβεβαιότητα ανταμοιβής; μερική παρατηρησιμότητα,όχι,Συγχρονισμός από canonical analysis.
+SRC-7714A58280,απόρριψη,απορρίφθηκε,,περιβάλλοντα και benchmarks; πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-798A4AFE7E,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-6806120384,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-6D968A501D,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-084A1BFD64,απόρριψη,απορρίφθηκε,,στατιστική αξιολόγηση; πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-8E6D76457D,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης; διακυβέρνηση και ηθική,όχι,Συγχρονισμός από canonical analysis.
+SRC-10236BC6DB,απόρριψη,απορρίφθηκε,,περιβάλλοντα και benchmarks,όχι,Συγχρονισμός από canonical analysis.
+SRC-C7E22C59DE,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-B1BDB3A5A9,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-13CFB90F59,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-49195612A3,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης; διακυβέρνηση και ηθική,όχι,Συγχρονισμός από canonical analysis.
+SRC-83030D4158,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης; διακυβέρνηση και ηθική,όχι,Συγχρονισμός από canonical analysis.
+SRC-70A0C89F93,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-50C47991CC,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης; ανθεκτικότητα και ανάκαμψη; μη στασιμότητα; διακυβέρνηση και ηθική,όχι,Συγχρονισμός από canonical analysis.
+SRC-1F8839FDA8,απόρριψη,απορρίφθηκε,,GridWorld; ασφαλής ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-B4F46326ED,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-97A931D29F,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-4FF5AB08E6,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-D057CF6978,απόρριψη,απορρίφθηκε,,GridWorld; ασφαλής ενισχυτική μάθηση; αβεβαιότητα μεταβάσεων; ενισχυτική μάθηση με μοντέλο; διακυβέρνηση και ηθική,όχι,Συγχρονισμός από canonical analysis.
+SRC-F4B012F78F,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-CCCFFD4365,απόρριψη,απορρίφθηκε,,διακυβέρνηση και ηθική,όχι,Συγχρονισμός από canonical analysis.
+SRC-A6DBFC5357,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-69F70663B3,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-7DA66E226E,απόρριψη,απορρίφθηκε,,βαθιά ενισχυτική μάθηση; πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-9CC11ECF41,υποστηρικτική,επαληθευμένη,,εύρωστη ενισχυτική μάθηση; μερική παρατηρησιμότητα; πινακοποιημένη ενισχυτική μάθηση,ναι,Συγχρονισμός από canonical analysis.
+SRC-8FC523FC42,απόρριψη,απορρίφθηκε,,ανθεκτικότητα και ανάκαμψη,όχι,Συγχρονισμός από canonical analysis.
+SRC-13B66B20D8,κύρια,επαληθευμένη,,GridWorld; ενισχυτική μάθηση με μοντέλο; περιβάλλοντα και benchmarks,ναι,Συγχρονισμός από canonical analysis.
+SRC-AFCB3FE8DF,απόρριψη,απορρίφθηκε,,αβεβαιότητα παρατηρήσεων; μερική παρατηρησιμότητα; πινακοποιημένη ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-822FFD1EF7,απόρριψη,απορρίφθηκε,,αβεβαιότητα παρατηρήσεων; μερική παρατηρησιμότητα; πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-5736A9A37B,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-CDCEC02AAA,απόρριψη,απορρίφθηκε,,πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση; περιβάλλοντα και benchmarks,όχι,Συγχρονισμός από canonical analysis.
+SRC-F43D9994F4,απόρριψη,απορρίφθηκε,,εύρωστη ενισχυτική μάθηση; πινακοποιημένη ενισχυτική μάθηση; ενισχυτική μάθηση με μοντέλο,όχι,Συγχρονισμός από canonical analysis.
+SRC-E41D012B99,απόρριψη,απορρίφθηκε,,εύρωστη ενισχυτική μάθηση; πινακοποιημένη ενισχυτική μάθηση; ενισχυτική μάθηση με μοντέλο,όχι,Συγχρονισμός από canonical analysis.
+SRC-24038FBE78,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-B1B0E55CA6,απόρριψη,απορρίφθηκε,,ανθεκτικότητα και ανάκαμψη; περιβάλλοντα και benchmarks; πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-F355021435,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-F7E7C38BFD,απόρριψη,απορρίφθηκε,,ανθεκτικότητα και ανάκαμψη; πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-98B4CE528B,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-D6F2B11A5D,απόρριψη,απορρίφθηκε,,GridWorld; ασφαλής ενισχυτική μάθηση; πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-5F508C4383,απόρριψη,απορρίφθηκε,,ανθεκτικότητα και ανάκαμψη; βαθιά ενισχυτική μάθηση; συνεχής προσαρμογή; στατιστική αξιολόγηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-ACB00B414D,απόρριψη,απορρίφθηκε,,βαθιά ενισχυτική μάθηση; πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-2CA4104ACF,απόρριψη,απορρίφθηκε,,GridWorld; συνεχής προσαρμογή,όχι,Συγχρονισμός από canonical analysis.
+SRC-BE53B7970E,υποστηρικτική,επαληθευμένη,,μη στασιμότητα; πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση; στατιστική αξιολόγηση,ναι,Συγχρονισμός από canonical analysis.
+SRC-85335DDDA6,υποστηρικτική,επαληθευμένη,,ανθεκτικότητα και ανάκαμψη; αβεβαιότητα ενεργειών; βαθιά ενισχυτική μάθηση; περιβάλλοντα και benchmarks; πράκτορες τεχνητής νοημοσύνης,ναι,Συγχρονισμός από canonical analysis.
+SRC-0A9340F46A,απόρριψη,απορρίφθηκε,,στατιστική αξιολόγηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-C248E7DB93,απόρριψη,απορρίφθηκε,,στατιστική αξιολόγηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-9F874F72A6,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-96C43584DE,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-C313A6C731,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-E28CCE0353,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-0F01B527AD,απόρριψη,απορρίφθηκε,,GridWorld,όχι,Συγχρονισμός από canonical analysis.
+SRC-A5E3ED90A1,απόρριψη,απορρίφθηκε,,ασφαλής ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-79DB47AC87,απόρριψη,απορρίφθηκε,,GridWorld,όχι,Συγχρονισμός από canonical analysis.
+SRC-190C646129,απόρριψη,απορρίφθηκε,,ασφαλής ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-77D08A50D4,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-C512E9AE92,απόρριψη,απορρίφθηκε,,περιβάλλοντα και benchmarks,όχι,Συγχρονισμός από canonical analysis.
+SRC-15EDACCE67,απόρριψη,απορρίφθηκε,,ασφαλής ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-E87F94A072,απόρριψη,απορρίφθηκε,,ασφαλής ενισχυτική μάθηση; περιβάλλοντα και benchmarks,όχι,Συγχρονισμός από canonical analysis.
+SRC-64CFF3775A,απόρριψη,απορρίφθηκε,,εύρωστη ενισχυτική μάθηση; περιβάλλοντα και benchmarks,όχι,Συγχρονισμός από canonical analysis.
+SRC-AA9D52AEFB,απόρριψη,απορρίφθηκε,,GridWorld,όχι,Συγχρονισμός από canonical analysis.
+SRC-A40C2DE15A,απόρριψη,απορρίφθηκε,,εύρωστη ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-F603F69B66,απόρριψη,απορρίφθηκε,,μερική παρατηρησιμότητα; περιβάλλοντα και benchmarks,όχι,Συγχρονισμός από canonical analysis.
+SRC-A2B3DB52C5,απόρριψη,απορρίφθηκε,,βαθιά ενισχυτική μάθηση; πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-A635CEC4CF,απόρριψη,απορρίφθηκε,,εύρωστη ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-BA4E5742AE,απόρριψη,απορρίφθηκε,,GridWorld; περιβάλλοντα και benchmarks; πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-73E38AF463,απόρριψη,απορρίφθηκε,,ανθεκτικότητα και ανάκαμψη; μερική παρατηρησιμότητα; πινακοποιημένη ενισχυτική μάθηση; πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-7238AA0BDC,απόρριψη,απορρίφθηκε,,πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση; περιβάλλοντα και benchmarks,όχι,Συγχρονισμός από canonical analysis.
+SRC-92397254FB,υποστηρικτική,επαληθευμένη,,GridWorld; πινακοποιημένη ενισχυτική μάθηση,ναι,Συγχρονισμός από canonical analysis.
+SRC-4CA982BE87,απόρριψη,απορρίφθηκε,,GridWorld; πινακοποιημένη ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-1E5026EDE1,απόρριψη,απορρίφθηκε,,GridWorld; ασφαλής ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-630F83DAD7,κύρια,επαληθευμένη,,βαθιά ενισχυτική μάθηση; περιβάλλοντα και benchmarks,ναι,Συγχρονισμός από canonical analysis.
+SRC-23C1899DBE,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-40FD71BC15,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-92C828647B,απόρριψη,απορρίφθηκε,,διακυβέρνηση και ηθική,όχι,Συγχρονισμός από canonical analysis.
+SRC-BCAAFDCD46,απόρριψη,απορρίφθηκε,,μη στασιμότητα,όχι,Συγχρονισμός από canonical analysis.
+SRC-F020E1D46A,απόρριψη,απορρίφθηκε,,ασφαλής ενισχυτική μάθηση; πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-495952EBB9,απόρριψη,απορρίφθηκε,,GridWorld; περιβάλλοντα και benchmarks,όχι,Συγχρονισμός από canonical analysis.
+SRC-E842F87F3F,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-A5DDBF1534,απόρριψη,απορρίφθηκε,,συνεχής προσαρμογή,όχι,Συγχρονισμός από canonical analysis.
+SRC-31DF05187A,απόρριψη,απορρίφθηκε,,συνεχής προσαρμογή,όχι,Συγχρονισμός από canonical analysis.
+SRC-4A12CAF92D,απόρριψη,απορρίφθηκε,,GridWorld; περιβάλλοντα και benchmarks,όχι,Συγχρονισμός από canonical analysis.
+SRC-0B609C8E04,απόρριψη,απορρίφθηκε,,GridWorld; περιβάλλοντα και benchmarks,όχι,Συγχρονισμός από canonical analysis.
+SRC-513B748715,απόρριψη,απορρίφθηκε,,βαθιά ενισχυτική μάθηση; διακυβέρνηση και ηθική,όχι,Συγχρονισμός από canonical analysis.
+SRC-626E641889,απόρριψη,απορρίφθηκε,,περιβάλλοντα και benchmarks,όχι,Συγχρονισμός από canonical analysis.
+SRC-89009123A3,απόρριψη,απορρίφθηκε,,εύρωστη ενισχυτική μάθηση; μη στασιμότητα; μερική παρατηρησιμότητα; περιβάλλοντα και benchmarks,όχι,Συγχρονισμός από canonical analysis.
+SRC-A391B94101,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-22F8C2C41C,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-CD69FAEC54,απόρριψη,απορρίφθηκε,,μη στασιμότητα; μερική παρατηρησιμότητα; πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση; πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-6C2389B5D2,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-D5D57992D2,απόρριψη,απορρίφθηκε,,ανθεκτικότητα και ανάκαμψη,όχι,Συγχρονισμός από canonical analysis.
+SRC-81ACE350D5,απόρριψη,απορρίφθηκε,,ανθεκτικότητα και ανάκαμψη; διακυβέρνηση και ηθική,όχι,Συγχρονισμός από canonical analysis.
+SRC-1B6E17DDF1,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-A5DF23299C,κύρια,επαληθευμένη,,ανθεκτικότητα και ανάκαμψη; πράκτορες τεχνητής νοημοσύνης,ναι,Συγχρονισμός από canonical analysis.
+SRC-CF2FB64E6A,απόρριψη,απορρίφθηκε,,βαθιά ενισχυτική μάθηση; στατιστική αξιολόγηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-FC22553C08,απόρριψη,απορρίφθηκε,,ανθεκτικότητα και ανάκαμψη,όχι,Συγχρονισμός από canonical analysis.
+SRC-51561BFA26,απόρριψη,απορρίφθηκε,,ανθεκτικότητα και ανάκαμψη; πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-2573249C69,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-FBFDD51DA0,απόρριψη,απορρίφθηκε,,εύρωστη ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-9F53B39DE0,απόρριψη,απορρίφθηκε,,εύρωστη ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-7199E9FBD5,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-FD3AFA347D,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-1D07EB467A,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης; διακυβέρνηση και ηθική,όχι,Συγχρονισμός από canonical analysis.
+SRC-982F8CA1EC,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-C6B4E40E10,απόρριψη,απορρίφθηκε,,GridWorld; πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση; περιβάλλοντα και benchmarks,όχι,Συγχρονισμός από canonical analysis.
+SRC-532FCB72DC,απόρριψη,απορρίφθηκε,,βαθιά ενισχυτική μάθηση; περιβάλλοντα και benchmarks,όχι,Συγχρονισμός από canonical analysis.
+SRC-1B40F8B37A,υποστηρικτική,επαληθευμένη,,ανθεκτικότητα και ανάκαμψη; μη στασιμότητα; μερική παρατηρησιμότητα; βαθιά ενισχυτική μάθηση; συνεχής προσαρμογή,ναι,Συγχρονισμός από canonical analysis.
+SRC-D8433D488F,απόρριψη,απορρίφθηκε,,μερική παρατηρησιμότητα,όχι,Συγχρονισμός από canonical analysis.
+SRC-947D011514,απόρριψη,απορρίφθηκε,,εύρωστη ενισχυτική μάθηση; αβεβαιότητα μεταβάσεων; πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση; στατιστική αξιολόγηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-F985D31ADB,απόρριψη,απορρίφθηκε,,εύρωστη ενισχυτική μάθηση; μη στασιμότητα; αβεβαιότητα μεταβάσεων; πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση; στατιστική αξιολόγηση; πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-A1906370CC,απόρριψη,απορρίφθηκε,,ασφαλής ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-85D1CCAE1E,απόρριψη,απορρίφθηκε,,εύρωστη ενισχυτική μάθηση; ανθεκτικότητα και ανάκαμψη; αβεβαιότητα μεταβάσεων,όχι,Συγχρονισμός από canonical analysis.
+SRC-A281BA721E,απόρριψη,απορρίφθηκε,,ανθεκτικότητα και ανάκαμψη,όχι,Συγχρονισμός από canonical analysis.
+SRC-D4C8A4B1BF,υποστηρικτική,επαληθευμένη,,ανθεκτικότητα και ανάκαμψη; μη στασιμότητα,ναι,Συγχρονισμός από canonical analysis.
+SRC-47085E14BA,απόρριψη,απορρίφθηκε,,ανθεκτικότητα και ανάκαμψη; πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-16E5F21F41,απόρριψη,απορρίφθηκε,,ασφαλής ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-3EF475E25A,απόρριψη,απορρίφθηκε,,εύρωστη ενισχυτική μάθηση; μη στασιμότητα; πινακοποιημένη ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-D91C118489,απόρριψη,απορρίφθηκε,,εύρωστη ενισχυτική μάθηση; αβεβαιότητα μεταβάσεων; στατιστική αξιολόγηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-51BB211341,απόρριψη,απορρίφθηκε,,εύρωστη ενισχυτική μάθηση; ενισχυτική μάθηση με μοντέλο; συνεχής προσαρμογή,όχι,Συγχρονισμός από canonical analysis.
+SRC-FF4E7CCCC7,απόρριψη,απορρίφθηκε,,αβεβαιότητα μεταβάσεων; πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-A146798ADC,απόρριψη,απορρίφθηκε,,εύρωστη ενισχυτική μάθηση; GridWorld; αβεβαιότητα ανταμοιβής; στατιστική αξιολόγηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-3D73F42552,απόρριψη,απορρίφθηκε,,εύρωστη ενισχυτική μάθηση; αβεβαιότητα ανταμοιβής,όχι,Συγχρονισμός από canonical analysis.
+SRC-5C32787AA7,απόρριψη,απορρίφθηκε,,εύρωστη ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-A3CBA6F68F,απόρριψη,απορρίφθηκε,,εύρωστη ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-02655A05A2,απόρριψη,απορρίφθηκε,,εύρωστη ενισχυτική μάθηση; αβεβαιότητα ενεργειών; πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-C0A186F672,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-4B7D6242D0,απόρριψη,απορρίφθηκε,,ανθεκτικότητα και ανάκαμψη; διακυβέρνηση και ηθική,όχι,Συγχρονισμός από canonical analysis.
+SRC-FFBA467166,απόρριψη,απορρίφθηκε,,ανθεκτικότητα και ανάκαμψη; διακυβέρνηση και ηθική,όχι,Συγχρονισμός από canonical analysis.
+SRC-BAC9953EAE,απόρριψη,απορρίφθηκε,,εύρωστη ενισχυτική μάθηση; ασφαλής ενισχυτική μάθηση; πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-BD5C631CA8,απόρριψη,απορρίφθηκε,,μη στασιμότητα; ασφαλής ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση; πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-2FF5CF5951,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης; διακυβέρνηση και ηθική,όχι,Συγχρονισμός από canonical analysis.
+SRC-1791ECC7FA,απόρριψη,απορρίφθηκε,,εύρωστη ενισχυτική μάθηση; ενισχυτική μάθηση με μοντέλο,όχι,Συγχρονισμός από canonical analysis.
+SRC-D3D5C33B64,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-05EDAEDFA0,απόρριψη,απορρίφθηκε,,ανθεκτικότητα και ανάκαμψη; πράκτορες τεχνητής νοημοσύνης; διακυβέρνηση και ηθική,όχι,Συγχρονισμός από canonical analysis.
+SRC-DDD62BEA2D,απόρριψη,απορρίφθηκε,,μη στασιμότητα; πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-ACAA62B248,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-42B0E2B976,απόρριψη,απορρίφθηκε,,ασφαλής ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-439938DD4C,απόρριψη,απορρίφθηκε,,ασφαλής ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-AE21B23099,απόρριψη,απορρίφθηκε,,πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση; στατιστική αξιολόγηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-2583FFAA52,απόρριψη,απορρίφθηκε,,μη στασιμότητα; αβεβαιότητα ενεργειών; αβεβαιότητα παρατηρήσεων; πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση; πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-7E393FD42E,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-070BF489A5,απόρριψη,απορρίφθηκε,,εύρωστη ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-8E786113C3,απόρριψη,απορρίφθηκε,,βαθιά ενισχυτική μάθηση; πινακοποιημένη ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-1550322156,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-8D9C7ADFD3,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-70B654D7DC,απόρριψη,απορρίφθηκε,,ασφαλής ενισχυτική μάθηση; στατιστική αξιολόγηση; περιβάλλοντα και benchmarks,όχι,Συγχρονισμός από canonical analysis.
+SRC-97178F6279,απόρριψη,απορρίφθηκε,,GridWorld,όχι,Συγχρονισμός από canonical analysis.
+SRC-E467A29609,υποστηρικτική,επαληθευμένη,,εύρωστη ενισχυτική μάθηση; αβεβαιότητα μεταβάσεων; αβεβαιότητα ανταμοιβής,ναι,Συγχρονισμός από canonical analysis.
+SRC-58DE790914,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-D19D1DF801,απόρριψη,απορρίφθηκε,,GridWorld,όχι,Συγχρονισμός από canonical analysis.
+SRC-B1CC6687F0,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης; διακυβέρνηση και ηθική,όχι,Συγχρονισμός από canonical analysis.
+SRC-528EB94EA8,απόρριψη,απορρίφθηκε,,εύρωστη ενισχυτική μάθηση; διακυβέρνηση και ηθική,όχι,Συγχρονισμός από canonical analysis.
+SRC-C115B0240F,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης; διακυβέρνηση και ηθική,όχι,Συγχρονισμός από canonical analysis.
+SRC-643DB6CBFE,απόρριψη,απορρίφθηκε,,ανθεκτικότητα και ανάκαμψη,όχι,Συγχρονισμός από canonical analysis.
+SRC-A76BF5B717,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-7F30DDB0B2,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-BFD3447AEF,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-3174B1019C,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-E5CA725A6C,κύρια,επαληθευμένη,,μη στασιμότητα; βαθιά ενισχυτική μάθηση,ναι,Συγχρονισμός από canonical analysis.
+SRC-E33EBFE4F4,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-732D12A2CC,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης; διακυβέρνηση και ηθική,όχι,Συγχρονισμός από canonical analysis.
+SRC-958647DE4E,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-DA324C815B,απόρριψη,απορρίφθηκε,,εύρωστη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση; στατιστική αξιολόγηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-E7E736ACE8,απόρριψη,απορρίφθηκε,,εύρωστη ενισχυτική μάθηση; στατιστική αξιολόγηση; περιβάλλοντα και benchmarks,όχι,Συγχρονισμός από canonical analysis.
+SRC-FFFE5C83C0,απόρριψη,απορρίφθηκε,,ασφαλής ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-1BB6DA9CB7,απόρριψη,απορρίφθηκε,,εύρωστη ενισχυτική μάθηση; στατιστική αξιολόγηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-CA89A30F17,απόρριψη,απορρίφθηκε,,GridWorld,όχι,Συγχρονισμός από canonical analysis.
+SRC-1A15DFC70B,απόρριψη,απορρίφθηκε,,GridWorld; πινακοποιημένη ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-FA3A1BBA43,απόρριψη,απορρίφθηκε,,ασφαλής ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση; περιβάλλοντα και benchmarks,όχι,Συγχρονισμός από canonical analysis.
+SRC-320743CF53,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-4C4598C8F4,απόρριψη,απορρίφθηκε,,μερική παρατηρησιμότητα; πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-8F03D3E086,απόρριψη,απορρίφθηκε,,στατιστική αξιολόγηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-F5CA634608,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-A5B2810B39,απόρριψη,απορρίφθηκε,,GridWorld; μερική παρατηρησιμότητα; πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-A881937D50,απόρριψη,απορρίφθηκε,,βαθιά ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-A70670C0C6,απόρριψη,απορρίφθηκε,,βαθιά ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-C0818241AF,απόρριψη,απορρίφθηκε,,βαθιά ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-8DDCC8572D,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης; διακυβέρνηση και ηθική,όχι,Συγχρονισμός από canonical analysis.
+SRC-A2D5B3B08E,απόρριψη,απορρίφθηκε,,πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση; πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-F494F45A40,απόρριψη,απορρίφθηκε,,ανθεκτικότητα και ανάκαμψη; πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-ACFA271318,απόρριψη,απορρίφθηκε,,πινακοποιημένη ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-FC9E2DFAB9,απόρριψη,απορρίφθηκε,,μερική παρατηρησιμότητα,όχι,Συγχρονισμός από canonical analysis.
+SRC-1A364A4551,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-1C334CCF9D,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-50F04B5AB0,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης; διακυβέρνηση και ηθική,όχι,Συγχρονισμός από canonical analysis.
+SRC-498A6D6324,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης; διακυβέρνηση και ηθική,όχι,Συγχρονισμός από canonical analysis.
+SRC-4A5F7C9FC5,απόρριψη,απορρίφθηκε,,GridWorld,όχι,Συγχρονισμός από canonical analysis.
+SRC-D4CDE277CE,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-68201B05FF,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-2249D6DD6A,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-27A285E652,απόρριψη,απορρίφθηκε,,συνεχής προσαρμογή; πράκτορες τεχνητής νοημοσύνης; διακυβέρνηση και ηθική,όχι,Συγχρονισμός από canonical analysis.
+SRC-E7E55DC611,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-88F6344234,απόρριψη,απορρίφθηκε,,περιβάλλοντα και benchmarks,όχι,Συγχρονισμός από canonical analysis.
+SRC-7F7722EB5B,απόρριψη,απορρίφθηκε,,διακυβέρνηση και ηθική,όχι,Συγχρονισμός από canonical analysis.
+SRC-4A7380BA5C,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-4EB5EB13CD,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-DDD4D05B4E,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-AC4429B655,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης; διακυβέρνηση και ηθική,όχι,Συγχρονισμός από canonical analysis.
+SRC-F51B354D98,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-A0F574D181,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-9DE3D01591,απόρριψη,απορρίφθηκε,,πινακοποιημένη ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-08CC209245,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-1D1B786C50,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-454A61C38B,απόρριψη,απορρίφθηκε,,πινακοποιημένη ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-F0A9C5D77B,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-1559E2861C,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-CA13F68FCF,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-BB3F0FE477,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-CD78DD328C,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-9AA47AA3EA,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-EDCA7955BD,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-056F8911C7,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-1E3C1CF3A7,απόρριψη,απορρίφθηκε,,εύρωστη ενισχυτική μάθηση; στατιστική αξιολόγηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-F3F3FBE48F,απόρριψη,απορρίφθηκε,,εύρωστη ενισχυτική μάθηση; πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-055929F1C1,απόρριψη,απορρίφθηκε,,εύρωστη ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-8252722D46,απόρριψη,απορρίφθηκε,,εύρωστη ενισχυτική μάθηση; ανθεκτικότητα και ανάκαμψη; βαθιά ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-3930A38085,απόρριψη,απορρίφθηκε,,ανθεκτικότητα και ανάκαμψη; διακυβέρνηση και ηθική,όχι,Συγχρονισμός από canonical analysis.
+SRC-BBF78C19F5,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-56EDEC52D6,απόρριψη,απορρίφθηκε,,βαθιά ενισχυτική μάθηση; περιβάλλοντα και benchmarks; πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-B79D67A2F3,απόρριψη,απορρίφθηκε,,μερική παρατηρησιμότητα,όχι,Συγχρονισμός από canonical analysis.
+SRC-FA9D3A489B,απόρριψη,απορρίφθηκε,,GridWorld; περιβάλλοντα και benchmarks,όχι,Συγχρονισμός από canonical analysis.
+SRC-7AA9141602,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-364FF54942,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-58201435EE,απόρριψη,απορρίφθηκε,,στατιστική αξιολόγηση; διακυβέρνηση και ηθική,όχι,Συγχρονισμός από canonical analysis.
+SRC-58E97B7CA7,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-DFF2EC4502,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης; διακυβέρνηση και ηθική,όχι,Συγχρονισμός από canonical analysis.
+SRC-7689DE9EF2,απόρριψη,απορρίφθηκε,,GridWorld,όχι,Συγχρονισμός από canonical analysis.
+SRC-29B8223CEB,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-D841C93160,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-E477BC2505,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-AEAC8CED1E,απόρριψη,απορρίφθηκε,,βαθιά ενισχυτική μάθηση; περιβάλλοντα και benchmarks; πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-E1EFA55EAE,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-3FFDDD1943,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης; διακυβέρνηση και ηθική,όχι,Συγχρονισμός από canonical analysis.
+SRC-BD5C7CB6BA,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-C3B6BAF4A9,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης; διακυβέρνηση και ηθική,όχι,Συγχρονισμός από canonical analysis.
+SRC-50C47A7AF2,απόρριψη,απορρίφθηκε,,μη στασιμότητα; μερική παρατηρησιμότητα; πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση; πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-ED1715D211,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-A33AAED4FB,απόρριψη,απορρίφθηκε,,περιβάλλοντα και benchmarks,όχι,Συγχρονισμός από canonical analysis.
+SRC-1448476D70,απόρριψη,απορρίφθηκε,,GridWorld; πινακοποιημένη ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-9E42BE7AFE,απόρριψη,απορρίφθηκε,,GridWorld; πινακοποιημένη ενισχυτική μάθηση; περιβάλλοντα και benchmarks,όχι,Συγχρονισμός από canonical analysis.
+SRC-65A11D9ADB,απόρριψη,απορρίφθηκε,,στατιστική αξιολόγηση; διακυβέρνηση και ηθική,όχι,Συγχρονισμός από canonical analysis.
+SRC-6AE1A85EA9,απόρριψη,απορρίφθηκε,,μη στασιμότητα; βαθιά ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-F35101B1F4,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-A3B0F58C93,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-DF33B5D172,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-EBCD9DDFBF,απόρριψη,απορρίφθηκε,,ασφαλής ενισχυτική μάθηση; πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-F675E9E632,απόρριψη,απορρίφθηκε,,πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-EB8D078107,απόρριψη,απορρίφθηκε,,πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-6C628ADA43,απόρριψη,απορρίφθηκε,,μη στασιμότητα; μερική παρατηρησιμότητα; περιβάλλοντα και benchmarks; πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-CDB067267C,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης; διακυβέρνηση και ηθική,όχι,Συγχρονισμός από canonical analysis.
+SRC-18D64222C0,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-8EAD4AFE22,απόρριψη,απορρίφθηκε,,μερική παρατηρησιμότητα; πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-CF7BBB0E75,απόρριψη,απορρίφθηκε,,μερική παρατηρησιμότητα,όχι,Συγχρονισμός από canonical analysis.
+SRC-E695631B14,απόρριψη,απορρίφθηκε,,μη στασιμότητα; μερική παρατηρησιμότητα; πινακοποιημένη ενισχυτική μάθηση; περιβάλλοντα και benchmarks,όχι,Συγχρονισμός από canonical analysis.
+SRC-2BCB5AC8D4,απόρριψη,απορρίφθηκε,,μερική παρατηρησιμότητα,όχι,Συγχρονισμός από canonical analysis.
+SRC-C8A63DDB33,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-F0BE1654F1,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-AB7759F2B7,απόρριψη,απορρίφθηκε,,GridWorld; περιβάλλοντα και benchmarks,όχι,Συγχρονισμός από canonical analysis.
+SRC-76A4CB0AB7,απόρριψη,απορρίφθηκε,,ανθεκτικότητα και ανάκαμψη; πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-2CF79C378A,απόρριψη,απορρίφθηκε,,μερική παρατηρησιμότητα; πινακοποιημένη ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-3A71103B05,απόρριψη,απορρίφθηκε,,μερική παρατηρησιμότητα,όχι,Συγχρονισμός από canonical analysis.
+SRC-6C5FB230E1,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-64AA1D82C6,απόρριψη,απορρίφθηκε,,μη στασιμότητα; μερική παρατηρησιμότητα; πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση; περιβάλλοντα και benchmarks; πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-02987450DF,απόρριψη,απορρίφθηκε,,ανθεκτικότητα και ανάκαμψη; πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση; πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-2899809E90,απόρριψη,απορρίφθηκε,,μη στασιμότητα; πράκτορες τεχνητής νοημοσύνης; διακυβέρνηση και ηθική,όχι,Συγχρονισμός από canonical analysis.
+SRC-8544F25BD9,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-F1CF3A9BFA,απόρριψη,απορρίφθηκε,,GridWorld; πινακοποιημένη ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-2825596443,απόρριψη,απορρίφθηκε,,GridWorld; πινακοποιημένη ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-6C4F1FF9F1,απόρριψη,απορρίφθηκε,,GridWorld; πινακοποιημένη ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-740CFDDDF1,απόρριψη,απορρίφθηκε,,GridWorld; πινακοποιημένη ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-701E163AC8,υπόβαθρο,επαληθευμένη,,μη στασιμότητα; πινακοποιημένη ενισχυτική μάθηση,ναι,Συγχρονισμός από canonical analysis.
+SRC-F6E2AD5FA8,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-CCFF246CA7,απόρριψη,απορρίφθηκε,,στατιστική αξιολόγηση; περιβάλλοντα και benchmarks,όχι,Συγχρονισμός από canonical analysis.
+SRC-9EED60003F,απόρριψη,απορρίφθηκε,,στατιστική αξιολόγηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-59A04B97F6,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-3A95B5303C,απόρριψη,απορρίφθηκε,,ανθεκτικότητα και ανάκαμψη,όχι,Συγχρονισμός από canonical analysis.
+SRC-CA06A28C0B,υποστηρικτική,επαληθευμένη,,πράκτορες τεχνητής νοημοσύνης,ναι,Συγχρονισμός από canonical analysis.
+SRC-EA5D0E318E,υπόβαθρο,επαληθευμένη,,περιβάλλοντα και benchmarks,ναι,Συγχρονισμός από canonical analysis.
+SRC-698B096865,απόρριψη,απορρίφθηκε,,ανθεκτικότητα και ανάκαμψη; μερική παρατηρησιμότητα; πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση; πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-E2356C5721,απόρριψη,απορρίφθηκε,,πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση; περιβάλλοντα και benchmarks,όχι,Συγχρονισμός από canonical analysis.
+SRC-AEEA49C0DF,απόρριψη,απορρίφθηκε,,βαθιά ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-A908F12075,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης; διακυβέρνηση και ηθική,όχι,Συγχρονισμός από canonical analysis.
+SRC-2652E6E108,απόρριψη,απορρίφθηκε,,ασφαλής ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-688842E0FD,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-93C76089FF,απόρριψη,απορρίφθηκε,,βαθιά ενισχυτική μάθηση; περιβάλλοντα και benchmarks,όχι,Συγχρονισμός από canonical analysis.
+SRC-BA15D8CA60,απόρριψη,απορρίφθηκε,,GridWorld; μερική παρατηρησιμότητα; στατιστική αξιολόγηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-52E64293F2,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-2E9F8BFC39,απόρριψη,απορρίφθηκε,,μη στασιμότητα; διακυβέρνηση και ηθική,όχι,Συγχρονισμός από canonical analysis.
+SRC-3B098152C8,απόρριψη,απορρίφθηκε,,διακυβέρνηση και ηθική,όχι,Συγχρονισμός από canonical analysis.
+SRC-DF262CEA9A,απόρριψη,απορρίφθηκε,,διακυβέρνηση και ηθική,όχι,Συγχρονισμός από canonical analysis.
+SRC-7574A4DDCC,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-405E00D8AB,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-255529AC11,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-A87F481B4C,απόρριψη,απορρίφθηκε,,πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση; συνεχής προσαρμογή; περιβάλλοντα και benchmarks,όχι,Συγχρονισμός από canonical analysis.
+SRC-BAEE694D5B,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-5DFB680F53,απόρριψη,απορρίφθηκε,,μερική παρατηρησιμότητα,όχι,Συγχρονισμός από canonical analysis.
+SRC-503A8B421C,απόρριψη,απορρίφθηκε,,μη στασιμότητα,όχι,Συγχρονισμός από canonical analysis.
+SRC-58C53E9086,απόρριψη,απορρίφθηκε,,περιβάλλοντα και benchmarks; πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-00CCFC7AC0,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-9144C46DA7,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-F99517DABE,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-CDCA1BACF3,απόρριψη,απορρίφθηκε,,ανθεκτικότητα και ανάκαμψη,όχι,Συγχρονισμός από canonical analysis.
+SRC-2554BB8102,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-02D2683D4F,απόρριψη,απορρίφθηκε,,περιβάλλοντα και benchmarks; πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-0249AC29E8,απόρριψη,απορρίφθηκε,,πινακοποιημένη ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-01F23B6B1F,απόρριψη,απορρίφθηκε,,μερική παρατηρησιμότητα,όχι,Συγχρονισμός από canonical analysis.
+SRC-D546F0AACB,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης; διακυβέρνηση και ηθική,όχι,Συγχρονισμός από canonical analysis.
+SRC-82B9A220FE,απόρριψη,απορρίφθηκε,,GridWorld; πινακοποιημένη ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-3BD2FDEADB,απόρριψη,απορρίφθηκε,,GridWorld,όχι,Συγχρονισμός από canonical analysis.
+SRC-EE33F366D6,απόρριψη,απορρίφθηκε,,GridWorld,όχι,Συγχρονισμός από canonical analysis.
+SRC-55005EF367,απόρριψη,απορρίφθηκε,,μη στασιμότητα; πινακοποιημένη ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-D0A02E4877,απόρριψη,απορρίφθηκε,,ανθεκτικότητα και ανάκαμψη,όχι,Συγχρονισμός από canonical analysis.
+SRC-3EEF180BD3,απόρριψη,απορρίφθηκε,,GridWorld; ασφαλής ενισχυτική μάθηση; αβεβαιότητα ανταμοιβής; διακυβέρνηση και ηθική,όχι,Συγχρονισμός από canonical analysis.
+SRC-D6A6F6F96E,απόρριψη,απορρίφθηκε,,GridWorld; αβεβαιότητα ανταμοιβής; πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-AA093F6111,απόρριψη,απορρίφθηκε,,εύρωστη ενισχυτική μάθηση; ανθεκτικότητα και ανάκαμψη; GridWorld; μερική παρατηρησιμότητα; πινακοποιημένη ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-EC8E7E4711,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-532ABCB3E4,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-EAB39430AA,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-4CB6CCD3B7,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-0CD2FD9F9B,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-96A2411517,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-A6957B5475,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-5AD59E3C40,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-93E24C1FC7,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-9F0A576546,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-8D71C5B684,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-898BA81634,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-D11EEC3E92,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-F101A94B6F,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-4A79D45091,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-D374C6325A,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-DC33A48D9D,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-EAC0C17F4B,απόρριψη,απορρίφθηκε,,βαθιά ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-61045DD262,απόρριψη,απορρίφθηκε,,βαθιά ενισχυτική μάθηση; στατιστική αξιολόγηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-4980879DA9,απόρριψη,απορρίφθηκε,,GridWorld; πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση; περιβάλλοντα και benchmarks,όχι,Συγχρονισμός από canonical analysis.
+SRC-686B036A2A,απόρριψη,απορρίφθηκε,,GridWorld; στατιστική αξιολόγηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-3BEB930930,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-3ABC767D9E,απόρριψη,απορρίφθηκε,,GridWorld; περιβάλλοντα και benchmarks,όχι,Συγχρονισμός από canonical analysis.
+SRC-D4FD963CEB,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-182998C2AA,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-2EC6FF3AB0,απόρριψη,απορρίφθηκε,,περιβάλλοντα και benchmarks,όχι,Συγχρονισμός από canonical analysis.
+SRC-082F9408DB,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-29ECCC882B,απόρριψη,απορρίφθηκε,,βαθιά ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-8417D1F4EB,απόρριψη,απορρίφθηκε,,πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση; πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-32A0866AF8,απόρριψη,απορρίφθηκε,,μη στασιμότητα; πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-938947307A,απόρριψη,απορρίφθηκε,,πινακοποιημένη ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-5E5274AB60,απόρριψη,απορρίφθηκε,,πινακοποιημένη ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-D5F64CB62A,απόρριψη,απορρίφθηκε,,μερική παρατηρησιμότητα; πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-2FF14A9151,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-62BF6F1565,απόρριψη,απορρίφθηκε,,πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-B9FC871CD2,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-FCE5ACB085,απόρριψη,απορρίφθηκε,,εύρωστη ενισχυτική μάθηση; ασφαλής ενισχυτική μάθηση; αβεβαιότητα παρατηρήσεων; πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση; στατιστική αξιολόγηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-1FE2A54527,κύρια,επαληθευμένη,,εύρωστη ενισχυτική μάθηση; αβεβαιότητα μεταβάσεων; βαθιά ενισχυτική μάθηση; περιβάλλοντα και benchmarks,ναι,Συγχρονισμός από canonical analysis.
+SRC-47D94CB6FD,απόρριψη,απορρίφθηκε,,εύρωστη ενισχυτική μάθηση; αβεβαιότητα ενεργειών; πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-6AD93D9DB4,απόρριψη,απορρίφθηκε,,μη στασιμότητα; πινακοποιημένη ενισχυτική μάθηση; περιβάλλοντα και benchmarks,όχι,Συγχρονισμός από canonical analysis.
+SRC-F5B79DEF83,απόρριψη,απορρίφθηκε,,πινακοποιημένη ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-DE316B77C0,απόρριψη,απορρίφθηκε,,μη στασιμότητα; πινακοποιημένη ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-ECC2E3845D,απόρριψη,απορρίφθηκε,,μερική παρατηρησιμότητα; πινακοποιημένη ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-9593B30E23,απόρριψη,απορρίφθηκε,,πινακοποιημένη ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-8D6C7152C7,απόρριψη,απορρίφθηκε,,μερική παρατηρησιμότητα; πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-A45AED7A8A,απόρριψη,απορρίφθηκε,,μερική παρατηρησιμότητα; πινακοποιημένη ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-300B40CAB7,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-CD5B555DED,απόρριψη,απορρίφθηκε,,εύρωστη ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-BD2C501C69,απόρριψη,απορρίφθηκε,,μερική παρατηρησιμότητα,όχι,Συγχρονισμός από canonical analysis.
+SRC-35132FB9D8,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-60763A4CF2,απόρριψη,απορρίφθηκε,,GridWorld; περιβάλλοντα και benchmarks,όχι,Συγχρονισμός από canonical analysis.
+SRC-96962197B4,απόρριψη,απορρίφθηκε,,GridWorld; περιβάλλοντα και benchmarks,όχι,Συγχρονισμός από canonical analysis.
+SRC-8D62EF3077,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-F96574EC51,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-B20C577793,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-F0311AB542,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-31F772F2F5,απόρριψη,απορρίφθηκε,,βαθιά ενισχυτική μάθηση; πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-F4A253F22F,απόρριψη,απορρίφθηκε,,βαθιά ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-8D94DEEB3D,απόρριψη,απορρίφθηκε,,μερική παρατηρησιμότητα; βαθιά ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-BA587AB772,απόρριψη,απορρίφθηκε,,μερική παρατηρησιμότητα; πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-1E5B32FBCF,απόρριψη,απορρίφθηκε,,GridWorld; πινακοποιημένη ενισχυτική μάθηση; πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-E6A5B7584B,κύρια,επαληθευμένη,,μη στασιμότητα; πινακοποιημένη ενισχυτική μάθηση; συνεχής προσαρμογή,ναι,Συγχρονισμός από canonical analysis.
+SRC-E36400B5EB,απόρριψη,απορρίφθηκε,,πινακοποιημένη ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-B055C5683C,απόρριψη,απορρίφθηκε,,ανθεκτικότητα και ανάκαμψη; πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-6415F06CD9,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-01BBBA7EAB,υποστηρικτική,επαληθευμένη,,εύρωστη ενισχυτική μάθηση; μερική παρατηρησιμότητα; πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση; περιβάλλοντα και benchmarks,ναι,Συγχρονισμός από canonical analysis.
+SRC-BDBDE8E5C6,απόρριψη,απορρίφθηκε,,εύρωστη ενισχυτική μάθηση; αβεβαιότητα ενεργειών; πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-C518D2379B,απόρριψη,απορρίφθηκε,,πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-EF4972C036,υποστηρικτική,επαληθευμένη,,GridWorld; στατιστική αξιολόγηση; περιβάλλοντα και benchmarks; πράκτορες τεχνητής νοημοσύνης,ναι,Συγχρονισμός από canonical analysis.
+SRC-FC42D9798A,υποστηρικτική,επαληθευμένη,,εύρωστη ενισχυτική μάθηση; πινακοποιημένη ενισχυτική μάθηση; στατιστική αξιολόγηση,ναι,Συγχρονισμός από canonical analysis.
+SRC-6BFF64228F,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-46FEEF96C2,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-BE47EAE6FA,απόρριψη,απορρίφθηκε,,εύρωστη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση; πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-08C2BE6E1E,απόρριψη,απορρίφθηκε,,GridWorld; μερική παρατηρησιμότητα; πράκτορες τεχνητής νοημοσύνης,όχι,Συγχρονισμός από canonical analysis.
+SRC-263BB8FBB0,απόρριψη,απορρίφθηκε,,πινακοποιημένη ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-64D64239FE,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-E5B868A3D9,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-E9CAE0A212,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-4AEA7D1404,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-AAB7857C67,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-CF2D4C53CF,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-87A78E96FF,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-FE626E4E2A,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-4FD8A4CA66,απόρριψη,απορρίφθηκε,,βαθιά ενισχυτική μάθηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-0FA482EC1A,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-002CBFFE7E,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-3F474DFDF9,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-FC42A1FF21,απόρριψη,απορρίφθηκε,,στατιστική αξιολόγηση,όχι,Συγχρονισμός από canonical analysis.
+SRC-EF288B6690,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-3D30523C80,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-3F2FFDCDA4,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-A22C08E0AD,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-9E2ED5989E,απόρριψη,απορρίφθηκε,,εύρωστη ενισχυτική μάθηση; GridWorld; βαθιά ενισχυτική μάθηση; περιβάλλοντα και benchmarks,όχι,Συγχρονισμός από canonical analysis.
+SRC-74E32A649B,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-2CADA4DAAF,απόρριψη,απορρίφθηκε,,χωρίς κατηγορία,όχι,Συγχρονισμός από canonical analysis.
+SRC-9464421E55,υποστηρικτική,επαληθευμένη,,μη στασιμότητα; GridWorld,ναι,Συγχρονισμός από canonical analysis.
+SRC-76B2247457,υποστηρικτική,επαληθευμένη,,μη στασιμότητα; GridWorld; συνεχής προσαρμογή; στατιστική αξιολόγηση,ναι,Συγχρονισμός από canonical analysis.
+SRC-70772C0629,υποστηρικτική,επαληθευμένη,,μη στασιμότητα; πινακοποιημένη ενισχυτική μάθηση,ναι,Συγχρονισμός από canonical analysis.
