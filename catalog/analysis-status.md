@@ -271,7 +271,6 @@
 | `SRC-3C543330E4` | https---proceedings.mlr.press-v237-peng24a-peng24a.pdf | επαληθευμένη | επαληθευμένο | υπόβαθρο | ναι |
 | `SRC-91D94DB95B` | https---proceedings.mlr.press-v70-achiam17a-achiam17a.pdf | επαληθευμένη | επαληθευμένο | υποστηρικτική | ναι |
 | `SRC-70AEC665B2` | https---proceedings.mlr.press-v70-guo17a-guo17a.pdf | επαληθευμένη | επαληθευμένο | υποστηρικτική | ναι |
-| `SRC-1FE2A54527` | https---proceedings.mlr.press-v70-pinto17a-pinto17a.pdf | επαληθευμένη | επαληθευμένο | κύρια | ναι |
 | `SRC-D6335D382B` | https---proceedings.mlr.press-v97-kaplanis19a-kaplanis19a.pdf | επαληθευμένη | επαληθευμένο | υποστηρικτική | ναι |
 | `SRC-47D94CB6FD` | https---proceedings.mlr.press-v97-tessler19a-tessler19a.pdf | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-EA5D0E318E` | https---proceedings.neurips.cc-paper files-paper-2017-file-9ef2ed4b7fd2c810847ffa5fa85bce38-Paper.pd | επαληθευμένη | επαληθευμένο | υπόβαθρο | ναι |
@@ -440,6 +439,7 @@
 | `SRC-EC8E7E4711` | Rise of agentic AI - Capgemini | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-B055C5683C` | Risk Averse Robust Adversarial Reinforcement Learning | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-6415F06CD9` | RL- Lecture Schedule - Open Course Materials | απορρίφθηκε | κανένα | απόρριψη | όχι |
+| `SRC-1FE2A54527` | Robust Adversarial Reinforcement Learning | επαληθευμένη | επαληθευμένο | κύρια | ναι |
 | `SRC-3EF475E25A` | Robust Average-Reward Markov Decision Processes | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-620F17076C` | Robust Deep Reinforcement Learning against Adversarial Perturbations on State Observations | επαληθευμένη | επαληθευμένο | υποστηρικτική | ναι |
 | `SRC-A3D907D882` | Robust Gymnasium: A Unified Modular Benchmark for Robust Reinforcement Learning | επαληθευμένη | επαληθευμένο | κύρια | ναι |
