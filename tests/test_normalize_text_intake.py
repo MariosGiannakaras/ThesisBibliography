@@ -1,5 +1,6 @@
 import csv
 import importlib.util
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -9,6 +10,7 @@ TOOL = ROOT / "tools" / "normalize_text_intake.py"
 SPEC = importlib.util.spec_from_file_location("normalize_text_intake_tool", TOOL)
 MODULE = importlib.util.module_from_spec(SPEC)
 assert SPEC.loader
+sys.modules[SPEC.name] = MODULE
 SPEC.loader.exec_module(MODULE)
 
 JATS = """<?xml version="1.0" encoding="UTF-8"?>
