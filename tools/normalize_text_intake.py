@@ -91,6 +91,60 @@ def descendants(element: ET.Element, name: str) -> list[ET.Element]:
     return [item for item in element.iter() if local_name(item) == name]
 
 
+def article_meta(text: str) -> ET.Element:
+    root = parse_xml(text)
+    meta = next(iter(descendants(root, "article-meta")), None)
+    if meta is None:
+        raise RuntimeError("JATS article has no article-meta")
+    return meta
+
+
+def extract_jats_metadata(text: str) -> tuple[str, list[str], str, str]:
+    meta = article_meta(text)
+    title_nodes = descendants(meta, "article-title")
+    title = element_text(title_nodes[0]) if title_nodes else "Untitled JATS article"
+
+    authors: list[str] = []
+    for contrib in descendants(meta, "contrib"):
+        if contrib.attrib.get("contrib-type") != "author":
+            continue
+        name = child(contrib, "name")
+        if name is None:
+            continue
+        given = element_text(child(name, "given-names"))
+        surname = element_text(child(name, "surname"))
+        full = clean_text(f"{given} {surname}")
+        if full:
+            authors.append(full)
+
+    doi = ""
+    for article_id in descendants(meta, "article-id"):
+        if article_id.attrib.get("pub-id-type") == "doi":
+            doi = element_text(article_id).lower()
+            break
+
+    year = ""
+    for pub_date in descendants(meta, "pub-date"):
+        value = element_text(child(pub_date, "year"))
+        if re.fullmatch(r"\d{4}", value):
+            year = value
+            break
+
+    return title, authors, year, doi
+
+
+def jats_identity(text: str) -> tuple[str, ...]:
+    """Return a fail-closed scientific identity for derivative/original matching."""
+    title, authors, year, doi = extract_jats_metadata(text)
+    if doi:
+        return ("doi", doi)
+    normalized_title = re.sub(r"[^a-z0-9]+", "", title.casefold())
+    normalized_authors = tuple(re.sub(r"\s+", " ", author.casefold()).strip() for author in authors)
+    if normalized_title and year and normalized_authors:
+        return ("metadata", normalized_title, year, *normalized_authors)
+    raise RuntimeError("JATS article lacks a safe DOI or complete title/year/author identity")
+
+
 def render_section(section: ET.Element, depth: int = 2) -> list[str]:
     lines: list[str] = []
     heading = element_text(child(section, "title"))
@@ -114,7 +168,9 @@ def render_section(section: ET.Element, depth: int = 2) -> list[str]:
                     lines.append(f"- {text}")
             if lines and lines[-1] != "":
                 lines.append("")
-        elif name in {"fig", "table-wrap", "boxed-text", "disp-quote", "statement"}:
+        else:
+            # Preserve textual content of figures, tables, formulas, notes, and
+            # less-common JATS constructs instead of silently dropping it.
             text = element_text(item)
             if text:
                 lines.extend([text, ""])
@@ -123,38 +179,7 @@ def render_section(section: ET.Element, depth: int = 2) -> list[str]:
 
 def jats_to_markdown(text: str) -> str:
     root = parse_xml(text)
-    article_meta = next(iter(descendants(root, "article-meta")), None)
-    if article_meta is None:
-        raise RuntimeError("JATS article has no article-meta")
-
-    title_nodes = descendants(article_meta, "article-title")
-    title = element_text(title_nodes[0]) if title_nodes else "Untitled JATS article"
-
-    authors: list[str] = []
-    for contrib in descendants(article_meta, "contrib"):
-        if contrib.attrib.get("contrib-type") != "author":
-            continue
-        name = child(contrib, "name")
-        if name is None:
-            continue
-        given = element_text(child(name, "given-names"))
-        surname = element_text(child(name, "surname"))
-        full = clean_text(f"{given} {surname}")
-        if full:
-            authors.append(full)
-
-    doi = ""
-    for article_id in descendants(article_meta, "article-id"):
-        if article_id.attrib.get("pub-id-type") == "doi":
-            doi = element_text(article_id)
-            break
-
-    year = ""
-    for pub_date in descendants(article_meta, "pub-date"):
-        value = element_text(child(pub_date, "year"))
-        if re.fullmatch(r"\d{4}", value):
-            year = value
-            break
+    title, authors, year, doi = extract_jats_metadata(text)
 
     lines = [f"# {title}", ""]
     if doi:
@@ -165,7 +190,8 @@ def jats_to_markdown(text: str) -> str:
         lines.extend([f"Year: {year}", ""])
     lines.extend(["Format: JATS XML normalized to Markdown without translation.", ""])
 
-    abstracts = descendants(article_meta, "abstract")
+    meta = article_meta(text)
+    abstracts = descendants(meta, "abstract")
     if abstracts:
         abstract_text = element_text(abstracts[0])
         if abstract_text:
@@ -176,7 +202,7 @@ def jats_to_markdown(text: str) -> str:
         for item in body:
             if local_name(item) == "sec":
                 lines.extend(render_section(item, 2))
-            elif local_name(item) == "p":
+            else:
                 value = element_text(item)
                 if value:
                     lines.extend([value, ""])
@@ -279,6 +305,7 @@ def normalize(root: Path = ROOT) -> dict[str, int]:
     paths.incoming_originals.mkdir(parents=True, exist_ok=True)
     rows = load_index(paths)
     counts = {"jats_markdown": 0, "jats_xml": 0, "notes": 0, "archived_originals": 0}
+    raw_jats_identities: dict[Path, tuple[str, ...]] = {}
 
     # A file can contain JATS even if someone changed only its suffix to .md.
     for path in sorted(paths.incoming.rglob("*.md")):
@@ -286,6 +313,7 @@ def normalize(root: Path = ROOT) -> dict[str, int]:
             continue
         text = path.read_text(encoding="utf-8-sig", errors="replace")
         if is_jats_text(text):
+            raw_jats_identities[path] = jats_identity(text)
             path.write_text(jats_to_markdown(text), encoding="utf-8")
             counts["jats_markdown"] += 1
 
@@ -298,9 +326,16 @@ def normalize(root: Path = ROOT) -> dict[str, int]:
         if is_jats_text(text):
             target = path.with_suffix(".md")
             markdown = jats_to_markdown(text)
-            if target.exists() and target.read_text(encoding="utf-8-sig", errors="replace") != markdown:
-                raise RuntimeError(f"JATS Markdown target already exists with different content: {target}")
-            target.write_text(markdown, encoding="utf-8")
+            identity = jats_identity(text)
+            if target.exists():
+                if target in raw_jats_identities:
+                    if raw_jats_identities[target] != identity:
+                        raise RuntimeError(f"JATS original conflicts with raw-JATS derivative identity: {target}")
+                    target.write_text(markdown, encoding="utf-8")
+                elif target.read_text(encoding="utf-8-sig", errors="replace") != markdown:
+                    raise RuntimeError(f"JATS Markdown target already exists with different content: {target}")
+            else:
+                target.write_text(markdown, encoding="utf-8")
             rows.append(
                 archive_file(
                     path,
@@ -337,13 +372,22 @@ def normalize(root: Path = ROOT) -> dict[str, int]:
         if is_jats_text(text):
             target = paths.incoming / f"{path.stem}.md"
             markdown = jats_to_markdown(text)
+            identity = jats_identity(text)
             if target.exists():
-                existing = target.read_text(encoding="utf-8-sig", errors="replace")
-                if is_jats_text(existing):
+                if target in raw_jats_identities:
+                    if raw_jats_identities[target] != identity:
+                        raise RuntimeError(f"JATS original conflicts with raw-JATS derivative identity: {target}")
+                    # The archival XML is authoritative over an escaped/reformatted derivative.
                     target.write_text(markdown, encoding="utf-8")
-                    counts["jats_markdown"] += 1
-                elif existing != markdown:
-                    raise RuntimeError(f"Derived JATS Markdown conflicts with existing intake: {target}")
+                else:
+                    existing = target.read_text(encoding="utf-8-sig", errors="replace")
+                    if is_jats_text(existing):
+                        if jats_identity(existing) != identity:
+                            raise RuntimeError(f"JATS original conflicts with existing intake identity: {target}")
+                        target.write_text(markdown, encoding="utf-8")
+                        counts["jats_markdown"] += 1
+                    elif existing != markdown:
+                        raise RuntimeError(f"Derived JATS Markdown conflicts with existing intake: {target}")
             else:
                 target.write_text(markdown, encoding="utf-8")
             rows.append(
