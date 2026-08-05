@@ -48,6 +48,7 @@
 | `SRC-CCCFFD4365` | An Empirical Approach to Capture Moral Uncertainty in AI - Aies Conference | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-7DA66E226E` | applsci-15-05663-v2.pdf | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-9CC11ECF41` | Approximate Bilevel Difference Convex Programming for Bayesian Risk Markov Decision Processes | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
+| `SRC-81C66C1798` | Artificial intelligence for enhancing resilience | πλήρης-αυτόματη-προς-έλεγχο | ολοκληρώθηκε | όχι | καμία |
 | `SRC-486FAE4C93` | Artificial Intelligence Risk Management Framework (AI RMF 1.0) NIST AI 100-1 | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-0882A9B2B0` | Assessing Generalization in Deep Reinforcement Learning | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-41B78C510C` | Autonomous Driving with Deep Reinforcement Learning in CARLA Simulation | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
@@ -182,7 +183,6 @@
 | `SRC-18D64222C0` | multiagent-systems-pr 2740350560a3678fa4cc670ce86db9d0 | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-6C2389B5D2` | Neuro-Symbolic AI in 2024: A Systematic Review | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-81ACE350D5` | NIST Issues New Artificial Intelligence Risk Management Framework | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
-| `SRC-81C66C1798` | Nitin Liladhar Rane1, *, Saurabh P. Choudhary1,2, Jayesh Rane3 | πλήρης-αυτόματη-προς-έλεγχο | ολοκληρώθηκε | όχι | καμία |
 | `SRC-0F8A6588DC` | NovGrid: A Flexible Grid World for Evaluating Agent Response to Novelty | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-8D62EF3077` | Nευρωνικά ∆ίκτυα και Eφαρμογές (βιβλίο) Π Αργυράκης.pdf | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-89BD209DAD` | Offline Policy Evaluation and Optimization under Confounding - Ambuj Tewari | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
