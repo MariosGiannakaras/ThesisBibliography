@@ -29,13 +29,20 @@ class PrimarySourceFixTests(unittest.TestCase):
             "Σημειώσεις": "Αυτόματη πλήρης μετατροπή PDF με OCR· τεχνικά πλήρης, προς ανθρώπινο έλεγχο",
         }
 
-    def write_source(self, directory: Path, original_sha: str | None = None) -> Path:
+    def write_source(
+        self,
+        directory: Path,
+        original_sha: str | None = None,
+        *,
+        quoted: bool = True,
+    ) -> Path:
         source = directory / f"{MODULE.RANE_SOURCE_ID}.md"
         original_sha = original_sha or MODULE.RANE_ORIGINAL_SHA256
+        sha_value = f'"{original_sha}"' if quoted else original_sha
         source.write_text(
             "---\n"
-            f"source_id: {MODULE.RANE_SOURCE_ID}\n"
-            f"original_sha256: {original_sha}\n"
+            f'source_id: "{MODULE.RANE_SOURCE_ID}"\n'
+            f"original_sha256: {sha_value}\n"
             "---\n\n"
             "# Nitin Liladhar Rane1, *, Saurabh P. Choudhary1,2, Jayesh Rane3\n\n"
             "<!-- page: 1 -->\n"
@@ -45,10 +52,10 @@ class PrimarySourceFixTests(unittest.TestCase):
         )
         return source
 
-    def test_verified_original_overrides_bad_embedded_metadata_without_rewriting_body(self):
+    def test_verified_quoted_original_overrides_bad_metadata_without_rewriting_body(self):
         with tempfile.TemporaryDirectory() as directory:
             sources = Path(directory)
-            source = self.write_source(sources)
+            source = self.write_source(sources, quoted=True)
             rows, changes = MODULE.apply([self.row()], sources)
 
             self.assertEqual(1, len(changes))
@@ -61,16 +68,23 @@ class PrimarySourceFixTests(unittest.TestCase):
             self.assertIn("DOI-only", row["Σημειώσεις"])
 
             text = source.read_text(encoding="utf-8")
+            self.assertIn(f'original_sha256: "{MODULE.RANE_ORIGINAL_SHA256}"', text)
             self.assertIn(f"# {MODULE.RANE_TITLE}", text)
             self.assertIn(f"> Source: {MODULE.RANE_PRIMARY_URL}", text)
             self.assertIn(f"> DOI as printed by publisher: https://doi.org/{MODULE.RANE_DOI}", text)
             self.assertIn("<!-- page: 1 -->", text)
             self.assertIn("Nitin Liladhar Rane, Saurabh P. Choudhary, Jayesh Rane", text)
 
-    def test_wrong_original_hash_fails_closed(self):
+    def test_unquoted_expected_hash_is_also_accepted(self):
         with tempfile.TemporaryDirectory() as directory:
             sources = Path(directory)
-            self.write_source(sources, "0" * 64)
+            source = self.write_source(sources, quoted=False)
+            self.assertTrue(MODULE.source_has_expected_original(source))
+
+    def test_wrong_original_hash_fails_closed_even_when_quoted(self):
+        with tempfile.TemporaryDirectory() as directory:
+            sources = Path(directory)
+            self.write_source(sources, "0" * 64, quoted=True)
             with self.assertRaisesRegex(RuntimeError, "refusing primary metadata override"):
                 MODULE.apply([self.row()], sources)
 
