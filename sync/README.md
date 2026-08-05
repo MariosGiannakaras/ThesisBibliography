@@ -12,12 +12,12 @@
 
 Ακριβές αντίγραφο του αυστηρού `thesis-package/`:
 
-- 112 επιλεγμένες και επαληθευμένες πηγές,
+- περιλαμβάνει μόνο τις επιλεγμένες και επαληθευμένες πηγές,
 - verified analyses και evidence,
 - manifest,
 - package metadata και SHA-256 checksums.
 
-Μόνο αυτό το επίπεδο θεωρείται αυτομάτως κατάλληλο για βιβλιογραφικές παραπομπές.
+Μόνο αυτό το επίπεδο θεωρείται αυτομάτως κατάλληλο για βιβλιογραφικές παραπομπές. Ο αριθμός των citation-ready πηγών είναι δυναμικός και διαβάζεται από το package metadata· δεν αποτελεί σταθερή αρχιτεκτονική παραδοχή.
 
 ### Υπόλοιπο `research-corpus/`
 
@@ -55,6 +55,24 @@ research-corpus/
 
 Η ένδειξη `not-citation-ready` δεν σημαίνει άχρηστο ή μη προσβάσιμο. Σημαίνει μόνο ότι δεν πρέπει να παρουσιαστεί ως επαληθευμένη βιβλιογραφική παραπομπή πριν ολοκληρωθεί ο αντίστοιχος έλεγχος.
 
+## Τρέχον immutable baseline
+
+Μετά το intake και την επιστημονική αξιολόγηση των νέων resilience πηγών, το επόμενο consumer baseline είναι:
+
+```text
+bibliography-integration-v3
+```
+
+Το baseline v3 περιέχει:
+
+- 585 canonical sources,
+- 113 citation-ready sources,
+- 19 research materials,
+- 281 indexed original PDFs,
+- 1,568 integrity-covered corpus files.
+
+Το `bibliography-integration-v2` παραμένει immutable ιστορικό snapshot και δεν μετακινείται.
+
 ## Συγχρονισμός
 
 Το κύριο repo πρέπει:
@@ -70,7 +88,7 @@ python tools/validate_research_material_review.py
 python tools/export_research_corpus.py validate
 ```
 
-3. Να αντιγράφει byte-for-byte το committed `research-corpus/` σε generated directory, προτεινόμενα:
+3. Να αντιγράφει byte-for-byte το committed `research-corpus/` σε generated directory:
 
 ```text
 research/bibliography/
@@ -85,6 +103,8 @@ sha256sum -c citation-ready/catalog/SHA256SUMS
 
 5. Να ανοίγει PR και να μην κάνει direct merge.
 
+Τα counts του v3 είναι baseline acceptance facts για το συγκεκριμένο tag. Η γενική consumer υλοποίηση πρέπει να διαβάζει τα metadata κάθε μελλοντικού immutable ref δυναμικά και να μην απαιτεί μόνιμα αυτές τις τιμές.
+
 ## Consumer-side κανόνες
 
 Το CI του thesis repo πρέπει να διακρίνει:
@@ -97,4 +117,4 @@ sha256sum -c citation-ready/catalog/SHA256SUMS
 
 ## Τι δεν αντιγράφεται
 
-Δεν αντιγράφονται τα ίδια τα PDF ή Git LFS objects. Το corpus περιέχει πλήρες extracted Markdown όπου απαιτείται, hashes και immutable URLs προς τα αρχειακά πρωτότυπα στο `ThesisBibliography`. Έτσι όλη η πληροφορία είναι προσβάσιμη χωρίς διπλή αποθήκευση binaries στο thesis repo.
+Δεν αντιγράφονται τα ίδια τα PDF, structured originals ή Git LFS objects. Το corpus περιέχει πλήρες extracted/normalized Markdown όπου απαιτείται, hashes και immutable URLs προς τα αρχειακά πρωτότυπα στο `ThesisBibliography`. Έτσι όλη η πληροφορία είναι προσβάσιμη χωρίς διπλή αποθήκευση binaries ή archival payloads στο thesis repo.
