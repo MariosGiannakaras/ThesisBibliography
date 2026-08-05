@@ -1,12 +1,12 @@
 # Κατάσταση αναλύσεων
 
-- Σύνολο ενεργών πηγών: **583**
+- Σύνολο ενεργών πηγών: **585**
 - Οριστικές αποφάσεις: **583**
   - Επιλεγμένες/επαληθευμένες: **112**
   - Απορριφθείσες: **470**
   - Ελεγμένες ως θεωρητικό υλικό χωρίς citation export: **1**
-- Εκκρεμείς συνολικά: **0**
-  - Χωρίς ανάλυση: **0**
+- Εκκρεμείς συνολικά: **2**
+  - Χωρίς ανάλυση: **2**
   - Πρόχειρες/μη citation-ready: **0**
 - Επαληθευμένα αρχεία αποσπασμάτων: **112**
 - Επιλεγμένες για εξαγωγή: **112**
@@ -74,6 +74,7 @@
 | `SRC-83030D4158` | AI Agents Under Threat: A Survey of Key Security Challenges and Future Pathways | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-70A0C89F93` | AI Agents vs. Agentic AI: A Conceptual taxonomy, applications and challenges | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-50C47991CC` | AI Agents: Evolution, Architecture, and Real-World Applications | απορρίφθηκε | κανένα | απόρριψη | όχι |
+| `SRC-AC30CEB175` | AI Applications to Enhance Resilience in Power Systems and Microgrids—A Review | προς ανάλυση | κανένα |  |  |
 | `SRC-1F8839FDA8` | AI Gridworlds - Computerphile | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-B4F46326ED` | AI Safety as a Reinforcement Learning Problem | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-FE2C0A3E00` | AI Safety Gridworlds | επαληθευμένη | επαληθευμένο | κύρια | ναι |
@@ -88,6 +89,7 @@
 | `SRC-9CC11ECF41` | Approximate Bilevel Difference Convex Programming for Bayesian Risk Markov Decision Processes | επαληθευμένη | επαληθευμένο | υποστηρικτική | ναι |
 | `SRC-8FC523FC42` | Architecture strategies for self-healing and self-preservation - Microsoft Azure Well-Architected Fr | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-F101A94B6F` | Artificial Intelligence - foundations of computational agents | απορρίφθηκε | κανένα | απόρριψη | όχι |
+| `SRC-81C66C1798` | Artificial intelligence for enhancing resilience | προς ανάλυση | κανένα |  |  |
 | `SRC-486FAE4C93` | Artificial Intelligence Risk Management Framework (AI RMF 1.0) NIST AI 100-1 | επαληθευμένη | επαληθευμένο | υπόβαθρο | ναι |
 | `SRC-0882A9B2B0` | Assessing Generalization in Deep Reinforcement Learning | επαληθευμένη | επαληθευμένο | κύρια | ναι |
 | `SRC-41B78C510C` | Autonomous Driving with Deep Reinforcement Learning in CARLA Simulation | απορρίφθηκε | κανένα | απόρριψη | όχι |
