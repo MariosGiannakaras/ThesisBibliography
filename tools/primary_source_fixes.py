@@ -9,6 +9,7 @@ matching.
 from __future__ import annotations
 
 import csv
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -71,10 +72,15 @@ def save_rows(rows: list[dict[str, str]], catalog: Path = CATALOG) -> None:
 
 
 def source_has_expected_original(path: Path) -> bool:
+    """Match the exact conversion SHA in YAML-style front matter, quoted or bare."""
     if not path.exists():
         return False
     head = "\n".join(path.read_text(encoding="utf-8", errors="replace").splitlines()[:30])
-    return f"original_sha256: {RANE_ORIGINAL_SHA256}" in head
+    pattern = re.compile(
+        rf'^original_sha256:\s*["\']?{re.escape(RANE_ORIGINAL_SHA256)}["\']?\s*$',
+        re.MULTILINE,
+    )
+    return bool(pattern.search(head))
 
 
 def correct_source_document(path: Path) -> bool:
