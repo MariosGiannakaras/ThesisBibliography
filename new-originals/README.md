@@ -30,6 +30,10 @@
 
 Όταν η αντιστοίχιση είναι ασφαλής, το κύριο PDF αποθηκεύεται ως `originals/SRC-XXXXXXXXXX.pdf`. Όταν δεν υπάρχει ασφαλής αντιστοίχιση, δεν διαγράφεται: αρχειοθετείται στο `originals/unidentified/` με content-derived ASCII-safe path.
 
+### Metadata conflicts
+
+Embedded PDF metadata και DOI-only metadata services είναι βοηθητικά, όχι ανώτερα από το ίδιο το πρωτότυπο. Αν τίτλος/συγγραφείς στο primary PDF και στην επίσημη publisher page αποδεικνύουν διαφορετική ταυτότητα από αυτόματο metadata lookup, εφαρμόζεται μόνο τεκμηριωμένη exact correction με content/SHA guard. Η διόρθωση τρέχει μετά την OCR/μετατροπή, ώστε να μην ξαναγράφεται από προγενέστερο enrichment step. Ασαφής ή μη αποδεδειγμένη σύγκρουση παραμένει για review αντί να διορθώνεται με εικασία.
+
 ## JATS/XML
 
 Το αυθεντικό XML διατηρείται byte-for-byte στο `structured-originals/` με SHA-256 provenance. Αν αναγνωριστεί ως JATS article, το περιεχόμενο μετατρέπεται deterministic σε semantic Markdown χωρίς μετάφραση, με τίτλο, DOI, authors, year, abstract, sections και references, και μετά περνά από το κανονικό source pipeline.
