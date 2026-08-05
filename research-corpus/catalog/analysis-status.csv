@@ -58,6 +58,7 @@ SRC-49195612A3,AI Agents Need Data Integrity - Schneier on Security,μεσαία
 SRC-83030D4158,AI Agents Under Threat: A Survey of Key Security Challenges and Future Pathways,μεσαία,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-70A0C89F93,"AI Agents vs. Agentic AI: A Conceptual taxonomy, applications and challenges",χρειάζεται διόρθωση,μόνο μεταδεδομένα,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-50C47991CC,"AI Agents: Evolution, Architecture, and Real-World Applications",υψηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
+SRC-AC30CEB175,AI Applications to Enhance Resilience in Power Systems and Microgrids—A Review,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,υποστηρικτική,ναι
 SRC-1F8839FDA8,AI Gridworlds - Computerphile,μεσαία,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-B4F46326ED,AI Safety as a Reinforcement Learning Problem,χρειάζεται διόρθωση,μόνο μεταδεδομένα,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-FE2C0A3E00,AI Safety Gridworlds,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
@@ -72,6 +73,7 @@ SRC-7DA66E226E,applsci-15-05663-v2.pdf,μεσαία,διαθέσιμο πλήρ�
 SRC-9CC11ECF41,Approximate Bilevel Difference Convex Programming for Bayesian Risk Markov Decision Processes,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,υποστηρικτική,ναι
 SRC-8FC523FC42,Architecture strategies for self-healing and self-preservation - Microsoft Azure Well-Architected Fr,μεσαία,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-F101A94B6F,Artificial Intelligence - foundations of computational agents,χαμηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
+SRC-81C66C1798,Artificial intelligence for enhancing resilience,υψηλή,διαθέσιμο πλήρες κείμενο,θεωρητικό υλικό,κανένα,θεωρητικό υλικό,όχι
 SRC-486FAE4C93,Artificial Intelligence Risk Management Framework (AI RMF 1.0) NIST AI 100-1,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,υπόβαθρο,ναι
 SRC-0882A9B2B0,Assessing Generalization in Deep Reinforcement Learning,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
 SRC-41B78C510C,Autonomous Driving with Deep Reinforcement Learning in CARLA Simulation,χαμηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
