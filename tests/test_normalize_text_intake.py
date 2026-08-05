@@ -51,14 +51,15 @@ class NormalizeTextIntakeTests(unittest.TestCase):
         self.assertIn("## References", markdown)
         self.assertIn("1. Reference One, 2020.", markdown)
 
-    def test_raw_jats_markdown_and_original_xml_converge_without_data_loss(self):
+    def test_raw_jats_markdown_and_original_xml_converge_by_identity(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             (root / "new-sources").mkdir(parents=True)
             (root / "new-originals").mkdir(parents=True)
             source = root / "new-sources" / "paper.md"
             original = root / "new-originals" / "paper.xml"
-            source.write_text("\ufeff" + JATS.replace("><", ">\n<"), encoding="utf-8")
+            raw_derivative = JATS.replace("Reference One, 2020.", "Reference One, 2020. \\*")
+            source.write_text("\ufeff" + raw_derivative.replace("><", ">\n<"), encoding="utf-8")
             original.write_text(JATS, encoding="utf-8")
 
             counts = MODULE.normalize(root)
@@ -67,6 +68,7 @@ class NormalizeTextIntakeTests(unittest.TestCase):
             normalized = source.read_text(encoding="utf-8")
             self.assertTrue(normalized.startswith("# Resilient AI Systems\n"))
             self.assertNotIn("<article", normalized)
+            self.assertNotIn("\\*", normalized)
             archived = list((root / "structured-originals").glob("ORIGINAL-*.xml"))
             self.assertEqual(1, len(archived))
             self.assertEqual(JATS, archived[0].read_text(encoding="utf-8"))
@@ -85,6 +87,21 @@ class NormalizeTextIntakeTests(unittest.TestCase):
             self.assertEqual(0, second["jats_xml"])
             with (root / "structured-originals" / "index.csv").open(encoding="utf-8", newline="") as handle:
                 self.assertEqual(1, len(list(csv.DictReader(handle))))
+
+    def test_raw_jats_and_original_with_different_doi_fail_closed(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "new-sources").mkdir(parents=True)
+            (root / "new-originals").mkdir(parents=True)
+            source = root / "new-sources" / "paper.md"
+            original = root / "new-originals" / "paper.xml"
+            source.write_text(JATS, encoding="utf-8")
+            original.write_text(JATS.replace("10.1234/example.2026.1", "10.9999/different.2026.1"), encoding="utf-8")
+
+            with self.assertRaisesRegex(RuntimeError, "conflicts with raw-JATS derivative identity"):
+                MODULE.normalize(root)
+
+            self.assertTrue(original.exists())
 
     def test_direct_jats_xml_in_new_sources_generates_markdown_and_archives_xml(self):
         with tempfile.TemporaryDirectory() as directory:

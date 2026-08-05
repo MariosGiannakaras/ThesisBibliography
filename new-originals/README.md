@@ -34,7 +34,7 @@
 
 Το αυθεντικό XML διατηρείται byte-for-byte στο `structured-originals/` με SHA-256 provenance. Αν αναγνωριστεί ως JATS article, το περιεχόμενο μετατρέπεται deterministic σε semantic Markdown χωρίς μετάφραση, με τίτλο, DOI, authors, year, abstract, sections και references, και μετά περνά από το κανονικό source pipeline.
 
-Αν υπάρχει ήδη αντίστοιχο raw-JATS `.md`, το pipeline συγκρίνει το normalized αποτέλεσμα και δεν δημιουργεί δύο διαφορετικές πηγές για το ίδιο uploaded article.
+Αν υπάρχει ήδη raw-JATS `.md` derivative για το ίδιο upload, το pipeline **δεν βασίζεται σε byte-for-byte ισότητα του derivative**. Ελέγχει πρώτα την επιστημονική ταυτότητα: DOI όταν υπάρχει, διαφορετικά πλήρη title/year/authors. Μόνο όταν η ταυτότητα συμπίπτει, το αυθεντικό XML θεωρείται authoritative και αντικαθιστά escaping/reformatting διαφορές του derivative. Αν οι ταυτότητες διαφέρουν ή δεν επαρκούν για ασφαλή αντιστοίχιση, το intake αποτυγχάνει κλειστά αντί να ενώσει διαφορετικές πηγές.
 
 Μη-JATS XML δεν μετατρέπεται σε ψεύτικη βιβλιογραφική πηγή. Διατηρείται ως archival original και το χρήσιμο text εκτίθεται ως research-note material.
 
