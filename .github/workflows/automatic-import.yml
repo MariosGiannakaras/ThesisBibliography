@@ -48,7 +48,7 @@ jobs:
       - name: Preflight repair tools
         if: steps.intake.outputs.has_input == 'true'
         run: |
-          python -m py_compile tools/intake_preflight.py tools/normalize_text_intake.py tools/deterministic_import_sources.py tools/content_first_clean_links.py tools/known_fixes.py tools/exact_duplicates.py tools/clean_links.py tools/originals_common.py tools/finalize.py tools/convert_pdf.py
+          python -m py_compile tools/intake_preflight.py tools/normalize_text_intake.py tools/deterministic_import_sources.py tools/content_first_clean_links.py tools/known_fixes.py tools/primary_source_fixes.py tools/exact_duplicates.py tools/clean_links.py tools/originals_common.py tools/finalize.py tools/convert_pdf.py
 
       - name: Apply documented fixes
         if: steps.intake.outputs.has_input == 'true'
@@ -89,7 +89,7 @@ jobs:
       - name: Validate tools and tests
         if: steps.intake.outputs.has_input == 'true'
         run: |
-          python -m py_compile tools/intake_preflight.py tools/normalize_text_intake.py tools/deterministic_import_sources.py tools/content_first_clean_links.py tools/import_sources.py tools/metadata.py tools/fix_titles.py tools/validate.py tools/sources_common.py tools/clean_links.py tools/known_fixes.py tools/exact_duplicates.py tools/finalize.py tools/originals.py tools/originals_common.py tools/originals_downloads.py tools/originals_files.py tools/convert_pdf.py
+          python -m py_compile tools/intake_preflight.py tools/normalize_text_intake.py tools/deterministic_import_sources.py tools/content_first_clean_links.py tools/import_sources.py tools/metadata.py tools/fix_titles.py tools/validate.py tools/sources_common.py tools/clean_links.py tools/known_fixes.py tools/primary_source_fixes.py tools/exact_duplicates.py tools/finalize.py tools/originals.py tools/originals_common.py tools/originals_downloads.py tools/originals_files.py tools/convert_pdf.py
           python -m unittest discover -s tests -v
 
       - name: Preserve unresolved blank Markdown
@@ -135,6 +135,10 @@ jobs:
         if: steps.intake.outputs.has_input == 'true'
         run: python tools/finalize.py
 
+      - name: Reconcile authoritative primary-source metadata
+        if: steps.intake.outputs.has_input == 'true'
+        run: python tools/primary_source_fixes.py
+
       - name: Validate repository
         if: steps.intake.outputs.has_input == 'true'
         run: python tools/validate.py
@@ -156,7 +160,7 @@ jobs:
           git add -A
           git commit -m "chore: process bibliography intake and OCR conversion"
           git push origin "HEAD:$branch"
-          if gh pr create --base main --head "$branch" --title "chore: process bibliography intake" --body "Automated intake for Markdown, structured text, research-note fragments, and originals; deterministic content-derived source IDs; original preservation; PDF/OCR conversion; metadata refresh; content-first exact-deduplication; and repository validation."; then
+          if gh pr create --base main --head "$branch" --title "chore: process bibliography intake" --body "Automated intake for Markdown, structured text, research-note fragments, and originals; deterministic content-derived source IDs; original preservation; PDF/OCR conversion; metadata refresh; primary-source metadata reconciliation; content-first exact-deduplication; and repository validation."; then
             echo "Generated intake PR created automatically."
           else
             echo "::warning::GitHub Actions is not permitted to create Pull Requests in this repository. The validated branch remains available for review."
