@@ -1,6 +1,6 @@
 # Κατάσταση μετατροπών PDF
 
-- Αυτόματες μετατροπές: **3**
+- Αυτόματες μετατροπές: **4**
 - Χρειάζονται περαιτέρω μετατροπή: **0**
 - Πραγματικά εκκρεμείς μετατροπές: **0**
 - Δεν απαιτούν μετατροπή λόγω οριστικής απόρριψης: **17**
@@ -182,6 +182,7 @@
 | `SRC-18D64222C0` | multiagent-systems-pr 2740350560a3678fa4cc670ce86db9d0 | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-6C2389B5D2` | Neuro-Symbolic AI in 2024: A Systematic Review | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-81ACE350D5` | NIST Issues New Artificial Intelligence Risk Management Framework | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
+| `SRC-81C66C1798` | Nitin Liladhar Rane1, *, Saurabh P. Choudhary1,2, Jayesh Rane3 | πλήρης-αυτόματη-προς-έλεγχο | ολοκληρώθηκε | όχι | καμία |
 | `SRC-0F8A6588DC` | NovGrid: A Flexible Grid World for Evaluating Agent Response to Novelty | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-8D62EF3077` | Nευρωνικά ∆ίκτυα και Eφαρμογές (βιβλίο) Π Αργυράκης.pdf | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-89BD209DAD` | Offline Policy Evaluation and Optimization under Confounding - Ambuj Tewari | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
