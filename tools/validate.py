@@ -51,7 +51,7 @@ LINKED_ORIGINAL_RE = re.compile(
 LFS_OID_RE = re.compile(rb"oid sha256:([a-f0-9]{64})", re.IGNORECASE)
 OBSOLETE_PATHS = [
     "curation", "imports", "notes", "queues", "incoming",
-    "archive", "workspace", "AGENTS.md",
+    "archive", "workspace", "AGENTS.md", "sync/main-repo-prompt.md",
 ]
 
 
@@ -287,7 +287,6 @@ def main() -> int:
         ROOT / "catalog" / "thesis-selection.csv",
         ROOT / "catalog" / "thesis-selection.md",
         ROOT / "sync" / "README.md",
-        ROOT / "sync" / "main-repo-prompt.md",
         ROOT / "new-sources" / "README.md",
         ROOT / "new-originals" / "README.md",
         ROOT / "originals" / "unidentified" / "README.md",
