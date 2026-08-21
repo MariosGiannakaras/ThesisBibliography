@@ -71,7 +71,7 @@ bibliography-integration-v3
 - 281 indexed original PDFs,
 - 1,568 integrity-covered corpus files.
 
-Το `bibliography-integration-v2` παραμένει immutable ιστορικό snapshot και δεν μετακινείται.
+Το `bibliography-integration-v2` παραμένει immutable ιστορικό snapshot και δεν μετακινείται. Τα one-time workflows που δημοσίευσαν τα ήδη παγωμένα baseline tags δεν παραμένουν ενεργά στο repository· το Git history και τα immutable tags διατηρούν το audit trail, ενώ κάθε μελλοντικό baseline δημιουργείται μόνο όταν υπάρχει νέο validated corpus και συγκεκριμένη ανάγκη συγχρονισμού.
 
 ## Συγχρονισμός
 
