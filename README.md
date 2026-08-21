@@ -6,7 +6,7 @@
 
 Το `ThesisBibliography` είναι η μοναδική πηγή αλήθειας για τη βιβλιογραφία. Εδώ διατηρούνται τα πρωτότυπα, τα μεταδεδομένα, οι πλήρεις πηγές Markdown, οι κριτικές αναλύσεις και τα επαληθευμένα αποσπάσματα.
 
-Το `resilient-ai-agents-thesis` δεν αντιγράφει ολόκληρη τη συλλογή. Όταν γίνει η μεταγενέστερη integration από την πλευρά του κύριου repository, θα καταναλώσει μόνο το ελεγχόμενο `thesis-package/` με επιλεγμένες και επαληθευμένες πηγές. Η ολοκλήρωση και η συντήρηση του παρόντος repository δεν εξαρτάται από το αν έχει ήδη γίνει αυτή η consumer-side integration.
+Το `resilient-ai-agents-thesis` καταναλώνει πλέον read-only το ελεγχόμενο, immutable `research-corpus/` μέσω συγκεκριμένου tag/commit. Το πλήρες corpus μεταφέρεται χωρίς πρωτότυπα binaries ώστε να είναι διαθέσιμο για εσωτερική έρευνα, ενώ το nested `citation-ready/` — byte-for-byte αντίγραφο του αυστηρού `thesis-package/` — είναι η μόνη αυτόματη επιφάνεια για επίσημες βιβλιογραφικές παραπομπές. Η canonical βιβλιογραφική επεξεργασία και οποιαδήποτε μελλοντική προαγωγή πηγών παραμένουν αποκλειστικά σε αυτό το repository.
 
 ---
 
@@ -145,15 +145,15 @@ evidence/SRC-XXXXXXXXXX.md
 
 ---
 
-## 5. Επιλογή για τη διπλωματική
+## 5. Επιλογή citation-ready υλικού για τη διπλωματική
 
-Η μοναδική πύλη προς το κύριο repository είναι:
+Η canonical πύλη επιλογής για το αυστηρό citation-ready υποσύνολο είναι:
 
 ```text
 catalog/thesis-selection.csv
 ```
 
-Μια πηγή εξάγεται μόνο όταν:
+Μια πηγή εντάσσεται στο `thesis-package/` και συνεπώς στο nested `research-corpus/citation-ready/` μόνο όταν:
 
 1. υπάρχει στον κύριο κατάλογο,
 2. έχει ρόλο `κύρια`, `υποστηρικτική` ή `υπόβαθρο`,
@@ -162,13 +162,13 @@ catalog/thesis-selection.csv
 5. έχει επαληθευμένα αποσπάσματα με ακριβή θέση και ισχυρισμό,
 6. έχει `Εξαγωγή=ναι`.
 
-Το `tools/export_thesis.py` απορρίπτει οποιαδήποτε μη ασφαλή επιλογή.
+Το `tools/export_thesis.py` απορρίπτει οποιαδήποτε μη ασφαλή επιλογή. Το `catalog/thesis-selection.csv` ελέγχει την formal-citation προαγωγή· δεν περιορίζει την εσωτερική ερευνητική πρόσβαση στο υπόλοιπο πλήρες corpus, το οποίο εξάγεται με ρητές trust/status ενδείξεις.
 
 ---
 
-## 6. Πακέτο προς το κύριο repository
+## 6. Πακέτα προς το κύριο repository
 
-Το παραγόμενο:
+Το αυστηρό:
 
 ```text
 thesis-package/
@@ -182,9 +182,15 @@ thesis-package/
 - επαληθευμένες αναλύσεις,
 - επαληθευμένα αποσπάσματα.
 
-Δεν περιλαμβάνει PDF, Git LFS objects, ακατέργαστες μεταγραφές, πρόχειρες αναλύσεις ή μη επιλεγμένες πηγές.
+Το πλήρες consumer export είναι:
 
-Η σύνδεση των repositories περιγράφεται στο `sync/README.md`. Η μελλοντική integration είναι pull-based, καρφιτσωμένη σε συγκεκριμένο source commit και ολοκληρώνεται μέσω Pull Request στο κύριο repository. Δεν υπάρχει push από το `ThesisBibliography` προς το thesis repo.
+```text
+research-corpus/
+```
+
+και περιλαμβάνει τις canonical πηγές Markdown, analyses, evidence, research materials, notes, aggregates και catalogs, μαζί με nested `citation-ready/` που αντιστοιχεί στο επαληθευμένο `thesis-package/`. Δεν περιλαμβάνει PDF, structured originals, Git LFS objects/pointers, intake workspaces, caches ή προσωρινά αρχεία.
+
+Η σύνδεση των repositories περιγράφεται στο `sync/README.md`. Η integration είναι pull-based και read-only από την πλευρά του thesis repo, καρφιτσωμένη σε immutable tag ή πλήρες SHA και ολοκληρώνεται μέσω Pull Request στο κύριο repository. Το τρέχον synchronized consumer baseline είναι `bibliography-integration-v3`. Δεν υπάρχει write-back ή push από το `ThesisBibliography` προς το thesis repo.
 
 ---
 
@@ -209,7 +215,8 @@ thesis-package/
 │   ├── analysis-status.md
 │   ├── thesis-selection.csv
 │   └── thesis-selection.md
-├── thesis-package/             # generated, μόνο επαληθευμένο υλικό
+├── thesis-package/             # generated, αυστηρό citation-ready υποσύνολο
+├── research-corpus/            # generated, πλήρες immutable consumer export
 ├── sync/                       # consumer integration contract
 ├── new-sources/                # προσωρινά εισερχόμενα Markdown
 ├── new-originals/              # προσωρινά εισερχόμενα PDF
@@ -224,7 +231,8 @@ thesis-package/
 |---|---|
 | **Process bibliography intake** | μοναδική αυτόματη είσοδος για νέα Markdown και/ή PDF, metadata, originals, OCR, deduplication και validation |
 | **Reconcile originals** | χειροκίνητο maintenance/retry της υπάρχουσας συλλογής πρωτοτύπων· δεν ανταγωνίζεται το intake |
-| **Thesis package** | παραγωγή/ανανέωση του ελεγχόμενου export package μέσω PR |
+| **Thesis package** | παραγωγή/ανανέωση του αυστηρού citation-ready package μέσω PR |
+| **Research corpus** | παραγωγή/ανανέωση του πλήρους consumer corpus με nested citation-ready package μέσω PR |
 | **Update metadata** | επανέλεγχος βιβλιογραφικών στοιχείων μέσω PR |
 | **Update aggregates** | ανανέωση generated συγκεντρωτικών views μέσω PR |
 | **Validate bibliography repository** | syntax, tests, δομή, exact-duplicate policy, selection και export safety |
