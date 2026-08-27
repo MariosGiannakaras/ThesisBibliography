@@ -2,7 +2,7 @@
 
 - PDF: **266**
 - Μη ταυτοποιημένα PDF που διατηρούνται: **12**
-- Σύνδεσμοι: **303**
+- Σύνδεσμοι: **307**
 - Πηγές μόνο με χρήσιμο περιεχόμενο: **21**
 - Εκκρεμούν για ταυτοποίηση: **12**
 
@@ -139,6 +139,7 @@
 | `SRC-0A4AFAC8E9` | Deep Reinforcement Learning at the Edge of the Statistical Precipice | διαθέσιμο PDF | SRC-0A4AFAC8E9.pdf |
 | `SRC-0490CF519D` | Deep Reinforcement Learning for Autonomous Driving: A Survey | διαθέσιμο PDF | SRC-0490CF519D.pdf |
 | `SRC-95C9DAEE68` | Deep reinforcement learning in non-stationary environments | διαθέσιμο PDF | SRC-95C9DAEE68.pdf |
+| `SRC-8D4F62D85D` | Deep Reinforcement Learning that Matters | μόνο σύνδεσμος | [άνοιγμα](https://arxiv.org/abs/1709.06560) |
 | `SRC-BE53B7970E` | Deep Reinforcement Learning with Double Q-learning | διαθέσιμο PDF | SRC-BE53B7970E.pdf |
 | `SRC-EAC0C17F4B` | Deep Reinforcement Learning with Unsupervised Auxiliary Tasks for Physics-Based Games - IKEE - Arist | μόνο σύνδεσμος | [άνοιγμα](https://ikee.lib.auth.gr/record/343875/) |
 | `SRC-DDCD35F7EE` | Deep Reinforcement Learning: An Overview | διαθέσιμο PDF | SRC-DDCD35F7EE.pdf |
@@ -161,6 +162,7 @@
 | `SRC-781B58434A` | Efficient Uncertainty Quantification in Deep Reinforcement Learning - TU Delft Repository | μόνο σύνδεσμος | [άνοιγμα](https://repository.tudelft.nl/record/uuid%3A310f94fd-d818-4c23-ba1f-bfff87ca5ec4) |
 | `SRC-49CA580DE9` | Emergence in Multi-Agent Systems: A Safety Perspective | διαθέσιμο PDF | SRC-49CA580DE9.pdf |
 | `SRC-E05A14A571` | Emergent Complexity and Zero-shot Transfer via Unsupervised Environment Design (PAIRED) | διαθέσιμο PDF | SRC-E05A14A571.pdf |
+| `SRC-4ED8B918E3` | Empirical Design in Reinforcement Learning | μόνο σύνδεσμος | [άνοιγμα](https://jmlr.org/papers/volume25/23-0183/23-0183.pdf) |
 | `SRC-85335DDDA6` | Empirical Study on Robustness and Resilience in Cooperative Multi-Agent Reinforcement Learning | μόνο σύνδεσμος | [άνοιγμα](https://github.com/BUAA-TrustworthyMARL/adv_marl_benchmark) |
 | `SRC-3930A38085` | Enabling Learning in Resilient Adaptive Systems: From Network Fortification to Mindful Organising | μόνο σύνδεσμος | [άνοιγμα](https://doi.org/10.3929/ethz-b-000466304) |
 | `SRC-2CEF0D3E68` | Enhanced POET: Open-Ended Reinforcement Learning through Unbounded Invention of Learning Challenges and their Solutions | διαθέσιμο PDF | SRC-2CEF0D3E68.pdf |
@@ -330,6 +332,7 @@
 | `SRC-40FD71BC15` | Leveraging the Beliefs-Desires-Intentions Agent Architecture \| Microsoft Learn | μόνο σύνδεσμος | [άνοιγμα](https://learn.microsoft.com/archive/msdn-magazine/authors/Arnaldo_Perez) |
 | `SRC-92C828647B` | Liability for harm caused by AI in healthcare- an overview of the core legal concepts - PMC | μόνο σύνδεσμος | [άνοιγμα](https://pmc.ncbi.nlm.nih.gov/articles/PMC10755877) |
 | `SRC-BCAAFDCD46` | Long-range atom-ion Rydberg molecule: A novel molecular binding mechanism | διαθέσιμο PDF | SRC-BCAAFDCD46.pdf |
+| `SRC-4C34DF3E17` | Loss of plasticity in deep continual learning | μόνο σύνδεσμος | [άνοιγμα](https://doi.org/10.1038/s41586-024-07711-7) |
 | `SRC-F020E1D46A` | Lyapunov-based Safe Policy Optimization for Continuous Control | μόνο σύνδεσμος | [άνοιγμα](https://arxiv.org/abs/1901.10031) |
 | `SRC-495952EBB9` | Make your own custom environment - Gymnasium Documentation | μόνο σύνδεσμος | [άνοιγμα](https://gymnasium.farama.org/tutorials/gymnasium_basics/environment_creation) |
 | `SRC-D0EDFCACAC` | Markov decision process - Wikipedia | μόνο σύνδεσμος | [άνοιγμα](https://en.wikipedia.org/wiki/Markov_decision_process) |
@@ -411,6 +414,7 @@
 | `SRC-64AA1D82C6` | QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning | διαθέσιμο PDF | SRC-64AA1D82C6.pdf |
 | `SRC-02987450DF` | QRES-MARL - TU Delft Repository | μόνο σύνδεσμος | [άνοιγμα](https://repository.tudelft.nl/record/uuid%3A16fb3161-1ec4-4c5d-923e-bce32717e25d) |
 | `SRC-2899809E90` | Reactive and Deliberative AI agents - Vikas Goyal | μόνο σύνδεσμος | [άνοιγμα](https://vikasgoyal.github.io/agentic/reactivedeliberativeagents.html) |
+| `SRC-BB0C3989A1` | Reactive Exploration to Cope with Non-Stationarity in Lifelong Reinforcement Learning | μόνο σύνδεσμος | [άνοιγμα](https://arxiv.org/abs/2207.05742) |
 | `SRC-8544F25BD9` | Reactive vs Deliberative AI Agents - GeeksforGeeks | μόνο σύνδεσμος | [άνοιγμα](https://geeksforgeeks.org/artificial-intelligence/reactive-vs-deliberative-ai-agents) |
 | `SRC-B58805342F` | Realizable Continuous-Space Shields for Safe Reinforcement Learning | μόνο σύνδεσμος | [άνοιγμα](https://arxiv.org/abs/2410.02038) |
 | `SRC-BA587AB772` | Recent Advances in Deep Reinforcement Learning Applications for Solving Partially Observable Markov Decision Processes (POMDP) Problems: Part 1—Fundamentals and Applications in Games, Robotics and Natural Language Processing | μόνο σύνδεσμος | [άνοιγμα](https://doi.org/10.3390/make3030029) |
