@@ -33,6 +33,7 @@ SRC-211B10ADBA,A Survey Analyzing Generalization in Deep Reinforcement Learning,
 SRC-F909CABDEB,A Survey of Continual Reinforcement Learning,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,υποστηρικτική,ναι
 SRC-AABAFA12BF,A Survey of Human-in-the-Loop Reinforcement Learning for Critical Systems,μεσαία,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-DFFF269D33,A Survey of Multi-Agent Deep Reinforcement Learning with Communication,υψηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
+SRC-8025C139CE,A Survey of Reinforcement Learning Algorithms for Dynamically Varying Environments,χρειάζεται διόρθωση,ελλιπές κείμενο,επαληθευμένη,επαληθευμένο,,όχι
 SRC-60ECE049E6,A Survey of Reinforcement Learning For Economics,υψηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-BE5B937542,A Survey of Safe Reinforcement Learning and Constrained MDPs: A Technical Survey on Single-Agent and Multi-Agent Safety,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,υποστηρικτική,ναι
 SRC-21EBE15D15,A Survey of Zero-shot Generalisation in Deep Reinforcement Learning,χαμηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
@@ -293,6 +294,7 @@ SRC-7574A4DDCC,ilide.info-agentic-ai-projects-pr 8274957092840810572421abca7eb2c
 SRC-405E00D8AB,ilide.info-ai-agents-and-automation-trends-2025-ebook-pr 1457e778f93e4de20f71dbd2371b0937,μεσαία,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-255529AC11,ilide.info-mastering-multi-agent-systems-pr 03b6784b619ed204bafad6a04a2f6b46,μεσαία,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-A87F481B4C,Implementing the Deep Q-Network,χαμηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
+SRC-F6BD3A6B18,Integrated Modeling and Control Based on Reinforcement Learning and Dynamic Programming,χρειάζεται διόρθωση,ελλιπές κείμενο,επαληθευμένη,επαληθευμένο,,όχι
 SRC-BAEE694D5B,Intelligent agent - Wikipedia,χαμηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-5DFB680F53,Interaction-Breaking Adversarial Learning Framework for Robust Multi-Agent Reinforcement Learning,μεσαία,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-503A8B421C,Interpretable Operations Research for High-Sta... - Πέργαμος,μεσαία,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
@@ -351,6 +353,7 @@ SRC-A5DF23299C,On the Definition of Robustness and Resilience of AI Agents for R
 SRC-CF2FB64E6A,On the Generalization of Representations in Reinforcement Learning,υψηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-FC22553C08,On the Generalization of Representations in Reinforcement Learning,μεσαία,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-51561BFA26,ON THE RESILIENCE OF MULTI-AGENT SYSTEMS WITH MALICIOUS AGENTS,υψηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,πρόχειρο,απόρριψη,όχι
+SRC-D20C157084,On-line Q-learning using connectionist systems,χρειάζεται διόρθωση,ελλιπές κείμενο,πρόχειρη,κανένα,,όχι
 SRC-73DA396BA9,Online MDP with Transition Prototypes: A Robust Adaptive Approach,μεσαία,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
 SRC-2573249C69,Online Policy Optimization for Robust Markov Decision Process,χρειάζεται διόρθωση,ελλιπές κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-FBFDD51DA0,Online Policy Optimization for Robust Markov Decision Process - GitHub,υψηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
@@ -393,6 +396,7 @@ SRC-3A71103B05,Princeton University Lectures - Foundations of Reinforcement Lear
 SRC-A203ABEEFE,Prioritized Experience Replay,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,υποστηρικτική,ναι
 SRC-6C5FB230E1,Procedural Content Generation via Machine Learning (PCGML),χαμηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-CD5F67F3E6,Proximal Policy Optimization Algorithms,χαμηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,υπόβαθρο,ναι
+SRC-AD8A2E9A85,Q-learning,χρειάζεται διόρθωση,ελλιπές κείμενο,επαληθευμένη,επαληθευμένο,,όχι
 SRC-64AA1D82C6,QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning,υψηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-02987450DF,QRES-MARL - TU Delft Repository,μεσαία,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-2899809E90,Reactive and Deliberative AI agents - Vikas Goyal,μεσαία,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
@@ -506,6 +510,7 @@ SRC-3174B1019C,the-rise-of-ai-agents-unleashing-productivity-and-innovation-emea
 SRC-E5CA725A6C,thesis.pdf,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
 SRC-E33EBFE4F4,Toward theoretical understandings of robust Markov decision processes- Sample complexity and asympto,χρειάζεται διόρθωση,μόνο μεταδεδομένα,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-732D12A2CC,Towards a Science of AI Agent Reliability,μεσαία,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
+SRC-39696F490F,Towards Continual Reinforcement Learning: A Review and Perspectives,χρειάζεται διόρθωση,ελλιπές κείμενο,επαληθευμένη,επαληθευμένο,,όχι
 SRC-958647DE4E,Towards Deep Learning Models Resistant to Adversarial Attacks,χαμηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-DA324C815B,Towards Optimal Offline Reinforcement Learning,υψηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-E7E736ACE8,Towards Out-Of-Distribution Generalization: A Survey,υψηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
