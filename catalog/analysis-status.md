@@ -1,15 +1,15 @@
 # Κατάσταση αναλύσεων
 
-- Σύνολο ενεργών πηγών: **593**
-- Οριστικές αποφάσεις: **592**
-  - Επιλεγμένες/επαληθευμένες: **121**
+- Σύνολο ενεργών πηγών: **597**
+- Οριστικές αποφάσεις: **596**
+  - Επιλεγμένες/επαληθευμένες: **125**
   - Απορριφθείσες: **469**
   - Ελεγμένες ως θεωρητικό υλικό χωρίς citation export: **2**
 - Εκκρεμείς συνολικά: **1**
   - Χωρίς ανάλυση: **0**
   - Πρόχειρες/μη citation-ready: **1**
-- Επαληθευμένα αρχεία αποσπασμάτων: **121**
-- Επιλεγμένες για εξαγωγή: **117**
+- Επαληθευμένα αρχεία αποσπασμάτων: **125**
+- Επιλεγμένες για εξαγωγή: **121**
 
 > Η αναφορά παράγεται από το τρέχον `catalog/sources.csv`, τα canonical `analyses/` και τα verified `evidence/`. Παλιές generated rows δεν χρησιμοποιούνται ως πηγή αλήθειας.
 
@@ -311,6 +311,7 @@
 | `SRC-7574A4DDCC` | ilide.info-agentic-ai-projects-pr 8274957092840810572421abca7eb2c6 | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-405E00D8AB` | ilide.info-ai-agents-and-automation-trends-2025-ebook-pr 1457e778f93e4de20f71dbd2371b0937 | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-255529AC11` | ilide.info-mastering-multi-agent-systems-pr 03b6784b619ed204bafad6a04a2f6b46 | απορρίφθηκε | κανένα | απόρριψη | όχι |
+| `SRC-5D0E7E5BD7` | Implementation Matters in Deep Policy Gradients: A Case Study on PPO and TRPO | επαληθευμένη | επαληθευμένο | κύρια | ναι |
 | `SRC-A87F481B4C` | Implementing the Deep Q-Network | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-F6BD3A6B18` | Integrated Modeling and Control Based on Reinforcement Learning and Dynamic Programming | επαληθευμένη | επαληθευμένο |  | όχι |
 | `SRC-BAEE694D5B` | Intelligent agent - Wikipedia | απορρίφθηκε | κανένα | απόρριψη | όχι |
@@ -443,6 +444,7 @@
 | `SRC-D4C8A4B1BF` | Resilience and Resilient Systems of Artificial Intelligence: Taxonomy, Models and Methods | επαληθευμένη | επαληθευμένο | υποστηρικτική | ναι |
 | `SRC-D0A02E4877` | Resilient Machine Learning in Space Systems: Pose Estimation as a Case Study \| IEEE Conference Publication \| IEEE Xplore IEEE Account | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-47085E14BA` | Resilient Multi-Agent Reinforcement Learning with Adversarial Value Decomposition | απορρίφθηκε | πρόχειρο | απόρριψη | όχι |
+| `SRC-CBA29E303A` | Revisiting Fundamentals of Experience Replay | επαληθευμένη | επαληθευμένο | κύρια | ναι |
 | `SRC-3EEF180BD3` | Reward Hacking in Language Model Agents: Revisiting AI Safety Gridworlds | απορρίφθηκε | πρόχειρο | απόρριψη | όχι |
 | `SRC-E36400B5EB` | Reward Machines- Effects of Noisy Labelling Functions in Complex Grid Environments in Reinforcement | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-D6A6F6F96E` | Reward shaping — Mastering Reinforcement Learning | απορρίφθηκε | πρόχειρο | απόρριψη | όχι |
@@ -521,12 +523,14 @@
 | `SRC-B1CC6687F0` | The Architecture, Application, and Alignment Challenges of Autonomous AI Agents: A Comprehensive Technical Analysis | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-528EB94EA8` | The Curious Price of Distributional Robustness in Reinforcement Learning- | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-C115B0240F` | The Law of AI is the Law of Risky Agents Without Intentions | απορρίφθηκε | κανένα | απόρριψη | όχι |
+| `SRC-46CF36BC1E` | The Primacy Bias in Deep Reinforcement Learning | επαληθευμένη | επαληθευμένο | υποστηρικτική | ναι |
 | `SRC-643DB6CBFE` | The Resilience Gap Holding Back AI Performance - Disaster Recovery Journal | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-A76BF5B717` | The Schubert normal form of a 3-bridge link and the 3-bridge link group | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-7F30DDB0B2` | The Ultimate Guide to Local AI and AI Agents (The Future is Here) | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-BFD3447AEF` | The-Rise-of-Agents | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-3174B1019C` | the-rise-of-ai-agents-unleashing-productivity-and-innovation-emea | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-E5CA725A6C` | thesis.pdf | επαληθευμένη | επαληθευμένο | κύρια | ναι |
+| `SRC-69D02D7E25` | Time Limits in Reinforcement Learning | επαληθευμένη | επαληθευμένο | κύρια | ναι |
 | `SRC-E33EBFE4F4` | Toward theoretical understandings of robust Markov decision processes- Sample complexity and asympto | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-732D12A2CC` | Towards a Science of AI Agent Reliability | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-39696F490F` | Towards Continual Reinforcement Learning: A Review and Perspectives | επαληθευμένη | επαληθευμένο |  | όχι |
