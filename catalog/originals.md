@@ -2,7 +2,7 @@
 
 - PDF: **266**
 - Μη ταυτοποιημένα PDF που διατηρούνται: **12**
-- Σύνδεσμοι: **306**
+- Σύνδεσμοι: **310**
 - Πηγές μόνο με χρήσιμο περιεχόμενο: **21**
 - Εκκρεμούν για ταυτοποίηση: **12**
 
@@ -306,6 +306,7 @@
 | `SRC-7574A4DDCC` | ilide.info-agentic-ai-projects-pr 8274957092840810572421abca7eb2c6 | διαθέσιμο PDF | SRC-7574A4DDCC.pdf |
 | `SRC-405E00D8AB` | ilide.info-ai-agents-and-automation-trends-2025-ebook-pr 1457e778f93e4de20f71dbd2371b0937 | διαθέσιμο PDF | SRC-405E00D8AB.pdf |
 | `SRC-255529AC11` | ilide.info-mastering-multi-agent-systems-pr 03b6784b619ed204bafad6a04a2f6b46 | διαθέσιμο PDF | SRC-255529AC11.pdf |
+| `SRC-5D0E7E5BD7` | Implementation Matters in Deep Policy Gradients: A Case Study on PPO and TRPO | μόνο σύνδεσμος | [άνοιγμα](https://arxiv.org/abs/2005.12729) |
 | `SRC-A87F481B4C` | Implementing the Deep Q-Network | μόνο σύνδεσμος | [άνοιγμα](https://arxiv.org/abs/1711.07478) |
 | `SRC-F6BD3A6B18` | Integrated Modeling and Control Based on Reinforcement Learning and Dynamic Programming | μόνο σύνδεσμος | [άνοιγμα](https://proceedings.neurips.cc/paper/1990/file/d9fc5b73a8d78fad3d6dffe419384e70-Paper.pdf) |
 | `SRC-BAEE694D5B` | Intelligent agent - Wikipedia | μόνο σύνδεσμος | [άνοιγμα](https://en.wikipedia.org/wiki/Intelligent_agent) |
@@ -438,6 +439,7 @@
 | `SRC-D4C8A4B1BF` | Resilience and Resilient Systems of Artificial Intelligence: Taxonomy, Models and Methods | μόνο σύνδεσμος | [άνοιγμα](https://doi.org/10.3390/a16030165) |
 | `SRC-D0A02E4877` | Resilient Machine Learning in Space Systems: Pose Estimation as a Case Study \| IEEE Conference Publication \| IEEE Xplore IEEE Account | μόνο σύνδεσμος | [άνοιγμα](https://ieeexplore.ieee.org/document/9843671) |
 | `SRC-47085E14BA` | Resilient Multi-Agent Reinforcement Learning with Adversarial Value Decomposition | διαθέσιμο PDF | SRC-47085E14BA.pdf |
+| `SRC-CBA29E303A` | Revisiting Fundamentals of Experience Replay | μόνο σύνδεσμος | [άνοιγμα](https://proceedings.mlr.press/v119/fedus20a.html) |
 | `SRC-3EEF180BD3` | Reward Hacking in Language Model Agents: Revisiting AI Safety Gridworlds | διαθέσιμο PDF | SRC-3EEF180BD3.pdf |
 | `SRC-E36400B5EB` | Reward Machines- Effects of Noisy Labelling Functions in Complex Grid Environments in Reinforcement | μόνο σύνδεσμος | [άνοιγμα](https://fse.studenttheses.ub.rug.nl/33501/) |
 | `SRC-D6A6F6F96E` | Reward shaping — Mastering Reinforcement Learning | διαθέσιμο PDF | SRC-D6A6F6F96E.pdf |
@@ -516,12 +518,14 @@
 | `SRC-B1CC6687F0` | The Architecture, Application, and Alignment Challenges of Autonomous AI Agents: A Comprehensive Technical Analysis | διαθέσιμο περιεχόμενο | SRC-B1CC6687F0.md |
 | `SRC-528EB94EA8` | The Curious Price of Distributional Robustness in Reinforcement Learning- | μόνο σύνδεσμος | [άνοιγμα](https://www.youtube.com/watch?v=tPaSxFvpAnY) |
 | `SRC-C115B0240F` | The Law of AI is the Law of Risky Agents Without Intentions | μόνο σύνδεσμος | [άνοιγμα](https://lawreview.uchicago.edu/online-archive/law-ai-law-risky-agents-without-intentions) |
+| `SRC-46CF36BC1E` | The Primacy Bias in Deep Reinforcement Learning | μόνο σύνδεσμος | [άνοιγμα](https://proceedings.mlr.press/v162/nikishin22a.html) |
 | `SRC-643DB6CBFE` | The Resilience Gap Holding Back AI Performance - Disaster Recovery Journal | μόνο σύνδεσμος | [άνοιγμα](https://drj.com/journal_main/ai-resilience-gap-performance) |
 | `SRC-A76BF5B717` | The Schubert normal form of a 3-bridge link and the 3-bridge link group | μόνο σύνδεσμος | [άνοιγμα](https://arxiv.org/abs/1703.00041) |
 | `SRC-7F30DDB0B2` | The Ultimate Guide to Local AI and AI Agents (The Future is Here) | μόνο σύνδεσμος | [άνοιγμα](https://www.youtube.com/watch?v=mNcXue7X8H0) |
 | `SRC-BFD3447AEF` | The-Rise-of-Agents | διαθέσιμο PDF | SRC-BFD3447AEF.pdf |
 | `SRC-3174B1019C` | the-rise-of-ai-agents-unleashing-productivity-and-innovation-emea | διαθέσιμο PDF | SRC-3174B1019C.pdf |
 | `SRC-E5CA725A6C` | thesis.pdf | διαθέσιμο περιεχόμενο | SRC-E5CA725A6C.md |
+| `SRC-69D02D7E25` | Time Limits in Reinforcement Learning | μόνο σύνδεσμος | [άνοιγμα](https://proceedings.mlr.press/v80/pardo18a.html) |
 | `SRC-E33EBFE4F4` | Toward theoretical understandings of robust Markov decision processes- Sample complexity and asympto | διαθέσιμο PDF | SRC-E33EBFE4F4.pdf |
 | `SRC-732D12A2CC` | Towards a Science of AI Agent Reliability | διαθέσιμο PDF | SRC-732D12A2CC.pdf |
 | `SRC-39696F490F` | Towards Continual Reinforcement Learning: A Review and Perspectives | μόνο σύνδεσμος | [άνοιγμα](https://arxiv.org/abs/2012.13490) |

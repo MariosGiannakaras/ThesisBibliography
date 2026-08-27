@@ -295,6 +295,7 @@ SRC-DF262CEA9A,IEEE P7001: A Proposed Standard on Transparency,διαθέσιμ�
 SRC-7574A4DDCC,ilide.info-agentic-ai-projects-pr 8274957092840810572421abca7eb2c6,διαθέσιμο PDF,SRC-7574A4DDCC.pdf,,0,,αρχειακό πρωτότυπο
 SRC-405E00D8AB,ilide.info-ai-agents-and-automation-trends-2025-ebook-pr 1457e778f93e4de20f71dbd2371b0937,διαθέσιμο PDF,SRC-405E00D8AB.pdf,,0,,αρχειακό πρωτότυπο
 SRC-255529AC11,ilide.info-mastering-multi-agent-systems-pr 03b6784b619ed204bafad6a04a2f6b46,διαθέσιμο PDF,SRC-255529AC11.pdf,,0,,αρχειακό πρωτότυπο
+SRC-5D0E7E5BD7,Implementation Matters in Deep Policy Gradients: A Case Study on PPO and TRPO,μόνο σύνδεσμος,SRC-5D0E7E5BD7.url,https://arxiv.org/abs/2005.12729,1,,δεν βρέθηκε δημόσιο PDF· διατηρείται ο σύνδεσμος
 SRC-A87F481B4C,Implementing the Deep Q-Network,μόνο σύνδεσμος,SRC-A87F481B4C.url,https://arxiv.org/abs/1711.07478,1,,δεν βρέθηκε δημόσιο PDF· διατηρείται ο σύνδεσμος
 SRC-F6BD3A6B18,Integrated Modeling and Control Based on Reinforcement Learning and Dynamic Programming,μόνο σύνδεσμος,SRC-F6BD3A6B18.url,https://proceedings.neurips.cc/paper/1990/file/d9fc5b73a8d78fad3d6dffe419384e70-Paper.pdf,1,,δεν βρέθηκε δημόσιο PDF· διατηρείται ο σύνδεσμος
 SRC-BAEE694D5B,Intelligent agent - Wikipedia,μόνο σύνδεσμος,SRC-BAEE694D5B.url,https://en.wikipedia.org/wiki/Intelligent_agent,1,,δεν βρέθηκε δημόσιο PDF· διατηρείται ο σύνδεσμος
@@ -427,6 +428,7 @@ SRC-A281BA721E,"Resilience and Resilient Systems of Artificial Intelligence- Tax
 SRC-D4C8A4B1BF,"Resilience and Resilient Systems of Artificial Intelligence: Taxonomy, Models and Methods",μόνο σύνδεσμος,SRC-D4C8A4B1BF.url,https://doi.org/10.3390/a16030165,1,,δεν βρέθηκε δημόσιο PDF· διατηρείται ο σύνδεσμος
 SRC-D0A02E4877,Resilient Machine Learning in Space Systems: Pose Estimation as a Case Study | IEEE Conference Publication | IEEE Xplore IEEE Account,μόνο σύνδεσμος,SRC-D0A02E4877.url,https://ieeexplore.ieee.org/document/9843671,1,,δεν βρέθηκε δημόσιο PDF· διατηρείται ο σύνδεσμος
 SRC-47085E14BA,Resilient Multi-Agent Reinforcement Learning with Adversarial Value Decomposition,διαθέσιμο PDF,SRC-47085E14BA.pdf,https://doi.org/10.1609/aaai.v35i13.17348,0,,αρχειακό πρωτότυπο
+SRC-CBA29E303A,Revisiting Fundamentals of Experience Replay,μόνο σύνδεσμος,SRC-CBA29E303A.url,https://proceedings.mlr.press/v119/fedus20a.html,1,,δεν βρέθηκε δημόσιο PDF· διατηρείται ο σύνδεσμος
 SRC-3EEF180BD3,Reward Hacking in Language Model Agents: Revisiting AI Safety Gridworlds,διαθέσιμο PDF,SRC-3EEF180BD3.pdf,https://arxiv.org/abs/2606.15385,0,,αρχειακό πρωτότυπο
 SRC-E36400B5EB,Reward Machines- Effects of Noisy Labelling Functions in Complex Grid Environments in Reinforcement,μόνο σύνδεσμος,SRC-E36400B5EB.url,https://fse.studenttheses.ub.rug.nl/33501/,1,,δεν βρέθηκε δημόσιο PDF· διατηρείται ο σύνδεσμος
 SRC-D6A6F6F96E,Reward shaping — Mastering Reinforcement Learning,διαθέσιμο PDF,SRC-D6A6F6F96E.pdf,https://gibberblot.github.io/rl-notes/single-agent/reward-shaping.html,0,,αρχειακό πρωτότυπο
@@ -505,12 +507,14 @@ SRC-D19D1DF801,Sutton & Barto Gridworld example in C# - Davide Lettieri,μόνο
 SRC-B1CC6687F0,"The Architecture, Application, and Alignment Challenges of Autonomous AI Agents: A Comprehensive Technical Analysis",διαθέσιμο περιεχόμενο,SRC-B1CC6687F0.md,,0,,"διατηρείται επειδή περιέχει χρήσιμες πληροφορίες, ανάλυση ή αποσπάσματα"
 SRC-528EB94EA8,The Curious Price of Distributional Robustness in Reinforcement Learning-,μόνο σύνδεσμος,SRC-528EB94EA8.url,https://www.youtube.com/watch?v=tPaSxFvpAnY,1,,δεν βρέθηκε δημόσιο PDF· διατηρείται ο σύνδεσμος
 SRC-C115B0240F,The Law of AI is the Law of Risky Agents Without Intentions,μόνο σύνδεσμος,SRC-C115B0240F.url,https://lawreview.uchicago.edu/online-archive/law-ai-law-risky-agents-without-intentions,1,,δεν βρέθηκε δημόσιο PDF· διατηρείται ο σύνδεσμος
+SRC-46CF36BC1E,The Primacy Bias in Deep Reinforcement Learning,μόνο σύνδεσμος,SRC-46CF36BC1E.url,https://proceedings.mlr.press/v162/nikishin22a.html,1,,δεν βρέθηκε δημόσιο PDF· διατηρείται ο σύνδεσμος
 SRC-643DB6CBFE,The Resilience Gap Holding Back AI Performance - Disaster Recovery Journal,μόνο σύνδεσμος,SRC-643DB6CBFE.url,https://drj.com/journal_main/ai-resilience-gap-performance,1,,δεν βρέθηκε δημόσιο PDF· διατηρείται ο σύνδεσμος
 SRC-A76BF5B717,The Schubert normal form of a 3-bridge link and the 3-bridge link group,μόνο σύνδεσμος,SRC-A76BF5B717.url,https://arxiv.org/abs/1703.00041,1,,δεν βρέθηκε δημόσιο PDF· διατηρείται ο σύνδεσμος
 SRC-7F30DDB0B2,The Ultimate Guide to Local AI and AI Agents (The Future is Here),μόνο σύνδεσμος,SRC-7F30DDB0B2.url,https://www.youtube.com/watch?v=mNcXue7X8H0,1,,δεν βρέθηκε δημόσιο PDF· διατηρείται ο σύνδεσμος
 SRC-BFD3447AEF,The-Rise-of-Agents,διαθέσιμο PDF,SRC-BFD3447AEF.pdf,,0,,αρχειακό πρωτότυπο
 SRC-3174B1019C,the-rise-of-ai-agents-unleashing-productivity-and-innovation-emea,διαθέσιμο PDF,SRC-3174B1019C.pdf,,0,,αρχειακό πρωτότυπο
 SRC-E5CA725A6C,thesis.pdf,διαθέσιμο περιεχόμενο,SRC-E5CA725A6C.md,,0,,"διατηρείται επειδή περιέχει χρήσιμες πληροφορίες, ανάλυση ή αποσπάσματα"
+SRC-69D02D7E25,Time Limits in Reinforcement Learning,μόνο σύνδεσμος,SRC-69D02D7E25.url,https://proceedings.mlr.press/v80/pardo18a.html,1,,δεν βρέθηκε δημόσιο PDF· διατηρείται ο σύνδεσμος
 SRC-E33EBFE4F4,Toward theoretical understandings of robust Markov decision processes- Sample complexity and asympto,διαθέσιμο PDF,SRC-E33EBFE4F4.pdf,https://projecteuclid.org/journals/annals-of-statistics/volume-50/issue-6/Toward-theoretical-understandings-of-robust-Markov-decision-processes--Sample/10.1214/22-AOS2225.pdf,0,,αρχειακό πρωτότυπο
 SRC-732D12A2CC,Towards a Science of AI Agent Reliability,διαθέσιμο PDF,SRC-732D12A2CC.pdf,https://arxiv.org/abs/2602.16666,0,,αρχειακό πρωτότυπο
 SRC-39696F490F,Towards Continual Reinforcement Learning: A Review and Perspectives,μόνο σύνδεσμος,SRC-39696F490F.url,https://arxiv.org/abs/2012.13490,1,,δεν βρέθηκε δημόσιο PDF· διατηρείται ο σύνδεσμος
