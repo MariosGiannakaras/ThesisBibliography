@@ -2,7 +2,7 @@
 
 - PDF: **266**
 - Μη ταυτοποιημένα PDF που διατηρούνται: **12**
-- Σύνδεσμοι: **298**
+- Σύνδεσμοι: **303**
 - Πηγές μόνο με χρήσιμο περιεχόμενο: **21**
 - Εκκρεμούν για ταυτοποίηση: **12**
 
@@ -44,6 +44,7 @@
 | `SRC-F909CABDEB` | A Survey of Continual Reinforcement Learning | διαθέσιμο PDF | SRC-F909CABDEB.pdf |
 | `SRC-AABAFA12BF` | A Survey of Human-in-the-Loop Reinforcement Learning for Critical Systems | διαθέσιμο περιεχόμενο | SRC-AABAFA12BF.md |
 | `SRC-DFFF269D33` | A Survey of Multi-Agent Deep Reinforcement Learning with Communication | διαθέσιμο PDF | SRC-DFFF269D33.pdf |
+| `SRC-8025C139CE` | A Survey of Reinforcement Learning Algorithms for Dynamically Varying Environments | μόνο σύνδεσμος | [άνοιγμα](https://arxiv.org/abs/2005.10619) |
 | `SRC-60ECE049E6` | A Survey of Reinforcement Learning For Economics | διαθέσιμο PDF | SRC-60ECE049E6.pdf |
 | `SRC-BE5B937542` | A Survey of Safe Reinforcement Learning and Constrained MDPs: A Technical Survey on Single-Agent and Multi-Agent Safety | διαθέσιμο PDF | SRC-BE5B937542.pdf |
 | `SRC-21EBE15D15` | A Survey of Zero-shot Generalisation in Deep Reinforcement Learning | διαθέσιμο PDF | SRC-21EBE15D15.pdf |
@@ -84,6 +85,7 @@
 | `SRC-9CC11ECF41` | Approximate Bilevel Difference Convex Programming for Bayesian Risk Markov Decision Processes | διαθέσιμο PDF | SRC-9CC11ECF41.pdf |
 | `SRC-8FC523FC42` | Architecture strategies for self-healing and self-preservation - Microsoft Azure Well-Architected Fr | μόνο σύνδεσμος | [άνοιγμα](https://learn.microsoft.com/en-us/azure/well-architected/reliability/self-preservation) |
 | `SRC-F101A94B6F` | Artificial Intelligence - foundations of computational agents | μόνο σύνδεσμος | [άνοιγμα](https://cs.ubc.ca/~poole/aibook/html/index.html) |
+| `SRC-81C66C1798` | Artificial intelligence for enhancing resilience | διαθέσιμο PDF | SRC-81C66C1798.pdf |
 | `SRC-486FAE4C93` | Artificial Intelligence Risk Management Framework (AI RMF 1.0) NIST AI 100-1 | διαθέσιμο PDF | SRC-486FAE4C93.pdf |
 | `SRC-0882A9B2B0` | Assessing Generalization in Deep Reinforcement Learning | διαθέσιμο PDF | SRC-0882A9B2B0.pdf |
 | `SRC-41B78C510C` | Autonomous Driving with Deep Reinforcement Learning in CARLA Simulation | διαθέσιμο PDF | SRC-41B78C510C.pdf |
@@ -303,6 +305,7 @@
 | `SRC-405E00D8AB` | ilide.info-ai-agents-and-automation-trends-2025-ebook-pr 1457e778f93e4de20f71dbd2371b0937 | διαθέσιμο PDF | SRC-405E00D8AB.pdf |
 | `SRC-255529AC11` | ilide.info-mastering-multi-agent-systems-pr 03b6784b619ed204bafad6a04a2f6b46 | διαθέσιμο PDF | SRC-255529AC11.pdf |
 | `SRC-A87F481B4C` | Implementing the Deep Q-Network | μόνο σύνδεσμος | [άνοιγμα](https://arxiv.org/abs/1711.07478) |
+| `SRC-F6BD3A6B18` | Integrated Modeling and Control Based on Reinforcement Learning and Dynamic Programming | μόνο σύνδεσμος | [άνοιγμα](https://proceedings.neurips.cc/paper/1990/file/d9fc5b73a8d78fad3d6dffe419384e70-Paper.pdf) |
 | `SRC-BAEE694D5B` | Intelligent agent - Wikipedia | μόνο σύνδεσμος | [άνοιγμα](https://en.wikipedia.org/wiki/Intelligent_agent) |
 | `SRC-5DFB680F53` | Interaction-Breaking Adversarial Learning Framework for Robust Multi-Agent Reinforcement Learning | διαθέσιμο PDF | SRC-5DFB680F53.pdf |
 | `SRC-503A8B421C` | Interpretable Operations Research for High-Sta... - Πέργαμος | μόνο σύνδεσμος | [άνοιγμα](https://pergamos.lib.uoa.gr/uoa/dl/object/3344931) |
@@ -352,7 +355,6 @@
 | `SRC-6C2389B5D2` | Neuro-Symbolic AI in 2024: A Systematic Review | διαθέσιμο PDF | SRC-6C2389B5D2.pdf |
 | `SRC-D5D57992D2` | NIST AI RMF Playbook - NIST | μόνο σύνδεσμος | [άνοιγμα](https://nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook) |
 | `SRC-81ACE350D5` | NIST Issues New Artificial Intelligence Risk Management Framework | διαθέσιμο PDF | SRC-81ACE350D5.pdf |
-| `SRC-81C66C1798` | Nitin Liladhar Rane1, *, Saurabh P. Choudhary1,2, Jayesh Rane3 | διαθέσιμο PDF | SRC-81C66C1798.pdf |
 | `SRC-0F8A6588DC` | NovGrid: A Flexible Grid World for Evaluating Agent Response to Novelty | διαθέσιμο PDF | SRC-0F8A6588DC.pdf |
 | `SRC-8D62EF3077` | Nευρωνικά ∆ίκτυα και Eφαρμογές (βιβλίο) Π Αργυράκης.pdf | διαθέσιμο PDF | SRC-8D62EF3077.pdf |
 | `SRC-1B6E17DDF1` | Observational Robustness and Invariances in Reinforcement Learning via Lexicographic Objectives \| OpenReview | διαθέσιμο περιεχόμενο | SRC-1B6E17DDF1.md |
@@ -362,6 +364,7 @@
 | `SRC-CF2FB64E6A` | On the Generalization of Representations in Reinforcement Learning | διαθέσιμο PDF | SRC-CF2FB64E6A.pdf |
 | `SRC-FC22553C08` | On the Generalization of Representations in Reinforcement Learning | μόνο σύνδεσμος | [άνοιγμα](https://research.google/pubs/on-the-generalization-of-representations-in-reinforcement-learning/) |
 | `SRC-51561BFA26` | ON THE RESILIENCE OF MULTI-AGENT SYSTEMS WITH MALICIOUS AGENTS | μόνο σύνδεσμος | [άνοιγμα](https://openreview.net/pdf?id=Bp2axGAs18) |
+| `SRC-D20C157084` | On-line Q-learning using connectionist systems | μόνο σύνδεσμος | [άνοιγμα](http://mi.eng.cam.ac.uk/reports/svr-ftp/auto-pdf/rummery_tr166.pdf) |
 | `SRC-73DA396BA9` | Online MDP with Transition Prototypes: A Robust Adaptive Approach | διαθέσιμο PDF | SRC-73DA396BA9.pdf |
 | `SRC-2573249C69` | Online Policy Optimization for Robust Markov Decision Process | μόνο σύνδεσμος | [άνοιγμα](https://openreview.net/forum?id=VS8EPaCSY1) |
 | `SRC-FBFDD51DA0` | Online Policy Optimization for Robust Markov Decision Process - GitHub | διαθέσιμο PDF | SRC-FBFDD51DA0.pdf |
@@ -404,6 +407,7 @@
 | `SRC-A203ABEEFE` | Prioritized Experience Replay | διαθέσιμο PDF | SRC-A203ABEEFE.pdf |
 | `SRC-6C5FB230E1` | Procedural Content Generation via Machine Learning (PCGML) | μόνο σύνδεσμος | [άνοιγμα](https://arxiv.org/abs/1702.00539) |
 | `SRC-CD5F67F3E6` | Proximal Policy Optimization Algorithms | μόνο σύνδεσμος | [άνοιγμα](https://arxiv.org/abs/1707.06347) |
+| `SRC-AD8A2E9A85` | Q-learning | μόνο σύνδεσμος | [άνοιγμα](https://gatsby.ucl.ac.uk/~dayan/papers/cjch.pdf) |
 | `SRC-64AA1D82C6` | QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning | διαθέσιμο PDF | SRC-64AA1D82C6.pdf |
 | `SRC-02987450DF` | QRES-MARL - TU Delft Repository | μόνο σύνδεσμος | [άνοιγμα](https://repository.tudelft.nl/record/uuid%3A16fb3161-1ec4-4c5d-923e-bce32717e25d) |
 | `SRC-2899809E90` | Reactive and Deliberative AI agents - Vikas Goyal | μόνο σύνδεσμος | [άνοιγμα](https://vikasgoyal.github.io/agentic/reactivedeliberativeagents.html) |
@@ -517,6 +521,7 @@
 | `SRC-E5CA725A6C` | thesis.pdf | διαθέσιμο περιεχόμενο | SRC-E5CA725A6C.md |
 | `SRC-E33EBFE4F4` | Toward theoretical understandings of robust Markov decision processes- Sample complexity and asympto | διαθέσιμο PDF | SRC-E33EBFE4F4.pdf |
 | `SRC-732D12A2CC` | Towards a Science of AI Agent Reliability | διαθέσιμο PDF | SRC-732D12A2CC.pdf |
+| `SRC-39696F490F` | Towards Continual Reinforcement Learning: A Review and Perspectives | μόνο σύνδεσμος | [άνοιγμα](https://arxiv.org/abs/2012.13490) |
 | `SRC-958647DE4E` | Towards Deep Learning Models Resistant to Adversarial Attacks | μόνο σύνδεσμος | [άνοιγμα](https://arxiv.org/abs/1706.06083) |
 | `SRC-DA324C815B` | Towards Optimal Offline Reinforcement Learning | διαθέσιμο PDF | SRC-DA324C815B.pdf |
 | `SRC-E7E736ACE8` | Towards Out-Of-Distribution Generalization: A Survey | διαθέσιμο PDF | SRC-E7E736ACE8.pdf |

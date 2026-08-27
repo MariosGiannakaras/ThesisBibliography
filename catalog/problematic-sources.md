@@ -11,6 +11,7 @@
 | `SRC-AE8219876F` | [Lecture] Monte Carlo evaluation and control: A Gridworld Example \| Intro to Markov Chains and RL | σύνδεσμος |
 | `SRC-F82F4BD836` | A Safe Reinforcement Learning Approach for Ene... - Pergamos | σύνδεσμος, τύπος πηγής |
 | `SRC-AABAFA12BF` | A Survey of Human-in-the-Loop Reinforcement Learning for Critical Systems | σύνδεσμος, επιβεβαίωση μεταδεδομένων |
+| `SRC-8025C139CE` | A Survey of Reinforcement Learning Algorithms for Dynamically Varying Environments | ελλιπές κείμενο |
 | `SRC-6806120384` | Agentic AI Engineering- Complete 4-Hour Workshop feat. MCP, CrewAI and OpenAI Agents SDK | μόνο μεταδεδομένα |
 | `SRC-6D968A501D` | Agentic AI Engineering: Complete 4-Hour Workshop feat. MCP, CrewAI and OpenAI Agents SDK | μόνο μεταδεδομένα |
 | `SRC-10236BC6DB` | Agents - Kaggle | ελλιπές κείμενο |
@@ -35,6 +36,7 @@
 | `SRC-7574A4DDCC` | ilide.info-agentic-ai-projects-pr 8274957092840810572421abca7eb2c6 | σύνδεσμος, τύπος πηγής |
 | `SRC-405E00D8AB` | ilide.info-ai-agents-and-automation-trends-2025-ebook-pr 1457e778f93e4de20f71dbd2371b0937 | σύνδεσμος, τύπος πηγής |
 | `SRC-255529AC11` | ilide.info-mastering-multi-agent-systems-pr 03b6784b619ed204bafad6a04a2f6b46 | σύνδεσμος, τύπος πηγής |
+| `SRC-F6BD3A6B18` | Integrated Modeling and Control Based on Reinforcement Learning and Dynamic Programming | ελλιπές κείμενο |
 | `SRC-00CCFC7AC0` | IROS 2022 Keynote- Safe Learning in Robotics by Prof. Angela Schoellig | μόνο μεταδεδομένα |
 | `SRC-CDCA1BACF3` | Konstantakopoulos MTN2013 | σύνδεσμος, τύπος πηγής |
 | `SRC-2554BB8102` | Large Language Model Agent A Survey onMethodology, -- Junyu Luo, Weizhi Zhang, Ye Yuan, Yusheng Zha | σύνδεσμος, επιβεβαίωση μεταδεδομένων |
@@ -45,6 +47,7 @@
 | `SRC-18D64222C0` | multiagent-systems-pr 2740350560a3678fa4cc670ce86db9d0 | σύνδεσμος, τύπος πηγής |
 | `SRC-8D62EF3077` | Nευρωνικά ∆ίκτυα και Eφαρμογές (βιβλίο) Π Αργυράκης.pdf | σύνδεσμος, τύπος πηγής |
 | `SRC-1B6E17DDF1` | Observational Robustness and Invariances in Reinforcement Learning via Lexicographic Objectives \| OpenReview | ελλιπές κείμενο, σύνδεσμος, τύπος πηγής |
+| `SRC-D20C157084` | On-line Q-learning using connectionist systems | ελλιπές κείμενο |
 | `SRC-2573249C69` | Online Policy Optimization for Robust Markov Decision Process | ελλιπές κείμενο |
 | `SRC-9F53B39DE0` | Online Policy Optimization for Robust MDP - OpenReview | ελλιπές κείμενο |
 | `SRC-B20C577793` | Open Courses | ελλιπές κείμενο |
@@ -55,6 +58,7 @@
 | `SRC-D8433D488F` | Pessimistic Iterative Planning for Robust POMDPs - OpenReview | ελλιπές κείμενο |
 | `SRC-76A4CB0AB7` | PhD-Thesis-ThomyPhan | σύνδεσμος, τύπος πηγής |
 | `SRC-3A71103B05` | Princeton University Lectures - Foundations of Reinforcement Learning - YouTube | σύνδεσμος |
+| `SRC-AD8A2E9A85` | Q-learning | ελλιπές κείμενο |
 | `SRC-2825596443` | Reinforcement Learning basics- Policy Iteration - 4X4 grid world from Sutton & Barto | μόνο μεταδεδομένα |
 | `SRC-6C4F1FF9F1` | Reinforcement Learning basics- Policy Iteration : 4X4 grid world from Sutton & Barto | μόνο μεταδεδομένα |
 | `SRC-740CFDDDF1` | Reinforcement Learning Course - Full Machine Learning Tutorial | μόνο μεταδεδομένα |
@@ -79,6 +83,7 @@
 | `SRC-3174B1019C` | the-rise-of-ai-agents-unleashing-productivity-and-innovation-emea | σύνδεσμος, τύπος πηγής |
 | `SRC-E5CA725A6C` | thesis.pdf | σύνδεσμος, επιβεβαίωση μεταδεδομένων |
 | `SRC-E33EBFE4F4` | Toward theoretical understandings of robust Markov decision processes- Sample complexity and asympto | μόνο μεταδεδομένα |
+| `SRC-39696F490F` | Towards Continual Reinforcement Learning: A Review and Perspectives | ελλιπές κείμενο |
 | `SRC-FFFE5C83C0` | Towards robust, efficient, and safe reinforcement learning | μόνο μεταδεδομένα |
 | `SRC-CA89A30F17` | Train Reinforcement Learning Agent in Basic Grid World (Matlab) | μόνο μεταδεδομένα |
 | `SRC-8F03D3E086` | UAI 2024 (Barcelona) - YouTube | ελλιπές κείμενο |
