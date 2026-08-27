@@ -1,6 +1,6 @@
 # Κατάλογος πηγών
 
-Συνολικές πηγές: **590** — υψηλή προτεραιότητα: **186**, μεσαία: **174**, χρειάζονται διόρθωση: **74**.
+Συνολικές πηγές: **593** — υψηλή προτεραιότητα: **186**, μεσαία: **174**, χρειάζονται διόρθωση: **77**.
 
 > Η καταχώριση δεν σημαίνει ότι η πηγή έχει εγκριθεί για χρήση στη διπλωματική.
 
@@ -380,7 +380,9 @@
 | `SRC-69F70663B3` | [Andrew Ng- State of AI Agents - LangChain Interrupt](https://www.youtube.com/watch?v=4pYzYmSdSH4) | — | — | βίντεο ή διάλεξη | πράκτορες τεχνητής νοημοσύνης | μόνο μεταδεδομένα | μόνο καταγεγραμμένος σύνδεσμος | χρειάζεται διόρθωση |
 | `SRC-24038FBE78` | [Build Everything with AI Agents- Here's How](https://www.youtube.com/watch?v=XVO3zsHdvio) | David Ondrej | 2025 | βίντεο ή διάλεξη | πράκτορες τεχνητής νοημοσύνης | μόνο μεταδεδομένα | μόνο καταγεγραμμένος σύνδεσμος | χρειάζεται διόρθωση |
 | `SRC-F355021435` | [Building AI Agents In 44 Minutes](https://www.youtube.com/watch?v=_Udb5NC6vTI) | — | 2025 | βίντεο ή διάλεξη | πράκτορες τεχνητής νοημοσύνης | μόνο μεταδεδομένα | μόνο καταγεγραμμένος σύνδεσμος | χρειάζεται διόρθωση |
+| `SRC-8D4F62D85D` | [Deep Reinforcement Learning that Matters](https://arxiv.org/abs/1709.06560) | Peter Henderson; Riashat Islam; Philip Bachman; Joelle Pineau; Doina Precup; David Meger | 2017 | ακαδημαϊκή εργασία | βαθιά ενισχυτική μάθηση | ελλιπές κείμενο | επιβεβαιωμένη μέσω arXiv | χρειάζεται διόρθωση |
 | `SRC-61045DD262` | [Distributional Reinforcement Learning](https://distributional-rl.org/) | — | — | ιστοσελίδα | βαθιά ενισχυτική μάθηση; στατιστική αξιολόγηση | ελλιπές κείμενο | μόνο καταγεγραμμένος σύνδεσμος | χρειάζεται διόρθωση |
+| `SRC-4ED8B918E3` | [Empirical Design in Reinforcement Learning](https://jmlr.org/papers/volume25/23-0183/23-0183.pdf) | — | 2024 | ιστοσελίδα | στατιστική αξιολόγηση | ελλιπές κείμενο | μόνο καταγεγραμμένος σύνδεσμος | χρειάζεται διόρθωση |
 | `SRC-BD5C7CB6BA` | [From Zero to Your First AI Agent in 25 Minutes (No Coding)](https://www.youtube.com/watch?v=EH5jx5qPabU) | Futurepedia (Kevin) | 2025 | βίντεο ή διάλεξη | πράκτορες τεχνητής νοημοσύνης | μόνο μεταδεδομένα | μόνο καταγεγραμμένος σύνδεσμος | χρειάζεται διόρθωση |
 | `SRC-9E42BE7AFE` | [Gridworld Example (Lectures on Reinforcement Learning)](https://www.youtube.com/watch?v=bSF8bTQQ_Z4) | Tansel Yucelen | — | βίντεο ή διάλεξη | GridWorld; πινακοποιημένη ενισχυτική μάθηση; περιβάλλοντα και benchmarks | μόνο μεταδεδομένα | μόνο καταγεγραμμένος σύνδεσμος | χρειάζεται διόρθωση |
 | `SRC-F35101B1F4` | [How AI Makes Decisions Under Uncertainty](https://www.youtube.com/watch?v=uhfysmruABU) | Muntazir Abidi | — | βίντεο ή διάλεξη | χωρίς κατηγορία | μόνο μεταδεδομένα | μόνο καταγεγραμμένος σύνδεσμος | χρειάζεται διόρθωση |
@@ -388,6 +390,7 @@
 | `SRC-F6BD3A6B18` | [Integrated Modeling and Control Based on Reinforcement Learning and Dynamic Programming](https://proceedings.neurips.cc/paper/1990/file/d9fc5b73a8d78fad3d6dffe419384e70-Paper.pdf) | — | 1990 | ιστοσελίδα | πινακοποιημένη ενισχυτική μάθηση; ενισχυτική μάθηση με μοντέλο | ελλιπές κείμενο | μόνο καταγεγραμμένος σύνδεσμος | χρειάζεται διόρθωση |
 | `SRC-00CCFC7AC0` | [IROS 2022 Keynote- Safe Learning in Robotics by Prof. Angela Schoellig](https://www.youtube.com/watch?v=g6eHhvHMSy8) | Prof. Angela Schoellig (Learning Systems and Robotics Lab) | 2022 | βίντεο ή διάλεξη | χωρίς κατηγορία | μόνο μεταδεδομένα | μόνο καταγεγραμμένος σύνδεσμος | χρειάζεται διόρθωση |
 | `SRC-35132FB9D8` | [Lecture19FinalPart1.pdf - Techniques in Artificial Intelligence (SMA 5504) - Electrical Engineering](https://ocw.mit.edu/courses/6-825-techniques-in-artificial-intelligence-sma-5504-fall-2002/resources/lecture19finalpart1/) | — | 2002 | τεκμηρίωση ή εκπαιδευτικό υλικό | χωρίς κατηγορία | ελλιπές κείμενο | μόνο καταγεγραμμένος σύνδεσμος | χρειάζεται διόρθωση |
+| `SRC-4C34DF3E17` | [Loss of plasticity in deep continual learning](https://doi.org/10.1038/s41586-024-07711-7) | Shibhansh Dohare; J. Fernando Hernandez-Garcia; Qingfeng Lan; Parash Rahman; A. Rupam Mahmood; Richard S. Sutton | 2024 | ακαδημαϊκή εργασία | μη στασιμότητα; βαθιά ενισχυτική μάθηση; συνεχής προσαρμογή | ελλιπές κείμενο | επιβεβαιωμένη μέσω Crossref | χρειάζεται διόρθωση |
 | `SRC-D20C157084` | [On-line Q-learning using connectionist systems](http://mi.eng.cam.ac.uk/reports/svr-ftp/auto-pdf/rummery_tr166.pdf) | — | 1994 | ιστοσελίδα | πινακοποιημένη ενισχυτική μάθηση | ελλιπές κείμενο | μόνο καταγεγραμμένος σύνδεσμος | χρειάζεται διόρθωση |
 | `SRC-2573249C69` | [Online Policy Optimization for Robust Markov Decision Process](https://openreview.net/forum?id=VS8EPaCSY1) | — | — | ακαδημαϊκή εργασία | χωρίς κατηγορία | ελλιπές κείμενο | μόνο καταγεγραμμένος σύνδεσμος | χρειάζεται διόρθωση |
 | `SRC-9F53B39DE0` | [Online Policy Optimization for Robust MDP - OpenReview](https://openreview.net/forum?id=cYZupNY8DS4&noteId=5ejRmc1GQ6) | — | — | ακαδημαϊκή εργασία | εύρωστη ενισχυτική μάθηση | ελλιπές κείμενο | μόνο καταγεγραμμένος σύνδεσμος | χρειάζεται διόρθωση |
