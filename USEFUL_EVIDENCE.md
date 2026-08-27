@@ -4,7 +4,7 @@
 > Περιλαμβάνονται μόνο αρχεία με `κατάσταση: επαληθευμένο` και
 > `ελεγχθέν-πρωτότυπο: ναι`. Πρόχειρες επιλογές NotebookLM δεν είναι citation-ready evidence.
 
-- **Πηγές με επαληθευμένα αποσπάσματα:** 113
+- **Πηγές με επαληθευμένα αποσπάσματα:** 117
 - **Ιχνηλασιμότητα:** κωδικός `SRC-*`, ακριβής θέση, ισχυρισμός, συμφραζόμενα και περιορισμοί.
 
 ## Ευρετήριο
@@ -33,6 +33,7 @@
 | `SRC-2455B5D0A7` | A Comprehensive Survey on Test-Time Adaptation under Distribution Shifts | Jian Liang; Ran He; Tieniu Tan | 2023 | ανθεκτικότητα και ανάκαμψη | [αρχείο](evidence/SRC-2455B5D0A7.md) | [πηγή](sources/SRC-2455B5D0A7.md) | [άνοιγμα](https://arxiv.org/abs/2303.15361) |
 | `SRC-2C9FFED27E` | Efficient Policy Optimization in Robust Constrained MDPs with Iteration Complexity Guarantees - NIPS | Sourav Ganguly, Kishan Panaganti, Arnob Ghosh, Adam Wierman | 2025 | εύρωστη ενισχυτική μάθηση; GridWorld; ασφαλής ενισχυτική μάθηση; πινακοποιημένη ενισχυτική μάθηση | [αρχείο](evidence/SRC-2C9FFED27E.md) | [πηγή](sources/SRC-2C9FFED27E.md) | [άνοιγμα](https://proceedings.neurips.cc/paper_files/paper/2025/file/0d7a32dbc94af8193b9bb9e798e4f4a8-Paper-Conference.pdf) |
 | `SRC-3856071502` | Bayesian Online Changepoint Detection | Ryan Prescott Adams; David J. C. MacKay | 2007 | χωρίς κατηγορία | [αρχείο](evidence/SRC-3856071502.md) | [πηγή](sources/SRC-3856071502.md) | [άνοιγμα](https://arxiv.org/abs/0710.3742) |
+| `SRC-39696F490F` | Towards Continual Reinforcement Learning: A Review and Perspectives | Khimya Khetarpal; Matthew Riemer; Irina Rish; Doina Precup | 2020 | μη στασιμότητα; GridWorld; συνεχής προσαρμογή | [αρχείο](evidence/SRC-39696F490F.md) | [πηγή](sources/SRC-39696F490F.md) | [άνοιγμα](https://arxiv.org/abs/2012.13490) |
 | `SRC-3A5E2C9E2C` | A Review of Safe Reinforcement Learning: Methods, Theory and Applications | Shangding Gu; Long Yang; Yali Du; Guang Chen; Florian Walter; Jun Wang; Alois Knoll | 2022 | GridWorld; ασφαλής ενισχυτική μάθηση; περιβάλλοντα και benchmarks; πράκτορες τεχνητής νοημοσύνης | [αρχείο](evidence/SRC-3A5E2C9E2C.md) | [πηγή](sources/SRC-3A5E2C9E2C.md) | [άνοιγμα](https://arxiv.org/abs/2205.10330) |
 | `SRC-3BF9404CC3` | Learning to Recover for Safe Reinforcement Learning | Haoyu Wang; Xin Yuan; Qinqing Ren | 2023 | ανθεκτικότητα και ανάκαμψη; ασφαλής ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση | [αρχείο](evidence/SRC-3BF9404CC3.md) | [πηγή](sources/SRC-3BF9404CC3.md) | [άνοιγμα](https://arxiv.org/abs/2309.11907) |
 | `SRC-3C0F7CC819` | Online Robust Reinforcement Learning with Model Uncertainty | Yue Wang; Shaofeng Zou | 2021 | εύρωστη ενισχυτική μάθηση; πινακοποιημένη ενισχυτική μάθηση | [αρχείο](evidence/SRC-3C0F7CC819.md) | [πηγή](sources/SRC-3C0F7CC819.md) | [άνοιγμα](https://arxiv.org/abs/2109.14523) |
@@ -69,6 +70,7 @@
 | `SRC-7702DAEF48` | Recovery RL: Safe Reinforcement Learning with Learned Recovery Zones | Brijen Thananjeyan; Ashwin Balakrishna; Suraj Nair; Michael Luo; Krishnan Srinivasan; Minho Hwang; Joseph E. Gonzalez; Julian Ibarz; Chelsea Finn; Ken Goldberg | 2020 | ασφαλής ενισχυτική μάθηση | [αρχείο](evidence/SRC-7702DAEF48.md) | [πηγή](sources/SRC-7702DAEF48.md) | [άνοιγμα](https://arxiv.org/abs/2010.15920) |
 | `SRC-7C18826BEE` | Dropout as a Bayesian Approximation: Representing Model Uncertainty in Deep Learning | Yarin Gal; Zoubin Ghahramani | 2015 | βαθιά ενισχυτική μάθηση | [αρχείο](evidence/SRC-7C18826BEE.md) | [πηγή](sources/SRC-7C18826BEE.md) | [άνοιγμα](https://arxiv.org/abs/1506.02142) |
 | `SRC-7EFBF9DA62` | A Review of Uncertainty Quantification in Deep Learning: Techniques, Applications and Challenges | Moloud Abdar; Farhad Pourpanah; Sadiq Hussain; Dana Rezazadegan; Li Liu; Mohammad Ghavamzadeh; Paul Fieguth; Xiaochun Cao; Abbas Khosravi; U Rajendra Acharya; Vladimir Makarenkov; Saeid Nahavandi | 2020 | στατιστική αξιολόγηση | [αρχείο](evidence/SRC-7EFBF9DA62.md) | [πηγή](sources/SRC-7EFBF9DA62.md) | [άνοιγμα](https://arxiv.org/abs/2011.06225) |
+| `SRC-8025C139CE` | A Survey of Reinforcement Learning Algorithms for Dynamically Varying Environments | Sindhu Padakandla | 2020 | μη στασιμότητα | [αρχείο](evidence/SRC-8025C139CE.md) | [πηγή](sources/SRC-8025C139CE.md) | [άνοιγμα](https://arxiv.org/abs/2005.10619) |
 | `SRC-81A15E6905` | Action Robust Reinforcement Learning and Applications in Continuous Control | Chen Tessler; Yonathan Efroni; Shie Mannor | 2019 | εύρωστη ενισχυτική μάθηση; αβεβαιότητα ενεργειών; πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση | [αρχείο](evidence/SRC-81A15E6905.md) | [πηγή](sources/SRC-81A15E6905.md) | [άνοιγμα](https://arxiv.org/abs/1901.09184) |
 | `SRC-8396F66954` | Concrete Problems in AI Safety | Dario Amodei; Chris Olah; Jacob Steinhardt; Paul Christiano; John Schulman; Dan Mané | 2016 | ασφαλής ενισχυτική μάθηση; αβεβαιότητα ανταμοιβής; μερική παρατηρησιμότητα; βαθιά ενισχυτική μάθηση; πράκτορες τεχνητής νοημοσύνης | [αρχείο](evidence/SRC-8396F66954.md) | [πηγή](sources/SRC-8396F66954.md) | [άνοιγμα](https://arxiv.org/abs/1606.06565) |
 | `SRC-85335DDDA6` | Empirical Study on Robustness and Resilience in Cooperative Multi-Agent Reinforcement Learning | Simin Li, Zihao Mao, Hanxiao Li, Zonglei Jing, Zhuohang Bian, Jun Guo, Li Wang, Zhuoran Han, Ruixiao Xu, Xin Yu, Chengdong Ma, Yuqing Ma, Bo An, Yaodong Yang, Weifeng Lv, Xianglong Liu | 2025 | ανθεκτικότητα και ανάκαμψη; αβεβαιότητα ενεργειών; βαθιά ενισχυτική μάθηση; περιβάλλοντα και benchmarks; πράκτορες τεχνητής νοημοσύνης | [αρχείο](evidence/SRC-85335DDDA6.md) | [πηγή](sources/SRC-85335DDDA6.md) | [άνοιγμα](https://github.com/BUAA-TrustworthyMARL/adv_marl_benchmark) |
@@ -94,6 +96,7 @@
 | `SRC-A6616BE773` | A Baseline for Detecting Misclassified and Out-of-Distribution Examples in Neural Networks | Dan Hendrycks; Kevin Gimpel | 2016 | στατιστική αξιολόγηση | [αρχείο](evidence/SRC-A6616BE773.md) | [πηγή](sources/SRC-A6616BE773.md) | [άνοιγμα](https://arxiv.org/abs/1610.02136) |
 | `SRC-AC30CEB175` | AI Applications to Enhance Resilience in Power Systems and Microgrids—A Review | Younes Zahraoui; Tarmo Korõtko; Argo Rosin; Saad Mekhilef; Mehdi Seyedmahmoudian; Alex Stojcevski; Ibrahim Alhamrouni | 2024 | ανθεκτικότητα και ανάκαμψη; στατιστική αξιολόγηση | [αρχείο](evidence/SRC-AC30CEB175.md) | [πηγή](sources/SRC-AC30CEB175.md) | [άνοιγμα](https://doi.org/10.3390/su16124959) |
 | `SRC-AC79E9A264` | Robust Policy Learning over Multiple Uncertainty Sets | Δεν αναφέρεται στην πηγή | 2016 | εύρωστη ενισχυτική μάθηση | [αρχείο](evidence/SRC-AC79E9A264.md) | [πηγή](sources/SRC-AC79E9A264.md) | [άνοιγμα](https://proceedings.mlr.press/v162/xie22c/xie22c.pdf) |
+| `SRC-AD8A2E9A85` | Q-learning | — | 1992 | πινακοποιημένη ενισχυτική μάθηση | [αρχείο](evidence/SRC-AD8A2E9A85.md) | [πηγή](sources/SRC-AD8A2E9A85.md) | [άνοιγμα](https://gatsby.ucl.ac.uk/~dayan/papers/cjch.pdf) |
 | `SRC-B1E5732635` | Safe Reinforcement Learning via Recovery-based Shielding with Gaussian Process Dynamics Models | Alexander W. Goodall; Francesco Belardinelli | 2026 | ασφαλής ενισχυτική μάθηση; στατιστική αξιολόγηση | [αρχείο](evidence/SRC-B1E5732635.md) | [πηγή](sources/SRC-B1E5732635.md) | [άνοιγμα](https://arxiv.org/abs/2602.12444) |
 | `SRC-B72D65A330` | https---www.ijcai.org-proceedings-2024-0913.pdf | — | 2024 | ασφαλής ενισχυτική μάθηση | [αρχείο](evidence/SRC-B72D65A330.md) | [πηγή](sources/SRC-B72D65A330.md) | [άνοιγμα](https://ijcai.org/proceedings/2024/0913.pdf) |
 | `SRC-B88D51FA3F` | Efficient Adaptation of Reinforcement Learning Agents to Sudden Environmental Change | Jonathan Clifford Balloch | 2025 | GridWorld; ενισχυτική μάθηση με μοντέλο; περιβάλλοντα και benchmarks | [αρχείο](evidence/SRC-B88D51FA3F.md) | [πηγή](sources/SRC-B88D51FA3F.md) | [άνοιγμα](https://arxiv.org/abs/2505.10330) |
@@ -121,6 +124,7 @@
 | `SRC-EBB14FC4CB` | https---proceedings.mlr.press-v119-cheung20a-cheung20a.pdf | — | 2020 | μη στασιμότητα; περιβάλλοντα και benchmarks | [αρχείο](evidence/SRC-EBB14FC4CB.md) | [πηγή](sources/SRC-EBB14FC4CB.md) | [άνοιγμα](https://proceedings.mlr.press/v119/cheung20a/cheung20a.pdf) |
 | `SRC-EF4972C036` | SafeLife 1.0: Exploring Side Effects in Complex Environments | Carroll L. Wainwright; Peter Eckersley | 2019 | GridWorld; στατιστική αξιολόγηση; περιβάλλοντα και benchmarks; πράκτορες τεχνητής νοημοσύνης | [αρχείο](evidence/SRC-EF4972C036.md) | [πηγή](sources/SRC-EF4972C036.md) | [άνοιγμα](https://arxiv.org/abs/1912.01217) |
 | `SRC-F622BE6812` | Exploration by Random Network Distillation | Yuri Burda; Harrison Edwards; Amos Storkey; Oleg Klimov | 2018 | μη στασιμότητα; βαθιά ενισχυτική μάθηση; περιβάλλοντα και benchmarks | [αρχείο](evidence/SRC-F622BE6812.md) | [πηγή](sources/SRC-F622BE6812.md) | [άνοιγμα](https://arxiv.org/abs/1810.12894) |
+| `SRC-F6BD3A6B18` | Integrated Modeling and Control Based on Reinforcement Learning and Dynamic Programming | — | 1990 | πινακοποιημένη ενισχυτική μάθηση; ενισχυτική μάθηση με μοντέλο | [αρχείο](evidence/SRC-F6BD3A6B18.md) | [πηγή](sources/SRC-F6BD3A6B18.md) | [άνοιγμα](https://proceedings.neurips.cc/paper/1990/file/d9fc5b73a8d78fad3d6dffe419384e70-Paper.pdf) |
 | `SRC-F909CABDEB` | A Survey of Continual Reinforcement Learning | Chaofan Pan; Xin Yang; Yanhua Li; Wei Wei; Tianrui Li; Bo An; Jiye Liang | 2025 | μη στασιμότητα; βαθιά ενισχυτική μάθηση; συνεχής προσαρμογή; περιβάλλοντα και benchmarks | [αρχείο](evidence/SRC-F909CABDEB.md) | [πηγή](sources/SRC-F909CABDEB.md) | [άνοιγμα](https://arxiv.org/abs/2506.21872) |
 | `SRC-FC42D9798A` | Scaling Up Robust MDPs by Reinforcement Learning | Aviv Tamar; Huan Xu; Shie Mannor | 2013 | εύρωστη ενισχυτική μάθηση; πινακοποιημένη ενισχυτική μάθηση; στατιστική αξιολόγηση | [αρχείο](evidence/SRC-FC42D9798A.md) | [πηγή](sources/SRC-FC42D9798A.md) | [άνοιγμα](https://arxiv.org/abs/1306.6189) |
 | `SRC-FE2C0A3E00` | AI Safety Gridworlds | Jan Leike; Miljan Martic; Victoria Krakovna; Pedro A. Ortega; Tom Everitt; Andrew Lefrancq; Laurent Orseau; Shane Legg | 2017 | GridWorld; ασφαλής ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση; πράκτορες τεχνητής νοημοσύνης | [αρχείο](evidence/SRC-FE2C0A3E00.md) | [πηγή](sources/SRC-FE2C0A3E00.md) | [άνοιγμα](https://arxiv.org/abs/1711.09883) |
@@ -2412,6 +2416,77 @@ Maintain explicit detector-versus-adapter ablations and report detector metrics 
 ### Citation
 
 Adams and MacKay (2007), overall method scope, Sections 1–4.
+
+---
+
+## `SRC-39696F490F` — Towards Continual Reinforcement Learning: A Review and Perspectives
+
+- **Συγγραφείς:** Khimya Khetarpal; Matthew Riemer; Irina Rish; Doina Precup
+- **Έτος:** 2020
+- **Τύπος:** ακαδημαϊκή εργασία
+- **Θέματα / tags:** μη στασιμότητα; GridWorld; συνεχής προσαρμογή
+- **Ημερομηνία ελέγχου:** 2026-08-27
+- **Αρχεία:** [πλήρες Markdown](sources/SRC-39696F490F.md) · [αποσπάσματα](evidence/SRC-39696F490F.md)
+- **Εξωτερική πηγή:** [άνοιγμα](https://arxiv.org/abs/2012.13490)
+
+## E1 — Continual RL includes adaptation under non-stationarity
+
+- **Type:** faithful paraphrase
+- **Location:** Abstract and Section 1
+- **Claim:** Continual RL covers lifelong/non-stationary formulations in which agents learn incrementally and must adapt as conditions evolve.
+- **Thesis use:** position the research question above the GridWorld testbed.
+- **Status:** verified
+
+## E2 — Scope and driver are key dimensions of non-stationarity
+
+- **Type:** faithful paraphrase
+- **Location:** Section 4.3 and Figure 4
+- **Claim:** The review organizes continual-RL problem formulations by the scope and driver of non-stationarity.
+- **Thesis use:** justify explicit disturbance taxonomy rather than a generic “dynamic environment” label.
+- **Status:** verified
+
+## E3 — Environment components may become time-dependent
+
+- **Type:** faithful paraphrase
+- **Location:** Sections 2.1–2.2
+- **Claim:** Transition dynamics, reward, observations and action availability can in general vary over time in continual-RL formulations.
+- **Thesis use:** contextualize action remapping, execution failure and observation corruption as controlled changes to distinct interaction components.
+- **Status:** verified
+
+## E4 — Stability–plasticity is a central tension
+
+- **Type:** faithful paraphrase
+- **Location:** Section 3 and Section 7.1, “Balancing Stability and Plasticity”
+- **Claim:** Continual learning must balance preserving useful prior information with responsiveness to recent experience.
+- **Thesis use:** conceptual interpretation of fixed versus adaptive strategies.
+- **Status:** verified
+
+### Limitation
+The source does not rank Fixed Q-Learning, Adaptive Q-Learning, SARSA, Dyna-Q or Dyna-Q+ on this trade-off.
+
+## E5 — Return alone may not fully characterize continual-agent behavior
+
+- **Type:** faithful paraphrase
+- **Location:** Section 6.2, Metrics
+- **Claim:** Expected accumulated reward is important but may be insufficient by itself to understand the abilities of a continually learning agent.
+- **Thesis use:** support multidimensional degradation/recovery reporting rather than one opaque score.
+- **Status:** verified
+
+## E6 — Non-stationarity should be generated and evaluated deliberately
+
+- **Type:** faithful paraphrase
+- **Location:** Sections 6.1–6.3
+- **Claim:** The review emphasizes carefully designed benchmarks/experiments that control the degree and nature of non-stationarity and use capability-oriented evaluation.
+- **Thesis use:** predeclared condition/layout/seed protocol and separate metrics.
+- **Status:** verified
+
+## Avoid overclaiming
+
+This source does not establish:
+- that GridWorld is the preferred continual-RL benchmark;
+- that five tabular agents are exhaustive coverage of continual RL;
+- that model-based methods are universally more resilient than model-free methods;
+- the thesis's exact metric definitions, confidence interval procedure or sample size.
 
 ---
 
@@ -4837,71 +4912,158 @@ Wachi et al. (2023), overall method scope.
 - **Έτος:** 2018
 - **Τύπος:** βιβλίο ή κεφάλαιο
 - **Θέματα / tags:** μη στασιμότητα; πινακοποιημένη ενισχυτική μάθηση
-- **Ημερομηνία ελέγχου:** 2026-08-01
+- **Ημερομηνία ελέγχου:** 2026-08-27
 - **Αρχεία:** [πλήρες Markdown](sources/SRC-701E163AC8.md) · [αποσπάσματα](evidence/SRC-701E163AC8.md)
 - **Εξωτερική πηγή:** [άνοιγμα](http://incompleteideas.net/book/RLbook2020.pdf)
 
-## 1. The second edition focuses on core online reinforcement-learning algorithms
-- Type: faithful paraphrase
-- Location: MIT Press description of the second edition
-- Claim: The book emphasizes core online learning algorithms and treats the tabular case as the foundation before moving to approximation.
-- Thesis use: baseline foundations
-- Topics: online RL; tabular RL; MDP
-- Status: verified
+## E1 — Core online/tabular RL foundation
+- **Type:** faithful paraphrase
+- **Location:** second-edition structure and Part I; MIT Press metadata cross-check
+- **Claim:** The book develops reinforcement learning through agent–environment interaction and uses tabular methods as the foundational setting for core online algorithms.
+- **Thesis use:** theoretical background
+- **Topics:** RL; MDP; tabular methods
+- **Status:** verified
 
 ### Faithful paraphrase
-The second edition presents reinforcement learning as learning through interaction with an uncertain environment and develops the core online algorithms, with the tabular case forming the foundation for the first major part of the book.
+The second edition develops reinforcement learning as sequential learning through interaction with an uncertain environment, with tabular MDP methods forming the foundation before function approximation and larger-scale methods.
 
-## 2. Recent observations should receive more weight in a non-stationary problem
-- Type: faithful paraphrase
-- Location: Chapter 2, section “Tracking a Nonstationary Problem” in the authors’ complete March 2018 second-edition draft; section presence cross-checked against the final-edition contents
-- Claim: Sample averages suit stationary reward distributions, whereas a constant step-size update gives greater weight to recent rewards when action values change over time.
-- Thesis use: recency/decay Q-learning rationale
-- Topics: non-stationarity; constant step size; recency
-- Status: verified
+## E2 — Recency-sensitive updating for non-stationary estimation
+- **Type:** faithful paraphrase
+- **Location:** Chapter 2, section “Tracking a Nonstationary Problem” in the authors’ complete March 2018 draft
+- **Claim:** Sample averages are suited to stationary action values, whereas constant step-size updates weight recent observations more strongly when values change over time.
+- **Thesis use:** continual-update rationale
+- **Topics:** non-stationarity; step size; recency
+- **Status:** verified
 
 ### Faithful paraphrase
-When the underlying reward process changes over time, treating all past observations equally can make estimates slow to track the current values. A constant step-size update instead forms a recency-weighted estimate in which the influence of older rewards decays geometrically.
+When underlying values change, treating all historical observations equally can track the current process slowly. A constant step size instead yields a recency-weighted estimate in which the contribution of older observations decays progressively.
 
 ### Limitation
-This is a continuous tracking mechanism. It does not detect or label a changepoint.
+This is continuous tracking, not detection or labeling of a changepoint.
 
-## 3. Q-learning is off-policy TD control
-- Type: faithful paraphrase
-- Location: Chapter 6, section “Q-learning: Off-policy TD Control” in the second-edition material; section presence cross-checked against the final-edition contents
-- Claim: Q-learning updates an action value toward the observed reward plus the discounted maximum next-state action value, while the behavior policy controls which state-action pairs are sampled.
-- Thesis use: continual tabular Q-learning baseline
-- Topics: Q-learning; TD control; off-policy
-- Status: verified
+## E3 — Q-learning is off-policy TD control
+- **Type:** faithful paraphrase
+- **Location:** Chapter 6, “Q-learning: Off-policy TD Control”
+- **Claim:** Q-learning updates the current action value using the observed reward and the maximum estimated action value at the next state, while the behavior policy determines the experience collected.
+- **Thesis use:** Fixed/Adaptive Q-Learning foundation
+- **Topics:** Q-learning; off-policy; TD control
+- **Status:** verified
 
 ### Faithful paraphrase
-Q-learning directly learns an estimate of the optimal action-value function using a temporal-difference target based on the best estimated next action. The policy used to interact with the environment still matters because it determines which state-action pairs are visited and updated.
+Q-learning uses an optimality-style next-state target rather than the value of the next behavior action. The interaction policy still matters because it controls which state-action pairs are sampled and therefore updated.
 
-## 4. Continual Q-learning is not automatically resilient
-- Type: thesis-safe inference from the learning rule and study scope
-- Location: Chapters 2 and 6
-- Claim: After a change in the environment, previously learned values can become stale; recovery depends on continued data collection and update dynamics rather than on an explicit resilience guarantee.
-- Thesis use: baseline interpretation
-- Topics: stale values; recovery; exploration
-- Status: verified
+### Safe interpretation
+Fixed Q-Learning and Adaptive Q-Learning in the thesis share this theoretical foundation. The freeze-versus-continue distinction is an experimental deployment choice and must not be presented as two unrelated algorithms.
 
-### Safe use
-Use continual tabular Q-learning as the no-special-mechanism adaptive baseline. Measure its post-change degradation and recovery rather than assuming that online learning alone constitutes resilience.
+## E4 — SARSA is on-policy TD control
+- **Type:** faithful paraphrase
+- **Location:** Chapter 6, “Sarsa: On-policy TD Control”
+- **Claim:** SARSA updates an action value using the next action actually selected by the behavior policy, making the TD target on-policy.
+- **Thesis use:** SARSA mechanism definition and Q-learning comparison
+- **Topics:** SARSA; on-policy; TD control
+- **Status:** verified
 
-## 5. Constant-step recency and full reset are different mechanisms
-- Type: thesis-safe inference from the update semantics
-- Location: Chapter 2 non-stationary tracking discussion
-- Claim: A constant step size gradually reduces the influence of older evidence, whereas a reset explicitly discards stored estimates.
-- Thesis use: baseline separation
-- Topics: recency; reset; forgetting
-- Status: verified
+### Faithful paraphrase
+SARSA learns from the sequence state–action–reward–next-state–next-action. Because the next behavior action enters the target, exploratory actions are part of what the algorithm evaluates rather than being replaced by a greedy maximum.
+
+### Limitation
+The on-policy update does not establish that SARSA is universally safer, more robust or more resilient. Those outcomes depend on the environment, exploration policy and metric.
+
+## E5 — Q-learning and SARSA can behave differently under exploratory behavior
+- **Type:** faithful paraphrase with bounded interpretation
+- **Location:** Chapter 6 cliff-walking example
+- **Claim:** Off-policy Q-learning and on-policy SARSA can learn different behavior when exploratory actions have meaningful consequences.
+- **Thesis use:** justification for retaining SARSA as a mechanism-distinct comparator
+- **Topics:** on-policy vs off-policy; exploration
+- **Status:** verified
+
+### Faithful paraphrase
+The cliff-walking example demonstrates that a policy evaluated under its actual exploratory behavior can favor a different route from an off-policy method whose update target assumes greedy next actions.
+
+### Limitation
+This example motivates the distinction; it does not predict the ranking of the two algorithms under the thesis's GridWorld disturbances.
+
+## E6 — Dyna integrates direct RL, model learning and planning
+- **Type:** faithful paraphrase
+- **Location:** Chapter 8, planning and learning with tabular methods; Dyna architecture and Tabular Dyna-Q
+- **Claim:** Dyna combines direct learning from real transitions, learning a model from those transitions, and additional planning updates generated from that model.
+- **Thesis use:** Dyna-Q theoretical definition
+- **Topics:** model learning; planning; Dyna-Q
+- **Status:** verified
+
+### Faithful paraphrase
+A Dyna agent uses real experience both to improve action values and to update an internal model. Between or after real interactions, it can sample the learned model and apply additional value updates as simulated experience.
+
+### Limitation
+Planning steps consume computation but not additional real environment transitions. Experimental reporting should therefore distinguish planning budget from interaction budget.
+
+## E7 — Plain Dyna-Q planning uses previously experienced information
+- **Type:** faithful paraphrase
+- **Location:** Chapter 8, Tabular Dyna-Q algorithm
+- **Claim:** Standard tabular Dyna-Q performs planning backups from state-action pairs represented in its learned model, using model-predicted reward/next-state outcomes.
+- **Thesis use:** plain Dyna-Q implementation/fairness contract
+- **Topics:** Dyna-Q; empirical model; planning
+- **Status:** verified
+
+### Safe interpretation
+The thesis's plain Dyna-Q comparator should not silently inherit the extra long-untried-action mechanisms introduced specifically for Dyna-Q+.
+
+## E8 — Changing environments can make a learned model stale
+- **Type:** faithful paraphrase
+- **Location:** Chapter 8 changing-environment/blocking/shortcut discussion
+- **Claim:** When environment dynamics change, planning from a model learned before the change can remain incorrect until real exploration discovers the new transition structure.
+- **Thesis use:** rationale for testing planning under uncertainty/change
+- **Topics:** non-stationarity; stale model; exploration
+- **Status:** verified
+
+### Faithful paraphrase
+A planning agent can exploit its current model very effectively and therefore fail to revisit actions whose consequences have changed. Discovering a change requires continued real interaction that challenges stale model predictions.
+
+## E9 — Dyna-Q+ adds recency-driven re-exploration
+- **Type:** faithful paraphrase
+- **Location:** Chapter 8 changing-environment discussion, including Dyna-Q+ exploration bonus
+- **Claim:** Dyna-Q+ tracks elapsed time since state-action pairs were tried and adds a planning incentive for long-untried actions, encouraging tests that can reveal environmental changes.
+- **Thesis use:** Dyna-Q+ mechanism definition
+- **Topics:** Dyna-Q+; exploration bonus; recency; change discovery
+- **Status:** verified
+
+### Faithful paraphrase
+The longer a state-action pair has gone without a real trial, the more Dyna-Q+ treats it as potentially outdated and increases its attractiveness during planning through a recency-based bonus.
+
+### Limitation
+This exploration can impose opportunity cost; improved change discovery is not a free or universal performance guarantee.
+
+## E10 — Dyna-Q+ also changes how untried actions enter the model/planning process
+- **Type:** faithful paraphrase
+- **Location:** Chapter 8 note accompanying the Dyna-Q+ changing-environment discussion
+- **Claim:** Dyna-Q+ allows actions not previously tried from visited states to participate in planning and initializes their model as a zero-reward self-loop.
+- **Thesis use:** implementation distinction between Dyna-Q and Dyna-Q+
+- **Topics:** Dyna-Q+; untried actions; model initialization
+- **Status:** verified
+
+### Safe interpretation
+Setting only the exploration-bonus coefficient to zero is not, by itself, enough to define plain Dyna-Q if the untried-action model semantics of Dyna-Q+ remain active. The thesis implementation should preserve this distinction explicitly.
+
+## E11 — Five-strategy mechanism crosswalk is a thesis synthesis, not a textbook taxonomy
+- **Type:** thesis-safe synthesis from E3–E10
+- **Location:** Chapters 6 and 8
+- **Claim:** The thesis can compare five deliberately chosen mechanisms: frozen learned values; continual off-policy TD; continual on-policy TD; learned-model planning; and learned-model planning plus directed re-exploration.
+- **Thesis use:** model-selection rationale
+- **Topics:** strategy taxonomy; experimental design
+- **Status:** verified as synthesis
+
+### Limitation
+The book does not claim these five strategies exhaust continual, robust, adaptive or model-based reinforcement learning. The five-strategy set is a bounded thesis design chosen to isolate distinct mechanisms under a common information/testbed contract.
 
 ## Avoid overclaiming
 This source does not establish that:
-- constant-step Q-learning is an optimal changepoint method,
-- Q-learning has a resilience guarantee under repeated environmental shifts,
-- a recency update is equivalent to a detector-triggered reset,
-- stationary convergence results directly imply optimal tracking in a non-stationary MDP.
+- Q-learning or SARSA has a general resilience guarantee under repeated environmental shifts;
+- SARSA is universally safer or better than Q-learning;
+- Dyna-Q+ always outperforms Dyna-Q;
+- a planning bonus is a formal changepoint detector;
+- stationary convergence results imply optimal tracking of a changing MDP;
+- planning under a learned empirical model is equivalent to robust optimization over an uncertainty set;
+- the thesis's five strategies form an exhaustive taxonomy of resilient AI agents.
 
 ---
 
@@ -6072,6 +6234,72 @@ Separate uncertainty-estimator quality from detector quality and from post-chang
 ### Citation
 
 Abdar et al., RL-related synthesis and future directions.
+
+---
+
+## `SRC-8025C139CE` — A Survey of Reinforcement Learning Algorithms for Dynamically Varying Environments
+
+- **Συγγραφείς:** Sindhu Padakandla
+- **Έτος:** 2020
+- **Τύπος:** ακαδημαϊκή εργασία
+- **Θέματα / tags:** μη στασιμότητα
+- **Ημερομηνία ελέγχου:** 2026-08-27
+- **Αρχεία:** [πλήρες Markdown](sources/SRC-8025C139CE.md) · [αποσπάσματα](evidence/SRC-8025C139CE.md)
+- **Εξωτερική πηγή:** [άνοιγμα](https://arxiv.org/abs/2005.10619)
+
+## E1 — Stationarity is an explicit classical assumption
+
+- **Type:** faithful paraphrase
+- **Location:** Section II.D, Assumptions 1–2
+- **Claim:** The survey identifies stationary transition and reward functions as a standard assumption in the classical RL convergence setup it describes.
+- **Thesis use:** delimit Q-learning convergence claims from post-change tracking claims.
+- **Status:** verified
+
+## E2 — Dynamic environments require reaction/adaptation
+
+- **Type:** faithful paraphrase
+- **Location:** Abstract and Section I
+- **Claim:** RL agents in changing operating conditions may need to track environment characteristics and adapt their learned actions/policies.
+- **Thesis use:** research motivation.
+- **Status:** verified
+
+## E3 — Non-stationarity means the stationarity assumption no longer holds
+
+- **Type:** faithful paraphrase
+- **Location:** Section II.D
+- **Claim:** The survey uses dynamically varying and non-stationary environments interchangeably in the setting where the transition/reward stationarity assumption is relaxed.
+- **Thesis use:** terminology and assumption boundary.
+- **Status:** verified
+
+### Limitation
+The thesis also manipulates action execution and observation delivery; describe those using the thesis environment contract rather than claiming they are exactly the same formal P/R variation used by this survey.
+
+## E4 — Adaptation cost is a relevant performance concern
+
+- **Type:** faithful paraphrase
+- **Location:** Abstract and problem framing
+- **Claim:** Methods for varying environments may be evaluated in terms of reducing reward lost during learning/adaptation or finding policies that keep the underlying system operating efficiently.
+- **Thesis use:** rationale for cumulative deficit/immediate degradation in addition to terminal performance.
+- **Status:** verified
+
+### Limitation
+The source does not define the thesis's exact cumulative-deficit formula.
+
+## E5 — Multiple algorithmic families address non-stationarity
+
+- **Type:** faithful paraphrase
+- **Location:** Sections I, V and VI
+- **Claim:** The survey organizes several streams of work, including continual/context/change-related and model-based/model-free approaches, rather than treating adaptation as one algorithmic mechanism.
+- **Thesis use:** justify a mechanism-based comparator set.
+- **Status:** verified
+
+## Avoid overclaiming
+
+This source does not show that:
+- one reviewed family is universally optimal;
+- the thesis's five strategies exhaust non-stationary RL;
+- the exact GridWorld conditions are canonical;
+- stationary convergence theorems provide finite-time recovery guarantees.
 
 ---
 
@@ -8443,6 +8671,73 @@ Use SIRSA primarily to justify the architecture distinction `infer context when 
 
 ### Citation
 Xie et al. (2022), overall method and experiments.
+
+---
+
+## `SRC-AD8A2E9A85` — Q-learning
+
+- **Συγγραφείς:** —
+- **Έτος:** 1992
+- **Τύπος:** ιστοσελίδα
+- **Θέματα / tags:** πινακοποιημένη ενισχυτική μάθηση
+- **Ημερομηνία ελέγχου:** 2026-08-27
+- **Αρχεία:** [πλήρες Markdown](sources/SRC-AD8A2E9A85.md) · [αποσπάσματα](evidence/SRC-AD8A2E9A85.md)
+- **Εξωτερική πηγή:** [άνοιγμα](https://gatsby.ucl.ac.uk/~dayan/papers/cjch.pdf)
+
+## E1 — Q-learning is model-free control in Markovian domains
+
+- **Type:** faithful paraphrase
+- **Location:** Abstract and Section 1, p. 279
+- **Claim:** Q-learning learns action values from experienced consequences without requiring an explicit learned map/model of the domain.
+- **Thesis use:** theoretical basis of Fixed Q-Learning and Adaptive Q-Learning.
+- **Status:** verified
+
+### Faithful paraphrase
+The paper presents Q-learning as a model-free reinforcement-learning method that incrementally improves action-value estimates from interaction in controlled Markovian domains.
+
+### Limitation
+Do not extend this statement into a claim that Q-learning is model-free with respect to every possible implementation aid or that it is automatically appropriate for non-stationary deployment.
+
+## E2 — Classical convergence is conditional, not a resilience guarantee
+
+- **Type:** faithful paraphrase
+- **Location:** Abstract; convergence theorem developed in the paper
+- **Claim:** The paper establishes probability-one convergence to optimal action values under its stated discrete representation and repeated-sampling assumptions.
+- **Thesis use:** distinguish stationary convergence theory from finite post-change adaptation.
+- **Status:** verified
+
+### Faithful paraphrase
+Under the paper's stated assumptions, including repeated sampling of actions in states and discrete action-value representation, Q-learning converges to optimal action values with probability one.
+
+### Limitation
+The theorem does not establish bounded recovery time, low cumulative deficit, or optimal tracking after an unannounced change in transition/action/observation behavior.
+
+## E3 — Off-policy bootstrap target distinguishes Q-learning from SARSA
+
+- **Type:** algorithmic interpretation checked against the paper's Q-learning rule
+- **Location:** Section 2, Q-learning update definition
+- **Claim:** Q-learning's bootstrap target uses the best estimated next-state action value rather than the value of the next behavior action.
+- **Thesis use:** mechanism contrast with SARSA.
+- **Status:** verified
+
+### Safe use
+Describe Adaptive Q-Learning as ordinary off-policy continual TD control and SARSA as on-policy continual TD control. Do not claim one mechanism is generally more resilient before observing the predeclared experiment.
+
+## E4 — Fixed versus Adaptive Q-Learning is a protocol intervention
+
+- **Type:** thesis-safe methodological inference
+- **Location:** Q-learning mechanism in this source + thesis deployment contract
+- **Claim:** Both thesis strategies may share the same Q-learning theory/checkpoint; disabling versus continuing post-change updates isolates the effect of online adaptation.
+- **Thesis use:** methods chapter and agent-strategy rationale.
+- **Status:** verified as a thesis design inference
+
+## Avoid overclaiming
+
+This source does not prove that:
+- Q-learning is resilient under non-stationarity;
+- continual updating always improves post-change performance;
+- the thesis learning rate/exploration setting is theoretically optimal;
+- finite-run recovery follows from the asymptotic convergence theorem.
 
 ---
 
@@ -10997,6 +11292,86 @@ Do not claim better resilience from increased novelty reward alone; require corr
 
 ### Citation
 Burda et al. (2018), Abstract and Section 2.3.
+
+---
+
+## `SRC-F6BD3A6B18` — Integrated Modeling and Control Based on Reinforcement Learning and Dynamic Programming
+
+- **Συγγραφείς:** —
+- **Έτος:** 1990
+- **Τύπος:** ιστοσελίδα
+- **Θέματα / tags:** πινακοποιημένη ενισχυτική μάθηση; ενισχυτική μάθηση με μοντέλο
+- **Ημερομηνία ελέγχου:** 2026-08-27
+- **Αρχεία:** [πλήρες Markdown](sources/SRC-F6BD3A6B18.md) · [αποσπάσματα](evidence/SRC-F6BD3A6B18.md)
+- **Εξωτερική πηγή:** [άνοιγμα](https://proceedings.neurips.cc/paper/1990/file/d9fc5b73a8d78fad3d6dffe419384e70-Paper.pdf)
+
+## E1 — Dyna integrates real learning, model learning and planning
+
+- **Type:** faithful paraphrase
+- **Location:** Abstract and Section 1, pp. 471–472
+- **Claim:** Dyna architectures alternate interaction with the real world and planning using a learned forward model.
+- **Thesis use:** distinguish model-free continual agents from learned-model planning agents.
+- **Status:** verified
+
+### Faithful paraphrase
+Dyna learns a world model online and uses model-generated experience for incremental planning while also learning directly from real interaction.
+
+## E2 — Dyna-Q is Q-learning plus a learned-model planning mechanism
+
+- **Type:** faithful paraphrase
+- **Location:** Section 4, p. 475
+- **Claim:** Dyna-Q combines Q-learning with a learned world model used to produce hypothetical experience for planning.
+- **Thesis use:** mechanism definition of Dyna-Q.
+- **Status:** verified
+
+### Limitation
+Do not describe Dyna-Q as receiving extra real environment samples when it performs extra planning backups.
+
+## E3 — Planning steps are computation/model-generated updates
+
+- **Type:** faithful paraphrase from experiment design
+- **Location:** Sections 3–4, pp. 474–475
+- **Claim:** The paper varies the number of hypothetical experiences generated with the model per real experience, demonstrating that planning intensity is a separate computational dimension.
+- **Thesis use:** matched planning budgets for Dyna-Q versus Dyna-Q+.
+- **Status:** verified
+
+## E4 — Dyna-Q+ adds recency-driven exploration
+
+- **Type:** faithful paraphrase
+- **Location:** p. 476, immediately before Section 5
+- **Claim:** The exploration-bonus variant tracks elapsed time since a state-action pair was tried in real experience and makes long-untried actions more attractive; it also permits hypothetical experience for previously untried actions.
+- **Thesis use:** define the extra mechanism that distinguishes Dyna-Q+ from plain Dyna-Q.
+- **Status:** verified
+
+### Limitation
+Do not reduce this mechanism to the statement “Dyna-Q+ = Dyna-Q with a positive scalar kappa”; treatment of untried actions is also part of the described exploration behavior.
+
+## E5 — Changing-world experiment separates Dyna-Q and Dyna-Q+
+
+- **Type:** faithful paraphrase
+- **Location:** Section 5, pp. 476–477
+- **Claim:** With matched k=10 planning, the shortcut experiment reports that the exploration-bonus Dyna-Q+ system discovers the newly opened shortcut while the non-bonus Dyna-Q system does not within the reported experiment.
+- **Thesis use:** historical evidence that recency-driven re-exploration can matter when environmental improvement is not forced through current behavior.
+- **Status:** verified
+
+### Limitation
+This is one historical maze result. It does not predict the ranking under the thesis's remap/failure/corruption conditions.
+
+## E6 — Plain Dyna-Q is necessary for mechanism attribution
+
+- **Type:** thesis-safe methodological inference
+- **Location:** E2–E5 plus thesis design
+- **Claim:** Comparing Dyna-Q and Dyna-Q+ at matched planning budgets isolates the incremental contribution of the recency/exploration mechanism more cleanly than comparing Dyna-Q+ only with model-free Q-learning.
+- **Status:** verified as design inference
+
+## Avoid overclaiming
+
+The source does not show that:
+- Dyna-Q+ is universally superior;
+- more planning is always better;
+- the historical k=10 setting is optimal for this thesis;
+- model learning is robust to every hidden disturbance;
+- Dyna-Q+'s exploration cost is free.
 
 ---
 
