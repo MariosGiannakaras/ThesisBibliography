@@ -37,10 +37,23 @@ jobs:
         with:
           ref: main
           fetch-depth: 0
-          lfs: true
+          lfs: false
 
-      - name: Fetch original PDF objects
-        run: git lfs pull --include="originals/**/*.pdf"
+      - name: Fetch original PDF objects when available
+        id: lfs
+        shell: bash
+        run: |
+          set +e
+          git lfs pull --include="originals/**/*.pdf"
+          status=$?
+          set -e
+          if [ "$status" -eq 0 ]; then
+            echo "available=true" >> "$GITHUB_OUTPUT"
+            echo "Original PDF LFS objects are available."
+          else
+            echo "available=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::Original PDF LFS objects are unavailable. Existing extracted materials will be validated from committed LFS pointer identities; generation still fails if any uncovered PDF lacks a committed material."
+          fi
 
       - uses: actions/setup-python@v5
         with:
@@ -56,9 +69,12 @@ jobs:
           tools/validate_research_material_review.py
           tools/export_research_corpus.py
 
-      - name: Extract otherwise-uncovered research materials
+      - name: Extract otherwise-uncovered research materials when PDFs are available
+        if: steps.lfs.outputs.available == 'true'
+        run: python tools/research_materials.py build
+
+      - name: Validate research-material coverage
         run: |
-          python tools/research_materials.py build
           python tools/research_materials.py validate
           python tools/validate_research_material_review.py
 
