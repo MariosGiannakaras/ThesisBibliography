@@ -1,15 +1,15 @@
 # Κατάσταση αναλύσεων
 
-- Σύνολο ενεργών πηγών: **585**
-- Οριστικές αποφάσεις: **585**
-  - Επιλεγμένες/επαληθευμένες: **113**
-  - Απορριφθείσες: **470**
+- Σύνολο ενεργών πηγών: **593**
+- Οριστικές αποφάσεις: **592**
+  - Επιλεγμένες/επαληθευμένες: **121**
+  - Απορριφθείσες: **469**
   - Ελεγμένες ως θεωρητικό υλικό χωρίς citation export: **2**
-- Εκκρεμείς συνολικά: **0**
+- Εκκρεμείς συνολικά: **1**
   - Χωρίς ανάλυση: **0**
-  - Πρόχειρες/μη citation-ready: **0**
-- Επαληθευμένα αρχεία αποσπασμάτων: **113**
-- Επιλεγμένες για εξαγωγή: **113**
+  - Πρόχειρες/μη citation-ready: **1**
+- Επαληθευμένα αρχεία αποσπασμάτων: **121**
+- Επιλεγμένες για εξαγωγή: **117**
 
 > Η αναφορά παράγεται από το τρέχον `catalog/sources.csv`, τα canonical `analyses/` και τα verified `evidence/`. Παλιές generated rows δεν χρησιμοποιούνται ως πηγή αλήθειας.
 
@@ -49,6 +49,7 @@
 | `SRC-F909CABDEB` | A Survey of Continual Reinforcement Learning | επαληθευμένη | επαληθευμένο | υποστηρικτική | ναι |
 | `SRC-AABAFA12BF` | A Survey of Human-in-the-Loop Reinforcement Learning for Critical Systems | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-DFFF269D33` | A Survey of Multi-Agent Deep Reinforcement Learning with Communication | απορρίφθηκε | κανένα | απόρριψη | όχι |
+| `SRC-8025C139CE` | A Survey of Reinforcement Learning Algorithms for Dynamically Varying Environments | επαληθευμένη | επαληθευμένο |  | όχι |
 | `SRC-60ECE049E6` | A Survey of Reinforcement Learning For Economics | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-BE5B937542` | A Survey of Safe Reinforcement Learning and Constrained MDPs: A Technical Survey on Single-Agent and Multi-Agent Safety | επαληθευμένη | επαληθευμένο | υποστηρικτική | ναι |
 | `SRC-21EBE15D15` | A Survey of Zero-shot Generalisation in Deep Reinforcement Learning | επαληθευμένη | επαληθευμένο | κύρια | ναι |
@@ -143,6 +144,7 @@
 | `SRC-0A4AFAC8E9` | Deep Reinforcement Learning at the Edge of the Statistical Precipice | επαληθευμένη | επαληθευμένο | κύρια | ναι |
 | `SRC-0490CF519D` | Deep Reinforcement Learning for Autonomous Driving: A Survey | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-95C9DAEE68` | Deep reinforcement learning in non-stationary environments | επαληθευμένη | επαληθευμένο | κύρια | ναι |
+| `SRC-8D4F62D85D` | Deep Reinforcement Learning that Matters | επαληθευμένη | επαληθευμένο | κύρια | ναι |
 | `SRC-BE53B7970E` | Deep Reinforcement Learning with Double Q-learning | επαληθευμένη | επαληθευμένο | υποστηρικτική | ναι |
 | `SRC-EAC0C17F4B` | Deep Reinforcement Learning with Unsupervised Auxiliary Tasks for Physics-Based Games - IKEE - Arist | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-DDCD35F7EE` | Deep Reinforcement Learning: An Overview | απορρίφθηκε | κανένα | απόρριψη | όχι |
@@ -165,6 +167,7 @@
 | `SRC-781B58434A` | Efficient Uncertainty Quantification in Deep Reinforcement Learning - TU Delft Repository | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-49CA580DE9` | Emergence in Multi-Agent Systems: A Safety Perspective | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-E05A14A571` | Emergent Complexity and Zero-shot Transfer via Unsupervised Environment Design (PAIRED) | επαληθευμένη | επαληθευμένο | υποστηρικτική | ναι |
+| `SRC-4ED8B918E3` | Empirical Design in Reinforcement Learning | επαληθευμένη | επαληθευμένο | κύρια | ναι |
 | `SRC-85335DDDA6` | Empirical Study on Robustness and Resilience in Cooperative Multi-Agent Reinforcement Learning | επαληθευμένη | επαληθευμένο | υποστηρικτική | ναι |
 | `SRC-3930A38085` | Enabling Learning in Resilient Adaptive Systems: From Network Fortification to Mindful Organising | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-2CEF0D3E68` | Enhanced POET: Open-Ended Reinforcement Learning through Unbounded Invention of Learning Challenges and their Solutions | απορρίφθηκε | κανένα | απόρριψη | όχι |
@@ -242,7 +245,7 @@
 | `SRC-29ECCC882B` | https---dspace.lib.ntua.gr-xmlui-bitstream-handle-123456789-54605-diploma thesis MariosVlachogiannop | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-8417D1F4EB` | https---dspace.lib.ntua.gr-xmlui-bitstream-handle-123456789-57106-DThesis GKapsalis.pdf-sequence=1 | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-F6E2AD5FA8` | https---dspace.lib.ntua.gr-xmlui-bitstream-handle-123456789-61114-ThesisFinal Bakis Dionysios.pdf-is | απορρίφθηκε | κανένα | απόρριψη | όχι |
-| `SRC-32A0866AF8` | https---eclass.uoa.gr-modules-document-file.php-DI437-1312.5602.pdf | απορρίφθηκε | κανένα | απόρριψη | όχι |
+| `SRC-32A0866AF8` | https---eclass.uoa.gr-modules-document-file.php-DI437-1312.5602.pdf | επαληθευμένη | επαληθευμένο | υπόβαθρο | ναι |
 | `SRC-938947307A` | https---eclass.uoa.gr-modules-document-file.php-DI437-2021%20%CE%9C%CE%AC%CE%B8%CE%B7%CE%BC%CE%B1%20 | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-5E5274AB60` | https---eclass.uoa.gr-modules-document-file.php-DI437-agz unformatted nature.pdf | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-D5F64CB62A` | https---eclass.uoa.gr-modules-document-file.php-DI437-Reinforcement Learning Bertsekas Draft.pdf | απορρίφθηκε | κανένα | απόρριψη | όχι |
@@ -309,6 +312,7 @@
 | `SRC-405E00D8AB` | ilide.info-ai-agents-and-automation-trends-2025-ebook-pr 1457e778f93e4de20f71dbd2371b0937 | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-255529AC11` | ilide.info-mastering-multi-agent-systems-pr 03b6784b619ed204bafad6a04a2f6b46 | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-A87F481B4C` | Implementing the Deep Q-Network | απορρίφθηκε | κανένα | απόρριψη | όχι |
+| `SRC-F6BD3A6B18` | Integrated Modeling and Control Based on Reinforcement Learning and Dynamic Programming | επαληθευμένη | επαληθευμένο |  | όχι |
 | `SRC-BAEE694D5B` | Intelligent agent - Wikipedia | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-5DFB680F53` | Interaction-Breaking Adversarial Learning Framework for Robust Multi-Agent Reinforcement Learning | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-503A8B421C` | Interpretable Operations Research for High-Sta... - Πέργαμος | απορρίφθηκε | κανένα | απόρριψη | όχι |
@@ -333,6 +337,7 @@
 | `SRC-40FD71BC15` | Leveraging the Beliefs-Desires-Intentions Agent Architecture \| Microsoft Learn | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-92C828647B` | Liability for harm caused by AI in healthcare- an overview of the core legal concepts - PMC | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-BCAAFDCD46` | Long-range atom-ion Rydberg molecule: A novel molecular binding mechanism | απορρίφθηκε | κανένα | απόρριψη | όχι |
+| `SRC-4C34DF3E17` | Loss of plasticity in deep continual learning | επαληθευμένη | επαληθευμένο | κύρια | ναι |
 | `SRC-F020E1D46A` | Lyapunov-based Safe Policy Optimization for Continuous Control | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-495952EBB9` | Make your own custom environment - Gymnasium Documentation | απορρίφθηκε | πρόχειρο | απόρριψη | όχι |
 | `SRC-D0EDFCACAC` | Markov decision process - Wikipedia | απορρίφθηκε | κανένα | απόρριψη | όχι |
@@ -367,6 +372,7 @@
 | `SRC-CF2FB64E6A` | On the Generalization of Representations in Reinforcement Learning | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-FC22553C08` | On the Generalization of Representations in Reinforcement Learning | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-51561BFA26` | ON THE RESILIENCE OF MULTI-AGENT SYSTEMS WITH MALICIOUS AGENTS | απορρίφθηκε | πρόχειρο | απόρριψη | όχι |
+| `SRC-D20C157084` | On-line Q-learning using connectionist systems | πρόχειρη | κανένα |  | όχι |
 | `SRC-73DA396BA9` | Online MDP with Transition Prototypes: A Robust Adaptive Approach | επαληθευμένη | επαληθευμένο | κύρια | ναι |
 | `SRC-2573249C69` | Online Policy Optimization for Robust Markov Decision Process | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-FBFDD51DA0` | Online Policy Optimization for Robust Markov Decision Process - GitHub | απορρίφθηκε | κανένα | απόρριψη | όχι |
@@ -409,6 +415,7 @@
 | `SRC-A203ABEEFE` | Prioritized Experience Replay | επαληθευμένη | επαληθευμένο | υποστηρικτική | ναι |
 | `SRC-6C5FB230E1` | Procedural Content Generation via Machine Learning (PCGML) | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-CD5F67F3E6` | Proximal Policy Optimization Algorithms | επαληθευμένη | επαληθευμένο | υπόβαθρο | ναι |
+| `SRC-AD8A2E9A85` | Q-learning | επαληθευμένη | επαληθευμένο |  | όχι |
 | `SRC-64AA1D82C6` | QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-02987450DF` | QRES-MARL - TU Delft Repository | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-2899809E90` | Reactive and Deliberative AI agents - Vikas Goyal | απορρίφθηκε | κανένα | απόρριψη | όχι |
@@ -522,6 +529,7 @@
 | `SRC-E5CA725A6C` | thesis.pdf | επαληθευμένη | επαληθευμένο | κύρια | ναι |
 | `SRC-E33EBFE4F4` | Toward theoretical understandings of robust Markov decision processes- Sample complexity and asympto | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-732D12A2CC` | Towards a Science of AI Agent Reliability | απορρίφθηκε | κανένα | απόρριψη | όχι |
+| `SRC-39696F490F` | Towards Continual Reinforcement Learning: A Review and Perspectives | επαληθευμένη | επαληθευμένο |  | όχι |
 | `SRC-958647DE4E` | Towards Deep Learning Models Resistant to Adversarial Attacks | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-DA324C815B` | Towards Optimal Offline Reinforcement Learning | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-E7E736ACE8` | Towards Out-Of-Distribution Generalization: A Survey | απορρίφθηκε | κανένα | απόρριψη | όχι |
