@@ -33,6 +33,7 @@ SRC-211B10ADBA,A Survey Analyzing Generalization in Deep Reinforcement Learning,
 SRC-F909CABDEB,A Survey of Continual Reinforcement Learning,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,υποστηρικτική,ναι
 SRC-AABAFA12BF,A Survey of Human-in-the-Loop Reinforcement Learning for Critical Systems,μεσαία,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-DFFF269D33,A Survey of Multi-Agent Deep Reinforcement Learning with Communication,υψηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
+SRC-8025C139CE,A Survey of Reinforcement Learning Algorithms for Dynamically Varying Environments,χρειάζεται διόρθωση,ελλιπές κείμενο,επαληθευμένη,επαληθευμένο,,όχι
 SRC-60ECE049E6,A Survey of Reinforcement Learning For Economics,υψηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-BE5B937542,A Survey of Safe Reinforcement Learning and Constrained MDPs: A Technical Survey on Single-Agent and Multi-Agent Safety,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,υποστηρικτική,ναι
 SRC-21EBE15D15,A Survey of Zero-shot Generalisation in Deep Reinforcement Learning,χαμηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
@@ -127,6 +128,7 @@ SRC-BB9CAB4CBB,Decision-making under uncertainty: beyond probabilities,υψηλ�
 SRC-0A4AFAC8E9,Deep Reinforcement Learning at the Edge of the Statistical Precipice,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
 SRC-0490CF519D,Deep Reinforcement Learning for Autonomous Driving: A Survey,χαμηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-95C9DAEE68,Deep reinforcement learning in non-stationary environments,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
+SRC-8D4F62D85D,Deep Reinforcement Learning that Matters,χρειάζεται διόρθωση,ελλιπές κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
 SRC-BE53B7970E,Deep Reinforcement Learning with Double Q-learning,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,υποστηρικτική,ναι
 SRC-EAC0C17F4B,Deep Reinforcement Learning with Unsupervised Auxiliary Tasks for Physics-Based Games - IKEE - Arist,χαμηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-DDCD35F7EE,Deep Reinforcement Learning: An Overview,χαμηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
@@ -149,6 +151,7 @@ SRC-2C9FFED27E,Efficient Policy Optimization in Robust Constrained MDPs with Ite
 SRC-781B58434A,Efficient Uncertainty Quantification in Deep Reinforcement Learning - TU Delft Repository,χαμηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-49CA580DE9,Emergence in Multi-Agent Systems: A Safety Perspective,υψηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-E05A14A571,Emergent Complexity and Zero-shot Transfer via Unsupervised Environment Design (PAIRED),υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,υποστηρικτική,ναι
+SRC-4ED8B918E3,Empirical Design in Reinforcement Learning,χρειάζεται διόρθωση,ελλιπές κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
 SRC-85335DDDA6,Empirical Study on Robustness and Resilience in Cooperative Multi-Agent Reinforcement Learning,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,υποστηρικτική,ναι
 SRC-3930A38085,Enabling Learning in Resilient Adaptive Systems: From Network Fortification to Mindful Organising,μεσαία,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-2CEF0D3E68,Enhanced POET: Open-Ended Reinforcement Learning through Unbounded Invention of Learning Challenges and their Solutions,υψηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
@@ -226,7 +229,7 @@ SRC-BA4E5742AE,https---discovery.ucl.ac.uk-id-eprint-10208658-7-Mikayel Samvelya
 SRC-29ECCC882B,https---dspace.lib.ntua.gr-xmlui-bitstream-handle-123456789-54605-diploma thesis MariosVlachogiannop,χαμηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-8417D1F4EB,https---dspace.lib.ntua.gr-xmlui-bitstream-handle-123456789-57106-DThesis GKapsalis.pdf-sequence=1,χαμηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-F6E2AD5FA8,https---dspace.lib.ntua.gr-xmlui-bitstream-handle-123456789-61114-ThesisFinal Bakis Dionysios.pdf-is,χαμηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
-SRC-32A0866AF8,https---eclass.uoa.gr-modules-document-file.php-DI437-1312.5602.pdf,υψηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
+SRC-32A0866AF8,https---eclass.uoa.gr-modules-document-file.php-DI437-1312.5602.pdf,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,υπόβαθρο,ναι
 SRC-938947307A,https---eclass.uoa.gr-modules-document-file.php-DI437-2021%20%CE%9C%CE%AC%CE%B8%CE%B7%CE%BC%CE%B1%20,χαμηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-5E5274AB60,https---eclass.uoa.gr-modules-document-file.php-DI437-agz unformatted nature.pdf,χαμηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-D5F64CB62A,https---eclass.uoa.gr-modules-document-file.php-DI437-Reinforcement Learning Bertsekas Draft.pdf,χαμηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
@@ -292,7 +295,9 @@ SRC-DF262CEA9A,IEEE P7001: A Proposed Standard on Transparency,μεσαία,δι
 SRC-7574A4DDCC,ilide.info-agentic-ai-projects-pr 8274957092840810572421abca7eb2c6,μεσαία,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-405E00D8AB,ilide.info-ai-agents-and-automation-trends-2025-ebook-pr 1457e778f93e4de20f71dbd2371b0937,μεσαία,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-255529AC11,ilide.info-mastering-multi-agent-systems-pr 03b6784b619ed204bafad6a04a2f6b46,μεσαία,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
+SRC-5D0E7E5BD7,Implementation Matters in Deep Policy Gradients: A Case Study on PPO and TRPO,χρειάζεται διόρθωση,ελλιπές κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
 SRC-A87F481B4C,Implementing the Deep Q-Network,χαμηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
+SRC-F6BD3A6B18,Integrated Modeling and Control Based on Reinforcement Learning and Dynamic Programming,χρειάζεται διόρθωση,ελλιπές κείμενο,επαληθευμένη,επαληθευμένο,,όχι
 SRC-BAEE694D5B,Intelligent agent - Wikipedia,χαμηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-5DFB680F53,Interaction-Breaking Adversarial Learning Framework for Robust Multi-Agent Reinforcement Learning,μεσαία,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-503A8B421C,Interpretable Operations Research for High-Sta... - Πέργαμος,μεσαία,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
@@ -317,6 +322,7 @@ SRC-23C1899DBE,Leveraging the Beliefs-Desires-Intentions Agent Architecture - Mi
 SRC-40FD71BC15,Leveraging the Beliefs-Desires-Intentions Agent Architecture | Microsoft Learn,μεσαία,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-92C828647B,Liability for harm caused by AI in healthcare- an overview of the core legal concepts - PMC,μεσαία,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-BCAAFDCD46,Long-range atom-ion Rydberg molecule: A novel molecular binding mechanism,υψηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
+SRC-4C34DF3E17,Loss of plasticity in deep continual learning,χρειάζεται διόρθωση,ελλιπές κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
 SRC-F020E1D46A,Lyapunov-based Safe Policy Optimization for Continuous Control,χαμηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-495952EBB9,Make your own custom environment - Gymnasium Documentation,υψηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,πρόχειρο,απόρριψη,όχι
 SRC-D0EDFCACAC,Markov decision process - Wikipedia,χαμηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
@@ -351,6 +357,7 @@ SRC-A5DF23299C,On the Definition of Robustness and Resilience of AI Agents for R
 SRC-CF2FB64E6A,On the Generalization of Representations in Reinforcement Learning,υψηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-FC22553C08,On the Generalization of Representations in Reinforcement Learning,μεσαία,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-51561BFA26,ON THE RESILIENCE OF MULTI-AGENT SYSTEMS WITH MALICIOUS AGENTS,υψηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,πρόχειρο,απόρριψη,όχι
+SRC-D20C157084,On-line Q-learning using connectionist systems,χρειάζεται διόρθωση,ελλιπές κείμενο,πρόχειρη,κανένα,,όχι
 SRC-73DA396BA9,Online MDP with Transition Prototypes: A Robust Adaptive Approach,μεσαία,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
 SRC-2573249C69,Online Policy Optimization for Robust Markov Decision Process,χρειάζεται διόρθωση,ελλιπές κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-FBFDD51DA0,Online Policy Optimization for Robust Markov Decision Process - GitHub,υψηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
@@ -393,6 +400,7 @@ SRC-3A71103B05,Princeton University Lectures - Foundations of Reinforcement Lear
 SRC-A203ABEEFE,Prioritized Experience Replay,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,υποστηρικτική,ναι
 SRC-6C5FB230E1,Procedural Content Generation via Machine Learning (PCGML),χαμηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-CD5F67F3E6,Proximal Policy Optimization Algorithms,χαμηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,υπόβαθρο,ναι
+SRC-AD8A2E9A85,Q-learning,χρειάζεται διόρθωση,ελλιπές κείμενο,επαληθευμένη,επαληθευμένο,,όχι
 SRC-64AA1D82C6,QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning,υψηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-02987450DF,QRES-MARL - TU Delft Repository,μεσαία,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-2899809E90,Reactive and Deliberative AI agents - Vikas Goyal,μεσαία,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
@@ -420,6 +428,7 @@ SRC-A281BA721E,"Resilience and Resilient Systems of Artificial Intelligence- Tax
 SRC-D4C8A4B1BF,"Resilience and Resilient Systems of Artificial Intelligence: Taxonomy, Models and Methods",υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,υποστηρικτική,ναι
 SRC-D0A02E4877,Resilient Machine Learning in Space Systems: Pose Estimation as a Case Study | IEEE Conference Publication | IEEE Xplore IEEE Account,υψηλή,ελλιπές κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-47085E14BA,Resilient Multi-Agent Reinforcement Learning with Adversarial Value Decomposition,υψηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,πρόχειρο,απόρριψη,όχι
+SRC-CBA29E303A,Revisiting Fundamentals of Experience Replay,χρειάζεται διόρθωση,ελλιπές κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
 SRC-3EEF180BD3,Reward Hacking in Language Model Agents: Revisiting AI Safety Gridworlds,υψηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,πρόχειρο,απόρριψη,όχι
 SRC-E36400B5EB,Reward Machines- Effects of Noisy Labelling Functions in Complex Grid Environments in Reinforcement,χαμηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-D6A6F6F96E,Reward shaping — Mastering Reinforcement Learning,υψηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,πρόχειρο,απόρριψη,όχι
@@ -498,14 +507,17 @@ SRC-D19D1DF801,Sutton & Barto Gridworld example in C# - Davide Lettieri,μεσα
 SRC-B1CC6687F0,"The Architecture, Application, and Alignment Challenges of Autonomous AI Agents: A Comprehensive Technical Analysis",μεσαία,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-528EB94EA8,The Curious Price of Distributional Robustness in Reinforcement Learning-,μεσαία,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-C115B0240F,The Law of AI is the Law of Risky Agents Without Intentions,μεσαία,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
+SRC-46CF36BC1E,The Primacy Bias in Deep Reinforcement Learning,χρειάζεται διόρθωση,ελλιπές κείμενο,επαληθευμένη,επαληθευμένο,υποστηρικτική,ναι
 SRC-643DB6CBFE,The Resilience Gap Holding Back AI Performance - Disaster Recovery Journal,μεσαία,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-A76BF5B717,The Schubert normal form of a 3-bridge link and the 3-bridge link group,χαμηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-7F30DDB0B2,The Ultimate Guide to Local AI and AI Agents (The Future is Here),χρειάζεται διόρθωση,μόνο μεταδεδομένα,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-BFD3447AEF,The-Rise-of-Agents,μεσαία,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-3174B1019C,the-rise-of-ai-agents-unleashing-productivity-and-innovation-emea,μεσαία,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-E5CA725A6C,thesis.pdf,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
+SRC-69D02D7E25,Time Limits in Reinforcement Learning,χρειάζεται διόρθωση,ελλιπές κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
 SRC-E33EBFE4F4,Toward theoretical understandings of robust Markov decision processes- Sample complexity and asympto,χρειάζεται διόρθωση,μόνο μεταδεδομένα,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-732D12A2CC,Towards a Science of AI Agent Reliability,μεσαία,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
+SRC-39696F490F,Towards Continual Reinforcement Learning: A Review and Perspectives,χρειάζεται διόρθωση,ελλιπές κείμενο,επαληθευμένη,επαληθευμένο,,όχι
 SRC-958647DE4E,Towards Deep Learning Models Resistant to Adversarial Attacks,χαμηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-DA324C815B,Towards Optimal Offline Reinforcement Learning,υψηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-E7E736ACE8,Towards Out-Of-Distribution Generalization: A Survey,υψηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
