@@ -27,7 +27,9 @@
 | `SRC-24038FBE78` | Build Everything with AI Agents- Here's How | μόνο μεταδεδομένα |
 | `SRC-F355021435` | Building AI Agents In 44 Minutes | μόνο μεταδεδομένα |
 | `SRC-DC63A2D5E7` | Context-Switching and Adaptation: Brain-Inspired Mechanisms for Handling Environmental Changes - University of Lethbridge | σύνδεσμος, επιβεβαίωση μεταδεδομένων |
+| `SRC-8D4F62D85D` | Deep Reinforcement Learning that Matters | ελλιπές κείμενο |
 | `SRC-61045DD262` | Distributional Reinforcement Learning | ελλιπές κείμενο |
+| `SRC-4ED8B918E3` | Empirical Design in Reinforcement Learning | ελλιπές κείμενο |
 | `SRC-BD5C7CB6BA` | From Zero to Your First AI Agent in 25 Minutes (No Coding) | μόνο μεταδεδομένα |
 | `SRC-9E42BE7AFE` | Gridworld Example (Lectures on Reinforcement Learning) | μόνο μεταδεδομένα |
 | `SRC-E59631E883` | Hierarchical Reinforcement Learning for Playing a Dynamic Dungeon Crawler Game - Bernoulli Institute for Mathematics, Computer Science and Artificial Intelligence | σύνδεσμος, επιβεβαίωση μεταδεδομένων |
@@ -42,6 +44,7 @@
 | `SRC-2554BB8102` | Large Language Model Agent A Survey onMethodology, -- Junyu Luo, Weizhi Zhang, Ye Yuan, Yusheng Zha | σύνδεσμος, επιβεβαίωση μεταδεδομένων |
 | `SRC-4CA982BE87` | Learn to Human-level Control in Dynamic Environment Using Incremental Batch Interrupting Temporal Abstraction - Semantic Scholar | σύνδεσμος, επιβεβαίωση μεταδεδομένων |
 | `SRC-35132FB9D8` | Lecture19FinalPart1.pdf - Techniques in Artificial Intelligence (SMA 5504) - Electrical Engineering | ελλιπές κείμενο |
+| `SRC-4C34DF3E17` | Loss of plasticity in deep continual learning | ελλιπές κείμενο |
 | `SRC-E842F87F3F` | mastering-ai-agents-galileo | σύνδεσμος, τύπος πηγής |
 | `SRC-A5DDBF1534` | Meta-Learning and Meta-Reinforcement Learning - Tracing the Path ... | ελλιπές κείμενο |
 | `SRC-18D64222C0` | multiagent-systems-pr 2740350560a3678fa4cc670ce86db9d0 | σύνδεσμος, τύπος πηγής |
