@@ -4,7 +4,7 @@
 > Η δομημένη πηγή αλήθειας είναι το `catalog/sources.csv` και όλα τα πλήρη
 > Markdown βρίσκονται στον ενιαίο φάκελο `sources/`.
 
-- **Συνολικές ενεργές πηγές:** 585
+- **Συνολικές ενεργές πηγές:** 590
 - **Πλήρη Markdown που λείπουν:** 0
 - **Χρήση:** απογραφή, φίλτρα, έλεγχος μεταδεδομένων και επιλογή πηγών για τη διπλωματική.
 
@@ -14,8 +14,8 @@
 
 | Τύπος πηγής | Πλήθος |
 |---|---:|
-| ακαδημαϊκή εργασία | 277 |
-| ιστοσελίδα | 155 |
+| ακαδημαϊκή εργασία | 279 |
+| ιστοσελίδα | 158 |
 | βίντεο ή διάλεξη | 50 |
 | αποθετήριο κώδικα | 32 |
 | άγνωστος τύπος | 25 |
@@ -30,20 +30,20 @@
 |---|---:|
 | πράκτορες τεχνητής νοημοσύνης | 160 |
 | βαθιά ενισχυτική μάθηση | 142 |
-| πινακοποιημένη ενισχυτική μάθηση | 118 |
+| πινακοποιημένη ενισχυτική μάθηση | 121 |
 | χωρίς κατηγορία | 107 |
 | περιβάλλοντα και benchmarks | 90 |
-| GridWorld | 83 |
+| GridWorld | 84 |
 | εύρωστη ενισχυτική μάθηση | 80 |
-| μη στασιμότητα | 72 |
+| μη στασιμότητα | 74 |
 | μερική παρατηρησιμότητα | 69 |
 | στατιστική αξιολόγηση | 65 |
 | ασφαλής ενισχυτική μάθηση | 64 |
 | ανθεκτικότητα και ανάκαμψη | 55 |
 | διακυβέρνηση και ηθική | 46 |
-| συνεχής προσαρμογή | 25 |
+| συνεχής προσαρμογή | 26 |
 | αβεβαιότητα μεταβάσεων | 16 |
-| ενισχυτική μάθηση με μοντέλο | 15 |
+| ενισχυτική μάθηση με μοντέλο | 16 |
 | αβεβαιότητα ανταμοιβής | 10 |
 | αβεβαιότητα ενεργειών | 8 |
 | αβεβαιότητα παρατηρήσεων | 7 |
@@ -54,7 +54,7 @@
 |---|---:|
 | διαθέσιμο πλήρες κείμενο | 526 |
 | μόνο μεταδεδομένα | 34 |
-| ελλιπές κείμενο | 24 |
+| ελλιπές κείμενο | 29 |
 | αποτυχημένη εισαγωγή | 1 |
 
 ## Πλήρης πίνακας πηγών
@@ -95,6 +95,7 @@
 | `SRC-F909CABDEB` | A Survey of Continual Reinforcement Learning | Chaofan Pan; Xin Yang; Yanhua Li; Wei Wei; Tianrui Li; Bo An; Jiye Liang | 2025 | ακαδημαϊκή εργασία | μη στασιμότητα; βαθιά ενισχυτική μάθηση; συνεχής προσαρμογή; περιβάλλοντα και benchmarks | διαθέσιμο πλήρες κείμενο | επιβεβαιωμένη μέσω arXiv | υψηλή | [πηγή](sources/SRC-F909CABDEB.md) | [άνοιγμα](https://arxiv.org/abs/2506.21872) | Αυτόματη διόρθωση παλιού τίτλου: https---arxiv.org-pdf-2506.21872 |
 | `SRC-AABAFA12BF` | A Survey of Human-in-the-Loop Reinforcement Learning for Critical Systems | — | 2026 | ακαδημαϊκή εργασία | διακυβέρνηση και ηθική | διαθέσιμο πλήρες κείμενο | εκκρεμεί | μεσαία | [πηγή](sources/SRC-AABAFA12BF.md) | — | — |
 | `SRC-DFFF269D33` | A Survey of Multi-Agent Deep Reinforcement Learning with Communication | Changxi Zhu; Mehdi Dastani; Shihan Wang | 2022 | ακαδημαϊκή εργασία | μη στασιμότητα; μερική παρατηρησιμότητα; πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση; πράκτορες τεχνητής νοημοσύνης | διαθέσιμο πλήρες κείμενο | επιβεβαιωμένη μέσω arXiv | υψηλή | [πηγή](sources/SRC-DFFF269D33.md) | [άνοιγμα](https://arxiv.org/abs/2203.08975) | Αυτόματη διόρθωση παλιού τίτλου: https---arxiv.org-pdf-2203.08975 |
+| `SRC-8025C139CE` | A Survey of Reinforcement Learning Algorithms for Dynamically Varying Environments | Sindhu Padakandla | 2020 | ακαδημαϊκή εργασία | μη στασιμότητα | ελλιπές κείμενο | επιβεβαιωμένη μέσω arXiv | χρειάζεται διόρθωση | [πηγή](sources/SRC-8025C139CE.md) | [άνοιγμα](https://arxiv.org/abs/2005.10619) | Αυτόματη διόρθωση παλιού έτους: 2005 |
 | `SRC-60ECE049E6` | A Survey of Reinforcement Learning For Economics | Pranjal Rawat | 2026 | ακαδημαϊκή εργασία | πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση; εύρωστη ενισχυτική μάθηση; GridWorld; ασφαλής ενισχυτική μάθηση; αβεβαιότητα ανταμοιβής; μερική παρατηρησιμότητα | διαθέσιμο πλήρες κείμενο | επιβεβαιωμένη μέσω arXiv | υψηλή | [πηγή](sources/SRC-60ECE049E6.md) | [άνοιγμα](https://arxiv.org/abs/2603.08956) | Αυτόματη διόρθωση παλιού τίτλου: A Survey of Reinforcement Learning For Economics - arXiv \| Αυτόματη διόρθωση παλιού έτους: 1988 |
 | `SRC-BE5B937542` | A Survey of Safe Reinforcement Learning and Constrained MDPs: A Technical Survey on Single-Agent and Multi-Agent Safety | Ankita Kushwaha; Kiran Ravish; Preeti Lamba; Pawan Kumar | 2025 | ακαδημαϊκή εργασία | μη στασιμότητα; GridWorld; ασφαλής ενισχυτική μάθηση; αβεβαιότητα ανταμοιβής; περιβάλλοντα και benchmarks; πράκτορες τεχνητής νοημοσύνης | διαθέσιμο πλήρες κείμενο | επιβεβαιωμένη μέσω arXiv | υψηλή | [πηγή](sources/SRC-BE5B937542.md) | [άνοιγμα](https://arxiv.org/abs/2505.17342) | Αυτόματη διόρθωση παλιού τίτλου: https---arxiv.org-pdf-2505.17342 \| Αυτόματη διόρθωση παλιού έτους: 2026 |
 | `SRC-21EBE15D15` | A Survey of Zero-shot Generalisation in Deep Reinforcement Learning | Robert Kirk; Amy Zhang; Edward Grefenstette; Tim Rocktäschel | 2021 | ακαδημαϊκή εργασία | μερική παρατηρησιμότητα; βαθιά ενισχυτική μάθηση; συνεχής προσαρμογή; περιβάλλοντα και benchmarks; πράκτορες τεχνητής νοημοσύνης | διαθέσιμο πλήρες κείμενο | επιβεβαιωμένη μέσω arXiv | χαμηλή | [πηγή](sources/SRC-21EBE15D15.md) | [άνοιγμα](https://arxiv.org/abs/2111.09794) | Αυτόματη διόρθωση παλιού τίτλου: https---arxiv.org-pdf-2111.09794 |
@@ -355,6 +356,7 @@
 | `SRC-405E00D8AB` | ilide.info-ai-agents-and-automation-trends-2025-ebook-pr 1457e778f93e4de20f71dbd2371b0937 | — | 2025 | άγνωστος τύπος | πράκτορες τεχνητής νοημοσύνης | διαθέσιμο πλήρες κείμενο | εκκρεμεί | μεσαία | [πηγή](sources/SRC-405E00D8AB.md) | — | — |
 | `SRC-255529AC11` | ilide.info-mastering-multi-agent-systems-pr 03b6784b619ed204bafad6a04a2f6b46 | — | — | άγνωστος τύπος | πράκτορες τεχνητής νοημοσύνης | διαθέσιμο πλήρες κείμενο | εκκρεμεί | μεσαία | [πηγή](sources/SRC-255529AC11.md) | — | — |
 | `SRC-A87F481B4C` | Implementing the Deep Q-Network | Melrose Roderick; James MacGlashan; Stefanie Tellex | 2017 | ακαδημαϊκή εργασία | πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση; συνεχής προσαρμογή; περιβάλλοντα και benchmarks | διαθέσιμο πλήρες κείμενο | επιβεβαιωμένη μέσω arXiv | χαμηλή | [πηγή](sources/SRC-A87F481B4C.md) | [άνοιγμα](https://arxiv.org/abs/1711.07478) | Αυτόματη διόρθωση παλιού τίτλου: https---arxiv.org-pdf-1711.07478 |
+| `SRC-F6BD3A6B18` | Integrated Modeling and Control Based on Reinforcement Learning and Dynamic Programming | — | 1990 | ιστοσελίδα | πινακοποιημένη ενισχυτική μάθηση; ενισχυτική μάθηση με μοντέλο | ελλιπές κείμενο | μόνο καταγεγραμμένος σύνδεσμος | χρειάζεται διόρθωση | [πηγή](sources/SRC-F6BD3A6B18.md) | [άνοιγμα](https://proceedings.neurips.cc/paper/1990/file/d9fc5b73a8d78fad3d6dffe419384e70-Paper.pdf) | — |
 | `SRC-BAEE694D5B` | Intelligent agent - Wikipedia | Wikipedia Contributors | — | ιστοσελίδα | πράκτορες τεχνητής νοημοσύνης | διαθέσιμο πλήρες κείμενο | μόνο καταγεγραμμένος σύνδεσμος | χαμηλή | [πηγή](sources/SRC-BAEE694D5B.md) | [άνοιγμα](https://en.wikipedia.org/wiki/Intelligent_agent) | — |
 | `SRC-5DFB680F53` | Interaction-Breaking Adversarial Learning Framework for Robust Multi-Agent Reinforcement Learning | Sunwoo Lee; Mingu Kang; Yonghyeon Jo; Seungyul Han | 2026 | ακαδημαϊκή εργασία | μερική παρατηρησιμότητα | διαθέσιμο πλήρες κείμενο | επιβεβαιωμένη μέσω arXiv | μεσαία | [πηγή](sources/SRC-5DFB680F53.md) | [άνοιγμα](https://arxiv.org/abs/2605.18024) | — |
 | `SRC-503A8B421C` | Interpretable Operations Research for High-Sta... - Πέργαμος | — | 2020 | ιστοσελίδα | μη στασιμότητα | διαθέσιμο πλήρες κείμενο | μόνο καταγεγραμμένος σύνδεσμος | μεσαία | [πηγή](sources/SRC-503A8B421C.md) | [άνοιγμα](https://pergamos.lib.uoa.gr/uoa/dl/object/3344931) | — |
@@ -413,6 +415,7 @@
 | `SRC-FC22553C08` | On the Generalization of Representations in Reinforcement Learning | — | — | ιστοσελίδα | ανθεκτικότητα και ανάκαμψη | διαθέσιμο πλήρες κείμενο | μόνο καταγεγραμμένος σύνδεσμος | μεσαία | [πηγή](sources/SRC-FC22553C08.md) | [άνοιγμα](https://research.google/pubs/on-the-generalization-of-representations-in-reinforcement-learning/) | — |
 | `SRC-CF2FB64E6A` | On the Generalization of Representations in Reinforcement Learning | Charline Le Lan; Stephen Tu; Adam Oberman; Rishabh Agarwal; Marc G. Bellemare | 2022 | ακαδημαϊκή εργασία | βαθιά ενισχυτική μάθηση; στατιστική αξιολόγηση | διαθέσιμο πλήρες κείμενο | επιβεβαιωμένη μέσω arXiv | υψηλή | [πηγή](sources/SRC-CF2FB64E6A.md) | [άνοιγμα](https://arxiv.org/abs/2203.00543) | Αυτόματη διόρθωση παλιού τίτλου: https---arxiv.org-pdf-2203.00543 \| Αυτόματη διόρθωση παλιού έτους: 1993 |
 | `SRC-51561BFA26` | ON THE RESILIENCE OF MULTI-AGENT SYSTEMS WITH MALICIOUS AGENTS | Anonymous authors | 2023 | ακαδημαϊκή εργασία | ανθεκτικότητα και ανάκαμψη; πράκτορες τεχνητής νοημοσύνης | διαθέσιμο πλήρες κείμενο | μόνο καταγεγραμμένος σύνδεσμος | υψηλή | [πηγή](sources/SRC-51561BFA26.md) | [άνοιγμα](https://openreview.net/pdf?id=Bp2axGAs18) | — |
+| `SRC-D20C157084` | On-line Q-learning using connectionist systems | — | 1994 | ιστοσελίδα | πινακοποιημένη ενισχυτική μάθηση | ελλιπές κείμενο | μόνο καταγεγραμμένος σύνδεσμος | χρειάζεται διόρθωση | [πηγή](sources/SRC-D20C157084.md) | [άνοιγμα](http://mi.eng.cam.ac.uk/reports/svr-ftp/auto-pdf/rummery_tr166.pdf) | — |
 | `SRC-73DA396BA9` | Online MDP with Transition Prototypes: A Robust Adaptive Approach | Shuo Sun; Meng Qi; Zuo-Jun Max Shen | 2024 | ακαδημαϊκή εργασία | χωρίς κατηγορία | διαθέσιμο πλήρες κείμενο | επιβεβαιωμένη μέσω arXiv | μεσαία | [πηγή](sources/SRC-73DA396BA9.md) | [άνοιγμα](https://arxiv.org/abs/2412.14075) | — |
 | `SRC-2573249C69` | Online Policy Optimization for Robust Markov Decision Process | — | — | ακαδημαϊκή εργασία | χωρίς κατηγορία | ελλιπές κείμενο | μόνο καταγεγραμμένος σύνδεσμος | χρειάζεται διόρθωση | [πηγή](sources/SRC-2573249C69.md) | [άνοιγμα](https://openreview.net/forum?id=VS8EPaCSY1) | — |
 | `SRC-FBFDD51DA0` | Online Policy Optimization for Robust Markov Decision Process - GitHub | — | 2018 | αποθετήριο κώδικα | εύρωστη ενισχυτική μάθηση | διαθέσιμο πλήρες κείμενο | μόνο καταγεγραμμένος σύνδεσμος | υψηλή | [πηγή](sources/SRC-FBFDD51DA0.md) | [άνοιγμα](https://raw.githubusercontent.com/mlresearch/v244/main/assets/dong24a/dong24a.pdf) | — |
@@ -455,6 +458,7 @@
 | `SRC-A203ABEEFE` | Prioritized Experience Replay | Tom Schaul; John Quan; Ioannis Antonoglou; David Silver | 2015 | ακαδημαϊκή εργασία | μη στασιμότητα; πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση; περιβάλλοντα και benchmarks | διαθέσιμο πλήρες κείμενο | επιβεβαιωμένη μέσω arXiv | υψηλή | [πηγή](sources/SRC-A203ABEEFE.md) | [άνοιγμα](https://arxiv.org/abs/1511.05952) | Αυτόματη διόρθωση παλιού τίτλου: https---arxiv.org-pdf-1511.05952 |
 | `SRC-6C5FB230E1` | Procedural Content Generation via Machine Learning (PCGML) | Adam Summerville; Sam Snodgrass; Matthew Guzdial; Christoffer Holmgård; Amy K. Hoover; Aaron Isaksen; Andy Nealen; Julian Togelius | 2017 | ακαδημαϊκή εργασία | χωρίς κατηγορία | διαθέσιμο πλήρες κείμενο | επιβεβαιωμένη μέσω arXiv | χαμηλή | [πηγή](sources/SRC-6C5FB230E1.md) | [άνοιγμα](https://arxiv.org/abs/1702.00539) | Αυτόματη διόρθωση παλιού τίτλου: https---arxiv.org-pdf-1702.00539 |
 | `SRC-CD5F67F3E6` | Proximal Policy Optimization Algorithms | John Schulman; Filip Wolski; Prafulla Dhariwal; Alec Radford; Oleg Klimov | 2017 | ακαδημαϊκή εργασία | πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση; περιβάλλοντα και benchmarks | διαθέσιμο πλήρες κείμενο | επιβεβαιωμένη μέσω arXiv | χαμηλή | [πηγή](sources/SRC-CD5F67F3E6.md) | [άνοιγμα](https://arxiv.org/abs/1707.06347) | Αυτόματη διόρθωση παλιού τίτλου: Proximal Policy Optimization Algorithms (Schulman et al., 2017) |
+| `SRC-AD8A2E9A85` | Q-learning | — | 1992 | ιστοσελίδα | πινακοποιημένη ενισχυτική μάθηση | ελλιπές κείμενο | μόνο καταγεγραμμένος σύνδεσμος | χρειάζεται διόρθωση | [πηγή](sources/SRC-AD8A2E9A85.md) | [άνοιγμα](https://gatsby.ucl.ac.uk/~dayan/papers/cjch.pdf) | — |
 | `SRC-64AA1D82C6` | QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning | Tabish Rashid; Mikayel Samvelyan; Christian Schroeder de Witt; Gregory Farquhar; Jakob Foerster; Shimon Whiteson | 2018 | ακαδημαϊκή εργασία | μη στασιμότητα; μερική παρατηρησιμότητα; πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση; περιβάλλοντα και benchmarks; πράκτορες τεχνητής νοημοσύνης | διαθέσιμο πλήρες κείμενο | επιβεβαιωμένη μέσω arXiv | υψηλή | [πηγή](sources/SRC-64AA1D82C6.md) | [άνοιγμα](https://arxiv.org/abs/1803.11485) | Αυτόματη διόρθωση παλιού τίτλου: https---arxiv.org-pdf-1803.11485 |
 | `SRC-02987450DF` | QRES-MARL - TU Delft Repository | — | 2025 | ιστοσελίδα | ανθεκτικότητα και ανάκαμψη; πινακοποιημένη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση; πράκτορες τεχνητής νοημοσύνης | διαθέσιμο πλήρες κείμενο | μόνο καταγεγραμμένος σύνδεσμος | μεσαία | [πηγή](sources/SRC-02987450DF.md) | [άνοιγμα](https://repository.tudelft.nl/record/uuid%3A16fb3161-1ec4-4c5d-923e-bce32717e25d) | — |
 | `SRC-2899809E90` | Reactive and Deliberative AI agents - Vikas Goyal | — | — | ιστοσελίδα | μη στασιμότητα; πράκτορες τεχνητής νοημοσύνης; διακυβέρνηση και ηθική | διαθέσιμο πλήρες κείμενο | μόνο καταγεγραμμένος σύνδεσμος | μεσαία | [πηγή](sources/SRC-2899809E90.md) | [άνοιγμα](https://vikasgoyal.github.io/agentic/reactivedeliberativeagents.html) | — |
@@ -568,6 +572,7 @@
 | `SRC-E5CA725A6C` | thesis.pdf | — | 2024 | ακαδημαϊκή εργασία | μη στασιμότητα; βαθιά ενισχυτική μάθηση | διαθέσιμο πλήρες κείμενο | εκκρεμεί | υψηλή | [πηγή](sources/SRC-E5CA725A6C.md) | — | — |
 | `SRC-E33EBFE4F4` | Toward theoretical understandings of robust Markov decision processes- Sample complexity and asympto | — | — | ιστοσελίδα | χωρίς κατηγορία | μόνο μεταδεδομένα | μόνο καταγεγραμμένος σύνδεσμος | χρειάζεται διόρθωση | [πηγή](sources/SRC-E33EBFE4F4.md) | [άνοιγμα](https://projecteuclid.org/journals/annals-of-statistics/volume-50/issue-6/Toward-theoretical-understandings-of-robust-Markov-decision-processes--Sample/10.1214/22-AOS2225.pdf) | — |
 | `SRC-732D12A2CC` | Towards a Science of AI Agent Reliability | Stephan Rabanser; Sayash Kapoor; Peter Kirgis; Kangheng Liu; Saiteja Utpala; Arvind Narayanan | 2026 | ακαδημαϊκή εργασία | πράκτορες τεχνητής νοημοσύνης; διακυβέρνηση και ηθική | διαθέσιμο πλήρες κείμενο | επιβεβαιωμένη μέσω arXiv | μεσαία | [πηγή](sources/SRC-732D12A2CC.md) | [άνοιγμα](https://arxiv.org/abs/2602.16666) | — |
+| `SRC-39696F490F` | Towards Continual Reinforcement Learning: A Review and Perspectives | Khimya Khetarpal; Matthew Riemer; Irina Rish; Doina Precup | 2020 | ακαδημαϊκή εργασία | μη στασιμότητα; GridWorld; συνεχής προσαρμογή | ελλιπές κείμενο | επιβεβαιωμένη μέσω arXiv | χρειάζεται διόρθωση | [πηγή](sources/SRC-39696F490F.md) | [άνοιγμα](https://arxiv.org/abs/2012.13490) | Αυτόματη διόρθωση παλιού έτους: 2012 |
 | `SRC-958647DE4E` | Towards Deep Learning Models Resistant to Adversarial Attacks | Aleksander Madry; Aleksandar Makelov; Ludwig Schmidt; Dimitris Tsipras; Adrian Vladu | 2017 | ακαδημαϊκή εργασία | χωρίς κατηγορία | διαθέσιμο πλήρες κείμενο | επιβεβαιωμένη μέσω arXiv | χαμηλή | [πηγή](sources/SRC-958647DE4E.md) | [άνοιγμα](https://arxiv.org/abs/1706.06083) | Αυτόματη διόρθωση παλιού τίτλου: https---arxiv.org-pdf-1706.06083 |
 | `SRC-DA324C815B` | Towards Optimal Offline Reinforcement Learning | Mengmeng Li; Daniel Kuhn; Tobias Sutter | 2025 | ακαδημαϊκή εργασία | εύρωστη ενισχυτική μάθηση; βαθιά ενισχυτική μάθηση; στατιστική αξιολόγηση | διαθέσιμο πλήρες κείμενο | επιβεβαιωμένη μέσω arXiv | υψηλή | [πηγή](sources/SRC-DA324C815B.md) | [άνοιγμα](https://arxiv.org/abs/2503.12283) | Αυτόματη διόρθωση παλιού τίτλου: arXiv-2503.12283v1 [math.OC] 15 Mar 2025 |
 | `SRC-E7E736ACE8` | Towards Out-Of-Distribution Generalization: A Survey | Jiashuo Liu; Zheyan Shen; Yue He; Xingxuan Zhang; Renzhe Xu; Han Yu; Peng Cui | 2021 | ακαδημαϊκή εργασία | εύρωστη ενισχυτική μάθηση; στατιστική αξιολόγηση; περιβάλλοντα και benchmarks | διαθέσιμο πλήρες κείμενο | επιβεβαιωμένη μέσω arXiv | υψηλή | [πηγή](sources/SRC-E7E736ACE8.md) | [άνοιγμα](https://arxiv.org/abs/2108.13624) | Αυτόματη διόρθωση παλιού τίτλου: https---arxiv.org-pdf-2108.13624 |
