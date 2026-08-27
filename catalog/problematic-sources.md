@@ -38,6 +38,7 @@
 | `SRC-7574A4DDCC` | ilide.info-agentic-ai-projects-pr 8274957092840810572421abca7eb2c6 | σύνδεσμος, τύπος πηγής |
 | `SRC-405E00D8AB` | ilide.info-ai-agents-and-automation-trends-2025-ebook-pr 1457e778f93e4de20f71dbd2371b0937 | σύνδεσμος, τύπος πηγής |
 | `SRC-255529AC11` | ilide.info-mastering-multi-agent-systems-pr 03b6784b619ed204bafad6a04a2f6b46 | σύνδεσμος, τύπος πηγής |
+| `SRC-5D0E7E5BD7` | Implementation Matters in Deep Policy Gradients: A Case Study on PPO and TRPO | ελλιπές κείμενο |
 | `SRC-F6BD3A6B18` | Integrated Modeling and Control Based on Reinforcement Learning and Dynamic Programming | ελλιπές κείμενο |
 | `SRC-00CCFC7AC0` | IROS 2022 Keynote- Safe Learning in Robotics by Prof. Angela Schoellig | μόνο μεταδεδομένα |
 | `SRC-CDCA1BACF3` | Konstantakopoulos MTN2013 | σύνδεσμος, τύπος πηγής |
@@ -68,6 +69,7 @@
 | `SRC-3BD2FDEADB` | Reinforcement Learning with Numpy ONLY- Solving an Arbitrary 2D Grid World! | μόνο μεταδεδομένα |
 | `SRC-EE33F366D6` | Reinforcement Learning with Numpy ONLY: Solving an Arbitrary 2D Grid World! | μόνο μεταδεδομένα |
 | `SRC-D0A02E4877` | Resilient Machine Learning in Space Systems: Pose Estimation as a Case Study \| IEEE Conference Publication \| IEEE Xplore IEEE Account | ελλιπές κείμενο |
+| `SRC-CBA29E303A` | Revisiting Fundamentals of Experience Replay | ελλιπές κείμενο |
 | `SRC-6415F06CD9` | RL- Lecture Schedule - Open Course Materials | ελλιπές κείμενο |
 | `SRC-71F2ECA651` | Robust Reinforcement Learning (Morimoto & Doya, 2001) | ελλιπές κείμενο |
 | `SRC-A3CBA6F68F` | Robust Reinforcement Learning using Adversarial Populations - OpenReview | ελλιπές κείμενο |
@@ -81,10 +83,12 @@
 | `SRC-97178F6279` | State and Action Values in a Grid World- A Policy for a Reinforcement Learning Agent | μόνο μεταδεδομένα |
 | `SRC-58DE790914` | State-Of-The-Art Prompting For AI Agents | μόνο μεταδεδομένα |
 | `SRC-B1CC6687F0` | The Architecture, Application, and Alignment Challenges of Autonomous AI Agents: A Comprehensive Technical Analysis | σύνδεσμος, τύπος πηγής |
+| `SRC-46CF36BC1E` | The Primacy Bias in Deep Reinforcement Learning | ελλιπές κείμενο |
 | `SRC-7F30DDB0B2` | The Ultimate Guide to Local AI and AI Agents (The Future is Here) | μόνο μεταδεδομένα |
 | `SRC-BFD3447AEF` | The-Rise-of-Agents | σύνδεσμος, τύπος πηγής |
 | `SRC-3174B1019C` | the-rise-of-ai-agents-unleashing-productivity-and-innovation-emea | σύνδεσμος, τύπος πηγής |
 | `SRC-E5CA725A6C` | thesis.pdf | σύνδεσμος, επιβεβαίωση μεταδεδομένων |
+| `SRC-69D02D7E25` | Time Limits in Reinforcement Learning | ελλιπές κείμενο |
 | `SRC-E33EBFE4F4` | Toward theoretical understandings of robust Markov decision processes- Sample complexity and asympto | μόνο μεταδεδομένα |
 | `SRC-39696F490F` | Towards Continual Reinforcement Learning: A Review and Perspectives | ελλιπές κείμενο |
 | `SRC-FFFE5C83C0` | Towards robust, efficient, and safe reinforcement learning | μόνο μεταδεδομένα |
