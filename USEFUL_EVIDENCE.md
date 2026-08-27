@@ -4837,71 +4837,158 @@ Wachi et al. (2023), overall method scope.
 - **Έτος:** 2018
 - **Τύπος:** βιβλίο ή κεφάλαιο
 - **Θέματα / tags:** μη στασιμότητα; πινακοποιημένη ενισχυτική μάθηση
-- **Ημερομηνία ελέγχου:** 2026-08-01
+- **Ημερομηνία ελέγχου:** 2026-08-27
 - **Αρχεία:** [πλήρες Markdown](sources/SRC-701E163AC8.md) · [αποσπάσματα](evidence/SRC-701E163AC8.md)
 - **Εξωτερική πηγή:** [άνοιγμα](http://incompleteideas.net/book/RLbook2020.pdf)
 
-## 1. The second edition focuses on core online reinforcement-learning algorithms
-- Type: faithful paraphrase
-- Location: MIT Press description of the second edition
-- Claim: The book emphasizes core online learning algorithms and treats the tabular case as the foundation before moving to approximation.
-- Thesis use: baseline foundations
-- Topics: online RL; tabular RL; MDP
-- Status: verified
+## E1 — Core online/tabular RL foundation
+- **Type:** faithful paraphrase
+- **Location:** second-edition structure and Part I; MIT Press metadata cross-check
+- **Claim:** The book develops reinforcement learning through agent–environment interaction and uses tabular methods as the foundational setting for core online algorithms.
+- **Thesis use:** theoretical background
+- **Topics:** RL; MDP; tabular methods
+- **Status:** verified
 
 ### Faithful paraphrase
-The second edition presents reinforcement learning as learning through interaction with an uncertain environment and develops the core online algorithms, with the tabular case forming the foundation for the first major part of the book.
+The second edition develops reinforcement learning as sequential learning through interaction with an uncertain environment, with tabular MDP methods forming the foundation before function approximation and larger-scale methods.
 
-## 2. Recent observations should receive more weight in a non-stationary problem
-- Type: faithful paraphrase
-- Location: Chapter 2, section “Tracking a Nonstationary Problem” in the authors’ complete March 2018 second-edition draft; section presence cross-checked against the final-edition contents
-- Claim: Sample averages suit stationary reward distributions, whereas a constant step-size update gives greater weight to recent rewards when action values change over time.
-- Thesis use: recency/decay Q-learning rationale
-- Topics: non-stationarity; constant step size; recency
-- Status: verified
+## E2 — Recency-sensitive updating for non-stationary estimation
+- **Type:** faithful paraphrase
+- **Location:** Chapter 2, section “Tracking a Nonstationary Problem” in the authors’ complete March 2018 draft
+- **Claim:** Sample averages are suited to stationary action values, whereas constant step-size updates weight recent observations more strongly when values change over time.
+- **Thesis use:** continual-update rationale
+- **Topics:** non-stationarity; step size; recency
+- **Status:** verified
 
 ### Faithful paraphrase
-When the underlying reward process changes over time, treating all past observations equally can make estimates slow to track the current values. A constant step-size update instead forms a recency-weighted estimate in which the influence of older rewards decays geometrically.
+When underlying values change, treating all historical observations equally can track the current process slowly. A constant step size instead yields a recency-weighted estimate in which the contribution of older observations decays progressively.
 
 ### Limitation
-This is a continuous tracking mechanism. It does not detect or label a changepoint.
+This is continuous tracking, not detection or labeling of a changepoint.
 
-## 3. Q-learning is off-policy TD control
-- Type: faithful paraphrase
-- Location: Chapter 6, section “Q-learning: Off-policy TD Control” in the second-edition material; section presence cross-checked against the final-edition contents
-- Claim: Q-learning updates an action value toward the observed reward plus the discounted maximum next-state action value, while the behavior policy controls which state-action pairs are sampled.
-- Thesis use: continual tabular Q-learning baseline
-- Topics: Q-learning; TD control; off-policy
-- Status: verified
+## E3 — Q-learning is off-policy TD control
+- **Type:** faithful paraphrase
+- **Location:** Chapter 6, “Q-learning: Off-policy TD Control”
+- **Claim:** Q-learning updates the current action value using the observed reward and the maximum estimated action value at the next state, while the behavior policy determines the experience collected.
+- **Thesis use:** Fixed/Adaptive Q-Learning foundation
+- **Topics:** Q-learning; off-policy; TD control
+- **Status:** verified
 
 ### Faithful paraphrase
-Q-learning directly learns an estimate of the optimal action-value function using a temporal-difference target based on the best estimated next action. The policy used to interact with the environment still matters because it determines which state-action pairs are visited and updated.
+Q-learning uses an optimality-style next-state target rather than the value of the next behavior action. The interaction policy still matters because it controls which state-action pairs are sampled and therefore updated.
 
-## 4. Continual Q-learning is not automatically resilient
-- Type: thesis-safe inference from the learning rule and study scope
-- Location: Chapters 2 and 6
-- Claim: After a change in the environment, previously learned values can become stale; recovery depends on continued data collection and update dynamics rather than on an explicit resilience guarantee.
-- Thesis use: baseline interpretation
-- Topics: stale values; recovery; exploration
-- Status: verified
+### Safe interpretation
+Fixed Q-Learning and Adaptive Q-Learning in the thesis share this theoretical foundation. The freeze-versus-continue distinction is an experimental deployment choice and must not be presented as two unrelated algorithms.
 
-### Safe use
-Use continual tabular Q-learning as the no-special-mechanism adaptive baseline. Measure its post-change degradation and recovery rather than assuming that online learning alone constitutes resilience.
+## E4 — SARSA is on-policy TD control
+- **Type:** faithful paraphrase
+- **Location:** Chapter 6, “Sarsa: On-policy TD Control”
+- **Claim:** SARSA updates an action value using the next action actually selected by the behavior policy, making the TD target on-policy.
+- **Thesis use:** SARSA mechanism definition and Q-learning comparison
+- **Topics:** SARSA; on-policy; TD control
+- **Status:** verified
 
-## 5. Constant-step recency and full reset are different mechanisms
-- Type: thesis-safe inference from the update semantics
-- Location: Chapter 2 non-stationary tracking discussion
-- Claim: A constant step size gradually reduces the influence of older evidence, whereas a reset explicitly discards stored estimates.
-- Thesis use: baseline separation
-- Topics: recency; reset; forgetting
-- Status: verified
+### Faithful paraphrase
+SARSA learns from the sequence state–action–reward–next-state–next-action. Because the next behavior action enters the target, exploratory actions are part of what the algorithm evaluates rather than being replaced by a greedy maximum.
+
+### Limitation
+The on-policy update does not establish that SARSA is universally safer, more robust or more resilient. Those outcomes depend on the environment, exploration policy and metric.
+
+## E5 — Q-learning and SARSA can behave differently under exploratory behavior
+- **Type:** faithful paraphrase with bounded interpretation
+- **Location:** Chapter 6 cliff-walking example
+- **Claim:** Off-policy Q-learning and on-policy SARSA can learn different behavior when exploratory actions have meaningful consequences.
+- **Thesis use:** justification for retaining SARSA as a mechanism-distinct comparator
+- **Topics:** on-policy vs off-policy; exploration
+- **Status:** verified
+
+### Faithful paraphrase
+The cliff-walking example demonstrates that a policy evaluated under its actual exploratory behavior can favor a different route from an off-policy method whose update target assumes greedy next actions.
+
+### Limitation
+This example motivates the distinction; it does not predict the ranking of the two algorithms under the thesis's GridWorld disturbances.
+
+## E6 — Dyna integrates direct RL, model learning and planning
+- **Type:** faithful paraphrase
+- **Location:** Chapter 8, planning and learning with tabular methods; Dyna architecture and Tabular Dyna-Q
+- **Claim:** Dyna combines direct learning from real transitions, learning a model from those transitions, and additional planning updates generated from that model.
+- **Thesis use:** Dyna-Q theoretical definition
+- **Topics:** model learning; planning; Dyna-Q
+- **Status:** verified
+
+### Faithful paraphrase
+A Dyna agent uses real experience both to improve action values and to update an internal model. Between or after real interactions, it can sample the learned model and apply additional value updates as simulated experience.
+
+### Limitation
+Planning steps consume computation but not additional real environment transitions. Experimental reporting should therefore distinguish planning budget from interaction budget.
+
+## E7 — Plain Dyna-Q planning uses previously experienced information
+- **Type:** faithful paraphrase
+- **Location:** Chapter 8, Tabular Dyna-Q algorithm
+- **Claim:** Standard tabular Dyna-Q performs planning backups from state-action pairs represented in its learned model, using model-predicted reward/next-state outcomes.
+- **Thesis use:** plain Dyna-Q implementation/fairness contract
+- **Topics:** Dyna-Q; empirical model; planning
+- **Status:** verified
+
+### Safe interpretation
+The thesis's plain Dyna-Q comparator should not silently inherit the extra long-untried-action mechanisms introduced specifically for Dyna-Q+.
+
+## E8 — Changing environments can make a learned model stale
+- **Type:** faithful paraphrase
+- **Location:** Chapter 8 changing-environment/blocking/shortcut discussion
+- **Claim:** When environment dynamics change, planning from a model learned before the change can remain incorrect until real exploration discovers the new transition structure.
+- **Thesis use:** rationale for testing planning under uncertainty/change
+- **Topics:** non-stationarity; stale model; exploration
+- **Status:** verified
+
+### Faithful paraphrase
+A planning agent can exploit its current model very effectively and therefore fail to revisit actions whose consequences have changed. Discovering a change requires continued real interaction that challenges stale model predictions.
+
+## E9 — Dyna-Q+ adds recency-driven re-exploration
+- **Type:** faithful paraphrase
+- **Location:** Chapter 8 changing-environment discussion, including Dyna-Q+ exploration bonus
+- **Claim:** Dyna-Q+ tracks elapsed time since state-action pairs were tried and adds a planning incentive for long-untried actions, encouraging tests that can reveal environmental changes.
+- **Thesis use:** Dyna-Q+ mechanism definition
+- **Topics:** Dyna-Q+; exploration bonus; recency; change discovery
+- **Status:** verified
+
+### Faithful paraphrase
+The longer a state-action pair has gone without a real trial, the more Dyna-Q+ treats it as potentially outdated and increases its attractiveness during planning through a recency-based bonus.
+
+### Limitation
+This exploration can impose opportunity cost; improved change discovery is not a free or universal performance guarantee.
+
+## E10 — Dyna-Q+ also changes how untried actions enter the model/planning process
+- **Type:** faithful paraphrase
+- **Location:** Chapter 8 note accompanying the Dyna-Q+ changing-environment discussion
+- **Claim:** Dyna-Q+ allows actions not previously tried from visited states to participate in planning and initializes their model as a zero-reward self-loop.
+- **Thesis use:** implementation distinction between Dyna-Q and Dyna-Q+
+- **Topics:** Dyna-Q+; untried actions; model initialization
+- **Status:** verified
+
+### Safe interpretation
+Setting only the exploration-bonus coefficient to zero is not, by itself, enough to define plain Dyna-Q if the untried-action model semantics of Dyna-Q+ remain active. The thesis implementation should preserve this distinction explicitly.
+
+## E11 — Five-strategy mechanism crosswalk is a thesis synthesis, not a textbook taxonomy
+- **Type:** thesis-safe synthesis from E3–E10
+- **Location:** Chapters 6 and 8
+- **Claim:** The thesis can compare five deliberately chosen mechanisms: frozen learned values; continual off-policy TD; continual on-policy TD; learned-model planning; and learned-model planning plus directed re-exploration.
+- **Thesis use:** model-selection rationale
+- **Topics:** strategy taxonomy; experimental design
+- **Status:** verified as synthesis
+
+### Limitation
+The book does not claim these five strategies exhaust continual, robust, adaptive or model-based reinforcement learning. The five-strategy set is a bounded thesis design chosen to isolate distinct mechanisms under a common information/testbed contract.
 
 ## Avoid overclaiming
 This source does not establish that:
-- constant-step Q-learning is an optimal changepoint method,
-- Q-learning has a resilience guarantee under repeated environmental shifts,
-- a recency update is equivalent to a detector-triggered reset,
-- stationary convergence results directly imply optimal tracking in a non-stationary MDP.
+- Q-learning or SARSA has a general resilience guarantee under repeated environmental shifts;
+- SARSA is universally safer or better than Q-learning;
+- Dyna-Q+ always outperforms Dyna-Q;
+- a planning bonus is a formal changepoint detector;
+- stationary convergence results imply optimal tracking of a changing MDP;
+- planning under a learned empirical model is equivalent to robust optimization over an uncertainty set;
+- the thesis's five strategies form an exhaustive taxonomy of resilient AI agents.
 
 ---
 
