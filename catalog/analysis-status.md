@@ -1,12 +1,12 @@
 # Κατάσταση αναλύσεων
 
-- Σύνολο ενεργών πηγών: **597**
+- Σύνολο ενεργών πηγών: **599**
 - Οριστικές αποφάσεις: **596**
   - Επιλεγμένες/επαληθευμένες: **125**
   - Απορριφθείσες: **469**
   - Ελεγμένες ως θεωρητικό υλικό χωρίς citation export: **2**
-- Εκκρεμείς συνολικά: **1**
-  - Χωρίς ανάλυση: **0**
+- Εκκρεμείς συνολικά: **3**
+  - Χωρίς ανάλυση: **2**
   - Πρόχειρες/μη citation-ready: **1**
 - Επαληθευμένα αρχεία αποσπασμάτων: **125**
 - Επιλεγμένες για εξαγωγή: **121**
@@ -379,6 +379,7 @@
 | `SRC-FBFDD51DA0` | Online Policy Optimization for Robust Markov Decision Process - GitHub | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-D1B6BA711E` | Online Policy Optimization for Robust MDP | επαληθευμένη | επαληθευμένο | υποστηρικτική | ναι |
 | `SRC-9F53B39DE0` | Online Policy Optimization for Robust MDP - OpenReview | απορρίφθηκε | κανένα | απόρριψη | όχι |
+| `SRC-6F4F8BE003` | Online Reinforcement Learning in Non-Stationary Context-Driven Environments | προς ανάλυση | κανένα |  |  |
 | `SRC-1741644D7F` | Online Robust Planning under Model Uncertainty: A Sample-Based Approach | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-4E5300CD15` | Online Robust Planning Under Model Uncertainty: A Sample-Based Approach | επαληθευμένη | επαληθευμένο | υποστηρικτική | ναι |
 | `SRC-3C0F7CC819` | Online Robust Reinforcement Learning with Model Uncertainty | επαληθευμένη | επαληθευμένο | υποστηρικτική | ναι |
@@ -395,6 +396,7 @@
 | `SRC-8EAD4AFE22` | Out-of-Distribution Detection for Neurosymbolic Autonomous Cyber Agents | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-532FCB72DC` | Paired Open-Ended Trailblazer (POET): Endlessly Generating Increasingly Complex and Diverse Learning Environments and Their Solutions | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-1B40F8B37A` | Parallel Knowledge Transfer in Multi-Agent Reinforcement Learning | επαληθευμένη | επαληθευμένο | υποστηρικτική | ναι |
+| `SRC-D38364B32C` | Partial Models for Building Adaptive Model-Based Reinforcement Learning Agents | προς ανάλυση | κανένα |  |  |
 | `SRC-CF7BBB0E75` | Partially observable Markov decision process - Wikipedia | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-E695631B14` | Partially Observable Markov Decision Processes (POMDPs) and Robotics | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-2BCB5AC8D4` | Partially Observable Markov Decision Processes in Robotics: A Survey | απορρίφθηκε | κανένα | απόρριψη | όχι |
