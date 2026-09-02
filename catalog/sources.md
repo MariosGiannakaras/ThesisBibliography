@@ -1,6 +1,6 @@
 # Κατάλογος πηγών
 
-Συνολικές πηγές: **597** — υψηλή προτεραιότητα: **186**, μεσαία: **174**, χρειάζονται διόρθωση: **81**.
+Συνολικές πηγές: **599** — υψηλή προτεραιότητα: **186**, μεσαία: **174**, χρειάζονται διόρθωση: **83**.
 
 > Η καταχώριση δεν σημαίνει ότι η πηγή έχει εγκριθεί για χρήση στη διπλωματική.
 
@@ -395,8 +395,10 @@
 | `SRC-D20C157084` | [On-line Q-learning using connectionist systems](http://mi.eng.cam.ac.uk/reports/svr-ftp/auto-pdf/rummery_tr166.pdf) | — | 1994 | ιστοσελίδα | πινακοποιημένη ενισχυτική μάθηση | ελλιπές κείμενο | μόνο καταγεγραμμένος σύνδεσμος | χρειάζεται διόρθωση |
 | `SRC-2573249C69` | [Online Policy Optimization for Robust Markov Decision Process](https://openreview.net/forum?id=VS8EPaCSY1) | — | — | ακαδημαϊκή εργασία | χωρίς κατηγορία | ελλιπές κείμενο | μόνο καταγεγραμμένος σύνδεσμος | χρειάζεται διόρθωση |
 | `SRC-9F53B39DE0` | [Online Policy Optimization for Robust MDP - OpenReview](https://openreview.net/forum?id=cYZupNY8DS4&noteId=5ejRmc1GQ6) | — | — | ακαδημαϊκή εργασία | εύρωστη ενισχυτική μάθηση | ελλιπές κείμενο | μόνο καταγεγραμμένος σύνδεσμος | χρειάζεται διόρθωση |
+| `SRC-6F4F8BE003` | [Online Reinforcement Learning in Non-Stationary Context-Driven Environments](https://proceedings.iclr.cc/paper_files/paper/2025/hash/fb21dae9e8710a272c0a0ca848f71553-Abstract-Conference.html) | Pouya Hamadanian; Arash Nasr-Esfahany; Malte Schwarzkopf; Siddhartha Sen; Mohammad Alizadeh | 2025 | ιστοσελίδα | μη στασιμότητα; συνεχής προσαρμογή | ελλιπές κείμενο | μόνο καταγεγραμμένος σύνδεσμος | χρειάζεται διόρθωση |
 | `SRC-B20C577793` | [Open Courses](https://opencourses.gr/opencourse.xhtml?id=15603&ln=el) | — | 2016 | τεκμηρίωση ή εκπαιδευτικό υλικό | χωρίς κατηγορία | ελλιπές κείμενο | μόνο καταγεγραμμένος σύνδεσμος | χρειάζεται διόρθωση |
 | `SRC-F0311AB542` | [Open eClass του Οικονομικού Πανεπιστημίου Αθηνών - Ενισχυτική Μάθηση](https://eclass.aueb.gr/courses/INF524/) | — | 2026 | τεκμηρίωση ή εκπαιδευτικό υλικό | χωρίς κατηγορία | ελλιπές κείμενο | μόνο καταγεγραμμένος σύνδεσμος | χρειάζεται διόρθωση |
+| `SRC-D38364B32C` | [Partial Models for Building Adaptive Model-Based Reinforcement Learning Agents](https://proceedings.mlr.press/v274/alver25a.html) | Safa Alver; Ali Rahimi-Kalahroudi; Doina Precup | 2025 | ακαδημαϊκή εργασία | ανθεκτικότητα και ανάκαμψη; ενισχυτική μάθηση με μοντέλο | ελλιπές κείμενο | μόνο καταγεγραμμένος σύνδεσμος | χρειάζεται διόρθωση |
 | `SRC-D8433D488F` | [Pessimistic Iterative Planning for Robust POMDPs - OpenReview](https://openreview.net/pdf?id=tQMBxQZblv) | — | — | ακαδημαϊκή εργασία | μερική παρατηρησιμότητα | ελλιπές κείμενο | μόνο καταγεγραμμένος σύνδεσμος | χρειάζεται διόρθωση |
 | `SRC-AD8A2E9A85` | [Q-learning](https://gatsby.ucl.ac.uk/~dayan/papers/cjch.pdf) | — | 1992 | ιστοσελίδα | πινακοποιημένη ενισχυτική μάθηση | ελλιπές κείμενο | μόνο καταγεγραμμένος σύνδεσμος | χρειάζεται διόρθωση |
 | `SRC-2825596443` | [Reinforcement Learning basics- Policy Iteration - 4X4 grid world from Sutton & Barto](https://www.youtube.com/watch?v=1qrTWP-DtuM) | AI Explorations with Sauradeep | — | βίντεο ή διάλεξη | GridWorld; πινακοποιημένη ενισχυτική μάθηση | μόνο μεταδεδομένα | μόνο καταγεγραμμένος σύνδεσμος | χρειάζεται διόρθωση |

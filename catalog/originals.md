@@ -2,7 +2,7 @@
 
 - PDF: **266**
 - Μη ταυτοποιημένα PDF που διατηρούνται: **12**
-- Σύνδεσμοι: **310**
+- Σύνδεσμοι: **312**
 - Πηγές μόνο με χρήσιμο περιεχόμενο: **21**
 - Εκκρεμούν για ταυτοποίηση: **12**
 
@@ -374,6 +374,7 @@
 | `SRC-FBFDD51DA0` | Online Policy Optimization for Robust Markov Decision Process - GitHub | διαθέσιμο PDF | SRC-FBFDD51DA0.pdf |
 | `SRC-D1B6BA711E` | Online Policy Optimization for Robust MDP | διαθέσιμο PDF | SRC-D1B6BA711E.pdf |
 | `SRC-9F53B39DE0` | Online Policy Optimization for Robust MDP - OpenReview | μόνο σύνδεσμος | [άνοιγμα](https://openreview.net/forum?id=cYZupNY8DS4&noteId=5ejRmc1GQ6) |
+| `SRC-6F4F8BE003` | Online Reinforcement Learning in Non-Stationary Context-Driven Environments | μόνο σύνδεσμος | [άνοιγμα](https://proceedings.iclr.cc/paper_files/paper/2025/hash/fb21dae9e8710a272c0a0ca848f71553-Abstract-Conference.html) |
 | `SRC-1741644D7F` | Online Robust Planning under Model Uncertainty: A Sample-Based Approach | διαθέσιμο PDF | SRC-1741644D7F.pdf |
 | `SRC-4E5300CD15` | Online Robust Planning Under Model Uncertainty: A Sample-Based Approach | διαθέσιμο PDF | SRC-4E5300CD15.pdf |
 | `SRC-3C0F7CC819` | Online Robust Reinforcement Learning with Model Uncertainty | διαθέσιμο PDF | SRC-3C0F7CC819.pdf |
@@ -390,6 +391,7 @@
 | `SRC-8EAD4AFE22` | Out-of-Distribution Detection for Neurosymbolic Autonomous Cyber Agents | μόνο σύνδεσμος | [άνοιγμα](https://arxiv.org/abs/2412.02875) |
 | `SRC-532FCB72DC` | Paired Open-Ended Trailblazer (POET): Endlessly Generating Increasingly Complex and Diverse Learning Environments and Their Solutions | μόνο σύνδεσμος | [άνοιγμα](https://arxiv.org/abs/1901.01753) |
 | `SRC-1B40F8B37A` | Parallel Knowledge Transfer in Multi-Agent Reinforcement Learning | διαθέσιμο PDF | SRC-1B40F8B37A.pdf |
+| `SRC-D38364B32C` | Partial Models for Building Adaptive Model-Based Reinforcement Learning Agents | μόνο σύνδεσμος | [άνοιγμα](https://proceedings.mlr.press/v274/alver25a.html) |
 | `SRC-CF7BBB0E75` | Partially observable Markov decision process - Wikipedia | μόνο σύνδεσμος | [άνοιγμα](https://en.wikipedia.org/wiki/Partially_observable_Markov_decision_process) |
 | `SRC-E695631B14` | Partially Observable Markov Decision Processes (POMDPs) and Robotics | διαθέσιμο PDF | SRC-E695631B14.pdf |
 | `SRC-2BCB5AC8D4` | Partially Observable Markov Decision Processes in Robotics: A Survey | μόνο σύνδεσμος | [άνοιγμα](https://arxiv.org/abs/2209.10342) |

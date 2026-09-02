@@ -54,9 +54,11 @@
 | `SRC-D20C157084` | On-line Q-learning using connectionist systems | ελλιπές κείμενο |
 | `SRC-2573249C69` | Online Policy Optimization for Robust Markov Decision Process | ελλιπές κείμενο |
 | `SRC-9F53B39DE0` | Online Policy Optimization for Robust MDP - OpenReview | ελλιπές κείμενο |
+| `SRC-6F4F8BE003` | Online Reinforcement Learning in Non-Stationary Context-Driven Environments | ελλιπές κείμενο |
 | `SRC-B20C577793` | Open Courses | ελλιπές κείμενο |
 | `SRC-F0311AB542` | Open eClass του Οικονομικού Πανεπιστημίου Αθηνών - Ενισχυτική Μάθηση | ελλιπές κείμενο |
 | `SRC-1D07EB467A` | OpenAI Operator AI Agent Mastery 2025 From Beginner to -- Belner, Jens | σύνδεσμος, τύπος πηγής |
+| `SRC-D38364B32C` | Partial Models for Building Adaptive Model-Based Reinforcement Learning Agents | ελλιπές κείμενο |
 | `SRC-C8A63DDB33` | pdf-ai-agents-unleashed-playbook-for-2025-success compress | σύνδεσμος, τύπος πηγής |
 | `SRC-F0BE1654F1` | pdf-principles-of-building-ai-agents-2nd-edition compress | σύνδεσμος, τύπος πηγής |
 | `SRC-D8433D488F` | Pessimistic Iterative Planning for Robust POMDPs - OpenReview | ελλιπές κείμενο |
