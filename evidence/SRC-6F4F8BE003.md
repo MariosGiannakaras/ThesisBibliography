@@ -10,7 +10,7 @@
 ## E1 — Online non-stationarity and catastrophic forgetting
 - **Τύπος:** faithful paraphrase
 - **Θέση:** Abstract; Section 1, pp. 1–2
-- **Ισχυρισμός που υποστηρίζει:** Online RL in a changing environment can suffer catastrophic forgetting because sequential learning on new non-stationary experience can degrade behavior learned for earlier conditions.
+- **Ισχυρισμός:** Online RL in a changing environment can suffer catastrophic forgetting because sequential learning on new non-stationary experience can degrade behavior learned for earlier conditions.
 - **Προτεινόμενη χρήση:** Background / Related Work; Discussion
 - **Θέματα:** non-stationary RL; continual RL; catastrophic forgetting; stability-plasticity
 - **Κατάσταση:** verified
@@ -22,7 +22,7 @@
 ## E2 — The paper assumes observed exogenous context
 - **Τύπος:** faithful paraphrase
 - **Θέση:** Section 1, p. 1; Section 2, pp. 2–3
-- **Ισχυρισμός που υποστηρίζει:** Context-driven non-stationarity with an explicit context signal is a different information regime from a hidden environmental change.
+- **Ισχυρισμός:** Context-driven non-stationarity with an explicit context signal is a different information regime from a hidden environmental change.
 - **Προτεινόμενη χρήση:** Background / Related Work; Methodology boundary; Threats to validity
 - **Θέματα:** observed context; information boundary; contextual MDP; latent change
 - **Κατάσταση:** verified
@@ -34,7 +34,7 @@
 ## E3 — Recurring-context GridWorld illustrates forgetting and relearning
 - **Τύπος:** faithful paraphrase
 - **Θέση:** Section 4.1, pp. 4–5, Figure 1
-- **Ισχυρισμός που υποστηρίζει:** When a policy is trained sequentially under changing regimes, behavior for an earlier regime may drift and require relearning when that regime returns.
+- **Ισχυρισμός:** When a policy is trained sequentially under changing regimes, behavior for an earlier regime may drift and require relearning when that regime returns.
 - **Προτεινόμενη χρήση:** Related Work; Discussion of retention versus adaptation
 - **Θέματα:** GridWorld; recurring contexts; forgetting; relearning
 - **Κατάσταση:** verified
@@ -46,7 +46,7 @@
 ## E4 — LCPO constrains retention without training the on-policy objective on stale experience
 - **Τύπος:** faithful paraphrase
 - **Θέση:** Section 1, pp. 1–2; Section 4
-- **Ισχυρισμός που υποστηρίζει:** A continual-RL design can separate current-regime optimization from an explicit mechanism that limits destructive change to behavior associated with older regimes.
+- **Ισχυρισμός:** A continual-RL design can separate current-regime optimization from an explicit mechanism that limits destructive change to behavior associated with older regimes.
 - **Προτεινόμενη χρήση:** Related Work
 - **Θέματα:** LCPO; constrained policy optimization; retention; OOD context; replay buffer
 - **Κατάσταση:** verified
@@ -58,7 +58,7 @@
 ## E5 — Capacity, exploration and buffer design remain limitations
 - **Τύπος:** faithful paraphrase
 - **Θέση:** Section 5.3 and Section 6, p. 10
-- **Ισχυρισμός που υποστηρίζει:** Continual adaptation mechanisms involve resource and stability-plasticity trade-offs; successful retention is not independent of representation capacity, exploration and memory design.
+- **Ισχυρισμός:** Continual adaptation mechanisms involve resource and stability-plasticity trade-offs; successful retention is not independent of representation capacity, exploration and memory design.
 - **Προτεινόμενη χρήση:** Discussion; Limitations
 - **Θέματα:** network capacity; exploration; buffer size; memory; continual adaptation
 - **Κατάσταση:** verified
