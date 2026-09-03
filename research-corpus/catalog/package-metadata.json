@@ -13,13 +13,13 @@
     "catalog/"
   ],
   "copied_file_counts": {
-    "analyses": 598,
-    "evidence": 146,
+    "analyses": 600,
+    "evidence": 148,
     "materials": 19,
-    "notes": 4,
-    "sources": 597
+    "notes": 5,
+    "sources": 599
   },
-  "file_count": 1623,
+  "file_count": 1630,
   "hash_algorithm": "sha256",
   "integrity_scope": "all corpus files except catalog/package-metadata.json and catalog/SHA256SUMS",
   "original_pdf_count": 281,
@@ -27,6 +27,6 @@
   "research_material_count": 19,
   "schema_version": 1,
   "selected_source_count": 121,
-  "source_commit": "d29974eb6a94dff22ee817f167ac8e1374038c89",
-  "source_count": 597
+  "source_commit": "8963c902c77fa63202ff814dd6872560d350c099",
+  "source_count": 599
 }
