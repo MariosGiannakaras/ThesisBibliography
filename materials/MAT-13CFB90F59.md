@@ -2,7 +2,7 @@
 material_id: "MAT-13CFB90F59"
 original_path: "originals/SRC-13CFB90F59.pdf"
 original_sha256: "13cfb90f59eb5bcf625ed8b728e38c0749a81f0fc07930897a3399b0fc1e3834"
-original_url: "https://github.com/MariosGiannakaras/ThesisBibliography/blob/e46693d4201cf47c118eb61c216243f3c5798e28/originals/SRC-13CFB90F59.pdf"
+original_url: "https://github.com/MariosGiannakaras/ThesisBibliography/blob/c999dbe272baa081d3666254655aeeec17549c1f/originals/SRC-13CFB90F59.pdf"
 linked_source_id: "SRC-13CFB90F59"
 citation_status: "not-citation-ready"
 identification_status: "pending-review"
@@ -15405,20 +15405,17 @@ interactions between the user, AI models, and a wide
 variety of data sources. AI agents capture and organize
 these interactions into autonomous components that can pro-
 cess information, make decisions, and learn from interactions
-behind the scenes. Th is book will show you how to create
-AI
+behind the scenes. Th is book will show you how to create AI
 agents and connect them together into powerful multi-agent
 systems.
-In
-AI Agents in Action , you’ll learn how to build production
+In AI Agents in Action , you’ll learn how to build production
 -ready assistants, multi-agent systems, and behavioral agents.
 You’ll master the essential parts of an agent, including
 retrieval-augmented knowledge and memory, while you create
 multi-agent applications that can use software tools, plan tasks
 autonomously, and learn from experience. As you explore the
 many interesting examples, you’ll work with state-of-the-art
-tools like
-OpenAI Assistants API, GPT Nexus, LangChain,
+tools like OpenAI Assistants API, GPT Nexus, LangChain,
 Prompt Flow, AutoGen, and CrewAI.
 What’s Inside
 ●  Knowledge management and memory systems

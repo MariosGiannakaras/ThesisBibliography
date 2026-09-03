@@ -13,20 +13,20 @@
     "catalog/"
   ],
   "copied_file_counts": {
-    "analyses": 598,
-    "evidence": 146,
+    "analyses": 600,
+    "evidence": 148,
     "materials": 19,
-    "notes": 4,
-    "sources": 597
+    "notes": 5,
+    "sources": 599
   },
-  "file_count": 1623,
+  "file_count": 1634,
   "hash_algorithm": "sha256",
   "integrity_scope": "all corpus files except catalog/package-metadata.json and catalog/SHA256SUMS",
   "original_pdf_count": 281,
   "package_type": "ThesisBibliography complete research corpus",
   "research_material_count": 19,
   "schema_version": 1,
-  "selected_source_count": 121,
-  "source_commit": "d29974eb6a94dff22ee817f167ac8e1374038c89",
-  "source_count": 597
+  "selected_source_count": 123,
+  "source_commit": "c999dbe272baa081d3666254655aeeec17549c1f",
+  "source_count": 599
 }
