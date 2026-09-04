@@ -1,8 +1,8 @@
 # Πρωτότυπα πηγών
 
-- PDF: **266**
+- PDF: **267**
 - Μη ταυτοποιημένα PDF που διατηρούνται: **12**
-- Σύνδεσμοι: **312**
+- Σύνδεσμοι: **311**
 - Πηγές μόνο με χρήσιμο περιεχόμενο: **21**
 - Εκκρεμούν για ταυτοποίηση: **12**
 
@@ -145,7 +145,7 @@
 | `SRC-DDCD35F7EE` | Deep Reinforcement Learning: An Overview | διαθέσιμο PDF | SRC-DDCD35F7EE.pdf |
 | `SRC-D841C93160` | DeepMind - Wikipedia | μόνο σύνδεσμος | [άνοιγμα](https://it.wikipedia.org/wiki/DeepMind) |
 | `SRC-E477BC2505` | Difference Between Goal-based and Utility-based Agents - Baeldung on Computer Science | μόνο σύνδεσμος | [άνοιγμα](https://baeldung.com/cs/goal-based-vs-utility-based-agents) |
-| `SRC-056F8911C7` | Discovering and Using Structure in Autonomous Machine Learning - Research Collection | μόνο σύνδεσμος | [άνοιγμα](https://research-collection.ethz.ch/bitstreams/3b278f1d-c38d-4782-8996-01ee9558d7db/download) |
+| `SRC-056F8911C7` | Discovering and Using Structure in Autonomous Machine Learning - Research Collection | διαθέσιμο PDF | SRC-056F8911C7.pdf |
 | `SRC-61045DD262` | Distributional Reinforcement Learning | μόνο σύνδεσμος | [άνοιγμα](https://distributional-rl.org/) |
 | `SRC-1E3C1CF3A7` | Distributionally Robust Learning | διαθέσιμο PDF | SRC-1E3C1CF3A7.pdf |
 | `SRC-F3F3FBE48F` | Distributionally Robust Reinforcement Learning | διαθέσιμο PDF | SRC-F3F3FBE48F.pdf |

@@ -4,7 +4,7 @@
 - Χρειάζονται περαιτέρω μετατροπή: **0**
 - Πραγματικά εκκρεμείς μετατροπές: **0**
 - Δεν απαιτούν μετατροπή λόγω οριστικής απόρριψης: **17**
-- Υπάρχον Markdown που δεν αντικαταστάθηκε: **245**
+- Υπάρχον Markdown που δεν αντικαταστάθηκε: **246**
 
 > Το OCR εκτελείται με λειτουργία skip-text: οι σελίδες με text layer διατηρούνται και οι σαρωμένες σελίδες OCR-άρονται.
 > Κάθε αυτόματη μετατροπή απαιτεί ανθρώπινο έλεγχο πριν χρησιμοποιηθεί ως παραπομπή.
@@ -82,6 +82,7 @@
 | `SRC-95C9DAEE68` | Deep reinforcement learning in non-stationary environments | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-BE53B7970E` | Deep Reinforcement Learning with Double Q-learning | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-DDCD35F7EE` | Deep Reinforcement Learning: An Overview | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
+| `SRC-056F8911C7` | Discovering and Using Structure in Autonomous Machine Learning - Research Collection | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-1E3C1CF3A7` | Distributionally Robust Learning | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-F3F3FBE48F` | Distributionally Robust Reinforcement Learning | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |
 | `SRC-055929F1C1` | Distributionally Robust Reinforcement Learning with Human Feedback | υπάρχον-markdown-δεν-αντικαταστάθηκε | δεν εκτελέστηκε | δεν αξιολογήθηκε | — |

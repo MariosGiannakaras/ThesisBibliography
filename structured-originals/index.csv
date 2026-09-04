@@ -1,2 +1,4 @@
 Stored path,Original intake path,Content SHA-256,Media type,Derived path
+structured-originals/ORIGINAL-10B72A31069E4D88.xml,new-sources/arxiv_robust_mdp.xml,10b72a31069e4d881eb36d5446b1cf6b7d51af121fd70978a7789f43d1b63c22,application/xml,research-notes/intake/NOTE-10B72A31069E4D88.md
+structured-originals/ORIGINAL-15047B840F0EC7BE.json,new-sources/openalex_robust_mdp.json,15047b840f0ec7be93e16b99e45ec553f5f9b542b2d9dcd80027a976c1c78cf5,application/json,research-notes/intake/NOTE-15047B840F0EC7BE.md
 structured-originals/ORIGINAL-5EA5EC73C37B1331.xml,new-originals/AI Applications to Enhance Resilience in Power Systems and Microgrids.xml,5ea5ec73c37b1331d5bd0baa4d867575dd1555ec6916383ae60eda278abc6d83,application/xml,new-sources/AI Applications to Enhance Resilience in Power Systems and Microgrids.md
