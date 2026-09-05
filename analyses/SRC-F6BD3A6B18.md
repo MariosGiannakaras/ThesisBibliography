@@ -1,6 +1,7 @@
 ---
 κωδικός: SRC-F6BD3A6B18
 κατάσταση: επαληθευμένη
+ρόλος: κύρια
 έκδοση-που-ελέγχθηκε: "NeurIPS 1990 proceedings full paper, pp. 471-478"
 ελεγχθέν-πρωτότυπο: ναι
 ημερομηνία-ελέγχου: "2026-08-27"
@@ -73,7 +74,7 @@ A plain Dyna-Q comparator holds the second mechanism off while retaining the fir
 
 This is a scientifically interpretable mechanism decomposition rather than model-count inflation.
 
-## Thesis-safe claims
+## Χρήση στη διπλωματική
 
 This source supports:
 
