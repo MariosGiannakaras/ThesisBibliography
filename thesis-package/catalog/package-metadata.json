@@ -8,11 +8,11 @@
     "analyses/",
     "evidence/"
   ],
-  "file_count": 250,
+  "file_count": 258,
   "hash_algorithm": "sha256",
   "integrity_scope": "all package files except catalog/package-metadata.json and catalog/SHA256SUMS",
   "package_type": "ThesisBibliography verified thesis package",
   "schema_version": 1,
-  "selected_sources": 123,
-  "source_commit": "84d62ec3eb18e1d3565625bc02c289131282ea27"
+  "selected_sources": 127,
+  "source_commit": "2a9b657c8704d102f328a591a48368b2fbecb54b"
 }
