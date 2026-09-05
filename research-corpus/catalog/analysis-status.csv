@@ -33,7 +33,7 @@ SRC-211B10ADBA,A Survey Analyzing Generalization in Deep Reinforcement Learning,
 SRC-F909CABDEB,A Survey of Continual Reinforcement Learning,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,υποστηρικτική,ναι
 SRC-AABAFA12BF,A Survey of Human-in-the-Loop Reinforcement Learning for Critical Systems,μεσαία,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-DFFF269D33,A Survey of Multi-Agent Deep Reinforcement Learning with Communication,υψηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
-SRC-8025C139CE,A Survey of Reinforcement Learning Algorithms for Dynamically Varying Environments,χρειάζεται διόρθωση,ελλιπές κείμενο,επαληθευμένη,επαληθευμένο,,όχι
+SRC-8025C139CE,A Survey of Reinforcement Learning Algorithms for Dynamically Varying Environments,χρειάζεται διόρθωση,ελλιπές κείμενο,επαληθευμένη,επαληθευμένο,υποστηρικτική,ναι
 SRC-60ECE049E6,A Survey of Reinforcement Learning For Economics,υψηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-BE5B937542,A Survey of Safe Reinforcement Learning and Constrained MDPs: A Technical Survey on Single-Agent and Multi-Agent Safety,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,υποστηρικτική,ναι
 SRC-21EBE15D15,A Survey of Zero-shot Generalisation in Deep Reinforcement Learning,χαμηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
@@ -115,6 +115,7 @@ SRC-D6F2B11A5D,"Concrete Problems in AI Safety, Revisited",υψηλή,διαθέ
 SRC-DFF2EC4502,Constitutional AI: Harmlessness from AI Feedback,μεσαία,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-D14764616F,Context-Switching and Adaptation- Brain-Inspired Mechanisms for Handling Environmental Changes - Uni,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
 SRC-DC63A2D5E7,Context-Switching and Adaptation: Brain-Inspired Mechanisms for Handling Environmental Changes - University of Lethbridge,υψηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,πρόχειρο,απόρριψη,όχι
+SRC-0FD9BE81AC,Continual Reinforcement Learning by Planning with Online World Models,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,υποστηρικτική,ναι
 SRC-5F508C4383,Continual reinforcement learning in a resource allocation simulator,μεσαία,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-0A594EACC0,Cooperative Resilience in Artificial Intelligence Multiagent Systems,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
 SRC-ACB00B414D,CoReaAgents: A Collaboration and Reasoning Framework Based on LLM-Powered Agents for Complex Reasoning Tasks,μεσαία,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
@@ -297,7 +298,7 @@ SRC-405E00D8AB,ilide.info-ai-agents-and-automation-trends-2025-ebook-pr 1457e778
 SRC-255529AC11,ilide.info-mastering-multi-agent-systems-pr 03b6784b619ed204bafad6a04a2f6b46,μεσαία,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-5D0E7E5BD7,Implementation Matters in Deep Policy Gradients: A Case Study on PPO and TRPO,χρειάζεται διόρθωση,ελλιπές κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
 SRC-A87F481B4C,Implementing the Deep Q-Network,χαμηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
-SRC-F6BD3A6B18,Integrated Modeling and Control Based on Reinforcement Learning and Dynamic Programming,χρειάζεται διόρθωση,ελλιπές κείμενο,επαληθευμένη,επαληθευμένο,,όχι
+SRC-F6BD3A6B18,Integrated Modeling and Control Based on Reinforcement Learning and Dynamic Programming,χρειάζεται διόρθωση,ελλιπές κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
 SRC-BAEE694D5B,Intelligent agent - Wikipedia,χαμηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-5DFB680F53,Interaction-Breaking Adversarial Learning Framework for Robust Multi-Agent Reinforcement Learning,μεσαία,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-503A8B421C,Interpretable Operations Research for High-Sta... - Πέργαμος,μεσαία,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
@@ -402,9 +403,10 @@ SRC-3A71103B05,Princeton University Lectures - Foundations of Reinforcement Lear
 SRC-A203ABEEFE,Prioritized Experience Replay,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,υποστηρικτική,ναι
 SRC-6C5FB230E1,Procedural Content Generation via Machine Learning (PCGML),χαμηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-CD5F67F3E6,Proximal Policy Optimization Algorithms,χαμηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,υπόβαθρο,ναι
-SRC-AD8A2E9A85,Q-learning,χρειάζεται διόρθωση,ελλιπές κείμενο,επαληθευμένη,επαληθευμένο,,όχι
+SRC-AD8A2E9A85,Q-learning,χρειάζεται διόρθωση,ελλιπές κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
 SRC-64AA1D82C6,QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning,υψηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-02987450DF,QRES-MARL - TU Delft Repository,μεσαία,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
+SRC-327CD7B903,Quantitative Resilience Modeling for Autonomous Cyber Defense,υψηλή,διαθέσιμο πλήρες κείμενο,επαληθευμένη,επαληθευμένο,υποστηρικτική,ναι
 SRC-2899809E90,Reactive and Deliberative AI agents - Vikas Goyal,μεσαία,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-8544F25BD9,Reactive vs Deliberative AI Agents - GeeksforGeeks,χαμηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-B58805342F,Realizable Continuous-Space Shields for Safe Reinforcement Learning,χαμηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
@@ -519,7 +521,7 @@ SRC-E5CA725A6C,thesis.pdf,υψηλή,διαθέσιμο πλήρες κείμε�
 SRC-69D02D7E25,Time Limits in Reinforcement Learning,χρειάζεται διόρθωση,ελλιπές κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
 SRC-E33EBFE4F4,Toward theoretical understandings of robust Markov decision processes- Sample complexity and asympto,χρειάζεται διόρθωση,μόνο μεταδεδομένα,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-732D12A2CC,Towards a Science of AI Agent Reliability,μεσαία,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
-SRC-39696F490F,Towards Continual Reinforcement Learning: A Review and Perspectives,χρειάζεται διόρθωση,ελλιπές κείμενο,επαληθευμένη,επαληθευμένο,,όχι
+SRC-39696F490F,Towards Continual Reinforcement Learning: A Review and Perspectives,χρειάζεται διόρθωση,ελλιπές κείμενο,επαληθευμένη,επαληθευμένο,κύρια,ναι
 SRC-958647DE4E,Towards Deep Learning Models Resistant to Adversarial Attacks,χαμηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-DA324C815B,Towards Optimal Offline Reinforcement Learning,υψηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
 SRC-E7E736ACE8,Towards Out-Of-Distribution Generalization: A Survey,υψηλή,διαθέσιμο πλήρες κείμενο,απορρίφθηκε,κανένα,απόρριψη,όχι
