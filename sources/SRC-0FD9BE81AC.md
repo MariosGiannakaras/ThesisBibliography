@@ -5,6 +5,7 @@
 - Venue: Proceedings of the 42nd International Conference on Machine Learning (ICML 2025), PMLR 267, pages 38397–38423
 - Publication page: https://proceedings.mlr.press/v267/liu25p.html
 - Full paper: https://raw.githubusercontent.com/mlresearch/v267/main/assets/liu25p/liu25p.pdf
+- arXiv: https://arxiv.org/abs/2507.09177
 
 ## Intake rationale
 
