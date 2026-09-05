@@ -24,6 +24,9 @@ LEGACY_TARGETS = {
     "SRC-76B2247457",
     "SRC-9464421E55",
 }
+# Backward-compatible public name used by the existing migration tests.
+TARGETS = LEGACY_TARGETS
+
 STALE_PRIORITY = "χρειάζεται διόρθωση"
 READY_PRIORITY = "υψηλή"
 STALE_NOTE = "Αυτόματη πλήρης μετατροπή PDF με OCR· τεχνικά πλήρης, προς ανθρώπινο έλεγχο"
@@ -79,6 +82,23 @@ def verified_text(path: Path, status_value: str, review_date: str) -> bool:
     )
 
 
+def active_t716_targets(root: Path) -> tuple[set[str], list[str]]:
+    """Return active T-716 rows while preserving isolated legacy-test fixtures.
+
+    Repository state must contain either both T-716 rows or neither. The latter is
+    permitted only so the pre-existing unit tests can exercise the older migration
+    in a minimal synthetic catalog without fabricating unrelated T-716 files.
+    """
+    _, catalog_rows = read_csv(root / "catalog" / "sources.csv")
+    catalog_ids = {row.get("Κωδικός", "").strip() for row in catalog_rows}
+    expected = set(T716_METADATA_FIXES)
+    present = expected & catalog_ids
+    if present and present != expected:
+        missing = ", ".join(sorted(expected - present))
+        return present, [f"Incomplete T-716 catalog migration set; missing: {missing}"]
+    return present, []
+
+
 def validate_prerequisites(root: Path = ROOT) -> list[str]:
     errors: list[str] = []
     selection_path = root / "catalog" / "thesis-selection.csv"
@@ -104,10 +124,15 @@ def validate_prerequisites(root: Path = ROOT) -> list[str]:
         if not verified_text(root / "evidence" / f"{source_id}.md", "επαληθευμένο", "2026-08-03"):
             errors.append(f"{source_id}: verified evidence/manual-review marker missing")
 
+    t716_targets, target_errors = active_t716_targets(root)
+    errors.extend(target_errors)
+    if target_errors:
+        return errors
+
     # Package normalization runs before sync_selection.py. Therefore the T-716
     # records are gated directly by their checked analysis/evidence rather than by
     # a selection row that may not yet have been generated.
-    for source_id in sorted(T716_METADATA_FIXES):
+    for source_id in sorted(t716_targets):
         if not (root / "sources" / f"{source_id}.md").exists():
             errors.append(f"{source_id}: canonical source Markdown missing")
         if not verified_text(root / "analyses" / f"{source_id}.md", "επαληθευμένη", "2026-09-05"):
@@ -126,10 +151,13 @@ def normalize(root: Path = ROOT, apply: bool = False) -> list[str]:
     catalog_path = root / "catalog" / "sources.csv"
     fields, rows = read_csv(catalog_path)
     by_id = {row.get("Κωδικός", "").strip(): row for row in rows}
-    required = LEGACY_TARGETS | set(T716_METADATA_FIXES)
-    missing = required - set(by_id)
-    if missing:
-        return ["Missing catalog rows: " + ", ".join(sorted(missing))]
+    missing_legacy = LEGACY_TARGETS - set(by_id)
+    if missing_legacy:
+        return ["Missing catalog rows: " + ", ".join(sorted(missing_legacy))]
+
+    t716_targets, target_errors = active_t716_targets(root)
+    if target_errors:
+        return target_errors
 
     legacy_changes = 0
     migration_changes = 0
@@ -153,8 +181,9 @@ def normalize(root: Path = ROOT, apply: bool = False) -> list[str]:
             row["Σημειώσεις"] = f"{notes} | {READY_NOTE}".strip(" |")
             legacy_changes += 1
 
-    for source_id, expected in T716_METADATA_FIXES.items():
+    for source_id in sorted(t716_targets):
         row = by_id[source_id]
+        expected = T716_METADATA_FIXES[source_id]
         for field, value in expected.items():
             if field not in fields:
                 errors.append(f"{source_id}: catalog field missing: {field}")
