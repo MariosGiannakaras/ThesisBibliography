@@ -6,61 +6,79 @@
 ημερομηνία-ελέγχου: "2026-09-05"
 ---
 
-# Continual Reinforcement Learning by Planning with Online World Models
+# Ανάλυση — Continual Reinforcement Learning by Planning with Online World Models
 
 ## Βιβλιογραφική ταυτότητα
 
 - **Συγγραφείς:** Zichen Liu, Guoji Fu, Chao Du, Wee Sun Lee, Min Lin
 - **Έτος:** 2025
-- **Έκδοση:** Proceedings of the 42nd International Conference on Machine Learning, PMLR 267, pp. 38397–38423
+- **Έκδοση:** Proceedings of the 42nd International Conference on Machine Learning, PMLR 267, pp. 38397–38423; ICML 2025 Spotlight
 - **Τύπος:** peer-reviewed πρωτογενής εργασία continual/model-based reinforcement learning
-- **Ρόλος:** υποστηρικτική
-- **Επίσημη έκδοση που ελέγχθηκε:** PMLR publication/full paper και matching arXiv:2507.09177
+- **Επίσημη έκδοση που ελέγχθηκε:** official PMLR record/full paper, cross-checked with arXiv:2507.09177
 
 ## Σκοπός και ερευνητικό ερώτημα
 
-Η εργασία εξετάζει continual reinforcement learning ως ακολουθία tasks που παρουσιάζονται διαδοχικά και όπου ο agent πρέπει να αποκτά νέες ικανότητες χωρίς να ξεχνά παλιές. Το βασικό πρόβλημα είναι catastrophic forgetting. Οι συγγραφείς προτείνουν να μεταφερθεί το persistent knowledge σε ένα online world model και η επιλογή ενεργειών να γίνεται με model predictive control, αντί η long-term ικανότητα να εξαρτάται αποκλειστικά από μια βαθιά task policy που ανανεώνεται διαδοχικά.
+Η εργασία εξετάζει continual reinforcement learning ως ακολουθία tasks που παρουσιάζονται διαδοχικά και όπου ο agent πρέπει να αποκτά νέες ικανότητες χωρίς να ξεχνά παλιές. Το βασικό πρόβλημα είναι catastrophic forgetting. Οι συγγραφείς προτείνουν να αποθηκεύεται reusable knowledge σε ένα online world-dynamics model και η συμπεριφορά να κατασκευάζεται με model predictive control, αντί να εξαρτάται αποκλειστικά από task-specific policy/value parameters που ανανεώνονται διαδοχικά.
 
-Για τη διπλωματική, η πηγή είναι χρήσιμη επειδή δίνει πρόσφατο peer-reviewed όριο για το τι σημαίνει πραγματικά model-based continual adaptation. Δεν αποτελεί όμως paper για tabular Dyna-Q+ ούτε αξιολογεί το ίδιο disturbance protocol. Η αξία της βρίσκεται στη σύγκριση μηχανισμών: online model maintenance, planning, forgetting, transfer και task-sequence evaluation.
+Για τη διπλωματική η πηγή είναι χρήσιμη ως πρόσφατο primary example model-based continual RL. Δεν αποτελεί paper για tabular Dyna-Q+ ούτε αξιολογεί το frozen thesis disturbance protocol.
 
 ## Μεθοδολογία
 
-Οι συγγραφείς μαθαίνουν ένα shallow Follow-The-Leader online world model που ανανεώνεται από τις πραγματικές interactions και χρησιμοποιούν model predictive control με planning πάνω στο πιο πρόσφατο μοντέλο. Το resulting FTL Online Agent δεν αποθηκεύει task-specific policies ως κύριο persistence mechanism: η reusable γνώση βρίσκεται στη dynamics model και διαφορετικά tasks ορίζονται μέσω reward functions.
+- **World model:** shallow/wide Follow-The-Leader online model, updated incrementally from real state-action-transition data.
+- **Planning:** model predictive control with cross-entropy method (CEM), replanning from the latest state through the current learned model.
+- **Theoretical analysis:** Section 4.2 proves a regret bound for the sparse online model update under explicit assumptions.
+- **Benchmark:** Continual Bench, six MuJoCo/Meta-World manipulation tasks with unified physical dynamics, common state/action structure and reward-defined task changes.
+- **Evaluation:** average performance over all seen tasks and online regret; experiments compare model-based world-model agents under common CEM/MPC planning plus model-free continual-learning baselines.
+- **Baselines:** fine-tuning, regularization/architecture/replay approaches and Perfect Memory variants as described in Section 6 and Appendix A.
 
-Η εργασία εισάγει επίσης το Continual Bench, ένα dedicated CRL benchmark με έξι manipulation tasks που μοιράζονται κοινό state/action representation και unified physical dynamics. Η αξιολόγηση εξετάζει τόσο acquisition νέων tasks όσο και retention προηγούμενων, δηλαδή forgetting/transfer αντί μόνο τελικής επίδοσης στο πιο πρόσφατο task. Τα experiments συγκρίνουν το Online Agent με deep world-model baselines και continual-learning mitigations υπό κοινό model-planning framework.
+## Κύρια ευρήματα με ακριβείς θέσεις
 
-## Κύρια ευρήματα
+1. **CRL requires retention as well as acquisition.** Abstract and Section 1: continual tasks arrive sequentially and catastrophic forgetting is identified as a primary obstacle; evaluation therefore includes previously experienced tasks rather than only the newest task.
+2. **Shared world dynamics is the proposed persistent knowledge component.** Section 3.2 and Sections 4.1/4.3: the agent learns dynamics online and forms actions by MPC/CEM planning; reward functions specify the active task while the dynamics model is reused.
+3. **The theoretical guarantee is method-specific.** Section 4.2, Theorem 1, with proof in Appendix E.3.2: the sparse FTL world-model update has a sublinear regret bound under Assumptions 1–3 concerning feature behavior, bounded quantities and sparsity/update conditions.
+4. **Continual Bench intentionally separates task objectives from shared dynamics.** Figure 3, Section 6.1 and Appendix B: six manipulation tasks share unified dynamics and common 26-dimensional state / 4-dimensional action structure; the reward changes on task switch.
+5. **Task-boundary information is not universally hidden.** Section 6.1: reward change defines the switch and the world-model learner is not given task-boundary information unless a particular continual-learning baseline requires it. Appendix D further states that the benchmark is episodic with explicit task switches across episodes.
+6. **OA retains earlier-task performance in the studied framework.** Sections 6.3–6.4, Figures 5–6 and Table 1: OA maintains high performance on prior tasks while several deep-model baselines forget to varying degrees. Table 1 reports OA AP 72.93% / regret 27.62%; model-based Perfect Memory AP 73.09% / regret 30.95%.
+7. **The authors state important limitations.** Appendix D: moderate-dimensional state-based observations, no modeled world uncertainty, no explicit exploration in planning, and an episodic rather than reset-free continual benchmark.
 
-1. **Catastrophic forgetting είναι ξεχωριστό evaluation axis από την ικανότητα να μάθει κανείς το επόμενο task.** Ένας continual agent πρέπει να αξιολογείται και σε προηγούμενες ικανότητες.
-2. **Ένα online world model μπορεί να λειτουργήσει ως persistent shared knowledge component.** Η προτεινόμενη μέθοδος ενημερώνει σταδιακά dynamics knowledge και το planner χρησιμοποιεί το πιο πρόσφατο model για acting.
-3. **Το model-based continual RL δεν ταυτίζεται με Dyna-style synthetic replay.** Η εργασία συζητά προηγούμενη Dyna-based προσέγγιση όπου synthetic model data ενημερώνουν model-free value/policy components και διαχωρίζει αυτή την αρχιτεκτονική από planning directly through the current world model.
-4. **Benchmark design για CRL χρειάζεται retention και transfer.** Το Continual Bench περιλαμβάνει sequence of six tasks με κοινή dynamics structure ώστε να μπορούν να εξεταστούν forgetting και transfer.
-5. **Η empirical claim της εργασίας είναι περιορισμένη στο δικό της benchmark/method family.** Δεν μεταφέρεται ως numerical ή ranking evidence για Q-learning, SARSA, DQN, PPO ή Dyna-Q+ στο thesis GridWorld.
+## Υποθέσεις και ορισμοί που πρέπει να διατηρηθούν
 
-## Σχέση με Dyna και το thesis experiment
+- Η key reuse assumption είναι **unified world dynamics** across tasks, ενώ reward functions αλλάζουν ανά task.
+- Η no-regret statement αφορά το συγκεκριμένο sparse FTL world-model learning rule και τις stated assumptions, όχι οποιοδήποτε world model.
+- Planning through the model με MPC/CEM δεν είναι το ίδιο mechanism με Dyna-style model-generated learning updates.
+- Continual Bench μετρά multi-task retention/forgetting και transfer opportunities· το thesis protocol μετρά bounded post-change adaptation/recovery σε μία controlled task family.
 
-Η πηγή είναι ιδιαίτερα χρήσιμη για να αποφευχθεί ένας υπεραπλουστευμένος ισχυρισμός ότι “model-based RL = Dyna-Q+”. Το Dyna-Q+ της διπλωματικής είναι tabular method που συνδυάζει direct updates, learned model, planning updates και exploration bonus. Το Liu et al. χρησιμοποιεί online world-model learning και MPC/CEM-style planning χωρίς να είναι η ίδια algorithmic family ή implementation. Συνεπώς η σύγκριση είναι conceptual: και τα δύο αξιοποιούν learned dynamics, αλλά διαφέρουν ως προς representation, planning interface, continual objective, retained state και evaluation regime.
+## Περιορισμοί και threats to validity
 
-Η πηγή ενισχύει επίσης το limitation ότι το thesis protocol εξετάζει adaptation/recovery μετά από ελεγχόμενη αλλαγή αλλά δεν αποτελεί πλήρες CRL benchmark: δεν επανεξετάζει μια μεγάλη ακολουθία παλιών tasks ώστε να μετρήσει forgetting, forward transfer και backward transfer ως primary outcomes.
+- Η unified-dynamics/reward-switch non-stationarity διαφέρει ουσιωδώς από persistent action remap, stochastic no-op action failure και observation corruption.
+- Τα robotic manipulation results δεν τεκμηριώνουν ranking σε discrete GridWorld.
+- Η theoretical no-forgetting/no-regret reasoning δεν μεταφέρεται σε Dyna-Q+, DQN, PPO ή άλλα thesis agents.
+- Η current OA δεν μοντελοποιεί world uncertainty και δεν περιλαμβάνει explicit exploration στο planner.
+- Το benchmark είναι episodic με switches between episodes, όχι reset-free lifelong stream.
+- Perfect Memory και οι λοιπές baselines είναι paper-specific implementations και δεν αποτελούν universal upper bounds.
 
-## Περιορισμοί και απειλές εγκυρότητας
+## Σχέση και κατάταξη έναντι υπάρχουσας βιβλιογραφίας
 
-- Το Continual Bench είναι περιορισμένο σε episodic setting με explicit task switches μεταξύ episodes.
-- Η proposed world model αφορά moderate-dimensional state-based observations και δεν μοντελοποιεί world uncertainty στην τρέχουσα μορφή.
-- Το planning framework δεν ενσωματώνει explicit exploration ως μέρος της κύριας μεθόδου.
-- Η unified-dynamics assumption και η αλλαγή reward-defined tasks διαφέρουν από persistent action-remap, no-op action failure και observation corruption.
-- Τα αποτελέσματα σε robotic manipulation δεν τεκμηριώνουν ranking σε discrete GridWorld.
-- Η no-forgetting theoretical property αφορά τη συγκεκριμένη FTL shallow-model construction και τις παραδοχές της, όχι κάθε world-model ή Dyna method.
+- `SRC-39696F490F` (Khetarpal et al., JAIR 2022) παραμένει ισχυρότερη **core taxonomy/review** πηγή για continual-RL framing, scope/driver of non-stationarity, stability–plasticity και evaluation principles. Το Liu 2025 δεν την αντικαθιστά.
+- `SRC-8025C139CE` (Padakandla) παραμένει πιο άμεσο broad survey evidence για dynamically varying environments και stationary/non-stationary assumption boundaries.
+- `SRC-F6BD3A6B18` και το canonical Dyna evidence παραμένουν οι σωστές primary/foundational πηγές για Dyna/Dyna-Q+ mechanisms.
+- `SRC-D38364B32C` (Alver et al., 2025) είναι closer-fit modern evidence για learned-model freshness/local adaptation and stale replay/model problems under environmental change.
+- Το Liu 2025 **προσθέτει** κάτι διαφορετικό: recent primary evidence για online world-model persistence, direct MPC planning, multi-task forgetting/retention metrics και a shared-dynamics continual benchmark.
 
 ## Χρήση στη διπλωματική
 
-- **Κεφάλαιο 2 / Related Work:** πρόσφατη peer-reviewed model-based continual RL προσέγγιση και διάκριση online world models από Dyna-style synthetic planning.
-- **Κεφάλαιο 3 / Scope:** αποσαφήνιση ότι το δικό μας post-change adaptation protocol δεν είναι πλήρες multi-task CRL evaluation.
-- **Κεφάλαιο 6 / Discussion:** model retention, replay/model freshness, forgetting και transfer ως μηχανισμοί που δεν μετρώνται πλήρως από ένα μόνο post-change outcome.
-- **Κεφάλαιο 7 / Future Work:** repeated task sequences, explicit forgetting/transfer metrics και richer online world-model comparators.
-
-Δεν χρησιμοποιείται για να υποστηρίξει ότι το Dyna-Q+ της διπλωματικής είναι ισοδύναμο με OA, ότι τα αποτελέσματα του Continual Bench μεταφέρονται στο GridWorld ή ότι οποιαδήποτε model-based method είναι γενικά ανώτερη.
+- **Ρόλος:** υποστηρικτική
+- **Προτεινόμενα κεφάλαια:** Related Work; Scope/Methodology boundaries; Discussion; Future Work
+- **Επιτρεπτές χρήσεις:** recent model-based continual RL, distinction between online world-model planning and Dyna-style planning updates, catastrophic forgetting/retention, unified-dynamics task sequences, explicit limitations.
+- **Μη επιτρεπτές χρήσεις:** claim ότι Dyna-Q+ = OA, ότι model-based agents είναι γενικά ανώτερα, ότι the regret theorem applies to thesis methods, ή ότι Continual Bench results predict thesis GridWorld recovery.
 
 ## Απόφαση
 
-**Επαληθευμένη — εξαγωγή ναι ως υποστηρικτική πηγή.** Προσθέτει πρόσφατη peer-reviewed τεκμηρίωση για model-based continual adaptation, forgetting/transfer και online world-model persistence, με σαφή διάκριση από το thesis Dyna-Q+ και το frozen Phase-B protocol.
+**Επιλογή ως υποστηρικτική citation-ready πηγή.** Είναι υψηλής ποιότητας recent primary work για ένα στενό model-based CRL claim, αλλά δεν αντικαθιστά τις foundational/review πηγές ούτε το closer-fit evidence για the thesis's specific non-stationarity and Dyna mechanisms.
+
+Ρόλος: υποστηρικτική
+Εξαγωγή: ναι
+
+## Απαιτούμενα αποσπάσματα
+
+Το `evidence/SRC-0FD9BE81AC.md` περιέχει verified evidence για CRL/forgetting, shared online world models and MPC planning, the method-specific regret result, Continual Bench assumptions, bounded empirical results and explicit limitations.
