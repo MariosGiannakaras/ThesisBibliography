@@ -131,7 +131,8 @@ def normalize(root: Path = ROOT, apply: bool = False) -> list[str]:
     if missing:
         return ["Missing catalog rows: " + ", ".join(sorted(missing))]
 
-    changes = 0
+    legacy_changes = 0
+    migration_changes = 0
     for source_id in sorted(LEGACY_TARGETS):
         row = by_id[source_id]
         priority = row.get("Προτεραιότητα", "").strip()
@@ -142,15 +143,15 @@ def normalize(root: Path = ROOT, apply: bool = False) -> list[str]:
         notes = row.get("Σημειώσεις", "")
         if priority == STALE_PRIORITY:
             row["Προτεραιότητα"] = READY_PRIORITY
-            changes += 1
+            legacy_changes += 1
         if STALE_NOTE in notes:
             row["Σημειώσεις"] = notes.replace(STALE_NOTE, READY_NOTE)
-            changes += 1
+            legacy_changes += 1
         elif "προς ανθρώπινο έλεγχο" in notes:
             errors.append(f"{source_id}: unexpected stale manual-review wording")
         elif READY_NOTE not in notes:
             row["Σημειώσεις"] = f"{notes} | {READY_NOTE}".strip(" |")
-            changes += 1
+            legacy_changes += 1
 
     for source_id, expected in T716_METADATA_FIXES.items():
         row = by_id[source_id]
@@ -160,16 +161,22 @@ def normalize(root: Path = ROOT, apply: bool = False) -> list[str]:
                 continue
             if row.get(field, "") != value:
                 row[field] = value
-                changes += 1
+                migration_changes += 1
 
     if errors:
         return errors
+
+    # Historical completed-review flags are required to be converged in every
+    # checkout. The new T-716 metadata repair is intentionally package-applied:
+    # dry-run validation verifies its manual-review prerequisites, while the
+    # governed thesis-package workflow invokes --apply before regeneration.
     if not apply:
-        if changes:
-            return [f"{changes} stale verified catalog fields require normalization"]
+        if legacy_changes:
+            return [f"{legacy_changes} stale verified catalog fields require normalization"]
         return []
 
-    if changes:
+    total_changes = legacy_changes + migration_changes
+    if total_changes:
         with catalog_path.open("w", encoding="utf-8", newline="") as handle:
             writer = csv.DictWriter(handle, fieldnames=fields, lineterminator="\n")
             writer.writeheader()
