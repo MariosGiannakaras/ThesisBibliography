@@ -19,14 +19,14 @@
     "notes": 5,
     "sources": 599
   },
-  "file_count": 1634,
+  "file_count": 1642,
   "hash_algorithm": "sha256",
   "integrity_scope": "all corpus files except catalog/package-metadata.json and catalog/SHA256SUMS",
   "original_pdf_count": 281,
   "package_type": "ThesisBibliography complete research corpus",
   "research_material_count": 19,
   "schema_version": 1,
-  "selected_source_count": 123,
-  "source_commit": "c999dbe272baa081d3666254655aeeec17549c1f",
+  "selected_source_count": 127,
+  "source_commit": "889aeb5a295ba15fb90a693dfa04a0e251d7a4f4",
   "source_count": 599
 }
