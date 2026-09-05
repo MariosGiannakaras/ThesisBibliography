@@ -2,7 +2,7 @@
 material_id: "MAT-BB6A0F7667"
 original_path: "originals/unidentified/BB6A0F7667233F30__lpTechniques_Chapter1.pdf"
 original_sha256: "bb6a0f7667233f309d259504cba727886fe5d0d2309427491d484d0e29b5c1a3"
-original_url: "https://github.com/MariosGiannakaras/ThesisBibliography/blob/ac86d6b07173ba467a2994d7da2b76192679aaac/originals/unidentified/BB6A0F7667233F30__lpTechniques_Chapter1.pdf"
+original_url: "https://github.com/MariosGiannakaras/ThesisBibliography/blob/27674a566ab55e4491b74243fe077a31ef81ae73/originals/unidentified/BB6A0F7667233F30__lpTechniques_Chapter1.pdf"
 linked_source_id: ""
 citation_status: "not-citation-ready"
 identification_status: "pending-review"
