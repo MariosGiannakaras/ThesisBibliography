@@ -74,7 +74,7 @@ A plain Dyna-Q comparator holds the second mechanism off while retaining the fir
 
 This is a scientifically interpretable mechanism decomposition rather than model-count inflation.
 
-## Thesis-safe claims
+## Χρήση στη διπλωματική
 
 This source supports:
 
