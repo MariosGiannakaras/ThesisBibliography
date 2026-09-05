@@ -1,0 +1,28 @@
+# Quantitative Resilience Modeling for Autonomous Cyber Defense
+
+- Authors: Xavier Cadet, Simona Boboila, Edward Koh, Peter Chin, Alina Oprea
+- Year: 2025
+- Venue: Reinforcement Learning Journal, volume 6, pages 894–908; presented at Reinforcement Learning Conference (RLC) 2025
+- Publication page: https://rlj.cs.umass.edu/2025/papers/Paper99.html
+- Full paper: https://rlj.cs.umass.edu/2025/papers/RLJ_RLC_2025_99.pdf
+- Code: https://github.com/xcadet/CyberResilience
+
+## Intake rationale
+
+Peer-reviewed RL-specific resilience work that is directly relevant to T-716's distinction between nominal performance, disturbance impact, temporal recovery, and cross-scenario aggregation. The paper explicitly argues that cumulative return alone is insufficient for characterizing resilience and proposes a time-resolved resilience-drop formulation evaluated across multiple attack patterns and network topologies.
+
+The domain is autonomous cyber defense and the disturbances are adversarial, so its numerical results and cyber-specific objectives must not be transferred to the thesis GridWorld. Its main value is methodological: time granularity matters; very coarse aggregation can hide recovery dynamics; resilience may require separate operational objectives; and aggregation across distinct disturbance realizations/topologies should preserve the underlying time-resolved behavior rather than collapse everything into one final score.
+
+## Claims to verify during analysis
+
+1. The paper defines a quantitative resilience-drop metric over a time interval and explicitly models temporal evolution of system resilience.
+2. The authors state that using the whole game as a single time interval is too coarse because it loses information about the recovery process.
+3. The formulation supports comparison and aggregation across multiple attacks and network topologies after normalization.
+4. The work distinguishes operational resilience from the RL agent's ordinary cumulative return and uses resilience metrics to interpret proactive/reactive/adaptive defense behavior.
+5. Any use in the thesis must state the cyber/adversarial-domain boundary and must not import its objective weights, smoothing choice, or attack-specific formulas as the thesis recovery definition.
+
+## Candidate thesis use
+
+- Related Work: recent RL-specific quantitative resilience measurement.
+- Methodology rationale: why time-resolved disturbance/recovery curves should not be replaced by a single endpoint or whole-horizon aggregate.
+- Discussion/limitations: cross-scenario aggregation and domain-specific objective weighting as an extension beyond the current single-task-return setting.
