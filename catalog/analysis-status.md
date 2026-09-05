@@ -1,12 +1,12 @@
 # Κατάσταση αναλύσεων
 
-- Σύνολο ενεργών πηγών: **599**
+- Σύνολο ενεργών πηγών: **601**
 - Οριστικές αποφάσεις: **598**
   - Επιλεγμένες/επαληθευμένες: **127**
   - Απορριφθείσες: **469**
   - Ελεγμένες ως θεωρητικό υλικό χωρίς citation export: **2**
-- Εκκρεμείς συνολικά: **1**
-  - Χωρίς ανάλυση: **0**
+- Εκκρεμείς συνολικά: **3**
+  - Χωρίς ανάλυση: **2**
   - Πρόχειρες/μη citation-ready: **1**
 - Επαληθευμένα αρχεία αποσπασμάτων: **127**
 - Επιλεγμένες για εξαγωγή: **127**
@@ -131,6 +131,7 @@
 | `SRC-DFF2EC4502` | Constitutional AI: Harmlessness from AI Feedback | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-D14764616F` | Context-Switching and Adaptation- Brain-Inspired Mechanisms for Handling Environmental Changes - Uni | επαληθευμένη | επαληθευμένο | κύρια | ναι |
 | `SRC-DC63A2D5E7` | Context-Switching and Adaptation: Brain-Inspired Mechanisms for Handling Environmental Changes - University of Lethbridge | απορρίφθηκε | πρόχειρο | απόρριψη | όχι |
+| `SRC-0FD9BE81AC` | Continual Reinforcement Learning by Planning with Online World Models | προς ανάλυση | κανένα |  |  |
 | `SRC-5F508C4383` | Continual reinforcement learning in a resource allocation simulator | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-0A594EACC0` | Cooperative Resilience in Artificial Intelligence Multiagent Systems | επαληθευμένη | επαληθευμένο | κύρια | ναι |
 | `SRC-ACB00B414D` | CoReaAgents: A Collaboration and Reasoning Framework Based on LLM-Powered Agents for Complex Reasoning Tasks | απορρίφθηκε | κανένα | απόρριψη | όχι |
@@ -421,6 +422,7 @@
 | `SRC-AD8A2E9A85` | Q-learning | επαληθευμένη | επαληθευμένο | κύρια | ναι |
 | `SRC-64AA1D82C6` | QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-02987450DF` | QRES-MARL - TU Delft Repository | απορρίφθηκε | κανένα | απόρριψη | όχι |
+| `SRC-327CD7B903` | Quantitative Resilience Modeling for Autonomous Cyber Defense | προς ανάλυση | κανένα |  |  |
 | `SRC-2899809E90` | Reactive and Deliberative AI agents - Vikas Goyal | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-8544F25BD9` | Reactive vs Deliberative AI Agents - GeeksforGeeks | απορρίφθηκε | κανένα | απόρριψη | όχι |
 | `SRC-B58805342F` | Realizable Continuous-Space Shields for Safe Reinforcement Learning | απορρίφθηκε | κανένα | απόρριψη | όχι |
