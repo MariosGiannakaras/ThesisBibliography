@@ -2,7 +2,7 @@
 
 - PDF: **266**
 - Μη ταυτοποιημένα PDF που διατηρούνται: **12**
-- Σύνδεσμοι: **312**
+- Σύνδεσμοι: **314**
 - Πηγές μόνο με χρήσιμο περιεχόμενο: **21**
 - Εκκρεμούν για ταυτοποίηση: **12**
 
@@ -126,6 +126,7 @@
 | `SRC-DFF2EC4502` | Constitutional AI: Harmlessness from AI Feedback | διαθέσιμο PDF | SRC-DFF2EC4502.pdf |
 | `SRC-D14764616F` | Context-Switching and Adaptation- Brain-Inspired Mechanisms for Handling Environmental Changes - Uni | διαθέσιμο PDF | SRC-D14764616F.pdf |
 | `SRC-DC63A2D5E7` | Context-Switching and Adaptation: Brain-Inspired Mechanisms for Handling Environmental Changes - University of Lethbridge | διαθέσιμο περιεχόμενο | SRC-DC63A2D5E7.md |
+| `SRC-0FD9BE81AC` | Continual Reinforcement Learning by Planning with Online World Models | μόνο σύνδεσμος | [άνοιγμα](https://proceedings.mlr.press/v267/liu25p.html) |
 | `SRC-5F508C4383` | Continual reinforcement learning in a resource allocation simulator | μόνο σύνδεσμος | [άνοιγμα](https://aaltodoc.aalto.fi/items/5c0c3f74-20fd-4abf-bb70-79b01af582b4) |
 | `SRC-0A594EACC0` | Cooperative Resilience in Artificial Intelligence Multiagent Systems | μόνο σύνδεσμος | [άνοιγμα](https://doi.org/10.1109/tai.2025.3567371) |
 | `SRC-ACB00B414D` | CoReaAgents: A Collaboration and Reasoning Framework Based on LLM-Powered Agents for Complex Reasoning Tasks | μόνο σύνδεσμος | [άνοιγμα](https://doi.org/10.3390/app15105663) |
@@ -416,6 +417,7 @@
 | `SRC-AD8A2E9A85` | Q-learning | μόνο σύνδεσμος | [άνοιγμα](https://gatsby.ucl.ac.uk/~dayan/papers/cjch.pdf) |
 | `SRC-64AA1D82C6` | QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning | διαθέσιμο PDF | SRC-64AA1D82C6.pdf |
 | `SRC-02987450DF` | QRES-MARL - TU Delft Repository | μόνο σύνδεσμος | [άνοιγμα](https://repository.tudelft.nl/record/uuid%3A16fb3161-1ec4-4c5d-923e-bce32717e25d) |
+| `SRC-327CD7B903` | Quantitative Resilience Modeling for Autonomous Cyber Defense | μόνο σύνδεσμος | [άνοιγμα](https://rlj.cs.umass.edu/2025/papers/Paper99.html) |
 | `SRC-2899809E90` | Reactive and Deliberative AI agents - Vikas Goyal | μόνο σύνδεσμος | [άνοιγμα](https://vikasgoyal.github.io/agentic/reactivedeliberativeagents.html) |
 | `SRC-8544F25BD9` | Reactive vs Deliberative AI Agents - GeeksforGeeks | μόνο σύνδεσμος | [άνοιγμα](https://geeksforgeeks.org/artificial-intelligence/reactive-vs-deliberative-ai-agents) |
 | `SRC-B58805342F` | Realizable Continuous-Space Shields for Safe Reinforcement Learning | μόνο σύνδεσμος | [άνοιγμα](https://arxiv.org/abs/2410.02038) |
