@@ -1,6 +1,7 @@
 ---
 κωδικός: SRC-AD8A2E9A85
 κατάσταση: επαληθευμένη
+ρόλος: κύρια
 έκδοση-που-ελέγχθηκε: "Machine Learning 8, 279-292 (1992), author-hosted journal PDF"
 ελεγχθέν-πρωτότυπο: ναι
 ημερομηνία-ελέγχου: "2026-08-27"
@@ -48,7 +49,7 @@ Q-learning's next-state target uses the maximum estimated action value rather th
 
 The paper is also directly relevant to the Dyna family because Sutton's Dyna-Q architecture uses Q-learning updates both on real experience and on model-generated hypothetical experience. Dyna therefore changes the source/amount of update experience and adds a learned-model planning mechanism; it does not replace the Q-learning backup with an unrelated value-learning rule.
 
-## Thesis-safe claims
+## Χρήση στη διπλωματική
 
 This source can support:
 
