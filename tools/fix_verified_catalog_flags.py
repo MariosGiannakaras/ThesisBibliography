@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Normalize stale intake flags for already verified selected sources.
+"""Normalize stale intake flags/metadata for explicitly verified sources.
 
-This migration is deliberately narrow. It only changes the three August 2026
-sources whose analyses and evidence already record completed human review.
+This migration is deliberately narrow. It only changes enumerated sources whose
+analyses and evidence already record completed human review. It does not infer
+bibliographic metadata for arbitrary catalog rows.
 """
 from __future__ import annotations
 
@@ -16,8 +17,9 @@ CATALOG = ROOT / "catalog" / "sources.csv"
 SELECTION = ROOT / "catalog" / "thesis-selection.csv"
 ANALYSES = ROOT / "analyses"
 EVIDENCE = ROOT / "evidence"
+SOURCES = ROOT / "sources"
 
-TARGETS = {
+LEGACY_TARGETS = {
     "SRC-70772C0629",
     "SRC-76B2247457",
     "SRC-9464421E55",
@@ -30,6 +32,35 @@ READY_NOTE = (
     "της ανάλυσης και του evidence ολοκληρώθηκε στις 2026-08-03"
 )
 
+# These two records were intentionally introduced through URL-first intake. Their
+# full scientific analyses/evidence now verify the official publication identities,
+# so the catalog must no longer retain the coarse intake guesses (blank authors,
+# GridWorld topic, or webpage type).
+T716_METADATA_FIXES: dict[str, dict[str, str]] = {
+    "SRC-0FD9BE81AC": {
+        "Τίτλος": "Continual Reinforcement Learning by Planning with Online World Models",
+        "Συγγραφείς": "Zichen Liu; Guoji Fu; Chao Du; Wee Sun Lee; Min Lin",
+        "Έτος": "2025",
+        "Σύνδεσμος": "https://proceedings.mlr.press/v267/liu25p.html",
+        "Τύπος": "ακαδημαϊκή εργασία",
+        "Θέματα": "μη στασιμότητα; ενισχυτική μάθηση με μοντέλο; συνεχής προσαρμογή",
+        "Κατάσταση": "διαθέσιμο πλήρες κείμενο",
+        "Επιβεβαίωση": "μόνο καταγεγραμμένος σύνδεσμος",
+        "Προτεραιότητα": "υψηλή",
+    },
+    "SRC-327CD7B903": {
+        "Τίτλος": "Quantitative Resilience Modeling for Autonomous Cyber Defense",
+        "Συγγραφείς": "Xavier Cadet; Simona Boboila; Edward Koh; Peter Chin; Alina Oprea",
+        "Έτος": "2025",
+        "Σύνδεσμος": "https://rlj.cs.umass.edu/2025/papers/Paper99.html",
+        "Τύπος": "ακαδημαϊκή εργασία",
+        "Θέματα": "ανθεκτικότητα και ανάκαμψη; στατιστική αξιολόγηση",
+        "Κατάσταση": "διαθέσιμο πλήρες κείμενο",
+        "Επιβεβαίωση": "μόνο καταγεγραμμένος σύνδεσμος",
+        "Προτεραιότητα": "υψηλή",
+    },
+}
+
 
 def read_csv(path: Path) -> tuple[list[str], list[dict[str, str]]]:
     with path.open(encoding="utf-8", newline="") as handle:
@@ -37,14 +68,14 @@ def read_csv(path: Path) -> tuple[list[str], list[dict[str, str]]]:
         return list(reader.fieldnames or []), [dict(row) for row in reader]
 
 
-def verified_text(path: Path, status_value: str) -> bool:
+def verified_text(path: Path, status_value: str, review_date: str) -> bool:
     if not path.exists():
         return False
     text = path.read_text(encoding="utf-8", errors="replace")
     return (
         f"κατάσταση: {status_value}" in text
         and "ελεγχθέν-πρωτότυπο: ναι" in text
-        and 'ημερομηνία-ελέγχου: "2026-08-03"' in text
+        and f'ημερομηνία-ελέγχου: "{review_date}"' in text
     )
 
 
@@ -58,7 +89,8 @@ def validate_prerequisites(root: Path = ROOT) -> list[str]:
         if row.get("Κωδικός", "").strip()
     }
 
-    for source_id in sorted(TARGETS):
+    # Preserve the original narrow migration contract for the August 2026 sources.
+    for source_id in sorted(LEGACY_TARGETS):
         row = selected.get(source_id)
         if not row:
             errors.append(f"{source_id}: missing from thesis selection")
@@ -67,10 +99,22 @@ def validate_prerequisites(root: Path = ROOT) -> list[str]:
             errors.append(f"{source_id}: selection is not verified")
         if row.get("Εξαγωγή", "").strip() != "ναι":
             errors.append(f"{source_id}: selection is not exported")
-        if not verified_text(root / "analyses" / f"{source_id}.md", "επαληθευμένη"):
+        if not verified_text(root / "analyses" / f"{source_id}.md", "επαληθευμένη", "2026-08-03"):
             errors.append(f"{source_id}: verified analysis/manual-review marker missing")
-        if not verified_text(root / "evidence" / f"{source_id}.md", "επαληθευμένο"):
+        if not verified_text(root / "evidence" / f"{source_id}.md", "επαληθευμένο", "2026-08-03"):
             errors.append(f"{source_id}: verified evidence/manual-review marker missing")
+
+    # Package normalization runs before sync_selection.py. Therefore the T-716
+    # records are gated directly by their checked analysis/evidence rather than by
+    # a selection row that may not yet have been generated.
+    for source_id in sorted(T716_METADATA_FIXES):
+        if not (root / "sources" / f"{source_id}.md").exists():
+            errors.append(f"{source_id}: canonical source Markdown missing")
+        if not verified_text(root / "analyses" / f"{source_id}.md", "επαληθευμένη", "2026-09-05"):
+            errors.append(f"{source_id}: verified T-716 analysis/manual-review marker missing")
+        if not verified_text(root / "evidence" / f"{source_id}.md", "επαληθευμένο", "2026-09-05"):
+            errors.append(f"{source_id}: verified T-716 evidence/manual-review marker missing")
+
     return errors
 
 
@@ -82,12 +126,13 @@ def normalize(root: Path = ROOT, apply: bool = False) -> list[str]:
     catalog_path = root / "catalog" / "sources.csv"
     fields, rows = read_csv(catalog_path)
     by_id = {row.get("Κωδικός", "").strip(): row for row in rows}
-    missing = TARGETS - set(by_id)
+    required = LEGACY_TARGETS | set(T716_METADATA_FIXES)
+    missing = required - set(by_id)
     if missing:
         return ["Missing catalog rows: " + ", ".join(sorted(missing))]
 
     changes = 0
-    for source_id in sorted(TARGETS):
+    for source_id in sorted(LEGACY_TARGETS):
         row = by_id[source_id]
         priority = row.get("Προτεραιότητα", "").strip()
         if priority not in {STALE_PRIORITY, READY_PRIORITY}:
@@ -106,6 +151,16 @@ def normalize(root: Path = ROOT, apply: bool = False) -> list[str]:
         elif READY_NOTE not in notes:
             row["Σημειώσεις"] = f"{notes} | {READY_NOTE}".strip(" |")
             changes += 1
+
+    for source_id, expected in T716_METADATA_FIXES.items():
+        row = by_id[source_id]
+        for field, value in expected.items():
+            if field not in fields:
+                errors.append(f"{source_id}: catalog field missing: {field}")
+                continue
+            if row.get(field, "") != value:
+                row[field] = value
+                changes += 1
 
     if errors:
         return errors
@@ -131,7 +186,7 @@ def main() -> int:
         for error in errors:
             print(error, file=sys.stderr)
         return 1
-    print("Verified catalog flags are normalized.")
+    print("Verified catalog flags and metadata are normalized.")
     return 0
 
 
